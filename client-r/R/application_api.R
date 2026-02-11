@@ -17,7 +17,6 @@
 #' ####################  CreateApplication  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_name <- "app_name_example" # character | The name of the application
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -102,15 +101,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateApplication(var_version, var_app_name, device_id = var_device_id, account_id = var_account_id, about = var_about, bundle_id = var_bundle_id, app_icon_asset_id = var_app_icon_asset_id, app_logo_asset_id = var_app_logo_asset_id, facebook_app_id = var_facebook_app_id, facebook_app_secret = var_facebook_app_secret, google_api_key = var_google_api_key, update_eula_date = var_update_eula_date, eula_version = var_eula_version, landing_page_url = var_landing_page_url, show_in_activities = var_show_in_activities, activity_description = var_activity_description, invite_welcome_text = var_invite_welcome_text, invite_page_url = var_invite_page_url, url_scheme = var_url_scheme, platforms = var_platforms, download_urls = var_download_urls, category_ids = var_category_ids, scoring_type = var_scoring_type, hint_cost = var_hint_cost, max_score = var_max_score, tickets_per_point = var_tickets_per_point, has_game_data = var_has_game_data, public_notifications = var_public_notifications, use_matching_algorithm = var_use_matching_algorithm, global_tickets = var_global_tickets, build_version = var_build_version, api_version = var_api_version, placement_name = var_placement_name, placement_description = var_placement_description, placement_size = var_placement_size, placement_height = var_placement_height, placement_width = var_placement_width, placement_refresh_interval = var_placement_refresh_interval, create_object_store = var_create_object_store, public_content_approval = var_public_content_approval, production_mode = var_production_mode, minimum_session_length = var_minimum_session_length, session_gap_length = var_session_gap_length, local_ads_enabled = var_local_ads_enabled, sqoot_api_key = var_sqoot_api_key, trilat_processing_type = var_trilat_processing_type, max_sample_size = var_max_sample_size, min_rssi = var_min_rssi, modules = var_modules, authorized_count = var_authorized_count, authorized_servers = var_authorized_servers, default_timezone = var_default_timezone, smtp_pass = var_smtp_pass, meta_data = var_meta_data, placement_meta_data = var_placement_meta_data, ips_floor = var_ips_floor, enable_apns_badge = var_enable_apns_badge, include_in_report = var_include_in_report, default_app_filter_id = var_default_app_filter_id, enable_welcome_email = var_enable_welcome_email, apple_app_id = var_apple_app_id, apple_team_id = var_apple_team_id, apple_auth_key_id = var_apple_auth_key_id, apple_auth_key = var_apple_auth_key, apple_issuer_id = var_apple_issuer_id, app_store_key_id = var_app_store_key_id, app_store_key = var_app_store_key, google_private_key_file = var_google_private_key_file, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key, email_sender = var_email_sender, smtp_user = var_smtp_user, smtp_host = var_smtp_host, vatom_business_id = var_vatom_business_id, vatom_rest_client_id = var_vatom_rest_client_id, vatom_rest_secret_key = var_vatom_rest_secret_key, twilio_account_sid = var_twilio_account_sid, twilio_auth_token = var_twilio_auth_token, twilio_sender_phone_number = var_twilio_sender_phone_number, open_ai_secret_key = var_open_ai_secret_keydata_file = "result.txt")
-#' result <- api_instance$CreateApplication(var_version, var_app_name, device_id = var_device_id, account_id = var_account_id, about = var_about, bundle_id = var_bundle_id, app_icon_asset_id = var_app_icon_asset_id, app_logo_asset_id = var_app_logo_asset_id, facebook_app_id = var_facebook_app_id, facebook_app_secret = var_facebook_app_secret, google_api_key = var_google_api_key, update_eula_date = var_update_eula_date, eula_version = var_eula_version, landing_page_url = var_landing_page_url, show_in_activities = var_show_in_activities, activity_description = var_activity_description, invite_welcome_text = var_invite_welcome_text, invite_page_url = var_invite_page_url, url_scheme = var_url_scheme, platforms = var_platforms, download_urls = var_download_urls, category_ids = var_category_ids, scoring_type = var_scoring_type, hint_cost = var_hint_cost, max_score = var_max_score, tickets_per_point = var_tickets_per_point, has_game_data = var_has_game_data, public_notifications = var_public_notifications, use_matching_algorithm = var_use_matching_algorithm, global_tickets = var_global_tickets, build_version = var_build_version, api_version = var_api_version, placement_name = var_placement_name, placement_description = var_placement_description, placement_size = var_placement_size, placement_height = var_placement_height, placement_width = var_placement_width, placement_refresh_interval = var_placement_refresh_interval, create_object_store = var_create_object_store, public_content_approval = var_public_content_approval, production_mode = var_production_mode, minimum_session_length = var_minimum_session_length, session_gap_length = var_session_gap_length, local_ads_enabled = var_local_ads_enabled, sqoot_api_key = var_sqoot_api_key, trilat_processing_type = var_trilat_processing_type, max_sample_size = var_max_sample_size, min_rssi = var_min_rssi, modules = var_modules, authorized_count = var_authorized_count, authorized_servers = var_authorized_servers, default_timezone = var_default_timezone, smtp_pass = var_smtp_pass, meta_data = var_meta_data, placement_meta_data = var_placement_meta_data, ips_floor = var_ips_floor, enable_apns_badge = var_enable_apns_badge, include_in_report = var_include_in_report, default_app_filter_id = var_default_app_filter_id, enable_welcome_email = var_enable_welcome_email, apple_app_id = var_apple_app_id, apple_team_id = var_apple_team_id, apple_auth_key_id = var_apple_auth_key_id, apple_auth_key = var_apple_auth_key, apple_issuer_id = var_apple_issuer_id, app_store_key_id = var_app_store_key_id, app_store_key = var_app_store_key, google_private_key_file = var_google_private_key_file, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key, email_sender = var_email_sender, smtp_user = var_smtp_user, smtp_host = var_smtp_host, vatom_business_id = var_vatom_business_id, vatom_rest_client_id = var_vatom_rest_client_id, vatom_rest_secret_key = var_vatom_rest_secret_key, twilio_account_sid = var_twilio_account_sid, twilio_auth_token = var_twilio_auth_token, twilio_sender_phone_number = var_twilio_sender_phone_number, open_ai_secret_key = var_open_ai_secret_key)
+#' # result <- api_instance$CreateApplication(var_app_name, device_id = var_device_id, account_id = var_account_id, about = var_about, bundle_id = var_bundle_id, app_icon_asset_id = var_app_icon_asset_id, app_logo_asset_id = var_app_logo_asset_id, facebook_app_id = var_facebook_app_id, facebook_app_secret = var_facebook_app_secret, google_api_key = var_google_api_key, update_eula_date = var_update_eula_date, eula_version = var_eula_version, landing_page_url = var_landing_page_url, show_in_activities = var_show_in_activities, activity_description = var_activity_description, invite_welcome_text = var_invite_welcome_text, invite_page_url = var_invite_page_url, url_scheme = var_url_scheme, platforms = var_platforms, download_urls = var_download_urls, category_ids = var_category_ids, scoring_type = var_scoring_type, hint_cost = var_hint_cost, max_score = var_max_score, tickets_per_point = var_tickets_per_point, has_game_data = var_has_game_data, public_notifications = var_public_notifications, use_matching_algorithm = var_use_matching_algorithm, global_tickets = var_global_tickets, build_version = var_build_version, api_version = var_api_version, placement_name = var_placement_name, placement_description = var_placement_description, placement_size = var_placement_size, placement_height = var_placement_height, placement_width = var_placement_width, placement_refresh_interval = var_placement_refresh_interval, create_object_store = var_create_object_store, public_content_approval = var_public_content_approval, production_mode = var_production_mode, minimum_session_length = var_minimum_session_length, session_gap_length = var_session_gap_length, local_ads_enabled = var_local_ads_enabled, sqoot_api_key = var_sqoot_api_key, trilat_processing_type = var_trilat_processing_type, max_sample_size = var_max_sample_size, min_rssi = var_min_rssi, modules = var_modules, authorized_count = var_authorized_count, authorized_servers = var_authorized_servers, default_timezone = var_default_timezone, smtp_pass = var_smtp_pass, meta_data = var_meta_data, placement_meta_data = var_placement_meta_data, ips_floor = var_ips_floor, enable_apns_badge = var_enable_apns_badge, include_in_report = var_include_in_report, default_app_filter_id = var_default_app_filter_id, enable_welcome_email = var_enable_welcome_email, apple_app_id = var_apple_app_id, apple_team_id = var_apple_team_id, apple_auth_key_id = var_apple_auth_key_id, apple_auth_key = var_apple_auth_key, apple_issuer_id = var_apple_issuer_id, app_store_key_id = var_app_store_key_id, app_store_key = var_app_store_key, google_private_key_file = var_google_private_key_file, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key, email_sender = var_email_sender, smtp_user = var_smtp_user, smtp_host = var_smtp_host, vatom_business_id = var_vatom_business_id, vatom_rest_client_id = var_vatom_rest_client_id, vatom_rest_secret_key = var_vatom_rest_secret_key, twilio_account_sid = var_twilio_account_sid, twilio_auth_token = var_twilio_auth_token, twilio_sender_phone_number = var_twilio_sender_phone_number, open_ai_secret_key = var_open_ai_secret_keydata_file = "result.txt")
+#' result <- api_instance$CreateApplication(var_app_name, device_id = var_device_id, account_id = var_account_id, about = var_about, bundle_id = var_bundle_id, app_icon_asset_id = var_app_icon_asset_id, app_logo_asset_id = var_app_logo_asset_id, facebook_app_id = var_facebook_app_id, facebook_app_secret = var_facebook_app_secret, google_api_key = var_google_api_key, update_eula_date = var_update_eula_date, eula_version = var_eula_version, landing_page_url = var_landing_page_url, show_in_activities = var_show_in_activities, activity_description = var_activity_description, invite_welcome_text = var_invite_welcome_text, invite_page_url = var_invite_page_url, url_scheme = var_url_scheme, platforms = var_platforms, download_urls = var_download_urls, category_ids = var_category_ids, scoring_type = var_scoring_type, hint_cost = var_hint_cost, max_score = var_max_score, tickets_per_point = var_tickets_per_point, has_game_data = var_has_game_data, public_notifications = var_public_notifications, use_matching_algorithm = var_use_matching_algorithm, global_tickets = var_global_tickets, build_version = var_build_version, api_version = var_api_version, placement_name = var_placement_name, placement_description = var_placement_description, placement_size = var_placement_size, placement_height = var_placement_height, placement_width = var_placement_width, placement_refresh_interval = var_placement_refresh_interval, create_object_store = var_create_object_store, public_content_approval = var_public_content_approval, production_mode = var_production_mode, minimum_session_length = var_minimum_session_length, session_gap_length = var_session_gap_length, local_ads_enabled = var_local_ads_enabled, sqoot_api_key = var_sqoot_api_key, trilat_processing_type = var_trilat_processing_type, max_sample_size = var_max_sample_size, min_rssi = var_min_rssi, modules = var_modules, authorized_count = var_authorized_count, authorized_servers = var_authorized_servers, default_timezone = var_default_timezone, smtp_pass = var_smtp_pass, meta_data = var_meta_data, placement_meta_data = var_placement_meta_data, ips_floor = var_ips_floor, enable_apns_badge = var_enable_apns_badge, include_in_report = var_include_in_report, default_app_filter_id = var_default_app_filter_id, enable_welcome_email = var_enable_welcome_email, apple_app_id = var_apple_app_id, apple_team_id = var_apple_team_id, apple_auth_key_id = var_apple_auth_key_id, apple_auth_key = var_apple_auth_key, apple_issuer_id = var_apple_issuer_id, app_store_key_id = var_app_store_key_id, app_store_key = var_app_store_key, google_private_key_file = var_google_private_key_file, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key, email_sender = var_email_sender, smtp_user = var_smtp_user, smtp_host = var_smtp_host, vatom_business_id = var_vatom_business_id, vatom_rest_client_id = var_vatom_rest_client_id, vatom_rest_secret_key = var_vatom_rest_secret_key, twilio_account_sid = var_twilio_account_sid, twilio_auth_token = var_twilio_auth_token, twilio_sender_phone_number = var_twilio_sender_phone_number, open_ai_secret_key = var_open_ai_secret_key)
 #' dput(result)
 #'
 #'
 #' ####################  CreateApplicationPlacement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The appKey of the application the ad placement is for
 #' var_size <- "size_example" # character | The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
@@ -127,15 +125,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateApplicationPlacement(var_version, var_app_key, var_size, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, height = var_height, width = var_width, refresh_interval = var_refresh_interval, default_image_id = var_default_image_id, active = var_activedata_file = "result.txt")
-#' result <- api_instance$CreateApplicationPlacement(var_version, var_app_key, var_size, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, height = var_height, width = var_width, refresh_interval = var_refresh_interval, default_image_id = var_default_image_id, active = var_active)
+#' # result <- api_instance$CreateApplicationPlacement(var_app_key, var_size, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, height = var_height, width = var_width, refresh_interval = var_refresh_interval, default_image_id = var_default_image_id, active = var_activedata_file = "result.txt")
+#' result <- api_instance$CreateApplicationPlacement(var_app_key, var_size, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, height = var_height, width = var_width, refresh_interval = var_refresh_interval, default_image_id = var_default_image_id, active = var_active)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteApplication  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the delete, must have rights to edit the application. (Optional)
 #' var_app_key <- "app_key_example" # character | The key of the application to be deleted (Optional)
 #'
@@ -143,15 +140,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteApplication(var_version, account_id = var_account_id, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$DeleteApplication(var_version, account_id = var_account_id, app_key = var_app_key)
+#' # result <- api_instance$DeleteApplication(account_id = var_account_id, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$DeleteApplication(account_id = var_account_id, app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteApplicationPlacement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_placement_id <- 56 # integer | The id of the placement to delete, the user must have rights to the application the ad placement is for
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -160,15 +156,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteApplicationPlacement(var_version, var_placement_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteApplicationPlacement(var_version, var_placement_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteApplicationPlacement(var_placement_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteApplicationPlacement(var_placement_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetApplication  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The key of the application (Optional)
 #' var_application_id <- 56 # integer | Application Id (Optional)
 #'
@@ -176,15 +171,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetApplication(var_version, app_key = var_app_key, application_id = var_application_iddata_file = "result.txt")
-#' result <- api_instance$GetApplication(var_version, app_key = var_app_key, application_id = var_application_id)
+#' # result <- api_instance$GetApplication(app_key = var_app_key, application_id = var_application_iddata_file = "result.txt")
+#' result <- api_instance$GetApplication(app_key = var_app_key, application_id = var_application_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetApplicationPlacement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_placement_id <- 56 # integer | The id of the placement
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -193,29 +187,27 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetApplicationPlacement(var_version, var_placement_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetApplicationPlacement(var_version, var_placement_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$GetApplicationPlacement(var_placement_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetApplicationPlacement(var_placement_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetApplicationVersions  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #'
 #' #Get API versions
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetApplicationVersions(var_versiondata_file = "result.txt")
-#' result <- api_instance$GetApplicationVersions(var_version)
+#' # result <- api_instance$GetApplicationVersions(data_file = "result.txt")
+#' result <- api_instance$GetApplicationVersions()
 #' dput(result)
 #'
 #'
 #' ####################  GetUniqueUsersByApp  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key
 #' var_q <- "q_example" # character | Q (Optional)
 #' var_keyword <- "keyword_example" # character | The keyword used to search (Optional)
@@ -229,15 +221,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetUniqueUsersByApp(var_version, var_app_key, q = var_q, keyword = var_keyword, since = var_since, _i = var__i, start = var_start, _l = var__l, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$GetUniqueUsersByApp(var_version, var_app_key, q = var_q, keyword = var_keyword, since = var_since, _i = var__i, start = var_start, _l = var__l, limit = var_limit)
+#' # result <- api_instance$GetUniqueUsersByApp(var_app_key, q = var_q, keyword = var_keyword, since = var_since, _i = var__i, start = var_start, _l = var__l, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$GetUniqueUsersByApp(var_app_key, q = var_q, keyword = var_keyword, since = var_since, _i = var__i, start = var_start, _l = var__l, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  ListApplications  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the application owner/manager (Optional)
 #' var_q <- "q_example" # character | Q (Optional)
 #' var_keyword <- "keyword_example" # character | The keyword used to search for title, about, and description fields (Optional)
@@ -263,15 +254,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ListApplications(var_version, account_id = var_account_id, q = var_q, keyword = var_keyword, platforms = var_platforms, device_ids = var_device_ids, device_versions = var_device_versions, category_ids = var_category_ids, sort_field = var_sort_field, has_ads = var_has_ads, public_notifications = var_public_notifications, filter_billable = var_filter_billable, filter_content_admin = var_filter_content_admin, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, application_ids = var_application_ids, has_object_store = var_has_object_store, active_only = var_active_onlydata_file = "result.txt")
-#' result <- api_instance$ListApplications(var_version, account_id = var_account_id, q = var_q, keyword = var_keyword, platforms = var_platforms, device_ids = var_device_ids, device_versions = var_device_versions, category_ids = var_category_ids, sort_field = var_sort_field, has_ads = var_has_ads, public_notifications = var_public_notifications, filter_billable = var_filter_billable, filter_content_admin = var_filter_content_admin, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, application_ids = var_application_ids, has_object_store = var_has_object_store, active_only = var_active_only)
+#' # result <- api_instance$ListApplications(account_id = var_account_id, q = var_q, keyword = var_keyword, platforms = var_platforms, device_ids = var_device_ids, device_versions = var_device_versions, category_ids = var_category_ids, sort_field = var_sort_field, has_ads = var_has_ads, public_notifications = var_public_notifications, filter_billable = var_filter_billable, filter_content_admin = var_filter_content_admin, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, application_ids = var_application_ids, has_object_store = var_has_object_store, active_only = var_active_onlydata_file = "result.txt")
+#' result <- api_instance$ListApplications(account_id = var_account_id, q = var_q, keyword = var_keyword, platforms = var_platforms, device_ids = var_device_ids, device_versions = var_device_versions, category_ids = var_category_ids, sort_field = var_sort_field, has_ads = var_has_ads, public_notifications = var_public_notifications, filter_billable = var_filter_billable, filter_content_admin = var_filter_content_admin, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, application_ids = var_application_ids, has_object_store = var_has_object_store, active_only = var_active_only)
 #' dput(result)
 #'
 #'
 #' ####################  SearchApplicationPlacement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The key of the application
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -282,15 +272,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchApplicationPlacement(var_version, var_app_key, device_id = var_device_id, account_id = var_account_id, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchApplicationPlacement(var_version, var_app_key, device_id = var_device_id, account_id = var_account_id, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchApplicationPlacement(var_app_key, device_id = var_device_id, account_id = var_account_id, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchApplicationPlacement(var_app_key, device_id = var_device_id, account_id = var_account_id, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchApplicationSettings  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_connection_account_id <- 56 # integer | The account id used to view another person's account (Optional)
@@ -304,15 +293,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchApplicationSettings(var_version, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchApplicationSettings(var_version, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchApplicationSettings(device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchApplicationSettings(device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchApplications  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_latitude <- 3.4 # numeric | The location of the device (Optional)
@@ -334,15 +322,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchApplications(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, q = var_q, keyword = var_keyword, q_search_fields = var_q_search_fields, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, has_ads = var_has_ads, public_notifications = var_public_notifications, active_only = var_active_onlydata_file = "result.txt")
-#' result <- api_instance$SearchApplications(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, q = var_q, keyword = var_keyword, q_search_fields = var_q_search_fields, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, has_ads = var_has_ads, public_notifications = var_public_notifications, active_only = var_active_only)
+#' # result <- api_instance$SearchApplications(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, q = var_q, keyword = var_keyword, q_search_fields = var_q_search_fields, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, has_ads = var_has_ads, public_notifications = var_public_notifications, active_only = var_active_onlydata_file = "result.txt")
+#' result <- api_instance$SearchApplications(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, q = var_q, keyword = var_keyword, q_search_fields = var_q_search_fields, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, has_ads = var_has_ads, public_notifications = var_public_notifications, active_only = var_active_only)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateApplication  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key for updating an existing application
 #' var_app_name <- "app_name_example" # character | The name of the application
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
@@ -428,15 +415,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateApplication(var_version, var_app_key, var_app_name, device_id = var_device_id, account_id = var_account_id, about = var_about, bundle_id = var_bundle_id, app_icon_asset_id = var_app_icon_asset_id, app_logo_asset_id = var_app_logo_asset_id, facebook_app_id = var_facebook_app_id, facebook_app_secret = var_facebook_app_secret, google_api_key = var_google_api_key, update_eula_date = var_update_eula_date, eula_version = var_eula_version, landing_page_url = var_landing_page_url, show_in_activities = var_show_in_activities, activity_description = var_activity_description, invite_welcome_text = var_invite_welcome_text, invite_page_url = var_invite_page_url, url_scheme = var_url_scheme, platforms = var_platforms, download_urls = var_download_urls, category_ids = var_category_ids, scoring_type = var_scoring_type, hint_cost = var_hint_cost, max_score = var_max_score, tickets_per_point = var_tickets_per_point, has_game_data = var_has_game_data, public_notifications = var_public_notifications, use_matching_algorithm = var_use_matching_algorithm, global_tickets = var_global_tickets, build_version = var_build_version, api_version = var_api_version, placement_name = var_placement_name, placement_description = var_placement_description, placement_size = var_placement_size, placement_height = var_placement_height, placement_width = var_placement_width, placement_refresh_interval = var_placement_refresh_interval, create_object_store = var_create_object_store, public_content_approval = var_public_content_approval, production_mode = var_production_mode, minimum_session_length = var_minimum_session_length, session_gap_length = var_session_gap_length, local_ads_enabled = var_local_ads_enabled, sqoot_api_key = var_sqoot_api_key, trilat_processing_type = var_trilat_processing_type, max_sample_size = var_max_sample_size, min_rssi = var_min_rssi, modules = var_modules, authorized_count = var_authorized_count, authorized_servers = var_authorized_servers, default_timezone = var_default_timezone, smtp_pass = var_smtp_pass, meta_data = var_meta_data, placement_meta_data = var_placement_meta_data, ips_floor = var_ips_floor, enable_apns_badge = var_enable_apns_badge, include_in_report = var_include_in_report, default_app_filter_id = var_default_app_filter_id, enable_welcome_email = var_enable_welcome_email, apple_app_id = var_apple_app_id, apple_team_id = var_apple_team_id, apple_auth_key_id = var_apple_auth_key_id, apple_auth_key = var_apple_auth_key, apple_issuer_id = var_apple_issuer_id, app_store_key_id = var_app_store_key_id, app_store_key = var_app_store_key, google_private_key_file = var_google_private_key_file, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key, email_sender = var_email_sender, smtp_user = var_smtp_user, smtp_host = var_smtp_host, vatom_business_id = var_vatom_business_id, vatom_rest_client_id = var_vatom_rest_client_id, vatom_rest_secret_key = var_vatom_rest_secret_key, twilio_account_sid = var_twilio_account_sid, twilio_auth_token = var_twilio_auth_token, twilio_sender_phone_number = var_twilio_sender_phone_number, open_ai_secret_key = var_open_ai_secret_keydata_file = "result.txt")
-#' result <- api_instance$UpdateApplication(var_version, var_app_key, var_app_name, device_id = var_device_id, account_id = var_account_id, about = var_about, bundle_id = var_bundle_id, app_icon_asset_id = var_app_icon_asset_id, app_logo_asset_id = var_app_logo_asset_id, facebook_app_id = var_facebook_app_id, facebook_app_secret = var_facebook_app_secret, google_api_key = var_google_api_key, update_eula_date = var_update_eula_date, eula_version = var_eula_version, landing_page_url = var_landing_page_url, show_in_activities = var_show_in_activities, activity_description = var_activity_description, invite_welcome_text = var_invite_welcome_text, invite_page_url = var_invite_page_url, url_scheme = var_url_scheme, platforms = var_platforms, download_urls = var_download_urls, category_ids = var_category_ids, scoring_type = var_scoring_type, hint_cost = var_hint_cost, max_score = var_max_score, tickets_per_point = var_tickets_per_point, has_game_data = var_has_game_data, public_notifications = var_public_notifications, use_matching_algorithm = var_use_matching_algorithm, global_tickets = var_global_tickets, build_version = var_build_version, api_version = var_api_version, placement_name = var_placement_name, placement_description = var_placement_description, placement_size = var_placement_size, placement_height = var_placement_height, placement_width = var_placement_width, placement_refresh_interval = var_placement_refresh_interval, create_object_store = var_create_object_store, public_content_approval = var_public_content_approval, production_mode = var_production_mode, minimum_session_length = var_minimum_session_length, session_gap_length = var_session_gap_length, local_ads_enabled = var_local_ads_enabled, sqoot_api_key = var_sqoot_api_key, trilat_processing_type = var_trilat_processing_type, max_sample_size = var_max_sample_size, min_rssi = var_min_rssi, modules = var_modules, authorized_count = var_authorized_count, authorized_servers = var_authorized_servers, default_timezone = var_default_timezone, smtp_pass = var_smtp_pass, meta_data = var_meta_data, placement_meta_data = var_placement_meta_data, ips_floor = var_ips_floor, enable_apns_badge = var_enable_apns_badge, include_in_report = var_include_in_report, default_app_filter_id = var_default_app_filter_id, enable_welcome_email = var_enable_welcome_email, apple_app_id = var_apple_app_id, apple_team_id = var_apple_team_id, apple_auth_key_id = var_apple_auth_key_id, apple_auth_key = var_apple_auth_key, apple_issuer_id = var_apple_issuer_id, app_store_key_id = var_app_store_key_id, app_store_key = var_app_store_key, google_private_key_file = var_google_private_key_file, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key, email_sender = var_email_sender, smtp_user = var_smtp_user, smtp_host = var_smtp_host, vatom_business_id = var_vatom_business_id, vatom_rest_client_id = var_vatom_rest_client_id, vatom_rest_secret_key = var_vatom_rest_secret_key, twilio_account_sid = var_twilio_account_sid, twilio_auth_token = var_twilio_auth_token, twilio_sender_phone_number = var_twilio_sender_phone_number, open_ai_secret_key = var_open_ai_secret_key)
+#' # result <- api_instance$UpdateApplication(var_app_key, var_app_name, device_id = var_device_id, account_id = var_account_id, about = var_about, bundle_id = var_bundle_id, app_icon_asset_id = var_app_icon_asset_id, app_logo_asset_id = var_app_logo_asset_id, facebook_app_id = var_facebook_app_id, facebook_app_secret = var_facebook_app_secret, google_api_key = var_google_api_key, update_eula_date = var_update_eula_date, eula_version = var_eula_version, landing_page_url = var_landing_page_url, show_in_activities = var_show_in_activities, activity_description = var_activity_description, invite_welcome_text = var_invite_welcome_text, invite_page_url = var_invite_page_url, url_scheme = var_url_scheme, platforms = var_platforms, download_urls = var_download_urls, category_ids = var_category_ids, scoring_type = var_scoring_type, hint_cost = var_hint_cost, max_score = var_max_score, tickets_per_point = var_tickets_per_point, has_game_data = var_has_game_data, public_notifications = var_public_notifications, use_matching_algorithm = var_use_matching_algorithm, global_tickets = var_global_tickets, build_version = var_build_version, api_version = var_api_version, placement_name = var_placement_name, placement_description = var_placement_description, placement_size = var_placement_size, placement_height = var_placement_height, placement_width = var_placement_width, placement_refresh_interval = var_placement_refresh_interval, create_object_store = var_create_object_store, public_content_approval = var_public_content_approval, production_mode = var_production_mode, minimum_session_length = var_minimum_session_length, session_gap_length = var_session_gap_length, local_ads_enabled = var_local_ads_enabled, sqoot_api_key = var_sqoot_api_key, trilat_processing_type = var_trilat_processing_type, max_sample_size = var_max_sample_size, min_rssi = var_min_rssi, modules = var_modules, authorized_count = var_authorized_count, authorized_servers = var_authorized_servers, default_timezone = var_default_timezone, smtp_pass = var_smtp_pass, meta_data = var_meta_data, placement_meta_data = var_placement_meta_data, ips_floor = var_ips_floor, enable_apns_badge = var_enable_apns_badge, include_in_report = var_include_in_report, default_app_filter_id = var_default_app_filter_id, enable_welcome_email = var_enable_welcome_email, apple_app_id = var_apple_app_id, apple_team_id = var_apple_team_id, apple_auth_key_id = var_apple_auth_key_id, apple_auth_key = var_apple_auth_key, apple_issuer_id = var_apple_issuer_id, app_store_key_id = var_app_store_key_id, app_store_key = var_app_store_key, google_private_key_file = var_google_private_key_file, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key, email_sender = var_email_sender, smtp_user = var_smtp_user, smtp_host = var_smtp_host, vatom_business_id = var_vatom_business_id, vatom_rest_client_id = var_vatom_rest_client_id, vatom_rest_secret_key = var_vatom_rest_secret_key, twilio_account_sid = var_twilio_account_sid, twilio_auth_token = var_twilio_auth_token, twilio_sender_phone_number = var_twilio_sender_phone_number, open_ai_secret_key = var_open_ai_secret_keydata_file = "result.txt")
+#' result <- api_instance$UpdateApplication(var_app_key, var_app_name, device_id = var_device_id, account_id = var_account_id, about = var_about, bundle_id = var_bundle_id, app_icon_asset_id = var_app_icon_asset_id, app_logo_asset_id = var_app_logo_asset_id, facebook_app_id = var_facebook_app_id, facebook_app_secret = var_facebook_app_secret, google_api_key = var_google_api_key, update_eula_date = var_update_eula_date, eula_version = var_eula_version, landing_page_url = var_landing_page_url, show_in_activities = var_show_in_activities, activity_description = var_activity_description, invite_welcome_text = var_invite_welcome_text, invite_page_url = var_invite_page_url, url_scheme = var_url_scheme, platforms = var_platforms, download_urls = var_download_urls, category_ids = var_category_ids, scoring_type = var_scoring_type, hint_cost = var_hint_cost, max_score = var_max_score, tickets_per_point = var_tickets_per_point, has_game_data = var_has_game_data, public_notifications = var_public_notifications, use_matching_algorithm = var_use_matching_algorithm, global_tickets = var_global_tickets, build_version = var_build_version, api_version = var_api_version, placement_name = var_placement_name, placement_description = var_placement_description, placement_size = var_placement_size, placement_height = var_placement_height, placement_width = var_placement_width, placement_refresh_interval = var_placement_refresh_interval, create_object_store = var_create_object_store, public_content_approval = var_public_content_approval, production_mode = var_production_mode, minimum_session_length = var_minimum_session_length, session_gap_length = var_session_gap_length, local_ads_enabled = var_local_ads_enabled, sqoot_api_key = var_sqoot_api_key, trilat_processing_type = var_trilat_processing_type, max_sample_size = var_max_sample_size, min_rssi = var_min_rssi, modules = var_modules, authorized_count = var_authorized_count, authorized_servers = var_authorized_servers, default_timezone = var_default_timezone, smtp_pass = var_smtp_pass, meta_data = var_meta_data, placement_meta_data = var_placement_meta_data, ips_floor = var_ips_floor, enable_apns_badge = var_enable_apns_badge, include_in_report = var_include_in_report, default_app_filter_id = var_default_app_filter_id, enable_welcome_email = var_enable_welcome_email, apple_app_id = var_apple_app_id, apple_team_id = var_apple_team_id, apple_auth_key_id = var_apple_auth_key_id, apple_auth_key = var_apple_auth_key, apple_issuer_id = var_apple_issuer_id, app_store_key_id = var_app_store_key_id, app_store_key = var_app_store_key, google_private_key_file = var_google_private_key_file, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key, email_sender = var_email_sender, smtp_user = var_smtp_user, smtp_host = var_smtp_host, vatom_business_id = var_vatom_business_id, vatom_rest_client_id = var_vatom_rest_client_id, vatom_rest_secret_key = var_vatom_rest_secret_key, twilio_account_sid = var_twilio_account_sid, twilio_auth_token = var_twilio_auth_token, twilio_sender_phone_number = var_twilio_sender_phone_number, open_ai_secret_key = var_open_ai_secret_key)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateApplicationActive  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the delete, must have rights to edit the application.
 #' var_app_key <- "app_key_example" # character | The key of the application to be deleted
 #' var_active <- "active_example" # character | If true then set to active, false otherwise
@@ -445,15 +431,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateApplicationActive(var_version, var_account_id, var_app_key, var_activedata_file = "result.txt")
-#' result <- api_instance$UpdateApplicationActive(var_version, var_account_id, var_app_key, var_active)
+#' # result <- api_instance$UpdateApplicationActive(var_account_id, var_app_key, var_activedata_file = "result.txt")
+#' result <- api_instance$UpdateApplicationActive(var_account_id, var_app_key, var_active)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateApplicationPlacement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_placement_id <- 56 # integer | The id of the placement to update, the user must have rights to the application the ad placement is for
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -470,15 +455,14 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateApplicationPlacement(var_version, var_placement_id, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, size = var_size, height = var_height, width = var_width, refresh_interval = var_refresh_interval, default_image_id = var_default_image_id, active = var_activedata_file = "result.txt")
-#' result <- api_instance$UpdateApplicationPlacement(var_version, var_placement_id, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, size = var_size, height = var_height, width = var_width, refresh_interval = var_refresh_interval, default_image_id = var_default_image_id, active = var_active)
+#' # result <- api_instance$UpdateApplicationPlacement(var_placement_id, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, size = var_size, height = var_height, width = var_width, refresh_interval = var_refresh_interval, default_image_id = var_default_image_id, active = var_activedata_file = "result.txt")
+#' result <- api_instance$UpdateApplicationPlacement(var_placement_id, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, size = var_size, height = var_height, width = var_width, refresh_interval = var_refresh_interval, default_image_id = var_default_image_id, active = var_active)
 #' dput(result)
 #'
 #'
 #' ####################  UploadApplicationCertificate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The key of the application
 #' var_device_id <- "device_id_example" # character | Device Id (Optional)
 #' var_account_id <- 56 # integer | The account used to perform the delete, must have rights to edit the application. (Optional)
@@ -488,8 +472,8 @@
 #' api_instance <- ApplicationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UploadApplicationCertificate(var_version, var_app_key, device_id = var_device_id, account_id = var_account_id, certificate = var_certificatedata_file = "result.txt")
-#' result <- api_instance$UploadApplicationCertificate(var_version, var_app_key, device_id = var_device_id, account_id = var_account_id, certificate = var_certificate)
+#' # result <- api_instance$UploadApplicationCertificate(var_app_key, device_id = var_device_id, account_id = var_account_id, certificate = var_certificatedata_file = "result.txt")
+#' result <- api_instance$UploadApplicationCertificate(var_app_key, device_id = var_device_id, account_id = var_account_id, certificate = var_certificate)
 #' dput(result)
 #'
 #'
@@ -517,7 +501,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Create Application
     #'
-    #' @param version 
     #' @param app_name The name of the application
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -602,8 +585,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ApplicationResponse
-    CreateApplication = function(version, app_name, device_id = NULL, account_id = NULL, about = NULL, bundle_id = NULL, app_icon_asset_id = NULL, app_logo_asset_id = NULL, facebook_app_id = NULL, facebook_app_secret = NULL, google_api_key = NULL, update_eula_date = NULL, eula_version = NULL, landing_page_url = NULL, show_in_activities = NULL, activity_description = NULL, invite_welcome_text = NULL, invite_page_url = NULL, url_scheme = NULL, platforms = NULL, download_urls = NULL, category_ids = NULL, scoring_type = "GAME_LEVEL", hint_cost = 11, max_score = 125, tickets_per_point = 0.037, has_game_data = TRUE, public_notifications = NULL, use_matching_algorithm = NULL, global_tickets = FALSE, build_version = 1, api_version = NULL, placement_name = NULL, placement_description = NULL, placement_size = NULL, placement_height = NULL, placement_width = NULL, placement_refresh_interval = NULL, create_object_store = TRUE, public_content_approval = FALSE, production_mode = FALSE, minimum_session_length = NULL, session_gap_length = NULL, local_ads_enabled = FALSE, sqoot_api_key = NULL, trilat_processing_type = "FINGERPRINT", max_sample_size = NULL, min_rssi = NULL, modules = "ALL", authorized_count = 1, authorized_servers = NULL, default_timezone = NULL, smtp_pass = NULL, meta_data = NULL, placement_meta_data = NULL, ips_floor = FALSE, enable_apns_badge = TRUE, include_in_report = TRUE, default_app_filter_id = NULL, enable_welcome_email = NULL, apple_app_id = NULL, apple_team_id = NULL, apple_auth_key_id = NULL, apple_auth_key = NULL, apple_issuer_id = NULL, app_store_key_id = NULL, app_store_key = NULL, google_private_key_file = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, email_sender = NULL, smtp_user = NULL, smtp_host = NULL, vatom_business_id = NULL, vatom_rest_client_id = NULL, vatom_rest_secret_key = NULL, twilio_account_sid = NULL, twilio_auth_token = NULL, twilio_sender_phone_number = NULL, open_ai_secret_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateApplicationWithHttpInfo(version, app_name, device_id, account_id, about, bundle_id, app_icon_asset_id, app_logo_asset_id, facebook_app_id, facebook_app_secret, google_api_key, update_eula_date, eula_version, landing_page_url, show_in_activities, activity_description, invite_welcome_text, invite_page_url, url_scheme, platforms, download_urls, category_ids, scoring_type, hint_cost, max_score, tickets_per_point, has_game_data, public_notifications, use_matching_algorithm, global_tickets, build_version, api_version, placement_name, placement_description, placement_size, placement_height, placement_width, placement_refresh_interval, create_object_store, public_content_approval, production_mode, minimum_session_length, session_gap_length, local_ads_enabled, sqoot_api_key, trilat_processing_type, max_sample_size, min_rssi, modules, authorized_count, authorized_servers, default_timezone, smtp_pass, meta_data, placement_meta_data, ips_floor, enable_apns_badge, include_in_report, default_app_filter_id, enable_welcome_email, apple_app_id, apple_team_id, apple_auth_key_id, apple_auth_key, apple_issuer_id, app_store_key_id, app_store_key, google_private_key_file, authorize_net_api_key, authorize_net_transaction_key, email_sender, smtp_user, smtp_host, vatom_business_id, vatom_rest_client_id, vatom_rest_secret_key, twilio_account_sid, twilio_auth_token, twilio_sender_phone_number, open_ai_secret_key, data_file = data_file, ..., .parse = .parse)
+    CreateApplication = function(app_name, device_id = NULL, account_id = NULL, about = NULL, bundle_id = NULL, app_icon_asset_id = NULL, app_logo_asset_id = NULL, facebook_app_id = NULL, facebook_app_secret = NULL, google_api_key = NULL, update_eula_date = NULL, eula_version = NULL, landing_page_url = NULL, show_in_activities = NULL, activity_description = NULL, invite_welcome_text = NULL, invite_page_url = NULL, url_scheme = NULL, platforms = NULL, download_urls = NULL, category_ids = NULL, scoring_type = "GAME_LEVEL", hint_cost = 11, max_score = 125, tickets_per_point = 0.037, has_game_data = TRUE, public_notifications = NULL, use_matching_algorithm = NULL, global_tickets = FALSE, build_version = 1, api_version = NULL, placement_name = NULL, placement_description = NULL, placement_size = NULL, placement_height = NULL, placement_width = NULL, placement_refresh_interval = NULL, create_object_store = TRUE, public_content_approval = FALSE, production_mode = FALSE, minimum_session_length = NULL, session_gap_length = NULL, local_ads_enabled = FALSE, sqoot_api_key = NULL, trilat_processing_type = "FINGERPRINT", max_sample_size = NULL, min_rssi = NULL, modules = "ALL", authorized_count = 1, authorized_servers = NULL, default_timezone = NULL, smtp_pass = NULL, meta_data = NULL, placement_meta_data = NULL, ips_floor = FALSE, enable_apns_badge = TRUE, include_in_report = TRUE, default_app_filter_id = NULL, enable_welcome_email = NULL, apple_app_id = NULL, apple_team_id = NULL, apple_auth_key_id = NULL, apple_auth_key = NULL, apple_issuer_id = NULL, app_store_key_id = NULL, app_store_key = NULL, google_private_key_file = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, email_sender = NULL, smtp_user = NULL, smtp_host = NULL, vatom_business_id = NULL, vatom_rest_client_id = NULL, vatom_rest_secret_key = NULL, twilio_account_sid = NULL, twilio_auth_token = NULL, twilio_sender_phone_number = NULL, open_ai_secret_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateApplicationWithHttpInfo(app_name, device_id, account_id, about, bundle_id, app_icon_asset_id, app_logo_asset_id, facebook_app_id, facebook_app_secret, google_api_key, update_eula_date, eula_version, landing_page_url, show_in_activities, activity_description, invite_welcome_text, invite_page_url, url_scheme, platforms, download_urls, category_ids, scoring_type, hint_cost, max_score, tickets_per_point, has_game_data, public_notifications, use_matching_algorithm, global_tickets, build_version, api_version, placement_name, placement_description, placement_size, placement_height, placement_width, placement_refresh_interval, create_object_store, public_content_approval, production_mode, minimum_session_length, session_gap_length, local_ads_enabled, sqoot_api_key, trilat_processing_type, max_sample_size, min_rssi, modules, authorized_count, authorized_servers, default_timezone, smtp_pass, meta_data, placement_meta_data, ips_floor, enable_apns_badge, include_in_report, default_app_filter_id, enable_welcome_email, apple_app_id, apple_team_id, apple_auth_key_id, apple_auth_key, apple_issuer_id, app_store_key_id, app_store_key, google_private_key_file, authorize_net_api_key, authorize_net_transaction_key, email_sender, smtp_user, smtp_host, vatom_business_id, vatom_rest_client_id, vatom_rest_secret_key, twilio_account_sid, twilio_auth_token, twilio_sender_phone_number, open_ai_secret_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -618,7 +601,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Create Application
     #'
-    #' @param version 
     #' @param app_name The name of the application
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -703,7 +685,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ApplicationResponse) with additional information such as HTTP status code, headers
-    CreateApplicationWithHttpInfo = function(version, app_name, device_id = NULL, account_id = NULL, about = NULL, bundle_id = NULL, app_icon_asset_id = NULL, app_logo_asset_id = NULL, facebook_app_id = NULL, facebook_app_secret = NULL, google_api_key = NULL, update_eula_date = NULL, eula_version = NULL, landing_page_url = NULL, show_in_activities = NULL, activity_description = NULL, invite_welcome_text = NULL, invite_page_url = NULL, url_scheme = NULL, platforms = NULL, download_urls = NULL, category_ids = NULL, scoring_type = "GAME_LEVEL", hint_cost = 11, max_score = 125, tickets_per_point = 0.037, has_game_data = TRUE, public_notifications = NULL, use_matching_algorithm = NULL, global_tickets = FALSE, build_version = 1, api_version = NULL, placement_name = NULL, placement_description = NULL, placement_size = NULL, placement_height = NULL, placement_width = NULL, placement_refresh_interval = NULL, create_object_store = TRUE, public_content_approval = FALSE, production_mode = FALSE, minimum_session_length = NULL, session_gap_length = NULL, local_ads_enabled = FALSE, sqoot_api_key = NULL, trilat_processing_type = "FINGERPRINT", max_sample_size = NULL, min_rssi = NULL, modules = "ALL", authorized_count = 1, authorized_servers = NULL, default_timezone = NULL, smtp_pass = NULL, meta_data = NULL, placement_meta_data = NULL, ips_floor = FALSE, enable_apns_badge = TRUE, include_in_report = TRUE, default_app_filter_id = NULL, enable_welcome_email = NULL, apple_app_id = NULL, apple_team_id = NULL, apple_auth_key_id = NULL, apple_auth_key = NULL, apple_issuer_id = NULL, app_store_key_id = NULL, app_store_key = NULL, google_private_key_file = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, email_sender = NULL, smtp_user = NULL, smtp_host = NULL, vatom_business_id = NULL, vatom_rest_client_id = NULL, vatom_rest_secret_key = NULL, twilio_account_sid = NULL, twilio_auth_token = NULL, twilio_sender_phone_number = NULL, open_ai_secret_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateApplicationWithHttpInfo = function(app_name, device_id = NULL, account_id = NULL, about = NULL, bundle_id = NULL, app_icon_asset_id = NULL, app_logo_asset_id = NULL, facebook_app_id = NULL, facebook_app_secret = NULL, google_api_key = NULL, update_eula_date = NULL, eula_version = NULL, landing_page_url = NULL, show_in_activities = NULL, activity_description = NULL, invite_welcome_text = NULL, invite_page_url = NULL, url_scheme = NULL, platforms = NULL, download_urls = NULL, category_ids = NULL, scoring_type = "GAME_LEVEL", hint_cost = 11, max_score = 125, tickets_per_point = 0.037, has_game_data = TRUE, public_notifications = NULL, use_matching_algorithm = NULL, global_tickets = FALSE, build_version = 1, api_version = NULL, placement_name = NULL, placement_description = NULL, placement_size = NULL, placement_height = NULL, placement_width = NULL, placement_refresh_interval = NULL, create_object_store = TRUE, public_content_approval = FALSE, production_mode = FALSE, minimum_session_length = NULL, session_gap_length = NULL, local_ads_enabled = FALSE, sqoot_api_key = NULL, trilat_processing_type = "FINGERPRINT", max_sample_size = NULL, min_rssi = NULL, modules = "ALL", authorized_count = 1, authorized_servers = NULL, default_timezone = NULL, smtp_pass = NULL, meta_data = NULL, placement_meta_data = NULL, ips_floor = FALSE, enable_apns_badge = TRUE, include_in_report = TRUE, default_app_filter_id = NULL, enable_welcome_email = NULL, apple_app_id = NULL, apple_team_id = NULL, apple_auth_key_id = NULL, apple_auth_key = NULL, apple_issuer_id = NULL, app_store_key_id = NULL, app_store_key = NULL, google_private_key_file = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, email_sender = NULL, smtp_user = NULL, smtp_host = NULL, vatom_business_id = NULL, vatom_rest_client_id = NULL, vatom_rest_secret_key = NULL, twilio_account_sid = NULL, twilio_auth_token = NULL, twilio_sender_phone_number = NULL, open_ai_secret_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -713,16 +695,8 @@ ApplicationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_name`)) {
         stop("Missing required parameter `app_name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$CreateApplication, `version` is not nullable")
       }
 
       if (!missing(`app_name`) && is.null(`app_name`)) {
@@ -1208,11 +1182,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["openAISecretKey"]] <- `open_ai_secret_key`
 
-      local_var_url_path <- "/api/{version}/application/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1273,7 +1243,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Create Ad Placement
     #'
-    #' @param version 
     #' @param app_key The appKey of the application the ad placement is for
     #' @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
@@ -1290,8 +1259,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PlacementResponse
-    CreateApplicationPlacement = function(version, app_key, size, device_id = NULL, account_id = NULL, name = NULL, description = NULL, height = NULL, width = NULL, refresh_interval = NULL, default_image_id = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateApplicationPlacementWithHttpInfo(version, app_key, size, device_id, account_id, name, description, height, width, refresh_interval, default_image_id, active, data_file = data_file, ..., .parse = .parse)
+    CreateApplicationPlacement = function(app_key, size, device_id = NULL, account_id = NULL, name = NULL, description = NULL, height = NULL, width = NULL, refresh_interval = NULL, default_image_id = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateApplicationPlacementWithHttpInfo(app_key, size, device_id, account_id, name, description, height, width, refresh_interval, default_image_id, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1306,7 +1275,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Create Ad Placement
     #'
-    #' @param version 
     #' @param app_key The appKey of the application the ad placement is for
     #' @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
@@ -1323,7 +1291,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PlacementResponse) with additional information such as HTTP status code, headers
-    CreateApplicationPlacementWithHttpInfo = function(version, app_key, size, device_id = NULL, account_id = NULL, name = NULL, description = NULL, height = NULL, width = NULL, refresh_interval = NULL, default_image_id = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateApplicationPlacementWithHttpInfo = function(app_key, size, device_id = NULL, account_id = NULL, name = NULL, description = NULL, height = NULL, width = NULL, refresh_interval = NULL, default_image_id = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1333,20 +1301,12 @@ ApplicationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
       }
 
       if (missing(`size`)) {
         stop("Missing required parameter `size`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$CreateApplicationPlacement, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -1418,11 +1378,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/application/placement/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/placement/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1483,7 +1439,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Delete Application
     #'
-    #' @param version 
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the application.
     #' @param app_key (optional) The key of the application to be deleted
     #' @param data_file (optional) name of the data file to save the result
@@ -1491,8 +1446,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteApplication = function(version, account_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteApplicationWithHttpInfo(version, account_id, app_key, data_file = data_file, ..., .parse = .parse)
+    DeleteApplication = function(account_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteApplicationWithHttpInfo(account_id, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1507,7 +1462,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Delete Application
     #'
-    #' @param version 
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the application.
     #' @param app_key (optional) The key of the application to be deleted
     #' @param data_file (optional) name of the data file to save the result
@@ -1515,7 +1469,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteApplicationWithHttpInfo = function(version, account_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteApplicationWithHttpInfo = function(account_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1524,14 +1478,6 @@ ApplicationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$DeleteApplication, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling ApplicationApi$DeleteApplication, `account_id` is not nullable")
@@ -1545,11 +1491,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/application/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1610,7 +1552,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Delete Ad Placement
     #'
-    #' @param version 
     #' @param placement_id The id of the placement to delete, the user must have rights to the application the ad placement is for
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -1619,8 +1560,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PlacementResponse
-    DeleteApplicationPlacement = function(version, placement_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteApplicationPlacementWithHttpInfo(version, placement_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteApplicationPlacement = function(placement_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteApplicationPlacementWithHttpInfo(placement_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1635,7 +1576,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Delete Ad Placement
     #'
-    #' @param version 
     #' @param placement_id The id of the placement to delete, the user must have rights to the application the ad placement is for
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -1644,7 +1584,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PlacementResponse) with additional information such as HTTP status code, headers
-    DeleteApplicationPlacementWithHttpInfo = function(version, placement_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteApplicationPlacementWithHttpInfo = function(placement_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1654,16 +1594,8 @@ ApplicationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`placement_id`)) {
         stop("Missing required parameter `placement_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$DeleteApplicationPlacement, `version` is not nullable")
       }
 
       if (!missing(`placement_id`) && is.null(`placement_id`)) {
@@ -1684,11 +1616,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["placementId"]] <- `placement_id`
 
-      local_var_url_path <- "/api/{version}/application/placement/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/placement/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1749,7 +1677,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Get Application
     #'
-    #' @param version 
     #' @param app_key (optional) The key of the application
     #' @param application_id (optional) Application Id
     #' @param data_file (optional) name of the data file to save the result
@@ -1757,8 +1684,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ApplicationResponse
-    GetApplication = function(version, app_key = NULL, application_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetApplicationWithHttpInfo(version, app_key, application_id, data_file = data_file, ..., .parse = .parse)
+    GetApplication = function(app_key = NULL, application_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetApplicationWithHttpInfo(app_key, application_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1773,7 +1700,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Get Application
     #'
-    #' @param version 
     #' @param app_key (optional) The key of the application
     #' @param application_id (optional) Application Id
     #' @param data_file (optional) name of the data file to save the result
@@ -1781,7 +1707,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ApplicationResponse) with additional information such as HTTP status code, headers
-    GetApplicationWithHttpInfo = function(version, app_key = NULL, application_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetApplicationWithHttpInfo = function(app_key = NULL, application_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1790,14 +1716,6 @@ ApplicationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$GetApplication, `version` is not nullable")
-      }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
         stop("Invalid value for `app_key` when calling ApplicationApi$GetApplication, `app_key` is not nullable")
@@ -1811,11 +1729,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["applicationId"]] <- `application_id`
 
-      local_var_url_path <- "/api/{version}/application/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1876,7 +1790,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Get Ad Placement
     #'
-    #' @param version 
     #' @param placement_id The id of the placement
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -1885,8 +1798,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PlacementResponse
-    GetApplicationPlacement = function(version, placement_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetApplicationPlacementWithHttpInfo(version, placement_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetApplicationPlacement = function(placement_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetApplicationPlacementWithHttpInfo(placement_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1901,7 +1814,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Get Ad Placement
     #'
-    #' @param version 
     #' @param placement_id The id of the placement
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -1910,7 +1822,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PlacementResponse) with additional information such as HTTP status code, headers
-    GetApplicationPlacementWithHttpInfo = function(version, placement_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetApplicationPlacementWithHttpInfo = function(placement_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1920,16 +1832,8 @@ ApplicationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`placement_id`)) {
         stop("Missing required parameter `placement_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$GetApplicationPlacement, `version` is not nullable")
       }
 
       if (!missing(`placement_id`) && is.null(`placement_id`)) {
@@ -1950,11 +1854,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["placementId"]] <- `placement_id`
 
-      local_var_url_path <- "/api/{version}/application/placement/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/placement/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2015,14 +1915,13 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Get API versions
     #'
-    #' @param version 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    GetApplicationVersions = function(version, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetApplicationVersionsWithHttpInfo(version, data_file = data_file, ..., .parse = .parse)
+    GetApplicationVersions = function(data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetApplicationVersionsWithHttpInfo(data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2037,13 +1936,12 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Get API versions
     #'
-    #' @param version 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    GetApplicationVersionsWithHttpInfo = function(version, data_file = NULL, ..., .parse = TRUE) {
+    GetApplicationVersionsWithHttpInfo = function(data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2053,19 +1951,7 @@ ApplicationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$GetApplicationVersions, `version` is not nullable")
-      }
-
-      local_var_url_path <- "/api/{version}/application/versions"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/versions"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2126,7 +2012,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Search Application Users
     #'
-    #' @param version 
     #' @param app_key The application key
     #' @param q (optional) Q
     #' @param keyword (optional) The keyword used to search
@@ -2140,8 +2025,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AccountListResponse
-    GetUniqueUsersByApp = function(version, app_key, q = NULL, keyword = NULL, since = NULL, _i = NULL, start = 0, _l = NULL, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetUniqueUsersByAppWithHttpInfo(version, app_key, q, keyword, since, _i, start, _l, limit, data_file = data_file, ..., .parse = .parse)
+    GetUniqueUsersByApp = function(app_key, q = NULL, keyword = NULL, since = NULL, _i = NULL, start = 0, _l = NULL, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetUniqueUsersByAppWithHttpInfo(app_key, q, keyword, since, _i, start, _l, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2156,7 +2041,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Search Application Users
     #'
-    #' @param version 
     #' @param app_key The application key
     #' @param q (optional) Q
     #' @param keyword (optional) The keyword used to search
@@ -2170,7 +2054,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AccountListResponse) with additional information such as HTTP status code, headers
-    GetUniqueUsersByAppWithHttpInfo = function(version, app_key, q = NULL, keyword = NULL, since = NULL, _i = NULL, start = 0, _l = NULL, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    GetUniqueUsersByAppWithHttpInfo = function(app_key, q = NULL, keyword = NULL, since = NULL, _i = NULL, start = 0, _l = NULL, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2180,16 +2064,8 @@ ApplicationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$GetUniqueUsersByApp, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -2240,11 +2116,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/application/users"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/users"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2305,7 +2177,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' List Applications
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the application owner/manager
     #' @param q (optional) Q
     #' @param keyword (optional) The keyword used to search for title, about, and description fields
@@ -2331,8 +2202,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ApplicationShortResponse]
-    ListApplications = function(version, account_id = NULL, q = NULL, keyword = NULL, platforms = NULL, device_ids = NULL, device_versions = NULL, category_ids = NULL, sort_field = "UPDATED", has_ads = NULL, public_notifications = NULL, filter_billable = NULL, filter_content_admin = NULL, descending = TRUE, _i = NULL, start = 0, _l = NULL, limit = 20, application_ids = NULL, has_object_store = FALSE, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ListApplicationsWithHttpInfo(version, account_id, q, keyword, platforms, device_ids, device_versions, category_ids, sort_field, has_ads, public_notifications, filter_billable, filter_content_admin, descending, _i, start, _l, limit, application_ids, has_object_store, active_only, data_file = data_file, ..., .parse = .parse)
+    ListApplications = function(account_id = NULL, q = NULL, keyword = NULL, platforms = NULL, device_ids = NULL, device_versions = NULL, category_ids = NULL, sort_field = "UPDATED", has_ads = NULL, public_notifications = NULL, filter_billable = NULL, filter_content_admin = NULL, descending = TRUE, _i = NULL, start = 0, _l = NULL, limit = 20, application_ids = NULL, has_object_store = FALSE, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ListApplicationsWithHttpInfo(account_id, q, keyword, platforms, device_ids, device_versions, category_ids, sort_field, has_ads, public_notifications, filter_billable, filter_content_admin, descending, _i, start, _l, limit, application_ids, has_object_store, active_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2347,7 +2218,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' List Applications
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the application owner/manager
     #' @param q (optional) Q
     #' @param keyword (optional) The keyword used to search for title, about, and description fields
@@ -2373,7 +2243,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ApplicationShortResponse]) with additional information such as HTTP status code, headers
-    ListApplicationsWithHttpInfo = function(version, account_id = NULL, q = NULL, keyword = NULL, platforms = NULL, device_ids = NULL, device_versions = NULL, category_ids = NULL, sort_field = "UPDATED", has_ads = NULL, public_notifications = NULL, filter_billable = NULL, filter_content_admin = NULL, descending = TRUE, _i = NULL, start = 0, _l = NULL, limit = 20, application_ids = NULL, has_object_store = FALSE, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    ListApplicationsWithHttpInfo = function(account_id = NULL, q = NULL, keyword = NULL, platforms = NULL, device_ids = NULL, device_versions = NULL, category_ids = NULL, sort_field = "UPDATED", has_ads = NULL, public_notifications = NULL, filter_billable = NULL, filter_content_admin = NULL, descending = TRUE, _i = NULL, start = 0, _l = NULL, limit = 20, application_ids = NULL, has_object_store = FALSE, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2382,14 +2252,6 @@ ApplicationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$ListApplications, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling ApplicationApi$ListApplications, `account_id` is not nullable")
@@ -2514,11 +2376,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/application/list"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/list"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2579,7 +2437,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Search for Ad Placements
     #'
-    #' @param version 
     #' @param app_key The key of the application
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -2590,8 +2447,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[PlacementResponse]
-    SearchApplicationPlacement = function(version, app_key, device_id = NULL, account_id = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchApplicationPlacementWithHttpInfo(version, app_key, device_id, account_id, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchApplicationPlacement = function(app_key, device_id = NULL, account_id = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchApplicationPlacementWithHttpInfo(app_key, device_id, account_id, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2606,7 +2463,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Search for Ad Placements
     #'
-    #' @param version 
     #' @param app_key The key of the application
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -2617,7 +2473,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[PlacementResponse]) with additional information such as HTTP status code, headers
-    SearchApplicationPlacementWithHttpInfo = function(version, app_key, device_id = NULL, account_id = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+    SearchApplicationPlacementWithHttpInfo = function(app_key, device_id = NULL, account_id = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2627,16 +2483,8 @@ ApplicationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$SearchApplicationPlacement, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -2669,11 +2517,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/application/placement/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/placement/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2734,7 +2578,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Search for Application Settings
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param connection_account_id (optional) The account id used to view another person's account
@@ -2748,8 +2591,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ApplicationSettingsResponse
-    SearchApplicationSettings = function(version, device_id = NULL, account_id = NULL, connection_account_id = NULL, keyword = NULL, sort_field = "APPLICATION_TITLE", descending = FALSE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchApplicationSettingsWithHttpInfo(version, device_id, account_id, connection_account_id, keyword, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchApplicationSettings = function(device_id = NULL, account_id = NULL, connection_account_id = NULL, keyword = NULL, sort_field = "APPLICATION_TITLE", descending = FALSE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchApplicationSettingsWithHttpInfo(device_id, account_id, connection_account_id, keyword, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2764,7 +2607,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Search for Application Settings
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param connection_account_id (optional) The account id used to view another person's account
@@ -2778,7 +2620,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ApplicationSettingsResponse) with additional information such as HTTP status code, headers
-    SearchApplicationSettingsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, connection_account_id = NULL, keyword = NULL, sort_field = "APPLICATION_TITLE", descending = FALSE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    SearchApplicationSettingsWithHttpInfo = function(device_id = NULL, account_id = NULL, connection_account_id = NULL, keyword = NULL, sort_field = "APPLICATION_TITLE", descending = FALSE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2787,14 +2629,6 @@ ApplicationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$SearchApplicationSettings, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling ApplicationApi$SearchApplicationSettings, `device_id` is not nullable")
@@ -2844,11 +2678,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/application/settings/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/settings/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2909,7 +2739,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Search Applications
     #'
-    #' @param version 
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param latitude (optional) The location of the device
@@ -2931,8 +2760,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ApplicationResponse]
-    SearchApplications = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, q = NULL, keyword = NULL, q_search_fields = "NAME,ABOUT,BILLABLE_ENTITY_NAME", sort_field = "APPLICATION_ID", descending = FALSE, _i = NULL, start = 0, _l = NULL, limit = 100, has_ads = NULL, public_notifications = NULL, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchApplicationsWithHttpInfo(version, device_id, account_id, latitude, longitude, q, keyword, q_search_fields, sort_field, descending, _i, start, _l, limit, has_ads, public_notifications, active_only, data_file = data_file, ..., .parse = .parse)
+    SearchApplications = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, q = NULL, keyword = NULL, q_search_fields = "NAME,ABOUT,BILLABLE_ENTITY_NAME", sort_field = "APPLICATION_ID", descending = FALSE, _i = NULL, start = 0, _l = NULL, limit = 100, has_ads = NULL, public_notifications = NULL, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchApplicationsWithHttpInfo(device_id, account_id, latitude, longitude, q, keyword, q_search_fields, sort_field, descending, _i, start, _l, limit, has_ads, public_notifications, active_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2947,7 +2776,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Search Applications
     #'
-    #' @param version 
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param latitude (optional) The location of the device
@@ -2969,7 +2797,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ApplicationResponse]) with additional information such as HTTP status code, headers
-    SearchApplicationsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, q = NULL, keyword = NULL, q_search_fields = "NAME,ABOUT,BILLABLE_ENTITY_NAME", sort_field = "APPLICATION_ID", descending = FALSE, _i = NULL, start = 0, _l = NULL, limit = 100, has_ads = NULL, public_notifications = NULL, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    SearchApplicationsWithHttpInfo = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, q = NULL, keyword = NULL, q_search_fields = "NAME,ABOUT,BILLABLE_ENTITY_NAME", sort_field = "APPLICATION_ID", descending = FALSE, _i = NULL, start = 0, _l = NULL, limit = 100, has_ads = NULL, public_notifications = NULL, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2978,14 +2806,6 @@ ApplicationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$SearchApplications, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling ApplicationApi$SearchApplications, `device_id` is not nullable")
@@ -3086,11 +2906,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/application/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3151,7 +2967,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Update Application
     #'
-    #' @param version 
     #' @param app_key The application key for updating an existing application
     #' @param app_name The name of the application
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
@@ -3237,8 +3052,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ApplicationResponse
-    UpdateApplication = function(version, app_key, app_name, device_id = NULL, account_id = NULL, about = NULL, bundle_id = NULL, app_icon_asset_id = NULL, app_logo_asset_id = NULL, facebook_app_id = NULL, facebook_app_secret = NULL, google_api_key = NULL, update_eula_date = NULL, eula_version = NULL, landing_page_url = NULL, show_in_activities = NULL, activity_description = NULL, invite_welcome_text = NULL, invite_page_url = NULL, url_scheme = NULL, platforms = NULL, download_urls = NULL, category_ids = NULL, scoring_type = "GAME_LEVEL", hint_cost = 11, max_score = 125, tickets_per_point = 0.037, has_game_data = TRUE, public_notifications = NULL, use_matching_algorithm = NULL, global_tickets = FALSE, build_version = 1, api_version = NULL, placement_name = NULL, placement_description = NULL, placement_size = NULL, placement_height = NULL, placement_width = NULL, placement_refresh_interval = NULL, create_object_store = TRUE, public_content_approval = FALSE, production_mode = FALSE, minimum_session_length = NULL, session_gap_length = NULL, local_ads_enabled = FALSE, sqoot_api_key = NULL, trilat_processing_type = "FINGERPRINT", max_sample_size = NULL, min_rssi = NULL, modules = "ALL", authorized_count = 1, authorized_servers = NULL, default_timezone = NULL, smtp_pass = NULL, meta_data = NULL, placement_meta_data = NULL, ips_floor = FALSE, enable_apns_badge = TRUE, include_in_report = TRUE, default_app_filter_id = NULL, enable_welcome_email = NULL, apple_app_id = NULL, apple_team_id = NULL, apple_auth_key_id = NULL, apple_auth_key = NULL, apple_issuer_id = NULL, app_store_key_id = NULL, app_store_key = NULL, google_private_key_file = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, email_sender = NULL, smtp_user = NULL, smtp_host = NULL, vatom_business_id = NULL, vatom_rest_client_id = NULL, vatom_rest_secret_key = NULL, twilio_account_sid = NULL, twilio_auth_token = NULL, twilio_sender_phone_number = NULL, open_ai_secret_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateApplicationWithHttpInfo(version, app_key, app_name, device_id, account_id, about, bundle_id, app_icon_asset_id, app_logo_asset_id, facebook_app_id, facebook_app_secret, google_api_key, update_eula_date, eula_version, landing_page_url, show_in_activities, activity_description, invite_welcome_text, invite_page_url, url_scheme, platforms, download_urls, category_ids, scoring_type, hint_cost, max_score, tickets_per_point, has_game_data, public_notifications, use_matching_algorithm, global_tickets, build_version, api_version, placement_name, placement_description, placement_size, placement_height, placement_width, placement_refresh_interval, create_object_store, public_content_approval, production_mode, minimum_session_length, session_gap_length, local_ads_enabled, sqoot_api_key, trilat_processing_type, max_sample_size, min_rssi, modules, authorized_count, authorized_servers, default_timezone, smtp_pass, meta_data, placement_meta_data, ips_floor, enable_apns_badge, include_in_report, default_app_filter_id, enable_welcome_email, apple_app_id, apple_team_id, apple_auth_key_id, apple_auth_key, apple_issuer_id, app_store_key_id, app_store_key, google_private_key_file, authorize_net_api_key, authorize_net_transaction_key, email_sender, smtp_user, smtp_host, vatom_business_id, vatom_rest_client_id, vatom_rest_secret_key, twilio_account_sid, twilio_auth_token, twilio_sender_phone_number, open_ai_secret_key, data_file = data_file, ..., .parse = .parse)
+    UpdateApplication = function(app_key, app_name, device_id = NULL, account_id = NULL, about = NULL, bundle_id = NULL, app_icon_asset_id = NULL, app_logo_asset_id = NULL, facebook_app_id = NULL, facebook_app_secret = NULL, google_api_key = NULL, update_eula_date = NULL, eula_version = NULL, landing_page_url = NULL, show_in_activities = NULL, activity_description = NULL, invite_welcome_text = NULL, invite_page_url = NULL, url_scheme = NULL, platforms = NULL, download_urls = NULL, category_ids = NULL, scoring_type = "GAME_LEVEL", hint_cost = 11, max_score = 125, tickets_per_point = 0.037, has_game_data = TRUE, public_notifications = NULL, use_matching_algorithm = NULL, global_tickets = FALSE, build_version = 1, api_version = NULL, placement_name = NULL, placement_description = NULL, placement_size = NULL, placement_height = NULL, placement_width = NULL, placement_refresh_interval = NULL, create_object_store = TRUE, public_content_approval = FALSE, production_mode = FALSE, minimum_session_length = NULL, session_gap_length = NULL, local_ads_enabled = FALSE, sqoot_api_key = NULL, trilat_processing_type = "FINGERPRINT", max_sample_size = NULL, min_rssi = NULL, modules = "ALL", authorized_count = 1, authorized_servers = NULL, default_timezone = NULL, smtp_pass = NULL, meta_data = NULL, placement_meta_data = NULL, ips_floor = FALSE, enable_apns_badge = TRUE, include_in_report = TRUE, default_app_filter_id = NULL, enable_welcome_email = NULL, apple_app_id = NULL, apple_team_id = NULL, apple_auth_key_id = NULL, apple_auth_key = NULL, apple_issuer_id = NULL, app_store_key_id = NULL, app_store_key = NULL, google_private_key_file = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, email_sender = NULL, smtp_user = NULL, smtp_host = NULL, vatom_business_id = NULL, vatom_rest_client_id = NULL, vatom_rest_secret_key = NULL, twilio_account_sid = NULL, twilio_auth_token = NULL, twilio_sender_phone_number = NULL, open_ai_secret_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateApplicationWithHttpInfo(app_key, app_name, device_id, account_id, about, bundle_id, app_icon_asset_id, app_logo_asset_id, facebook_app_id, facebook_app_secret, google_api_key, update_eula_date, eula_version, landing_page_url, show_in_activities, activity_description, invite_welcome_text, invite_page_url, url_scheme, platforms, download_urls, category_ids, scoring_type, hint_cost, max_score, tickets_per_point, has_game_data, public_notifications, use_matching_algorithm, global_tickets, build_version, api_version, placement_name, placement_description, placement_size, placement_height, placement_width, placement_refresh_interval, create_object_store, public_content_approval, production_mode, minimum_session_length, session_gap_length, local_ads_enabled, sqoot_api_key, trilat_processing_type, max_sample_size, min_rssi, modules, authorized_count, authorized_servers, default_timezone, smtp_pass, meta_data, placement_meta_data, ips_floor, enable_apns_badge, include_in_report, default_app_filter_id, enable_welcome_email, apple_app_id, apple_team_id, apple_auth_key_id, apple_auth_key, apple_issuer_id, app_store_key_id, app_store_key, google_private_key_file, authorize_net_api_key, authorize_net_transaction_key, email_sender, smtp_user, smtp_host, vatom_business_id, vatom_rest_client_id, vatom_rest_secret_key, twilio_account_sid, twilio_auth_token, twilio_sender_phone_number, open_ai_secret_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3253,7 +3068,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Update Application
     #'
-    #' @param version 
     #' @param app_key The application key for updating an existing application
     #' @param app_name The name of the application
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
@@ -3339,7 +3153,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ApplicationResponse) with additional information such as HTTP status code, headers
-    UpdateApplicationWithHttpInfo = function(version, app_key, app_name, device_id = NULL, account_id = NULL, about = NULL, bundle_id = NULL, app_icon_asset_id = NULL, app_logo_asset_id = NULL, facebook_app_id = NULL, facebook_app_secret = NULL, google_api_key = NULL, update_eula_date = NULL, eula_version = NULL, landing_page_url = NULL, show_in_activities = NULL, activity_description = NULL, invite_welcome_text = NULL, invite_page_url = NULL, url_scheme = NULL, platforms = NULL, download_urls = NULL, category_ids = NULL, scoring_type = "GAME_LEVEL", hint_cost = 11, max_score = 125, tickets_per_point = 0.037, has_game_data = TRUE, public_notifications = NULL, use_matching_algorithm = NULL, global_tickets = FALSE, build_version = 1, api_version = NULL, placement_name = NULL, placement_description = NULL, placement_size = NULL, placement_height = NULL, placement_width = NULL, placement_refresh_interval = NULL, create_object_store = TRUE, public_content_approval = FALSE, production_mode = FALSE, minimum_session_length = NULL, session_gap_length = NULL, local_ads_enabled = FALSE, sqoot_api_key = NULL, trilat_processing_type = "FINGERPRINT", max_sample_size = NULL, min_rssi = NULL, modules = "ALL", authorized_count = 1, authorized_servers = NULL, default_timezone = NULL, smtp_pass = NULL, meta_data = NULL, placement_meta_data = NULL, ips_floor = FALSE, enable_apns_badge = TRUE, include_in_report = TRUE, default_app_filter_id = NULL, enable_welcome_email = NULL, apple_app_id = NULL, apple_team_id = NULL, apple_auth_key_id = NULL, apple_auth_key = NULL, apple_issuer_id = NULL, app_store_key_id = NULL, app_store_key = NULL, google_private_key_file = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, email_sender = NULL, smtp_user = NULL, smtp_host = NULL, vatom_business_id = NULL, vatom_rest_client_id = NULL, vatom_rest_secret_key = NULL, twilio_account_sid = NULL, twilio_auth_token = NULL, twilio_sender_phone_number = NULL, open_ai_secret_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateApplicationWithHttpInfo = function(app_key, app_name, device_id = NULL, account_id = NULL, about = NULL, bundle_id = NULL, app_icon_asset_id = NULL, app_logo_asset_id = NULL, facebook_app_id = NULL, facebook_app_secret = NULL, google_api_key = NULL, update_eula_date = NULL, eula_version = NULL, landing_page_url = NULL, show_in_activities = NULL, activity_description = NULL, invite_welcome_text = NULL, invite_page_url = NULL, url_scheme = NULL, platforms = NULL, download_urls = NULL, category_ids = NULL, scoring_type = "GAME_LEVEL", hint_cost = 11, max_score = 125, tickets_per_point = 0.037, has_game_data = TRUE, public_notifications = NULL, use_matching_algorithm = NULL, global_tickets = FALSE, build_version = 1, api_version = NULL, placement_name = NULL, placement_description = NULL, placement_size = NULL, placement_height = NULL, placement_width = NULL, placement_refresh_interval = NULL, create_object_store = TRUE, public_content_approval = FALSE, production_mode = FALSE, minimum_session_length = NULL, session_gap_length = NULL, local_ads_enabled = FALSE, sqoot_api_key = NULL, trilat_processing_type = "FINGERPRINT", max_sample_size = NULL, min_rssi = NULL, modules = "ALL", authorized_count = 1, authorized_servers = NULL, default_timezone = NULL, smtp_pass = NULL, meta_data = NULL, placement_meta_data = NULL, ips_floor = FALSE, enable_apns_badge = TRUE, include_in_report = TRUE, default_app_filter_id = NULL, enable_welcome_email = NULL, apple_app_id = NULL, apple_team_id = NULL, apple_auth_key_id = NULL, apple_auth_key = NULL, apple_issuer_id = NULL, app_store_key_id = NULL, app_store_key = NULL, google_private_key_file = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, email_sender = NULL, smtp_user = NULL, smtp_host = NULL, vatom_business_id = NULL, vatom_rest_client_id = NULL, vatom_rest_secret_key = NULL, twilio_account_sid = NULL, twilio_auth_token = NULL, twilio_sender_phone_number = NULL, open_ai_secret_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3349,20 +3163,12 @@ ApplicationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
       }
 
       if (missing(`app_name`)) {
         stop("Missing required parameter `app_name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$UpdateApplication, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -3854,11 +3660,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["openAISecretKey"]] <- `open_ai_secret_key`
 
-      local_var_url_path <- "/api/{version}/application/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3919,7 +3721,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Change Appliation Status
     #'
-    #' @param version 
     #' @param account_id The account used to perform the delete, must have rights to edit the application.
     #' @param app_key The key of the application to be deleted
     #' @param active If true then set to active, false otherwise
@@ -3928,8 +3729,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UpdateApplicationActive = function(version, account_id, app_key, active, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateApplicationActiveWithHttpInfo(version, account_id, app_key, active, data_file = data_file, ..., .parse = .parse)
+    UpdateApplicationActive = function(account_id, app_key, active, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateApplicationActiveWithHttpInfo(account_id, app_key, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3944,7 +3745,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Change Appliation Status
     #'
-    #' @param version 
     #' @param account_id The account used to perform the delete, must have rights to edit the application.
     #' @param app_key The key of the application to be deleted
     #' @param active If true then set to active, false otherwise
@@ -3953,7 +3753,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UpdateApplicationActiveWithHttpInfo = function(version, account_id, app_key, active, data_file = NULL, ..., .parse = TRUE) {
+    UpdateApplicationActiveWithHttpInfo = function(account_id, app_key, active, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3962,10 +3762,6 @@ ApplicationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -3977,10 +3773,6 @@ ApplicationApi <- R6::R6Class(
 
       if (missing(`active`)) {
         stop("Missing required parameter `active`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$UpdateApplicationActive, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4001,11 +3793,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/application/active"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/active"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4066,7 +3854,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Update Ad Placement
     #'
-    #' @param version 
     #' @param placement_id The id of the placement to update, the user must have rights to the application the ad placement is for
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -4083,8 +3870,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PlacementResponse
-    UpdateApplicationPlacement = function(version, placement_id, device_id = NULL, account_id = NULL, name = NULL, description = NULL, size = NULL, height = NULL, width = NULL, refresh_interval = NULL, default_image_id = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateApplicationPlacementWithHttpInfo(version, placement_id, device_id, account_id, name, description, size, height, width, refresh_interval, default_image_id, active, data_file = data_file, ..., .parse = .parse)
+    UpdateApplicationPlacement = function(placement_id, device_id = NULL, account_id = NULL, name = NULL, description = NULL, size = NULL, height = NULL, width = NULL, refresh_interval = NULL, default_image_id = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateApplicationPlacementWithHttpInfo(placement_id, device_id, account_id, name, description, size, height, width, refresh_interval, default_image_id, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4099,7 +3886,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Update Ad Placement
     #'
-    #' @param version 
     #' @param placement_id The id of the placement to update, the user must have rights to the application the ad placement is for
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -4116,7 +3902,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PlacementResponse) with additional information such as HTTP status code, headers
-    UpdateApplicationPlacementWithHttpInfo = function(version, placement_id, device_id = NULL, account_id = NULL, name = NULL, description = NULL, size = NULL, height = NULL, width = NULL, refresh_interval = NULL, default_image_id = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateApplicationPlacementWithHttpInfo = function(placement_id, device_id = NULL, account_id = NULL, name = NULL, description = NULL, size = NULL, height = NULL, width = NULL, refresh_interval = NULL, default_image_id = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4126,16 +3912,8 @@ ApplicationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`placement_id`)) {
         stop("Missing required parameter `placement_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$UpdateApplicationPlacement, `version` is not nullable")
       }
 
       if (!missing(`placement_id`) && is.null(`placement_id`)) {
@@ -4207,11 +3985,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/application/placement/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/placement/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4272,7 +4046,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Create Application Certificate
     #'
-    #' @param version 
     #' @param app_key The key of the application
     #' @param device_id (optional) Device Id
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the application.
@@ -4282,8 +4055,8 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UploadApplicationCertificate = function(version, app_key, device_id = NULL, account_id = NULL, certificate = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UploadApplicationCertificateWithHttpInfo(version, app_key, device_id, account_id, certificate, data_file = data_file, ..., .parse = .parse)
+    UploadApplicationCertificate = function(app_key, device_id = NULL, account_id = NULL, certificate = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UploadApplicationCertificateWithHttpInfo(app_key, device_id, account_id, certificate, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4298,7 +4071,6 @@ ApplicationApi <- R6::R6Class(
     #' @description
     #' Create Application Certificate
     #'
-    #' @param version 
     #' @param app_key The key of the application
     #' @param device_id (optional) Device Id
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the application.
@@ -4308,7 +4080,7 @@ ApplicationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UploadApplicationCertificateWithHttpInfo = function(version, app_key, device_id = NULL, account_id = NULL, certificate = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UploadApplicationCertificateWithHttpInfo = function(app_key, device_id = NULL, account_id = NULL, certificate = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4318,16 +4090,8 @@ ApplicationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationApi$UploadApplicationCertificate, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -4354,11 +4118,7 @@ ApplicationApi <- R6::R6Class(
 
       query_params[["certificate"]] <- `certificate`
 
-      local_var_url_path <- "/api/{version}/application/certificate/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/application/certificate/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

@@ -17,7 +17,6 @@
 #' ####################  AddOrUpdateAlbumContest  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_public_read <- "public_read_example" # character | determines whether the contest's participants has read permissions
 #' var_public_write <- "public_write_example" # character | determines whether the contest's participants has write permissions
 #' var_public_delete <- "public_delete_example" # character | determines whether the contest's participants has delete permissions
@@ -48,15 +47,14 @@
 #' api_instance <- ContestApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddOrUpdateAlbumContest(var_version, var_public_read, var_public_write, var_public_delete, var_public_add, var_visibility, var_include_friend_group, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, contest_type = var_contest_type, album_contest_id = var_album_contest_id, title = var_title, description = var_description, album_id1 = var_album_id1, remove_album1 = var_remove_album1, album_id2 = var_album_id2, remove_album2 = var_remove_album2, start_date = var_start_date, end_date = var_end_date, location_description = var_location_description, connection_ids_to_add = var_connection_ids_to_add, connection_group_ids_to_add = var_connection_group_ids_to_add, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$AddOrUpdateAlbumContest(var_version, var_public_read, var_public_write, var_public_delete, var_public_add, var_visibility, var_include_friend_group, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, contest_type = var_contest_type, album_contest_id = var_album_contest_id, title = var_title, description = var_description, album_id1 = var_album_id1, remove_album1 = var_remove_album1, album_id2 = var_album_id2, remove_album2 = var_remove_album2, start_date = var_start_date, end_date = var_end_date, location_description = var_location_description, connection_ids_to_add = var_connection_ids_to_add, connection_group_ids_to_add = var_connection_group_ids_to_add, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$AddOrUpdateAlbumContest(var_public_read, var_public_write, var_public_delete, var_public_add, var_visibility, var_include_friend_group, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, contest_type = var_contest_type, album_contest_id = var_album_contest_id, title = var_title, description = var_description, album_id1 = var_album_id1, remove_album1 = var_remove_album1, album_id2 = var_album_id2, remove_album2 = var_remove_album2, start_date = var_start_date, end_date = var_end_date, location_description = var_location_description, connection_ids_to_add = var_connection_ids_to_add, connection_group_ids_to_add = var_connection_group_ids_to_add, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$AddOrUpdateAlbumContest(var_public_read, var_public_write, var_public_delete, var_public_add, var_visibility, var_include_friend_group, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, contest_type = var_contest_type, album_contest_id = var_album_contest_id, title = var_title, description = var_description, album_id1 = var_album_id1, remove_album1 = var_remove_album1, album_id2 = var_album_id2, remove_album2 = var_remove_album2, start_date = var_start_date, end_date = var_end_date, location_description = var_location_description, connection_ids_to_add = var_connection_ids_to_add, connection_group_ids_to_add = var_connection_group_ids_to_add, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  ApproveAlbumContest  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_album_contest_id <- 56 # integer | The ID of the album contest
 #' var_approval_status <- "approval_status_example" # character | The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
 #' var_device_id <- "device_id_example" # character | A unique ID given by the device (deviceId or accountId required) (Optional)
@@ -66,15 +64,14 @@
 #' api_instance <- ContestApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ApproveAlbumContest(var_version, var_album_contest_id, var_approval_status, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$ApproveAlbumContest(var_version, var_album_contest_id, var_approval_status, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$ApproveAlbumContest(var_album_contest_id, var_approval_status, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$ApproveAlbumContest(var_album_contest_id, var_approval_status, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteContest  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_album_contest_id <- 56 # integer | the album contest ID
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
@@ -85,15 +82,14 @@
 #' api_instance <- ContestApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteContest(var_version, var_album_contest_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$DeleteContest(var_version, var_album_contest_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$DeleteContest(var_album_contest_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$DeleteContest(var_album_contest_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GetAlbumContest  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_album_contest_id <- 56 # integer | the album contest ID
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
@@ -104,15 +100,14 @@
 #' api_instance <- ContestApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAlbumContest(var_version, var_album_contest_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetAlbumContest(var_version, var_album_contest_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetAlbumContest(var_album_contest_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetAlbumContest(var_album_contest_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GetAlbumContests  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_filter <- "filter_example" # character | a comma separated list of Ownership
 #' var_sort_field <- "sort_field_example" # character | the field to sort by. See AlbumContestApiMap
 #' var_descending <- "descending_example" # character | determines whether the sorted list is in descending or ascending order
@@ -137,15 +132,14 @@
 #' api_instance <- ContestApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAlbumContests(var_version, var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, app_type = var_app_type, contest_type = var_contest_type, owner_id = var_owner_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, date_created = var_date_created, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetAlbumContests(var_version, var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, app_type = var_app_type, contest_type = var_contest_type, owner_id = var_owner_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, date_created = var_date_created, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetAlbumContests(var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, app_type = var_app_type, contest_type = var_contest_type, owner_id = var_owner_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, date_created = var_date_created, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetAlbumContests(var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, app_type = var_app_type, contest_type = var_contest_type, owner_id = var_owner_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, date_created = var_date_created, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  VoteOnAlbumContest  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_album_contest_id <- 56 # integer | the album contest ID
 #' var_album_id <- 56 # integer | the ID of the album to vote on
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
@@ -158,8 +152,8 @@
 #' api_instance <- ContestApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$VoteOnAlbumContest(var_version, var_album_contest_id, var_album_id, device_id = var_device_id, account_id = var_account_id, contest_type = var_contest_type, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$VoteOnAlbumContest(var_version, var_album_contest_id, var_album_id, device_id = var_device_id, account_id = var_account_id, contest_type = var_contest_type, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$VoteOnAlbumContest(var_album_contest_id, var_album_id, device_id = var_device_id, account_id = var_account_id, contest_type = var_contest_type, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$VoteOnAlbumContest(var_album_contest_id, var_album_id, device_id = var_device_id, account_id = var_account_id, contest_type = var_contest_type, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
@@ -187,7 +181,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Create or Update Contest
     #'
-    #' @param version 
     #' @param public_read determines whether the contest's participants has read permissions
     #' @param public_write determines whether the contest's participants has write permissions
     #' @param public_delete determines whether the contest's participants has delete permissions
@@ -218,8 +211,8 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AlbumContestResponse
-    AddOrUpdateAlbumContest = function(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, contest_type = NULL, album_contest_id = NULL, title = NULL, description = NULL, album_id1 = NULL, remove_album1 = NULL, album_id2 = NULL, remove_album2 = NULL, start_date = NULL, end_date = NULL, location_description = NULL, connection_ids_to_add = NULL, connection_group_ids_to_add = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddOrUpdateAlbumContestWithHttpInfo(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, device_id, account_id, game_type, app_key, contest_type, album_contest_id, title, description, album_id1, remove_album1, album_id2, remove_album2, start_date, end_date, location_description, connection_ids_to_add, connection_group_ids_to_add, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    AddOrUpdateAlbumContest = function(public_read, public_write, public_delete, public_add, visibility, include_friend_group, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, contest_type = NULL, album_contest_id = NULL, title = NULL, description = NULL, album_id1 = NULL, remove_album1 = NULL, album_id2 = NULL, remove_album2 = NULL, start_date = NULL, end_date = NULL, location_description = NULL, connection_ids_to_add = NULL, connection_group_ids_to_add = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddOrUpdateAlbumContestWithHttpInfo(public_read, public_write, public_delete, public_add, visibility, include_friend_group, device_id, account_id, game_type, app_key, contest_type, album_contest_id, title, description, album_id1, remove_album1, album_id2, remove_album2, start_date, end_date, location_description, connection_ids_to_add, connection_group_ids_to_add, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -234,7 +227,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Create or Update Contest
     #'
-    #' @param version 
     #' @param public_read determines whether the contest's participants has read permissions
     #' @param public_write determines whether the contest's participants has write permissions
     #' @param public_delete determines whether the contest's participants has delete permissions
@@ -265,7 +257,7 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AlbumContestResponse) with additional information such as HTTP status code, headers
-    AddOrUpdateAlbumContestWithHttpInfo = function(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, contest_type = NULL, album_contest_id = NULL, title = NULL, description = NULL, album_id1 = NULL, remove_album1 = NULL, album_id2 = NULL, remove_album2 = NULL, start_date = NULL, end_date = NULL, location_description = NULL, connection_ids_to_add = NULL, connection_group_ids_to_add = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddOrUpdateAlbumContestWithHttpInfo = function(public_read, public_write, public_delete, public_add, visibility, include_friend_group, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, contest_type = NULL, album_contest_id = NULL, title = NULL, description = NULL, album_id1 = NULL, remove_album1 = NULL, album_id2 = NULL, remove_album2 = NULL, start_date = NULL, end_date = NULL, location_description = NULL, connection_ids_to_add = NULL, connection_group_ids_to_add = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -274,10 +266,6 @@ ContestApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`public_read`)) {
         stop("Missing required parameter `public_read`.")
@@ -301,10 +289,6 @@ ContestApi <- R6::R6Class(
 
       if (missing(`include_friend_group`)) {
         stop("Missing required parameter `include_friend_group`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ContestApi$AddOrUpdateAlbumContest, `version` is not nullable")
       }
 
       if (!missing(`public_read`) && is.null(`public_read`)) {
@@ -460,11 +444,7 @@ ContestApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/album/contest"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/album/contest"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -525,7 +505,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Approve Contest
     #'
-    #' @param version 
     #' @param album_contest_id The ID of the album contest
     #' @param approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
     #' @param device_id (optional) A unique ID given by the device (deviceId or accountId required)
@@ -535,8 +514,8 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    ApproveAlbumContest = function(version, album_contest_id, approval_status, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ApproveAlbumContestWithHttpInfo(version, album_contest_id, approval_status, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    ApproveAlbumContest = function(album_contest_id, approval_status, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ApproveAlbumContestWithHttpInfo(album_contest_id, approval_status, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -551,7 +530,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Approve Contest
     #'
-    #' @param version 
     #' @param album_contest_id The ID of the album contest
     #' @param approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
     #' @param device_id (optional) A unique ID given by the device (deviceId or accountId required)
@@ -561,7 +539,7 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    ApproveAlbumContestWithHttpInfo = function(version, album_contest_id, approval_status, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ApproveAlbumContestWithHttpInfo = function(album_contest_id, approval_status, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -571,20 +549,12 @@ ContestApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`album_contest_id`)) {
         stop("Missing required parameter `album_contest_id`.")
       }
 
       if (missing(`approval_status`)) {
         stop("Missing required parameter `approval_status`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ContestApi$ApproveAlbumContest, `version` is not nullable")
       }
 
       if (!missing(`album_contest_id`) && is.null(`album_contest_id`)) {
@@ -614,11 +584,7 @@ ContestApi <- R6::R6Class(
       }
       query_params[["approvalStatus"]] <- `approval_status`
 
-      local_var_url_path <- "/api/{version}/consumer/album/contest/approve"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/album/contest/approve"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -679,7 +645,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Delete Contest
     #'
-    #' @param version 
     #' @param album_contest_id the album contest ID
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -690,8 +655,8 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteContest = function(version, album_contest_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteContestWithHttpInfo(version, album_contest_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    DeleteContest = function(album_contest_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteContestWithHttpInfo(album_contest_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -706,7 +671,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Delete Contest
     #'
-    #' @param version 
     #' @param album_contest_id the album contest ID
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -717,7 +681,7 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteContestWithHttpInfo = function(version, album_contest_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteContestWithHttpInfo = function(album_contest_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -727,16 +691,8 @@ ContestApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`album_contest_id`)) {
         stop("Missing required parameter `album_contest_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ContestApi$DeleteContest, `version` is not nullable")
       }
 
       if (!missing(`album_contest_id`) && is.null(`album_contest_id`)) {
@@ -769,11 +725,7 @@ ContestApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/album/contest/remove"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/album/contest/remove"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -834,7 +786,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Get Contest
     #'
-    #' @param version 
     #' @param album_contest_id the album contest ID
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -845,8 +796,8 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AlbumContestResponse
-    GetAlbumContest = function(version, album_contest_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAlbumContestWithHttpInfo(version, album_contest_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetAlbumContest = function(album_contest_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAlbumContestWithHttpInfo(album_contest_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -861,7 +812,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Get Contest
     #'
-    #' @param version 
     #' @param album_contest_id the album contest ID
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -872,7 +822,7 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AlbumContestResponse) with additional information such as HTTP status code, headers
-    GetAlbumContestWithHttpInfo = function(version, album_contest_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetAlbumContestWithHttpInfo = function(album_contest_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -882,16 +832,8 @@ ContestApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`album_contest_id`)) {
         stop("Missing required parameter `album_contest_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ContestApi$GetAlbumContest, `version` is not nullable")
       }
 
       if (!missing(`album_contest_id`) && is.null(`album_contest_id`)) {
@@ -924,11 +866,7 @@ ContestApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/album/contest/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/album/contest/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -989,7 +927,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Search Contests
     #'
-    #' @param version 
     #' @param filter a comma separated list of Ownership
     #' @param sort_field the field to sort by. See AlbumContestApiMap
     #' @param descending determines whether the sorted list is in descending or ascending order
@@ -1014,8 +951,8 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AlbumContestListResponse
-    GetAlbumContests = function(version, filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, app_type = NULL, contest_type = NULL, owner_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, date_created = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAlbumContestsWithHttpInfo(version, filter, sort_field, descending, start, limit, device_id, account_id, game_type, app_key, app_type, contest_type, owner_id, q, keyword, _i, _l, date_created, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetAlbumContests = function(filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, app_type = NULL, contest_type = NULL, owner_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, date_created = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAlbumContestsWithHttpInfo(filter, sort_field, descending, start, limit, device_id, account_id, game_type, app_key, app_type, contest_type, owner_id, q, keyword, _i, _l, date_created, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1030,7 +967,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Search Contests
     #'
-    #' @param version 
     #' @param filter a comma separated list of Ownership
     #' @param sort_field the field to sort by. See AlbumContestApiMap
     #' @param descending determines whether the sorted list is in descending or ascending order
@@ -1055,7 +991,7 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AlbumContestListResponse) with additional information such as HTTP status code, headers
-    GetAlbumContestsWithHttpInfo = function(version, filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, app_type = NULL, contest_type = NULL, owner_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, date_created = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetAlbumContestsWithHttpInfo = function(filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, app_type = NULL, contest_type = NULL, owner_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, date_created = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1064,10 +1000,6 @@ ContestApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`filter`)) {
         stop("Missing required parameter `filter`.")
@@ -1087,10 +1019,6 @@ ContestApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ContestApi$GetAlbumContests, `version` is not nullable")
       }
 
       if (!missing(`filter`) && is.null(`filter`)) {
@@ -1207,11 +1135,7 @@ ContestApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/album/contest/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/album/contest/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1272,7 +1196,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Vote on Contest
     #'
-    #' @param version 
     #' @param album_contest_id the album contest ID
     #' @param album_id the ID of the album to vote on
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
@@ -1285,8 +1208,8 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AlbumContestResponse
-    VoteOnAlbumContest = function(version, album_contest_id, album_id, device_id = NULL, account_id = NULL, contest_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$VoteOnAlbumContestWithHttpInfo(version, album_contest_id, album_id, device_id, account_id, contest_type, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    VoteOnAlbumContest = function(album_contest_id, album_id, device_id = NULL, account_id = NULL, contest_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$VoteOnAlbumContestWithHttpInfo(album_contest_id, album_id, device_id, account_id, contest_type, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1301,7 +1224,6 @@ ContestApi <- R6::R6Class(
     #' @description
     #' Vote on Contest
     #'
-    #' @param version 
     #' @param album_contest_id the album contest ID
     #' @param album_id the ID of the album to vote on
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
@@ -1314,7 +1236,7 @@ ContestApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AlbumContestResponse) with additional information such as HTTP status code, headers
-    VoteOnAlbumContestWithHttpInfo = function(version, album_contest_id, album_id, device_id = NULL, account_id = NULL, contest_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    VoteOnAlbumContestWithHttpInfo = function(album_contest_id, album_id, device_id = NULL, account_id = NULL, contest_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1324,20 +1246,12 @@ ContestApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`album_contest_id`)) {
         stop("Missing required parameter `album_contest_id`.")
       }
 
       if (missing(`album_id`)) {
         stop("Missing required parameter `album_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ContestApi$VoteOnAlbumContest, `version` is not nullable")
       }
 
       if (!missing(`album_contest_id`) && is.null(`album_contest_id`)) {
@@ -1382,11 +1296,7 @@ ContestApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/album/contest/vote"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/album/contest/vote"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

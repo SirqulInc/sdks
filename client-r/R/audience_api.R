@@ -17,7 +17,6 @@
 #' ####################  CreateAudience  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_name <- "name_example" # character | The name of the audience
 #' var_description <- "description_example" # character | The description of the audience (Optional)
@@ -52,15 +51,14 @@
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateAudience(var_version, var_account_id, var_name, description = var_description, search_tags = var_search_tags, gender = var_gender, age_groups = var_age_groups, category_ids = var_category_ids, application_ids = var_application_ids, game_experience_level = var_game_experience_level, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius, start_time_offset = var_start_time_offset, end_time_offset = var_end_time_offset, send_suggestion = var_send_suggestion, associate_description = var_associate_description, associate_type = var_associate_type, associate_id = var_associate_id, grouping_id = var_grouping_id, meta_data = var_meta_data, visibility = var_visibility, audience_type = var_audience_type, use_order = var_use_order, cohort_regions_data = var_cohort_regions_data, app_key = var_app_key, trilateration_types = var_trilateration_types, unique_name = var_unique_namedata_file = "result.txt")
-#' result <- api_instance$CreateAudience(var_version, var_account_id, var_name, description = var_description, search_tags = var_search_tags, gender = var_gender, age_groups = var_age_groups, category_ids = var_category_ids, application_ids = var_application_ids, game_experience_level = var_game_experience_level, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius, start_time_offset = var_start_time_offset, end_time_offset = var_end_time_offset, send_suggestion = var_send_suggestion, associate_description = var_associate_description, associate_type = var_associate_type, associate_id = var_associate_id, grouping_id = var_grouping_id, meta_data = var_meta_data, visibility = var_visibility, audience_type = var_audience_type, use_order = var_use_order, cohort_regions_data = var_cohort_regions_data, app_key = var_app_key, trilateration_types = var_trilateration_types, unique_name = var_unique_name)
+#' # result <- api_instance$CreateAudience(var_account_id, var_name, description = var_description, search_tags = var_search_tags, gender = var_gender, age_groups = var_age_groups, category_ids = var_category_ids, application_ids = var_application_ids, game_experience_level = var_game_experience_level, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius, start_time_offset = var_start_time_offset, end_time_offset = var_end_time_offset, send_suggestion = var_send_suggestion, associate_description = var_associate_description, associate_type = var_associate_type, associate_id = var_associate_id, grouping_id = var_grouping_id, meta_data = var_meta_data, visibility = var_visibility, audience_type = var_audience_type, use_order = var_use_order, cohort_regions_data = var_cohort_regions_data, app_key = var_app_key, trilateration_types = var_trilateration_types, unique_name = var_unique_namedata_file = "result.txt")
+#' result <- api_instance$CreateAudience(var_account_id, var_name, description = var_description, search_tags = var_search_tags, gender = var_gender, age_groups = var_age_groups, category_ids = var_category_ids, application_ids = var_application_ids, game_experience_level = var_game_experience_level, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius, start_time_offset = var_start_time_offset, end_time_offset = var_end_time_offset, send_suggestion = var_send_suggestion, associate_description = var_associate_description, associate_type = var_associate_type, associate_id = var_associate_id, grouping_id = var_grouping_id, meta_data = var_meta_data, visibility = var_visibility, audience_type = var_audience_type, use_order = var_use_order, cohort_regions_data = var_cohort_regions_data, app_key = var_app_key, trilateration_types = var_trilateration_types, unique_name = var_unique_name)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteAudience  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_audience_id <- 56 # integer | The id of the audience to delete.
 #'
@@ -68,29 +66,27 @@
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteAudience(var_version, var_account_id, var_audience_iddata_file = "result.txt")
-#' result <- api_instance$DeleteAudience(var_version, var_account_id, var_audience_id)
+#' # result <- api_instance$DeleteAudience(var_account_id, var_audience_iddata_file = "result.txt")
+#' result <- api_instance$DeleteAudience(var_account_id, var_audience_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetAgeGroups  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #'
 #' #Get Age Groups
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAgeGroups(var_versiondata_file = "result.txt")
-#' result <- api_instance$GetAgeGroups(var_version)
+#' # result <- api_instance$GetAgeGroups(data_file = "result.txt")
+#' result <- api_instance$GetAgeGroups()
 #' dput(result)
 #'
 #'
 #' ####################  GetAudience  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_audience_id <- 56 # integer | The id of the audience to return.
 #' var_app_key <- "app_key_example" # character | The application key (optional). If provided, results may be scoped to this application. (Optional)
@@ -102,15 +98,14 @@
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAudience(var_version, var_account_id, var_audience_id, app_key = var_app_key, return_account_count = var_return_account_count, return_album_count = var_return_album_count, album_types_for_count = var_album_types_for_countdata_file = "result.txt")
-#' result <- api_instance$GetAudience(var_version, var_account_id, var_audience_id, app_key = var_app_key, return_account_count = var_return_account_count, return_album_count = var_return_album_count, album_types_for_count = var_album_types_for_count)
+#' # result <- api_instance$GetAudience(var_account_id, var_audience_id, app_key = var_app_key, return_account_count = var_return_account_count, return_album_count = var_return_album_count, album_types_for_count = var_album_types_for_countdata_file = "result.txt")
+#' result <- api_instance$GetAudience(var_account_id, var_audience_id, app_key = var_app_key, return_account_count = var_return_account_count, return_album_count = var_return_album_count, album_types_for_count = var_album_types_for_count)
 #' dput(result)
 #'
 #'
 #' ####################  GetAudienceList  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user. (Optional)
 #' var_album_ids <- "album_ids_example" # character | Comma separated list of album IDs to filter results with (Optional)
 #' var_keyword <- "keyword_example" # character | The keyword used to search (Optional)
@@ -135,44 +130,41 @@
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAudienceList(var_version, account_id = var_account_id, album_ids = var_album_ids, keyword = var_keyword, keyword_fields = var_keyword_fields, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, send_suggestion = var_send_suggestion, active_only = var_active_only, group_by_grouping_id = var_group_by_grouping_id, app_key = var_app_key, return_global = var_return_global, exact_keyword = var_exact_keyword, audience_type = var_audience_type, audience_types = var_audience_types, return_account_count = var_return_account_count, return_album_count = var_return_album_count, album_types_for_count = var_album_types_for_countdata_file = "result.txt")
-#' result <- api_instance$GetAudienceList(var_version, account_id = var_account_id, album_ids = var_album_ids, keyword = var_keyword, keyword_fields = var_keyword_fields, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, send_suggestion = var_send_suggestion, active_only = var_active_only, group_by_grouping_id = var_group_by_grouping_id, app_key = var_app_key, return_global = var_return_global, exact_keyword = var_exact_keyword, audience_type = var_audience_type, audience_types = var_audience_types, return_account_count = var_return_account_count, return_album_count = var_return_album_count, album_types_for_count = var_album_types_for_count)
+#' # result <- api_instance$GetAudienceList(account_id = var_account_id, album_ids = var_album_ids, keyword = var_keyword, keyword_fields = var_keyword_fields, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, send_suggestion = var_send_suggestion, active_only = var_active_only, group_by_grouping_id = var_group_by_grouping_id, app_key = var_app_key, return_global = var_return_global, exact_keyword = var_exact_keyword, audience_type = var_audience_type, audience_types = var_audience_types, return_account_count = var_return_account_count, return_album_count = var_return_album_count, album_types_for_count = var_album_types_for_countdata_file = "result.txt")
+#' result <- api_instance$GetAudienceList(account_id = var_account_id, album_ids = var_album_ids, keyword = var_keyword, keyword_fields = var_keyword_fields, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, send_suggestion = var_send_suggestion, active_only = var_active_only, group_by_grouping_id = var_group_by_grouping_id, app_key = var_app_key, return_global = var_return_global, exact_keyword = var_exact_keyword, audience_type = var_audience_type, audience_types = var_audience_types, return_account_count = var_return_account_count, return_album_count = var_return_album_count, album_types_for_count = var_album_types_for_count)
 #' dput(result)
 #'
 #'
 #' ####################  GetDevices  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_include_inactive <- "include_inactive_example" # character | If true return inactive record as well. default is false.
 #'
 #' #Get Devices
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetDevices(var_version, var_include_inactivedata_file = "result.txt")
-#' result <- api_instance$GetDevices(var_version, var_include_inactive)
+#' # result <- api_instance$GetDevices(var_include_inactivedata_file = "result.txt")
+#' result <- api_instance$GetDevices(var_include_inactive)
 #' dput(result)
 #'
 #'
 #' ####################  GetExperiences  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #'
 #' #Get Experiences
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetExperiences(var_versiondata_file = "result.txt")
-#' result <- api_instance$GetExperiences(var_version)
+#' # result <- api_instance$GetExperiences(data_file = "result.txt")
+#' result <- api_instance$GetExperiences()
 #' dput(result)
 #'
 #'
 #' ####################  GetGroupedAudiences  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_audience_grouping_id <- "audience_grouping_id_example" # character | The audience grouping id to return.
 #'
@@ -180,15 +172,14 @@
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetGroupedAudiences(var_version, var_account_id, var_audience_grouping_iddata_file = "result.txt")
-#' result <- api_instance$GetGroupedAudiences(var_version, var_account_id, var_audience_grouping_id)
+#' # result <- api_instance$GetGroupedAudiences(var_account_id, var_audience_grouping_iddata_file = "result.txt")
+#' result <- api_instance$GetGroupedAudiences(var_account_id, var_audience_grouping_id)
 #' dput(result)
 #'
 #'
 #' ####################  ListByAccount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account to match offers for.
 #' var_limit <- 56 # integer | the limit of the index
 #' var_suggestion_type <- "suggestion_type_example" # character | the type of suggestion
@@ -197,15 +188,14 @@
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ListByAccount(var_version, var_account_id, var_limit, var_suggestion_typedata_file = "result.txt")
-#' result <- api_instance$ListByAccount(var_version, var_account_id, var_limit, var_suggestion_type)
+#' # result <- api_instance$ListByAccount(var_account_id, var_limit, var_suggestion_typedata_file = "result.txt")
+#' result <- api_instance$ListByAccount(var_account_id, var_limit, var_suggestion_type)
 #' dput(result)
 #'
 #'
 #' ####################  ListByAudience  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_limit <- 56 # integer | this is the limit of the index
 #' var_gender <- "gender_example" # character | this is the gender to list offers by (Optional)
 #' var_age <- 56 # integer | this is the age to list offers by (Optional)
@@ -217,15 +207,14 @@
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ListByAudience(var_version, var_limit, gender = var_gender, age = var_age, category_ids = var_category_ids, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$ListByAudience(var_version, var_limit, gender = var_gender, age = var_age, category_ids = var_category_ids, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$ListByAudience(var_limit, gender = var_gender, age = var_age, category_ids = var_category_ids, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$ListByAudience(var_limit, gender = var_gender, age = var_age, category_ids = var_category_ids, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  ListLastestByAccount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account to match offers for.
 #' var_timeframe <- 56 # integer | The timeframe in seconds of the latest suggestions
 #' var_suggestion_type <- "suggestion_type_example" # character | The type of trigger suggestions to return
@@ -234,15 +223,14 @@
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ListLastestByAccount(var_version, var_account_id, var_timeframe, var_suggestion_typedata_file = "result.txt")
-#' result <- api_instance$ListLastestByAccount(var_version, var_account_id, var_timeframe, var_suggestion_type)
+#' # result <- api_instance$ListLastestByAccount(var_account_id, var_timeframe, var_suggestion_typedata_file = "result.txt")
+#' result <- api_instance$ListLastestByAccount(var_account_id, var_timeframe, var_suggestion_type)
 #' dput(result)
 #'
 #'
 #' ####################  SendByAccount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account to match offers for.
 #' var_latitude <- 3.4 # numeric | the latitude
 #' var_longitude <- 3.4 # numeric | the longitude
@@ -251,15 +239,14 @@
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SendByAccount(var_version, var_account_id, var_latitude, var_longitudedata_file = "result.txt")
-#' result <- api_instance$SendByAccount(var_version, var_account_id, var_latitude, var_longitude)
+#' # result <- api_instance$SendByAccount(var_account_id, var_latitude, var_longitudedata_file = "result.txt")
+#' result <- api_instance$SendByAccount(var_account_id, var_latitude, var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateAudience  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_audience_id <- 56 # integer | The id of the audience to update.
 #' var_name <- "name_example" # character | The name of the audience (Optional)
@@ -296,8 +283,8 @@
 #' api_instance <- AudienceApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateAudience(var_version, var_account_id, var_audience_id, name = var_name, description = var_description, search_tags = var_search_tags, gender = var_gender, age_groups = var_age_groups, category_ids = var_category_ids, application_ids = var_application_ids, game_experience_level = var_game_experience_level, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius, active = var_active, send_suggestion = var_send_suggestion, start_time_offset = var_start_time_offset, end_time_offset = var_end_time_offset, associate_description = var_associate_description, associate_type = var_associate_type, associate_id = var_associate_id, grouping_id = var_grouping_id, meta_data = var_meta_data, visibility = var_visibility, audience_type = var_audience_type, use_order = var_use_order, cohort_regions_data = var_cohort_regions_data, app_key = var_app_key, trilateration_types = var_trilateration_types, unique_name = var_unique_namedata_file = "result.txt")
-#' result <- api_instance$UpdateAudience(var_version, var_account_id, var_audience_id, name = var_name, description = var_description, search_tags = var_search_tags, gender = var_gender, age_groups = var_age_groups, category_ids = var_category_ids, application_ids = var_application_ids, game_experience_level = var_game_experience_level, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius, active = var_active, send_suggestion = var_send_suggestion, start_time_offset = var_start_time_offset, end_time_offset = var_end_time_offset, associate_description = var_associate_description, associate_type = var_associate_type, associate_id = var_associate_id, grouping_id = var_grouping_id, meta_data = var_meta_data, visibility = var_visibility, audience_type = var_audience_type, use_order = var_use_order, cohort_regions_data = var_cohort_regions_data, app_key = var_app_key, trilateration_types = var_trilateration_types, unique_name = var_unique_name)
+#' # result <- api_instance$UpdateAudience(var_account_id, var_audience_id, name = var_name, description = var_description, search_tags = var_search_tags, gender = var_gender, age_groups = var_age_groups, category_ids = var_category_ids, application_ids = var_application_ids, game_experience_level = var_game_experience_level, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius, active = var_active, send_suggestion = var_send_suggestion, start_time_offset = var_start_time_offset, end_time_offset = var_end_time_offset, associate_description = var_associate_description, associate_type = var_associate_type, associate_id = var_associate_id, grouping_id = var_grouping_id, meta_data = var_meta_data, visibility = var_visibility, audience_type = var_audience_type, use_order = var_use_order, cohort_regions_data = var_cohort_regions_data, app_key = var_app_key, trilateration_types = var_trilateration_types, unique_name = var_unique_namedata_file = "result.txt")
+#' result <- api_instance$UpdateAudience(var_account_id, var_audience_id, name = var_name, description = var_description, search_tags = var_search_tags, gender = var_gender, age_groups = var_age_groups, category_ids = var_category_ids, application_ids = var_application_ids, game_experience_level = var_game_experience_level, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius, active = var_active, send_suggestion = var_send_suggestion, start_time_offset = var_start_time_offset, end_time_offset = var_end_time_offset, associate_description = var_associate_description, associate_type = var_associate_type, associate_id = var_associate_id, grouping_id = var_grouping_id, meta_data = var_meta_data, visibility = var_visibility, audience_type = var_audience_type, use_order = var_use_order, cohort_regions_data = var_cohort_regions_data, app_key = var_app_key, trilateration_types = var_trilateration_types, unique_name = var_unique_name)
 #' dput(result)
 #'
 #'
@@ -325,7 +312,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Create Audience
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the audience
     #' @param description (optional) The description of the audience
@@ -360,8 +346,8 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AudienceResponse
-    CreateAudience = function(version, account_id, name, description = NULL, search_tags = NULL, gender = NULL, age_groups = NULL, category_ids = NULL, application_ids = NULL, game_experience_level = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, start_time_offset = NULL, end_time_offset = NULL, send_suggestion = TRUE, associate_description = NULL, associate_type = NULL, associate_id = NULL, grouping_id = NULL, meta_data = NULL, visibility = NULL, audience_type = NULL, use_order = NULL, cohort_regions_data = NULL, app_key = NULL, trilateration_types = NULL, unique_name = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateAudienceWithHttpInfo(version, account_id, name, description, search_tags, gender, age_groups, category_ids, application_ids, game_experience_level, devices, device_ids, device_versions, locations, radius, start_time_offset, end_time_offset, send_suggestion, associate_description, associate_type, associate_id, grouping_id, meta_data, visibility, audience_type, use_order, cohort_regions_data, app_key, trilateration_types, unique_name, data_file = data_file, ..., .parse = .parse)
+    CreateAudience = function(account_id, name, description = NULL, search_tags = NULL, gender = NULL, age_groups = NULL, category_ids = NULL, application_ids = NULL, game_experience_level = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, start_time_offset = NULL, end_time_offset = NULL, send_suggestion = TRUE, associate_description = NULL, associate_type = NULL, associate_id = NULL, grouping_id = NULL, meta_data = NULL, visibility = NULL, audience_type = NULL, use_order = NULL, cohort_regions_data = NULL, app_key = NULL, trilateration_types = NULL, unique_name = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateAudienceWithHttpInfo(account_id, name, description, search_tags, gender, age_groups, category_ids, application_ids, game_experience_level, devices, device_ids, device_versions, locations, radius, start_time_offset, end_time_offset, send_suggestion, associate_description, associate_type, associate_id, grouping_id, meta_data, visibility, audience_type, use_order, cohort_regions_data, app_key, trilateration_types, unique_name, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -376,7 +362,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Create Audience
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the audience
     #' @param description (optional) The description of the audience
@@ -411,7 +396,7 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AudienceResponse) with additional information such as HTTP status code, headers
-    CreateAudienceWithHttpInfo = function(version, account_id, name, description = NULL, search_tags = NULL, gender = NULL, age_groups = NULL, category_ids = NULL, application_ids = NULL, game_experience_level = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, start_time_offset = NULL, end_time_offset = NULL, send_suggestion = TRUE, associate_description = NULL, associate_type = NULL, associate_id = NULL, grouping_id = NULL, meta_data = NULL, visibility = NULL, audience_type = NULL, use_order = NULL, cohort_regions_data = NULL, app_key = NULL, trilateration_types = NULL, unique_name = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateAudienceWithHttpInfo = function(account_id, name, description = NULL, search_tags = NULL, gender = NULL, age_groups = NULL, category_ids = NULL, application_ids = NULL, game_experience_level = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, start_time_offset = NULL, end_time_offset = NULL, send_suggestion = TRUE, associate_description = NULL, associate_type = NULL, associate_id = NULL, grouping_id = NULL, meta_data = NULL, visibility = NULL, audience_type = NULL, use_order = NULL, cohort_regions_data = NULL, app_key = NULL, trilateration_types = NULL, unique_name = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -421,20 +406,12 @@ AudienceApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`name`)) {
         stop("Missing required parameter `name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$CreateAudience, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -611,11 +588,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["uniqueName"]] <- `unique_name`
 
-      local_var_url_path <- "/api/{version}/audience/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -676,7 +649,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Delete Audience
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param audience_id The id of the audience to delete.
     #' @param data_file (optional) name of the data file to save the result
@@ -684,8 +656,8 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteAudience = function(version, account_id, audience_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteAudienceWithHttpInfo(version, account_id, audience_id, data_file = data_file, ..., .parse = .parse)
+    DeleteAudience = function(account_id, audience_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteAudienceWithHttpInfo(account_id, audience_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -700,7 +672,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Delete Audience
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param audience_id The id of the audience to delete.
     #' @param data_file (optional) name of the data file to save the result
@@ -708,7 +679,7 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteAudienceWithHttpInfo = function(version, account_id, audience_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteAudienceWithHttpInfo = function(account_id, audience_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -718,20 +689,12 @@ AudienceApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`audience_id`)) {
         stop("Missing required parameter `audience_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$DeleteAudience, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -746,11 +709,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["audienceId"]] <- `audience_id`
 
-      local_var_url_path <- "/api/{version}/audience/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -811,14 +770,13 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Get Age Groups
     #'
-    #' @param version 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AgeGroupResponse]
-    GetAgeGroups = function(version, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAgeGroupsWithHttpInfo(version, data_file = data_file, ..., .parse = .parse)
+    GetAgeGroups = function(data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAgeGroupsWithHttpInfo(data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -833,13 +791,12 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Get Age Groups
     #'
-    #' @param version 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AgeGroupResponse]) with additional information such as HTTP status code, headers
-    GetAgeGroupsWithHttpInfo = function(version, data_file = NULL, ..., .parse = TRUE) {
+    GetAgeGroupsWithHttpInfo = function(data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -849,19 +806,7 @@ AudienceApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$GetAgeGroups, `version` is not nullable")
-      }
-
-      local_var_url_path <- "/api/{version}/audience/ageGroups"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/ageGroups"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -922,7 +867,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Get Audience
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param audience_id The id of the audience to return.
     #' @param app_key (optional) The application key (optional). If provided, results may be scoped to this application.
@@ -934,8 +878,8 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AudienceResponse
-    GetAudience = function(version, account_id, audience_id, app_key = NULL, return_account_count = FALSE, return_album_count = FALSE, album_types_for_count = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAudienceWithHttpInfo(version, account_id, audience_id, app_key, return_account_count, return_album_count, album_types_for_count, data_file = data_file, ..., .parse = .parse)
+    GetAudience = function(account_id, audience_id, app_key = NULL, return_account_count = FALSE, return_album_count = FALSE, album_types_for_count = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAudienceWithHttpInfo(account_id, audience_id, app_key, return_account_count, return_album_count, album_types_for_count, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -950,7 +894,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Get Audience
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param audience_id The id of the audience to return.
     #' @param app_key (optional) The application key (optional). If provided, results may be scoped to this application.
@@ -962,7 +905,7 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AudienceResponse) with additional information such as HTTP status code, headers
-    GetAudienceWithHttpInfo = function(version, account_id, audience_id, app_key = NULL, return_account_count = FALSE, return_album_count = FALSE, album_types_for_count = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetAudienceWithHttpInfo = function(account_id, audience_id, app_key = NULL, return_account_count = FALSE, return_album_count = FALSE, album_types_for_count = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -972,20 +915,12 @@ AudienceApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`audience_id`)) {
         stop("Missing required parameter `audience_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$GetAudience, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1024,11 +959,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["albumTypesForCount"]] <- `album_types_for_count`
 
-      local_var_url_path <- "/api/{version}/audience/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1089,7 +1020,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Search Audiences
     #'
-    #' @param version 
     #' @param account_id (optional) The logged in user.
     #' @param album_ids (optional) Comma separated list of album IDs to filter results with
     #' @param keyword (optional) The keyword used to search
@@ -1114,8 +1044,8 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[SearchResponse]
-    GetAudienceList = function(version, account_id = NULL, album_ids = NULL, keyword = NULL, keyword_fields = "SEARCH_TAGS,NAME,DESCRIPTION", sort_field = "NAME", descending = FALSE, start = 0, limit = 20, send_suggestion = NULL, active_only = NULL, group_by_grouping_id = NULL, app_key = NULL, return_global = NULL, exact_keyword = NULL, audience_type = NULL, audience_types = NULL, return_account_count = FALSE, return_album_count = FALSE, album_types_for_count = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAudienceListWithHttpInfo(version, account_id, album_ids, keyword, keyword_fields, sort_field, descending, start, limit, send_suggestion, active_only, group_by_grouping_id, app_key, return_global, exact_keyword, audience_type, audience_types, return_account_count, return_album_count, album_types_for_count, data_file = data_file, ..., .parse = .parse)
+    GetAudienceList = function(account_id = NULL, album_ids = NULL, keyword = NULL, keyword_fields = "SEARCH_TAGS,NAME,DESCRIPTION", sort_field = "NAME", descending = FALSE, start = 0, limit = 20, send_suggestion = NULL, active_only = NULL, group_by_grouping_id = NULL, app_key = NULL, return_global = NULL, exact_keyword = NULL, audience_type = NULL, audience_types = NULL, return_account_count = FALSE, return_album_count = FALSE, album_types_for_count = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAudienceListWithHttpInfo(account_id, album_ids, keyword, keyword_fields, sort_field, descending, start, limit, send_suggestion, active_only, group_by_grouping_id, app_key, return_global, exact_keyword, audience_type, audience_types, return_account_count, return_album_count, album_types_for_count, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1130,7 +1060,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Search Audiences
     #'
-    #' @param version 
     #' @param account_id (optional) The logged in user.
     #' @param album_ids (optional) Comma separated list of album IDs to filter results with
     #' @param keyword (optional) The keyword used to search
@@ -1155,7 +1084,7 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[SearchResponse]) with additional information such as HTTP status code, headers
-    GetAudienceListWithHttpInfo = function(version, account_id = NULL, album_ids = NULL, keyword = NULL, keyword_fields = "SEARCH_TAGS,NAME,DESCRIPTION", sort_field = "NAME", descending = FALSE, start = 0, limit = 20, send_suggestion = NULL, active_only = NULL, group_by_grouping_id = NULL, app_key = NULL, return_global = NULL, exact_keyword = NULL, audience_type = NULL, audience_types = NULL, return_account_count = FALSE, return_album_count = FALSE, album_types_for_count = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetAudienceListWithHttpInfo = function(account_id = NULL, album_ids = NULL, keyword = NULL, keyword_fields = "SEARCH_TAGS,NAME,DESCRIPTION", sort_field = "NAME", descending = FALSE, start = 0, limit = 20, send_suggestion = NULL, active_only = NULL, group_by_grouping_id = NULL, app_key = NULL, return_global = NULL, exact_keyword = NULL, audience_type = NULL, audience_types = NULL, return_account_count = FALSE, return_album_count = FALSE, album_types_for_count = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1164,14 +1093,6 @@ AudienceApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$GetAudienceList, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling AudienceApi$GetAudienceList, `account_id` is not nullable")
@@ -1290,11 +1211,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["albumTypesForCount"]] <- `album_types_for_count`
 
-      local_var_url_path <- "/api/{version}/audience/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1355,15 +1272,14 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Get Devices
     #'
-    #' @param version 
     #' @param include_inactive If true return inactive record as well. default is false.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AudienceDeviceResponse]
-    GetDevices = function(version, include_inactive, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetDevicesWithHttpInfo(version, include_inactive, data_file = data_file, ..., .parse = .parse)
+    GetDevices = function(include_inactive, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetDevicesWithHttpInfo(include_inactive, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1378,14 +1294,13 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Get Devices
     #'
-    #' @param version 
     #' @param include_inactive If true return inactive record as well. default is false.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AudienceDeviceResponse]) with additional information such as HTTP status code, headers
-    GetDevicesWithHttpInfo = function(version, include_inactive, data_file = NULL, ..., .parse = TRUE) {
+    GetDevicesWithHttpInfo = function(include_inactive, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1395,16 +1310,8 @@ AudienceApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`include_inactive`)) {
         stop("Missing required parameter `include_inactive`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$GetDevices, `version` is not nullable")
       }
 
       if (!missing(`include_inactive`) && is.null(`include_inactive`)) {
@@ -1413,11 +1320,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["includeInactive"]] <- `include_inactive`
 
-      local_var_url_path <- "/api/{version}/audience/devices"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/devices"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1478,14 +1381,13 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Get Experiences
     #'
-    #' @param version 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    GetExperiences = function(version, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetExperiencesWithHttpInfo(version, data_file = data_file, ..., .parse = .parse)
+    GetExperiences = function(data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetExperiencesWithHttpInfo(data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1500,13 +1402,12 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Get Experiences
     #'
-    #' @param version 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    GetExperiencesWithHttpInfo = function(version, data_file = NULL, ..., .parse = TRUE) {
+    GetExperiencesWithHttpInfo = function(data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1516,19 +1417,7 @@ AudienceApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$GetExperiences, `version` is not nullable")
-      }
-
-      local_var_url_path <- "/api/{version}/audience/experiences"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/experiences"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1589,7 +1478,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Get GroupedAudiences
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param audience_grouping_id The audience grouping id to return.
     #' @param data_file (optional) name of the data file to save the result
@@ -1597,8 +1485,8 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AudienceResponse
-    GetGroupedAudiences = function(version, account_id, audience_grouping_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetGroupedAudiencesWithHttpInfo(version, account_id, audience_grouping_id, data_file = data_file, ..., .parse = .parse)
+    GetGroupedAudiences = function(account_id, audience_grouping_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetGroupedAudiencesWithHttpInfo(account_id, audience_grouping_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1613,7 +1501,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Get GroupedAudiences
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param audience_grouping_id The audience grouping id to return.
     #' @param data_file (optional) name of the data file to save the result
@@ -1621,7 +1508,7 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AudienceResponse) with additional information such as HTTP status code, headers
-    GetGroupedAudiencesWithHttpInfo = function(version, account_id, audience_grouping_id, data_file = NULL, ..., .parse = TRUE) {
+    GetGroupedAudiencesWithHttpInfo = function(account_id, audience_grouping_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1631,20 +1518,12 @@ AudienceApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`audience_grouping_id`)) {
         stop("Missing required parameter `audience_grouping_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$GetGroupedAudiences, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1659,11 +1538,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["audienceGroupingId"]] <- `audience_grouping_id`
 
-      local_var_url_path <- "/api/{version}/audience/grouped/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/grouped/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1724,7 +1599,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' List Suggestions by Audience
     #'
-    #' @param version 
     #' @param account_id The account to match offers for.
     #' @param limit the limit of the index
     #' @param suggestion_type the type of suggestion
@@ -1733,8 +1607,8 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferListResponse
-    ListByAccount = function(version, account_id, limit, suggestion_type, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ListByAccountWithHttpInfo(version, account_id, limit, suggestion_type, data_file = data_file, ..., .parse = .parse)
+    ListByAccount = function(account_id, limit, suggestion_type, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ListByAccountWithHttpInfo(account_id, limit, suggestion_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1749,7 +1623,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' List Suggestions by Audience
     #'
-    #' @param version 
     #' @param account_id The account to match offers for.
     #' @param limit the limit of the index
     #' @param suggestion_type the type of suggestion
@@ -1758,7 +1631,7 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferListResponse) with additional information such as HTTP status code, headers
-    ListByAccountWithHttpInfo = function(version, account_id, limit, suggestion_type, data_file = NULL, ..., .parse = TRUE) {
+    ListByAccountWithHttpInfo = function(account_id, limit, suggestion_type, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1767,10 +1640,6 @@ AudienceApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1782,10 +1651,6 @@ AudienceApi <- R6::R6Class(
 
       if (missing(`suggestion_type`)) {
         stop("Missing required parameter `suggestion_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$ListByAccount, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1806,11 +1671,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["suggestionType"]] <- `suggestion_type`
 
-      local_var_url_path <- "/api/{version}/audience/suggestion/list"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/suggestion/list"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1871,7 +1732,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' List Offers by Audience
     #'
-    #' @param version 
     #' @param limit this is the limit of the index
     #' @param gender (optional) this is the gender to list offers by
     #' @param age (optional) this is the age to list offers by
@@ -1883,8 +1743,8 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferListResponse
-    ListByAudience = function(version, limit, gender = NULL, age = NULL, category_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ListByAudienceWithHttpInfo(version, limit, gender, age, category_ids, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    ListByAudience = function(limit, gender = NULL, age = NULL, category_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ListByAudienceWithHttpInfo(limit, gender, age, category_ids, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1899,7 +1759,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' List Offers by Audience
     #'
-    #' @param version 
     #' @param limit this is the limit of the index
     #' @param gender (optional) this is the gender to list offers by
     #' @param age (optional) this is the age to list offers by
@@ -1911,7 +1770,7 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferListResponse) with additional information such as HTTP status code, headers
-    ListByAudienceWithHttpInfo = function(version, limit, gender = NULL, age = NULL, category_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ListByAudienceWithHttpInfo = function(limit, gender = NULL, age = NULL, category_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1921,16 +1780,8 @@ AudienceApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$ListByAudience, `version` is not nullable")
       }
 
       if (!missing(`limit`) && is.null(`limit`)) {
@@ -1969,11 +1820,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/audience/suggestion/offersByAudience"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/suggestion/offersByAudience"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2034,7 +1881,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' List Sent Suggestions 
     #'
-    #' @param version 
     #' @param account_id The account to match offers for.
     #' @param timeframe The timeframe in seconds of the latest suggestions
     #' @param suggestion_type The type of trigger suggestions to return
@@ -2043,8 +1889,8 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferListResponse
-    ListLastestByAccount = function(version, account_id, timeframe, suggestion_type, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ListLastestByAccountWithHttpInfo(version, account_id, timeframe, suggestion_type, data_file = data_file, ..., .parse = .parse)
+    ListLastestByAccount = function(account_id, timeframe, suggestion_type, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ListLastestByAccountWithHttpInfo(account_id, timeframe, suggestion_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2059,7 +1905,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' List Sent Suggestions 
     #'
-    #' @param version 
     #' @param account_id The account to match offers for.
     #' @param timeframe The timeframe in seconds of the latest suggestions
     #' @param suggestion_type The type of trigger suggestions to return
@@ -2068,7 +1913,7 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferListResponse) with additional information such as HTTP status code, headers
-    ListLastestByAccountWithHttpInfo = function(version, account_id, timeframe, suggestion_type, data_file = NULL, ..., .parse = TRUE) {
+    ListLastestByAccountWithHttpInfo = function(account_id, timeframe, suggestion_type, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2077,10 +1922,6 @@ AudienceApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -2092,10 +1933,6 @@ AudienceApi <- R6::R6Class(
 
       if (missing(`suggestion_type`)) {
         stop("Missing required parameter `suggestion_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$ListLastestByAccount, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2116,11 +1953,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["suggestionType"]] <- `suggestion_type`
 
-      local_var_url_path <- "/api/{version}/audience/suggestion/latest"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/suggestion/latest"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2181,7 +2014,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Send Suggestions
     #'
-    #' @param version 
     #' @param account_id The account to match offers for.
     #' @param latitude the latitude
     #' @param longitude the longitude
@@ -2190,8 +2022,8 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SendByAccount = function(version, account_id, latitude, longitude, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SendByAccountWithHttpInfo(version, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    SendByAccount = function(account_id, latitude, longitude, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SendByAccountWithHttpInfo(account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2206,7 +2038,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Send Suggestions
     #'
-    #' @param version 
     #' @param account_id The account to match offers for.
     #' @param latitude the latitude
     #' @param longitude the longitude
@@ -2215,7 +2046,7 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SendByAccountWithHttpInfo = function(version, account_id, latitude, longitude, data_file = NULL, ..., .parse = TRUE) {
+    SendByAccountWithHttpInfo = function(account_id, latitude, longitude, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2224,10 +2055,6 @@ AudienceApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -2239,10 +2066,6 @@ AudienceApi <- R6::R6Class(
 
       if (missing(`longitude`)) {
         stop("Missing required parameter `longitude`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$SendByAccount, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2263,11 +2086,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/audience/suggestion/send"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/suggestion/send"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2328,7 +2147,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Update Audience
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param audience_id The id of the audience to update.
     #' @param name (optional) The name of the audience
@@ -2365,8 +2183,8 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AudienceResponse
-    UpdateAudience = function(version, account_id, audience_id, name = NULL, description = NULL, search_tags = NULL, gender = NULL, age_groups = NULL, category_ids = NULL, application_ids = NULL, game_experience_level = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, active = NULL, send_suggestion = NULL, start_time_offset = NULL, end_time_offset = NULL, associate_description = NULL, associate_type = NULL, associate_id = NULL, grouping_id = NULL, meta_data = NULL, visibility = NULL, audience_type = NULL, use_order = NULL, cohort_regions_data = NULL, app_key = NULL, trilateration_types = NULL, unique_name = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateAudienceWithHttpInfo(version, account_id, audience_id, name, description, search_tags, gender, age_groups, category_ids, application_ids, game_experience_level, devices, device_ids, device_versions, locations, radius, active, send_suggestion, start_time_offset, end_time_offset, associate_description, associate_type, associate_id, grouping_id, meta_data, visibility, audience_type, use_order, cohort_regions_data, app_key, trilateration_types, unique_name, data_file = data_file, ..., .parse = .parse)
+    UpdateAudience = function(account_id, audience_id, name = NULL, description = NULL, search_tags = NULL, gender = NULL, age_groups = NULL, category_ids = NULL, application_ids = NULL, game_experience_level = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, active = NULL, send_suggestion = NULL, start_time_offset = NULL, end_time_offset = NULL, associate_description = NULL, associate_type = NULL, associate_id = NULL, grouping_id = NULL, meta_data = NULL, visibility = NULL, audience_type = NULL, use_order = NULL, cohort_regions_data = NULL, app_key = NULL, trilateration_types = NULL, unique_name = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateAudienceWithHttpInfo(account_id, audience_id, name, description, search_tags, gender, age_groups, category_ids, application_ids, game_experience_level, devices, device_ids, device_versions, locations, radius, active, send_suggestion, start_time_offset, end_time_offset, associate_description, associate_type, associate_id, grouping_id, meta_data, visibility, audience_type, use_order, cohort_regions_data, app_key, trilateration_types, unique_name, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2381,7 +2199,6 @@ AudienceApi <- R6::R6Class(
     #' @description
     #' Update Audience
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param audience_id The id of the audience to update.
     #' @param name (optional) The name of the audience
@@ -2418,7 +2235,7 @@ AudienceApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AudienceResponse) with additional information such as HTTP status code, headers
-    UpdateAudienceWithHttpInfo = function(version, account_id, audience_id, name = NULL, description = NULL, search_tags = NULL, gender = NULL, age_groups = NULL, category_ids = NULL, application_ids = NULL, game_experience_level = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, active = NULL, send_suggestion = NULL, start_time_offset = NULL, end_time_offset = NULL, associate_description = NULL, associate_type = NULL, associate_id = NULL, grouping_id = NULL, meta_data = NULL, visibility = NULL, audience_type = NULL, use_order = NULL, cohort_regions_data = NULL, app_key = NULL, trilateration_types = NULL, unique_name = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateAudienceWithHttpInfo = function(account_id, audience_id, name = NULL, description = NULL, search_tags = NULL, gender = NULL, age_groups = NULL, category_ids = NULL, application_ids = NULL, game_experience_level = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, active = NULL, send_suggestion = NULL, start_time_offset = NULL, end_time_offset = NULL, associate_description = NULL, associate_type = NULL, associate_id = NULL, grouping_id = NULL, meta_data = NULL, visibility = NULL, audience_type = NULL, use_order = NULL, cohort_regions_data = NULL, app_key = NULL, trilateration_types = NULL, unique_name = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2428,20 +2245,12 @@ AudienceApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`audience_id`)) {
         stop("Missing required parameter `audience_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AudienceApi$UpdateAudience, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2630,11 +2439,7 @@ AudienceApi <- R6::R6Class(
 
       query_params[["uniqueName"]] <- `unique_name`
 
-      local_var_url_path <- "/api/{version}/audience/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/audience/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

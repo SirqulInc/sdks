@@ -17,7 +17,6 @@
 #' ####################  GetOptimizationResult  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_batch_id <- "batch_id_example" # character | The batchID for getting the import status of.
 #' var_start <- 56 # integer | The start index for pagination
 #' var_limit <- 56 # integer | The limit for pagination
@@ -26,23 +25,22 @@
 #' api_instance <- OptimizeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetOptimizationResult(var_version, var_batch_id, var_start, var_limitdata_file = "result.txt")
-#' result <- api_instance$GetOptimizationResult(var_version, var_batch_id, var_start, var_limit)
+#' # result <- api_instance$GetOptimizationResult(var_batch_id, var_start, var_limitdata_file = "result.txt")
+#' result <- api_instance$GetOptimizationResult(var_batch_id, var_start, var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  RequestOptimization  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_body <- Orders$new(c(ShipmentOrder$new("valid_example", 123, 123, 123, "ClientRefNo_example", "ClientRefNo2_example", "HubCode_example", "AccountNo_example", "CompanyName_example", "VehicleTypeName_example", "ServiceTypeName_example", "ServiceCode_example", 123, 123, 123, "PickupCompany_example", "PickupContact_example", "PickupPhone_example", "PickupStreet_example", "PickupStreet2_example", "PickupCity_example", "PickupState_example", "PickupZip_example", "PickupTargetFrom_example", "PickupTargetTo_example", "DeliveryCompany_example", "DeliveryContact_example", "DeliveryPhone_example", "DeliveryStreet_example", "DeliveryStreet2_example", "DeliveryCity_example", "DeliveryState_example", "DeliveryZip_example", "DeliveryTargetFrom_example", "DeliveryTargetTo_example", c(OrderPackage$new("valid_example", "PackageTypeName_example", 123, 123)), 123, 123, 123, 123, "PickupETA_example", "DeliveryETA_example"))) # Orders |  (Optional)
 #'
 #' #Request Optimization
 #' api_instance <- OptimizeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RequestOptimization(var_version, body = var_bodydata_file = "result.txt")
-#' result <- api_instance$RequestOptimization(var_version, body = var_body)
+#' # result <- api_instance$RequestOptimization(body = var_bodydata_file = "result.txt")
+#' result <- api_instance$RequestOptimization(body = var_body)
 #' dput(result)
 #'
 #'
@@ -70,7 +68,6 @@ OptimizeApi <- R6::R6Class(
     #' @description
     #' Get Optimization Result
     #'
-    #' @param version 
     #' @param batch_id The batchID for getting the import status of.
     #' @param start The start index for pagination
     #' @param limit The limit for pagination
@@ -79,8 +76,8 @@ OptimizeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return map(ShipmentOrder)
-    GetOptimizationResult = function(version, batch_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetOptimizationResultWithHttpInfo(version, batch_id, start, limit, data_file = data_file, ..., .parse = .parse)
+    GetOptimizationResult = function(batch_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetOptimizationResultWithHttpInfo(batch_id, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -95,7 +92,6 @@ OptimizeApi <- R6::R6Class(
     #' @description
     #' Get Optimization Result
     #'
-    #' @param version 
     #' @param batch_id The batchID for getting the import status of.
     #' @param start The start index for pagination
     #' @param limit The limit for pagination
@@ -104,7 +100,7 @@ OptimizeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (map(ShipmentOrder)) with additional information such as HTTP status code, headers
-    GetOptimizationResultWithHttpInfo = function(version, batch_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
+    GetOptimizationResultWithHttpInfo = function(batch_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -113,10 +109,6 @@ OptimizeApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`batch_id`)) {
         stop("Missing required parameter `batch_id`.")
@@ -128,10 +120,6 @@ OptimizeApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OptimizeApi$GetOptimizationResult, `version` is not nullable")
       }
 
       if (!missing(`batch_id`) && is.null(`batch_id`)) {
@@ -150,11 +138,7 @@ OptimizeApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/optimize/result/{batchID}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/optimize/result/{batchID}"
       if (!missing(`batch_id`)) {
         local_var_url_path <- gsub("\\{batchID\\}", URLencode(as.character(`batch_id`), reserved = TRUE), local_var_url_path)
       }
@@ -219,15 +203,14 @@ OptimizeApi <- R6::R6Class(
     #' @description
     #' Request Optimization
     #'
-    #' @param version 
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ImportStatuses
-    RequestOptimization = function(version, body = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RequestOptimizationWithHttpInfo(version, body, data_file = data_file, ..., .parse = .parse)
+    RequestOptimization = function(body = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RequestOptimizationWithHttpInfo(body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -242,14 +225,13 @@ OptimizeApi <- R6::R6Class(
     #' @description
     #' Request Optimization
     #'
-    #' @param version 
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ImportStatuses) with additional information such as HTTP status code, headers
-    RequestOptimizationWithHttpInfo = function(version, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RequestOptimizationWithHttpInfo = function(body = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -258,14 +240,6 @@ OptimizeApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OptimizeApi$RequestOptimization, `version` is not nullable")
-      }
 
       if (!missing(`body`) && is.null(`body`)) {
         stop("Invalid value for `body` when calling OptimizeApi$RequestOptimization, `body` is not nullable")
@@ -277,11 +251,7 @@ OptimizeApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/optimize/request"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/optimize/request"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

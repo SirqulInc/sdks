@@ -17,49 +17,45 @@
 #' ####################  CreateProgram  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_body <- Program$new(123, "active_example", "valid_example", "name_example", "description_example", 123) # Program |  (Optional)
 #'
 #' #Create Program
 #' api_instance <- ProgramApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateProgram(var_version, body = var_bodydata_file = "result.txt")
-#' result <- api_instance$CreateProgram(var_version, body = var_body)
+#' # result <- api_instance$CreateProgram(body = var_bodydata_file = "result.txt")
+#' result <- api_instance$CreateProgram(body = var_body)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteProgram  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_id <- 56 # integer | the id of the program
 #'
 #' #Delete Program
 #' api_instance <- ProgramApi$new()
 #'
-#' api_instance$DeleteProgram(var_version, var_id)
+#' api_instance$DeleteProgram(var_id)
 #'
 #'
 #' ####################  GetProgram  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_id <- 56 # integer | the id of the program
 #'
 #' #Get Program
 #' api_instance <- ProgramApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetProgram(var_version, var_iddata_file = "result.txt")
-#' result <- api_instance$GetProgram(var_version, var_id)
+#' # result <- api_instance$GetProgram(var_iddata_file = "result.txt")
+#' result <- api_instance$GetProgram(var_id)
 #' dput(result)
 #'
 #'
 #' ####################  PostProgram  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_id <- 56 # integer | the id of the program
 #' var_body <- Program$new(123, "active_example", "valid_example", "name_example", "description_example", 123) # Program |  (Optional)
 #'
@@ -67,15 +63,14 @@
 #' api_instance <- ProgramApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$PostProgram(var_version, var_id, body = var_bodydata_file = "result.txt")
-#' result <- api_instance$PostProgram(var_version, var_id, body = var_body)
+#' # result <- api_instance$PostProgram(var_id, body = var_bodydata_file = "result.txt")
+#' result <- api_instance$PostProgram(var_id, body = var_body)
 #' dput(result)
 #'
 #'
 #' ####################  PutProgram  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_id <- 56 # integer | the id of the program
 #' var_body <- Program$new(123, "active_example", "valid_example", "name_example", "description_example", 123) # Program |  (Optional)
 #'
@@ -83,15 +78,14 @@
 #' api_instance <- ProgramApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$PutProgram(var_version, var_id, body = var_bodydata_file = "result.txt")
-#' result <- api_instance$PutProgram(var_version, var_id, body = var_body)
+#' # result <- api_instance$PutProgram(var_id, body = var_bodydata_file = "result.txt")
+#' result <- api_instance$PutProgram(var_id, body = var_body)
 #' dput(result)
 #'
 #'
 #' ####################  SearchPrograms  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_sort_field <- "sort_field_example" # character | The field to sort by
 #' var_descending <- "descending_example" # character | Determines whether the sorted list is in descending or ascending order
 #' var_start <- 56 # integer | The start index for pagination
@@ -103,8 +97,8 @@
 #' api_instance <- ProgramApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchPrograms(var_version, var_sort_field, var_descending, var_start, var_limit, var_active_only, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$SearchPrograms(var_version, var_sort_field, var_descending, var_start, var_limit, var_active_only, keyword = var_keyword)
+#' # result <- api_instance$SearchPrograms(var_sort_field, var_descending, var_start, var_limit, var_active_only, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$SearchPrograms(var_sort_field, var_descending, var_start, var_limit, var_active_only, keyword = var_keyword)
 #' dput(result)
 #'
 #'
@@ -132,15 +126,14 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Create Program
     #'
-    #' @param version 
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return Program
-    CreateProgram = function(version, body = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateProgramWithHttpInfo(version, body, data_file = data_file, ..., .parse = .parse)
+    CreateProgram = function(body = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateProgramWithHttpInfo(body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -155,14 +148,13 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Create Program
     #'
-    #' @param version 
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (Program) with additional information such as HTTP status code, headers
-    CreateProgramWithHttpInfo = function(version, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateProgramWithHttpInfo = function(body = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -171,14 +163,6 @@ ProgramApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ProgramApi$CreateProgram, `version` is not nullable")
-      }
 
       if (!missing(`body`) && is.null(`body`)) {
         stop("Invalid value for `body` when calling ProgramApi$CreateProgram, `body` is not nullable")
@@ -190,11 +174,7 @@ ProgramApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/program"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/program"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -255,13 +235,12 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Delete Program
     #'
-    #' @param version 
     #' @param id the id of the program
     #' @param ... Other optional arguments
     #'
     #' @return void
-    DeleteProgram = function(version, id, ...) {
-      local_var_response <- self$DeleteProgramWithHttpInfo(version, id, ...)
+    DeleteProgram = function(id, ...) {
+      local_var_response <- self$DeleteProgramWithHttpInfo(id, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -276,12 +255,11 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Delete Program
     #'
-    #' @param version 
     #' @param id the id of the program
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    DeleteProgramWithHttpInfo = function(version, id, ...) {
+    DeleteProgramWithHttpInfo = function(id, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -291,27 +269,15 @@ ProgramApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`id`)) {
         stop("Missing required parameter `id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ProgramApi$DeleteProgram, `version` is not nullable")
       }
 
       if (!missing(`id`) && is.null(`id`)) {
         stop("Invalid value for `id` when calling ProgramApi$DeleteProgram, `id` is not nullable")
       }
 
-      local_var_url_path <- "/api/{version}/program/{id}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/program/{id}"
       if (!missing(`id`)) {
         local_var_url_path <- gsub("\\{id\\}", URLencode(as.character(`id`), reserved = TRUE), local_var_url_path)
       }
@@ -361,15 +327,14 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Get Program
     #'
-    #' @param version 
     #' @param id the id of the program
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return Program
-    GetProgram = function(version, id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetProgramWithHttpInfo(version, id, data_file = data_file, ..., .parse = .parse)
+    GetProgram = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetProgramWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -384,14 +349,13 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Get Program
     #'
-    #' @param version 
     #' @param id the id of the program
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (Program) with additional information such as HTTP status code, headers
-    GetProgramWithHttpInfo = function(version, id, data_file = NULL, ..., .parse = TRUE) {
+    GetProgramWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -401,27 +365,15 @@ ProgramApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`id`)) {
         stop("Missing required parameter `id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ProgramApi$GetProgram, `version` is not nullable")
       }
 
       if (!missing(`id`) && is.null(`id`)) {
         stop("Invalid value for `id` when calling ProgramApi$GetProgram, `id` is not nullable")
       }
 
-      local_var_url_path <- "/api/{version}/program/{id}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/program/{id}"
       if (!missing(`id`)) {
         local_var_url_path <- gsub("\\{id\\}", URLencode(as.character(`id`), reserved = TRUE), local_var_url_path)
       }
@@ -486,7 +438,6 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Update Program
     #'
-    #' @param version 
     #' @param id the id of the program
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
@@ -494,8 +445,8 @@ ProgramApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return Program
-    PostProgram = function(version, id, body = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$PostProgramWithHttpInfo(version, id, body, data_file = data_file, ..., .parse = .parse)
+    PostProgram = function(id, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PostProgramWithHttpInfo(id, body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -510,7 +461,6 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Update Program
     #'
-    #' @param version 
     #' @param id the id of the program
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
@@ -518,7 +468,7 @@ ProgramApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (Program) with additional information such as HTTP status code, headers
-    PostProgramWithHttpInfo = function(version, id, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+    PostProgramWithHttpInfo = function(id, body = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -528,16 +478,8 @@ ProgramApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`id`)) {
         stop("Missing required parameter `id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ProgramApi$PostProgram, `version` is not nullable")
       }
 
       if (!missing(`id`) && is.null(`id`)) {
@@ -554,11 +496,7 @@ ProgramApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/program/{id}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/program/{id}"
       if (!missing(`id`)) {
         local_var_url_path <- gsub("\\{id\\}", URLencode(as.character(`id`), reserved = TRUE), local_var_url_path)
       }
@@ -623,7 +561,6 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Update Program
     #'
-    #' @param version 
     #' @param id the id of the program
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
@@ -631,8 +568,8 @@ ProgramApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return Program
-    PutProgram = function(version, id, body = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$PutProgramWithHttpInfo(version, id, body, data_file = data_file, ..., .parse = .parse)
+    PutProgram = function(id, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PutProgramWithHttpInfo(id, body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -647,7 +584,6 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Update Program
     #'
-    #' @param version 
     #' @param id the id of the program
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
@@ -655,7 +591,7 @@ ProgramApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (Program) with additional information such as HTTP status code, headers
-    PutProgramWithHttpInfo = function(version, id, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+    PutProgramWithHttpInfo = function(id, body = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -665,16 +601,8 @@ ProgramApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`id`)) {
         stop("Missing required parameter `id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ProgramApi$PutProgram, `version` is not nullable")
       }
 
       if (!missing(`id`) && is.null(`id`)) {
@@ -691,11 +619,7 @@ ProgramApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/program/{id}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/program/{id}"
       if (!missing(`id`)) {
         local_var_url_path <- gsub("\\{id\\}", URLencode(as.character(`id`), reserved = TRUE), local_var_url_path)
       }
@@ -760,7 +684,6 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Search Programs
     #'
-    #' @param version 
     #' @param sort_field The field to sort by
     #' @param descending Determines whether the sorted list is in descending or ascending order
     #' @param start The start index for pagination
@@ -772,8 +695,8 @@ ProgramApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[Program]
-    SearchPrograms = function(version, sort_field, descending, start, limit, active_only, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchProgramsWithHttpInfo(version, sort_field, descending, start, limit, active_only, keyword, data_file = data_file, ..., .parse = .parse)
+    SearchPrograms = function(sort_field, descending, start, limit, active_only, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchProgramsWithHttpInfo(sort_field, descending, start, limit, active_only, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -788,7 +711,6 @@ ProgramApi <- R6::R6Class(
     #' @description
     #' Search Programs
     #'
-    #' @param version 
     #' @param sort_field The field to sort by
     #' @param descending Determines whether the sorted list is in descending or ascending order
     #' @param start The start index for pagination
@@ -800,7 +722,7 @@ ProgramApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[Program]) with additional information such as HTTP status code, headers
-    SearchProgramsWithHttpInfo = function(version, sort_field, descending, start, limit, active_only, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchProgramsWithHttpInfo = function(sort_field, descending, start, limit, active_only, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -809,10 +731,6 @@ ProgramApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`sort_field`)) {
         stop("Missing required parameter `sort_field`.")
@@ -832,10 +750,6 @@ ProgramApi <- R6::R6Class(
 
       if (missing(`active_only`)) {
         stop("Missing required parameter `active_only`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ProgramApi$SearchPrograms, `version` is not nullable")
       }
 
       if (!missing(`sort_field`) && is.null(`sort_field`)) {
@@ -874,11 +788,7 @@ ProgramApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/program"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/program"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

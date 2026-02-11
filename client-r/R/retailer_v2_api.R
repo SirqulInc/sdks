@@ -17,7 +17,6 @@
 #' ####################  GetRetaokiler  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_retailer_id <- 56 # integer | the id of the retailer
 #' var_active_only <- TRUE # character | whether to return results that are active only or all
 #' var_keyword <- "keyword_example" # character | the keyword to search on to get retailer (Optional)
@@ -29,8 +28,8 @@
 #' api_instance <- RetailerV2Api$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetRetaokiler(var_version, var_retailer_id, var_active_only, keyword = var_keyword, sort_field = var_sort_field, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$GetRetaokiler(var_version, var_retailer_id, var_active_only, keyword = var_keyword, sort_field = var_sort_field, start = var_start, limit = var_limit)
+#' # result <- api_instance$GetRetaokiler(var_retailer_id, var_active_only, keyword = var_keyword, sort_field = var_sort_field, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$GetRetaokiler(var_retailer_id, var_active_only, keyword = var_keyword, sort_field = var_sort_field, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
@@ -58,7 +57,6 @@ RetailerV2Api <- R6::R6Class(
     #' @description
     #' Get Retailer
     #'
-    #' @param version 
     #' @param retailer_id the id of the retailer
     #' @param active_only whether to return results that are active only or all
     #' @param keyword (optional) the keyword to search on to get retailer
@@ -70,8 +68,8 @@ RetailerV2Api <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    GetRetaokiler = function(version, retailer_id, active_only, keyword = NULL, sort_field = "id", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetRetaokilerWithHttpInfo(version, retailer_id, active_only, keyword, sort_field, start, limit, data_file = data_file, ..., .parse = .parse)
+    GetRetaokiler = function(retailer_id, active_only, keyword = NULL, sort_field = "id", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetRetaokilerWithHttpInfo(retailer_id, active_only, keyword, sort_field, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -86,7 +84,6 @@ RetailerV2Api <- R6::R6Class(
     #' @description
     #' Get Retailer
     #'
-    #' @param version 
     #' @param retailer_id the id of the retailer
     #' @param active_only whether to return results that are active only or all
     #' @param keyword (optional) the keyword to search on to get retailer
@@ -98,7 +95,7 @@ RetailerV2Api <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    GetRetaokilerWithHttpInfo = function(version, retailer_id, active_only, keyword = NULL, sort_field = "id", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    GetRetaokilerWithHttpInfo = function(retailer_id, active_only, keyword = NULL, sort_field = "id", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -108,20 +105,12 @@ RetailerV2Api <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`retailer_id`)) {
         stop("Missing required parameter `retailer_id`.")
       }
 
       if (missing(`active_only`)) {
         stop("Missing required parameter `active_only`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RetailerV2Api$GetRetaokiler, `version` is not nullable")
       }
 
       if (!missing(`retailer_id`) && is.null(`retailer_id`)) {
@@ -160,11 +149,7 @@ RetailerV2Api <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/retailer"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

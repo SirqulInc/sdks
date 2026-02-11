@@ -17,7 +17,6 @@
 #' ####################  AddPreview  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the account
 #' var_creative_id <- 56 # integer | The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
 #'
@@ -25,15 +24,14 @@
 #' api_instance <- CreativeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddPreview(var_version, var_account_id, var_creative_iddata_file = "result.txt")
-#' result <- api_instance$AddPreview(var_version, var_account_id, var_creative_id)
+#' # result <- api_instance$AddPreview(var_account_id, var_creative_iddata_file = "result.txt")
+#' result <- api_instance$AddPreview(var_account_id, var_creative_id)
 #' dput(result)
 #'
 #'
 #' ####################  AdsFind  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
 #' var_randomize <- "randomize_example" # character | return a random set of results, default is true. If false returns in nature order.
 #' var_targeted_ads_only <- "targeted_ads_only_example" # character | return only ads targets to the specific app, no global ads.
@@ -55,15 +53,14 @@
 #' api_instance <- CreativeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AdsFind(var_version, var_app_key, var_randomize, var_targeted_ads_only, type = var_type, account_id = var_account_id, app_version = var_app_version, latitude = var_latitude, longitude = var_longitude, device = var_device, device_identifier = var_device_identifier, device_version = var_device_version, start = var_start, limit = var_limit, include_audiences = var_include_audiences, allocates_tickets = var_allocates_tickets, mission_ids = var_mission_idsdata_file = "result.txt")
-#' result <- api_instance$AdsFind(var_version, var_app_key, var_randomize, var_targeted_ads_only, type = var_type, account_id = var_account_id, app_version = var_app_version, latitude = var_latitude, longitude = var_longitude, device = var_device, device_identifier = var_device_identifier, device_version = var_device_version, start = var_start, limit = var_limit, include_audiences = var_include_audiences, allocates_tickets = var_allocates_tickets, mission_ids = var_mission_ids)
+#' # result <- api_instance$AdsFind(var_app_key, var_randomize, var_targeted_ads_only, type = var_type, account_id = var_account_id, app_version = var_app_version, latitude = var_latitude, longitude = var_longitude, device = var_device, device_identifier = var_device_identifier, device_version = var_device_version, start = var_start, limit = var_limit, include_audiences = var_include_audiences, allocates_tickets = var_allocates_tickets, mission_ids = var_mission_idsdata_file = "result.txt")
+#' result <- api_instance$AdsFind(var_app_key, var_randomize, var_targeted_ads_only, type = var_type, account_id = var_account_id, app_version = var_app_version, latitude = var_latitude, longitude = var_longitude, device = var_device, device_identifier = var_device_identifier, device_version = var_device_version, start = var_start, limit = var_limit, include_audiences = var_include_audiences, allocates_tickets = var_allocates_tickets, mission_ids = var_mission_ids)
 #' dput(result)
 #'
 #'
 #' ####################  CreateCreative  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_name <- "name_example" # character | The name of the level.
 #' var_active <- "active_example" # character | If true set the game level as active. Default is false.
@@ -84,15 +81,14 @@
 #' api_instance <- CreativeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateCreative(var_version, var_account_id, var_name, var_active, var_wait_for_asset, description = var_description, asset_image_id = var_asset_image_id, action = var_action, data = var_data, suffix = var_suffix, type = var_type, balance = var_balance, reference_id = var_reference_id, app_version = var_app_version, mission_id = var_mission_id, offer_id = var_offer_iddata_file = "result.txt")
-#' result <- api_instance$CreateCreative(var_version, var_account_id, var_name, var_active, var_wait_for_asset, description = var_description, asset_image_id = var_asset_image_id, action = var_action, data = var_data, suffix = var_suffix, type = var_type, balance = var_balance, reference_id = var_reference_id, app_version = var_app_version, mission_id = var_mission_id, offer_id = var_offer_id)
+#' # result <- api_instance$CreateCreative(var_account_id, var_name, var_active, var_wait_for_asset, description = var_description, asset_image_id = var_asset_image_id, action = var_action, data = var_data, suffix = var_suffix, type = var_type, balance = var_balance, reference_id = var_reference_id, app_version = var_app_version, mission_id = var_mission_id, offer_id = var_offer_iddata_file = "result.txt")
+#' result <- api_instance$CreateCreative(var_account_id, var_name, var_active, var_wait_for_asset, description = var_description, asset_image_id = var_asset_image_id, action = var_action, data = var_data, suffix = var_suffix, type = var_type, balance = var_balance, reference_id = var_reference_id, app_version = var_app_version, mission_id = var_mission_id, offer_id = var_offer_id)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteCreative  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_creative_id <- 56 # integer | the id of the creative to delete
 #'
@@ -100,15 +96,14 @@
 #' api_instance <- CreativeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteCreative(var_version, var_account_id, var_creative_iddata_file = "result.txt")
-#' result <- api_instance$DeleteCreative(var_version, var_account_id, var_creative_id)
+#' # result <- api_instance$DeleteCreative(var_account_id, var_creative_iddata_file = "result.txt")
+#' result <- api_instance$DeleteCreative(var_account_id, var_creative_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetCreative  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_creative_id <- 56 # integer | the ID of the creative to get
 #'
@@ -116,15 +111,14 @@
 #' api_instance <- CreativeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetCreative(var_version, var_account_id, var_creative_iddata_file = "result.txt")
-#' result <- api_instance$GetCreative(var_version, var_account_id, var_creative_id)
+#' # result <- api_instance$GetCreative(var_account_id, var_creative_iddata_file = "result.txt")
+#' result <- api_instance$GetCreative(var_account_id, var_creative_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetCreativesByApplication  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_start <- 56 # integer | Start the result set at some index.
@@ -136,15 +130,14 @@
 #' api_instance <- CreativeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetCreativesByApplication(var_version, var_account_id, var_app_key, var_start, var_limit, mission_id = var_mission_id, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$GetCreativesByApplication(var_version, var_account_id, var_app_key, var_start, var_limit, mission_id = var_mission_id, keyword = var_keyword)
+#' # result <- api_instance$GetCreativesByApplication(var_account_id, var_app_key, var_start, var_limit, mission_id = var_mission_id, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$GetCreativesByApplication(var_account_id, var_app_key, var_start, var_limit, mission_id = var_mission_id, keyword = var_keyword)
 #' dput(result)
 #'
 #'
 #' ####################  RemovePreview  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the ID of the logged in user
 #' var_creative_id <- 56 # integer | the ID of the creative to remove preview
 #'
@@ -152,15 +145,14 @@
 #' api_instance <- CreativeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemovePreview(var_version, var_account_id, var_creative_iddata_file = "result.txt")
-#' result <- api_instance$RemovePreview(var_version, var_account_id, var_creative_id)
+#' # result <- api_instance$RemovePreview(var_account_id, var_creative_iddata_file = "result.txt")
+#' result <- api_instance$RemovePreview(var_account_id, var_creative_id)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateCreative  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_creative_id <- 56 # integer | the creative Id to upate.
 #' var_name <- "name_example" # character | The name of the level. (Optional)
@@ -180,8 +172,8 @@
 #' api_instance <- CreativeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateCreative(var_version, var_account_id, var_creative_id, name = var_name, description = var_description, asset_image_id = var_asset_image_id, action = var_action, data = var_data, suffix = var_suffix, type = var_type, balance = var_balance, active = var_active, reference_id = var_reference_id, app_version = var_app_version, mission_id = var_mission_iddata_file = "result.txt")
-#' result <- api_instance$UpdateCreative(var_version, var_account_id, var_creative_id, name = var_name, description = var_description, asset_image_id = var_asset_image_id, action = var_action, data = var_data, suffix = var_suffix, type = var_type, balance = var_balance, active = var_active, reference_id = var_reference_id, app_version = var_app_version, mission_id = var_mission_id)
+#' # result <- api_instance$UpdateCreative(var_account_id, var_creative_id, name = var_name, description = var_description, asset_image_id = var_asset_image_id, action = var_action, data = var_data, suffix = var_suffix, type = var_type, balance = var_balance, active = var_active, reference_id = var_reference_id, app_version = var_app_version, mission_id = var_mission_iddata_file = "result.txt")
+#' result <- api_instance$UpdateCreative(var_account_id, var_creative_id, name = var_name, description = var_description, asset_image_id = var_asset_image_id, action = var_action, data = var_data, suffix = var_suffix, type = var_type, balance = var_balance, active = var_active, reference_id = var_reference_id, app_version = var_app_version, mission_id = var_mission_id)
 #' dput(result)
 #'
 #'
@@ -209,7 +201,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Add Preview
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param creative_id The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
     #' @param data_file (optional) name of the data file to save the result
@@ -217,8 +208,8 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    AddPreview = function(version, account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddPreviewWithHttpInfo(version, account_id, creative_id, data_file = data_file, ..., .parse = .parse)
+    AddPreview = function(account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddPreviewWithHttpInfo(account_id, creative_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -233,7 +224,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Add Preview
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param creative_id The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
     #' @param data_file (optional) name of the data file to save the result
@@ -241,7 +231,7 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    AddPreviewWithHttpInfo = function(version, account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
+    AddPreviewWithHttpInfo = function(account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -251,20 +241,12 @@ CreativeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`creative_id`)) {
         stop("Missing required parameter `creative_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CreativeApi$AddPreview, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -279,11 +261,7 @@ CreativeApi <- R6::R6Class(
 
       query_params[["creativeId"]] <- `creative_id`
 
-      local_var_url_path <- "/api/{version}/creative/addpreview"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/creative/addpreview"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -344,7 +322,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Find Missions
     #'
-    #' @param version 
     #' @param app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
     #' @param randomize return a random set of results, default is true. If false returns in nature order.
     #' @param targeted_ads_only return only ads targets to the specific app, no global ads.
@@ -366,8 +343,8 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[MissionResponse]
-    AdsFind = function(version, app_key, randomize, targeted_ads_only, type = NULL, account_id = NULL, app_version = NULL, latitude = NULL, longitude = NULL, device = NULL, device_identifier = NULL, device_version = NULL, start = NULL, limit = NULL, include_audiences = NULL, allocates_tickets = NULL, mission_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AdsFindWithHttpInfo(version, app_key, randomize, targeted_ads_only, type, account_id, app_version, latitude, longitude, device, device_identifier, device_version, start, limit, include_audiences, allocates_tickets, mission_ids, data_file = data_file, ..., .parse = .parse)
+    AdsFind = function(app_key, randomize, targeted_ads_only, type = NULL, account_id = NULL, app_version = NULL, latitude = NULL, longitude = NULL, device = NULL, device_identifier = NULL, device_version = NULL, start = NULL, limit = NULL, include_audiences = NULL, allocates_tickets = NULL, mission_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AdsFindWithHttpInfo(app_key, randomize, targeted_ads_only, type, account_id, app_version, latitude, longitude, device, device_identifier, device_version, start, limit, include_audiences, allocates_tickets, mission_ids, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -382,7 +359,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Find Missions
     #'
-    #' @param version 
     #' @param app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
     #' @param randomize return a random set of results, default is true. If false returns in nature order.
     #' @param targeted_ads_only return only ads targets to the specific app, no global ads.
@@ -404,7 +380,7 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[MissionResponse]) with additional information such as HTTP status code, headers
-    AdsFindWithHttpInfo = function(version, app_key, randomize, targeted_ads_only, type = NULL, account_id = NULL, app_version = NULL, latitude = NULL, longitude = NULL, device = NULL, device_identifier = NULL, device_version = NULL, start = NULL, limit = NULL, include_audiences = NULL, allocates_tickets = NULL, mission_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AdsFindWithHttpInfo = function(app_key, randomize, targeted_ads_only, type = NULL, account_id = NULL, app_version = NULL, latitude = NULL, longitude = NULL, device = NULL, device_identifier = NULL, device_version = NULL, start = NULL, limit = NULL, include_audiences = NULL, allocates_tickets = NULL, mission_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -413,10 +389,6 @@ CreativeApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
@@ -428,10 +400,6 @@ CreativeApi <- R6::R6Class(
 
       if (missing(`targeted_ads_only`)) {
         stop("Missing required parameter `targeted_ads_only`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CreativeApi$AdsFind, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -530,11 +498,7 @@ CreativeApi <- R6::R6Class(
 
       query_params[["missionIds"]] <- `mission_ids`
 
-      local_var_url_path <- "/api/{version}/ads/find"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ads/find"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -595,7 +559,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Create Creative
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the level.
     #' @param active If true set the game level as active. Default is false.
@@ -616,8 +579,8 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CreativeResponse
-    CreateCreative = function(version, account_id, name, active, wait_for_asset, description = NULL, asset_image_id = NULL, action = NULL, data = NULL, suffix = NULL, type = NULL, balance = NULL, reference_id = NULL, app_version = NULL, mission_id = NULL, offer_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateCreativeWithHttpInfo(version, account_id, name, active, wait_for_asset, description, asset_image_id, action, data, suffix, type, balance, reference_id, app_version, mission_id, offer_id, data_file = data_file, ..., .parse = .parse)
+    CreateCreative = function(account_id, name, active, wait_for_asset, description = NULL, asset_image_id = NULL, action = NULL, data = NULL, suffix = NULL, type = NULL, balance = NULL, reference_id = NULL, app_version = NULL, mission_id = NULL, offer_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateCreativeWithHttpInfo(account_id, name, active, wait_for_asset, description, asset_image_id, action, data, suffix, type, balance, reference_id, app_version, mission_id, offer_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -632,7 +595,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Create Creative
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the level.
     #' @param active If true set the game level as active. Default is false.
@@ -653,7 +615,7 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CreativeResponse) with additional information such as HTTP status code, headers
-    CreateCreativeWithHttpInfo = function(version, account_id, name, active, wait_for_asset, description = NULL, asset_image_id = NULL, action = NULL, data = NULL, suffix = NULL, type = NULL, balance = NULL, reference_id = NULL, app_version = NULL, mission_id = NULL, offer_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateCreativeWithHttpInfo = function(account_id, name, active, wait_for_asset, description = NULL, asset_image_id = NULL, action = NULL, data = NULL, suffix = NULL, type = NULL, balance = NULL, reference_id = NULL, app_version = NULL, mission_id = NULL, offer_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -662,10 +624,6 @@ CreativeApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -681,10 +639,6 @@ CreativeApi <- R6::R6Class(
 
       if (missing(`wait_for_asset`)) {
         stop("Missing required parameter `wait_for_asset`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CreativeApi$CreateCreative, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -777,11 +731,7 @@ CreativeApi <- R6::R6Class(
 
       query_params[["waitForAsset"]] <- `wait_for_asset`
 
-      local_var_url_path <- "/api/{version}/creative/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/creative/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -842,7 +792,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Delete Creative
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param creative_id the id of the creative to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -850,8 +799,8 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteCreative = function(version, account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteCreativeWithHttpInfo(version, account_id, creative_id, data_file = data_file, ..., .parse = .parse)
+    DeleteCreative = function(account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteCreativeWithHttpInfo(account_id, creative_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -866,7 +815,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Delete Creative
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param creative_id the id of the creative to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -874,7 +822,7 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteCreativeWithHttpInfo = function(version, account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteCreativeWithHttpInfo = function(account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -884,20 +832,12 @@ CreativeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`creative_id`)) {
         stop("Missing required parameter `creative_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CreativeApi$DeleteCreative, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -912,11 +852,7 @@ CreativeApi <- R6::R6Class(
 
       query_params[["creativeId"]] <- `creative_id`
 
-      local_var_url_path <- "/api/{version}/creative/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/creative/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -977,7 +913,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Get Creative
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param creative_id the ID of the creative to get
     #' @param data_file (optional) name of the data file to save the result
@@ -985,8 +920,8 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CreativeResponse
-    GetCreative = function(version, account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetCreativeWithHttpInfo(version, account_id, creative_id, data_file = data_file, ..., .parse = .parse)
+    GetCreative = function(account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetCreativeWithHttpInfo(account_id, creative_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1001,7 +936,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Get Creative
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param creative_id the ID of the creative to get
     #' @param data_file (optional) name of the data file to save the result
@@ -1009,7 +943,7 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CreativeResponse) with additional information such as HTTP status code, headers
-    GetCreativeWithHttpInfo = function(version, account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
+    GetCreativeWithHttpInfo = function(account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1019,20 +953,12 @@ CreativeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`creative_id`)) {
         stop("Missing required parameter `creative_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CreativeApi$GetCreative, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1047,11 +973,7 @@ CreativeApi <- R6::R6Class(
 
       query_params[["creativeId"]] <- `creative_id`
 
-      local_var_url_path <- "/api/{version}/creative/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/creative/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1112,7 +1034,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Search Creatives
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key the application key
     #' @param start Start the result set at some index.
@@ -1124,8 +1045,8 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[CreativeResponse]
-    GetCreativesByApplication = function(version, account_id, app_key, start, limit, mission_id = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetCreativesByApplicationWithHttpInfo(version, account_id, app_key, start, limit, mission_id, keyword, data_file = data_file, ..., .parse = .parse)
+    GetCreativesByApplication = function(account_id, app_key, start, limit, mission_id = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetCreativesByApplicationWithHttpInfo(account_id, app_key, start, limit, mission_id, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1140,7 +1061,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Search Creatives
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key the application key
     #' @param start Start the result set at some index.
@@ -1152,7 +1072,7 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[CreativeResponse]) with additional information such as HTTP status code, headers
-    GetCreativesByApplicationWithHttpInfo = function(version, account_id, app_key, start, limit, mission_id = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetCreativesByApplicationWithHttpInfo = function(account_id, app_key, start, limit, mission_id = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1161,10 +1081,6 @@ CreativeApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1180,10 +1096,6 @@ CreativeApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CreativeApi$GetCreativesByApplication, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1222,11 +1134,7 @@ CreativeApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/creative/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/creative/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1287,7 +1195,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Remove Preview
     #'
-    #' @param version 
     #' @param account_id the ID of the logged in user
     #' @param creative_id the ID of the creative to remove preview
     #' @param data_file (optional) name of the data file to save the result
@@ -1295,8 +1202,8 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RemovePreview = function(version, account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemovePreviewWithHttpInfo(version, account_id, creative_id, data_file = data_file, ..., .parse = .parse)
+    RemovePreview = function(account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemovePreviewWithHttpInfo(account_id, creative_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1311,7 +1218,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Remove Preview
     #'
-    #' @param version 
     #' @param account_id the ID of the logged in user
     #' @param creative_id the ID of the creative to remove preview
     #' @param data_file (optional) name of the data file to save the result
@@ -1319,7 +1225,7 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RemovePreviewWithHttpInfo = function(version, account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
+    RemovePreviewWithHttpInfo = function(account_id, creative_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1329,20 +1235,12 @@ CreativeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`creative_id`)) {
         stop("Missing required parameter `creative_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CreativeApi$RemovePreview, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1357,11 +1255,7 @@ CreativeApi <- R6::R6Class(
 
       query_params[["creativeId"]] <- `creative_id`
 
-      local_var_url_path <- "/api/{version}/creative/removepreview"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/creative/removepreview"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1422,7 +1316,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Update Creative
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param creative_id the creative Id to upate.
     #' @param name (optional) The name of the level.
@@ -1442,8 +1335,8 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CreativeResponse
-    UpdateCreative = function(version, account_id, creative_id, name = NULL, description = NULL, asset_image_id = NULL, action = NULL, data = NULL, suffix = NULL, type = NULL, balance = NULL, active = NULL, reference_id = NULL, app_version = NULL, mission_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateCreativeWithHttpInfo(version, account_id, creative_id, name, description, asset_image_id, action, data, suffix, type, balance, active, reference_id, app_version, mission_id, data_file = data_file, ..., .parse = .parse)
+    UpdateCreative = function(account_id, creative_id, name = NULL, description = NULL, asset_image_id = NULL, action = NULL, data = NULL, suffix = NULL, type = NULL, balance = NULL, active = NULL, reference_id = NULL, app_version = NULL, mission_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateCreativeWithHttpInfo(account_id, creative_id, name, description, asset_image_id, action, data, suffix, type, balance, active, reference_id, app_version, mission_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1458,7 +1351,6 @@ CreativeApi <- R6::R6Class(
     #' @description
     #' Update Creative
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param creative_id the creative Id to upate.
     #' @param name (optional) The name of the level.
@@ -1478,7 +1370,7 @@ CreativeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CreativeResponse) with additional information such as HTTP status code, headers
-    UpdateCreativeWithHttpInfo = function(version, account_id, creative_id, name = NULL, description = NULL, asset_image_id = NULL, action = NULL, data = NULL, suffix = NULL, type = NULL, balance = NULL, active = NULL, reference_id = NULL, app_version = NULL, mission_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateCreativeWithHttpInfo = function(account_id, creative_id, name = NULL, description = NULL, asset_image_id = NULL, action = NULL, data = NULL, suffix = NULL, type = NULL, balance = NULL, active = NULL, reference_id = NULL, app_version = NULL, mission_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1488,20 +1380,12 @@ CreativeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`creative_id`)) {
         stop("Missing required parameter `creative_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CreativeApi$UpdateCreative, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1588,11 +1472,7 @@ CreativeApi <- R6::R6Class(
 
       query_params[["missionId"]] <- `mission_id`
 
-      local_var_url_path <- "/api/{version}/creative/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/creative/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

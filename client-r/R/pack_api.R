@@ -17,7 +17,6 @@
 #' ####################  CreatePack  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_title <- "title_example" # character | The title of the pack
 #' var_pack_order <- 56 # integer | The order of the pack
@@ -47,15 +46,14 @@
 #' api_instance <- PackApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreatePack(var_version, var_account_id, var_title, var_pack_order, var_price, var_highest, var_allocate_tickets, var_ticket_count, description = var_description, search_tags = var_search_tags, active = var_active, game_type = var_game_type, app_key = var_app_key, pack_type = var_pack_type, sequence_type = var_sequence_type, background_id = var_background_id, image_id = var_image_id, start_date = var_start_date, end_date = var_end_date, author_override = var_author_override, price_type = var_price_type, game_level_ids = var_game_level_ids, in_game = var_in_game, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
-#' result <- api_instance$CreatePack(var_version, var_account_id, var_title, var_pack_order, var_price, var_highest, var_allocate_tickets, var_ticket_count, description = var_description, search_tags = var_search_tags, active = var_active, game_type = var_game_type, app_key = var_app_key, pack_type = var_pack_type, sequence_type = var_sequence_type, background_id = var_background_id, image_id = var_image_id, start_date = var_start_date, end_date = var_end_date, author_override = var_author_override, price_type = var_price_type, game_level_ids = var_game_level_ids, in_game = var_in_game, ticket_type = var_ticket_type, points = var_points)
+#' # result <- api_instance$CreatePack(var_account_id, var_title, var_pack_order, var_price, var_highest, var_allocate_tickets, var_ticket_count, description = var_description, search_tags = var_search_tags, active = var_active, game_type = var_game_type, app_key = var_app_key, pack_type = var_pack_type, sequence_type = var_sequence_type, background_id = var_background_id, image_id = var_image_id, start_date = var_start_date, end_date = var_end_date, author_override = var_author_override, price_type = var_price_type, game_level_ids = var_game_level_ids, in_game = var_in_game, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
+#' result <- api_instance$CreatePack(var_account_id, var_title, var_pack_order, var_price, var_highest, var_allocate_tickets, var_ticket_count, description = var_description, search_tags = var_search_tags, active = var_active, game_type = var_game_type, app_key = var_app_key, pack_type = var_pack_type, sequence_type = var_sequence_type, background_id = var_background_id, image_id = var_image_id, start_date = var_start_date, end_date = var_end_date, author_override = var_author_override, price_type = var_price_type, game_level_ids = var_game_level_ids, in_game = var_in_game, ticket_type = var_ticket_type, points = var_points)
 #' dput(result)
 #'
 #'
 #' ####################  DeletePack  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_pack_id <- 56 # integer | the id of the pack to delete
 #'
@@ -63,15 +61,14 @@
 #' api_instance <- PackApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeletePack(var_version, var_account_id, var_pack_iddata_file = "result.txt")
-#' result <- api_instance$DeletePack(var_version, var_account_id, var_pack_id)
+#' # result <- api_instance$DeletePack(var_account_id, var_pack_iddata_file = "result.txt")
+#' result <- api_instance$DeletePack(var_account_id, var_pack_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetPack  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_pack_id <- 56 # integer | The id of the pack to return.
 #' var_include_game_data <- "include_game_data_example" # character | If true include the game level data, otherwise don't. default is false.
@@ -80,15 +77,14 @@
 #' api_instance <- PackApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetPack(var_version, var_account_id, var_pack_id, var_include_game_datadata_file = "result.txt")
-#' result <- api_instance$GetPack(var_version, var_account_id, var_pack_id, var_include_game_data)
+#' # result <- api_instance$GetPack(var_account_id, var_pack_id, var_include_game_datadata_file = "result.txt")
+#' result <- api_instance$GetPack(var_account_id, var_pack_id, var_include_game_data)
 #' dput(result)
 #'
 #'
 #' ####################  SearchPacks  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_sort_field <- "sort_field_example" # character | The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
 #' var_descending <- "descending_example" # character | Determines whether the sorted list is in descending or ascending order
@@ -104,15 +100,14 @@
 #' api_instance <- PackApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchPacks(var_version, var_account_id, var_sort_field, var_descending, keyword = var_keyword, pack_type = var_pack_type, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_inactive = var_include_inactive, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$SearchPacks(var_version, var_account_id, var_sort_field, var_descending, keyword = var_keyword, pack_type = var_pack_type, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_inactive = var_include_inactive, app_key = var_app_key)
+#' # result <- api_instance$SearchPacks(var_account_id, var_sort_field, var_descending, keyword = var_keyword, pack_type = var_pack_type, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_inactive = var_include_inactive, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$SearchPacks(var_account_id, var_sort_field, var_descending, keyword = var_keyword, pack_type = var_pack_type, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_inactive = var_include_inactive, app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  UpdatePack  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_pack_id <- 56 # integer | The id of the pack to update.
 #' var_allocate_tickets <- "allocate_tickets_example" # character | Flag to indicate owner should receive tickets for completed packs
@@ -143,8 +138,8 @@
 #' api_instance <- PackApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdatePack(var_version, var_account_id, var_pack_id, var_allocate_tickets, var_ticket_count, title = var_title, description = var_description, search_tags = var_search_tags, active = var_active, game_type = var_game_type, app_key = var_app_key, pack_type = var_pack_type, pack_order = var_pack_order, sequence_type = var_sequence_type, background_id = var_background_id, image_id = var_image_id, start_date = var_start_date, end_date = var_end_date, author_override = var_author_override, price = var_price, price_type = var_price_type, game_level_ids = var_game_level_ids, in_game = var_in_game, highest = var_highest, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
-#' result <- api_instance$UpdatePack(var_version, var_account_id, var_pack_id, var_allocate_tickets, var_ticket_count, title = var_title, description = var_description, search_tags = var_search_tags, active = var_active, game_type = var_game_type, app_key = var_app_key, pack_type = var_pack_type, pack_order = var_pack_order, sequence_type = var_sequence_type, background_id = var_background_id, image_id = var_image_id, start_date = var_start_date, end_date = var_end_date, author_override = var_author_override, price = var_price, price_type = var_price_type, game_level_ids = var_game_level_ids, in_game = var_in_game, highest = var_highest, ticket_type = var_ticket_type, points = var_points)
+#' # result <- api_instance$UpdatePack(var_account_id, var_pack_id, var_allocate_tickets, var_ticket_count, title = var_title, description = var_description, search_tags = var_search_tags, active = var_active, game_type = var_game_type, app_key = var_app_key, pack_type = var_pack_type, pack_order = var_pack_order, sequence_type = var_sequence_type, background_id = var_background_id, image_id = var_image_id, start_date = var_start_date, end_date = var_end_date, author_override = var_author_override, price = var_price, price_type = var_price_type, game_level_ids = var_game_level_ids, in_game = var_in_game, highest = var_highest, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
+#' result <- api_instance$UpdatePack(var_account_id, var_pack_id, var_allocate_tickets, var_ticket_count, title = var_title, description = var_description, search_tags = var_search_tags, active = var_active, game_type = var_game_type, app_key = var_app_key, pack_type = var_pack_type, pack_order = var_pack_order, sequence_type = var_sequence_type, background_id = var_background_id, image_id = var_image_id, start_date = var_start_date, end_date = var_end_date, author_override = var_author_override, price = var_price, price_type = var_price_type, game_level_ids = var_game_level_ids, in_game = var_in_game, highest = var_highest, ticket_type = var_ticket_type, points = var_points)
 #' dput(result)
 #'
 #'
@@ -172,7 +167,6 @@ PackApi <- R6::R6Class(
     #' @description
     #' Create Pack
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param title The title of the pack
     #' @param pack_order The order of the pack
@@ -202,8 +196,8 @@ PackApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PackResponse
-    CreatePack = function(version, account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, description = NULL, search_tags = NULL, active = NULL, game_type = NULL, app_key = NULL, pack_type = NULL, sequence_type = NULL, background_id = NULL, image_id = NULL, start_date = NULL, end_date = NULL, author_override = NULL, price_type = NULL, game_level_ids = NULL, in_game = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreatePackWithHttpInfo(version, account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, description, search_tags, active, game_type, app_key, pack_type, sequence_type, background_id, image_id, start_date, end_date, author_override, price_type, game_level_ids, in_game, ticket_type, points, data_file = data_file, ..., .parse = .parse)
+    CreatePack = function(account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, description = NULL, search_tags = NULL, active = NULL, game_type = NULL, app_key = NULL, pack_type = NULL, sequence_type = NULL, background_id = NULL, image_id = NULL, start_date = NULL, end_date = NULL, author_override = NULL, price_type = NULL, game_level_ids = NULL, in_game = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreatePackWithHttpInfo(account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, description, search_tags, active, game_type, app_key, pack_type, sequence_type, background_id, image_id, start_date, end_date, author_override, price_type, game_level_ids, in_game, ticket_type, points, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -218,7 +212,6 @@ PackApi <- R6::R6Class(
     #' @description
     #' Create Pack
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param title The title of the pack
     #' @param pack_order The order of the pack
@@ -248,7 +241,7 @@ PackApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PackResponse) with additional information such as HTTP status code, headers
-    CreatePackWithHttpInfo = function(version, account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, description = NULL, search_tags = NULL, active = NULL, game_type = NULL, app_key = NULL, pack_type = NULL, sequence_type = NULL, background_id = NULL, image_id = NULL, start_date = NULL, end_date = NULL, author_override = NULL, price_type = NULL, game_level_ids = NULL, in_game = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreatePackWithHttpInfo = function(account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, description = NULL, search_tags = NULL, active = NULL, game_type = NULL, app_key = NULL, pack_type = NULL, sequence_type = NULL, background_id = NULL, image_id = NULL, start_date = NULL, end_date = NULL, author_override = NULL, price_type = NULL, game_level_ids = NULL, in_game = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -257,10 +250,6 @@ PackApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -288,10 +277,6 @@ PackApi <- R6::R6Class(
 
       if (missing(`ticket_count`)) {
         stop("Missing required parameter `ticket_count`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PackApi$CreatePack, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -444,11 +429,7 @@ PackApi <- R6::R6Class(
 
       query_params[["points"]] <- `points`
 
-      local_var_url_path <- "/api/{version}/pack/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/pack/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -509,7 +490,6 @@ PackApi <- R6::R6Class(
     #' @description
     #' Delete Pack
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param pack_id the id of the pack to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -517,8 +497,8 @@ PackApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeletePack = function(version, account_id, pack_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeletePackWithHttpInfo(version, account_id, pack_id, data_file = data_file, ..., .parse = .parse)
+    DeletePack = function(account_id, pack_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeletePackWithHttpInfo(account_id, pack_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -533,7 +513,6 @@ PackApi <- R6::R6Class(
     #' @description
     #' Delete Pack
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param pack_id the id of the pack to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -541,7 +520,7 @@ PackApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeletePackWithHttpInfo = function(version, account_id, pack_id, data_file = NULL, ..., .parse = TRUE) {
+    DeletePackWithHttpInfo = function(account_id, pack_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -551,20 +530,12 @@ PackApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`pack_id`)) {
         stop("Missing required parameter `pack_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PackApi$DeletePack, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -579,11 +550,7 @@ PackApi <- R6::R6Class(
 
       query_params[["packId"]] <- `pack_id`
 
-      local_var_url_path <- "/api/{version}/pack/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/pack/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -644,7 +611,6 @@ PackApi <- R6::R6Class(
     #' @description
     #' Get Pack
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param pack_id The id of the pack to return.
     #' @param include_game_data If true include the game level data, otherwise don't. default is false.
@@ -653,8 +619,8 @@ PackApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PackResponse
-    GetPack = function(version, account_id, pack_id, include_game_data, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetPackWithHttpInfo(version, account_id, pack_id, include_game_data, data_file = data_file, ..., .parse = .parse)
+    GetPack = function(account_id, pack_id, include_game_data, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetPackWithHttpInfo(account_id, pack_id, include_game_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -669,7 +635,6 @@ PackApi <- R6::R6Class(
     #' @description
     #' Get Pack
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param pack_id The id of the pack to return.
     #' @param include_game_data If true include the game level data, otherwise don't. default is false.
@@ -678,7 +643,7 @@ PackApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PackResponse) with additional information such as HTTP status code, headers
-    GetPackWithHttpInfo = function(version, account_id, pack_id, include_game_data, data_file = NULL, ..., .parse = TRUE) {
+    GetPackWithHttpInfo = function(account_id, pack_id, include_game_data, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -687,10 +652,6 @@ PackApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -702,10 +663,6 @@ PackApi <- R6::R6Class(
 
       if (missing(`include_game_data`)) {
         stop("Missing required parameter `include_game_data`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PackApi$GetPack, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -726,11 +683,7 @@ PackApi <- R6::R6Class(
 
       query_params[["includeGameData"]] <- `include_game_data`
 
-      local_var_url_path <- "/api/{version}/pack/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/pack/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -791,7 +744,6 @@ PackApi <- R6::R6Class(
     #' @description
     #' Search Packs
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param sort_field The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
     #' @param descending Determines whether the sorted list is in descending or ascending order
@@ -807,8 +759,8 @@ PackApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[PackResponse]
-    SearchPacks = function(version, account_id, sort_field, descending, keyword = NULL, pack_type = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_inactive = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchPacksWithHttpInfo(version, account_id, sort_field, descending, keyword, pack_type, start, limit, include_game_data, include_inactive, app_key, data_file = data_file, ..., .parse = .parse)
+    SearchPacks = function(account_id, sort_field, descending, keyword = NULL, pack_type = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_inactive = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchPacksWithHttpInfo(account_id, sort_field, descending, keyword, pack_type, start, limit, include_game_data, include_inactive, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -823,7 +775,6 @@ PackApi <- R6::R6Class(
     #' @description
     #' Search Packs
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param sort_field The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
     #' @param descending Determines whether the sorted list is in descending or ascending order
@@ -839,7 +790,7 @@ PackApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[PackResponse]) with additional information such as HTTP status code, headers
-    SearchPacksWithHttpInfo = function(version, account_id, sort_field, descending, keyword = NULL, pack_type = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_inactive = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchPacksWithHttpInfo = function(account_id, sort_field, descending, keyword = NULL, pack_type = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_inactive = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -848,10 +799,6 @@ PackApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -863,10 +810,6 @@ PackApi <- R6::R6Class(
 
       if (missing(`descending`)) {
         stop("Missing required parameter `descending`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PackApi$SearchPacks, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -935,11 +878,7 @@ PackApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/pack/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/pack/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1000,7 +939,6 @@ PackApi <- R6::R6Class(
     #' @description
     #' Update Pack
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param pack_id The id of the pack to update.
     #' @param allocate_tickets Flag to indicate owner should receive tickets for completed packs
@@ -1031,8 +969,8 @@ PackApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PackResponse
-    UpdatePack = function(version, account_id, pack_id, allocate_tickets, ticket_count, title = NULL, description = NULL, search_tags = NULL, active = NULL, game_type = NULL, app_key = NULL, pack_type = NULL, pack_order = NULL, sequence_type = NULL, background_id = NULL, image_id = NULL, start_date = NULL, end_date = NULL, author_override = NULL, price = NULL, price_type = NULL, game_level_ids = NULL, in_game = NULL, highest = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdatePackWithHttpInfo(version, account_id, pack_id, allocate_tickets, ticket_count, title, description, search_tags, active, game_type, app_key, pack_type, pack_order, sequence_type, background_id, image_id, start_date, end_date, author_override, price, price_type, game_level_ids, in_game, highest, ticket_type, points, data_file = data_file, ..., .parse = .parse)
+    UpdatePack = function(account_id, pack_id, allocate_tickets, ticket_count, title = NULL, description = NULL, search_tags = NULL, active = NULL, game_type = NULL, app_key = NULL, pack_type = NULL, pack_order = NULL, sequence_type = NULL, background_id = NULL, image_id = NULL, start_date = NULL, end_date = NULL, author_override = NULL, price = NULL, price_type = NULL, game_level_ids = NULL, in_game = NULL, highest = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdatePackWithHttpInfo(account_id, pack_id, allocate_tickets, ticket_count, title, description, search_tags, active, game_type, app_key, pack_type, pack_order, sequence_type, background_id, image_id, start_date, end_date, author_override, price, price_type, game_level_ids, in_game, highest, ticket_type, points, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1047,7 +985,6 @@ PackApi <- R6::R6Class(
     #' @description
     #' Update Pack
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param pack_id The id of the pack to update.
     #' @param allocate_tickets Flag to indicate owner should receive tickets for completed packs
@@ -1078,7 +1015,7 @@ PackApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PackResponse) with additional information such as HTTP status code, headers
-    UpdatePackWithHttpInfo = function(version, account_id, pack_id, allocate_tickets, ticket_count, title = NULL, description = NULL, search_tags = NULL, active = NULL, game_type = NULL, app_key = NULL, pack_type = NULL, pack_order = NULL, sequence_type = NULL, background_id = NULL, image_id = NULL, start_date = NULL, end_date = NULL, author_override = NULL, price = NULL, price_type = NULL, game_level_ids = NULL, in_game = NULL, highest = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdatePackWithHttpInfo = function(account_id, pack_id, allocate_tickets, ticket_count, title = NULL, description = NULL, search_tags = NULL, active = NULL, game_type = NULL, app_key = NULL, pack_type = NULL, pack_order = NULL, sequence_type = NULL, background_id = NULL, image_id = NULL, start_date = NULL, end_date = NULL, author_override = NULL, price = NULL, price_type = NULL, game_level_ids = NULL, in_game = NULL, highest = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1087,10 +1024,6 @@ PackApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1106,10 +1039,6 @@ PackApi <- R6::R6Class(
 
       if (missing(`ticket_count`)) {
         stop("Missing required parameter `ticket_count`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PackApi$UpdatePack, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1268,11 +1197,7 @@ PackApi <- R6::R6Class(
 
       query_params[["points"]] <- `points`
 
-      local_var_url_path <- "/api/{version}/pack/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/pack/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

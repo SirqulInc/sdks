@@ -17,7 +17,6 @@
 #' ####################  CreateScore  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_app_key <- "app_key_example" # character | The game application key to save the score for.
 #' var_points <- 56 # integer | The score
@@ -33,15 +32,14 @@
 #' api_instance <- ScoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateScore(var_version, var_account_id, var_app_key, var_points, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, time_taken = var_time_taken, highest = var_highestdata_file = "result.txt")
-#' result <- api_instance$CreateScore(var_version, var_account_id, var_app_key, var_points, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, time_taken = var_time_taken, highest = var_highest)
+#' # result <- api_instance$CreateScore(var_account_id, var_app_key, var_points, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, time_taken = var_time_taken, highest = var_highestdata_file = "result.txt")
+#' result <- api_instance$CreateScore(var_account_id, var_app_key, var_points, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, time_taken = var_time_taken, highest = var_highest)
 #' dput(result)
 #'
 #'
 #' ####################  GetScore  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_app_key <- "app_key_example" # character | The game application key to get the level for.
 #' var_mission_id <- 56 # integer | The missionId to score for, null if not playing mission. (Optional)
@@ -56,15 +54,14 @@
 #' api_instance <- ScoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetScore(var_version, var_account_id, var_app_key, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, score_object_type = var_score_object_type, score_status = var_score_statusdata_file = "result.txt")
-#' result <- api_instance$GetScore(var_version, var_account_id, var_app_key, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, score_object_type = var_score_object_type, score_status = var_score_status)
+#' # result <- api_instance$GetScore(var_account_id, var_app_key, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, score_object_type = var_score_object_type, score_status = var_score_statusdata_file = "result.txt")
+#' result <- api_instance$GetScore(var_account_id, var_app_key, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, score_object_type = var_score_object_type, score_status = var_score_status)
 #' dput(result)
 #'
 #'
 #' ####################  SearchScores  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_app_key <- "app_key_example" # character | The game application key to get the level for.
 #' var_mission_id <- 56 # integer | The missionId to score for, null if not playing mission. (Optional)
@@ -77,8 +74,8 @@
 #' api_instance <- ScoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchScores(var_version, var_account_id, var_app_key, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_iddata_file = "result.txt")
-#' result <- api_instance$SearchScores(var_version, var_account_id, var_app_key, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id)
+#' # result <- api_instance$SearchScores(var_account_id, var_app_key, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_iddata_file = "result.txt")
+#' result <- api_instance$SearchScores(var_account_id, var_app_key, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id)
 #' dput(result)
 #'
 #'
@@ -106,7 +103,6 @@ ScoreApi <- R6::R6Class(
     #' @description
     #' Create Score
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The game application key to save the score for.
     #' @param points The score
@@ -122,8 +118,8 @@ ScoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ScoreResponse
-    CreateScore = function(version, account_id, app_key, points, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, time_taken = NULL, highest = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateScoreWithHttpInfo(version, account_id, app_key, points, mission_id, game_id, pack_id, game_level_id, game_object_id, time_taken, highest, data_file = data_file, ..., .parse = .parse)
+    CreateScore = function(account_id, app_key, points, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, time_taken = NULL, highest = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateScoreWithHttpInfo(account_id, app_key, points, mission_id, game_id, pack_id, game_level_id, game_object_id, time_taken, highest, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -138,7 +134,6 @@ ScoreApi <- R6::R6Class(
     #' @description
     #' Create Score
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The game application key to save the score for.
     #' @param points The score
@@ -154,7 +149,7 @@ ScoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ScoreResponse) with additional information such as HTTP status code, headers
-    CreateScoreWithHttpInfo = function(version, account_id, app_key, points, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, time_taken = NULL, highest = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateScoreWithHttpInfo = function(account_id, app_key, points, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, time_taken = NULL, highest = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -163,10 +158,6 @@ ScoreApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -178,10 +169,6 @@ ScoreApi <- R6::R6Class(
 
       if (missing(`points`)) {
         stop("Missing required parameter `points`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ScoreApi$CreateScore, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -244,11 +231,7 @@ ScoreApi <- R6::R6Class(
 
       query_params[["highest"]] <- `highest`
 
-      local_var_url_path <- "/api/{version}/score/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/score/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -309,7 +292,6 @@ ScoreApi <- R6::R6Class(
     #' @description
     #' Get Score
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The game application key to get the level for.
     #' @param mission_id (optional) The missionId to score for, null if not playing mission.
@@ -324,8 +306,8 @@ ScoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ScoreResponse
-    GetScore = function(version, account_id, app_key, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, score_object_type = NULL, score_status = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetScoreWithHttpInfo(version, account_id, app_key, mission_id, game_id, pack_id, game_level_id, game_object_id, score_object_type, score_status, data_file = data_file, ..., .parse = .parse)
+    GetScore = function(account_id, app_key, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, score_object_type = NULL, score_status = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetScoreWithHttpInfo(account_id, app_key, mission_id, game_id, pack_id, game_level_id, game_object_id, score_object_type, score_status, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -340,7 +322,6 @@ ScoreApi <- R6::R6Class(
     #' @description
     #' Get Score
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The game application key to get the level for.
     #' @param mission_id (optional) The missionId to score for, null if not playing mission.
@@ -355,7 +336,7 @@ ScoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ScoreResponse) with additional information such as HTTP status code, headers
-    GetScoreWithHttpInfo = function(version, account_id, app_key, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, score_object_type = NULL, score_status = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetScoreWithHttpInfo = function(account_id, app_key, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, score_object_type = NULL, score_status = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -365,20 +346,12 @@ ScoreApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ScoreApi$GetScore, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -435,11 +408,7 @@ ScoreApi <- R6::R6Class(
 
       query_params[["scoreStatus"]] <- `score_status`
 
-      local_var_url_path <- "/api/{version}/score/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/score/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -500,7 +469,6 @@ ScoreApi <- R6::R6Class(
     #' @description
     #' Search Score
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The game application key to get the level for.
     #' @param mission_id (optional) The missionId to score for, null if not playing mission.
@@ -513,8 +481,8 @@ ScoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ScoreResponse]
-    SearchScores = function(version, account_id, app_key, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchScoresWithHttpInfo(version, account_id, app_key, mission_id, game_id, pack_id, game_level_id, game_object_id, data_file = data_file, ..., .parse = .parse)
+    SearchScores = function(account_id, app_key, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchScoresWithHttpInfo(account_id, app_key, mission_id, game_id, pack_id, game_level_id, game_object_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -529,7 +497,6 @@ ScoreApi <- R6::R6Class(
     #' @description
     #' Search Score
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The game application key to get the level for.
     #' @param mission_id (optional) The missionId to score for, null if not playing mission.
@@ -542,7 +509,7 @@ ScoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ScoreResponse]) with additional information such as HTTP status code, headers
-    SearchScoresWithHttpInfo = function(version, account_id, app_key, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchScoresWithHttpInfo = function(account_id, app_key, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -552,20 +519,12 @@ ScoreApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ScoreApi$SearchScores, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -610,11 +569,7 @@ ScoreApi <- R6::R6Class(
 
       query_params[["gameObjectId"]] <- `game_object_id`
 
-      local_var_url_path <- "/api/{version}/score/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/score/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

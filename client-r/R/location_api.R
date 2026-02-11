@@ -17,7 +17,6 @@
 #' ####################  CacheTrilaterationData  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_udid <- "udid_example" # character | The unique identifier of the source device
 #' var_source_time <- 56 # integer | The current timestamp of the source device (Optional)
 #' var_minimum_sample_size <- 56 # integer | the minimum number of Edysen devices that must be used to be able to trilaterate a device (Optional)
@@ -28,45 +27,42 @@
 #' api_instance <- LocationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CacheTrilaterationData(var_version, var_udid, source_time = var_source_time, minimum_sample_size = var_minimum_sample_size, data = var_data, var_data_file = var_var_data_filedata_file = "result.txt")
-#' result <- api_instance$CacheTrilaterationData(var_version, var_udid, source_time = var_source_time, minimum_sample_size = var_minimum_sample_size, data = var_data, var_data_file = var_var_data_file)
+#' # result <- api_instance$CacheTrilaterationData(var_udid, source_time = var_source_time, minimum_sample_size = var_minimum_sample_size, data = var_data, var_data_file = var_var_data_filedata_file = "result.txt")
+#' result <- api_instance$CacheTrilaterationData(var_udid, source_time = var_source_time, minimum_sample_size = var_minimum_sample_size, data = var_data, var_data_file = var_var_data_file)
 #' dput(result)
 #'
 #'
 #' ####################  CacheTrilaterationDataGzip  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_body <- TrilatCacheRequest$new("udid_example", 123, 123, c(TrilatCacheSample$new("avatarId_example", "deviceId_example", c(123), 123, 123, "networkName_example", "randomizedId_example", "deviceSignature_example", "alternateId_example", "type_example", "WIFI_PROBE_REQUEST", 123))) # TrilatCacheRequest |  (Optional)
 #'
 #' #Create Trilateration Data with Rest
 #' api_instance <- LocationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CacheTrilaterationDataGzip(var_version, body = var_bodydata_file = "result.txt")
-#' result <- api_instance$CacheTrilaterationDataGzip(var_version, body = var_body)
+#' # result <- api_instance$CacheTrilaterationDataGzip(body = var_bodydata_file = "result.txt")
+#' result <- api_instance$CacheTrilaterationDataGzip(body = var_body)
 #' dput(result)
 #'
 #'
 #' ####################  GetLocationByIp  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_ip <- "ip_example" # character | the ip address of the client device (Optional)
 #'
 #' #Get Location by IP
 #' api_instance <- LocationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetLocationByIp(var_version, ip = var_ipdata_file = "result.txt")
-#' result <- api_instance$GetLocationByIp(var_version, ip = var_ip)
+#' # result <- api_instance$GetLocationByIp(ip = var_ipdata_file = "result.txt")
+#' result <- api_instance$GetLocationByIp(ip = var_ip)
 #' dput(result)
 #'
 #'
 #' ####################  GetLocationByTrilateration  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account making the request, if provided the last know location will be updated (Optional)
 #' var_latitude <- 3.4 # numeric | The known GPS latitude to compare to the calculated version (Optional)
 #' var_longitude <- 3.4 # numeric | The known GPS longitude to compare to the calculated version (Optional)
@@ -77,15 +73,14 @@
 #' api_instance <- LocationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetLocationByTrilateration(var_version, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, data = var_data, response_filters = var_response_filtersdata_file = "result.txt")
-#' result <- api_instance$GetLocationByTrilateration(var_version, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, data = var_data, response_filters = var_response_filters)
+#' # result <- api_instance$GetLocationByTrilateration(account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, data = var_data, response_filters = var_response_filtersdata_file = "result.txt")
+#' result <- api_instance$GetLocationByTrilateration(account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, data = var_data, response_filters = var_response_filters)
 #' dput(result)
 #'
 #'
 #' ####################  GetLocations  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the device id (Optional)
 #' var_account_id <- 56 # integer | the account id (Optional)
 #' var_currentlatitude <- 3.4 # numeric | This parameter is deprecated. (Optional)
@@ -110,8 +105,8 @@
 #' api_instance <- LocationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetLocations(var_version, device_id = var_device_id, account_id = var_account_id, currentlatitude = var_currentlatitude, currentlongitude = var_currentlongitude, current_latitude = var_current_latitude, current_longitude = var_current_longitude, query = var_query, zipcode = var_zipcode, zip_code = var_zip_code, selected_maplatitude = var_selected_maplatitude, selected_maplongitude = var_selected_maplongitude, selected_map_latitude = var_selected_map_latitude, selected_map_longitude = var_selected_map_longitude, search_range = var_search_range, use_geocode = var_use_geocode, _i = var__i, start = var_start, _l = var__l, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$GetLocations(var_version, device_id = var_device_id, account_id = var_account_id, currentlatitude = var_currentlatitude, currentlongitude = var_currentlongitude, current_latitude = var_current_latitude, current_longitude = var_current_longitude, query = var_query, zipcode = var_zipcode, zip_code = var_zip_code, selected_maplatitude = var_selected_maplatitude, selected_maplongitude = var_selected_maplongitude, selected_map_latitude = var_selected_map_latitude, selected_map_longitude = var_selected_map_longitude, search_range = var_search_range, use_geocode = var_use_geocode, _i = var__i, start = var_start, _l = var__l, limit = var_limit)
+#' # result <- api_instance$GetLocations(device_id = var_device_id, account_id = var_account_id, currentlatitude = var_currentlatitude, currentlongitude = var_currentlongitude, current_latitude = var_current_latitude, current_longitude = var_current_longitude, query = var_query, zipcode = var_zipcode, zip_code = var_zip_code, selected_maplatitude = var_selected_maplatitude, selected_maplongitude = var_selected_maplongitude, selected_map_latitude = var_selected_map_latitude, selected_map_longitude = var_selected_map_longitude, search_range = var_search_range, use_geocode = var_use_geocode, _i = var__i, start = var_start, _l = var__l, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$GetLocations(device_id = var_device_id, account_id = var_account_id, currentlatitude = var_currentlatitude, currentlongitude = var_currentlongitude, current_latitude = var_current_latitude, current_longitude = var_current_longitude, query = var_query, zipcode = var_zipcode, zip_code = var_zip_code, selected_maplatitude = var_selected_maplatitude, selected_maplongitude = var_selected_maplongitude, selected_map_latitude = var_selected_map_latitude, selected_map_longitude = var_selected_map_longitude, search_range = var_search_range, use_geocode = var_use_geocode, _i = var__i, start = var_start, _l = var__l, limit = var_limit)
 #' dput(result)
 #'
 #'
@@ -139,7 +134,6 @@ LocationApi <- R6::R6Class(
     #' @description
     #' Create Trilateration Data with File
     #'
-    #' @param version 
     #' @param udid The unique identifier of the source device
     #' @param source_time (optional) The current timestamp of the source device
     #' @param minimum_sample_size (optional) the minimum number of Edysen devices that must be used to be able to trilaterate a device
@@ -150,8 +144,8 @@ LocationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    CacheTrilaterationData = function(version, udid, source_time = NULL, minimum_sample_size = NULL, data = NULL, var_data_file = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CacheTrilaterationDataWithHttpInfo(version, udid, source_time, minimum_sample_size, data, var_data_file, data_file = data_file, ..., .parse = .parse)
+    CacheTrilaterationData = function(udid, source_time = NULL, minimum_sample_size = NULL, data = NULL, var_data_file = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CacheTrilaterationDataWithHttpInfo(udid, source_time, minimum_sample_size, data, var_data_file, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -166,7 +160,6 @@ LocationApi <- R6::R6Class(
     #' @description
     #' Create Trilateration Data with File
     #'
-    #' @param version 
     #' @param udid The unique identifier of the source device
     #' @param source_time (optional) The current timestamp of the source device
     #' @param minimum_sample_size (optional) the minimum number of Edysen devices that must be used to be able to trilaterate a device
@@ -177,7 +170,7 @@ LocationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    CacheTrilaterationDataWithHttpInfo = function(version, udid, source_time = NULL, minimum_sample_size = NULL, data = NULL, var_data_file = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CacheTrilaterationDataWithHttpInfo = function(udid, source_time = NULL, minimum_sample_size = NULL, data = NULL, var_data_file = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -187,16 +180,8 @@ LocationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`udid`)) {
         stop("Missing required parameter `udid`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LocationApi$CacheTrilaterationData, `version` is not nullable")
       }
 
       if (!missing(`udid`) && is.null(`udid`)) {
@@ -229,11 +214,7 @@ LocationApi <- R6::R6Class(
 
       query_params[["dataFile"]] <- `var_data_file`
 
-      local_var_url_path <- "/api/{version}/location/trilaterate/cache"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/location/trilaterate/cache"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -294,15 +275,14 @@ LocationApi <- R6::R6Class(
     #' @description
     #' Create Trilateration Data with Rest
     #'
-    #' @param version 
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    CacheTrilaterationDataGzip = function(version, body = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CacheTrilaterationDataGzipWithHttpInfo(version, body, data_file = data_file, ..., .parse = .parse)
+    CacheTrilaterationDataGzip = function(body = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CacheTrilaterationDataGzipWithHttpInfo(body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -317,14 +297,13 @@ LocationApi <- R6::R6Class(
     #' @description
     #' Create Trilateration Data with Rest
     #'
-    #' @param version 
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    CacheTrilaterationDataGzipWithHttpInfo = function(version, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CacheTrilaterationDataGzipWithHttpInfo = function(body = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -333,14 +312,6 @@ LocationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LocationApi$CacheTrilaterationDataGzip, `version` is not nullable")
-      }
 
       if (!missing(`body`) && is.null(`body`)) {
         stop("Invalid value for `body` when calling LocationApi$CacheTrilaterationDataGzip, `body` is not nullable")
@@ -352,11 +323,7 @@ LocationApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/location/trilaterate/cache/submit"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/location/trilaterate/cache/submit"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -417,15 +384,14 @@ LocationApi <- R6::R6Class(
     #' @description
     #' Get Location by IP
     #'
-    #' @param version 
     #' @param ip (optional) the ip address of the client device
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CoordsResponse
-    GetLocationByIp = function(version, ip = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetLocationByIpWithHttpInfo(version, ip, data_file = data_file, ..., .parse = .parse)
+    GetLocationByIp = function(ip = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetLocationByIpWithHttpInfo(ip, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -440,14 +406,13 @@ LocationApi <- R6::R6Class(
     #' @description
     #' Get Location by IP
     #'
-    #' @param version 
     #' @param ip (optional) the ip address of the client device
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CoordsResponse) with additional information such as HTTP status code, headers
-    GetLocationByIpWithHttpInfo = function(version, ip = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetLocationByIpWithHttpInfo = function(ip = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -457,25 +422,13 @@ LocationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LocationApi$GetLocationByIp, `version` is not nullable")
-      }
-
       if (!missing(`ip`) && is.null(`ip`)) {
         stop("Invalid value for `ip` when calling LocationApi$GetLocationByIp, `ip` is not nullable")
       }
 
       query_params[["ip"]] <- `ip`
 
-      local_var_url_path <- "/api/{version}/location/ip"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/location/ip"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -536,7 +489,6 @@ LocationApi <- R6::R6Class(
     #' @description
     #' Get Location by Trilateration
     #'
-    #' @param version 
     #' @param account_id (optional) The account making the request, if provided the last know location will be updated
     #' @param latitude (optional) The known GPS latitude to compare to the calculated version
     #' @param longitude (optional) The known GPS longitude to compare to the calculated version
@@ -547,8 +499,8 @@ LocationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GeoPointResponse
-    GetLocationByTrilateration = function(version, account_id = NULL, latitude = NULL, longitude = NULL, data = NULL, response_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetLocationByTrilaterationWithHttpInfo(version, account_id, latitude, longitude, data, response_filters, data_file = data_file, ..., .parse = .parse)
+    GetLocationByTrilateration = function(account_id = NULL, latitude = NULL, longitude = NULL, data = NULL, response_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetLocationByTrilaterationWithHttpInfo(account_id, latitude, longitude, data, response_filters, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -563,7 +515,6 @@ LocationApi <- R6::R6Class(
     #' @description
     #' Get Location by Trilateration
     #'
-    #' @param version 
     #' @param account_id (optional) The account making the request, if provided the last know location will be updated
     #' @param latitude (optional) The known GPS latitude to compare to the calculated version
     #' @param longitude (optional) The known GPS longitude to compare to the calculated version
@@ -574,7 +525,7 @@ LocationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GeoPointResponse) with additional information such as HTTP status code, headers
-    GetLocationByTrilaterationWithHttpInfo = function(version, account_id = NULL, latitude = NULL, longitude = NULL, data = NULL, response_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetLocationByTrilaterationWithHttpInfo = function(account_id = NULL, latitude = NULL, longitude = NULL, data = NULL, response_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -583,14 +534,6 @@ LocationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LocationApi$GetLocationByTrilateration, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling LocationApi$GetLocationByTrilateration, `account_id` is not nullable")
@@ -622,11 +565,7 @@ LocationApi <- R6::R6Class(
 
       query_params[["responseFilters"]] <- `response_filters`
 
-      local_var_url_path <- "/api/{version}/account/location/trilaterate"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/location/trilaterate"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -687,7 +626,6 @@ LocationApi <- R6::R6Class(
     #' @description
     #' Search Regions or Postal Codes
     #'
-    #' @param version 
     #' @param device_id (optional) the device id
     #' @param account_id (optional) the account id
     #' @param currentlatitude (optional) This parameter is deprecated.
@@ -712,8 +650,8 @@ LocationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return LocationSearchResponse
-    GetLocations = function(version, device_id = NULL, account_id = NULL, currentlatitude = NULL, currentlongitude = NULL, current_latitude = NULL, current_longitude = NULL, query = NULL, zipcode = NULL, zip_code = NULL, selected_maplatitude = NULL, selected_maplongitude = NULL, selected_map_latitude = NULL, selected_map_longitude = NULL, search_range = 5, use_geocode = FALSE, _i = NULL, start = 0, _l = NULL, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetLocationsWithHttpInfo(version, device_id, account_id, currentlatitude, currentlongitude, current_latitude, current_longitude, query, zipcode, zip_code, selected_maplatitude, selected_maplongitude, selected_map_latitude, selected_map_longitude, search_range, use_geocode, _i, start, _l, limit, data_file = data_file, ..., .parse = .parse)
+    GetLocations = function(device_id = NULL, account_id = NULL, currentlatitude = NULL, currentlongitude = NULL, current_latitude = NULL, current_longitude = NULL, query = NULL, zipcode = NULL, zip_code = NULL, selected_maplatitude = NULL, selected_maplongitude = NULL, selected_map_latitude = NULL, selected_map_longitude = NULL, search_range = 5, use_geocode = FALSE, _i = NULL, start = 0, _l = NULL, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetLocationsWithHttpInfo(device_id, account_id, currentlatitude, currentlongitude, current_latitude, current_longitude, query, zipcode, zip_code, selected_maplatitude, selected_maplongitude, selected_map_latitude, selected_map_longitude, search_range, use_geocode, _i, start, _l, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -728,7 +666,6 @@ LocationApi <- R6::R6Class(
     #' @description
     #' Search Regions or Postal Codes
     #'
-    #' @param version 
     #' @param device_id (optional) the device id
     #' @param account_id (optional) the account id
     #' @param currentlatitude (optional) This parameter is deprecated.
@@ -753,7 +690,7 @@ LocationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (LocationSearchResponse) with additional information such as HTTP status code, headers
-    GetLocationsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, currentlatitude = NULL, currentlongitude = NULL, current_latitude = NULL, current_longitude = NULL, query = NULL, zipcode = NULL, zip_code = NULL, selected_maplatitude = NULL, selected_maplongitude = NULL, selected_map_latitude = NULL, selected_map_longitude = NULL, search_range = 5, use_geocode = FALSE, _i = NULL, start = 0, _l = NULL, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    GetLocationsWithHttpInfo = function(device_id = NULL, account_id = NULL, currentlatitude = NULL, currentlongitude = NULL, current_latitude = NULL, current_longitude = NULL, query = NULL, zipcode = NULL, zip_code = NULL, selected_maplatitude = NULL, selected_maplongitude = NULL, selected_map_latitude = NULL, selected_map_longitude = NULL, search_range = 5, use_geocode = FALSE, _i = NULL, start = 0, _l = NULL, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -762,14 +699,6 @@ LocationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LocationApi$GetLocations, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling LocationApi$GetLocations, `device_id` is not nullable")
@@ -885,11 +814,7 @@ LocationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/location/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/location/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

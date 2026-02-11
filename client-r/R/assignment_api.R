@@ -17,7 +17,6 @@
 #' ####################  AssigmentAssigneeAccountSearch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id sending the request
 #' var_keyword <- "keyword_example" # character | The keyword to filter the returned results (Optional)
 #'
@@ -25,15 +24,14 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssigmentAssigneeAccountSearch(var_version, var_account_id, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$AssigmentAssigneeAccountSearch(var_version, var_account_id, keyword = var_keyword)
+#' # result <- api_instance$AssigmentAssigneeAccountSearch(var_account_id, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$AssigmentAssigneeAccountSearch(var_account_id, keyword = var_keyword)
 #' dput(result)
 #'
 #'
 #' ####################  AssignmentCreate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user account id
 #' var_name <- "name_example" # character | the name for the assignment
 #' var_assignee_account_id <- 56 # integer | the account id to assign to
@@ -46,15 +44,14 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignmentCreate(var_version, var_account_id, var_name, var_assignee_account_id, description = var_description, retailer_location_id = var_retailer_location_id, tags = var_tags, active = var_activedata_file = "result.txt")
-#' result <- api_instance$AssignmentCreate(var_version, var_account_id, var_name, var_assignee_account_id, description = var_description, retailer_location_id = var_retailer_location_id, tags = var_tags, active = var_active)
+#' # result <- api_instance$AssignmentCreate(var_account_id, var_name, var_assignee_account_id, description = var_description, retailer_location_id = var_retailer_location_id, tags = var_tags, active = var_activedata_file = "result.txt")
+#' result <- api_instance$AssignmentCreate(var_account_id, var_name, var_assignee_account_id, description = var_description, retailer_location_id = var_retailer_location_id, tags = var_tags, active = var_active)
 #' dput(result)
 #'
 #'
 #' ####################  AssignmentDelete  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user account id
 #' var_assignment_id <- 56 # integer | the assignment id
 #'
@@ -62,15 +59,14 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignmentDelete(var_version, var_account_id, var_assignment_iddata_file = "result.txt")
-#' result <- api_instance$AssignmentDelete(var_version, var_account_id, var_assignment_id)
+#' # result <- api_instance$AssignmentDelete(var_account_id, var_assignment_iddata_file = "result.txt")
+#' result <- api_instance$AssignmentDelete(var_account_id, var_assignment_id)
 #' dput(result)
 #'
 #'
 #' ####################  AssignmentGet  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user account id
 #' var_assignment_id <- 56 # integer | the assignment id
 #'
@@ -78,15 +74,14 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignmentGet(var_version, var_account_id, var_assignment_iddata_file = "result.txt")
-#' result <- api_instance$AssignmentGet(var_version, var_account_id, var_assignment_id)
+#' # result <- api_instance$AssignmentGet(var_account_id, var_assignment_iddata_file = "result.txt")
+#' result <- api_instance$AssignmentGet(var_account_id, var_assignment_id)
 #' dput(result)
 #'
 #'
 #' ####################  AssignmentSearch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account sending the request
 #' var_sort_field <- "sort_field_example" # character | sort by table field
 #' var_descending <- "descending_example" # character | return results in descending order or not
@@ -103,15 +98,14 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignmentSearch(var_version, var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, creator_account_id = var_creator_account_id, assignee_account_ids = var_assignee_account_ids, retailer_location_ids = var_retailer_location_ids, current_status_type = var_current_status_type, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$AssignmentSearch(var_version, var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, creator_account_id = var_creator_account_id, assignee_account_ids = var_assignee_account_ids, retailer_location_ids = var_retailer_location_ids, current_status_type = var_current_status_type, keyword = var_keyword)
+#' # result <- api_instance$AssignmentSearch(var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, creator_account_id = var_creator_account_id, assignee_account_ids = var_assignee_account_ids, retailer_location_ids = var_retailer_location_ids, current_status_type = var_current_status_type, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$AssignmentSearch(var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, creator_account_id = var_creator_account_id, assignee_account_ids = var_assignee_account_ids, retailer_location_ids = var_retailer_location_ids, current_status_type = var_current_status_type, keyword = var_keyword)
 #' dput(result)
 #'
 #'
 #' ####################  AssignmentStatusCreate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user account id
 #' var_assignment_id <- 56 # integer | the assignment id
 #' var_scheduled_notification_id <- 56 # integer | the scheduled notification id for reminders (Optional)
@@ -128,15 +122,14 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignmentStatusCreate(var_version, var_account_id, var_assignment_id, scheduled_notification_id = var_scheduled_notification_id, to_do = var_to_do, connection = var_connection, method = var_method, status = var_status, closure = var_closure, message = var_message, follow_up = var_follow_up, active = var_activedata_file = "result.txt")
-#' result <- api_instance$AssignmentStatusCreate(var_version, var_account_id, var_assignment_id, scheduled_notification_id = var_scheduled_notification_id, to_do = var_to_do, connection = var_connection, method = var_method, status = var_status, closure = var_closure, message = var_message, follow_up = var_follow_up, active = var_active)
+#' # result <- api_instance$AssignmentStatusCreate(var_account_id, var_assignment_id, scheduled_notification_id = var_scheduled_notification_id, to_do = var_to_do, connection = var_connection, method = var_method, status = var_status, closure = var_closure, message = var_message, follow_up = var_follow_up, active = var_activedata_file = "result.txt")
+#' result <- api_instance$AssignmentStatusCreate(var_account_id, var_assignment_id, scheduled_notification_id = var_scheduled_notification_id, to_do = var_to_do, connection = var_connection, method = var_method, status = var_status, closure = var_closure, message = var_message, follow_up = var_follow_up, active = var_active)
 #' dput(result)
 #'
 #'
 #' ####################  AssignmentStatusDelete  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user account id
 #' var_assignment_status_id <- 56 # integer | the assignment status id
 #'
@@ -144,15 +137,14 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignmentStatusDelete(var_version, var_account_id, var_assignment_status_iddata_file = "result.txt")
-#' result <- api_instance$AssignmentStatusDelete(var_version, var_account_id, var_assignment_status_id)
+#' # result <- api_instance$AssignmentStatusDelete(var_account_id, var_assignment_status_iddata_file = "result.txt")
+#' result <- api_instance$AssignmentStatusDelete(var_account_id, var_assignment_status_id)
 #' dput(result)
 #'
 #'
 #' ####################  AssignmentStatusGet  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user account id
 #' var_assignment_status_id <- 56 # integer | the assignment status id
 #'
@@ -160,15 +152,14 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignmentStatusGet(var_version, var_account_id, var_assignment_status_iddata_file = "result.txt")
-#' result <- api_instance$AssignmentStatusGet(var_version, var_account_id, var_assignment_status_id)
+#' # result <- api_instance$AssignmentStatusGet(var_account_id, var_assignment_status_iddata_file = "result.txt")
+#' result <- api_instance$AssignmentStatusGet(var_account_id, var_assignment_status_id)
 #' dput(result)
 #'
 #'
 #' ####################  AssignmentStatusSearch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user account id
 #' var_sort_field <- "sort_field_example" # character | the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
 #' var_descending <- "descending_example" # character | determines whether the sorted list is in descending or ascending order
@@ -186,15 +177,14 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignmentStatusSearch(var_version, var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, assignment_id = var_assignment_id, creator_account_id = var_creator_account_id, assignee_account_id = var_assignee_account_id, retailer_location_id = var_retailer_location_id, status_type = var_status_type, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$AssignmentStatusSearch(var_version, var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, assignment_id = var_assignment_id, creator_account_id = var_creator_account_id, assignee_account_id = var_assignee_account_id, retailer_location_id = var_retailer_location_id, status_type = var_status_type, keyword = var_keyword)
+#' # result <- api_instance$AssignmentStatusSearch(var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, assignment_id = var_assignment_id, creator_account_id = var_creator_account_id, assignee_account_id = var_assignee_account_id, retailer_location_id = var_retailer_location_id, status_type = var_status_type, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$AssignmentStatusSearch(var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, assignment_id = var_assignment_id, creator_account_id = var_creator_account_id, assignee_account_id = var_assignee_account_id, retailer_location_id = var_retailer_location_id, status_type = var_status_type, keyword = var_keyword)
 #' dput(result)
 #'
 #'
 #' ####################  AssignmentStatusUpdate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user account id
 #' var_assignment_status_id <- 56 # integer | the assignment status id
 #' var_scheduled_notification_id <- 56 # integer | the scheduled notification id for reminders (Optional)
@@ -211,15 +201,14 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignmentStatusUpdate(var_version, var_account_id, var_assignment_status_id, scheduled_notification_id = var_scheduled_notification_id, to_do = var_to_do, connection = var_connection, method = var_method, status = var_status, closure = var_closure, message = var_message, follow_up = var_follow_up, active = var_activedata_file = "result.txt")
-#' result <- api_instance$AssignmentStatusUpdate(var_version, var_account_id, var_assignment_status_id, scheduled_notification_id = var_scheduled_notification_id, to_do = var_to_do, connection = var_connection, method = var_method, status = var_status, closure = var_closure, message = var_message, follow_up = var_follow_up, active = var_active)
+#' # result <- api_instance$AssignmentStatusUpdate(var_account_id, var_assignment_status_id, scheduled_notification_id = var_scheduled_notification_id, to_do = var_to_do, connection = var_connection, method = var_method, status = var_status, closure = var_closure, message = var_message, follow_up = var_follow_up, active = var_activedata_file = "result.txt")
+#' result <- api_instance$AssignmentStatusUpdate(var_account_id, var_assignment_status_id, scheduled_notification_id = var_scheduled_notification_id, to_do = var_to_do, connection = var_connection, method = var_method, status = var_status, closure = var_closure, message = var_message, follow_up = var_follow_up, active = var_active)
 #' dput(result)
 #'
 #'
 #' ####################  AssignmentUpdate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user account id
 #' var_assignment_id <- 56 # integer | the assignment id
 #' var_name <- "name_example" # character | the name of the assignment (Optional)
@@ -233,8 +222,8 @@
 #' api_instance <- AssignmentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignmentUpdate(var_version, var_account_id, var_assignment_id, name = var_name, description = var_description, assignee_account_id = var_assignee_account_id, retailer_location_id = var_retailer_location_id, tags = var_tags, active = var_activedata_file = "result.txt")
-#' result <- api_instance$AssignmentUpdate(var_version, var_account_id, var_assignment_id, name = var_name, description = var_description, assignee_account_id = var_assignee_account_id, retailer_location_id = var_retailer_location_id, tags = var_tags, active = var_active)
+#' # result <- api_instance$AssignmentUpdate(var_account_id, var_assignment_id, name = var_name, description = var_description, assignee_account_id = var_assignee_account_id, retailer_location_id = var_retailer_location_id, tags = var_tags, active = var_activedata_file = "result.txt")
+#' result <- api_instance$AssignmentUpdate(var_account_id, var_assignment_id, name = var_name, description = var_description, assignee_account_id = var_assignee_account_id, retailer_location_id = var_retailer_location_id, tags = var_tags, active = var_active)
 #' dput(result)
 #'
 #'
@@ -262,7 +251,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Search Assignment Assignees
     #'
-    #' @param version 
     #' @param account_id The account id sending the request
     #' @param keyword (optional) The keyword to filter the returned results
     #' @param data_file (optional) name of the data file to save the result
@@ -270,8 +258,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AccountMiniResponse]
-    AssigmentAssigneeAccountSearch = function(version, account_id, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssigmentAssigneeAccountSearchWithHttpInfo(version, account_id, keyword, data_file = data_file, ..., .parse = .parse)
+    AssigmentAssigneeAccountSearch = function(account_id, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssigmentAssigneeAccountSearchWithHttpInfo(account_id, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -286,7 +274,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Search Assignment Assignees
     #'
-    #' @param version 
     #' @param account_id The account id sending the request
     #' @param keyword (optional) The keyword to filter the returned results
     #' @param data_file (optional) name of the data file to save the result
@@ -294,7 +281,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AccountMiniResponse]) with additional information such as HTTP status code, headers
-    AssigmentAssigneeAccountSearchWithHttpInfo = function(version, account_id, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AssigmentAssigneeAccountSearchWithHttpInfo = function(account_id, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -304,16 +291,8 @@ AssignmentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssigmentAssigneeAccountSearch, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -328,11 +307,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["keyword"]] <- `keyword`
 
-      local_var_url_path <- "/api/{version}/assignment/assignee/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/assignee/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -393,7 +368,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Create Assignment
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param name the name for the assignment
     #' @param assignee_account_id the account id to assign to
@@ -406,8 +380,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AssignmentResponse
-    AssignmentCreate = function(version, account_id, name, assignee_account_id, description = NULL, retailer_location_id = NULL, tags = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignmentCreateWithHttpInfo(version, account_id, name, assignee_account_id, description, retailer_location_id, tags, active, data_file = data_file, ..., .parse = .parse)
+    AssignmentCreate = function(account_id, name, assignee_account_id, description = NULL, retailer_location_id = NULL, tags = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignmentCreateWithHttpInfo(account_id, name, assignee_account_id, description, retailer_location_id, tags, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -422,7 +396,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Create Assignment
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param name the name for the assignment
     #' @param assignee_account_id the account id to assign to
@@ -435,7 +408,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AssignmentResponse) with additional information such as HTTP status code, headers
-    AssignmentCreateWithHttpInfo = function(version, account_id, name, assignee_account_id, description = NULL, retailer_location_id = NULL, tags = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AssignmentCreateWithHttpInfo = function(account_id, name, assignee_account_id, description = NULL, retailer_location_id = NULL, tags = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -444,10 +417,6 @@ AssignmentApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -459,10 +428,6 @@ AssignmentApi <- R6::R6Class(
 
       if (missing(`assignee_account_id`)) {
         stop("Missing required parameter `assignee_account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssignmentCreate, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -507,11 +472,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/assignment/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -572,7 +533,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Delete Assignment
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_id the assignment id
     #' @param data_file (optional) name of the data file to save the result
@@ -580,8 +540,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    AssignmentDelete = function(version, account_id, assignment_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignmentDeleteWithHttpInfo(version, account_id, assignment_id, data_file = data_file, ..., .parse = .parse)
+    AssignmentDelete = function(account_id, assignment_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignmentDeleteWithHttpInfo(account_id, assignment_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -596,7 +556,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Delete Assignment
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_id the assignment id
     #' @param data_file (optional) name of the data file to save the result
@@ -604,7 +563,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    AssignmentDeleteWithHttpInfo = function(version, account_id, assignment_id, data_file = NULL, ..., .parse = TRUE) {
+    AssignmentDeleteWithHttpInfo = function(account_id, assignment_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -614,20 +573,12 @@ AssignmentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`assignment_id`)) {
         stop("Missing required parameter `assignment_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssignmentDelete, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -642,11 +593,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["assignmentId"]] <- `assignment_id`
 
-      local_var_url_path <- "/api/{version}/assignment/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -707,7 +654,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Get Assignment
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_id the assignment id
     #' @param data_file (optional) name of the data file to save the result
@@ -715,8 +661,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AssignmentResponse
-    AssignmentGet = function(version, account_id, assignment_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignmentGetWithHttpInfo(version, account_id, assignment_id, data_file = data_file, ..., .parse = .parse)
+    AssignmentGet = function(account_id, assignment_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignmentGetWithHttpInfo(account_id, assignment_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -731,7 +677,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Get Assignment
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_id the assignment id
     #' @param data_file (optional) name of the data file to save the result
@@ -739,7 +684,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AssignmentResponse) with additional information such as HTTP status code, headers
-    AssignmentGetWithHttpInfo = function(version, account_id, assignment_id, data_file = NULL, ..., .parse = TRUE) {
+    AssignmentGetWithHttpInfo = function(account_id, assignment_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -749,20 +694,12 @@ AssignmentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`assignment_id`)) {
         stop("Missing required parameter `assignment_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssignmentGet, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -777,11 +714,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["assignmentId"]] <- `assignment_id`
 
-      local_var_url_path <- "/api/{version}/assignment/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -842,7 +775,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Search Assignments
     #'
-    #' @param version 
     #' @param account_id the account sending the request
     #' @param sort_field sort by table field
     #' @param descending return results in descending order or not
@@ -859,8 +791,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AssignmentResponse]
-    AssignmentSearch = function(version, account_id, sort_field, descending, active_only, start, limit, creator_account_id = NULL, assignee_account_ids = NULL, retailer_location_ids = NULL, current_status_type = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignmentSearchWithHttpInfo(version, account_id, sort_field, descending, active_only, start, limit, creator_account_id, assignee_account_ids, retailer_location_ids, current_status_type, keyword, data_file = data_file, ..., .parse = .parse)
+    AssignmentSearch = function(account_id, sort_field, descending, active_only, start, limit, creator_account_id = NULL, assignee_account_ids = NULL, retailer_location_ids = NULL, current_status_type = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignmentSearchWithHttpInfo(account_id, sort_field, descending, active_only, start, limit, creator_account_id, assignee_account_ids, retailer_location_ids, current_status_type, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -875,7 +807,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Search Assignments
     #'
-    #' @param version 
     #' @param account_id the account sending the request
     #' @param sort_field sort by table field
     #' @param descending return results in descending order or not
@@ -892,7 +823,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AssignmentResponse]) with additional information such as HTTP status code, headers
-    AssignmentSearchWithHttpInfo = function(version, account_id, sort_field, descending, active_only, start, limit, creator_account_id = NULL, assignee_account_ids = NULL, retailer_location_ids = NULL, current_status_type = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AssignmentSearchWithHttpInfo = function(account_id, sort_field, descending, active_only, start, limit, creator_account_id = NULL, assignee_account_ids = NULL, retailer_location_ids = NULL, current_status_type = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -901,10 +832,6 @@ AssignmentApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -928,10 +855,6 @@ AssignmentApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssignmentSearch, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1006,11 +929,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/assignment/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1071,7 +990,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Create Assignment Status
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_id the assignment id
     #' @param scheduled_notification_id (optional) the scheduled notification id for reminders
@@ -1088,8 +1006,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AssignmentStatusResponse
-    AssignmentStatusCreate = function(version, account_id, assignment_id, scheduled_notification_id = NULL, to_do = NULL, connection = NULL, method = NULL, status = NULL, closure = NULL, message = NULL, follow_up = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignmentStatusCreateWithHttpInfo(version, account_id, assignment_id, scheduled_notification_id, to_do, connection, method, status, closure, message, follow_up, active, data_file = data_file, ..., .parse = .parse)
+    AssignmentStatusCreate = function(account_id, assignment_id, scheduled_notification_id = NULL, to_do = NULL, connection = NULL, method = NULL, status = NULL, closure = NULL, message = NULL, follow_up = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignmentStatusCreateWithHttpInfo(account_id, assignment_id, scheduled_notification_id, to_do, connection, method, status, closure, message, follow_up, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1104,7 +1022,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Create Assignment Status
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_id the assignment id
     #' @param scheduled_notification_id (optional) the scheduled notification id for reminders
@@ -1121,7 +1038,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AssignmentStatusResponse) with additional information such as HTTP status code, headers
-    AssignmentStatusCreateWithHttpInfo = function(version, account_id, assignment_id, scheduled_notification_id = NULL, to_do = NULL, connection = NULL, method = NULL, status = NULL, closure = NULL, message = NULL, follow_up = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AssignmentStatusCreateWithHttpInfo = function(account_id, assignment_id, scheduled_notification_id = NULL, to_do = NULL, connection = NULL, method = NULL, status = NULL, closure = NULL, message = NULL, follow_up = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1131,20 +1048,12 @@ AssignmentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`assignment_id`)) {
         stop("Missing required parameter `assignment_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssignmentStatusCreate, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1228,11 +1137,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/assignment/status/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/status/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1293,7 +1198,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Deletes Assignment Status
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_status_id the assignment status id
     #' @param data_file (optional) name of the data file to save the result
@@ -1301,8 +1205,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    AssignmentStatusDelete = function(version, account_id, assignment_status_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignmentStatusDeleteWithHttpInfo(version, account_id, assignment_status_id, data_file = data_file, ..., .parse = .parse)
+    AssignmentStatusDelete = function(account_id, assignment_status_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignmentStatusDeleteWithHttpInfo(account_id, assignment_status_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1317,7 +1221,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Deletes Assignment Status
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_status_id the assignment status id
     #' @param data_file (optional) name of the data file to save the result
@@ -1325,7 +1228,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    AssignmentStatusDeleteWithHttpInfo = function(version, account_id, assignment_status_id, data_file = NULL, ..., .parse = TRUE) {
+    AssignmentStatusDeleteWithHttpInfo = function(account_id, assignment_status_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1335,20 +1238,12 @@ AssignmentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`assignment_status_id`)) {
         stop("Missing required parameter `assignment_status_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssignmentStatusDelete, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1363,11 +1258,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["assignmentStatusId"]] <- `assignment_status_id`
 
-      local_var_url_path <- "/api/{version}/assignment/status/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/status/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1428,7 +1319,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Get Assignment Status
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_status_id the assignment status id
     #' @param data_file (optional) name of the data file to save the result
@@ -1436,8 +1326,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AssignmentStatusResponse
-    AssignmentStatusGet = function(version, account_id, assignment_status_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignmentStatusGetWithHttpInfo(version, account_id, assignment_status_id, data_file = data_file, ..., .parse = .parse)
+    AssignmentStatusGet = function(account_id, assignment_status_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignmentStatusGetWithHttpInfo(account_id, assignment_status_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1452,7 +1342,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Get Assignment Status
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_status_id the assignment status id
     #' @param data_file (optional) name of the data file to save the result
@@ -1460,7 +1349,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AssignmentStatusResponse) with additional information such as HTTP status code, headers
-    AssignmentStatusGetWithHttpInfo = function(version, account_id, assignment_status_id, data_file = NULL, ..., .parse = TRUE) {
+    AssignmentStatusGetWithHttpInfo = function(account_id, assignment_status_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1470,20 +1359,12 @@ AssignmentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`assignment_status_id`)) {
         stop("Missing required parameter `assignment_status_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssignmentStatusGet, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1498,11 +1379,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["assignmentStatusId"]] <- `assignment_status_id`
 
-      local_var_url_path <- "/api/{version}/assignment/status/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/status/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1563,7 +1440,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Search Assignment Statuses
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param sort_field the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
     #' @param descending determines whether the sorted list is in descending or ascending order
@@ -1581,8 +1457,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AssignmentStatusResponse]
-    AssignmentStatusSearch = function(version, account_id, sort_field, descending, active_only, start, limit, assignment_id = NULL, creator_account_id = NULL, assignee_account_id = NULL, retailer_location_id = NULL, status_type = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignmentStatusSearchWithHttpInfo(version, account_id, sort_field, descending, active_only, start, limit, assignment_id, creator_account_id, assignee_account_id, retailer_location_id, status_type, keyword, data_file = data_file, ..., .parse = .parse)
+    AssignmentStatusSearch = function(account_id, sort_field, descending, active_only, start, limit, assignment_id = NULL, creator_account_id = NULL, assignee_account_id = NULL, retailer_location_id = NULL, status_type = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignmentStatusSearchWithHttpInfo(account_id, sort_field, descending, active_only, start, limit, assignment_id, creator_account_id, assignee_account_id, retailer_location_id, status_type, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1597,7 +1473,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Search Assignment Statuses
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param sort_field the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
     #' @param descending determines whether the sorted list is in descending or ascending order
@@ -1615,7 +1490,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AssignmentStatusResponse]) with additional information such as HTTP status code, headers
-    AssignmentStatusSearchWithHttpInfo = function(version, account_id, sort_field, descending, active_only, start, limit, assignment_id = NULL, creator_account_id = NULL, assignee_account_id = NULL, retailer_location_id = NULL, status_type = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AssignmentStatusSearchWithHttpInfo = function(account_id, sort_field, descending, active_only, start, limit, assignment_id = NULL, creator_account_id = NULL, assignee_account_id = NULL, retailer_location_id = NULL, status_type = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1624,10 +1499,6 @@ AssignmentApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1651,10 +1522,6 @@ AssignmentApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssignmentStatusSearch, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1735,11 +1602,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/assignment/status/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/status/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1800,7 +1663,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Update Assignment Status
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_status_id the assignment status id
     #' @param scheduled_notification_id (optional) the scheduled notification id for reminders
@@ -1817,8 +1679,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AssignmentStatusResponse
-    AssignmentStatusUpdate = function(version, account_id, assignment_status_id, scheduled_notification_id = NULL, to_do = NULL, connection = NULL, method = NULL, status = NULL, closure = NULL, message = NULL, follow_up = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignmentStatusUpdateWithHttpInfo(version, account_id, assignment_status_id, scheduled_notification_id, to_do, connection, method, status, closure, message, follow_up, active, data_file = data_file, ..., .parse = .parse)
+    AssignmentStatusUpdate = function(account_id, assignment_status_id, scheduled_notification_id = NULL, to_do = NULL, connection = NULL, method = NULL, status = NULL, closure = NULL, message = NULL, follow_up = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignmentStatusUpdateWithHttpInfo(account_id, assignment_status_id, scheduled_notification_id, to_do, connection, method, status, closure, message, follow_up, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1833,7 +1695,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Update Assignment Status
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_status_id the assignment status id
     #' @param scheduled_notification_id (optional) the scheduled notification id for reminders
@@ -1850,7 +1711,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AssignmentStatusResponse) with additional information such as HTTP status code, headers
-    AssignmentStatusUpdateWithHttpInfo = function(version, account_id, assignment_status_id, scheduled_notification_id = NULL, to_do = NULL, connection = NULL, method = NULL, status = NULL, closure = NULL, message = NULL, follow_up = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AssignmentStatusUpdateWithHttpInfo = function(account_id, assignment_status_id, scheduled_notification_id = NULL, to_do = NULL, connection = NULL, method = NULL, status = NULL, closure = NULL, message = NULL, follow_up = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1860,20 +1721,12 @@ AssignmentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`assignment_status_id`)) {
         stop("Missing required parameter `assignment_status_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssignmentStatusUpdate, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1957,11 +1810,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/assignment/status/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/status/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2022,7 +1871,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Update Assignment
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_id the assignment id
     #' @param name (optional) the name of the assignment
@@ -2036,8 +1884,8 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AssignmentResponse
-    AssignmentUpdate = function(version, account_id, assignment_id, name = NULL, description = NULL, assignee_account_id = NULL, retailer_location_id = NULL, tags = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignmentUpdateWithHttpInfo(version, account_id, assignment_id, name, description, assignee_account_id, retailer_location_id, tags, active, data_file = data_file, ..., .parse = .parse)
+    AssignmentUpdate = function(account_id, assignment_id, name = NULL, description = NULL, assignee_account_id = NULL, retailer_location_id = NULL, tags = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignmentUpdateWithHttpInfo(account_id, assignment_id, name, description, assignee_account_id, retailer_location_id, tags, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2052,7 +1900,6 @@ AssignmentApi <- R6::R6Class(
     #' @description
     #' Update Assignment
     #'
-    #' @param version 
     #' @param account_id the user account id
     #' @param assignment_id the assignment id
     #' @param name (optional) the name of the assignment
@@ -2066,7 +1913,7 @@ AssignmentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AssignmentResponse) with additional information such as HTTP status code, headers
-    AssignmentUpdateWithHttpInfo = function(version, account_id, assignment_id, name = NULL, description = NULL, assignee_account_id = NULL, retailer_location_id = NULL, tags = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AssignmentUpdateWithHttpInfo = function(account_id, assignment_id, name = NULL, description = NULL, assignee_account_id = NULL, retailer_location_id = NULL, tags = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2076,20 +1923,12 @@ AssignmentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`assignment_id`)) {
         stop("Missing required parameter `assignment_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssignmentApi$AssignmentUpdate, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2140,11 +1979,7 @@ AssignmentApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/assignment/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/assignment/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

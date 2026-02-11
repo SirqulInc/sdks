@@ -17,7 +17,6 @@
 #' ####################  CreateNotificationTemplate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account ID of the user.
 #' var_conduit <- "conduit_example" # character | Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
 #' var_title <- "title_example" # character | title of the notification template
@@ -30,15 +29,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateNotificationTemplate(var_version, var_account_id, var_conduit, var_title, var_body, app_key = var_app_key, event = var_event, tags = var_tagsdata_file = "result.txt")
-#' result <- api_instance$CreateNotificationTemplate(var_version, var_account_id, var_conduit, var_title, var_body, app_key = var_app_key, event = var_event, tags = var_tags)
+#' # result <- api_instance$CreateNotificationTemplate(var_account_id, var_conduit, var_title, var_body, app_key = var_app_key, event = var_event, tags = var_tagsdata_file = "result.txt")
+#' result <- api_instance$CreateNotificationTemplate(var_account_id, var_conduit, var_title, var_body, app_key = var_app_key, event = var_event, tags = var_tags)
 #' dput(result)
 #'
 #'
 #' ####################  CreateOrUpdateBlockedNotifications  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key
 #' var_data <- "data_example" # character | batch data payload (application specific)
 #' var_account_id <- 56 # integer | the account id of the user (Optional)
@@ -47,15 +45,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateOrUpdateBlockedNotifications(var_version, var_app_key, var_data, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$CreateOrUpdateBlockedNotifications(var_version, var_app_key, var_data, account_id = var_account_id)
+#' # result <- api_instance$CreateOrUpdateBlockedNotifications(var_app_key, var_data, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$CreateOrUpdateBlockedNotifications(var_app_key, var_data, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteNotificationTemplate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user
 #' var_notification_template_id <- 56 # integer | the id of the notification template to delete
 #'
@@ -63,15 +60,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteNotificationTemplate(var_version, var_account_id, var_notification_template_iddata_file = "result.txt")
-#' result <- api_instance$DeleteNotificationTemplate(var_version, var_account_id, var_notification_template_id)
+#' # result <- api_instance$DeleteNotificationTemplate(var_account_id, var_notification_template_iddata_file = "result.txt")
+#' result <- api_instance$DeleteNotificationTemplate(var_account_id, var_notification_template_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetNotificationTemplate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the account
 #' var_notification_template_id <- 56 # integer | the id of the notification template to get
 #'
@@ -79,15 +75,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetNotificationTemplate(var_version, var_account_id, var_notification_template_iddata_file = "result.txt")
-#' result <- api_instance$GetNotificationTemplate(var_version, var_account_id, var_notification_template_id)
+#' # result <- api_instance$GetNotificationTemplate(var_account_id, var_notification_template_iddata_file = "result.txt")
+#' result <- api_instance$GetNotificationTemplate(var_account_id, var_notification_template_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetNotifications  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
 #' var_connection_account_id <- 56 # integer | the account id used to view another person's notifications (Optional)
@@ -114,15 +109,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetNotifications(var_version, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, app_key = var_app_key, event_type = var_event_type, content_ids = var_content_ids, content_types = var_content_types, parent_ids = var_parent_ids, parent_types = var_parent_types, action_category = var_action_category, conduits = var_conduits, keyword = var_keyword, return_read_messages = var_return_read_messages, mark_as_read = var_mark_as_read, from_date = var_from_date, latitude = var_latitude, longitude = var_longitude, return_sent = var_return_sent, ignore_flagged = var_ignore_flagged, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$GetNotifications(var_version, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, app_key = var_app_key, event_type = var_event_type, content_ids = var_content_ids, content_types = var_content_types, parent_ids = var_parent_ids, parent_types = var_parent_types, action_category = var_action_category, conduits = var_conduits, keyword = var_keyword, return_read_messages = var_return_read_messages, mark_as_read = var_mark_as_read, from_date = var_from_date, latitude = var_latitude, longitude = var_longitude, return_sent = var_return_sent, ignore_flagged = var_ignore_flagged, start = var_start, limit = var_limit)
+#' # result <- api_instance$GetNotifications(device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, app_key = var_app_key, event_type = var_event_type, content_ids = var_content_ids, content_types = var_content_types, parent_ids = var_parent_ids, parent_types = var_parent_types, action_category = var_action_category, conduits = var_conduits, keyword = var_keyword, return_read_messages = var_return_read_messages, mark_as_read = var_mark_as_read, from_date = var_from_date, latitude = var_latitude, longitude = var_longitude, return_sent = var_return_sent, ignore_flagged = var_ignore_flagged, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$GetNotifications(device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, app_key = var_app_key, event_type = var_event_type, content_ids = var_content_ids, content_types = var_content_types, parent_ids = var_parent_ids, parent_types = var_parent_types, action_category = var_action_category, conduits = var_conduits, keyword = var_keyword, return_read_messages = var_return_read_messages, mark_as_read = var_mark_as_read, from_date = var_from_date, latitude = var_latitude, longitude = var_longitude, return_sent = var_return_sent, ignore_flagged = var_ignore_flagged, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  RegisterNotificationToken  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_token <- "token_example" # character | A token that is generated by the device to sign requests for the notification service providers
 #' var_push_type <- "push_type_example" # character | The type of push notification. Possible values include: APNS, GCM
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
@@ -138,15 +132,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RegisterNotificationToken(var_version, var_token, var_push_type, device_id = var_device_id, account_id = var_account_id, environment = var_environment, app_key = var_app_key, game_type = var_game_type, active = var_active, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$RegisterNotificationToken(var_version, var_token, var_push_type, device_id = var_device_id, account_id = var_account_id, environment = var_environment, app_key = var_app_key, game_type = var_game_type, active = var_active, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$RegisterNotificationToken(var_token, var_push_type, device_id = var_device_id, account_id = var_account_id, environment = var_environment, app_key = var_app_key, game_type = var_game_type, active = var_active, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$RegisterNotificationToken(var_token, var_push_type, device_id = var_device_id, account_id = var_account_id, environment = var_environment, app_key = var_app_key, game_type = var_game_type, active = var_active, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  SearchBlockedNotifications  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key
 #' var_account_id <- 56 # integer | the account id of the user (Optional)
 #' var_search_tags <- "search_tags_example" # character | search tags to filter results (Optional)
@@ -164,15 +157,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchBlockedNotifications(var_version, var_app_key, account_id = var_account_id, search_tags = var_search_tags, events = var_events, conduits = var_conduits, custom_types = var_custom_types, content_types = var_content_types, content_ids = var_content_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchBlockedNotifications(var_version, var_app_key, account_id = var_account_id, search_tags = var_search_tags, events = var_events, conduits = var_conduits, custom_types = var_custom_types, content_types = var_content_types, content_ids = var_content_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchBlockedNotifications(var_app_key, account_id = var_account_id, search_tags = var_search_tags, events = var_events, conduits = var_conduits, custom_types = var_custom_types, content_types = var_content_types, content_ids = var_content_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchBlockedNotifications(var_app_key, account_id = var_account_id, search_tags = var_search_tags, events = var_events, conduits = var_conduits, custom_types = var_custom_types, content_types = var_content_types, content_ids = var_content_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchNotificationTemplate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account ID of the user.
 #' var_sort_field <- "sort_field_example" # character | Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false.
 #' var_descending <- "descending_example" # character | Specified whether the results are returned in descending or ascending order.
@@ -189,15 +181,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchNotificationTemplate(var_version, var_account_id, var_sort_field, var_descending, var_start, var_limit, app_key = var_app_key, event = var_event, conduit = var_conduit, global_only = var_global_only, reserved_only = var_reserved_only, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$SearchNotificationTemplate(var_version, var_account_id, var_sort_field, var_descending, var_start, var_limit, app_key = var_app_key, event = var_event, conduit = var_conduit, global_only = var_global_only, reserved_only = var_reserved_only, keyword = var_keyword)
+#' # result <- api_instance$SearchNotificationTemplate(var_account_id, var_sort_field, var_descending, var_start, var_limit, app_key = var_app_key, event = var_event, conduit = var_conduit, global_only = var_global_only, reserved_only = var_reserved_only, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$SearchNotificationTemplate(var_account_id, var_sort_field, var_descending, var_start, var_limit, app_key = var_app_key, event = var_event, conduit = var_conduit, global_only = var_global_only, reserved_only = var_reserved_only, keyword = var_keyword)
 #' dput(result)
 #'
 #'
 #' ####################  SearchRecipients  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_sort_field <- "sort_field_example" # character | The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
 #' var_device_id <- "device_id_example" # character | the unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -216,15 +207,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchRecipients(var_version, var_sort_field, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, conduit = var_conduit, keyword = var_keyword, audience_id = var_audience_id, audience_ids = var_audience_ids, connection_group_ids = var_connection_group_ids, recipient_account_ids = var_recipient_account_ids, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchRecipients(var_version, var_sort_field, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, conduit = var_conduit, keyword = var_keyword, audience_id = var_audience_id, audience_ids = var_audience_ids, connection_group_ids = var_connection_group_ids, recipient_account_ids = var_recipient_account_ids, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchRecipients(var_sort_field, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, conduit = var_conduit, keyword = var_keyword, audience_id = var_audience_id, audience_ids = var_audience_ids, connection_group_ids = var_connection_group_ids, recipient_account_ids = var_recipient_account_ids, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchRecipients(var_sort_field, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, conduit = var_conduit, keyword = var_keyword, audience_id = var_audience_id, audience_ids = var_audience_ids, connection_group_ids = var_connection_group_ids, recipient_account_ids = var_recipient_account_ids, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchRecipientsCount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
 #' var_app_key <- "app_key_example" # character | filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (Optional)
@@ -242,15 +232,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchRecipientsCount(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, conduit = var_conduit, keyword = var_keyword, audience_id = var_audience_id, audience_ids = var_audience_ids, connection_group_ids = var_connection_group_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchRecipientsCount(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, conduit = var_conduit, keyword = var_keyword, audience_id = var_audience_id, audience_ids = var_audience_ids, connection_group_ids = var_connection_group_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchRecipientsCount(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, conduit = var_conduit, keyword = var_keyword, audience_id = var_audience_id, audience_ids = var_audience_ids, connection_group_ids = var_connection_group_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchRecipientsCount(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, conduit = var_conduit, keyword = var_keyword, audience_id = var_audience_id, audience_ids = var_audience_ids, connection_group_ids = var_connection_group_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SendBatchNotifications  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the application owner/manager
 #' var_app_key <- "app_key_example" # character | The application key for updating an existing application
 #' var_custom_message <- "custom_message_example" # character | Message string that will be displayed in on the notification
@@ -265,15 +254,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SendBatchNotifications(var_version, var_account_id, var_app_key, var_custom_message, conduit = var_conduit, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_typedata_file = "result.txt")
-#' result <- api_instance$SendBatchNotifications(var_version, var_account_id, var_app_key, var_custom_message, conduit = var_conduit, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type)
+#' # result <- api_instance$SendBatchNotifications(var_account_id, var_app_key, var_custom_message, conduit = var_conduit, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_typedata_file = "result.txt")
+#' result <- api_instance$SendBatchNotifications(var_account_id, var_app_key, var_custom_message, conduit = var_conduit, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type)
 #' dput(result)
 #'
 #'
 #' ####################  SendCustomNotifications  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
 #' var_receiver_account_ids <- "receiver_account_ids_example" # character | comma separated list of account IDs that will receive the notification (Optional)
@@ -297,15 +285,14 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SendCustomNotifications(var_version, device_id = var_device_id, account_id = var_account_id, receiver_account_ids = var_receiver_account_ids, include_friend_group = var_include_friend_group, app_key = var_app_key, game_type = var_game_type, conduit = var_conduit, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, action_category = var_action_category, subject = var_subject, custom_message = var_custom_message, friend_only_apns = var_friend_only_apns, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$SendCustomNotifications(var_version, device_id = var_device_id, account_id = var_account_id, receiver_account_ids = var_receiver_account_ids, include_friend_group = var_include_friend_group, app_key = var_app_key, game_type = var_game_type, conduit = var_conduit, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, action_category = var_action_category, subject = var_subject, custom_message = var_custom_message, friend_only_apns = var_friend_only_apns, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$SendCustomNotifications(device_id = var_device_id, account_id = var_account_id, receiver_account_ids = var_receiver_account_ids, include_friend_group = var_include_friend_group, app_key = var_app_key, game_type = var_game_type, conduit = var_conduit, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, action_category = var_action_category, subject = var_subject, custom_message = var_custom_message, friend_only_apns = var_friend_only_apns, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$SendCustomNotifications(device_id = var_device_id, account_id = var_account_id, receiver_account_ids = var_receiver_account_ids, include_friend_group = var_include_friend_group, app_key = var_app_key, game_type = var_game_type, conduit = var_conduit, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, action_category = var_action_category, subject = var_subject, custom_message = var_custom_message, friend_only_apns = var_friend_only_apns, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateNotificationTemplate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account ID of the user.
 #' var_notification_template_id <- 56 # integer | The notification template ID to update.
 #' var_title <- "title_example" # character | The title of the message (this would become the subject title for emails). There is a 191 character limit. (Optional)
@@ -316,8 +303,8 @@
 #' api_instance <- NotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateNotificationTemplate(var_version, var_account_id, var_notification_template_id, title = var_title, body = var_body, tags = var_tagsdata_file = "result.txt")
-#' result <- api_instance$UpdateNotificationTemplate(var_version, var_account_id, var_notification_template_id, title = var_title, body = var_body, tags = var_tags)
+#' # result <- api_instance$UpdateNotificationTemplate(var_account_id, var_notification_template_id, title = var_title, body = var_body, tags = var_tagsdata_file = "result.txt")
+#' result <- api_instance$UpdateNotificationTemplate(var_account_id, var_notification_template_id, title = var_title, body = var_body, tags = var_tags)
 #' dput(result)
 #'
 #'
@@ -345,7 +332,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Create Notification Template
     #'
-    #' @param version 
     #' @param account_id The account ID of the user.
     #' @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
     #' @param title title of the notification template
@@ -358,8 +344,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return NotificationTemplateResponse
-    CreateNotificationTemplate = function(version, account_id, conduit, title, body, app_key = NULL, event = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateNotificationTemplateWithHttpInfo(version, account_id, conduit, title, body, app_key, event, tags, data_file = data_file, ..., .parse = .parse)
+    CreateNotificationTemplate = function(account_id, conduit, title, body, app_key = NULL, event = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateNotificationTemplateWithHttpInfo(account_id, conduit, title, body, app_key, event, tags, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -374,7 +360,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Create Notification Template
     #'
-    #' @param version 
     #' @param account_id The account ID of the user.
     #' @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
     #' @param title title of the notification template
@@ -387,7 +372,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (NotificationTemplateResponse) with additional information such as HTTP status code, headers
-    CreateNotificationTemplateWithHttpInfo = function(version, account_id, conduit, title, body, app_key = NULL, event = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateNotificationTemplateWithHttpInfo = function(account_id, conduit, title, body, app_key = NULL, event = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -396,10 +381,6 @@ NotificationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -415,10 +396,6 @@ NotificationApi <- R6::R6Class(
 
       if (missing(`body`)) {
         stop("Missing required parameter `body`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$CreateNotificationTemplate, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -463,11 +440,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["tags"]] <- `tags`
 
-      local_var_url_path <- "/api/{version}/notification/template/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/template/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -528,7 +501,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Create or update blocked notification settings
     #'
-    #' @param version 
     #' @param app_key The application key
     #' @param data batch data payload (application specific)
     #' @param account_id (optional) the account id of the user
@@ -537,8 +509,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BlockedNotificationResponse
-    CreateOrUpdateBlockedNotifications = function(version, app_key, data, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateOrUpdateBlockedNotificationsWithHttpInfo(version, app_key, data, account_id, data_file = data_file, ..., .parse = .parse)
+    CreateOrUpdateBlockedNotifications = function(app_key, data, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateOrUpdateBlockedNotificationsWithHttpInfo(app_key, data, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -553,7 +525,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Create or update blocked notification settings
     #'
-    #' @param version 
     #' @param app_key The application key
     #' @param data batch data payload (application specific)
     #' @param account_id (optional) the account id of the user
@@ -562,7 +533,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BlockedNotificationResponse) with additional information such as HTTP status code, headers
-    CreateOrUpdateBlockedNotificationsWithHttpInfo = function(version, app_key, data, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateOrUpdateBlockedNotificationsWithHttpInfo = function(app_key, data, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -572,20 +543,12 @@ NotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
       }
 
       if (missing(`data`)) {
         stop("Missing required parameter `data`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$CreateOrUpdateBlockedNotifications, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -606,11 +569,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["data"]] <- `data`
 
-      local_var_url_path <- "/api/{version}/notification/blocked/batch"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/blocked/batch"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -671,7 +630,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Delete Notification Template
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param notification_template_id the id of the notification template to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -679,8 +637,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return NotificationTemplateResponse
-    DeleteNotificationTemplate = function(version, account_id, notification_template_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteNotificationTemplateWithHttpInfo(version, account_id, notification_template_id, data_file = data_file, ..., .parse = .parse)
+    DeleteNotificationTemplate = function(account_id, notification_template_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteNotificationTemplateWithHttpInfo(account_id, notification_template_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -695,7 +653,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Delete Notification Template
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param notification_template_id the id of the notification template to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -703,7 +660,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (NotificationTemplateResponse) with additional information such as HTTP status code, headers
-    DeleteNotificationTemplateWithHttpInfo = function(version, account_id, notification_template_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteNotificationTemplateWithHttpInfo = function(account_id, notification_template_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -713,20 +670,12 @@ NotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`notification_template_id`)) {
         stop("Missing required parameter `notification_template_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$DeleteNotificationTemplate, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -741,11 +690,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["notificationTemplateId"]] <- `notification_template_id`
 
-      local_var_url_path <- "/api/{version}/notification/template/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/template/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -806,7 +751,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Get Notification Template
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param notification_template_id the id of the notification template to get
     #' @param data_file (optional) name of the data file to save the result
@@ -814,8 +758,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return NotificationTemplateResponse
-    GetNotificationTemplate = function(version, account_id, notification_template_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetNotificationTemplateWithHttpInfo(version, account_id, notification_template_id, data_file = data_file, ..., .parse = .parse)
+    GetNotificationTemplate = function(account_id, notification_template_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetNotificationTemplateWithHttpInfo(account_id, notification_template_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -830,7 +774,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Get Notification Template
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param notification_template_id the id of the notification template to get
     #' @param data_file (optional) name of the data file to save the result
@@ -838,7 +781,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (NotificationTemplateResponse) with additional information such as HTTP status code, headers
-    GetNotificationTemplateWithHttpInfo = function(version, account_id, notification_template_id, data_file = NULL, ..., .parse = TRUE) {
+    GetNotificationTemplateWithHttpInfo = function(account_id, notification_template_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -848,20 +791,12 @@ NotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`notification_template_id`)) {
         stop("Missing required parameter `notification_template_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$GetNotificationTemplate, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -876,11 +811,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["notificationTemplateId"]] <- `notification_template_id`
 
-      local_var_url_path <- "/api/{version}/notification/template/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/template/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -941,7 +872,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Get Notifications
     #'
-    #' @param version 
     #' @param device_id (optional) the unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param connection_account_id (optional) the account id used to view another person's notifications
@@ -968,8 +898,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return NotificationMessageListResponse
-    GetNotifications = function(version, device_id = NULL, account_id = NULL, connection_account_id = NULL, app_key = NULL, event_type = NULL, content_ids = NULL, content_types = NULL, parent_ids = NULL, parent_types = NULL, action_category = NULL, conduits = NULL, keyword = NULL, return_read_messages = NULL, mark_as_read = NULL, from_date = NULL, latitude = NULL, longitude = NULL, return_sent = NULL, ignore_flagged = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetNotificationsWithHttpInfo(version, device_id, account_id, connection_account_id, app_key, event_type, content_ids, content_types, parent_ids, parent_types, action_category, conduits, keyword, return_read_messages, mark_as_read, from_date, latitude, longitude, return_sent, ignore_flagged, start, limit, data_file = data_file, ..., .parse = .parse)
+    GetNotifications = function(device_id = NULL, account_id = NULL, connection_account_id = NULL, app_key = NULL, event_type = NULL, content_ids = NULL, content_types = NULL, parent_ids = NULL, parent_types = NULL, action_category = NULL, conduits = NULL, keyword = NULL, return_read_messages = NULL, mark_as_read = NULL, from_date = NULL, latitude = NULL, longitude = NULL, return_sent = NULL, ignore_flagged = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetNotificationsWithHttpInfo(device_id, account_id, connection_account_id, app_key, event_type, content_ids, content_types, parent_ids, parent_types, action_category, conduits, keyword, return_read_messages, mark_as_read, from_date, latitude, longitude, return_sent, ignore_flagged, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -984,7 +914,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Get Notifications
     #'
-    #' @param version 
     #' @param device_id (optional) the unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param connection_account_id (optional) the account id used to view another person's notifications
@@ -1011,7 +940,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (NotificationMessageListResponse) with additional information such as HTTP status code, headers
-    GetNotificationsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, connection_account_id = NULL, app_key = NULL, event_type = NULL, content_ids = NULL, content_types = NULL, parent_ids = NULL, parent_types = NULL, action_category = NULL, conduits = NULL, keyword = NULL, return_read_messages = NULL, mark_as_read = NULL, from_date = NULL, latitude = NULL, longitude = NULL, return_sent = NULL, ignore_flagged = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetNotificationsWithHttpInfo = function(device_id = NULL, account_id = NULL, connection_account_id = NULL, app_key = NULL, event_type = NULL, content_ids = NULL, content_types = NULL, parent_ids = NULL, parent_types = NULL, action_category = NULL, conduits = NULL, keyword = NULL, return_read_messages = NULL, mark_as_read = NULL, from_date = NULL, latitude = NULL, longitude = NULL, return_sent = NULL, ignore_flagged = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1020,14 +949,6 @@ NotificationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$GetNotifications, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling NotificationApi$GetNotifications, `device_id` is not nullable")
@@ -1155,11 +1076,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/notification/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1220,7 +1137,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Register Notification Token
     #'
-    #' @param version 
     #' @param token A token that is generated by the device to sign requests for the notification service providers
     #' @param push_type The type of push notification. Possible values include: APNS, GCM
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
@@ -1236,8 +1152,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RegisterNotificationToken = function(version, token, push_type, device_id = NULL, account_id = NULL, environment = NULL, app_key = NULL, game_type = NULL, active = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RegisterNotificationTokenWithHttpInfo(version, token, push_type, device_id, account_id, environment, app_key, game_type, active, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    RegisterNotificationToken = function(token, push_type, device_id = NULL, account_id = NULL, environment = NULL, app_key = NULL, game_type = NULL, active = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RegisterNotificationTokenWithHttpInfo(token, push_type, device_id, account_id, environment, app_key, game_type, active, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1252,7 +1168,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Register Notification Token
     #'
-    #' @param version 
     #' @param token A token that is generated by the device to sign requests for the notification service providers
     #' @param push_type The type of push notification. Possible values include: APNS, GCM
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
@@ -1268,7 +1183,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RegisterNotificationTokenWithHttpInfo = function(version, token, push_type, device_id = NULL, account_id = NULL, environment = NULL, app_key = NULL, game_type = NULL, active = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RegisterNotificationTokenWithHttpInfo = function(token, push_type, device_id = NULL, account_id = NULL, environment = NULL, app_key = NULL, game_type = NULL, active = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1278,20 +1193,12 @@ NotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`token`)) {
         stop("Missing required parameter `token`.")
       }
 
       if (missing(`push_type`)) {
         stop("Missing required parameter `push_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$RegisterNotificationToken, `version` is not nullable")
       }
 
       if (!missing(`token`) && is.null(`token`)) {
@@ -1357,11 +1264,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/notification/token"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/token"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1422,7 +1325,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Search on the user's blocked notification settings
     #'
-    #' @param version 
     #' @param app_key The application key
     #' @param account_id (optional) the account id of the user
     #' @param search_tags (optional) search tags to filter results
@@ -1440,8 +1342,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BlockedNotificationResponse
-    SearchBlockedNotifications = function(version, app_key, account_id = NULL, search_tags = NULL, events = NULL, conduits = NULL, custom_types = NULL, content_types = NULL, content_ids = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchBlockedNotificationsWithHttpInfo(version, app_key, account_id, search_tags, events, conduits, custom_types, content_types, content_ids, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchBlockedNotifications = function(app_key, account_id = NULL, search_tags = NULL, events = NULL, conduits = NULL, custom_types = NULL, content_types = NULL, content_ids = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchBlockedNotificationsWithHttpInfo(app_key, account_id, search_tags, events, conduits, custom_types, content_types, content_ids, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1456,7 +1358,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Search on the user's blocked notification settings
     #'
-    #' @param version 
     #' @param app_key The application key
     #' @param account_id (optional) the account id of the user
     #' @param search_tags (optional) search tags to filter results
@@ -1474,7 +1375,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BlockedNotificationResponse) with additional information such as HTTP status code, headers
-    SearchBlockedNotificationsWithHttpInfo = function(version, app_key, account_id = NULL, search_tags = NULL, events = NULL, conduits = NULL, custom_types = NULL, content_types = NULL, content_ids = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchBlockedNotificationsWithHttpInfo = function(app_key, account_id = NULL, search_tags = NULL, events = NULL, conduits = NULL, custom_types = NULL, content_types = NULL, content_ids = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1484,16 +1385,8 @@ NotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$SearchBlockedNotifications, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -1568,11 +1461,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/notification/blocked/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/blocked/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1633,7 +1522,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Search Notification Templates
     #'
-    #' @param version 
     #' @param account_id The account ID of the user.
     #' @param sort_field Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false.
     #' @param descending Specified whether the results are returned in descending or ascending order.
@@ -1650,8 +1538,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return NotificationTemplateResponse
-    SearchNotificationTemplate = function(version, account_id, sort_field, descending, start, limit, app_key = NULL, event = NULL, conduit = NULL, global_only = NULL, reserved_only = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchNotificationTemplateWithHttpInfo(version, account_id, sort_field, descending, start, limit, app_key, event, conduit, global_only, reserved_only, keyword, data_file = data_file, ..., .parse = .parse)
+    SearchNotificationTemplate = function(account_id, sort_field, descending, start, limit, app_key = NULL, event = NULL, conduit = NULL, global_only = NULL, reserved_only = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchNotificationTemplateWithHttpInfo(account_id, sort_field, descending, start, limit, app_key, event, conduit, global_only, reserved_only, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1666,7 +1554,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Search Notification Templates
     #'
-    #' @param version 
     #' @param account_id The account ID of the user.
     #' @param sort_field Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false.
     #' @param descending Specified whether the results are returned in descending or ascending order.
@@ -1683,7 +1570,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (NotificationTemplateResponse) with additional information such as HTTP status code, headers
-    SearchNotificationTemplateWithHttpInfo = function(version, account_id, sort_field, descending, start, limit, app_key = NULL, event = NULL, conduit = NULL, global_only = NULL, reserved_only = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchNotificationTemplateWithHttpInfo = function(account_id, sort_field, descending, start, limit, app_key = NULL, event = NULL, conduit = NULL, global_only = NULL, reserved_only = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1692,10 +1579,6 @@ NotificationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1715,10 +1598,6 @@ NotificationApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$SearchNotificationTemplate, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1787,11 +1666,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/notification/template/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/template/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1852,7 +1727,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Search for Recipients
     #'
-    #' @param version 
     #' @param sort_field The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
     #' @param device_id (optional) the unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -1871,8 +1745,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[NotificationRecipientResponse]
-    SearchRecipients = function(version, sort_field, device_id = NULL, account_id = NULL, app_key = NULL, conduit = NULL, keyword = NULL, audience_id = NULL, audience_ids = NULL, connection_group_ids = NULL, recipient_account_ids = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchRecipientsWithHttpInfo(version, sort_field, device_id, account_id, app_key, conduit, keyword, audience_id, audience_ids, connection_group_ids, recipient_account_ids, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchRecipients = function(sort_field, device_id = NULL, account_id = NULL, app_key = NULL, conduit = NULL, keyword = NULL, audience_id = NULL, audience_ids = NULL, connection_group_ids = NULL, recipient_account_ids = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchRecipientsWithHttpInfo(sort_field, device_id, account_id, app_key, conduit, keyword, audience_id, audience_ids, connection_group_ids, recipient_account_ids, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1887,7 +1761,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Search for Recipients
     #'
-    #' @param version 
     #' @param sort_field The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
     #' @param device_id (optional) the unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -1906,7 +1779,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[NotificationRecipientResponse]) with additional information such as HTTP status code, headers
-    SearchRecipientsWithHttpInfo = function(version, sort_field, device_id = NULL, account_id = NULL, app_key = NULL, conduit = NULL, keyword = NULL, audience_id = NULL, audience_ids = NULL, connection_group_ids = NULL, recipient_account_ids = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchRecipientsWithHttpInfo = function(sort_field, device_id = NULL, account_id = NULL, app_key = NULL, conduit = NULL, keyword = NULL, audience_id = NULL, audience_ids = NULL, connection_group_ids = NULL, recipient_account_ids = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1916,16 +1789,8 @@ NotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`sort_field`)) {
         stop("Missing required parameter `sort_field`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$SearchRecipients, `version` is not nullable")
       }
 
       if (!missing(`sort_field`) && is.null(`sort_field`)) {
@@ -2009,11 +1874,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/notification/recipient/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/recipient/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2074,7 +1935,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Search for Recipients (Counts/Grouped)
     #'
-    #' @param version 
     #' @param device_id (optional) the unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param app_key (optional) filters results by application. If this is empty, will return all recipients for all applications that the user has access to.
@@ -2092,8 +1952,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return NotificationRecipientResponseListResponse
-    SearchRecipientsCount = function(version, device_id = NULL, account_id = NULL, app_key = NULL, conduit = NULL, keyword = NULL, audience_id = NULL, audience_ids = NULL, connection_group_ids = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchRecipientsCountWithHttpInfo(version, device_id, account_id, app_key, conduit, keyword, audience_id, audience_ids, connection_group_ids, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchRecipientsCount = function(device_id = NULL, account_id = NULL, app_key = NULL, conduit = NULL, keyword = NULL, audience_id = NULL, audience_ids = NULL, connection_group_ids = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchRecipientsCountWithHttpInfo(device_id, account_id, app_key, conduit, keyword, audience_id, audience_ids, connection_group_ids, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2108,7 +1968,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Search for Recipients (Counts/Grouped)
     #'
-    #' @param version 
     #' @param device_id (optional) the unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param app_key (optional) filters results by application. If this is empty, will return all recipients for all applications that the user has access to.
@@ -2126,7 +1985,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (NotificationRecipientResponseListResponse) with additional information such as HTTP status code, headers
-    SearchRecipientsCountWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_key = NULL, conduit = NULL, keyword = NULL, audience_id = NULL, audience_ids = NULL, connection_group_ids = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchRecipientsCountWithHttpInfo = function(device_id = NULL, account_id = NULL, app_key = NULL, conduit = NULL, keyword = NULL, audience_id = NULL, audience_ids = NULL, connection_group_ids = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2135,14 +1994,6 @@ NotificationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$SearchRecipientsCount, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling NotificationApi$SearchRecipientsCount, `device_id` is not nullable")
@@ -2216,11 +2067,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/notification/recipient/search/count"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/recipient/search/count"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2281,7 +2128,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Send Batch Notifications
     #'
-    #' @param version 
     #' @param account_id The account id of the application owner/manager
     #' @param app_key The application key for updating an existing application
     #' @param custom_message Message string that will be displayed in on the notification
@@ -2296,8 +2142,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SendBatchNotifications = function(version, account_id, app_key, custom_message, conduit = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SendBatchNotificationsWithHttpInfo(version, account_id, app_key, custom_message, conduit, content_id, content_name, content_type, parent_id, parent_type, data_file = data_file, ..., .parse = .parse)
+    SendBatchNotifications = function(account_id, app_key, custom_message, conduit = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SendBatchNotificationsWithHttpInfo(account_id, app_key, custom_message, conduit, content_id, content_name, content_type, parent_id, parent_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2312,7 +2158,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Send Batch Notifications
     #'
-    #' @param version 
     #' @param account_id The account id of the application owner/manager
     #' @param app_key The application key for updating an existing application
     #' @param custom_message Message string that will be displayed in on the notification
@@ -2327,7 +2172,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SendBatchNotificationsWithHttpInfo = function(version, account_id, app_key, custom_message, conduit = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SendBatchNotificationsWithHttpInfo = function(account_id, app_key, custom_message, conduit = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2336,10 +2181,6 @@ NotificationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -2351,10 +2192,6 @@ NotificationApi <- R6::R6Class(
 
       if (missing(`custom_message`)) {
         stop("Missing required parameter `custom_message`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$SendBatchNotifications, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2411,11 +2248,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["parentType"]] <- `parent_type`
 
-      local_var_url_path <- "/api/{version}/notification/batch"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/batch"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2476,7 +2309,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Send Custom Notifications
     #'
-    #' @param version 
     #' @param device_id (optional) the unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param receiver_account_ids (optional) comma separated list of account IDs that will receive the notification
@@ -2500,8 +2332,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SendCustomNotifications = function(version, device_id = NULL, account_id = NULL, receiver_account_ids = NULL, include_friend_group = NULL, app_key = NULL, game_type = NULL, conduit = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, action_category = NULL, subject = NULL, custom_message = NULL, friend_only_apns = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SendCustomNotificationsWithHttpInfo(version, device_id, account_id, receiver_account_ids, include_friend_group, app_key, game_type, conduit, content_id, content_name, content_type, parent_id, parent_type, action_category, subject, custom_message, friend_only_apns, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    SendCustomNotifications = function(device_id = NULL, account_id = NULL, receiver_account_ids = NULL, include_friend_group = NULL, app_key = NULL, game_type = NULL, conduit = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, action_category = NULL, subject = NULL, custom_message = NULL, friend_only_apns = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SendCustomNotificationsWithHttpInfo(device_id, account_id, receiver_account_ids, include_friend_group, app_key, game_type, conduit, content_id, content_name, content_type, parent_id, parent_type, action_category, subject, custom_message, friend_only_apns, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2516,7 +2348,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Send Custom Notifications
     #'
-    #' @param version 
     #' @param device_id (optional) the unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param receiver_account_ids (optional) comma separated list of account IDs that will receive the notification
@@ -2540,7 +2371,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SendCustomNotificationsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, receiver_account_ids = NULL, include_friend_group = NULL, app_key = NULL, game_type = NULL, conduit = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, action_category = NULL, subject = NULL, custom_message = NULL, friend_only_apns = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SendCustomNotificationsWithHttpInfo = function(device_id = NULL, account_id = NULL, receiver_account_ids = NULL, include_friend_group = NULL, app_key = NULL, game_type = NULL, conduit = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, action_category = NULL, subject = NULL, custom_message = NULL, friend_only_apns = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2549,14 +2380,6 @@ NotificationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$SendCustomNotifications, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling NotificationApi$SendCustomNotifications, `device_id` is not nullable")
@@ -2666,11 +2489,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/notification/custom"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/custom"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2731,7 +2550,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Update Notification Template
     #'
-    #' @param version 
     #' @param account_id The account ID of the user.
     #' @param notification_template_id The notification template ID to update.
     #' @param title (optional) The title of the message (this would become the subject title for emails). There is a 191 character limit.
@@ -2742,8 +2560,8 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return NotificationTemplateResponse
-    UpdateNotificationTemplate = function(version, account_id, notification_template_id, title = NULL, body = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateNotificationTemplateWithHttpInfo(version, account_id, notification_template_id, title, body, tags, data_file = data_file, ..., .parse = .parse)
+    UpdateNotificationTemplate = function(account_id, notification_template_id, title = NULL, body = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateNotificationTemplateWithHttpInfo(account_id, notification_template_id, title, body, tags, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2758,7 +2576,6 @@ NotificationApi <- R6::R6Class(
     #' @description
     #' Update Notification Template
     #'
-    #' @param version 
     #' @param account_id The account ID of the user.
     #' @param notification_template_id The notification template ID to update.
     #' @param title (optional) The title of the message (this would become the subject title for emails). There is a 191 character limit.
@@ -2769,7 +2586,7 @@ NotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (NotificationTemplateResponse) with additional information such as HTTP status code, headers
-    UpdateNotificationTemplateWithHttpInfo = function(version, account_id, notification_template_id, title = NULL, body = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateNotificationTemplateWithHttpInfo = function(account_id, notification_template_id, title = NULL, body = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2779,20 +2596,12 @@ NotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`notification_template_id`)) {
         stop("Missing required parameter `notification_template_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NotificationApi$UpdateNotificationTemplate, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2825,11 +2634,7 @@ NotificationApi <- R6::R6Class(
 
       query_params[["tags"]] <- `tags`
 
-      local_var_url_path <- "/api/{version}/notification/template/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/template/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

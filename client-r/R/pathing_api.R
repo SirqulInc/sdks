@@ -17,7 +17,6 @@
 #' ####################  ComputePath  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_data <- "data_example" # character | the data to with start, end point and exclusion points
 #' var_units <- "units_example" # character | the system of measurement for directions: {METRIC, IMPERIAL}
 #' var_reduce_path <- "reduce_path_example" # character | determines whether to reduce the path to go in diagonal lines
@@ -27,8 +26,8 @@
 #' api_instance <- PathingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ComputePath(var_version, var_data, var_units, var_reduce_path, var_directionsdata_file = "result.txt")
-#' result <- api_instance$ComputePath(var_version, var_data, var_units, var_reduce_path, var_directions)
+#' # result <- api_instance$ComputePath(var_data, var_units, var_reduce_path, var_directionsdata_file = "result.txt")
+#' result <- api_instance$ComputePath(var_data, var_units, var_reduce_path, var_directions)
 #' dput(result)
 #'
 #'
@@ -56,7 +55,6 @@ PathingApi <- R6::R6Class(
     #' @description
     #' Calculate Path
     #'
-    #' @param version 
     #' @param data the data to with start, end point and exclusion points
     #' @param units the system of measurement for directions: {METRIC, IMPERIAL}
     #' @param reduce_path determines whether to reduce the path to go in diagonal lines
@@ -66,8 +64,8 @@ PathingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PathingResponse
-    ComputePath = function(version, data, units, reduce_path, directions, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ComputePathWithHttpInfo(version, data, units, reduce_path, directions, data_file = data_file, ..., .parse = .parse)
+    ComputePath = function(data, units, reduce_path, directions, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ComputePathWithHttpInfo(data, units, reduce_path, directions, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -82,7 +80,6 @@ PathingApi <- R6::R6Class(
     #' @description
     #' Calculate Path
     #'
-    #' @param version 
     #' @param data the data to with start, end point and exclusion points
     #' @param units the system of measurement for directions: {METRIC, IMPERIAL}
     #' @param reduce_path determines whether to reduce the path to go in diagonal lines
@@ -92,7 +89,7 @@ PathingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PathingResponse) with additional information such as HTTP status code, headers
-    ComputePathWithHttpInfo = function(version, data, units, reduce_path, directions, data_file = NULL, ..., .parse = TRUE) {
+    ComputePathWithHttpInfo = function(data, units, reduce_path, directions, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -101,10 +98,6 @@ PathingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`data`)) {
         stop("Missing required parameter `data`.")
@@ -120,10 +113,6 @@ PathingApi <- R6::R6Class(
 
       if (missing(`directions`)) {
         stop("Missing required parameter `directions`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PathingApi$ComputePath, `version` is not nullable")
       }
 
       if (!missing(`data`) && is.null(`data`)) {
@@ -153,11 +142,7 @@ PathingApi <- R6::R6Class(
 
       query_params[["directions"]] <- `directions`
 
-      local_var_url_path <- "/api/{version}/pathing/compute"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/pathing/compute"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

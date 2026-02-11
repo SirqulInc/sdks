@@ -17,7 +17,6 @@
 #' ####################  CreateFlag  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_flagable_type <- "flagable_type_example" # character | The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
 #' var_flagable_id <- 56 # integer | The flagable object id
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
@@ -30,15 +29,14 @@
 #' api_instance <- FlagApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateFlag(var_version, var_flagable_type, var_flagable_id, device_id = var_device_id, account_id = var_account_id, flag_description = var_flag_description, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$CreateFlag(var_version, var_flagable_type, var_flagable_id, device_id = var_device_id, account_id = var_account_id, flag_description = var_flag_description, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$CreateFlag(var_flagable_type, var_flagable_id, device_id = var_device_id, account_id = var_account_id, flag_description = var_flag_description, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$CreateFlag(var_flagable_type, var_flagable_id, device_id = var_device_id, account_id = var_account_id, flag_description = var_flag_description, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteFlag  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
 #' var_account_id <- 56 # integer | The unique accountId that made the request (either deviceId or accountId must be used) (Optional)
 #' var_item_being_flagged_type <- "item_being_flagged_type_example" # character | This parameter is deprecated. (Optional)
@@ -50,15 +48,14 @@
 #' api_instance <- FlagApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteFlag(var_version, device_id = var_device_id, account_id = var_account_id, item_being_flagged_type = var_item_being_flagged_type, item_being_flagged_id = var_item_being_flagged_id, flagable_type = var_flagable_type, flagable_id = var_flagable_iddata_file = "result.txt")
-#' result <- api_instance$DeleteFlag(var_version, device_id = var_device_id, account_id = var_account_id, item_being_flagged_type = var_item_being_flagged_type, item_being_flagged_id = var_item_being_flagged_id, flagable_type = var_flagable_type, flagable_id = var_flagable_id)
+#' # result <- api_instance$DeleteFlag(device_id = var_device_id, account_id = var_account_id, item_being_flagged_type = var_item_being_flagged_type, item_being_flagged_id = var_item_being_flagged_id, flagable_type = var_flagable_type, flagable_id = var_flagable_iddata_file = "result.txt")
+#' result <- api_instance$DeleteFlag(device_id = var_device_id, account_id = var_account_id, item_being_flagged_type = var_item_being_flagged_type, item_being_flagged_id = var_item_being_flagged_id, flagable_type = var_flagable_type, flagable_id = var_flagable_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetFlag  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_flagable_type <- "flagable_type_example" # character | The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
 #' var_flagable_id <- 56 # integer | The flagable object id
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
@@ -70,15 +67,14 @@
 #' api_instance <- FlagApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetFlag(var_version, var_flagable_type, var_flagable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetFlag(var_version, var_flagable_type, var_flagable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetFlag(var_flagable_type, var_flagable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetFlag(var_flagable_type, var_flagable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GetFlagThreshold  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_item_being_flagged_type <- "item_being_flagged_type_example" # character | The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
 #' var_app_key <- "app_key_example" # character | The application key
 #'
@@ -86,15 +82,14 @@
 #' api_instance <- FlagApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetFlagThreshold(var_version, var_item_being_flagged_type, var_app_keydata_file = "result.txt")
-#' result <- api_instance$GetFlagThreshold(var_version, var_item_being_flagged_type, var_app_key)
+#' # result <- api_instance$GetFlagThreshold(var_item_being_flagged_type, var_app_keydata_file = "result.txt")
+#' result <- api_instance$GetFlagThreshold(var_item_being_flagged_type, var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateFlagThreshold  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_item_being_flagged_type <- "item_being_flagged_type_example" # character | The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
 #' var_threshold <- 56 # integer | The threshold value
 #' var_app_key <- "app_key_example" # character | The application key
@@ -105,8 +100,8 @@
 #' api_instance <- FlagApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateFlagThreshold(var_version, var_item_being_flagged_type, var_threshold, var_app_key, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$UpdateFlagThreshold(var_version, var_item_being_flagged_type, var_threshold, var_app_key, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$UpdateFlagThreshold(var_item_being_flagged_type, var_threshold, var_app_key, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$UpdateFlagThreshold(var_item_being_flagged_type, var_threshold, var_app_key, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
@@ -134,7 +129,6 @@ FlagApi <- R6::R6Class(
     #' @description
     #' Create Flag
     #'
-    #' @param version 
     #' @param flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
     #' @param flagable_id The flagable object id
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -147,8 +141,8 @@ FlagApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    CreateFlag = function(version, flagable_type, flagable_id, device_id = NULL, account_id = NULL, flag_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateFlagWithHttpInfo(version, flagable_type, flagable_id, device_id, account_id, flag_description, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    CreateFlag = function(flagable_type, flagable_id, device_id = NULL, account_id = NULL, flag_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateFlagWithHttpInfo(flagable_type, flagable_id, device_id, account_id, flag_description, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -163,7 +157,6 @@ FlagApi <- R6::R6Class(
     #' @description
     #' Create Flag
     #'
-    #' @param version 
     #' @param flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
     #' @param flagable_id The flagable object id
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -176,7 +169,7 @@ FlagApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    CreateFlagWithHttpInfo = function(version, flagable_type, flagable_id, device_id = NULL, account_id = NULL, flag_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateFlagWithHttpInfo = function(flagable_type, flagable_id, device_id = NULL, account_id = NULL, flag_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -186,20 +179,12 @@ FlagApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`flagable_type`)) {
         stop("Missing required parameter `flagable_type`.")
       }
 
       if (missing(`flagable_id`)) {
         stop("Missing required parameter `flagable_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FlagApi$CreateFlag, `version` is not nullable")
       }
 
       if (!missing(`flagable_type`) && is.null(`flagable_type`)) {
@@ -244,11 +229,7 @@ FlagApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/flag/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/flag/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -309,7 +290,6 @@ FlagApi <- R6::R6Class(
     #' @description
     #' Delete Flag
     #'
-    #' @param version 
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
     #' @param item_being_flagged_type (optional) This parameter is deprecated.
@@ -321,8 +301,8 @@ FlagApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteFlag = function(version, device_id = NULL, account_id = NULL, item_being_flagged_type = NULL, item_being_flagged_id = NULL, flagable_type = NULL, flagable_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteFlagWithHttpInfo(version, device_id, account_id, item_being_flagged_type, item_being_flagged_id, flagable_type, flagable_id, data_file = data_file, ..., .parse = .parse)
+    DeleteFlag = function(device_id = NULL, account_id = NULL, item_being_flagged_type = NULL, item_being_flagged_id = NULL, flagable_type = NULL, flagable_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteFlagWithHttpInfo(device_id, account_id, item_being_flagged_type, item_being_flagged_id, flagable_type, flagable_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -337,7 +317,6 @@ FlagApi <- R6::R6Class(
     #' @description
     #' Delete Flag
     #'
-    #' @param version 
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
     #' @param item_being_flagged_type (optional) This parameter is deprecated.
@@ -349,7 +328,7 @@ FlagApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteFlagWithHttpInfo = function(version, device_id = NULL, account_id = NULL, item_being_flagged_type = NULL, item_being_flagged_id = NULL, flagable_type = NULL, flagable_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteFlagWithHttpInfo = function(device_id = NULL, account_id = NULL, item_being_flagged_type = NULL, item_being_flagged_id = NULL, flagable_type = NULL, flagable_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -358,14 +337,6 @@ FlagApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FlagApi$DeleteFlag, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling FlagApi$DeleteFlag, `device_id` is not nullable")
@@ -403,11 +374,7 @@ FlagApi <- R6::R6Class(
 
       query_params[["flagableId"]] <- `flagable_id`
 
-      local_var_url_path <- "/api/{version}/flag/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/flag/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -468,7 +435,6 @@ FlagApi <- R6::R6Class(
     #' @description
     #' Get Flag
     #'
-    #' @param version 
     #' @param flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
     #' @param flagable_id The flagable object id
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -480,8 +446,8 @@ FlagApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return FlagResponse
-    GetFlag = function(version, flagable_type, flagable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetFlagWithHttpInfo(version, flagable_type, flagable_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetFlag = function(flagable_type, flagable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetFlagWithHttpInfo(flagable_type, flagable_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -496,7 +462,6 @@ FlagApi <- R6::R6Class(
     #' @description
     #' Get Flag
     #'
-    #' @param version 
     #' @param flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
     #' @param flagable_id The flagable object id
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -508,7 +473,7 @@ FlagApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (FlagResponse) with additional information such as HTTP status code, headers
-    GetFlagWithHttpInfo = function(version, flagable_type, flagable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetFlagWithHttpInfo = function(flagable_type, flagable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -518,20 +483,12 @@ FlagApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`flagable_type`)) {
         stop("Missing required parameter `flagable_type`.")
       }
 
       if (missing(`flagable_id`)) {
         stop("Missing required parameter `flagable_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FlagApi$GetFlag, `version` is not nullable")
       }
 
       if (!missing(`flagable_type`) && is.null(`flagable_type`)) {
@@ -570,11 +527,7 @@ FlagApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/flag/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/flag/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -635,7 +588,6 @@ FlagApi <- R6::R6Class(
     #' @description
     #' Get Flag Threshold
     #'
-    #' @param version 
     #' @param item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
     #' @param app_key The application key
     #' @param data_file (optional) name of the data file to save the result
@@ -643,8 +595,8 @@ FlagApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CountResponse
-    GetFlagThreshold = function(version, item_being_flagged_type, app_key, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetFlagThresholdWithHttpInfo(version, item_being_flagged_type, app_key, data_file = data_file, ..., .parse = .parse)
+    GetFlagThreshold = function(item_being_flagged_type, app_key, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetFlagThresholdWithHttpInfo(item_being_flagged_type, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -659,7 +611,6 @@ FlagApi <- R6::R6Class(
     #' @description
     #' Get Flag Threshold
     #'
-    #' @param version 
     #' @param item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
     #' @param app_key The application key
     #' @param data_file (optional) name of the data file to save the result
@@ -667,7 +618,7 @@ FlagApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CountResponse) with additional information such as HTTP status code, headers
-    GetFlagThresholdWithHttpInfo = function(version, item_being_flagged_type, app_key, data_file = NULL, ..., .parse = TRUE) {
+    GetFlagThresholdWithHttpInfo = function(item_being_flagged_type, app_key, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -677,20 +628,12 @@ FlagApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`item_being_flagged_type`)) {
         stop("Missing required parameter `item_being_flagged_type`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FlagApi$GetFlagThreshold, `version` is not nullable")
       }
 
       if (!missing(`item_being_flagged_type`) && is.null(`item_being_flagged_type`)) {
@@ -705,11 +648,7 @@ FlagApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/flag/threshold/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/flag/threshold/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -770,7 +709,6 @@ FlagApi <- R6::R6Class(
     #' @description
     #' Update Flag Threshold
     #'
-    #' @param version 
     #' @param item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
     #' @param threshold The threshold value
     #' @param app_key The application key
@@ -781,8 +719,8 @@ FlagApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CountResponse
-    UpdateFlagThreshold = function(version, item_being_flagged_type, threshold, app_key, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateFlagThresholdWithHttpInfo(version, item_being_flagged_type, threshold, app_key, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    UpdateFlagThreshold = function(item_being_flagged_type, threshold, app_key, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateFlagThresholdWithHttpInfo(item_being_flagged_type, threshold, app_key, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -797,7 +735,6 @@ FlagApi <- R6::R6Class(
     #' @description
     #' Update Flag Threshold
     #'
-    #' @param version 
     #' @param item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
     #' @param threshold The threshold value
     #' @param app_key The application key
@@ -808,7 +745,7 @@ FlagApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CountResponse) with additional information such as HTTP status code, headers
-    UpdateFlagThresholdWithHttpInfo = function(version, item_being_flagged_type, threshold, app_key, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateFlagThresholdWithHttpInfo = function(item_being_flagged_type, threshold, app_key, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -817,10 +754,6 @@ FlagApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`item_being_flagged_type`)) {
         stop("Missing required parameter `item_being_flagged_type`.")
@@ -832,10 +765,6 @@ FlagApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FlagApi$UpdateFlagThreshold, `version` is not nullable")
       }
 
       if (!missing(`item_being_flagged_type`) && is.null(`item_being_flagged_type`)) {
@@ -868,11 +797,7 @@ FlagApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/flag/threshold/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/flag/threshold/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

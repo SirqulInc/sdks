@@ -17,7 +17,6 @@
 #' ####################  CreateScheduledNotification  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_name <- "name_example" # character | The name of the scheduled notification
 #' var_type <- "type_example" # character | The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -57,15 +56,14 @@
 #' api_instance <- ScheduledNotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateScheduledNotification(var_version, var_account_id, var_name, var_type, var_message, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, app_key = var_app_key, grouping_id = var_grouping_id, connection_group_ids = var_connection_group_ids, connection_account_ids = var_connection_account_ids, audience_id = var_audience_id, audience_ids = var_audience_ids, album_ids = var_album_ids, report_id = var_report_id, report_params = var_report_params, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, cron_type = var_cron_type, meta_data = var_meta_data, conditional_input = var_conditional_input, template_type = var_template_type, visibility = var_visibility, active = var_active, send_now = var_send_now, event_type = var_event_type, deep_link_uri = var_deep_link_uri, send_to_all = var_send_to_alldata_file = "result.txt")
-#' result <- api_instance$CreateScheduledNotification(var_version, var_account_id, var_name, var_type, var_message, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, app_key = var_app_key, grouping_id = var_grouping_id, connection_group_ids = var_connection_group_ids, connection_account_ids = var_connection_account_ids, audience_id = var_audience_id, audience_ids = var_audience_ids, album_ids = var_album_ids, report_id = var_report_id, report_params = var_report_params, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, cron_type = var_cron_type, meta_data = var_meta_data, conditional_input = var_conditional_input, template_type = var_template_type, visibility = var_visibility, active = var_active, send_now = var_send_now, event_type = var_event_type, deep_link_uri = var_deep_link_uri, send_to_all = var_send_to_all)
+#' # result <- api_instance$CreateScheduledNotification(var_account_id, var_name, var_type, var_message, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, app_key = var_app_key, grouping_id = var_grouping_id, connection_group_ids = var_connection_group_ids, connection_account_ids = var_connection_account_ids, audience_id = var_audience_id, audience_ids = var_audience_ids, album_ids = var_album_ids, report_id = var_report_id, report_params = var_report_params, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, cron_type = var_cron_type, meta_data = var_meta_data, conditional_input = var_conditional_input, template_type = var_template_type, visibility = var_visibility, active = var_active, send_now = var_send_now, event_type = var_event_type, deep_link_uri = var_deep_link_uri, send_to_all = var_send_to_alldata_file = "result.txt")
+#' result <- api_instance$CreateScheduledNotification(var_account_id, var_name, var_type, var_message, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, app_key = var_app_key, grouping_id = var_grouping_id, connection_group_ids = var_connection_group_ids, connection_account_ids = var_connection_account_ids, audience_id = var_audience_id, audience_ids = var_audience_ids, album_ids = var_album_ids, report_id = var_report_id, report_params = var_report_params, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, cron_type = var_cron_type, meta_data = var_meta_data, conditional_input = var_conditional_input, template_type = var_template_type, visibility = var_visibility, active = var_active, send_now = var_send_now, event_type = var_event_type, deep_link_uri = var_deep_link_uri, send_to_all = var_send_to_all)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteScheduledNotification  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_scheduled_notification_id <- 56 # integer | the id of the scheduled notification to delete
 #' var_delete_by_grouping_id <- "delete_by_grouping_id_example" # character | If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (Optional)
@@ -74,15 +72,14 @@
 #' api_instance <- ScheduledNotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteScheduledNotification(var_version, var_account_id, var_scheduled_notification_id, delete_by_grouping_id = var_delete_by_grouping_iddata_file = "result.txt")
-#' result <- api_instance$DeleteScheduledNotification(var_version, var_account_id, var_scheduled_notification_id, delete_by_grouping_id = var_delete_by_grouping_id)
+#' # result <- api_instance$DeleteScheduledNotification(var_account_id, var_scheduled_notification_id, delete_by_grouping_id = var_delete_by_grouping_iddata_file = "result.txt")
+#' result <- api_instance$DeleteScheduledNotification(var_account_id, var_scheduled_notification_id, delete_by_grouping_id = var_delete_by_grouping_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetScheduledNotification  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the account logged in
 #' var_scheduled_notification_id <- 56 # integer | the id of the scheduled notification to get
 #'
@@ -90,15 +87,14 @@
 #' api_instance <- ScheduledNotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetScheduledNotification(var_version, var_account_id, var_scheduled_notification_iddata_file = "result.txt")
-#' result <- api_instance$GetScheduledNotification(var_version, var_account_id, var_scheduled_notification_id)
+#' # result <- api_instance$GetScheduledNotification(var_account_id, var_scheduled_notification_iddata_file = "result.txt")
+#' result <- api_instance$GetScheduledNotification(var_account_id, var_scheduled_notification_id)
 #' dput(result)
 #'
 #'
 #' ####################  ScheduleNotificationListings  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_app_key <- "app_key_example" # character | The application to target
 #' var_report_name <- "report_name_example" # character | The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -112,15 +108,14 @@
 #' api_instance <- ScheduledNotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ScheduleNotificationListings(var_version, var_account_id, var_app_key, var_report_name, var_message, var_offset, var_recipient_report_id, report_params = var_report_params, type = var_typedata_file = "result.txt")
-#' result <- api_instance$ScheduleNotificationListings(var_version, var_account_id, var_app_key, var_report_name, var_message, var_offset, var_recipient_report_id, report_params = var_report_params, type = var_type)
+#' # result <- api_instance$ScheduleNotificationListings(var_account_id, var_app_key, var_report_name, var_message, var_offset, var_recipient_report_id, report_params = var_report_params, type = var_typedata_file = "result.txt")
+#' result <- api_instance$ScheduleNotificationListings(var_account_id, var_app_key, var_report_name, var_message, var_offset, var_recipient_report_id, report_params = var_report_params, type = var_type)
 #' dput(result)
 #'
 #'
 #' ####################  SearchScheduledNotifications  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_grouping_id <- "grouping_id_example" # character | Filter results by a grouping identifier defined by the client (Optional)
 #' var_audience_id <- 56 # integer | Filter results by audience (Optional)
@@ -146,15 +141,14 @@
 #' api_instance <- ScheduledNotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchScheduledNotifications(var_version, var_account_id, grouping_id = var_grouping_id, audience_id = var_audience_id, filter = var_filter, types = var_types, content_ids = var_content_ids, content_types = var_content_types, parent_ids = var_parent_ids, parent_types = var_parent_types, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, group_by_grouping_id = var_group_by_grouping_id, return_audience_account_count = var_return_audience_account_countdata_file = "result.txt")
-#' result <- api_instance$SearchScheduledNotifications(var_version, var_account_id, grouping_id = var_grouping_id, audience_id = var_audience_id, filter = var_filter, types = var_types, content_ids = var_content_ids, content_types = var_content_types, parent_ids = var_parent_ids, parent_types = var_parent_types, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, group_by_grouping_id = var_group_by_grouping_id, return_audience_account_count = var_return_audience_account_count)
+#' # result <- api_instance$SearchScheduledNotifications(var_account_id, grouping_id = var_grouping_id, audience_id = var_audience_id, filter = var_filter, types = var_types, content_ids = var_content_ids, content_types = var_content_types, parent_ids = var_parent_ids, parent_types = var_parent_types, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, group_by_grouping_id = var_group_by_grouping_id, return_audience_account_count = var_return_audience_account_countdata_file = "result.txt")
+#' result <- api_instance$SearchScheduledNotifications(var_account_id, grouping_id = var_grouping_id, audience_id = var_audience_id, filter = var_filter, types = var_types, content_ids = var_content_ids, content_types = var_content_types, parent_ids = var_parent_ids, parent_types = var_parent_types, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, group_by_grouping_id = var_group_by_grouping_id, return_audience_account_count = var_return_audience_account_count)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateScheduledNotification  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_scheduled_notification_id <- 56 # integer | The id of scheduled notification to update
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_name <- "name_example" # character | The name of the scheduled notification (Optional)
@@ -198,8 +192,8 @@
 #' api_instance <- ScheduledNotificationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateScheduledNotification(var_version, var_scheduled_notification_id, var_account_id, name = var_name, type = var_type, message = var_message, payload = var_payload, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, app_key = var_app_key, grouping_id = var_grouping_id, connection_group_ids = var_connection_group_ids, connection_account_ids = var_connection_account_ids, audience_id = var_audience_id, audience_ids = var_audience_ids, album_ids = var_album_ids, report_id = var_report_id, report_params = var_report_params, endpoint_url = var_endpoint_url, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, cron_type = var_cron_type, meta_data = var_meta_data, conditional_input = var_conditional_input, template_type = var_template_type, visibility = var_visibility, active = var_active, error_message = var_error_message, status = var_status, update_by_grouping_id = var_update_by_grouping_id, send_now = var_send_now, event_type = var_event_type, deep_link_uri = var_deep_link_uri, send_to_all = var_send_to_alldata_file = "result.txt")
-#' result <- api_instance$UpdateScheduledNotification(var_version, var_scheduled_notification_id, var_account_id, name = var_name, type = var_type, message = var_message, payload = var_payload, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, app_key = var_app_key, grouping_id = var_grouping_id, connection_group_ids = var_connection_group_ids, connection_account_ids = var_connection_account_ids, audience_id = var_audience_id, audience_ids = var_audience_ids, album_ids = var_album_ids, report_id = var_report_id, report_params = var_report_params, endpoint_url = var_endpoint_url, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, cron_type = var_cron_type, meta_data = var_meta_data, conditional_input = var_conditional_input, template_type = var_template_type, visibility = var_visibility, active = var_active, error_message = var_error_message, status = var_status, update_by_grouping_id = var_update_by_grouping_id, send_now = var_send_now, event_type = var_event_type, deep_link_uri = var_deep_link_uri, send_to_all = var_send_to_all)
+#' # result <- api_instance$UpdateScheduledNotification(var_scheduled_notification_id, var_account_id, name = var_name, type = var_type, message = var_message, payload = var_payload, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, app_key = var_app_key, grouping_id = var_grouping_id, connection_group_ids = var_connection_group_ids, connection_account_ids = var_connection_account_ids, audience_id = var_audience_id, audience_ids = var_audience_ids, album_ids = var_album_ids, report_id = var_report_id, report_params = var_report_params, endpoint_url = var_endpoint_url, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, cron_type = var_cron_type, meta_data = var_meta_data, conditional_input = var_conditional_input, template_type = var_template_type, visibility = var_visibility, active = var_active, error_message = var_error_message, status = var_status, update_by_grouping_id = var_update_by_grouping_id, send_now = var_send_now, event_type = var_event_type, deep_link_uri = var_deep_link_uri, send_to_all = var_send_to_alldata_file = "result.txt")
+#' result <- api_instance$UpdateScheduledNotification(var_scheduled_notification_id, var_account_id, name = var_name, type = var_type, message = var_message, payload = var_payload, content_id = var_content_id, content_name = var_content_name, content_type = var_content_type, parent_id = var_parent_id, parent_type = var_parent_type, app_key = var_app_key, grouping_id = var_grouping_id, connection_group_ids = var_connection_group_ids, connection_account_ids = var_connection_account_ids, audience_id = var_audience_id, audience_ids = var_audience_ids, album_ids = var_album_ids, report_id = var_report_id, report_params = var_report_params, endpoint_url = var_endpoint_url, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, cron_type = var_cron_type, meta_data = var_meta_data, conditional_input = var_conditional_input, template_type = var_template_type, visibility = var_visibility, active = var_active, error_message = var_error_message, status = var_status, update_by_grouping_id = var_update_by_grouping_id, send_now = var_send_now, event_type = var_event_type, deep_link_uri = var_deep_link_uri, send_to_all = var_send_to_all)
 #' dput(result)
 #'
 #'
@@ -227,7 +221,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Create Scheduled Notification
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the scheduled notification
     #' @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -267,8 +260,8 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ScheduledNotificationFullResponse
-    CreateScheduledNotification = function(version, account_id, name, type, message, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, app_key = NULL, grouping_id = NULL, connection_group_ids = NULL, connection_account_ids = NULL, audience_id = NULL, audience_ids = NULL, album_ids = NULL, report_id = NULL, report_params = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, cron_type = NULL, meta_data = NULL, conditional_input = NULL, template_type = NULL, visibility = NULL, active = NULL, send_now = NULL, event_type = "CUSTOM", deep_link_uri = NULL, send_to_all = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateScheduledNotificationWithHttpInfo(version, account_id, name, type, message, content_id, content_name, content_type, parent_id, parent_type, app_key, grouping_id, connection_group_ids, connection_account_ids, audience_id, audience_ids, album_ids, report_id, report_params, endpoint_url, payload, scheduled_date, start_date, end_date, cron_expression, cron_type, meta_data, conditional_input, template_type, visibility, active, send_now, event_type, deep_link_uri, send_to_all, data_file = data_file, ..., .parse = .parse)
+    CreateScheduledNotification = function(account_id, name, type, message, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, app_key = NULL, grouping_id = NULL, connection_group_ids = NULL, connection_account_ids = NULL, audience_id = NULL, audience_ids = NULL, album_ids = NULL, report_id = NULL, report_params = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, cron_type = NULL, meta_data = NULL, conditional_input = NULL, template_type = NULL, visibility = NULL, active = NULL, send_now = NULL, event_type = "CUSTOM", deep_link_uri = NULL, send_to_all = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateScheduledNotificationWithHttpInfo(account_id, name, type, message, content_id, content_name, content_type, parent_id, parent_type, app_key, grouping_id, connection_group_ids, connection_account_ids, audience_id, audience_ids, album_ids, report_id, report_params, endpoint_url, payload, scheduled_date, start_date, end_date, cron_expression, cron_type, meta_data, conditional_input, template_type, visibility, active, send_now, event_type, deep_link_uri, send_to_all, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -283,7 +276,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Create Scheduled Notification
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the scheduled notification
     #' @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -323,7 +315,7 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ScheduledNotificationFullResponse) with additional information such as HTTP status code, headers
-    CreateScheduledNotificationWithHttpInfo = function(version, account_id, name, type, message, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, app_key = NULL, grouping_id = NULL, connection_group_ids = NULL, connection_account_ids = NULL, audience_id = NULL, audience_ids = NULL, album_ids = NULL, report_id = NULL, report_params = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, cron_type = NULL, meta_data = NULL, conditional_input = NULL, template_type = NULL, visibility = NULL, active = NULL, send_now = NULL, event_type = "CUSTOM", deep_link_uri = NULL, send_to_all = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateScheduledNotificationWithHttpInfo = function(account_id, name, type, message, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, app_key = NULL, grouping_id = NULL, connection_group_ids = NULL, connection_account_ids = NULL, audience_id = NULL, audience_ids = NULL, album_ids = NULL, report_id = NULL, report_params = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, cron_type = NULL, meta_data = NULL, conditional_input = NULL, template_type = NULL, visibility = NULL, active = NULL, send_now = NULL, event_type = "CUSTOM", deep_link_uri = NULL, send_to_all = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -332,10 +324,6 @@ ScheduledNotificationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -351,10 +339,6 @@ ScheduledNotificationApi <- R6::R6Class(
 
       if (missing(`message`)) {
         stop("Missing required parameter `message`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ScheduledNotificationApi$CreateScheduledNotification, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -564,11 +548,7 @@ ScheduledNotificationApi <- R6::R6Class(
 
       query_params[["sendToAll"]] <- `send_to_all`
 
-      local_var_url_path <- "/api/{version}/notification/schedule/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/schedule/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -629,7 +609,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Delete Scheduled Notification
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param scheduled_notification_id the id of the scheduled notification to delete
     #' @param delete_by_grouping_id (optional) If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.
@@ -638,8 +617,8 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ScheduledNotificationFullResponse
-    DeleteScheduledNotification = function(version, account_id, scheduled_notification_id, delete_by_grouping_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteScheduledNotificationWithHttpInfo(version, account_id, scheduled_notification_id, delete_by_grouping_id, data_file = data_file, ..., .parse = .parse)
+    DeleteScheduledNotification = function(account_id, scheduled_notification_id, delete_by_grouping_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteScheduledNotificationWithHttpInfo(account_id, scheduled_notification_id, delete_by_grouping_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -654,7 +633,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Delete Scheduled Notification
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param scheduled_notification_id the id of the scheduled notification to delete
     #' @param delete_by_grouping_id (optional) If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.
@@ -663,7 +641,7 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ScheduledNotificationFullResponse) with additional information such as HTTP status code, headers
-    DeleteScheduledNotificationWithHttpInfo = function(version, account_id, scheduled_notification_id, delete_by_grouping_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteScheduledNotificationWithHttpInfo = function(account_id, scheduled_notification_id, delete_by_grouping_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -673,20 +651,12 @@ ScheduledNotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`scheduled_notification_id`)) {
         stop("Missing required parameter `scheduled_notification_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ScheduledNotificationApi$DeleteScheduledNotification, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -707,11 +677,7 @@ ScheduledNotificationApi <- R6::R6Class(
 
       query_params[["deleteByGroupingId"]] <- `delete_by_grouping_id`
 
-      local_var_url_path <- "/api/{version}/notification/schedule/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/schedule/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -772,7 +738,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Get Scheduled Notification
     #'
-    #' @param version 
     #' @param account_id the id of the account logged in
     #' @param scheduled_notification_id the id of the scheduled notification to get
     #' @param data_file (optional) name of the data file to save the result
@@ -780,8 +745,8 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ScheduledNotificationFullResponse
-    GetScheduledNotification = function(version, account_id, scheduled_notification_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetScheduledNotificationWithHttpInfo(version, account_id, scheduled_notification_id, data_file = data_file, ..., .parse = .parse)
+    GetScheduledNotification = function(account_id, scheduled_notification_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetScheduledNotificationWithHttpInfo(account_id, scheduled_notification_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -796,7 +761,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Get Scheduled Notification
     #'
-    #' @param version 
     #' @param account_id the id of the account logged in
     #' @param scheduled_notification_id the id of the scheduled notification to get
     #' @param data_file (optional) name of the data file to save the result
@@ -804,7 +768,7 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ScheduledNotificationFullResponse) with additional information such as HTTP status code, headers
-    GetScheduledNotificationWithHttpInfo = function(version, account_id, scheduled_notification_id, data_file = NULL, ..., .parse = TRUE) {
+    GetScheduledNotificationWithHttpInfo = function(account_id, scheduled_notification_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -814,20 +778,12 @@ ScheduledNotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`scheduled_notification_id`)) {
         stop("Missing required parameter `scheduled_notification_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ScheduledNotificationApi$GetScheduledNotification, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -842,11 +798,7 @@ ScheduledNotificationApi <- R6::R6Class(
 
       query_params[["scheduledNotificationId"]] <- `scheduled_notification_id`
 
-      local_var_url_path <- "/api/{version}/notification/schedule/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/schedule/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -907,7 +859,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Generate Schedule Notifications
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The application to target
     #' @param report_name The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -921,8 +872,8 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    ScheduleNotificationListings = function(version, account_id, app_key, report_name, message, offset, recipient_report_id, report_params = NULL, type = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ScheduleNotificationListingsWithHttpInfo(version, account_id, app_key, report_name, message, offset, recipient_report_id, report_params, type, data_file = data_file, ..., .parse = .parse)
+    ScheduleNotificationListings = function(account_id, app_key, report_name, message, offset, recipient_report_id, report_params = NULL, type = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ScheduleNotificationListingsWithHttpInfo(account_id, app_key, report_name, message, offset, recipient_report_id, report_params, type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -937,7 +888,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Generate Schedule Notifications
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The application to target
     #' @param report_name The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -951,7 +901,7 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    ScheduleNotificationListingsWithHttpInfo = function(version, account_id, app_key, report_name, message, offset, recipient_report_id, report_params = NULL, type = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ScheduleNotificationListingsWithHttpInfo = function(account_id, app_key, report_name, message, offset, recipient_report_id, report_params = NULL, type = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -960,10 +910,6 @@ ScheduledNotificationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -987,10 +933,6 @@ ScheduledNotificationApi <- R6::R6Class(
 
       if (missing(`recipient_report_id`)) {
         stop("Missing required parameter `recipient_report_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ScheduledNotificationApi$ScheduleNotificationListings, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1041,11 +983,7 @@ ScheduledNotificationApi <- R6::R6Class(
 
       query_params[["recipientReportId"]] <- `recipient_report_id`
 
-      local_var_url_path <- "/api/{version}/notification/schedule/generate"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/schedule/generate"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1106,7 +1044,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Search Scheduled Notifications
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param grouping_id (optional) Filter results by a grouping identifier defined by the client
     #' @param audience_id (optional) Filter results by audience
@@ -1132,8 +1069,8 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ScheduledNotificationFullResponse
-    SearchScheduledNotifications = function(version, account_id, grouping_id = NULL, audience_id = NULL, filter = NULL, types = NULL, content_ids = NULL, content_types = NULL, parent_ids = NULL, parent_types = NULL, statuses = NULL, template_types = NULL, app_key = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, active_only = NULL, group_by_grouping_id = NULL, return_audience_account_count = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchScheduledNotificationsWithHttpInfo(version, account_id, grouping_id, audience_id, filter, types, content_ids, content_types, parent_ids, parent_types, statuses, template_types, app_key, keyword, sort_field, descending, start, limit, active_only, group_by_grouping_id, return_audience_account_count, data_file = data_file, ..., .parse = .parse)
+    SearchScheduledNotifications = function(account_id, grouping_id = NULL, audience_id = NULL, filter = NULL, types = NULL, content_ids = NULL, content_types = NULL, parent_ids = NULL, parent_types = NULL, statuses = NULL, template_types = NULL, app_key = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, active_only = NULL, group_by_grouping_id = NULL, return_audience_account_count = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchScheduledNotificationsWithHttpInfo(account_id, grouping_id, audience_id, filter, types, content_ids, content_types, parent_ids, parent_types, statuses, template_types, app_key, keyword, sort_field, descending, start, limit, active_only, group_by_grouping_id, return_audience_account_count, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1148,7 +1085,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Search Scheduled Notifications
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param grouping_id (optional) Filter results by a grouping identifier defined by the client
     #' @param audience_id (optional) Filter results by audience
@@ -1174,7 +1110,7 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ScheduledNotificationFullResponse) with additional information such as HTTP status code, headers
-    SearchScheduledNotificationsWithHttpInfo = function(version, account_id, grouping_id = NULL, audience_id = NULL, filter = NULL, types = NULL, content_ids = NULL, content_types = NULL, parent_ids = NULL, parent_types = NULL, statuses = NULL, template_types = NULL, app_key = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, active_only = NULL, group_by_grouping_id = NULL, return_audience_account_count = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchScheduledNotificationsWithHttpInfo = function(account_id, grouping_id = NULL, audience_id = NULL, filter = NULL, types = NULL, content_ids = NULL, content_types = NULL, parent_ids = NULL, parent_types = NULL, statuses = NULL, template_types = NULL, app_key = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, active_only = NULL, group_by_grouping_id = NULL, return_audience_account_count = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1184,16 +1120,8 @@ ScheduledNotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ScheduledNotificationApi$SearchScheduledNotifications, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1316,11 +1244,7 @@ ScheduledNotificationApi <- R6::R6Class(
 
       query_params[["returnAudienceAccountCount"]] <- `return_audience_account_count`
 
-      local_var_url_path <- "/api/{version}/notification/schedule/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/schedule/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1381,7 +1305,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Update Scheduled Notification
     #'
-    #' @param version 
     #' @param scheduled_notification_id The id of scheduled notification to update
     #' @param account_id The logged in user.
     #' @param name (optional) The name of the scheduled notification
@@ -1425,8 +1348,8 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ScheduledNotificationFullResponse
-    UpdateScheduledNotification = function(version, scheduled_notification_id, account_id, name = NULL, type = NULL, message = NULL, payload = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, app_key = NULL, grouping_id = NULL, connection_group_ids = NULL, connection_account_ids = NULL, audience_id = NULL, audience_ids = NULL, album_ids = NULL, report_id = NULL, report_params = NULL, endpoint_url = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, cron_type = NULL, meta_data = NULL, conditional_input = NULL, template_type = NULL, visibility = NULL, active = NULL, error_message = NULL, status = NULL, update_by_grouping_id = NULL, send_now = NULL, event_type = "CUSTOM", deep_link_uri = NULL, send_to_all = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateScheduledNotificationWithHttpInfo(version, scheduled_notification_id, account_id, name, type, message, payload, content_id, content_name, content_type, parent_id, parent_type, app_key, grouping_id, connection_group_ids, connection_account_ids, audience_id, audience_ids, album_ids, report_id, report_params, endpoint_url, scheduled_date, start_date, end_date, cron_expression, cron_type, meta_data, conditional_input, template_type, visibility, active, error_message, status, update_by_grouping_id, send_now, event_type, deep_link_uri, send_to_all, data_file = data_file, ..., .parse = .parse)
+    UpdateScheduledNotification = function(scheduled_notification_id, account_id, name = NULL, type = NULL, message = NULL, payload = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, app_key = NULL, grouping_id = NULL, connection_group_ids = NULL, connection_account_ids = NULL, audience_id = NULL, audience_ids = NULL, album_ids = NULL, report_id = NULL, report_params = NULL, endpoint_url = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, cron_type = NULL, meta_data = NULL, conditional_input = NULL, template_type = NULL, visibility = NULL, active = NULL, error_message = NULL, status = NULL, update_by_grouping_id = NULL, send_now = NULL, event_type = "CUSTOM", deep_link_uri = NULL, send_to_all = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateScheduledNotificationWithHttpInfo(scheduled_notification_id, account_id, name, type, message, payload, content_id, content_name, content_type, parent_id, parent_type, app_key, grouping_id, connection_group_ids, connection_account_ids, audience_id, audience_ids, album_ids, report_id, report_params, endpoint_url, scheduled_date, start_date, end_date, cron_expression, cron_type, meta_data, conditional_input, template_type, visibility, active, error_message, status, update_by_grouping_id, send_now, event_type, deep_link_uri, send_to_all, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1441,7 +1364,6 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @description
     #' Update Scheduled Notification
     #'
-    #' @param version 
     #' @param scheduled_notification_id The id of scheduled notification to update
     #' @param account_id The logged in user.
     #' @param name (optional) The name of the scheduled notification
@@ -1485,7 +1407,7 @@ ScheduledNotificationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ScheduledNotificationFullResponse) with additional information such as HTTP status code, headers
-    UpdateScheduledNotificationWithHttpInfo = function(version, scheduled_notification_id, account_id, name = NULL, type = NULL, message = NULL, payload = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, app_key = NULL, grouping_id = NULL, connection_group_ids = NULL, connection_account_ids = NULL, audience_id = NULL, audience_ids = NULL, album_ids = NULL, report_id = NULL, report_params = NULL, endpoint_url = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, cron_type = NULL, meta_data = NULL, conditional_input = NULL, template_type = NULL, visibility = NULL, active = NULL, error_message = NULL, status = NULL, update_by_grouping_id = NULL, send_now = NULL, event_type = "CUSTOM", deep_link_uri = NULL, send_to_all = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateScheduledNotificationWithHttpInfo = function(scheduled_notification_id, account_id, name = NULL, type = NULL, message = NULL, payload = NULL, content_id = NULL, content_name = NULL, content_type = NULL, parent_id = NULL, parent_type = NULL, app_key = NULL, grouping_id = NULL, connection_group_ids = NULL, connection_account_ids = NULL, audience_id = NULL, audience_ids = NULL, album_ids = NULL, report_id = NULL, report_params = NULL, endpoint_url = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, cron_type = NULL, meta_data = NULL, conditional_input = NULL, template_type = NULL, visibility = NULL, active = NULL, error_message = NULL, status = NULL, update_by_grouping_id = NULL, send_now = NULL, event_type = "CUSTOM", deep_link_uri = NULL, send_to_all = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1495,20 +1417,12 @@ ScheduledNotificationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`scheduled_notification_id`)) {
         stop("Missing required parameter `scheduled_notification_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ScheduledNotificationApi$UpdateScheduledNotification, `version` is not nullable")
       }
 
       if (!missing(`scheduled_notification_id`) && is.null(`scheduled_notification_id`)) {
@@ -1742,11 +1656,7 @@ ScheduledNotificationApi <- R6::R6Class(
 
       query_params[["sendToAll"]] <- `send_to_all`
 
-      local_var_url_path <- "/api/{version}/notification/schedule/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/notification/schedule/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

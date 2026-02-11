@@ -17,7 +17,6 @@
 #' ####################  CreateGameLevel  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_name <- "name_example" # character | The name of the level.
 #' var_game_data <- "game_data_example" # character | The game level data: xml, json, or other text based format.
@@ -49,15 +48,14 @@
 #' api_instance <- GameLevelApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateGameLevel(var_version, var_account_id, var_name, var_game_data, var_game_data_suffix, app_key = var_app_key, description = var_description, difficulty = var_difficulty, app_version = var_app_version, asset_image_id = var_asset_image_id, asset_icon_id = var_asset_icon_id, visibility = var_visibility, friend_group = var_friend_group, connection_ids = var_connection_ids, connection_group_ids = var_connection_group_ids, balance = var_balance, active = var_active, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, tutorial_title = var_tutorial_title, tutorial_message = var_tutorial_message, tutorial_alignment = var_tutorial_alignment, tutorial_image_asset_id = var_tutorial_image_asset_id, offer_id = var_offer_id, meta_data = var_meta_datadata_file = "result.txt")
-#' result <- api_instance$CreateGameLevel(var_version, var_account_id, var_name, var_game_data, var_game_data_suffix, app_key = var_app_key, description = var_description, difficulty = var_difficulty, app_version = var_app_version, asset_image_id = var_asset_image_id, asset_icon_id = var_asset_icon_id, visibility = var_visibility, friend_group = var_friend_group, connection_ids = var_connection_ids, connection_group_ids = var_connection_group_ids, balance = var_balance, active = var_active, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, tutorial_title = var_tutorial_title, tutorial_message = var_tutorial_message, tutorial_alignment = var_tutorial_alignment, tutorial_image_asset_id = var_tutorial_image_asset_id, offer_id = var_offer_id, meta_data = var_meta_data)
+#' # result <- api_instance$CreateGameLevel(var_account_id, var_name, var_game_data, var_game_data_suffix, app_key = var_app_key, description = var_description, difficulty = var_difficulty, app_version = var_app_version, asset_image_id = var_asset_image_id, asset_icon_id = var_asset_icon_id, visibility = var_visibility, friend_group = var_friend_group, connection_ids = var_connection_ids, connection_group_ids = var_connection_group_ids, balance = var_balance, active = var_active, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, tutorial_title = var_tutorial_title, tutorial_message = var_tutorial_message, tutorial_alignment = var_tutorial_alignment, tutorial_image_asset_id = var_tutorial_image_asset_id, offer_id = var_offer_id, meta_data = var_meta_datadata_file = "result.txt")
+#' result <- api_instance$CreateGameLevel(var_account_id, var_name, var_game_data, var_game_data_suffix, app_key = var_app_key, description = var_description, difficulty = var_difficulty, app_version = var_app_version, asset_image_id = var_asset_image_id, asset_icon_id = var_asset_icon_id, visibility = var_visibility, friend_group = var_friend_group, connection_ids = var_connection_ids, connection_group_ids = var_connection_group_ids, balance = var_balance, active = var_active, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, tutorial_title = var_tutorial_title, tutorial_message = var_tutorial_message, tutorial_alignment = var_tutorial_alignment, tutorial_image_asset_id = var_tutorial_image_asset_id, offer_id = var_offer_id, meta_data = var_meta_data)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteGameLevel  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_level_id <- 56 # integer | The id of the level to return.
 #'
@@ -65,15 +63,14 @@
 #' api_instance <- GameLevelApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteGameLevel(var_version, var_account_id, var_level_iddata_file = "result.txt")
-#' result <- api_instance$DeleteGameLevel(var_version, var_account_id, var_level_id)
+#' # result <- api_instance$DeleteGameLevel(var_account_id, var_level_iddata_file = "result.txt")
+#' result <- api_instance$DeleteGameLevel(var_account_id, var_level_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetGameLevel  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_level_id <- 56 # integer | The id of the level to return.
 #' var_include_game_data <- "include_game_data_example" # character | If true include the game level data, otherwise don't. default is false. (Optional)
@@ -82,15 +79,14 @@
 #' api_instance <- GameLevelApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetGameLevel(var_version, var_account_id, var_level_id, include_game_data = var_include_game_datadata_file = "result.txt")
-#' result <- api_instance$GetGameLevel(var_version, var_account_id, var_level_id, include_game_data = var_include_game_data)
+#' # result <- api_instance$GetGameLevel(var_account_id, var_level_id, include_game_data = var_include_game_datadata_file = "result.txt")
+#' result <- api_instance$GetGameLevel(var_account_id, var_level_id, include_game_data = var_include_game_data)
 #' dput(result)
 #'
 #'
 #' ####################  GetGameLevelsByApplication  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_keyword <- "keyword_example" # character | Match the keyword to the owner name or level name. (Optional)
@@ -106,15 +102,14 @@
 #' api_instance <- GameLevelApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetGameLevelsByApplication(var_version, var_account_id, var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, app_version = var_app_version, include_game_data = var_include_game_data, filters = var_filtersdata_file = "result.txt")
-#' result <- api_instance$GetGameLevelsByApplication(var_version, var_account_id, var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, app_version = var_app_version, include_game_data = var_include_game_data, filters = var_filters)
+#' # result <- api_instance$GetGameLevelsByApplication(var_account_id, var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, app_version = var_app_version, include_game_data = var_include_game_data, filters = var_filtersdata_file = "result.txt")
+#' result <- api_instance$GetGameLevelsByApplication(var_account_id, var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, app_version = var_app_version, include_game_data = var_include_game_data, filters = var_filters)
 #' dput(result)
 #'
 #'
 #' ####################  GetGameLevelsByBillableEntity  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user
 #' var_app_key <- "app_key_example" # character | the application key (Optional)
 #' var_keyword <- "keyword_example" # character | The keyword used to search (Optional)
@@ -128,15 +123,14 @@
 #' api_instance <- GameLevelApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetGameLevelsByBillableEntity(var_version, var_account_id, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, active_only = var_active_only, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$GetGameLevelsByBillableEntity(var_version, var_account_id, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, active_only = var_active_only, start = var_start, limit = var_limit)
+#' # result <- api_instance$GetGameLevelsByBillableEntity(var_account_id, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, active_only = var_active_only, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$GetGameLevelsByBillableEntity(var_account_id, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, active_only = var_active_only, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  GetQuestionsInLevel  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_level_id <- 56 # integer | the id of the level to get questions from
 #' var_account_id <- 56 # integer | the id of the logged in user
 #'
@@ -144,15 +138,14 @@
 #' api_instance <- GameLevelApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetQuestionsInLevel(var_version, var_level_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetQuestionsInLevel(var_version, var_level_id, var_account_id)
+#' # result <- api_instance$GetQuestionsInLevel(var_level_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetQuestionsInLevel(var_level_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetWordsInLevel  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_level_id <- 56 # integer | the id of the level to get words for
 #' var_account_id <- 56 # integer | the id of the logged in user
 #'
@@ -160,15 +153,14 @@
 #' api_instance <- GameLevelApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetWordsInLevel(var_version, var_level_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetWordsInLevel(var_version, var_level_id, var_account_id)
+#' # result <- api_instance$GetWordsInLevel(var_level_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetWordsInLevel(var_level_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateGameLevel  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_level_id <- 56 # integer | If update then include the level Id.
 #' var_app_key <- "app_key_example" # character | The game application key to save the level for. (Optional)
@@ -201,15 +193,14 @@
 #' api_instance <- GameLevelApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateGameLevel(var_version, var_account_id, var_level_id, app_key = var_app_key, name = var_name, description = var_description, difficulty = var_difficulty, app_version = var_app_version, asset_image_id = var_asset_image_id, asset_icon_id = var_asset_icon_id, game_data = var_game_data, game_data_suffix = var_game_data_suffix, visibility = var_visibility, friend_group = var_friend_group, connection_ids = var_connection_ids, connection_group_ids = var_connection_group_ids, balance = var_balance, active = var_active, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, tutorial_title = var_tutorial_title, tutorial_message = var_tutorial_message, tutorial_alignment = var_tutorial_alignment, tutorial_image_asset_id = var_tutorial_image_asset_id, offer_id = var_offer_id, meta_data = var_meta_datadata_file = "result.txt")
-#' result <- api_instance$UpdateGameLevel(var_version, var_account_id, var_level_id, app_key = var_app_key, name = var_name, description = var_description, difficulty = var_difficulty, app_version = var_app_version, asset_image_id = var_asset_image_id, asset_icon_id = var_asset_icon_id, game_data = var_game_data, game_data_suffix = var_game_data_suffix, visibility = var_visibility, friend_group = var_friend_group, connection_ids = var_connection_ids, connection_group_ids = var_connection_group_ids, balance = var_balance, active = var_active, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, tutorial_title = var_tutorial_title, tutorial_message = var_tutorial_message, tutorial_alignment = var_tutorial_alignment, tutorial_image_asset_id = var_tutorial_image_asset_id, offer_id = var_offer_id, meta_data = var_meta_data)
+#' # result <- api_instance$UpdateGameLevel(var_account_id, var_level_id, app_key = var_app_key, name = var_name, description = var_description, difficulty = var_difficulty, app_version = var_app_version, asset_image_id = var_asset_image_id, asset_icon_id = var_asset_icon_id, game_data = var_game_data, game_data_suffix = var_game_data_suffix, visibility = var_visibility, friend_group = var_friend_group, connection_ids = var_connection_ids, connection_group_ids = var_connection_group_ids, balance = var_balance, active = var_active, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, tutorial_title = var_tutorial_title, tutorial_message = var_tutorial_message, tutorial_alignment = var_tutorial_alignment, tutorial_image_asset_id = var_tutorial_image_asset_id, offer_id = var_offer_id, meta_data = var_meta_datadata_file = "result.txt")
+#' result <- api_instance$UpdateGameLevel(var_account_id, var_level_id, app_key = var_app_key, name = var_name, description = var_description, difficulty = var_difficulty, app_version = var_app_version, asset_image_id = var_asset_image_id, asset_icon_id = var_asset_icon_id, game_data = var_game_data, game_data_suffix = var_game_data_suffix, visibility = var_visibility, friend_group = var_friend_group, connection_ids = var_connection_ids, connection_group_ids = var_connection_group_ids, balance = var_balance, active = var_active, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, tutorial_title = var_tutorial_title, tutorial_message = var_tutorial_message, tutorial_alignment = var_tutorial_alignment, tutorial_image_asset_id = var_tutorial_image_asset_id, offer_id = var_offer_id, meta_data = var_meta_data)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateQuestionsInLevel  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_level_id <- 56 # integer | the id of the level to update questions on
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_question_ids <- "question_ids_example" # character | the IDs of the questions to update
@@ -218,15 +209,14 @@
 #' api_instance <- GameLevelApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateQuestionsInLevel(var_version, var_level_id, var_account_id, var_question_idsdata_file = "result.txt")
-#' result <- api_instance$UpdateQuestionsInLevel(var_version, var_level_id, var_account_id, var_question_ids)
+#' # result <- api_instance$UpdateQuestionsInLevel(var_level_id, var_account_id, var_question_idsdata_file = "result.txt")
+#' result <- api_instance$UpdateQuestionsInLevel(var_level_id, var_account_id, var_question_ids)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateWordsInLevel  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_level_id <- 56 # integer | the id of the level to update words for
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_word_ids <- "word_ids_example" # character | the ids of the words to update for the level
@@ -235,8 +225,8 @@
 #' api_instance <- GameLevelApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateWordsInLevel(var_version, var_level_id, var_account_id, var_word_idsdata_file = "result.txt")
-#' result <- api_instance$UpdateWordsInLevel(var_version, var_level_id, var_account_id, var_word_ids)
+#' # result <- api_instance$UpdateWordsInLevel(var_level_id, var_account_id, var_word_idsdata_file = "result.txt")
+#' result <- api_instance$UpdateWordsInLevel(var_level_id, var_account_id, var_word_ids)
 #' dput(result)
 #'
 #'
@@ -264,7 +254,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Create Game Level
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the level.
     #' @param game_data The game level data: xml, json, or other text based format.
@@ -296,8 +285,8 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GameLevelResponse
-    CreateGameLevel = function(version, account_id, name, game_data, game_data_suffix, app_key = NULL, description = NULL, difficulty = NULL, app_version = NULL, asset_image_id = NULL, asset_icon_id = NULL, visibility = NULL, friend_group = NULL, connection_ids = NULL, connection_group_ids = NULL, balance = NULL, active = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, tutorial_title = NULL, tutorial_message = NULL, tutorial_alignment = NULL, tutorial_image_asset_id = NULL, offer_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateGameLevelWithHttpInfo(version, account_id, name, game_data, game_data_suffix, app_key, description, difficulty, app_version, asset_image_id, asset_icon_id, visibility, friend_group, connection_ids, connection_group_ids, balance, active, allocate_tickets, ticket_count, ticket_type, points, tutorial_title, tutorial_message, tutorial_alignment, tutorial_image_asset_id, offer_id, meta_data, data_file = data_file, ..., .parse = .parse)
+    CreateGameLevel = function(account_id, name, game_data, game_data_suffix, app_key = NULL, description = NULL, difficulty = NULL, app_version = NULL, asset_image_id = NULL, asset_icon_id = NULL, visibility = NULL, friend_group = NULL, connection_ids = NULL, connection_group_ids = NULL, balance = NULL, active = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, tutorial_title = NULL, tutorial_message = NULL, tutorial_alignment = NULL, tutorial_image_asset_id = NULL, offer_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateGameLevelWithHttpInfo(account_id, name, game_data, game_data_suffix, app_key, description, difficulty, app_version, asset_image_id, asset_icon_id, visibility, friend_group, connection_ids, connection_group_ids, balance, active, allocate_tickets, ticket_count, ticket_type, points, tutorial_title, tutorial_message, tutorial_alignment, tutorial_image_asset_id, offer_id, meta_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -312,7 +301,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Create Game Level
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the level.
     #' @param game_data The game level data: xml, json, or other text based format.
@@ -344,7 +332,7 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GameLevelResponse) with additional information such as HTTP status code, headers
-    CreateGameLevelWithHttpInfo = function(version, account_id, name, game_data, game_data_suffix, app_key = NULL, description = NULL, difficulty = NULL, app_version = NULL, asset_image_id = NULL, asset_icon_id = NULL, visibility = NULL, friend_group = NULL, connection_ids = NULL, connection_group_ids = NULL, balance = NULL, active = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, tutorial_title = NULL, tutorial_message = NULL, tutorial_alignment = NULL, tutorial_image_asset_id = NULL, offer_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateGameLevelWithHttpInfo = function(account_id, name, game_data, game_data_suffix, app_key = NULL, description = NULL, difficulty = NULL, app_version = NULL, asset_image_id = NULL, asset_icon_id = NULL, visibility = NULL, friend_group = NULL, connection_ids = NULL, connection_group_ids = NULL, balance = NULL, active = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, tutorial_title = NULL, tutorial_message = NULL, tutorial_alignment = NULL, tutorial_image_asset_id = NULL, offer_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -353,10 +341,6 @@ GameLevelApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -372,10 +356,6 @@ GameLevelApi <- R6::R6Class(
 
       if (missing(`game_data_suffix`)) {
         stop("Missing required parameter `game_data_suffix`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameLevelApi$CreateGameLevel, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -534,11 +514,7 @@ GameLevelApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/level/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/level/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -599,7 +575,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Delete Game Level
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param level_id The id of the level to return.
     #' @param data_file (optional) name of the data file to save the result
@@ -607,8 +582,8 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteGameLevel = function(version, account_id, level_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteGameLevelWithHttpInfo(version, account_id, level_id, data_file = data_file, ..., .parse = .parse)
+    DeleteGameLevel = function(account_id, level_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteGameLevelWithHttpInfo(account_id, level_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -623,7 +598,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Delete Game Level
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param level_id The id of the level to return.
     #' @param data_file (optional) name of the data file to save the result
@@ -631,7 +605,7 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteGameLevelWithHttpInfo = function(version, account_id, level_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteGameLevelWithHttpInfo = function(account_id, level_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -641,20 +615,12 @@ GameLevelApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`level_id`)) {
         stop("Missing required parameter `level_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameLevelApi$DeleteGameLevel, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -669,11 +635,7 @@ GameLevelApi <- R6::R6Class(
 
       query_params[["levelId"]] <- `level_id`
 
-      local_var_url_path <- "/api/{version}/level/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/level/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -734,7 +696,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Get Game Level
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param level_id The id of the level to return.
     #' @param include_game_data (optional) If true include the game level data, otherwise don't. default is false.
@@ -743,8 +704,8 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GameLevelResponse
-    GetGameLevel = function(version, account_id, level_id, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetGameLevelWithHttpInfo(version, account_id, level_id, include_game_data, data_file = data_file, ..., .parse = .parse)
+    GetGameLevel = function(account_id, level_id, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetGameLevelWithHttpInfo(account_id, level_id, include_game_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -759,7 +720,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Get Game Level
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param level_id The id of the level to return.
     #' @param include_game_data (optional) If true include the game level data, otherwise don't. default is false.
@@ -768,7 +728,7 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GameLevelResponse) with additional information such as HTTP status code, headers
-    GetGameLevelWithHttpInfo = function(version, account_id, level_id, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetGameLevelWithHttpInfo = function(account_id, level_id, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -778,20 +738,12 @@ GameLevelApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`level_id`)) {
         stop("Missing required parameter `level_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameLevelApi$GetGameLevel, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -812,11 +764,7 @@ GameLevelApi <- R6::R6Class(
 
       query_params[["includeGameData"]] <- `include_game_data`
 
-      local_var_url_path <- "/api/{version}/level/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/level/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -877,7 +825,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Search Game Levels
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key the application key
     #' @param keyword (optional) Match the keyword to the owner name or level name.
@@ -893,8 +840,8 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GameLevelListResponse
-    GetGameLevelsByApplication = function(version, account_id, app_key, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, app_version = NULL, include_game_data = NULL, filters = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetGameLevelsByApplicationWithHttpInfo(version, account_id, app_key, keyword, sort_field, descending, start, limit, app_version, include_game_data, filters, data_file = data_file, ..., .parse = .parse)
+    GetGameLevelsByApplication = function(account_id, app_key, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, app_version = NULL, include_game_data = NULL, filters = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetGameLevelsByApplicationWithHttpInfo(account_id, app_key, keyword, sort_field, descending, start, limit, app_version, include_game_data, filters, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -909,7 +856,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Search Game Levels
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key the application key
     #' @param keyword (optional) Match the keyword to the owner name or level name.
@@ -925,7 +871,7 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GameLevelListResponse) with additional information such as HTTP status code, headers
-    GetGameLevelsByApplicationWithHttpInfo = function(version, account_id, app_key, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, app_version = NULL, include_game_data = NULL, filters = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetGameLevelsByApplicationWithHttpInfo = function(account_id, app_key, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, app_version = NULL, include_game_data = NULL, filters = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -935,20 +881,12 @@ GameLevelApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameLevelApi$GetGameLevelsByApplication, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1011,11 +949,7 @@ GameLevelApi <- R6::R6Class(
 
       query_params[["filters"]] <- `filters`
 
-      local_var_url_path <- "/api/{version}/level/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/level/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1076,7 +1010,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Search Game Level by Billable Entity
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param app_key (optional) the application key
     #' @param keyword (optional) The keyword used to search
@@ -1090,8 +1023,8 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GameLevelResponse
-    GetGameLevelsByBillableEntity = function(version, account_id, app_key = NULL, keyword = NULL, sort_field = NULL, descending = NULL, active_only = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetGameLevelsByBillableEntityWithHttpInfo(version, account_id, app_key, keyword, sort_field, descending, active_only, start, limit, data_file = data_file, ..., .parse = .parse)
+    GetGameLevelsByBillableEntity = function(account_id, app_key = NULL, keyword = NULL, sort_field = NULL, descending = NULL, active_only = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetGameLevelsByBillableEntityWithHttpInfo(account_id, app_key, keyword, sort_field, descending, active_only, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1106,7 +1039,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Search Game Level by Billable Entity
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param app_key (optional) the application key
     #' @param keyword (optional) The keyword used to search
@@ -1120,7 +1052,7 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GameLevelResponse) with additional information such as HTTP status code, headers
-    GetGameLevelsByBillableEntityWithHttpInfo = function(version, account_id, app_key = NULL, keyword = NULL, sort_field = NULL, descending = NULL, active_only = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetGameLevelsByBillableEntityWithHttpInfo = function(account_id, app_key = NULL, keyword = NULL, sort_field = NULL, descending = NULL, active_only = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1130,16 +1062,8 @@ GameLevelApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameLevelApi$GetGameLevelsByBillableEntity, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1193,11 +1117,7 @@ GameLevelApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/level/searchByBillableEntity"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/level/searchByBillableEntity"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1258,7 +1178,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Get Level Questions
     #'
-    #' @param version 
     #' @param level_id the id of the level to get questions from
     #' @param account_id the id of the logged in user
     #' @param data_file (optional) name of the data file to save the result
@@ -1266,8 +1185,8 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return QuestionResponse
-    GetQuestionsInLevel = function(version, level_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetQuestionsInLevelWithHttpInfo(version, level_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetQuestionsInLevel = function(level_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetQuestionsInLevelWithHttpInfo(level_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1282,7 +1201,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Get Level Questions
     #'
-    #' @param version 
     #' @param level_id the id of the level to get questions from
     #' @param account_id the id of the logged in user
     #' @param data_file (optional) name of the data file to save the result
@@ -1290,7 +1208,7 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (QuestionResponse) with additional information such as HTTP status code, headers
-    GetQuestionsInLevelWithHttpInfo = function(version, level_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetQuestionsInLevelWithHttpInfo = function(level_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1300,20 +1218,12 @@ GameLevelApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`level_id`)) {
         stop("Missing required parameter `level_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameLevelApi$GetQuestionsInLevel, `version` is not nullable")
       }
 
       if (!missing(`level_id`) && is.null(`level_id`)) {
@@ -1328,11 +1238,7 @@ GameLevelApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/level/questions/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/level/questions/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1393,7 +1299,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Get Level Words
     #'
-    #' @param version 
     #' @param level_id the id of the level to get words for
     #' @param account_id the id of the logged in user
     #' @param data_file (optional) name of the data file to save the result
@@ -1401,8 +1306,8 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return WordzWordResponse
-    GetWordsInLevel = function(version, level_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetWordsInLevelWithHttpInfo(version, level_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetWordsInLevel = function(level_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetWordsInLevelWithHttpInfo(level_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1417,7 +1322,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Get Level Words
     #'
-    #' @param version 
     #' @param level_id the id of the level to get words for
     #' @param account_id the id of the logged in user
     #' @param data_file (optional) name of the data file to save the result
@@ -1425,7 +1329,7 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (WordzWordResponse) with additional information such as HTTP status code, headers
-    GetWordsInLevelWithHttpInfo = function(version, level_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetWordsInLevelWithHttpInfo = function(level_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1435,20 +1339,12 @@ GameLevelApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`level_id`)) {
         stop("Missing required parameter `level_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameLevelApi$GetWordsInLevel, `version` is not nullable")
       }
 
       if (!missing(`level_id`) && is.null(`level_id`)) {
@@ -1463,11 +1359,7 @@ GameLevelApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/level/words/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/level/words/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1528,7 +1420,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Update Game Level
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param level_id If update then include the level Id.
     #' @param app_key (optional) The game application key to save the level for.
@@ -1561,8 +1452,8 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GameLevelResponse
-    UpdateGameLevel = function(version, account_id, level_id, app_key = NULL, name = NULL, description = NULL, difficulty = NULL, app_version = NULL, asset_image_id = NULL, asset_icon_id = NULL, game_data = NULL, game_data_suffix = NULL, visibility = NULL, friend_group = NULL, connection_ids = NULL, connection_group_ids = NULL, balance = NULL, active = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, tutorial_title = NULL, tutorial_message = NULL, tutorial_alignment = NULL, tutorial_image_asset_id = NULL, offer_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateGameLevelWithHttpInfo(version, account_id, level_id, app_key, name, description, difficulty, app_version, asset_image_id, asset_icon_id, game_data, game_data_suffix, visibility, friend_group, connection_ids, connection_group_ids, balance, active, allocate_tickets, ticket_count, ticket_type, points, tutorial_title, tutorial_message, tutorial_alignment, tutorial_image_asset_id, offer_id, meta_data, data_file = data_file, ..., .parse = .parse)
+    UpdateGameLevel = function(account_id, level_id, app_key = NULL, name = NULL, description = NULL, difficulty = NULL, app_version = NULL, asset_image_id = NULL, asset_icon_id = NULL, game_data = NULL, game_data_suffix = NULL, visibility = NULL, friend_group = NULL, connection_ids = NULL, connection_group_ids = NULL, balance = NULL, active = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, tutorial_title = NULL, tutorial_message = NULL, tutorial_alignment = NULL, tutorial_image_asset_id = NULL, offer_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateGameLevelWithHttpInfo(account_id, level_id, app_key, name, description, difficulty, app_version, asset_image_id, asset_icon_id, game_data, game_data_suffix, visibility, friend_group, connection_ids, connection_group_ids, balance, active, allocate_tickets, ticket_count, ticket_type, points, tutorial_title, tutorial_message, tutorial_alignment, tutorial_image_asset_id, offer_id, meta_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1577,7 +1468,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Update Game Level
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param level_id If update then include the level Id.
     #' @param app_key (optional) The game application key to save the level for.
@@ -1610,7 +1500,7 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GameLevelResponse) with additional information such as HTTP status code, headers
-    UpdateGameLevelWithHttpInfo = function(version, account_id, level_id, app_key = NULL, name = NULL, description = NULL, difficulty = NULL, app_version = NULL, asset_image_id = NULL, asset_icon_id = NULL, game_data = NULL, game_data_suffix = NULL, visibility = NULL, friend_group = NULL, connection_ids = NULL, connection_group_ids = NULL, balance = NULL, active = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, tutorial_title = NULL, tutorial_message = NULL, tutorial_alignment = NULL, tutorial_image_asset_id = NULL, offer_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateGameLevelWithHttpInfo = function(account_id, level_id, app_key = NULL, name = NULL, description = NULL, difficulty = NULL, app_version = NULL, asset_image_id = NULL, asset_icon_id = NULL, game_data = NULL, game_data_suffix = NULL, visibility = NULL, friend_group = NULL, connection_ids = NULL, connection_group_ids = NULL, balance = NULL, active = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, tutorial_title = NULL, tutorial_message = NULL, tutorial_alignment = NULL, tutorial_image_asset_id = NULL, offer_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1620,20 +1510,12 @@ GameLevelApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`level_id`)) {
         stop("Missing required parameter `level_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameLevelApi$UpdateGameLevel, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1798,11 +1680,7 @@ GameLevelApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/level/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/level/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1863,7 +1741,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Update Level Questions
     #'
-    #' @param version 
     #' @param level_id the id of the level to update questions on
     #' @param account_id the id of the logged in user
     #' @param question_ids the IDs of the questions to update
@@ -1872,8 +1749,8 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UpdateQuestionsInLevel = function(version, level_id, account_id, question_ids, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateQuestionsInLevelWithHttpInfo(version, level_id, account_id, question_ids, data_file = data_file, ..., .parse = .parse)
+    UpdateQuestionsInLevel = function(level_id, account_id, question_ids, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateQuestionsInLevelWithHttpInfo(level_id, account_id, question_ids, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1888,7 +1765,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Update Level Questions
     #'
-    #' @param version 
     #' @param level_id the id of the level to update questions on
     #' @param account_id the id of the logged in user
     #' @param question_ids the IDs of the questions to update
@@ -1897,7 +1773,7 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UpdateQuestionsInLevelWithHttpInfo = function(version, level_id, account_id, question_ids, data_file = NULL, ..., .parse = TRUE) {
+    UpdateQuestionsInLevelWithHttpInfo = function(level_id, account_id, question_ids, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1906,10 +1782,6 @@ GameLevelApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`level_id`)) {
         stop("Missing required parameter `level_id`.")
@@ -1921,10 +1793,6 @@ GameLevelApi <- R6::R6Class(
 
       if (missing(`question_ids`)) {
         stop("Missing required parameter `question_ids`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameLevelApi$UpdateQuestionsInLevel, `version` is not nullable")
       }
 
       if (!missing(`level_id`) && is.null(`level_id`)) {
@@ -1945,11 +1813,7 @@ GameLevelApi <- R6::R6Class(
 
       query_params[["questionIds"]] <- `question_ids`
 
-      local_var_url_path <- "/api/{version}/level/questions/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/level/questions/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2010,7 +1874,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Update Level Words
     #'
-    #' @param version 
     #' @param level_id the id of the level to update words for
     #' @param account_id the id of the logged in user
     #' @param word_ids the ids of the words to update for the level
@@ -2019,8 +1882,8 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UpdateWordsInLevel = function(version, level_id, account_id, word_ids, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateWordsInLevelWithHttpInfo(version, level_id, account_id, word_ids, data_file = data_file, ..., .parse = .parse)
+    UpdateWordsInLevel = function(level_id, account_id, word_ids, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateWordsInLevelWithHttpInfo(level_id, account_id, word_ids, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2035,7 +1898,6 @@ GameLevelApi <- R6::R6Class(
     #' @description
     #' Update Level Words
     #'
-    #' @param version 
     #' @param level_id the id of the level to update words for
     #' @param account_id the id of the logged in user
     #' @param word_ids the ids of the words to update for the level
@@ -2044,7 +1906,7 @@ GameLevelApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UpdateWordsInLevelWithHttpInfo = function(version, level_id, account_id, word_ids, data_file = NULL, ..., .parse = TRUE) {
+    UpdateWordsInLevelWithHttpInfo = function(level_id, account_id, word_ids, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2053,10 +1915,6 @@ GameLevelApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`level_id`)) {
         stop("Missing required parameter `level_id`.")
@@ -2068,10 +1926,6 @@ GameLevelApi <- R6::R6Class(
 
       if (missing(`word_ids`)) {
         stop("Missing required parameter `word_ids`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameLevelApi$UpdateWordsInLevel, `version` is not nullable")
       }
 
       if (!missing(`level_id`) && is.null(`level_id`)) {
@@ -2092,11 +1946,7 @@ GameLevelApi <- R6::R6Class(
 
       query_params[["wordIds"]] <- `word_ids`
 
-      local_var_url_path <- "/api/{version}/level/words/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/level/words/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

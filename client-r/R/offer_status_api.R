@@ -17,7 +17,6 @@
 #' ####################  CreateOfferTransactionStatus  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_name <- "name_example" # character | The name of the status
 #' var_code <- 56 # integer | The status code, must be unique 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
@@ -33,15 +32,14 @@
 #' api_instance <- OfferStatusApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateOfferTransactionStatus(var_version, var_name, var_code, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, description = var_description, role = var_role, active = var_active, application_ids = var_application_idsdata_file = "result.txt")
-#' result <- api_instance$CreateOfferTransactionStatus(var_version, var_name, var_code, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, description = var_description, role = var_role, active = var_active, application_ids = var_application_ids)
+#' # result <- api_instance$CreateOfferTransactionStatus(var_name, var_code, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, description = var_description, role = var_role, active = var_active, application_ids = var_application_idsdata_file = "result.txt")
+#' result <- api_instance$CreateOfferTransactionStatus(var_name, var_code, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, description = var_description, role = var_role, active = var_active, application_ids = var_application_ids)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteOfferTransactionStatus  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_status_id <- 56 # integer | The id of the record to delete
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -52,15 +50,14 @@
 #' api_instance <- OfferStatusApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteOfferTransactionStatus(var_version, var_status_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$DeleteOfferTransactionStatus(var_version, var_status_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$DeleteOfferTransactionStatus(var_status_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$DeleteOfferTransactionStatus(var_status_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GetOfferTransactionStatus  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_status_id <- 56 # integer | The id of the record to get 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -71,15 +68,14 @@
 #' api_instance <- OfferStatusApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetOfferTransactionStatus(var_version, var_status_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetOfferTransactionStatus(var_version, var_status_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetOfferTransactionStatus(var_status_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetOfferTransactionStatus(var_status_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  SearchOfferTransactionStatuses  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_latitude <- 3.4 # numeric | Used to update the user's current location (Optional)
@@ -97,15 +93,14 @@
 #' api_instance <- OfferStatusApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchOfferTransactionStatuses(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword, role = var_role, app_key = var_app_key, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, include_inactive = var_include_inactivedata_file = "result.txt")
-#' result <- api_instance$SearchOfferTransactionStatuses(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword, role = var_role, app_key = var_app_key, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, include_inactive = var_include_inactive)
+#' # result <- api_instance$SearchOfferTransactionStatuses(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword, role = var_role, app_key = var_app_key, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, include_inactive = var_include_inactivedata_file = "result.txt")
+#' result <- api_instance$SearchOfferTransactionStatuses(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword, role = var_role, app_key = var_app_key, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, include_inactive = var_include_inactive)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateOfferTransactionStatus  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_latitude <- 3.4 # numeric | Used to update the user's current location (Optional)
@@ -122,8 +117,8 @@
 #' api_instance <- OfferStatusApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateOfferTransactionStatus(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, status_id = var_status_id, name = var_name, description = var_description, code = var_code, role = var_role, active = var_active, application_ids = var_application_idsdata_file = "result.txt")
-#' result <- api_instance$UpdateOfferTransactionStatus(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, status_id = var_status_id, name = var_name, description = var_description, code = var_code, role = var_role, active = var_active, application_ids = var_application_ids)
+#' # result <- api_instance$UpdateOfferTransactionStatus(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, status_id = var_status_id, name = var_name, description = var_description, code = var_code, role = var_role, active = var_active, application_ids = var_application_idsdata_file = "result.txt")
+#' result <- api_instance$UpdateOfferTransactionStatus(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, status_id = var_status_id, name = var_name, description = var_description, code = var_code, role = var_role, active = var_active, application_ids = var_application_ids)
 #' dput(result)
 #'
 #'
@@ -151,7 +146,6 @@ OfferStatusApi <- R6::R6Class(
     #' @description
     #' Create Offer Status
     #'
-    #' @param version 
     #' @param name The name of the status
     #' @param code The status code, must be unique 
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -167,8 +161,8 @@ OfferStatusApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferTransactionStatusResponse
-    CreateOfferTransactionStatus = function(version, name, code, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, description = NULL, role = "ANY", active = TRUE, application_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateOfferTransactionStatusWithHttpInfo(version, name, code, device_id, account_id, latitude, longitude, description, role, active, application_ids, data_file = data_file, ..., .parse = .parse)
+    CreateOfferTransactionStatus = function(name, code, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, description = NULL, role = "ANY", active = TRUE, application_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateOfferTransactionStatusWithHttpInfo(name, code, device_id, account_id, latitude, longitude, description, role, active, application_ids, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -183,7 +177,6 @@ OfferStatusApi <- R6::R6Class(
     #' @description
     #' Create Offer Status
     #'
-    #' @param version 
     #' @param name The name of the status
     #' @param code The status code, must be unique 
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -199,7 +192,7 @@ OfferStatusApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferTransactionStatusResponse) with additional information such as HTTP status code, headers
-    CreateOfferTransactionStatusWithHttpInfo = function(version, name, code, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, description = NULL, role = "ANY", active = TRUE, application_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateOfferTransactionStatusWithHttpInfo = function(name, code, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, description = NULL, role = "ANY", active = TRUE, application_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -209,20 +202,12 @@ OfferStatusApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`name`)) {
         stop("Missing required parameter `name`.")
       }
 
       if (missing(`code`)) {
         stop("Missing required parameter `code`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferStatusApi$CreateOfferTransactionStatus, `version` is not nullable")
       }
 
       if (!missing(`name`) && is.null(`name`)) {
@@ -285,11 +270,7 @@ OfferStatusApi <- R6::R6Class(
 
       query_params[["applicationIds"]] <- `application_ids`
 
-      local_var_url_path <- "/api/{version}/offer/status/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/offer/status/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -350,7 +331,6 @@ OfferStatusApi <- R6::R6Class(
     #' @description
     #' Delete Offer Status
     #'
-    #' @param version 
     #' @param status_id The id of the record to delete
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -361,8 +341,8 @@ OfferStatusApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteOfferTransactionStatus = function(version, status_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteOfferTransactionStatusWithHttpInfo(version, status_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    DeleteOfferTransactionStatus = function(status_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteOfferTransactionStatusWithHttpInfo(status_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -377,7 +357,6 @@ OfferStatusApi <- R6::R6Class(
     #' @description
     #' Delete Offer Status
     #'
-    #' @param version 
     #' @param status_id The id of the record to delete
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -388,7 +367,7 @@ OfferStatusApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteOfferTransactionStatusWithHttpInfo = function(version, status_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteOfferTransactionStatusWithHttpInfo = function(status_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -398,16 +377,8 @@ OfferStatusApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`status_id`)) {
         stop("Missing required parameter `status_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferStatusApi$DeleteOfferTransactionStatus, `version` is not nullable")
       }
 
       if (!missing(`status_id`) && is.null(`status_id`)) {
@@ -440,11 +411,7 @@ OfferStatusApi <- R6::R6Class(
 
       query_params[["statusId"]] <- `status_id`
 
-      local_var_url_path <- "/api/{version}/offer/status/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/offer/status/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -505,7 +472,6 @@ OfferStatusApi <- R6::R6Class(
     #' @description
     #' Get Offer Status
     #'
-    #' @param version 
     #' @param status_id The id of the record to get 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -516,8 +482,8 @@ OfferStatusApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferTransactionStatusResponse
-    GetOfferTransactionStatus = function(version, status_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetOfferTransactionStatusWithHttpInfo(version, status_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetOfferTransactionStatus = function(status_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetOfferTransactionStatusWithHttpInfo(status_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -532,7 +498,6 @@ OfferStatusApi <- R6::R6Class(
     #' @description
     #' Get Offer Status
     #'
-    #' @param version 
     #' @param status_id The id of the record to get 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -543,7 +508,7 @@ OfferStatusApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferTransactionStatusResponse) with additional information such as HTTP status code, headers
-    GetOfferTransactionStatusWithHttpInfo = function(version, status_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetOfferTransactionStatusWithHttpInfo = function(status_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -553,16 +518,8 @@ OfferStatusApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`status_id`)) {
         stop("Missing required parameter `status_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferStatusApi$GetOfferTransactionStatus, `version` is not nullable")
       }
 
       if (!missing(`status_id`) && is.null(`status_id`)) {
@@ -595,11 +552,7 @@ OfferStatusApi <- R6::R6Class(
 
       query_params[["statusId"]] <- `status_id`
 
-      local_var_url_path <- "/api/{version}/offer/status/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/offer/status/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -660,7 +613,6 @@ OfferStatusApi <- R6::R6Class(
     #' @description
     #' Search Offer Status
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param latitude (optional) Used to update the user's current location
@@ -678,8 +630,8 @@ OfferStatusApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[OfferTransactionStatusResponse]
-    SearchOfferTransactionStatuses = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, role = NULL, app_key = NULL, sort_field = "CODE", descending = TRUE, start = 0, limit = 20, include_inactive = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchOfferTransactionStatusesWithHttpInfo(version, device_id, account_id, latitude, longitude, keyword, role, app_key, sort_field, descending, start, limit, include_inactive, data_file = data_file, ..., .parse = .parse)
+    SearchOfferTransactionStatuses = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, role = NULL, app_key = NULL, sort_field = "CODE", descending = TRUE, start = 0, limit = 20, include_inactive = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchOfferTransactionStatusesWithHttpInfo(device_id, account_id, latitude, longitude, keyword, role, app_key, sort_field, descending, start, limit, include_inactive, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -694,7 +646,6 @@ OfferStatusApi <- R6::R6Class(
     #' @description
     #' Search Offer Status
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param latitude (optional) Used to update the user's current location
@@ -712,7 +663,7 @@ OfferStatusApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[OfferTransactionStatusResponse]) with additional information such as HTTP status code, headers
-    SearchOfferTransactionStatusesWithHttpInfo = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, role = NULL, app_key = NULL, sort_field = "CODE", descending = TRUE, start = 0, limit = 20, include_inactive = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    SearchOfferTransactionStatusesWithHttpInfo = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, role = NULL, app_key = NULL, sort_field = "CODE", descending = TRUE, start = 0, limit = 20, include_inactive = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -721,14 +672,6 @@ OfferStatusApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferStatusApi$SearchOfferTransactionStatuses, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling OfferStatusApi$SearchOfferTransactionStatuses, `device_id` is not nullable")
@@ -805,11 +748,7 @@ OfferStatusApi <- R6::R6Class(
 
       query_params[["includeInactive"]] <- `include_inactive`
 
-      local_var_url_path <- "/api/{version}/offer/status/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/offer/status/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -870,7 +809,6 @@ OfferStatusApi <- R6::R6Class(
     #' @description
     #' Update Offer Status
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param latitude (optional) Used to update the user's current location
@@ -887,8 +825,8 @@ OfferStatusApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferTransactionStatusResponse
-    UpdateOfferTransactionStatus = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, status_id = NULL, name = NULL, description = NULL, code = NULL, role = NULL, active = NULL, application_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateOfferTransactionStatusWithHttpInfo(version, device_id, account_id, latitude, longitude, status_id, name, description, code, role, active, application_ids, data_file = data_file, ..., .parse = .parse)
+    UpdateOfferTransactionStatus = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, status_id = NULL, name = NULL, description = NULL, code = NULL, role = NULL, active = NULL, application_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateOfferTransactionStatusWithHttpInfo(device_id, account_id, latitude, longitude, status_id, name, description, code, role, active, application_ids, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -903,7 +841,6 @@ OfferStatusApi <- R6::R6Class(
     #' @description
     #' Update Offer Status
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param latitude (optional) Used to update the user's current location
@@ -920,7 +857,7 @@ OfferStatusApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferTransactionStatusResponse) with additional information such as HTTP status code, headers
-    UpdateOfferTransactionStatusWithHttpInfo = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, status_id = NULL, name = NULL, description = NULL, code = NULL, role = NULL, active = NULL, application_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateOfferTransactionStatusWithHttpInfo = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, status_id = NULL, name = NULL, description = NULL, code = NULL, role = NULL, active = NULL, application_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -929,14 +866,6 @@ OfferStatusApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferStatusApi$UpdateOfferTransactionStatus, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling OfferStatusApi$UpdateOfferTransactionStatus, `device_id` is not nullable")
@@ -1004,11 +933,7 @@ OfferStatusApi <- R6::R6Class(
 
       query_params[["applicationIds"]] <- `application_ids`
 
-      local_var_url_path <- "/api/{version}/offer/status/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/offer/status/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

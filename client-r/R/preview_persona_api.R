@@ -17,7 +17,6 @@
 #' ####################  CreatePersona  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID of the user
 #' var_title <- "title_example" # character | the title of the persona
 #' var_preview_accounts <- "preview_accounts_example" # character | the accounts that are able to preview from this persona (Optional)
@@ -32,15 +31,14 @@
 #' api_instance <- PreviewPersonaApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreatePersona(var_version, var_account_id, var_title, preview_accounts = var_preview_accounts, date = var_date, age = var_age, gender = var_gender, game_experience_level = var_game_experience_level, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$CreatePersona(var_version, var_account_id, var_title, preview_accounts = var_preview_accounts, date = var_date, age = var_age, gender = var_gender, game_experience_level = var_game_experience_level, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$CreatePersona(var_account_id, var_title, preview_accounts = var_preview_accounts, date = var_date, age = var_age, gender = var_gender, game_experience_level = var_game_experience_level, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$CreatePersona(var_account_id, var_title, preview_accounts = var_preview_accounts, date = var_date, age = var_age, gender = var_gender, game_experience_level = var_game_experience_level, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  DeletePersona  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user
 #' var_persona_id <- 56 # integer | the id of the persona to delete
 #'
@@ -48,15 +46,14 @@
 #' api_instance <- PreviewPersonaApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeletePersona(var_version, var_account_id, var_persona_iddata_file = "result.txt")
-#' result <- api_instance$DeletePersona(var_version, var_account_id, var_persona_id)
+#' # result <- api_instance$DeletePersona(var_account_id, var_persona_iddata_file = "result.txt")
+#' result <- api_instance$DeletePersona(var_account_id, var_persona_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetPersonaList  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID of the user
 #' var_persona_id <- 56 # integer | the persona ID of the persona
 #'
@@ -64,15 +61,14 @@
 #' api_instance <- PreviewPersonaApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetPersonaList(var_version, var_account_id, var_persona_iddata_file = "result.txt")
-#' result <- api_instance$GetPersonaList(var_version, var_account_id, var_persona_id)
+#' # result <- api_instance$GetPersonaList(var_account_id, var_persona_iddata_file = "result.txt")
+#' result <- api_instance$GetPersonaList(var_account_id, var_persona_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchPersona  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID of the user
 #' var_start <- 56 # integer | the start index for pagination
 #' var_limit <- 56 # integer | the limit for pagination (There is a hard limit of 100)
@@ -81,15 +77,14 @@
 #' api_instance <- PreviewPersonaApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchPersona(var_version, var_account_id, var_start, var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchPersona(var_version, var_account_id, var_start, var_limit)
+#' # result <- api_instance$SearchPersona(var_account_id, var_start, var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchPersona(var_account_id, var_start, var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdatePersona  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID of the user
 #' var_persona_id <- 56 # integer | the persona ID of the persona to update
 #' var_title <- "title_example" # character | the title of the persona (Optional)
@@ -106,8 +101,8 @@
 #' api_instance <- PreviewPersonaApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdatePersona(var_version, var_account_id, var_persona_id, title = var_title, preview_accounts = var_preview_accounts, active = var_active, date = var_date, age = var_age, gender = var_gender, game_experience_level = var_game_experience_level, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$UpdatePersona(var_version, var_account_id, var_persona_id, title = var_title, preview_accounts = var_preview_accounts, active = var_active, date = var_date, age = var_age, gender = var_gender, game_experience_level = var_game_experience_level, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$UpdatePersona(var_account_id, var_persona_id, title = var_title, preview_accounts = var_preview_accounts, active = var_active, date = var_date, age = var_age, gender = var_gender, game_experience_level = var_game_experience_level, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$UpdatePersona(var_account_id, var_persona_id, title = var_title, preview_accounts = var_preview_accounts, active = var_active, date = var_date, age = var_age, gender = var_gender, game_experience_level = var_game_experience_level, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
@@ -135,7 +130,6 @@ PreviewPersonaApi <- R6::R6Class(
     #' @description
     #' Create Persona
     #'
-    #' @param version 
     #' @param account_id the account ID of the user
     #' @param title the title of the persona
     #' @param preview_accounts (optional) the accounts that are able to preview from this persona
@@ -150,8 +144,8 @@ PreviewPersonaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PreviewPersonaResponse
-    CreatePersona = function(version, account_id, title, preview_accounts = NULL, date = NULL, age = NULL, gender = NULL, game_experience_level = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreatePersonaWithHttpInfo(version, account_id, title, preview_accounts, date, age, gender, game_experience_level, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    CreatePersona = function(account_id, title, preview_accounts = NULL, date = NULL, age = NULL, gender = NULL, game_experience_level = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreatePersonaWithHttpInfo(account_id, title, preview_accounts, date, age, gender, game_experience_level, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -166,7 +160,6 @@ PreviewPersonaApi <- R6::R6Class(
     #' @description
     #' Create Persona
     #'
-    #' @param version 
     #' @param account_id the account ID of the user
     #' @param title the title of the persona
     #' @param preview_accounts (optional) the accounts that are able to preview from this persona
@@ -181,7 +174,7 @@ PreviewPersonaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PreviewPersonaResponse) with additional information such as HTTP status code, headers
-    CreatePersonaWithHttpInfo = function(version, account_id, title, preview_accounts = NULL, date = NULL, age = NULL, gender = NULL, game_experience_level = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreatePersonaWithHttpInfo = function(account_id, title, preview_accounts = NULL, date = NULL, age = NULL, gender = NULL, game_experience_level = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -191,20 +184,12 @@ PreviewPersonaApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`title`)) {
         stop("Missing required parameter `title`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PreviewPersonaApi$CreatePersona, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -261,11 +246,7 @@ PreviewPersonaApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/persona/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/persona/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -326,7 +307,6 @@ PreviewPersonaApi <- R6::R6Class(
     #' @description
     #' Delete Persona
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param persona_id the id of the persona to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -334,8 +314,8 @@ PreviewPersonaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeletePersona = function(version, account_id, persona_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeletePersonaWithHttpInfo(version, account_id, persona_id, data_file = data_file, ..., .parse = .parse)
+    DeletePersona = function(account_id, persona_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeletePersonaWithHttpInfo(account_id, persona_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -350,7 +330,6 @@ PreviewPersonaApi <- R6::R6Class(
     #' @description
     #' Delete Persona
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param persona_id the id of the persona to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -358,7 +337,7 @@ PreviewPersonaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeletePersonaWithHttpInfo = function(version, account_id, persona_id, data_file = NULL, ..., .parse = TRUE) {
+    DeletePersonaWithHttpInfo = function(account_id, persona_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -368,20 +347,12 @@ PreviewPersonaApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`persona_id`)) {
         stop("Missing required parameter `persona_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PreviewPersonaApi$DeletePersona, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -396,11 +367,7 @@ PreviewPersonaApi <- R6::R6Class(
 
       query_params[["personaId"]] <- `persona_id`
 
-      local_var_url_path <- "/api/{version}/persona/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/persona/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -461,7 +428,6 @@ PreviewPersonaApi <- R6::R6Class(
     #' @description
     #' Get Persona
     #'
-    #' @param version 
     #' @param account_id the account ID of the user
     #' @param persona_id the persona ID of the persona
     #' @param data_file (optional) name of the data file to save the result
@@ -469,8 +435,8 @@ PreviewPersonaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PreviewPersonaResponse
-    GetPersonaList = function(version, account_id, persona_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetPersonaListWithHttpInfo(version, account_id, persona_id, data_file = data_file, ..., .parse = .parse)
+    GetPersonaList = function(account_id, persona_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetPersonaListWithHttpInfo(account_id, persona_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -485,7 +451,6 @@ PreviewPersonaApi <- R6::R6Class(
     #' @description
     #' Get Persona
     #'
-    #' @param version 
     #' @param account_id the account ID of the user
     #' @param persona_id the persona ID of the persona
     #' @param data_file (optional) name of the data file to save the result
@@ -493,7 +458,7 @@ PreviewPersonaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PreviewPersonaResponse) with additional information such as HTTP status code, headers
-    GetPersonaListWithHttpInfo = function(version, account_id, persona_id, data_file = NULL, ..., .parse = TRUE) {
+    GetPersonaListWithHttpInfo = function(account_id, persona_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -503,20 +468,12 @@ PreviewPersonaApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`persona_id`)) {
         stop("Missing required parameter `persona_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PreviewPersonaApi$GetPersonaList, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -531,11 +488,7 @@ PreviewPersonaApi <- R6::R6Class(
 
       query_params[["personaId"]] <- `persona_id`
 
-      local_var_url_path <- "/api/{version}/persona/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/persona/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -596,7 +549,6 @@ PreviewPersonaApi <- R6::R6Class(
     #' @description
     #' Search Personas
     #'
-    #' @param version 
     #' @param account_id the account ID of the user
     #' @param start the start index for pagination
     #' @param limit the limit for pagination (There is a hard limit of 100)
@@ -605,8 +557,8 @@ PreviewPersonaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PreviewPersonaResponse
-    SearchPersona = function(version, account_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchPersonaWithHttpInfo(version, account_id, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchPersona = function(account_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchPersonaWithHttpInfo(account_id, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -621,7 +573,6 @@ PreviewPersonaApi <- R6::R6Class(
     #' @description
     #' Search Personas
     #'
-    #' @param version 
     #' @param account_id the account ID of the user
     #' @param start the start index for pagination
     #' @param limit the limit for pagination (There is a hard limit of 100)
@@ -630,7 +581,7 @@ PreviewPersonaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PreviewPersonaResponse) with additional information such as HTTP status code, headers
-    SearchPersonaWithHttpInfo = function(version, account_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
+    SearchPersonaWithHttpInfo = function(account_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -639,10 +590,6 @@ PreviewPersonaApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -654,10 +601,6 @@ PreviewPersonaApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PreviewPersonaApi$SearchPersona, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -678,11 +621,7 @@ PreviewPersonaApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/persona/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/persona/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -743,7 +682,6 @@ PreviewPersonaApi <- R6::R6Class(
     #' @description
     #' Update Persona
     #'
-    #' @param version 
     #' @param account_id the account ID of the user
     #' @param persona_id the persona ID of the persona to update
     #' @param title (optional) the title of the persona
@@ -760,8 +698,8 @@ PreviewPersonaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PreviewPersonaResponse
-    UpdatePersona = function(version, account_id, persona_id, title = NULL, preview_accounts = NULL, active = NULL, date = NULL, age = NULL, gender = NULL, game_experience_level = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdatePersonaWithHttpInfo(version, account_id, persona_id, title, preview_accounts, active, date, age, gender, game_experience_level, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    UpdatePersona = function(account_id, persona_id, title = NULL, preview_accounts = NULL, active = NULL, date = NULL, age = NULL, gender = NULL, game_experience_level = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdatePersonaWithHttpInfo(account_id, persona_id, title, preview_accounts, active, date, age, gender, game_experience_level, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -776,7 +714,6 @@ PreviewPersonaApi <- R6::R6Class(
     #' @description
     #' Update Persona
     #'
-    #' @param version 
     #' @param account_id the account ID of the user
     #' @param persona_id the persona ID of the persona to update
     #' @param title (optional) the title of the persona
@@ -793,7 +730,7 @@ PreviewPersonaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PreviewPersonaResponse) with additional information such as HTTP status code, headers
-    UpdatePersonaWithHttpInfo = function(version, account_id, persona_id, title = NULL, preview_accounts = NULL, active = NULL, date = NULL, age = NULL, gender = NULL, game_experience_level = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdatePersonaWithHttpInfo = function(account_id, persona_id, title = NULL, preview_accounts = NULL, active = NULL, date = NULL, age = NULL, gender = NULL, game_experience_level = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -803,20 +740,12 @@ PreviewPersonaApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`persona_id`)) {
         stop("Missing required parameter `persona_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PreviewPersonaApi$UpdatePersona, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -885,11 +814,7 @@ PreviewPersonaApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/persona/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/persona/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

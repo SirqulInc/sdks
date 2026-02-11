@@ -17,7 +17,6 @@
 #' ####################  CreateRetailer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_name <- "name_example" # character | The name of the retailer
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -56,15 +55,14 @@
 #' api_instance <- RetailerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateRetailer(var_version, var_name, device_id = var_device_id, account_id = var_account_id, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, website = var_website, email = var_email, facebook_url = var_facebook_url, twitter_url = var_twitter_url, logo = var_logo, logo_asset_id = var_logo_asset_id, picture1 = var_picture1, picture1_asset_id = var_picture1_asset_id, picture2 = var_picture2, picture2_asset_id = var_picture2_asset_id, category_ids = var_category_ids, category_ids_to_add = var_category_ids_to_add, category_ids_to_remove = var_category_ids_to_remove, filter_ids = var_filter_ids, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, search_tags = var_search_tags, retailer_type = var_retailer_type, visibility = var_visibility, create_default_location = var_create_default_location, response_format = var_response_formatdata_file = "result.txt")
-#' result <- api_instance$CreateRetailer(var_version, var_name, device_id = var_device_id, account_id = var_account_id, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, website = var_website, email = var_email, facebook_url = var_facebook_url, twitter_url = var_twitter_url, logo = var_logo, logo_asset_id = var_logo_asset_id, picture1 = var_picture1, picture1_asset_id = var_picture1_asset_id, picture2 = var_picture2, picture2_asset_id = var_picture2_asset_id, category_ids = var_category_ids, category_ids_to_add = var_category_ids_to_add, category_ids_to_remove = var_category_ids_to_remove, filter_ids = var_filter_ids, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, search_tags = var_search_tags, retailer_type = var_retailer_type, visibility = var_visibility, create_default_location = var_create_default_location, response_format = var_response_format)
+#' # result <- api_instance$CreateRetailer(var_name, device_id = var_device_id, account_id = var_account_id, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, website = var_website, email = var_email, facebook_url = var_facebook_url, twitter_url = var_twitter_url, logo = var_logo, logo_asset_id = var_logo_asset_id, picture1 = var_picture1, picture1_asset_id = var_picture1_asset_id, picture2 = var_picture2, picture2_asset_id = var_picture2_asset_id, category_ids = var_category_ids, category_ids_to_add = var_category_ids_to_add, category_ids_to_remove = var_category_ids_to_remove, filter_ids = var_filter_ids, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, search_tags = var_search_tags, retailer_type = var_retailer_type, visibility = var_visibility, create_default_location = var_create_default_location, response_format = var_response_formatdata_file = "result.txt")
+#' result <- api_instance$CreateRetailer(var_name, device_id = var_device_id, account_id = var_account_id, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, website = var_website, email = var_email, facebook_url = var_facebook_url, twitter_url = var_twitter_url, logo = var_logo, logo_asset_id = var_logo_asset_id, picture1 = var_picture1, picture1_asset_id = var_picture1_asset_id, picture2 = var_picture2, picture2_asset_id = var_picture2_asset_id, category_ids = var_category_ids, category_ids_to_add = var_category_ids_to_add, category_ids_to_remove = var_category_ids_to_remove, filter_ids = var_filter_ids, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, search_tags = var_search_tags, retailer_type = var_retailer_type, visibility = var_visibility, create_default_location = var_create_default_location, response_format = var_response_format)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteRetailer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account used to perform the delete, must have rights to edit the retailer. (Optional)
 #' var_retailer_id <- 56 # integer | The ID of the retailer to be deleted (Optional)
@@ -73,15 +71,14 @@
 #' api_instance <- RetailerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteRetailer(var_version, device_id = var_device_id, account_id = var_account_id, retailer_id = var_retailer_iddata_file = "result.txt")
-#' result <- api_instance$DeleteRetailer(var_version, device_id = var_device_id, account_id = var_account_id, retailer_id = var_retailer_id)
+#' # result <- api_instance$DeleteRetailer(device_id = var_device_id, account_id = var_account_id, retailer_id = var_retailer_iddata_file = "result.txt")
+#' result <- api_instance$DeleteRetailer(device_id = var_device_id, account_id = var_account_id, retailer_id = var_retailer_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetRetailer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_retailer_id <- 56 # integer | the ID of the retailer
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -91,15 +88,14 @@
 #' api_instance <- RetailerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetRetailer(var_version, var_retailer_id, device_id = var_device_id, account_id = var_account_id, include_counts = var_include_countsdata_file = "result.txt")
-#' result <- api_instance$GetRetailer(var_version, var_retailer_id, device_id = var_device_id, account_id = var_account_id, include_counts = var_include_counts)
+#' # result <- api_instance$GetRetailer(var_retailer_id, device_id = var_device_id, account_id = var_account_id, include_counts = var_include_countsdata_file = "result.txt")
+#' result <- api_instance$GetRetailer(var_retailer_id, device_id = var_device_id, account_id = var_account_id, include_counts = var_include_counts)
 #' dput(result)
 #'
 #'
 #' ####################  GetRetailers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_visibility <- "visibility_example" # character | 
 #' var_sort_field <- "sort_field_example" # character | The column to sort the search on
 #' var_descending <- "descending_example" # character | The order to return the search results
@@ -119,15 +115,14 @@
 #' api_instance <- RetailerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetRetailers(var_version, var_visibility, var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, category_ids = var_category_ids, filter_ids = var_filter_ids, _i = var__i, _l = var__ldata_file = "result.txt")
-#' result <- api_instance$GetRetailers(var_version, var_visibility, var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, category_ids = var_category_ids, filter_ids = var_filter_ids, _i = var__i, _l = var__l)
+#' # result <- api_instance$GetRetailers(var_visibility, var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, category_ids = var_category_ids, filter_ids = var_filter_ids, _i = var__i, _l = var__ldata_file = "result.txt")
+#' result <- api_instance$GetRetailers(var_visibility, var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, category_ids = var_category_ids, filter_ids = var_filter_ids, _i = var__i, _l = var__l)
 #' dput(result)
 #'
 #'
 #' ####################  RetailerLoginCheck  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_username <- "username_example" # character | the user's email address they used to sign-up
 #' var_password <- "password_example" # character | the password
 #' var_device_id <- "device_id_example" # character | the device id (optional) (Optional)
@@ -139,15 +134,14 @@
 #' api_instance <- RetailerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RetailerLoginCheck(var_version, var_username, var_password, device_id = var_device_id, latitude = var_latitude, longitude = var_longitude, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$RetailerLoginCheck(var_version, var_username, var_password, device_id = var_device_id, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key)
+#' # result <- api_instance$RetailerLoginCheck(var_username, var_password, device_id = var_device_id, latitude = var_latitude, longitude = var_longitude, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$RetailerLoginCheck(var_username, var_password, device_id = var_device_id, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateRetailer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_retailer_id <- 56 # integer | The ID of the retailer to update
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -185,8 +179,8 @@
 #' api_instance <- RetailerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateRetailer(var_version, var_retailer_id, device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, website = var_website, email = var_email, facebook_url = var_facebook_url, twitter_url = var_twitter_url, logo = var_logo, logo_asset_id = var_logo_asset_id, picture1 = var_picture1, picture1_asset_id = var_picture1_asset_id, picture2 = var_picture2, picture2_asset_id = var_picture2_asset_id, category_ids = var_category_ids, filter_ids = var_filter_ids, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, search_tags = var_search_tags, retailer_type = var_retailer_type, visibility = var_visibility, active = var_active, response_format = var_response_formatdata_file = "result.txt")
-#' result <- api_instance$UpdateRetailer(var_version, var_retailer_id, device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, website = var_website, email = var_email, facebook_url = var_facebook_url, twitter_url = var_twitter_url, logo = var_logo, logo_asset_id = var_logo_asset_id, picture1 = var_picture1, picture1_asset_id = var_picture1_asset_id, picture2 = var_picture2, picture2_asset_id = var_picture2_asset_id, category_ids = var_category_ids, filter_ids = var_filter_ids, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, search_tags = var_search_tags, retailer_type = var_retailer_type, visibility = var_visibility, active = var_active, response_format = var_response_format)
+#' # result <- api_instance$UpdateRetailer(var_retailer_id, device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, website = var_website, email = var_email, facebook_url = var_facebook_url, twitter_url = var_twitter_url, logo = var_logo, logo_asset_id = var_logo_asset_id, picture1 = var_picture1, picture1_asset_id = var_picture1_asset_id, picture2 = var_picture2, picture2_asset_id = var_picture2_asset_id, category_ids = var_category_ids, filter_ids = var_filter_ids, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, search_tags = var_search_tags, retailer_type = var_retailer_type, visibility = var_visibility, active = var_active, response_format = var_response_formatdata_file = "result.txt")
+#' result <- api_instance$UpdateRetailer(var_retailer_id, device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, website = var_website, email = var_email, facebook_url = var_facebook_url, twitter_url = var_twitter_url, logo = var_logo, logo_asset_id = var_logo_asset_id, picture1 = var_picture1, picture1_asset_id = var_picture1_asset_id, picture2 = var_picture2, picture2_asset_id = var_picture2_asset_id, category_ids = var_category_ids, filter_ids = var_filter_ids, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, search_tags = var_search_tags, retailer_type = var_retailer_type, visibility = var_visibility, active = var_active, response_format = var_response_format)
 #' dput(result)
 #'
 #'
@@ -214,7 +208,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Create Retailer
     #'
-    #' @param version 
     #' @param name The name of the retailer
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -253,8 +246,8 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RetailerFullResponse
-    CreateRetailer = function(version, name, device_id = NULL, account_id = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, business_phone = NULL, business_phone_ext = NULL, website = NULL, email = NULL, facebook_url = NULL, twitter_url = NULL, logo = NULL, logo_asset_id = NULL, picture1 = NULL, picture1_asset_id = NULL, picture2 = NULL, picture2_asset_id = NULL, category_ids = NULL, category_ids_to_add = NULL, category_ids_to_remove = NULL, filter_ids = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, search_tags = NULL, retailer_type = NULL, visibility = NULL, create_default_location = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateRetailerWithHttpInfo(version, name, device_id, account_id, street_address, street_address2, city, state, postal_code, country, business_phone, business_phone_ext, website, email, facebook_url, twitter_url, logo, logo_asset_id, picture1, picture1_asset_id, picture2, picture2_asset_id, category_ids, category_ids_to_add, category_ids_to_remove, filter_ids, latitude, longitude, meta_data, search_tags, retailer_type, visibility, create_default_location, response_format, data_file = data_file, ..., .parse = .parse)
+    CreateRetailer = function(name, device_id = NULL, account_id = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, business_phone = NULL, business_phone_ext = NULL, website = NULL, email = NULL, facebook_url = NULL, twitter_url = NULL, logo = NULL, logo_asset_id = NULL, picture1 = NULL, picture1_asset_id = NULL, picture2 = NULL, picture2_asset_id = NULL, category_ids = NULL, category_ids_to_add = NULL, category_ids_to_remove = NULL, filter_ids = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, search_tags = NULL, retailer_type = NULL, visibility = NULL, create_default_location = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateRetailerWithHttpInfo(name, device_id, account_id, street_address, street_address2, city, state, postal_code, country, business_phone, business_phone_ext, website, email, facebook_url, twitter_url, logo, logo_asset_id, picture1, picture1_asset_id, picture2, picture2_asset_id, category_ids, category_ids_to_add, category_ids_to_remove, filter_ids, latitude, longitude, meta_data, search_tags, retailer_type, visibility, create_default_location, response_format, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -269,7 +262,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Create Retailer
     #'
-    #' @param version 
     #' @param name The name of the retailer
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -308,7 +300,7 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RetailerFullResponse) with additional information such as HTTP status code, headers
-    CreateRetailerWithHttpInfo = function(version, name, device_id = NULL, account_id = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, business_phone = NULL, business_phone_ext = NULL, website = NULL, email = NULL, facebook_url = NULL, twitter_url = NULL, logo = NULL, logo_asset_id = NULL, picture1 = NULL, picture1_asset_id = NULL, picture2 = NULL, picture2_asset_id = NULL, category_ids = NULL, category_ids_to_add = NULL, category_ids_to_remove = NULL, filter_ids = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, search_tags = NULL, retailer_type = NULL, visibility = NULL, create_default_location = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateRetailerWithHttpInfo = function(name, device_id = NULL, account_id = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, business_phone = NULL, business_phone_ext = NULL, website = NULL, email = NULL, facebook_url = NULL, twitter_url = NULL, logo = NULL, logo_asset_id = NULL, picture1 = NULL, picture1_asset_id = NULL, picture2 = NULL, picture2_asset_id = NULL, category_ids = NULL, category_ids_to_add = NULL, category_ids_to_remove = NULL, filter_ids = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, search_tags = NULL, retailer_type = NULL, visibility = NULL, create_default_location = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -318,16 +310,8 @@ RetailerApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`name`)) {
         stop("Missing required parameter `name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RetailerApi$CreateRetailer, `version` is not nullable")
       }
 
       if (!missing(`name`) && is.null(`name`)) {
@@ -534,11 +518,7 @@ RetailerApi <- R6::R6Class(
       }
       query_params[["responseFormat"]] <- `response_format`
 
-      local_var_url_path <- "/api/{version}/retailer/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -599,7 +579,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Delete Retailer
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the retailer.
     #' @param retailer_id (optional) The ID of the retailer to be deleted
@@ -608,8 +587,8 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteRetailer = function(version, device_id = NULL, account_id = NULL, retailer_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteRetailerWithHttpInfo(version, device_id, account_id, retailer_id, data_file = data_file, ..., .parse = .parse)
+    DeleteRetailer = function(device_id = NULL, account_id = NULL, retailer_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteRetailerWithHttpInfo(device_id, account_id, retailer_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -624,7 +603,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Delete Retailer
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the retailer.
     #' @param retailer_id (optional) The ID of the retailer to be deleted
@@ -633,7 +611,7 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteRetailerWithHttpInfo = function(version, device_id = NULL, account_id = NULL, retailer_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteRetailerWithHttpInfo = function(device_id = NULL, account_id = NULL, retailer_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -642,14 +620,6 @@ RetailerApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RetailerApi$DeleteRetailer, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling RetailerApi$DeleteRetailer, `device_id` is not nullable")
@@ -669,11 +639,7 @@ RetailerApi <- R6::R6Class(
 
       query_params[["retailerId"]] <- `retailer_id`
 
-      local_var_url_path <- "/api/{version}/retailer/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -734,7 +700,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Get Retailer
     #'
-    #' @param version 
     #' @param retailer_id the ID of the retailer
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -744,8 +709,8 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RetailerFullResponse
-    GetRetailer = function(version, retailer_id, device_id = NULL, account_id = NULL, include_counts = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetRetailerWithHttpInfo(version, retailer_id, device_id, account_id, include_counts, data_file = data_file, ..., .parse = .parse)
+    GetRetailer = function(retailer_id, device_id = NULL, account_id = NULL, include_counts = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetRetailerWithHttpInfo(retailer_id, device_id, account_id, include_counts, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -760,7 +725,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Get Retailer
     #'
-    #' @param version 
     #' @param retailer_id the ID of the retailer
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -770,7 +734,7 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RetailerFullResponse) with additional information such as HTTP status code, headers
-    GetRetailerWithHttpInfo = function(version, retailer_id, device_id = NULL, account_id = NULL, include_counts = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetRetailerWithHttpInfo = function(retailer_id, device_id = NULL, account_id = NULL, include_counts = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -780,16 +744,8 @@ RetailerApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`retailer_id`)) {
         stop("Missing required parameter `retailer_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RetailerApi$GetRetailer, `version` is not nullable")
       }
 
       if (!missing(`retailer_id`) && is.null(`retailer_id`)) {
@@ -816,11 +772,7 @@ RetailerApi <- R6::R6Class(
 
       query_params[["includeCounts"]] <- `include_counts`
 
-      local_var_url_path <- "/api/{version}/retailer/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -881,7 +833,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Search Retailers
     #'
-    #' @param version 
     #' @param visibility 
     #' @param sort_field The column to sort the search on
     #' @param descending The order to return the search results
@@ -901,8 +852,8 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[RetailerResponse]
-    GetRetailers = function(version, visibility, sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, category_ids = NULL, filter_ids = NULL, _i = NULL, _l = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetRetailersWithHttpInfo(version, visibility, sort_field, descending, start, limit, active_only, device_id, account_id, q, keyword, category_ids, filter_ids, _i, _l, data_file = data_file, ..., .parse = .parse)
+    GetRetailers = function(visibility, sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, category_ids = NULL, filter_ids = NULL, _i = NULL, _l = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetRetailersWithHttpInfo(visibility, sort_field, descending, start, limit, active_only, device_id, account_id, q, keyword, category_ids, filter_ids, _i, _l, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -917,7 +868,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Search Retailers
     #'
-    #' @param version 
     #' @param visibility 
     #' @param sort_field The column to sort the search on
     #' @param descending The order to return the search results
@@ -937,7 +887,7 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[RetailerResponse]) with additional information such as HTTP status code, headers
-    GetRetailersWithHttpInfo = function(version, visibility, sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, category_ids = NULL, filter_ids = NULL, _i = NULL, _l = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetRetailersWithHttpInfo = function(visibility, sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, category_ids = NULL, filter_ids = NULL, _i = NULL, _l = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -946,10 +896,6 @@ RetailerApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`visibility`)) {
         stop("Missing required parameter `visibility`.")
@@ -973,10 +919,6 @@ RetailerApi <- R6::R6Class(
 
       if (missing(`active_only`)) {
         stop("Missing required parameter `active_only`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RetailerApi$GetRetailers, `version` is not nullable")
       }
 
       if (!missing(`visibility`) && is.null(`visibility`)) {
@@ -1069,11 +1011,7 @@ RetailerApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/retailer/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1134,7 +1072,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Login Retailer
     #'
-    #' @param version 
     #' @param username the user's email address they used to sign-up
     #' @param password the password
     #' @param device_id (optional) the device id (optional)
@@ -1146,8 +1083,8 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AccountLoginResponse
-    RetailerLoginCheck = function(version, username, password, device_id = NULL, latitude = NULL, longitude = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RetailerLoginCheckWithHttpInfo(version, username, password, device_id, latitude, longitude, app_key, data_file = data_file, ..., .parse = .parse)
+    RetailerLoginCheck = function(username, password, device_id = NULL, latitude = NULL, longitude = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RetailerLoginCheckWithHttpInfo(username, password, device_id, latitude, longitude, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1162,7 +1099,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Login Retailer
     #'
-    #' @param version 
     #' @param username the user's email address they used to sign-up
     #' @param password the password
     #' @param device_id (optional) the device id (optional)
@@ -1174,7 +1110,7 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AccountLoginResponse) with additional information such as HTTP status code, headers
-    RetailerLoginCheckWithHttpInfo = function(version, username, password, device_id = NULL, latitude = NULL, longitude = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RetailerLoginCheckWithHttpInfo = function(username, password, device_id = NULL, latitude = NULL, longitude = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1184,20 +1120,12 @@ RetailerApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`username`)) {
         stop("Missing required parameter `username`.")
       }
 
       if (missing(`password`)) {
         stop("Missing required parameter `password`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RetailerApi$RetailerLoginCheck, `version` is not nullable")
       }
 
       if (!missing(`username`) && is.null(`username`)) {
@@ -1236,11 +1164,7 @@ RetailerApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/retailer/login"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/login"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1301,7 +1225,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Update Retailer
     #'
-    #' @param version 
     #' @param retailer_id The ID of the retailer to update
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -1339,8 +1262,8 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RetailerFullResponse
-    UpdateRetailer = function(version, retailer_id, device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, business_phone = NULL, business_phone_ext = NULL, website = NULL, email = NULL, facebook_url = NULL, twitter_url = NULL, logo = NULL, logo_asset_id = NULL, picture1 = NULL, picture1_asset_id = NULL, picture2 = NULL, picture2_asset_id = NULL, category_ids = NULL, filter_ids = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, search_tags = NULL, retailer_type = NULL, visibility = NULL, active = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateRetailerWithHttpInfo(version, retailer_id, device_id, account_id, name, street_address, street_address2, city, state, postal_code, country, business_phone, business_phone_ext, website, email, facebook_url, twitter_url, logo, logo_asset_id, picture1, picture1_asset_id, picture2, picture2_asset_id, category_ids, filter_ids, latitude, longitude, meta_data, search_tags, retailer_type, visibility, active, response_format, data_file = data_file, ..., .parse = .parse)
+    UpdateRetailer = function(retailer_id, device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, business_phone = NULL, business_phone_ext = NULL, website = NULL, email = NULL, facebook_url = NULL, twitter_url = NULL, logo = NULL, logo_asset_id = NULL, picture1 = NULL, picture1_asset_id = NULL, picture2 = NULL, picture2_asset_id = NULL, category_ids = NULL, filter_ids = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, search_tags = NULL, retailer_type = NULL, visibility = NULL, active = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateRetailerWithHttpInfo(retailer_id, device_id, account_id, name, street_address, street_address2, city, state, postal_code, country, business_phone, business_phone_ext, website, email, facebook_url, twitter_url, logo, logo_asset_id, picture1, picture1_asset_id, picture2, picture2_asset_id, category_ids, filter_ids, latitude, longitude, meta_data, search_tags, retailer_type, visibility, active, response_format, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1355,7 +1278,6 @@ RetailerApi <- R6::R6Class(
     #' @description
     #' Update Retailer
     #'
-    #' @param version 
     #' @param retailer_id The ID of the retailer to update
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -1393,7 +1315,7 @@ RetailerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RetailerFullResponse) with additional information such as HTTP status code, headers
-    UpdateRetailerWithHttpInfo = function(version, retailer_id, device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, business_phone = NULL, business_phone_ext = NULL, website = NULL, email = NULL, facebook_url = NULL, twitter_url = NULL, logo = NULL, logo_asset_id = NULL, picture1 = NULL, picture1_asset_id = NULL, picture2 = NULL, picture2_asset_id = NULL, category_ids = NULL, filter_ids = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, search_tags = NULL, retailer_type = NULL, visibility = NULL, active = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateRetailerWithHttpInfo = function(retailer_id, device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, business_phone = NULL, business_phone_ext = NULL, website = NULL, email = NULL, facebook_url = NULL, twitter_url = NULL, logo = NULL, logo_asset_id = NULL, picture1 = NULL, picture1_asset_id = NULL, picture2 = NULL, picture2_asset_id = NULL, category_ids = NULL, filter_ids = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, search_tags = NULL, retailer_type = NULL, visibility = NULL, active = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1403,16 +1325,8 @@ RetailerApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`retailer_id`)) {
         stop("Missing required parameter `retailer_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RetailerApi$UpdateRetailer, `version` is not nullable")
       }
 
       if (!missing(`retailer_id`) && is.null(`retailer_id`)) {
@@ -1613,11 +1527,7 @@ RetailerApi <- R6::R6Class(
       }
       query_params[["responseFormat"]] <- `response_format`
 
-      local_var_url_path <- "/api/{version}/retailer/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

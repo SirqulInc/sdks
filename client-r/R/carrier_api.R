@@ -17,7 +17,6 @@
 #' ####################  SearchCarriers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_keyword <- "keyword_example" # character | The keyword to search on (Optional)
 #' var_descending <- FALSE # character | Determines whether the sorted list is in descending or ascending order (Optional)
 #' var_start <- 0 # integer | The start index for pagination (Optional)
@@ -28,8 +27,8 @@
 #' api_instance <- CarrierApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchCarriers(var_version, keyword = var_keyword, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
-#' result <- api_instance$SearchCarriers(var_version, keyword = var_keyword, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
+#' # result <- api_instance$SearchCarriers(keyword = var_keyword, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
+#' result <- api_instance$SearchCarriers(keyword = var_keyword, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
 #' dput(result)
 #'
 #'
@@ -57,7 +56,6 @@ CarrierApi <- R6::R6Class(
     #' @description
     #' Search Carriers
     #'
-    #' @param version 
     #' @param keyword (optional) The keyword to search on
     #' @param descending (optional) Determines whether the sorted list is in descending or ascending order (default value: FALSE)
     #' @param start (optional) The start index for pagination (default value: 0)
@@ -68,8 +66,8 @@ CarrierApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[CellCarrierResponse]
-    SearchCarriers = function(version, keyword = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchCarriersWithHttpInfo(version, keyword, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
+    SearchCarriers = function(keyword = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchCarriersWithHttpInfo(keyword, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -84,7 +82,6 @@ CarrierApi <- R6::R6Class(
     #' @description
     #' Search Carriers
     #'
-    #' @param version 
     #' @param keyword (optional) The keyword to search on
     #' @param descending (optional) Determines whether the sorted list is in descending or ascending order (default value: FALSE)
     #' @param start (optional) The start index for pagination (default value: 0)
@@ -95,7 +92,7 @@ CarrierApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[CellCarrierResponse]) with additional information such as HTTP status code, headers
-    SearchCarriersWithHttpInfo = function(version, keyword = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    SearchCarriersWithHttpInfo = function(keyword = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -104,14 +101,6 @@ CarrierApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CarrierApi$SearchCarriers, `version` is not nullable")
-      }
 
       if (!missing(`keyword`) && is.null(`keyword`)) {
         stop("Invalid value for `keyword` when calling CarrierApi$SearchCarriers, `keyword` is not nullable")
@@ -143,11 +132,7 @@ CarrierApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/carrier/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/carrier/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

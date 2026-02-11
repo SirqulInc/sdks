@@ -17,7 +17,6 @@
 #' ####################  CreateWord  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_word <- "word_example" # character | The text of the word.
 #' var_definition <- "definition_example" # character | The definition of the word.
@@ -32,15 +31,14 @@
 #' api_instance <- WordApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateWord(var_version, var_account_id, var_word, var_definition, var_active, var_allocate_tickets, var_ticket_count, asset_id = var_asset_id, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
-#' result <- api_instance$CreateWord(var_version, var_account_id, var_word, var_definition, var_active, var_allocate_tickets, var_ticket_count, asset_id = var_asset_id, ticket_type = var_ticket_type, points = var_points)
+#' # result <- api_instance$CreateWord(var_account_id, var_word, var_definition, var_active, var_allocate_tickets, var_ticket_count, asset_id = var_asset_id, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
+#' result <- api_instance$CreateWord(var_account_id, var_word, var_definition, var_active, var_allocate_tickets, var_ticket_count, asset_id = var_asset_id, ticket_type = var_ticket_type, points = var_points)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteWord  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_word_id <- 56 # integer | The id of the word to delete.
 #' var_account_id <- 56 # integer | The account vor validating permission
 #'
@@ -48,15 +46,14 @@
 #' api_instance <- WordApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteWord(var_version, var_word_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteWord(var_version, var_word_id, var_account_id)
+#' # result <- api_instance$DeleteWord(var_word_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteWord(var_word_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetWord  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_word_id <- 56 # integer | The id of the word to get.
 #' var_account_id <- 56 # integer | The logged in user.
 #'
@@ -64,15 +61,14 @@
 #' api_instance <- WordApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetWord(var_version, var_word_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetWord(var_version, var_word_id, var_account_id)
+#' # result <- api_instance$GetWord(var_word_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetWord(var_word_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetWords  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_sort_field <- "id" # character | The column to sort the search on
 #' var_descending <- FALSE # character | The order to return the search results
@@ -85,15 +81,14 @@
 #' api_instance <- WordApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetWords(var_version, var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$GetWords(var_version, var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, keyword = var_keyword)
+#' # result <- api_instance$GetWords(var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$GetWords(var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, keyword = var_keyword)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateWord  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_word_id <- 56 # integer | The id of the word to update.
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_ticket_count <- 0 # integer | The number of tickets to reward
@@ -109,8 +104,8 @@
 #' api_instance <- WordApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateWord(var_version, var_word_id, var_account_id, var_ticket_count, word_text = var_word_text, definition = var_definition, asset_id = var_asset_id, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
-#' result <- api_instance$UpdateWord(var_version, var_word_id, var_account_id, var_ticket_count, word_text = var_word_text, definition = var_definition, asset_id = var_asset_id, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points)
+#' # result <- api_instance$UpdateWord(var_word_id, var_account_id, var_ticket_count, word_text = var_word_text, definition = var_definition, asset_id = var_asset_id, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
+#' result <- api_instance$UpdateWord(var_word_id, var_account_id, var_ticket_count, word_text = var_word_text, definition = var_definition, asset_id = var_asset_id, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points)
 #' dput(result)
 #'
 #'
@@ -138,7 +133,6 @@ WordApi <- R6::R6Class(
     #' @description
     #' Create Word
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param word The text of the word.
     #' @param definition The definition of the word.
@@ -153,8 +147,8 @@ WordApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return WordzWordResponse
-    CreateWord = function(version, account_id, word, definition, active, allocate_tickets, ticket_count, asset_id = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateWordWithHttpInfo(version, account_id, word, definition, active, allocate_tickets, ticket_count, asset_id, ticket_type, points, data_file = data_file, ..., .parse = .parse)
+    CreateWord = function(account_id, word, definition, active, allocate_tickets, ticket_count, asset_id = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateWordWithHttpInfo(account_id, word, definition, active, allocate_tickets, ticket_count, asset_id, ticket_type, points, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -169,7 +163,6 @@ WordApi <- R6::R6Class(
     #' @description
     #' Create Word
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param word The text of the word.
     #' @param definition The definition of the word.
@@ -184,7 +177,7 @@ WordApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (WordzWordResponse) with additional information such as HTTP status code, headers
-    CreateWordWithHttpInfo = function(version, account_id, word, definition, active, allocate_tickets, ticket_count, asset_id = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateWordWithHttpInfo = function(account_id, word, definition, active, allocate_tickets, ticket_count, asset_id = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -193,10 +186,6 @@ WordApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -220,10 +209,6 @@ WordApi <- R6::R6Class(
 
       if (missing(`ticket_count`)) {
         stop("Missing required parameter `ticket_count`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WordApi$CreateWord, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -280,11 +265,7 @@ WordApi <- R6::R6Class(
 
       query_params[["points"]] <- `points`
 
-      local_var_url_path <- "/api/{version}/game/word/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/word/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -345,7 +326,6 @@ WordApi <- R6::R6Class(
     #' @description
     #' Delete Word
     #'
-    #' @param version 
     #' @param word_id The id of the word to delete.
     #' @param account_id The account vor validating permission
     #' @param data_file (optional) name of the data file to save the result
@@ -353,8 +333,8 @@ WordApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteWord = function(version, word_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteWordWithHttpInfo(version, word_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteWord = function(word_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteWordWithHttpInfo(word_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -369,7 +349,6 @@ WordApi <- R6::R6Class(
     #' @description
     #' Delete Word
     #'
-    #' @param version 
     #' @param word_id The id of the word to delete.
     #' @param account_id The account vor validating permission
     #' @param data_file (optional) name of the data file to save the result
@@ -377,7 +356,7 @@ WordApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteWordWithHttpInfo = function(version, word_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteWordWithHttpInfo = function(word_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -387,20 +366,12 @@ WordApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`word_id`)) {
         stop("Missing required parameter `word_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WordApi$DeleteWord, `version` is not nullable")
       }
 
       if (!missing(`word_id`) && is.null(`word_id`)) {
@@ -415,11 +386,7 @@ WordApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/game/word/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/word/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -480,7 +447,6 @@ WordApi <- R6::R6Class(
     #' @description
     #' Get Word
     #'
-    #' @param version 
     #' @param word_id The id of the word to get.
     #' @param account_id The logged in user.
     #' @param data_file (optional) name of the data file to save the result
@@ -488,8 +454,8 @@ WordApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return WordzWordResponse
-    GetWord = function(version, word_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetWordWithHttpInfo(version, word_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetWord = function(word_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetWordWithHttpInfo(word_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -504,7 +470,6 @@ WordApi <- R6::R6Class(
     #' @description
     #' Get Word
     #'
-    #' @param version 
     #' @param word_id The id of the word to get.
     #' @param account_id The logged in user.
     #' @param data_file (optional) name of the data file to save the result
@@ -512,7 +477,7 @@ WordApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (WordzWordResponse) with additional information such as HTTP status code, headers
-    GetWordWithHttpInfo = function(version, word_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetWordWithHttpInfo = function(word_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -522,20 +487,12 @@ WordApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`word_id`)) {
         stop("Missing required parameter `word_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WordApi$GetWord, `version` is not nullable")
       }
 
       if (!missing(`word_id`) && is.null(`word_id`)) {
@@ -550,11 +507,7 @@ WordApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/game/word/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/word/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -615,7 +568,6 @@ WordApi <- R6::R6Class(
     #' @description
     #' Search Words
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param sort_field The column to sort the search on
     #' @param descending The order to return the search results
@@ -628,8 +580,8 @@ WordApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[WordzWordResponse]
-    GetWords = function(version, account_id, sort_field, descending, active_only, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetWordsWithHttpInfo(version, account_id, sort_field, descending, active_only, start, limit, keyword, data_file = data_file, ..., .parse = .parse)
+    GetWords = function(account_id, sort_field, descending, active_only, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetWordsWithHttpInfo(account_id, sort_field, descending, active_only, start, limit, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -644,7 +596,6 @@ WordApi <- R6::R6Class(
     #' @description
     #' Search Words
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param sort_field The column to sort the search on
     #' @param descending The order to return the search results
@@ -657,7 +608,7 @@ WordApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[WordzWordResponse]) with additional information such as HTTP status code, headers
-    GetWordsWithHttpInfo = function(version, account_id, sort_field, descending, active_only, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetWordsWithHttpInfo = function(account_id, sort_field, descending, active_only, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -666,10 +617,6 @@ WordApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -693,10 +640,6 @@ WordApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WordApi$GetWords, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -741,11 +684,7 @@ WordApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/game/word/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/word/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -806,7 +745,6 @@ WordApi <- R6::R6Class(
     #' @description
     #' Update Word
     #'
-    #' @param version 
     #' @param word_id The id of the word to update.
     #' @param account_id The logged in user.
     #' @param ticket_count The number of tickets to reward
@@ -822,8 +760,8 @@ WordApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return WordzWordResponse
-    UpdateWord = function(version, word_id, account_id, ticket_count, word_text = NULL, definition = NULL, asset_id = NULL, active = NULL, allocate_tickets = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateWordWithHttpInfo(version, word_id, account_id, ticket_count, word_text, definition, asset_id, active, allocate_tickets, ticket_type, points, data_file = data_file, ..., .parse = .parse)
+    UpdateWord = function(word_id, account_id, ticket_count, word_text = NULL, definition = NULL, asset_id = NULL, active = NULL, allocate_tickets = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateWordWithHttpInfo(word_id, account_id, ticket_count, word_text, definition, asset_id, active, allocate_tickets, ticket_type, points, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -838,7 +776,6 @@ WordApi <- R6::R6Class(
     #' @description
     #' Update Word
     #'
-    #' @param version 
     #' @param word_id The id of the word to update.
     #' @param account_id The logged in user.
     #' @param ticket_count The number of tickets to reward
@@ -854,7 +791,7 @@ WordApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (WordzWordResponse) with additional information such as HTTP status code, headers
-    UpdateWordWithHttpInfo = function(version, word_id, account_id, ticket_count, word_text = NULL, definition = NULL, asset_id = NULL, active = NULL, allocate_tickets = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateWordWithHttpInfo = function(word_id, account_id, ticket_count, word_text = NULL, definition = NULL, asset_id = NULL, active = NULL, allocate_tickets = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -863,10 +800,6 @@ WordApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`word_id`)) {
         stop("Missing required parameter `word_id`.")
@@ -878,10 +811,6 @@ WordApi <- R6::R6Class(
 
       if (missing(`ticket_count`)) {
         stop("Missing required parameter `ticket_count`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WordApi$UpdateWord, `version` is not nullable")
       }
 
       if (!missing(`word_id`) && is.null(`word_id`)) {
@@ -944,11 +873,7 @@ WordApi <- R6::R6Class(
 
       query_params[["points"]] <- `points`
 
-      local_var_url_path <- "/api/{version}/game/word/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/word/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

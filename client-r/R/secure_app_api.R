@@ -17,7 +17,6 @@
 #' ####################  CreateSecureApplication  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The unique id of the user making the request
 #' var_app_key <- "app_key_example" # character | The application to secure
 #' var_key_cert <- File.new('/path/to/file') # data.frame | 
@@ -33,15 +32,14 @@
 #' api_instance <- SecureAppApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateSecureApplication(var_version, var_account_id, var_app_key, var_key_cert, var_trust_store, var_username, var_password, active = var_active, biometric_type = var_biometric_type, biometric_position = var_biometric_position, biometric_position2 = var_biometric_position2data_file = "result.txt")
-#' result <- api_instance$CreateSecureApplication(var_version, var_account_id, var_app_key, var_key_cert, var_trust_store, var_username, var_password, active = var_active, biometric_type = var_biometric_type, biometric_position = var_biometric_position, biometric_position2 = var_biometric_position2)
+#' # result <- api_instance$CreateSecureApplication(var_account_id, var_app_key, var_key_cert, var_trust_store, var_username, var_password, active = var_active, biometric_type = var_biometric_type, biometric_position = var_biometric_position, biometric_position2 = var_biometric_position2data_file = "result.txt")
+#' result <- api_instance$CreateSecureApplication(var_account_id, var_app_key, var_key_cert, var_trust_store, var_username, var_password, active = var_active, biometric_type = var_biometric_type, biometric_position = var_biometric_position, biometric_position2 = var_biometric_position2)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteSecureApplication  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The unique id of the user making the request
 #' var_app_key <- "app_key_example" # character | The application to secure
 #'
@@ -49,15 +47,14 @@
 #' api_instance <- SecureAppApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteSecureApplication(var_version, var_account_id, var_app_keydata_file = "result.txt")
-#' result <- api_instance$DeleteSecureApplication(var_version, var_account_id, var_app_key)
+#' # result <- api_instance$DeleteSecureApplication(var_account_id, var_app_keydata_file = "result.txt")
+#' result <- api_instance$DeleteSecureApplication(var_account_id, var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  LoginSecure  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application making the request, defines what type and position is required to make a secure login the request.
 #' var_biometric_file <- File.new('/path/to/file') # data.frame | The data file used to perform authentication
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (Optional)
@@ -72,30 +69,28 @@
 #' api_instance <- SecureAppApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$LoginSecure(var_version, var_app_key, var_biometric_file, device_id = var_device_id, biometric_file2 = var_biometric_file2, age_restriction = var_age_restriction, return_profile = var_return_profile, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$LoginSecure(var_version, var_app_key, var_biometric_file, device_id = var_device_id, biometric_file2 = var_biometric_file2, age_restriction = var_age_restriction, return_profile = var_return_profile, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$LoginSecure(var_app_key, var_biometric_file, device_id = var_device_id, biometric_file2 = var_biometric_file2, age_restriction = var_age_restriction, return_profile = var_return_profile, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$LoginSecure(var_app_key, var_biometric_file, device_id = var_device_id, biometric_file2 = var_biometric_file2, age_restriction = var_age_restriction, return_profile = var_return_profile, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  PurchaseSecure  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_body <- PaymentRequest$new("appKey_example", "clientPaymentId_example", 123, Invoice$new("location_example", 123, 123, c(LineItem$new("description_example", "item_example", 123, 123, 123, 123))), BiometricRequest$new(BiometricImage$new("UNKNOWN", "data_example"), c(FingerprintBiometricImage$new("UNKNOWN", "data_example", "imageFormat_example"))), c(OrderItemRequest$new("OFFER", 123, "offerName_example", "orderCustomType_example", "orderCustomId_example", 123, 123, 123, 123, 123, 123, "message_example")), "acceptedBilling_example") # PaymentRequest | The payment request object
 #'
 #' #Purchase Clear
 #' api_instance <- SecureAppApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$PurchaseSecure(var_version, var_bodydata_file = "result.txt")
-#' result <- api_instance$PurchaseSecure(var_version, var_body)
+#' # result <- api_instance$PurchaseSecure(var_bodydata_file = "result.txt")
+#' result <- api_instance$PurchaseSecure(var_body)
 #' dput(result)
 #'
 #'
 #' ####################  ResetSecure  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The unique id of the user making the request
 #' var_app_key <- "app_key_example" # character | The application to secure
 #'
@@ -103,15 +98,14 @@
 #' api_instance <- SecureAppApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ResetSecure(var_version, var_account_id, var_app_keydata_file = "result.txt")
-#' result <- api_instance$ResetSecure(var_version, var_account_id, var_app_key)
+#' # result <- api_instance$ResetSecure(var_account_id, var_app_keydata_file = "result.txt")
+#' result <- api_instance$ResetSecure(var_account_id, var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateSecureApplication  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The unique id of the user making the request
 #' var_app_key <- "app_key_example" # character | The application to secure
 #' var_active <- "active_example" # character |  (Optional)
@@ -127,8 +121,8 @@
 #' api_instance <- SecureAppApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateSecureApplication(var_version, var_account_id, var_app_key, active = var_active, key_cert = var_key_cert, trust_store = var_trust_store, username = var_username, password = var_password, biometric_type = var_biometric_type, biometric_position = var_biometric_position, biometric_position2 = var_biometric_position2data_file = "result.txt")
-#' result <- api_instance$UpdateSecureApplication(var_version, var_account_id, var_app_key, active = var_active, key_cert = var_key_cert, trust_store = var_trust_store, username = var_username, password = var_password, biometric_type = var_biometric_type, biometric_position = var_biometric_position, biometric_position2 = var_biometric_position2)
+#' # result <- api_instance$UpdateSecureApplication(var_account_id, var_app_key, active = var_active, key_cert = var_key_cert, trust_store = var_trust_store, username = var_username, password = var_password, biometric_type = var_biometric_type, biometric_position = var_biometric_position, biometric_position2 = var_biometric_position2data_file = "result.txt")
+#' result <- api_instance$UpdateSecureApplication(var_account_id, var_app_key, active = var_active, key_cert = var_key_cert, trust_store = var_trust_store, username = var_username, password = var_password, biometric_type = var_biometric_type, biometric_position = var_biometric_position, biometric_position2 = var_biometric_position2)
 #' dput(result)
 #'
 #'
@@ -156,7 +150,6 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Create Secure Application
     #'
-    #' @param version 
     #' @param account_id The unique id of the user making the request
     #' @param app_key The application to secure
     #' @param key_cert 
@@ -172,8 +165,8 @@ SecureAppApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    CreateSecureApplication = function(version, account_id, app_key, key_cert, trust_store, username, password, active = TRUE, biometric_type = "FACIAL", biometric_position = "UNKNOWN", biometric_position2 = "UNKNOWN", data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateSecureApplicationWithHttpInfo(version, account_id, app_key, key_cert, trust_store, username, password, active, biometric_type, biometric_position, biometric_position2, data_file = data_file, ..., .parse = .parse)
+    CreateSecureApplication = function(account_id, app_key, key_cert, trust_store, username, password, active = TRUE, biometric_type = "FACIAL", biometric_position = "UNKNOWN", biometric_position2 = "UNKNOWN", data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateSecureApplicationWithHttpInfo(account_id, app_key, key_cert, trust_store, username, password, active, biometric_type, biometric_position, biometric_position2, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -188,7 +181,6 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Create Secure Application
     #'
-    #' @param version 
     #' @param account_id The unique id of the user making the request
     #' @param app_key The application to secure
     #' @param key_cert 
@@ -204,7 +196,7 @@ SecureAppApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    CreateSecureApplicationWithHttpInfo = function(version, account_id, app_key, key_cert, trust_store, username, password, active = TRUE, biometric_type = "FACIAL", biometric_position = "UNKNOWN", biometric_position2 = "UNKNOWN", data_file = NULL, ..., .parse = TRUE) {
+    CreateSecureApplicationWithHttpInfo = function(account_id, app_key, key_cert, trust_store, username, password, active = TRUE, biometric_type = "FACIAL", biometric_position = "UNKNOWN", biometric_position2 = "UNKNOWN", data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -213,10 +205,6 @@ SecureAppApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -240,10 +228,6 @@ SecureAppApi <- R6::R6Class(
 
       if (missing(`password`)) {
         stop("Missing required parameter `password`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SecureAppApi$CreateSecureApplication, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -315,11 +299,7 @@ SecureAppApi <- R6::R6Class(
       }
       query_params[["biometricPosition2"]] <- `biometric_position2`
 
-      local_var_url_path <- "/api/{version}/secure/application/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/secure/application/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -380,7 +360,6 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Delete Secure Application
     #'
-    #' @param version 
     #' @param account_id The unique id of the user making the request
     #' @param app_key The application to secure
     #' @param data_file (optional) name of the data file to save the result
@@ -388,8 +367,8 @@ SecureAppApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteSecureApplication = function(version, account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteSecureApplicationWithHttpInfo(version, account_id, app_key, data_file = data_file, ..., .parse = .parse)
+    DeleteSecureApplication = function(account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteSecureApplicationWithHttpInfo(account_id, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -404,7 +383,6 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Delete Secure Application
     #'
-    #' @param version 
     #' @param account_id The unique id of the user making the request
     #' @param app_key The application to secure
     #' @param data_file (optional) name of the data file to save the result
@@ -412,7 +390,7 @@ SecureAppApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteSecureApplicationWithHttpInfo = function(version, account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+    DeleteSecureApplicationWithHttpInfo = function(account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -422,20 +400,12 @@ SecureAppApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SecureAppApi$DeleteSecureApplication, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -450,11 +420,7 @@ SecureAppApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/secure/application/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/secure/application/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -515,7 +481,6 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Login Clear
     #'
-    #' @param version 
     #' @param app_key The application making the request, defines what type and position is required to make a secure login the request.
     #' @param biometric_file The data file used to perform authentication
     #' @param device_id (optional) The unique id of the device making the request
@@ -530,8 +495,8 @@ SecureAppApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    LoginSecure = function(version, app_key, biometric_file, device_id = NULL, biometric_file2 = NULL, age_restriction = 0, return_profile = FALSE, response_filters = "PROFILE", latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$LoginSecureWithHttpInfo(version, app_key, biometric_file, device_id, biometric_file2, age_restriction, return_profile, response_filters, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    LoginSecure = function(app_key, biometric_file, device_id = NULL, biometric_file2 = NULL, age_restriction = 0, return_profile = FALSE, response_filters = "PROFILE", latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$LoginSecureWithHttpInfo(app_key, biometric_file, device_id, biometric_file2, age_restriction, return_profile, response_filters, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -546,7 +511,6 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Login Clear
     #'
-    #' @param version 
     #' @param app_key The application making the request, defines what type and position is required to make a secure login the request.
     #' @param biometric_file The data file used to perform authentication
     #' @param device_id (optional) The unique id of the device making the request
@@ -561,7 +525,7 @@ SecureAppApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    LoginSecureWithHttpInfo = function(version, app_key, biometric_file, device_id = NULL, biometric_file2 = NULL, age_restriction = 0, return_profile = FALSE, response_filters = "PROFILE", latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    LoginSecureWithHttpInfo = function(app_key, biometric_file, device_id = NULL, biometric_file2 = NULL, age_restriction = 0, return_profile = FALSE, response_filters = "PROFILE", latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -571,20 +535,12 @@ SecureAppApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
       }
 
       if (missing(`biometric_file`)) {
         stop("Missing required parameter `biometric_file`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SecureAppApi$LoginSecure, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -641,11 +597,7 @@ SecureAppApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/secure/login"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/secure/login"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -706,15 +658,14 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Purchase Clear
     #'
-    #' @param version 
     #' @param body The payment request object
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    PurchaseSecure = function(version, body, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$PurchaseSecureWithHttpInfo(version, body, data_file = data_file, ..., .parse = .parse)
+    PurchaseSecure = function(body, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PurchaseSecureWithHttpInfo(body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -729,14 +680,13 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Purchase Clear
     #'
-    #' @param version 
     #' @param body The payment request object
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    PurchaseSecureWithHttpInfo = function(version, body, data_file = NULL, ..., .parse = TRUE) {
+    PurchaseSecureWithHttpInfo = function(body, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -746,16 +696,8 @@ SecureAppApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`body`)) {
         stop("Missing required parameter `body`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SecureAppApi$PurchaseSecure, `version` is not nullable")
       }
 
       if (!missing(`body`) && is.null(`body`)) {
@@ -768,11 +710,7 @@ SecureAppApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/secure/purchase"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/secure/purchase"
 
       # The Accept request HTTP header
       local_var_accepts <- list("application/json")
@@ -833,7 +771,6 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Rest Secure Application
     #'
-    #' @param version 
     #' @param account_id The unique id of the user making the request
     #' @param app_key The application to secure
     #' @param data_file (optional) name of the data file to save the result
@@ -841,8 +778,8 @@ SecureAppApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    ResetSecure = function(version, account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ResetSecureWithHttpInfo(version, account_id, app_key, data_file = data_file, ..., .parse = .parse)
+    ResetSecure = function(account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ResetSecureWithHttpInfo(account_id, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -857,7 +794,6 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Rest Secure Application
     #'
-    #' @param version 
     #' @param account_id The unique id of the user making the request
     #' @param app_key The application to secure
     #' @param data_file (optional) name of the data file to save the result
@@ -865,7 +801,7 @@ SecureAppApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    ResetSecureWithHttpInfo = function(version, account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+    ResetSecureWithHttpInfo = function(account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -875,20 +811,12 @@ SecureAppApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SecureAppApi$ResetSecure, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -903,11 +831,7 @@ SecureAppApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/secure/application/reset"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/secure/application/reset"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -968,7 +892,6 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Update Secure Application
     #'
-    #' @param version 
     #' @param account_id The unique id of the user making the request
     #' @param app_key The application to secure
     #' @param active (optional) 
@@ -984,8 +907,8 @@ SecureAppApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UpdateSecureApplication = function(version, account_id, app_key, active = NULL, key_cert = NULL, trust_store = NULL, username = NULL, password = NULL, biometric_type = NULL, biometric_position = NULL, biometric_position2 = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateSecureApplicationWithHttpInfo(version, account_id, app_key, active, key_cert, trust_store, username, password, biometric_type, biometric_position, biometric_position2, data_file = data_file, ..., .parse = .parse)
+    UpdateSecureApplication = function(account_id, app_key, active = NULL, key_cert = NULL, trust_store = NULL, username = NULL, password = NULL, biometric_type = NULL, biometric_position = NULL, biometric_position2 = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateSecureApplicationWithHttpInfo(account_id, app_key, active, key_cert, trust_store, username, password, biometric_type, biometric_position, biometric_position2, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1000,7 +923,6 @@ SecureAppApi <- R6::R6Class(
     #' @description
     #' Update Secure Application
     #'
-    #' @param version 
     #' @param account_id The unique id of the user making the request
     #' @param app_key The application to secure
     #' @param active (optional) 
@@ -1016,7 +938,7 @@ SecureAppApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UpdateSecureApplicationWithHttpInfo = function(version, account_id, app_key, active = NULL, key_cert = NULL, trust_store = NULL, username = NULL, password = NULL, biometric_type = NULL, biometric_position = NULL, biometric_position2 = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateSecureApplicationWithHttpInfo = function(account_id, app_key, active = NULL, key_cert = NULL, trust_store = NULL, username = NULL, password = NULL, biometric_type = NULL, biometric_position = NULL, biometric_position2 = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1026,20 +948,12 @@ SecureAppApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SecureAppApi$UpdateSecureApplication, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1111,11 +1025,7 @@ SecureAppApi <- R6::R6Class(
       }
       query_params[["biometricPosition2"]] <- `biometric_position2`
 
-      local_var_url_path <- "/api/{version}/secure/application/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/secure/application/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

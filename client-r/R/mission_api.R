@@ -17,7 +17,6 @@
 #' ####################  CreateMission  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_title <- "title_example" # character | The title of the mission
 #' var_description <- "description_example" # character | The description of the mission (Optional)
@@ -49,15 +48,14 @@
 #' api_instance <- MissionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateMission(var_version, var_account_id, var_title, description = var_description, sub_type = var_sub_type, start_date = var_start_date, end_date = var_end_date, active = var_active, game_level_ids = var_game_level_ids, creative_ids = var_creative_ids, audience_ids = var_audience_ids, mission_task = var_mission_task, format_type = var_format_type, offer_id = var_offer_id, balance = var_balance, advanced_reporting = var_advanced_reporting, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, meta_data = var_meta_data, application_ids = var_application_ids, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radiusdata_file = "result.txt")
-#' result <- api_instance$CreateMission(var_version, var_account_id, var_title, description = var_description, sub_type = var_sub_type, start_date = var_start_date, end_date = var_end_date, active = var_active, game_level_ids = var_game_level_ids, creative_ids = var_creative_ids, audience_ids = var_audience_ids, mission_task = var_mission_task, format_type = var_format_type, offer_id = var_offer_id, balance = var_balance, advanced_reporting = var_advanced_reporting, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, meta_data = var_meta_data, application_ids = var_application_ids, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius)
+#' # result <- api_instance$CreateMission(var_account_id, var_title, description = var_description, sub_type = var_sub_type, start_date = var_start_date, end_date = var_end_date, active = var_active, game_level_ids = var_game_level_ids, creative_ids = var_creative_ids, audience_ids = var_audience_ids, mission_task = var_mission_task, format_type = var_format_type, offer_id = var_offer_id, balance = var_balance, advanced_reporting = var_advanced_reporting, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, meta_data = var_meta_data, application_ids = var_application_ids, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radiusdata_file = "result.txt")
+#' result <- api_instance$CreateMission(var_account_id, var_title, description = var_description, sub_type = var_sub_type, start_date = var_start_date, end_date = var_end_date, active = var_active, game_level_ids = var_game_level_ids, creative_ids = var_creative_ids, audience_ids = var_audience_ids, mission_task = var_mission_task, format_type = var_format_type, offer_id = var_offer_id, balance = var_balance, advanced_reporting = var_advanced_reporting, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, meta_data = var_meta_data, application_ids = var_application_ids, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteMission  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_mission_id <- 56 # integer | the id of the mission to delete
 #'
@@ -65,15 +63,14 @@
 #' api_instance <- MissionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteMission(var_version, var_account_id, var_mission_iddata_file = "result.txt")
-#' result <- api_instance$DeleteMission(var_version, var_account_id, var_mission_id)
+#' # result <- api_instance$DeleteMission(var_account_id, var_mission_iddata_file = "result.txt")
+#' result <- api_instance$DeleteMission(var_account_id, var_mission_id)
 #' dput(result)
 #'
 #'
 #' ####################  FindMissions  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
 #' var_suffix <- "suffix_example" # character | The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (Optional)
 #' var_type <- "type_example" # character | The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (Optional)
@@ -98,15 +95,14 @@
 #' api_instance <- MissionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$FindMissions(var_version, var_app_key, suffix = var_suffix, type = var_type, account_id = var_account_id, app_version = var_app_version, latitude = var_latitude, longitude = var_longitude, device = var_device, device_identifier = var_device_identifier, device_version = var_device_version, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, allocates_tickets = var_allocates_tickets, randomize = var_randomize, targeted_ads_only = var_targeted_ads_only, mission_ids = var_mission_ids, audience_operator = var_audience_operatordata_file = "result.txt")
-#' result <- api_instance$FindMissions(var_version, var_app_key, suffix = var_suffix, type = var_type, account_id = var_account_id, app_version = var_app_version, latitude = var_latitude, longitude = var_longitude, device = var_device, device_identifier = var_device_identifier, device_version = var_device_version, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, allocates_tickets = var_allocates_tickets, randomize = var_randomize, targeted_ads_only = var_targeted_ads_only, mission_ids = var_mission_ids, audience_operator = var_audience_operator)
+#' # result <- api_instance$FindMissions(var_app_key, suffix = var_suffix, type = var_type, account_id = var_account_id, app_version = var_app_version, latitude = var_latitude, longitude = var_longitude, device = var_device, device_identifier = var_device_identifier, device_version = var_device_version, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, allocates_tickets = var_allocates_tickets, randomize = var_randomize, targeted_ads_only = var_targeted_ads_only, mission_ids = var_mission_ids, audience_operator = var_audience_operatordata_file = "result.txt")
+#' result <- api_instance$FindMissions(var_app_key, suffix = var_suffix, type = var_type, account_id = var_account_id, app_version = var_app_version, latitude = var_latitude, longitude = var_longitude, device = var_device, device_identifier = var_device_identifier, device_version = var_device_version, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, allocates_tickets = var_allocates_tickets, randomize = var_randomize, targeted_ads_only = var_targeted_ads_only, mission_ids = var_mission_ids, audience_operator = var_audience_operator)
 #' dput(result)
 #'
 #'
 #' ####################  GetMission  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_mission_id <- 56 # integer | The id of the mission to return.
 #' var_return_creative <- "return_creative_example" # character | Return creatives associated with the mission when true (Optional)
@@ -115,15 +111,14 @@
 #' api_instance <- MissionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetMission(var_version, var_account_id, var_mission_id, return_creative = var_return_creativedata_file = "result.txt")
-#' result <- api_instance$GetMission(var_version, var_account_id, var_mission_id, return_creative = var_return_creative)
+#' # result <- api_instance$GetMission(var_account_id, var_mission_id, return_creative = var_return_creativedata_file = "result.txt")
+#' result <- api_instance$GetMission(var_account_id, var_mission_id, return_creative = var_return_creative)
 #' dput(result)
 #'
 #'
 #' ####################  ImportMission  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_latitude <- 3.4 # numeric | The current location of the requesting device
 #' var_longitude <- 3.4 # numeric | The current location of the requesting device
@@ -137,15 +132,14 @@
 #' api_instance <- MissionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ImportMission(var_version, var_account_id, var_latitude, var_longitude, var_app_key, keyword = var_keyword, start = var_start, limit = var_limit, ad_size = var_ad_sizedata_file = "result.txt")
-#' result <- api_instance$ImportMission(var_version, var_account_id, var_latitude, var_longitude, var_app_key, keyword = var_keyword, start = var_start, limit = var_limit, ad_size = var_ad_size)
+#' # result <- api_instance$ImportMission(var_account_id, var_latitude, var_longitude, var_app_key, keyword = var_keyword, start = var_start, limit = var_limit, ad_size = var_ad_sizedata_file = "result.txt")
+#' result <- api_instance$ImportMission(var_account_id, var_latitude, var_longitude, var_app_key, keyword = var_keyword, start = var_start, limit = var_limit, ad_size = var_ad_size)
 #' dput(result)
 #'
 #'
 #' ####################  SearchMissionFormats  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_start <- 56 # integer | The starting index in the result set to return. Default is 0.
 #' var_limit <- 56 # integer | The total number of records to return. Default is 20.
 #' var_active_only <- "active_only_example" # character | Determines whether to return only active results. Default is false.
@@ -154,15 +148,14 @@
 #' api_instance <- MissionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchMissionFormats(var_version, var_start, var_limit, var_active_onlydata_file = "result.txt")
-#' result <- api_instance$SearchMissionFormats(var_version, var_start, var_limit, var_active_only)
+#' # result <- api_instance$SearchMissionFormats(var_start, var_limit, var_active_onlydata_file = "result.txt")
+#' result <- api_instance$SearchMissionFormats(var_start, var_limit, var_active_only)
 #' dput(result)
 #'
 #'
 #' ####################  SearchMissions  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_keyword <- "keyword_example" # character | Filter by keyword (Optional)
 #' var_sub_type <- "sub_type_example" # character | Custom string client apps can use for searching/filtering missions (Optional)
@@ -179,15 +172,14 @@
 #' api_instance <- MissionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchMissions(var_version, var_account_id, keyword = var_keyword, sub_type = var_sub_type, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, include_inactive = var_include_inactive, suffix = var_suffix, sort_field = var_sort_field, descending = var_descendingdata_file = "result.txt")
-#' result <- api_instance$SearchMissions(var_version, var_account_id, keyword = var_keyword, sub_type = var_sub_type, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, include_inactive = var_include_inactive, suffix = var_suffix, sort_field = var_sort_field, descending = var_descending)
+#' # result <- api_instance$SearchMissions(var_account_id, keyword = var_keyword, sub_type = var_sub_type, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, include_inactive = var_include_inactive, suffix = var_suffix, sort_field = var_sort_field, descending = var_descendingdata_file = "result.txt")
+#' result <- api_instance$SearchMissions(var_account_id, keyword = var_keyword, sub_type = var_sub_type, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, include_inactive = var_include_inactive, suffix = var_suffix, sort_field = var_sort_field, descending = var_descending)
 #' dput(result)
 #'
 #'
 #' ####################  SearchMissionsByBillableEntity  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_keyword <- "keyword_example" # character | Filter by keyword (Optional)
 #' var_start <- 56 # integer | The index into the record set to start with. Default is 0. (Optional)
@@ -203,15 +195,14 @@
 #' api_instance <- MissionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchMissionsByBillableEntity(var_version, var_account_id, keyword = var_keyword, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, include_inactive = var_include_inactive, suffix = var_suffix, sort_field = var_sort_field, descending = var_descendingdata_file = "result.txt")
-#' result <- api_instance$SearchMissionsByBillableEntity(var_version, var_account_id, keyword = var_keyword, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, include_inactive = var_include_inactive, suffix = var_suffix, sort_field = var_sort_field, descending = var_descending)
+#' # result <- api_instance$SearchMissionsByBillableEntity(var_account_id, keyword = var_keyword, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, include_inactive = var_include_inactive, suffix = var_suffix, sort_field = var_sort_field, descending = var_descendingdata_file = "result.txt")
+#' result <- api_instance$SearchMissionsByBillableEntity(var_account_id, keyword = var_keyword, start = var_start, limit = var_limit, include_game_data = var_include_game_data, include_audiences = var_include_audiences, include_inactive = var_include_inactive, suffix = var_suffix, sort_field = var_sort_field, descending = var_descending)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateMission  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_mission_id <- 56 # integer | The id of the mission to update.
 #' var_title <- "title_example" # character | The title of the mission (Optional)
@@ -242,8 +233,8 @@
 #' api_instance <- MissionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateMission(var_version, var_account_id, var_mission_id, title = var_title, description = var_description, sub_type = var_sub_type, meta_data = var_meta_data, start_date = var_start_date, end_date = var_end_date, active = var_active, game_level_ids = var_game_level_ids, creative_ids = var_creative_ids, audience_ids = var_audience_ids, offer_id = var_offer_id, balance = var_balance, advanced_reporting = var_advanced_reporting, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, application_ids = var_application_ids, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radiusdata_file = "result.txt")
-#' result <- api_instance$UpdateMission(var_version, var_account_id, var_mission_id, title = var_title, description = var_description, sub_type = var_sub_type, meta_data = var_meta_data, start_date = var_start_date, end_date = var_end_date, active = var_active, game_level_ids = var_game_level_ids, creative_ids = var_creative_ids, audience_ids = var_audience_ids, offer_id = var_offer_id, balance = var_balance, advanced_reporting = var_advanced_reporting, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, application_ids = var_application_ids, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius)
+#' # result <- api_instance$UpdateMission(var_account_id, var_mission_id, title = var_title, description = var_description, sub_type = var_sub_type, meta_data = var_meta_data, start_date = var_start_date, end_date = var_end_date, active = var_active, game_level_ids = var_game_level_ids, creative_ids = var_creative_ids, audience_ids = var_audience_ids, offer_id = var_offer_id, balance = var_balance, advanced_reporting = var_advanced_reporting, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, application_ids = var_application_ids, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radiusdata_file = "result.txt")
+#' result <- api_instance$UpdateMission(var_account_id, var_mission_id, title = var_title, description = var_description, sub_type = var_sub_type, meta_data = var_meta_data, start_date = var_start_date, end_date = var_end_date, active = var_active, game_level_ids = var_game_level_ids, creative_ids = var_creative_ids, audience_ids = var_audience_ids, offer_id = var_offer_id, balance = var_balance, advanced_reporting = var_advanced_reporting, allocate_tickets = var_allocate_tickets, ticket_count = var_ticket_count, ticket_type = var_ticket_type, points = var_points, application_ids = var_application_ids, devices = var_devices, device_ids = var_device_ids, device_versions = var_device_versions, locations = var_locations, radius = var_radius)
 #' dput(result)
 #'
 #'
@@ -271,7 +262,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Create Mission
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param title The title of the mission
     #' @param description (optional) The description of the mission
@@ -303,8 +293,8 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MissionResponse
-    CreateMission = function(version, account_id, title, description = NULL, sub_type = NULL, start_date = NULL, end_date = NULL, active = NULL, game_level_ids = NULL, creative_ids = NULL, audience_ids = NULL, mission_task = NULL, format_type = NULL, offer_id = NULL, balance = NULL, advanced_reporting = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, meta_data = NULL, application_ids = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateMissionWithHttpInfo(version, account_id, title, description, sub_type, start_date, end_date, active, game_level_ids, creative_ids, audience_ids, mission_task, format_type, offer_id, balance, advanced_reporting, allocate_tickets, ticket_count, ticket_type, points, meta_data, application_ids, devices, device_ids, device_versions, locations, radius, data_file = data_file, ..., .parse = .parse)
+    CreateMission = function(account_id, title, description = NULL, sub_type = NULL, start_date = NULL, end_date = NULL, active = NULL, game_level_ids = NULL, creative_ids = NULL, audience_ids = NULL, mission_task = NULL, format_type = NULL, offer_id = NULL, balance = NULL, advanced_reporting = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, meta_data = NULL, application_ids = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateMissionWithHttpInfo(account_id, title, description, sub_type, start_date, end_date, active, game_level_ids, creative_ids, audience_ids, mission_task, format_type, offer_id, balance, advanced_reporting, allocate_tickets, ticket_count, ticket_type, points, meta_data, application_ids, devices, device_ids, device_versions, locations, radius, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -319,7 +309,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Create Mission
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param title The title of the mission
     #' @param description (optional) The description of the mission
@@ -351,7 +340,7 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MissionResponse) with additional information such as HTTP status code, headers
-    CreateMissionWithHttpInfo = function(version, account_id, title, description = NULL, sub_type = NULL, start_date = NULL, end_date = NULL, active = NULL, game_level_ids = NULL, creative_ids = NULL, audience_ids = NULL, mission_task = NULL, format_type = NULL, offer_id = NULL, balance = NULL, advanced_reporting = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, meta_data = NULL, application_ids = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateMissionWithHttpInfo = function(account_id, title, description = NULL, sub_type = NULL, start_date = NULL, end_date = NULL, active = NULL, game_level_ids = NULL, creative_ids = NULL, audience_ids = NULL, mission_task = NULL, format_type = NULL, offer_id = NULL, balance = NULL, advanced_reporting = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, meta_data = NULL, application_ids = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -361,20 +350,12 @@ MissionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`title`)) {
         stop("Missing required parameter `title`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionApi$CreateMission, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -533,11 +514,7 @@ MissionApi <- R6::R6Class(
 
       query_params[["radius"]] <- `radius`
 
-      local_var_url_path <- "/api/{version}/mission/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -598,7 +575,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Delete Mission
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param mission_id the id of the mission to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -606,8 +582,8 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteMission = function(version, account_id, mission_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteMissionWithHttpInfo(version, account_id, mission_id, data_file = data_file, ..., .parse = .parse)
+    DeleteMission = function(account_id, mission_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteMissionWithHttpInfo(account_id, mission_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -622,7 +598,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Delete Mission
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param mission_id the id of the mission to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -630,7 +605,7 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteMissionWithHttpInfo = function(version, account_id, mission_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteMissionWithHttpInfo = function(account_id, mission_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -640,20 +615,12 @@ MissionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`mission_id`)) {
         stop("Missing required parameter `mission_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionApi$DeleteMission, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -668,11 +635,7 @@ MissionApi <- R6::R6Class(
 
       query_params[["missionId"]] <- `mission_id`
 
-      local_var_url_path <- "/api/{version}/mission/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -733,7 +696,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Find Missions
     #'
-    #' @param version 
     #' @param app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
     #' @param suffix (optional) The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
     #' @param type (optional) The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.
@@ -758,8 +720,8 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MissionResponse
-    FindMissions = function(version, app_key, suffix = NULL, type = NULL, account_id = NULL, app_version = NULL, latitude = NULL, longitude = NULL, device = NULL, device_identifier = NULL, device_version = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, allocates_tickets = NULL, randomize = NULL, targeted_ads_only = NULL, mission_ids = NULL, audience_operator = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$FindMissionsWithHttpInfo(version, app_key, suffix, type, account_id, app_version, latitude, longitude, device, device_identifier, device_version, start, limit, include_game_data, include_audiences, allocates_tickets, randomize, targeted_ads_only, mission_ids, audience_operator, data_file = data_file, ..., .parse = .parse)
+    FindMissions = function(app_key, suffix = NULL, type = NULL, account_id = NULL, app_version = NULL, latitude = NULL, longitude = NULL, device = NULL, device_identifier = NULL, device_version = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, allocates_tickets = NULL, randomize = NULL, targeted_ads_only = NULL, mission_ids = NULL, audience_operator = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$FindMissionsWithHttpInfo(app_key, suffix, type, account_id, app_version, latitude, longitude, device, device_identifier, device_version, start, limit, include_game_data, include_audiences, allocates_tickets, randomize, targeted_ads_only, mission_ids, audience_operator, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -774,7 +736,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Find Missions
     #'
-    #' @param version 
     #' @param app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
     #' @param suffix (optional) The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
     #' @param type (optional) The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.
@@ -799,7 +760,7 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MissionResponse) with additional information such as HTTP status code, headers
-    FindMissionsWithHttpInfo = function(version, app_key, suffix = NULL, type = NULL, account_id = NULL, app_version = NULL, latitude = NULL, longitude = NULL, device = NULL, device_identifier = NULL, device_version = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, allocates_tickets = NULL, randomize = NULL, targeted_ads_only = NULL, mission_ids = NULL, audience_operator = NULL, data_file = NULL, ..., .parse = TRUE) {
+    FindMissionsWithHttpInfo = function(app_key, suffix = NULL, type = NULL, account_id = NULL, app_version = NULL, latitude = NULL, longitude = NULL, device = NULL, device_identifier = NULL, device_version = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, allocates_tickets = NULL, randomize = NULL, targeted_ads_only = NULL, mission_ids = NULL, audience_operator = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -809,16 +770,8 @@ MissionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionApi$FindMissions, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -935,11 +888,7 @@ MissionApi <- R6::R6Class(
 
       query_params[["audienceOperator"]] <- `audience_operator`
 
-      local_var_url_path <- "/api/{version}/mission/find"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/find"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1000,7 +949,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Get Mission
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param mission_id The id of the mission to return.
     #' @param return_creative (optional) Return creatives associated with the mission when true
@@ -1009,8 +957,8 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MissionResponse
-    GetMission = function(version, account_id, mission_id, return_creative = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetMissionWithHttpInfo(version, account_id, mission_id, return_creative, data_file = data_file, ..., .parse = .parse)
+    GetMission = function(account_id, mission_id, return_creative = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetMissionWithHttpInfo(account_id, mission_id, return_creative, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1025,7 +973,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Get Mission
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param mission_id The id of the mission to return.
     #' @param return_creative (optional) Return creatives associated with the mission when true
@@ -1034,7 +981,7 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MissionResponse) with additional information such as HTTP status code, headers
-    GetMissionWithHttpInfo = function(version, account_id, mission_id, return_creative = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetMissionWithHttpInfo = function(account_id, mission_id, return_creative = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1044,20 +991,12 @@ MissionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`mission_id`)) {
         stop("Missing required parameter `mission_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionApi$GetMission, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1078,11 +1017,7 @@ MissionApi <- R6::R6Class(
 
       query_params[["returnCreative"]] <- `return_creative`
 
-      local_var_url_path <- "/api/{version}/mission/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1143,7 +1078,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Import Mission
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param latitude The current location of the requesting device
     #' @param longitude The current location of the requesting device
@@ -1157,8 +1091,8 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    ImportMission = function(version, account_id, latitude, longitude, app_key, keyword = NULL, start = NULL, limit = NULL, ad_size = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ImportMissionWithHttpInfo(version, account_id, latitude, longitude, app_key, keyword, start, limit, ad_size, data_file = data_file, ..., .parse = .parse)
+    ImportMission = function(account_id, latitude, longitude, app_key, keyword = NULL, start = NULL, limit = NULL, ad_size = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ImportMissionWithHttpInfo(account_id, latitude, longitude, app_key, keyword, start, limit, ad_size, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1173,7 +1107,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Import Mission
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param latitude The current location of the requesting device
     #' @param longitude The current location of the requesting device
@@ -1187,7 +1120,7 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    ImportMissionWithHttpInfo = function(version, account_id, latitude, longitude, app_key, keyword = NULL, start = NULL, limit = NULL, ad_size = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ImportMissionWithHttpInfo = function(account_id, latitude, longitude, app_key, keyword = NULL, start = NULL, limit = NULL, ad_size = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1196,10 +1129,6 @@ MissionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1215,10 +1144,6 @@ MissionApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionApi$ImportMission, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1272,11 +1197,7 @@ MissionApi <- R6::R6Class(
       }
       query_params[["adSize"]] <- `ad_size`
 
-      local_var_url_path <- "/api/{version}/mission/import"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/import"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1337,7 +1258,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Search Mission Formats
     #'
-    #' @param version 
     #' @param start The starting index in the result set to return. Default is 0.
     #' @param limit The total number of records to return. Default is 20.
     #' @param active_only Determines whether to return only active results. Default is false.
@@ -1346,8 +1266,8 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[MissionFormatResponse]
-    SearchMissionFormats = function(version, start, limit, active_only, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchMissionFormatsWithHttpInfo(version, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
+    SearchMissionFormats = function(start, limit, active_only, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchMissionFormatsWithHttpInfo(start, limit, active_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1362,7 +1282,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Search Mission Formats
     #'
-    #' @param version 
     #' @param start The starting index in the result set to return. Default is 0.
     #' @param limit The total number of records to return. Default is 20.
     #' @param active_only Determines whether to return only active results. Default is false.
@@ -1371,7 +1290,7 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[MissionFormatResponse]) with additional information such as HTTP status code, headers
-    SearchMissionFormatsWithHttpInfo = function(version, start, limit, active_only, data_file = NULL, ..., .parse = TRUE) {
+    SearchMissionFormatsWithHttpInfo = function(start, limit, active_only, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1380,10 +1299,6 @@ MissionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`start`)) {
         stop("Missing required parameter `start`.")
@@ -1395,10 +1310,6 @@ MissionApi <- R6::R6Class(
 
       if (missing(`active_only`)) {
         stop("Missing required parameter `active_only`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionApi$SearchMissionFormats, `version` is not nullable")
       }
 
       if (!missing(`start`) && is.null(`start`)) {
@@ -1419,11 +1330,7 @@ MissionApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/mission/format/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/format/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1484,7 +1391,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Search Missions
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param keyword (optional) Filter by keyword
     #' @param sub_type (optional) Custom string client apps can use for searching/filtering missions
@@ -1501,8 +1407,8 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[MissionResponse]
-    SearchMissions = function(version, account_id, keyword = NULL, sub_type = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, include_inactive = NULL, suffix = NULL, sort_field = NULL, descending = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchMissionsWithHttpInfo(version, account_id, keyword, sub_type, start, limit, include_game_data, include_audiences, include_inactive, suffix, sort_field, descending, data_file = data_file, ..., .parse = .parse)
+    SearchMissions = function(account_id, keyword = NULL, sub_type = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, include_inactive = NULL, suffix = NULL, sort_field = NULL, descending = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchMissionsWithHttpInfo(account_id, keyword, sub_type, start, limit, include_game_data, include_audiences, include_inactive, suffix, sort_field, descending, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1517,7 +1423,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Search Missions
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param keyword (optional) Filter by keyword
     #' @param sub_type (optional) Custom string client apps can use for searching/filtering missions
@@ -1534,7 +1439,7 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[MissionResponse]) with additional information such as HTTP status code, headers
-    SearchMissionsWithHttpInfo = function(version, account_id, keyword = NULL, sub_type = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, include_inactive = NULL, suffix = NULL, sort_field = NULL, descending = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchMissionsWithHttpInfo = function(account_id, keyword = NULL, sub_type = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, include_inactive = NULL, suffix = NULL, sort_field = NULL, descending = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1544,16 +1449,8 @@ MissionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionApi$SearchMissions, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1622,11 +1519,7 @@ MissionApi <- R6::R6Class(
 
       query_params[["descending"]] <- `descending`
 
-      local_var_url_path <- "/api/{version}/mission/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1687,7 +1580,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Search Missions by Billable Entity
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param keyword (optional) Filter by keyword
     #' @param start (optional) The index into the record set to start with. Default is 0.
@@ -1703,8 +1595,8 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[MissionResponse]
-    SearchMissionsByBillableEntity = function(version, account_id, keyword = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, include_inactive = NULL, suffix = NULL, sort_field = NULL, descending = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchMissionsByBillableEntityWithHttpInfo(version, account_id, keyword, start, limit, include_game_data, include_audiences, include_inactive, suffix, sort_field, descending, data_file = data_file, ..., .parse = .parse)
+    SearchMissionsByBillableEntity = function(account_id, keyword = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, include_inactive = NULL, suffix = NULL, sort_field = NULL, descending = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchMissionsByBillableEntityWithHttpInfo(account_id, keyword, start, limit, include_game_data, include_audiences, include_inactive, suffix, sort_field, descending, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1719,7 +1611,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Search Missions by Billable Entity
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param keyword (optional) Filter by keyword
     #' @param start (optional) The index into the record set to start with. Default is 0.
@@ -1735,7 +1626,7 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[MissionResponse]) with additional information such as HTTP status code, headers
-    SearchMissionsByBillableEntityWithHttpInfo = function(version, account_id, keyword = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, include_inactive = NULL, suffix = NULL, sort_field = NULL, descending = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchMissionsByBillableEntityWithHttpInfo = function(account_id, keyword = NULL, start = NULL, limit = NULL, include_game_data = NULL, include_audiences = NULL, include_inactive = NULL, suffix = NULL, sort_field = NULL, descending = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1745,16 +1636,8 @@ MissionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionApi$SearchMissionsByBillableEntity, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1817,11 +1700,7 @@ MissionApi <- R6::R6Class(
 
       query_params[["descending"]] <- `descending`
 
-      local_var_url_path <- "/api/{version}/mission/searchByBillableEntity"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/searchByBillableEntity"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1882,7 +1761,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Update Mission
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param mission_id The id of the mission to update.
     #' @param title (optional) The title of the mission
@@ -1913,8 +1791,8 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MissionResponse
-    UpdateMission = function(version, account_id, mission_id, title = NULL, description = NULL, sub_type = NULL, meta_data = NULL, start_date = NULL, end_date = NULL, active = NULL, game_level_ids = NULL, creative_ids = NULL, audience_ids = NULL, offer_id = NULL, balance = NULL, advanced_reporting = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, application_ids = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateMissionWithHttpInfo(version, account_id, mission_id, title, description, sub_type, meta_data, start_date, end_date, active, game_level_ids, creative_ids, audience_ids, offer_id, balance, advanced_reporting, allocate_tickets, ticket_count, ticket_type, points, application_ids, devices, device_ids, device_versions, locations, radius, data_file = data_file, ..., .parse = .parse)
+    UpdateMission = function(account_id, mission_id, title = NULL, description = NULL, sub_type = NULL, meta_data = NULL, start_date = NULL, end_date = NULL, active = NULL, game_level_ids = NULL, creative_ids = NULL, audience_ids = NULL, offer_id = NULL, balance = NULL, advanced_reporting = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, application_ids = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateMissionWithHttpInfo(account_id, mission_id, title, description, sub_type, meta_data, start_date, end_date, active, game_level_ids, creative_ids, audience_ids, offer_id, balance, advanced_reporting, allocate_tickets, ticket_count, ticket_type, points, application_ids, devices, device_ids, device_versions, locations, radius, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1929,7 +1807,6 @@ MissionApi <- R6::R6Class(
     #' @description
     #' Update Mission
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param mission_id The id of the mission to update.
     #' @param title (optional) The title of the mission
@@ -1960,7 +1837,7 @@ MissionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MissionResponse) with additional information such as HTTP status code, headers
-    UpdateMissionWithHttpInfo = function(version, account_id, mission_id, title = NULL, description = NULL, sub_type = NULL, meta_data = NULL, start_date = NULL, end_date = NULL, active = NULL, game_level_ids = NULL, creative_ids = NULL, audience_ids = NULL, offer_id = NULL, balance = NULL, advanced_reporting = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, application_ids = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateMissionWithHttpInfo = function(account_id, mission_id, title = NULL, description = NULL, sub_type = NULL, meta_data = NULL, start_date = NULL, end_date = NULL, active = NULL, game_level_ids = NULL, creative_ids = NULL, audience_ids = NULL, offer_id = NULL, balance = NULL, advanced_reporting = NULL, allocate_tickets = NULL, ticket_count = NULL, ticket_type = NULL, points = NULL, application_ids = NULL, devices = NULL, device_ids = NULL, device_versions = NULL, locations = NULL, radius = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1970,20 +1847,12 @@ MissionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`mission_id`)) {
         stop("Missing required parameter `mission_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionApi$UpdateMission, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2136,11 +2005,7 @@ MissionApi <- R6::R6Class(
 
       query_params[["radius"]] <- `radius`
 
-      local_var_url_path <- "/api/{version}/mission/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

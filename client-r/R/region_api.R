@@ -17,7 +17,6 @@
 #' ####################  CreateRegion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The id of the account sending the request
 #' var_region_class <- "region_class_example" # character | RegionClass of this region
 #' var_short_name <- "short_name_example" # character | Short name of the region. This is optimized for search
@@ -44,15 +43,14 @@
 #' api_instance <- RegionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateRegion(var_version, var_account_id, var_region_class, var_short_name, full_name = var_full_name, parent_ids = var_parent_ids, children_ids = var_children_ids, postal_code_ids = var_postal_code_ids, locations = var_locations, retailer_location_id = var_retailer_location_id, visibility = var_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, end = var_end, polygon = var_polygon, meta_data = var_meta_data, latitude = var_latitude, longitude = var_longitude, version_code = var_version_code, root = var_root, active = var_activedata_file = "result.txt")
-#' result <- api_instance$CreateRegion(var_version, var_account_id, var_region_class, var_short_name, full_name = var_full_name, parent_ids = var_parent_ids, children_ids = var_children_ids, postal_code_ids = var_postal_code_ids, locations = var_locations, retailer_location_id = var_retailer_location_id, visibility = var_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, end = var_end, polygon = var_polygon, meta_data = var_meta_data, latitude = var_latitude, longitude = var_longitude, version_code = var_version_code, root = var_root, active = var_active)
+#' # result <- api_instance$CreateRegion(var_account_id, var_region_class, var_short_name, full_name = var_full_name, parent_ids = var_parent_ids, children_ids = var_children_ids, postal_code_ids = var_postal_code_ids, locations = var_locations, retailer_location_id = var_retailer_location_id, visibility = var_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, end = var_end, polygon = var_polygon, meta_data = var_meta_data, latitude = var_latitude, longitude = var_longitude, version_code = var_version_code, root = var_root, active = var_activedata_file = "result.txt")
+#' result <- api_instance$CreateRegion(var_account_id, var_region_class, var_short_name, full_name = var_full_name, parent_ids = var_parent_ids, children_ids = var_children_ids, postal_code_ids = var_postal_code_ids, locations = var_locations, retailer_location_id = var_retailer_location_id, visibility = var_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, end = var_end, polygon = var_polygon, meta_data = var_meta_data, latitude = var_latitude, longitude = var_longitude, version_code = var_version_code, root = var_root, active = var_active)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteRegion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the account logged in
 #' var_region_id <- 56 # integer | the id of the region
 #'
@@ -60,15 +58,14 @@
 #' api_instance <- RegionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteRegion(var_version, var_account_id, var_region_iddata_file = "result.txt")
-#' result <- api_instance$DeleteRegion(var_version, var_account_id, var_region_id)
+#' # result <- api_instance$DeleteRegion(var_account_id, var_region_iddata_file = "result.txt")
+#' result <- api_instance$DeleteRegion(var_account_id, var_region_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetRegion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_region_id <- 56 # integer | the id of the region to get
 #' var_account_id <- 56 # integer | the id of the logged in user (Optional)
 #'
@@ -76,15 +73,14 @@
 #' api_instance <- RegionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetRegion(var_version, var_region_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetRegion(var_version, var_region_id, account_id = var_account_id)
+#' # result <- api_instance$GetRegion(var_region_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetRegion(var_region_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchRegions  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the owner account id of the region to be created (Optional)
 #' var_query <- "query_example" # character | This parameter is deprecated. deprecated - use \"keyword\" (Optional)
 #' var_keyword <- "keyword_example" # character | the keyword to filter results on (Optional)
@@ -112,15 +108,14 @@
 #' api_instance <- RegionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchRegions(var_version, account_id = var_account_id, query = var_query, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, range = var_range, region_class = var_region_class, visibility = var_visibility, search_mode = var_search_mode, sort_field = var_sort_field, descending = var_descending, include_parent = var_include_parent, include_children = var_include_children, include_postal_codes = var_include_postal_codes, category_ids = var_category_ids, filter_ids = var_filter_ids, version_code = var_version_code, active_only = var_active_only, show_deleted = var_show_deleted, last_updated_since = var_last_updated_since, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchRegions(var_version, account_id = var_account_id, query = var_query, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, range = var_range, region_class = var_region_class, visibility = var_visibility, search_mode = var_search_mode, sort_field = var_sort_field, descending = var_descending, include_parent = var_include_parent, include_children = var_include_children, include_postal_codes = var_include_postal_codes, category_ids = var_category_ids, filter_ids = var_filter_ids, version_code = var_version_code, active_only = var_active_only, show_deleted = var_show_deleted, last_updated_since = var_last_updated_since, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchRegions(account_id = var_account_id, query = var_query, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, range = var_range, region_class = var_region_class, visibility = var_visibility, search_mode = var_search_mode, sort_field = var_sort_field, descending = var_descending, include_parent = var_include_parent, include_children = var_include_children, include_postal_codes = var_include_postal_codes, category_ids = var_category_ids, filter_ids = var_filter_ids, version_code = var_version_code, active_only = var_active_only, show_deleted = var_show_deleted, last_updated_since = var_last_updated_since, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchRegions(account_id = var_account_id, query = var_query, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, range = var_range, region_class = var_region_class, visibility = var_visibility, search_mode = var_search_mode, sort_field = var_sort_field, descending = var_descending, include_parent = var_include_parent, include_children = var_include_children, include_postal_codes = var_include_postal_codes, category_ids = var_category_ids, filter_ids = var_filter_ids, version_code = var_version_code, active_only = var_active_only, show_deleted = var_show_deleted, last_updated_since = var_last_updated_since, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateRegion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The id of the account sending the request
 #' var_region_id <- 56 # integer | The id of the region to be updated
 #' var_region_class <- "region_class_example" # character | RegionClass of this region (Optional)
@@ -149,8 +144,8 @@
 #' api_instance <- RegionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateRegion(var_version, var_account_id, var_region_id, region_class = var_region_class, short_name = var_short_name, full_name = var_full_name, parent_ids = var_parent_ids, children_ids = var_children_ids, postal_code_ids = var_postal_code_ids, locations = var_locations, retailer_location_id = var_retailer_location_id, visibility = var_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, end = var_end, polygon = var_polygon, meta_data = var_meta_data, latitude = var_latitude, longitude = var_longitude, version_code = var_version_code, root = var_root, active = var_active, clear_lists = var_clear_listsdata_file = "result.txt")
-#' result <- api_instance$UpdateRegion(var_version, var_account_id, var_region_id, region_class = var_region_class, short_name = var_short_name, full_name = var_full_name, parent_ids = var_parent_ids, children_ids = var_children_ids, postal_code_ids = var_postal_code_ids, locations = var_locations, retailer_location_id = var_retailer_location_id, visibility = var_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, end = var_end, polygon = var_polygon, meta_data = var_meta_data, latitude = var_latitude, longitude = var_longitude, version_code = var_version_code, root = var_root, active = var_active, clear_lists = var_clear_lists)
+#' # result <- api_instance$UpdateRegion(var_account_id, var_region_id, region_class = var_region_class, short_name = var_short_name, full_name = var_full_name, parent_ids = var_parent_ids, children_ids = var_children_ids, postal_code_ids = var_postal_code_ids, locations = var_locations, retailer_location_id = var_retailer_location_id, visibility = var_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, end = var_end, polygon = var_polygon, meta_data = var_meta_data, latitude = var_latitude, longitude = var_longitude, version_code = var_version_code, root = var_root, active = var_active, clear_lists = var_clear_listsdata_file = "result.txt")
+#' result <- api_instance$UpdateRegion(var_account_id, var_region_id, region_class = var_region_class, short_name = var_short_name, full_name = var_full_name, parent_ids = var_parent_ids, children_ids = var_children_ids, postal_code_ids = var_postal_code_ids, locations = var_locations, retailer_location_id = var_retailer_location_id, visibility = var_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, end = var_end, polygon = var_polygon, meta_data = var_meta_data, latitude = var_latitude, longitude = var_longitude, version_code = var_version_code, root = var_root, active = var_active, clear_lists = var_clear_lists)
 #' dput(result)
 #'
 #'
@@ -178,7 +173,6 @@ RegionApi <- R6::R6Class(
     #' @description
     #' Create Region
     #'
-    #' @param version 
     #' @param account_id The id of the account sending the request
     #' @param region_class RegionClass of this region
     #' @param short_name Short name of the region. This is optimized for search
@@ -205,8 +199,8 @@ RegionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RegionResponse
-    CreateRegion = function(version, account_id, region_class, short_name, full_name = NULL, parent_ids = NULL, children_ids = NULL, postal_code_ids = NULL, locations = NULL, retailer_location_id = NULL, visibility = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, end = NULL, polygon = NULL, meta_data = NULL, latitude = NULL, longitude = NULL, version_code = NULL, root = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateRegionWithHttpInfo(version, account_id, region_class, short_name, full_name, parent_ids, children_ids, postal_code_ids, locations, retailer_location_id, visibility, category_ids, filter_ids, start, end, polygon, meta_data, latitude, longitude, version_code, root, active, data_file = data_file, ..., .parse = .parse)
+    CreateRegion = function(account_id, region_class, short_name, full_name = NULL, parent_ids = NULL, children_ids = NULL, postal_code_ids = NULL, locations = NULL, retailer_location_id = NULL, visibility = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, end = NULL, polygon = NULL, meta_data = NULL, latitude = NULL, longitude = NULL, version_code = NULL, root = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateRegionWithHttpInfo(account_id, region_class, short_name, full_name, parent_ids, children_ids, postal_code_ids, locations, retailer_location_id, visibility, category_ids, filter_ids, start, end, polygon, meta_data, latitude, longitude, version_code, root, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -221,7 +215,6 @@ RegionApi <- R6::R6Class(
     #' @description
     #' Create Region
     #'
-    #' @param version 
     #' @param account_id The id of the account sending the request
     #' @param region_class RegionClass of this region
     #' @param short_name Short name of the region. This is optimized for search
@@ -248,7 +241,7 @@ RegionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RegionResponse) with additional information such as HTTP status code, headers
-    CreateRegionWithHttpInfo = function(version, account_id, region_class, short_name, full_name = NULL, parent_ids = NULL, children_ids = NULL, postal_code_ids = NULL, locations = NULL, retailer_location_id = NULL, visibility = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, end = NULL, polygon = NULL, meta_data = NULL, latitude = NULL, longitude = NULL, version_code = NULL, root = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateRegionWithHttpInfo = function(account_id, region_class, short_name, full_name = NULL, parent_ids = NULL, children_ids = NULL, postal_code_ids = NULL, locations = NULL, retailer_location_id = NULL, visibility = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, end = NULL, polygon = NULL, meta_data = NULL, latitude = NULL, longitude = NULL, version_code = NULL, root = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -257,10 +250,6 @@ RegionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -272,10 +261,6 @@ RegionApi <- R6::R6Class(
 
       if (missing(`short_name`)) {
         stop("Missing required parameter `short_name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RegionApi$CreateRegion, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -407,11 +392,7 @@ RegionApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/region/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/region/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -472,7 +453,6 @@ RegionApi <- R6::R6Class(
     #' @description
     #' Delete Region
     #'
-    #' @param version 
     #' @param account_id the id of the account logged in
     #' @param region_id the id of the region
     #' @param data_file (optional) name of the data file to save the result
@@ -480,8 +460,8 @@ RegionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RegionResponse
-    DeleteRegion = function(version, account_id, region_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteRegionWithHttpInfo(version, account_id, region_id, data_file = data_file, ..., .parse = .parse)
+    DeleteRegion = function(account_id, region_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteRegionWithHttpInfo(account_id, region_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -496,7 +476,6 @@ RegionApi <- R6::R6Class(
     #' @description
     #' Delete Region
     #'
-    #' @param version 
     #' @param account_id the id of the account logged in
     #' @param region_id the id of the region
     #' @param data_file (optional) name of the data file to save the result
@@ -504,7 +483,7 @@ RegionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RegionResponse) with additional information such as HTTP status code, headers
-    DeleteRegionWithHttpInfo = function(version, account_id, region_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteRegionWithHttpInfo = function(account_id, region_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -514,20 +493,12 @@ RegionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`region_id`)) {
         stop("Missing required parameter `region_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RegionApi$DeleteRegion, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -542,11 +513,7 @@ RegionApi <- R6::R6Class(
 
       query_params[["regionId"]] <- `region_id`
 
-      local_var_url_path <- "/api/{version}/region/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/region/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -607,7 +574,6 @@ RegionApi <- R6::R6Class(
     #' @description
     #' Get Region
     #'
-    #' @param version 
     #' @param region_id the id of the region to get
     #' @param account_id (optional) the id of the logged in user
     #' @param data_file (optional) name of the data file to save the result
@@ -615,8 +581,8 @@ RegionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RegionResponse
-    GetRegion = function(version, region_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetRegionWithHttpInfo(version, region_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetRegion = function(region_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetRegionWithHttpInfo(region_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -631,7 +597,6 @@ RegionApi <- R6::R6Class(
     #' @description
     #' Get Region
     #'
-    #' @param version 
     #' @param region_id the id of the region to get
     #' @param account_id (optional) the id of the logged in user
     #' @param data_file (optional) name of the data file to save the result
@@ -639,7 +604,7 @@ RegionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RegionResponse) with additional information such as HTTP status code, headers
-    GetRegionWithHttpInfo = function(version, region_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetRegionWithHttpInfo = function(region_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -649,16 +614,8 @@ RegionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`region_id`)) {
         stop("Missing required parameter `region_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RegionApi$GetRegion, `version` is not nullable")
       }
 
       if (!missing(`region_id`) && is.null(`region_id`)) {
@@ -673,11 +630,7 @@ RegionApi <- R6::R6Class(
 
       query_params[["regionId"]] <- `region_id`
 
-      local_var_url_path <- "/api/{version}/region/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/region/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -738,7 +691,6 @@ RegionApi <- R6::R6Class(
     #' @description
     #' Search Regions
     #'
-    #' @param version 
     #' @param account_id (optional) the owner account id of the region to be created
     #' @param query (optional) This parameter is deprecated. deprecated - use \"keyword\"
     #' @param keyword (optional) the keyword to filter results on
@@ -766,8 +718,8 @@ RegionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[RegionResponse]
-    SearchRegions = function(version, account_id = NULL, query = NULL, keyword = NULL, latitude = NULL, longitude = NULL, range = NULL, region_class = NULL, visibility = NULL, search_mode = NULL, sort_field = NULL, descending = NULL, include_parent = NULL, include_children = NULL, include_postal_codes = NULL, category_ids = NULL, filter_ids = NULL, version_code = NULL, active_only = NULL, show_deleted = NULL, last_updated_since = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchRegionsWithHttpInfo(version, account_id, query, keyword, latitude, longitude, range, region_class, visibility, search_mode, sort_field, descending, include_parent, include_children, include_postal_codes, category_ids, filter_ids, version_code, active_only, show_deleted, last_updated_since, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchRegions = function(account_id = NULL, query = NULL, keyword = NULL, latitude = NULL, longitude = NULL, range = NULL, region_class = NULL, visibility = NULL, search_mode = NULL, sort_field = NULL, descending = NULL, include_parent = NULL, include_children = NULL, include_postal_codes = NULL, category_ids = NULL, filter_ids = NULL, version_code = NULL, active_only = NULL, show_deleted = NULL, last_updated_since = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchRegionsWithHttpInfo(account_id, query, keyword, latitude, longitude, range, region_class, visibility, search_mode, sort_field, descending, include_parent, include_children, include_postal_codes, category_ids, filter_ids, version_code, active_only, show_deleted, last_updated_since, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -782,7 +734,6 @@ RegionApi <- R6::R6Class(
     #' @description
     #' Search Regions
     #'
-    #' @param version 
     #' @param account_id (optional) the owner account id of the region to be created
     #' @param query (optional) This parameter is deprecated. deprecated - use \"keyword\"
     #' @param keyword (optional) the keyword to filter results on
@@ -810,7 +761,7 @@ RegionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[RegionResponse]) with additional information such as HTTP status code, headers
-    SearchRegionsWithHttpInfo = function(version, account_id = NULL, query = NULL, keyword = NULL, latitude = NULL, longitude = NULL, range = NULL, region_class = NULL, visibility = NULL, search_mode = NULL, sort_field = NULL, descending = NULL, include_parent = NULL, include_children = NULL, include_postal_codes = NULL, category_ids = NULL, filter_ids = NULL, version_code = NULL, active_only = NULL, show_deleted = NULL, last_updated_since = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchRegionsWithHttpInfo = function(account_id = NULL, query = NULL, keyword = NULL, latitude = NULL, longitude = NULL, range = NULL, region_class = NULL, visibility = NULL, search_mode = NULL, sort_field = NULL, descending = NULL, include_parent = NULL, include_children = NULL, include_postal_codes = NULL, category_ids = NULL, filter_ids = NULL, version_code = NULL, active_only = NULL, show_deleted = NULL, last_updated_since = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -819,14 +770,6 @@ RegionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RegionApi$SearchRegions, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling RegionApi$SearchRegions, `account_id` is not nullable")
@@ -972,11 +915,7 @@ RegionApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/region/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/region/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1037,7 +976,6 @@ RegionApi <- R6::R6Class(
     #' @description
     #' Update Region
     #'
-    #' @param version 
     #' @param account_id The id of the account sending the request
     #' @param region_id The id of the region to be updated
     #' @param region_class (optional) RegionClass of this region
@@ -1066,8 +1004,8 @@ RegionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RegionResponse
-    UpdateRegion = function(version, account_id, region_id, region_class = NULL, short_name = NULL, full_name = NULL, parent_ids = NULL, children_ids = NULL, postal_code_ids = NULL, locations = NULL, retailer_location_id = NULL, visibility = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, end = NULL, polygon = NULL, meta_data = NULL, latitude = NULL, longitude = NULL, version_code = NULL, root = NULL, active = NULL, clear_lists = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateRegionWithHttpInfo(version, account_id, region_id, region_class, short_name, full_name, parent_ids, children_ids, postal_code_ids, locations, retailer_location_id, visibility, category_ids, filter_ids, start, end, polygon, meta_data, latitude, longitude, version_code, root, active, clear_lists, data_file = data_file, ..., .parse = .parse)
+    UpdateRegion = function(account_id, region_id, region_class = NULL, short_name = NULL, full_name = NULL, parent_ids = NULL, children_ids = NULL, postal_code_ids = NULL, locations = NULL, retailer_location_id = NULL, visibility = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, end = NULL, polygon = NULL, meta_data = NULL, latitude = NULL, longitude = NULL, version_code = NULL, root = NULL, active = NULL, clear_lists = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateRegionWithHttpInfo(account_id, region_id, region_class, short_name, full_name, parent_ids, children_ids, postal_code_ids, locations, retailer_location_id, visibility, category_ids, filter_ids, start, end, polygon, meta_data, latitude, longitude, version_code, root, active, clear_lists, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1082,7 +1020,6 @@ RegionApi <- R6::R6Class(
     #' @description
     #' Update Region
     #'
-    #' @param version 
     #' @param account_id The id of the account sending the request
     #' @param region_id The id of the region to be updated
     #' @param region_class (optional) RegionClass of this region
@@ -1111,7 +1048,7 @@ RegionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RegionResponse) with additional information such as HTTP status code, headers
-    UpdateRegionWithHttpInfo = function(version, account_id, region_id, region_class = NULL, short_name = NULL, full_name = NULL, parent_ids = NULL, children_ids = NULL, postal_code_ids = NULL, locations = NULL, retailer_location_id = NULL, visibility = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, end = NULL, polygon = NULL, meta_data = NULL, latitude = NULL, longitude = NULL, version_code = NULL, root = NULL, active = NULL, clear_lists = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateRegionWithHttpInfo = function(account_id, region_id, region_class = NULL, short_name = NULL, full_name = NULL, parent_ids = NULL, children_ids = NULL, postal_code_ids = NULL, locations = NULL, retailer_location_id = NULL, visibility = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, end = NULL, polygon = NULL, meta_data = NULL, latitude = NULL, longitude = NULL, version_code = NULL, root = NULL, active = NULL, clear_lists = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1121,20 +1058,12 @@ RegionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`region_id`)) {
         stop("Missing required parameter `region_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RegionApi$UpdateRegion, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1278,11 +1207,7 @@ RegionApi <- R6::R6Class(
 
       query_params[["clearLists"]] <- `clear_lists`
 
-      local_var_url_path <- "/api/{version}/region/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/region/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

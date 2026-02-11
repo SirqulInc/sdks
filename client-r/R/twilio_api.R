@@ -17,7 +17,6 @@
 #' ####################  SmsBuyOffer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_body <- "body_example" # character | the message of the text
 #' var_from <- "from_example" # character | the sender of the sms
@@ -27,8 +26,8 @@
 #' api_instance <- TwilioApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SmsBuyOffer(var_version, var_app_key, var_body, var_from, var_currency_typedata_file = "result.txt")
-#' result <- api_instance$SmsBuyOffer(var_version, var_app_key, var_body, var_from, var_currency_type)
+#' # result <- api_instance$SmsBuyOffer(var_app_key, var_body, var_from, var_currency_typedata_file = "result.txt")
+#' result <- api_instance$SmsBuyOffer(var_app_key, var_body, var_from, var_currency_type)
 #' dput(result)
 #'
 #'
@@ -56,7 +55,6 @@ TwilioApi <- R6::R6Class(
     #' @description
     #' Buy Offer by SMS
     #'
-    #' @param version 
     #' @param app_key the application key
     #' @param body the message of the text
     #' @param from the sender of the sms
@@ -66,8 +64,8 @@ TwilioApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TwiMLResponse
-    SmsBuyOffer = function(version, app_key, body, from, currency_type, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SmsBuyOfferWithHttpInfo(version, app_key, body, from, currency_type, data_file = data_file, ..., .parse = .parse)
+    SmsBuyOffer = function(app_key, body, from, currency_type, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SmsBuyOfferWithHttpInfo(app_key, body, from, currency_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -82,7 +80,6 @@ TwilioApi <- R6::R6Class(
     #' @description
     #' Buy Offer by SMS
     #'
-    #' @param version 
     #' @param app_key the application key
     #' @param body the message of the text
     #' @param from the sender of the sms
@@ -92,7 +89,7 @@ TwilioApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TwiMLResponse) with additional information such as HTTP status code, headers
-    SmsBuyOfferWithHttpInfo = function(version, app_key, body, from, currency_type, data_file = NULL, ..., .parse = TRUE) {
+    SmsBuyOfferWithHttpInfo = function(app_key, body, from, currency_type, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -101,10 +98,6 @@ TwilioApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
@@ -120,10 +113,6 @@ TwilioApi <- R6::R6Class(
 
       if (missing(`currency_type`)) {
         stop("Missing required parameter `currency_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TwilioApi$SmsBuyOffer, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -148,11 +137,7 @@ TwilioApi <- R6::R6Class(
 
       query_params[["currencyType"]] <- `currency_type`
 
-      local_var_url_path <- "/api/{version}/sms/buyoffer/{appKey}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/sms/buyoffer/{appKey}"
       if (!missing(`app_key`)) {
         local_var_url_path <- gsub("\\{appKey\\}", URLencode(as.character(`app_key`), reserved = TRUE), local_var_url_path)
       }

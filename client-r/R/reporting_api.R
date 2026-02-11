@@ -17,7 +17,6 @@
 #' ####################  CreateBatch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user for passing account related params
 #' var_status <- "status_example" # character | the status of the report
 #' var_preview_limit <- 56 # integer | the limit on how much you can preview of the batch report
@@ -34,30 +33,28 @@
 #' api_instance <- ReportingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateBatch(var_version, var_account_id, var_status, var_preview_limit, app_key = var_app_key, endpoint = var_endpoint, parameters = var_parameters, name = var_name, start_date = var_start_date, end_date = var_end_date, description = var_description, page_url = var_page_urldata_file = "result.txt")
-#' result <- api_instance$CreateBatch(var_version, var_account_id, var_status, var_preview_limit, app_key = var_app_key, endpoint = var_endpoint, parameters = var_parameters, name = var_name, start_date = var_start_date, end_date = var_end_date, description = var_description, page_url = var_page_url)
+#' # result <- api_instance$CreateBatch(var_account_id, var_status, var_preview_limit, app_key = var_app_key, endpoint = var_endpoint, parameters = var_parameters, name = var_name, start_date = var_start_date, end_date = var_end_date, description = var_description, page_url = var_page_urldata_file = "result.txt")
+#' result <- api_instance$CreateBatch(var_account_id, var_status, var_preview_limit, app_key = var_app_key, endpoint = var_endpoint, parameters = var_parameters, name = var_name, start_date = var_start_date, end_date = var_end_date, description = var_description, page_url = var_page_url)
 #' dput(result)
 #'
 #'
 #' ####################  CreateRegionLegSummaryBatch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_body <- c(RegionLegSummary$new(123, "active_example", "valid_example", 123, "floorId_example", 123, 123)) # array[RegionLegSummary] |  (Optional)
 #'
 #' #Create Offline Report
 #' api_instance <- ReportingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateRegionLegSummaryBatch(var_version, body = var_bodydata_file = "result.txt")
-#' result <- api_instance$CreateRegionLegSummaryBatch(var_version, body = var_body)
+#' # result <- api_instance$CreateRegionLegSummaryBatch(body = var_bodydata_file = "result.txt")
+#' result <- api_instance$CreateRegionLegSummaryBatch(body = var_body)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteBatch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the account
 #' var_batch_id <- 56 # integer | the id of the batch to delete
 #'
@@ -65,15 +62,14 @@
 #' api_instance <- ReportingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteBatch(var_version, var_account_id, var_batch_iddata_file = "result.txt")
-#' result <- api_instance$DeleteBatch(var_version, var_account_id, var_batch_id)
+#' # result <- api_instance$DeleteBatch(var_account_id, var_batch_iddata_file = "result.txt")
+#' result <- api_instance$DeleteBatch(var_account_id, var_batch_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetReportBatch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_batch_id <- 56 # integer | returned by /report/batch/create
 #' var_all_results <- "all_results_example" # character | whether to return all batch results or not
@@ -82,15 +78,14 @@
 #' api_instance <- ReportingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetReportBatch(var_version, var_account_id, var_batch_id, var_all_resultsdata_file = "result.txt")
-#' result <- api_instance$GetReportBatch(var_version, var_account_id, var_batch_id, var_all_results)
+#' # result <- api_instance$GetReportBatch(var_account_id, var_batch_id, var_all_resultsdata_file = "result.txt")
+#' result <- api_instance$GetReportBatch(var_account_id, var_batch_id, var_all_results)
 #' dput(result)
 #'
 #'
 #' ####################  RunReport  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_desc <- "desc_example" # character | If true then descending order, false is ascending
 #' var_account_id <- 56 # integer | The account id of the user for passing account related params (Optional)
 #' var_query <- "query_example" # character | The named identifier of the query (Optional)
@@ -104,15 +99,14 @@
 #' api_instance <- ReportingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RunReport(var_version, var_desc, account_id = var_account_id, query = var_query, parameters = var_parameters, order = var_order, start = var_start, limit = var_limit, response_format = var_response_formatdata_file = "result.txt")
-#' result <- api_instance$RunReport(var_version, var_desc, account_id = var_account_id, query = var_query, parameters = var_parameters, order = var_order, start = var_start, limit = var_limit, response_format = var_response_format)
+#' # result <- api_instance$RunReport(var_desc, account_id = var_account_id, query = var_query, parameters = var_parameters, order = var_order, start = var_start, limit = var_limit, response_format = var_response_formatdata_file = "result.txt")
+#' result <- api_instance$RunReport(var_desc, account_id = var_account_id, query = var_query, parameters = var_parameters, order = var_order, start = var_start, limit = var_limit, response_format = var_response_format)
 #' dput(result)
 #'
 #'
 #' ####################  SearchBatch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the account logged in
 #' var_start <- 56 # integer | the start of the index and/or pagination
 #' var_limit <- 56 # integer | the limit of the index and/or pagination
@@ -127,8 +121,8 @@
 #' api_instance <- ReportingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchBatch(var_version, var_account_id, var_start, var_limit, names = var_names, app_key = var_app_key, status = var_status, global_app_search = var_global_app_search, start_date = var_start_date, end_date = var_end_datedata_file = "result.txt")
-#' result <- api_instance$SearchBatch(var_version, var_account_id, var_start, var_limit, names = var_names, app_key = var_app_key, status = var_status, global_app_search = var_global_app_search, start_date = var_start_date, end_date = var_end_date)
+#' # result <- api_instance$SearchBatch(var_account_id, var_start, var_limit, names = var_names, app_key = var_app_key, status = var_status, global_app_search = var_global_app_search, start_date = var_start_date, end_date = var_end_datedata_file = "result.txt")
+#' result <- api_instance$SearchBatch(var_account_id, var_start, var_limit, names = var_names, app_key = var_app_key, status = var_status, global_app_search = var_global_app_search, start_date = var_start_date, end_date = var_end_date)
 #' dput(result)
 #'
 #'
@@ -156,7 +150,6 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Create Offline Report
     #'
-    #' @param version 
     #' @param account_id The account id of the user for passing account related params
     #' @param status the status of the report
     #' @param preview_limit the limit on how much you can preview of the batch report
@@ -173,8 +166,8 @@ ReportingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ReportBatchResponse
-    CreateBatch = function(version, account_id, status, preview_limit, app_key = NULL, endpoint = NULL, parameters = NULL, name = NULL, start_date = NULL, end_date = NULL, description = NULL, page_url = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateBatchWithHttpInfo(version, account_id, status, preview_limit, app_key, endpoint, parameters, name, start_date, end_date, description, page_url, data_file = data_file, ..., .parse = .parse)
+    CreateBatch = function(account_id, status, preview_limit, app_key = NULL, endpoint = NULL, parameters = NULL, name = NULL, start_date = NULL, end_date = NULL, description = NULL, page_url = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateBatchWithHttpInfo(account_id, status, preview_limit, app_key, endpoint, parameters, name, start_date, end_date, description, page_url, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -189,7 +182,6 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Create Offline Report
     #'
-    #' @param version 
     #' @param account_id The account id of the user for passing account related params
     #' @param status the status of the report
     #' @param preview_limit the limit on how much you can preview of the batch report
@@ -206,7 +198,7 @@ ReportingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ReportBatchResponse) with additional information such as HTTP status code, headers
-    CreateBatchWithHttpInfo = function(version, account_id, status, preview_limit, app_key = NULL, endpoint = NULL, parameters = NULL, name = NULL, start_date = NULL, end_date = NULL, description = NULL, page_url = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateBatchWithHttpInfo = function(account_id, status, preview_limit, app_key = NULL, endpoint = NULL, parameters = NULL, name = NULL, start_date = NULL, end_date = NULL, description = NULL, page_url = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -215,10 +207,6 @@ ReportingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -230,10 +218,6 @@ ReportingApi <- R6::R6Class(
 
       if (missing(`preview_limit`)) {
         stop("Missing required parameter `preview_limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReportingApi$CreateBatch, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -305,11 +289,7 @@ ReportingApi <- R6::R6Class(
 
       query_params[["pageUrl"]] <- `page_url`
 
-      local_var_url_path <- "/api/{version}/report/batch/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/report/batch/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -370,15 +350,14 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Create Offline Report
     #'
-    #' @param version 
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ReportRegionLegSummaryBatchResponse
-    CreateRegionLegSummaryBatch = function(version, body = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateRegionLegSummaryBatchWithHttpInfo(version, body, data_file = data_file, ..., .parse = .parse)
+    CreateRegionLegSummaryBatch = function(body = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateRegionLegSummaryBatchWithHttpInfo(body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -393,14 +372,13 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Create Offline Report
     #'
-    #' @param version 
     #' @param body (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ReportRegionLegSummaryBatchResponse) with additional information such as HTTP status code, headers
-    CreateRegionLegSummaryBatchWithHttpInfo = function(version, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateRegionLegSummaryBatchWithHttpInfo = function(body = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -409,14 +387,6 @@ ReportingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReportingApi$CreateRegionLegSummaryBatch, `version` is not nullable")
-      }
 
       if (!missing(`body`) && is.null(`body`)) {
         stop("Invalid value for `body` when calling ReportingApi$CreateRegionLegSummaryBatch, `body` is not nullable")
@@ -431,11 +401,7 @@ ReportingApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/report/region/summary/batch"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/report/region/summary/batch"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -496,7 +462,6 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Delete Offline Report
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param batch_id the id of the batch to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -504,8 +469,8 @@ ReportingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteBatch = function(version, account_id, batch_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteBatchWithHttpInfo(version, account_id, batch_id, data_file = data_file, ..., .parse = .parse)
+    DeleteBatch = function(account_id, batch_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteBatchWithHttpInfo(account_id, batch_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -520,7 +485,6 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Delete Offline Report
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param batch_id the id of the batch to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -528,7 +492,7 @@ ReportingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteBatchWithHttpInfo = function(version, account_id, batch_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteBatchWithHttpInfo = function(account_id, batch_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -538,20 +502,12 @@ ReportingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`batch_id`)) {
         stop("Missing required parameter `batch_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReportingApi$DeleteBatch, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -566,11 +522,7 @@ ReportingApi <- R6::R6Class(
 
       query_params[["batchId"]] <- `batch_id`
 
-      local_var_url_path <- "/api/{version}/report/batch/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/report/batch/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -631,7 +583,6 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Get Offline Report
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param batch_id returned by /report/batch/create
     #' @param all_results whether to return all batch results or not
@@ -640,8 +591,8 @@ ReportingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ReportBatchResponse
-    GetReportBatch = function(version, account_id, batch_id, all_results, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetReportBatchWithHttpInfo(version, account_id, batch_id, all_results, data_file = data_file, ..., .parse = .parse)
+    GetReportBatch = function(account_id, batch_id, all_results, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetReportBatchWithHttpInfo(account_id, batch_id, all_results, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -656,7 +607,6 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Get Offline Report
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param batch_id returned by /report/batch/create
     #' @param all_results whether to return all batch results or not
@@ -665,7 +615,7 @@ ReportingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ReportBatchResponse) with additional information such as HTTP status code, headers
-    GetReportBatchWithHttpInfo = function(version, account_id, batch_id, all_results, data_file = NULL, ..., .parse = TRUE) {
+    GetReportBatchWithHttpInfo = function(account_id, batch_id, all_results, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -674,10 +624,6 @@ ReportingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -689,10 +635,6 @@ ReportingApi <- R6::R6Class(
 
       if (missing(`all_results`)) {
         stop("Missing required parameter `all_results`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReportingApi$GetReportBatch, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -713,11 +655,7 @@ ReportingApi <- R6::R6Class(
 
       query_params[["allResults"]] <- `all_results`
 
-      local_var_url_path <- "/api/{version}/report/batch/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/report/batch/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -778,7 +716,6 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Run Report
     #'
-    #' @param version 
     #' @param desc If true then descending order, false is ascending
     #' @param account_id (optional) The account id of the user for passing account related params
     #' @param query (optional) The named identifier of the query
@@ -792,8 +729,8 @@ ReportingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ReportResponse
-    RunReport = function(version, desc, account_id = NULL, query = NULL, parameters = NULL, order = NULL, start = NULL, limit = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RunReportWithHttpInfo(version, desc, account_id, query, parameters, order, start, limit, response_format, data_file = data_file, ..., .parse = .parse)
+    RunReport = function(desc, account_id = NULL, query = NULL, parameters = NULL, order = NULL, start = NULL, limit = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RunReportWithHttpInfo(desc, account_id, query, parameters, order, start, limit, response_format, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -808,7 +745,6 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Run Report
     #'
-    #' @param version 
     #' @param desc If true then descending order, false is ascending
     #' @param account_id (optional) The account id of the user for passing account related params
     #' @param query (optional) The named identifier of the query
@@ -822,7 +758,7 @@ ReportingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ReportResponse) with additional information such as HTTP status code, headers
-    RunReportWithHttpInfo = function(version, desc, account_id = NULL, query = NULL, parameters = NULL, order = NULL, start = NULL, limit = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RunReportWithHttpInfo = function(desc, account_id = NULL, query = NULL, parameters = NULL, order = NULL, start = NULL, limit = NULL, response_format = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -832,16 +768,8 @@ ReportingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`desc`)) {
         stop("Missing required parameter `desc`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReportingApi$RunReport, `version` is not nullable")
       }
 
       if (!missing(`desc`) && is.null(`desc`)) {
@@ -895,11 +823,7 @@ ReportingApi <- R6::R6Class(
       }
       query_params[["responseFormat"]] <- `response_format`
 
-      local_var_url_path <- "/api/{version}/report/run"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/report/run"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -960,7 +884,6 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Search Offline Reports
     #'
-    #' @param version 
     #' @param account_id the id of the account logged in
     #' @param start the start of the index and/or pagination
     #' @param limit the limit of the index and/or pagination
@@ -975,8 +898,8 @@ ReportingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ReportBatchResponse]
-    SearchBatch = function(version, account_id, start, limit, names = NULL, app_key = NULL, status = NULL, global_app_search = NULL, start_date = NULL, end_date = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchBatchWithHttpInfo(version, account_id, start, limit, names, app_key, status, global_app_search, start_date, end_date, data_file = data_file, ..., .parse = .parse)
+    SearchBatch = function(account_id, start, limit, names = NULL, app_key = NULL, status = NULL, global_app_search = NULL, start_date = NULL, end_date = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchBatchWithHttpInfo(account_id, start, limit, names, app_key, status, global_app_search, start_date, end_date, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -991,7 +914,6 @@ ReportingApi <- R6::R6Class(
     #' @description
     #' Search Offline Reports
     #'
-    #' @param version 
     #' @param account_id the id of the account logged in
     #' @param start the start of the index and/or pagination
     #' @param limit the limit of the index and/or pagination
@@ -1006,7 +928,7 @@ ReportingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ReportBatchResponse]) with additional information such as HTTP status code, headers
-    SearchBatchWithHttpInfo = function(version, account_id, start, limit, names = NULL, app_key = NULL, status = NULL, global_app_search = NULL, start_date = NULL, end_date = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchBatchWithHttpInfo = function(account_id, start, limit, names = NULL, app_key = NULL, status = NULL, global_app_search = NULL, start_date = NULL, end_date = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1015,10 +937,6 @@ ReportingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1030,10 +948,6 @@ ReportingApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReportingApi$SearchBatch, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1093,11 +1007,7 @@ ReportingApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/report/batch/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/report/batch/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

@@ -17,7 +17,6 @@
 #' ####################  CreateStripeCheckoutSession  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_stripe_parameters <- "stripe_parameters_example" # character | Stripe Parameters
 #'
@@ -25,8 +24,8 @@
 #' api_instance <- StripeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateStripeCheckoutSession(var_version, var_app_key, var_stripe_parametersdata_file = "result.txt")
-#' result <- api_instance$CreateStripeCheckoutSession(var_version, var_app_key, var_stripe_parameters)
+#' # result <- api_instance$CreateStripeCheckoutSession(var_app_key, var_stripe_parametersdata_file = "result.txt")
+#' result <- api_instance$CreateStripeCheckoutSession(var_app_key, var_stripe_parameters)
 #' dput(result)
 #'
 #'
@@ -54,7 +53,6 @@ StripeApi <- R6::R6Class(
     #' @description
     #' Create Stripe Checkout Session
     #'
-    #' @param version 
     #' @param app_key Sirqul Application Key
     #' @param stripe_parameters Stripe Parameters
     #' @param data_file (optional) name of the data file to save the result
@@ -62,8 +60,8 @@ StripeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    CreateStripeCheckoutSession = function(version, app_key, stripe_parameters, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateStripeCheckoutSessionWithHttpInfo(version, app_key, stripe_parameters, data_file = data_file, ..., .parse = .parse)
+    CreateStripeCheckoutSession = function(app_key, stripe_parameters, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateStripeCheckoutSessionWithHttpInfo(app_key, stripe_parameters, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -78,7 +76,6 @@ StripeApi <- R6::R6Class(
     #' @description
     #' Create Stripe Checkout Session
     #'
-    #' @param version 
     #' @param app_key Sirqul Application Key
     #' @param stripe_parameters Stripe Parameters
     #' @param data_file (optional) name of the data file to save the result
@@ -86,7 +83,7 @@ StripeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    CreateStripeCheckoutSessionWithHttpInfo = function(version, app_key, stripe_parameters, data_file = NULL, ..., .parse = TRUE) {
+    CreateStripeCheckoutSessionWithHttpInfo = function(app_key, stripe_parameters, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -96,20 +93,12 @@ StripeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
       }
 
       if (missing(`stripe_parameters`)) {
         stop("Missing required parameter `stripe_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling StripeApi$CreateStripeCheckoutSession, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -124,11 +113,7 @@ StripeApi <- R6::R6Class(
 
       query_params[["stripeParameters"]] <- `stripe_parameters`
 
-      local_var_url_path <- "/api/{version}/stripe/checkout/session/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/stripe/checkout/session/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

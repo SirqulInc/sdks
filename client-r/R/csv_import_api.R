@@ -17,7 +17,6 @@
 #' ####################  GetStatusCSV  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_batch_id <- 56 # integer | the id of the batch
 #' var_response_group <- "response_group_example" # character | The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -28,15 +27,14 @@
 #' api_instance <- CSVImportApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetStatusCSV(var_version, var_account_id, var_batch_id, var_response_group, var_start, var_limitdata_file = "result.txt")
-#' result <- api_instance$GetStatusCSV(var_version, var_account_id, var_batch_id, var_response_group, var_start, var_limit)
+#' # result <- api_instance$GetStatusCSV(var_account_id, var_batch_id, var_response_group, var_start, var_limitdata_file = "result.txt")
+#' result <- api_instance$GetStatusCSV(var_account_id, var_batch_id, var_response_group, var_start, var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  ListStatusCSV  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the account
 #' var_start <- 56 # integer | the start of the pagination
 #' var_limit <- 56 # integer | the limit of the pagination
@@ -45,15 +43,14 @@
 #' api_instance <- CSVImportApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ListStatusCSV(var_version, var_account_id, var_start, var_limitdata_file = "result.txt")
-#' result <- api_instance$ListStatusCSV(var_version, var_account_id, var_start, var_limit)
+#' # result <- api_instance$ListStatusCSV(var_account_id, var_start, var_limitdata_file = "result.txt")
+#' result <- api_instance$ListStatusCSV(var_account_id, var_start, var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  StatusCSV  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the account
 #' var_batch_id <- 56 # integer | the id of the batch to get its status
 #'
@@ -61,15 +58,14 @@
 #' api_instance <- CSVImportApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$StatusCSV(var_version, var_account_id, var_batch_iddata_file = "result.txt")
-#' result <- api_instance$StatusCSV(var_version, var_account_id, var_batch_id)
+#' # result <- api_instance$StatusCSV(var_account_id, var_batch_iddata_file = "result.txt")
+#' result <- api_instance$StatusCSV(var_account_id, var_batch_id)
 #' dput(result)
 #'
 #'
 #' ####################  UploadCSV  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the account
 #' var_upload_type <- "upload_type_example" # character | the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
 #' var_import_file <- File.new('/path/to/file') # data.frame | the import file to reference
@@ -80,8 +76,8 @@
 #' api_instance <- CSVImportApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UploadCSV(var_version, var_account_id, var_upload_type, var_import_file, var_file_format, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$UploadCSV(var_version, var_account_id, var_upload_type, var_import_file, var_file_format, app_key = var_app_key)
+#' # result <- api_instance$UploadCSV(var_account_id, var_upload_type, var_import_file, var_file_format, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$UploadCSV(var_account_id, var_upload_type, var_import_file, var_file_format, app_key = var_app_key)
 #' dput(result)
 #'
 #'
@@ -109,7 +105,6 @@ CSVImportApi <- R6::R6Class(
     #' @description
     #' Detail Status
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param batch_id the id of the batch
     #' @param response_group The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -120,8 +115,8 @@ CSVImportApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    GetStatusCSV = function(version, account_id, batch_id, response_group, start, limit, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetStatusCSVWithHttpInfo(version, account_id, batch_id, response_group, start, limit, data_file = data_file, ..., .parse = .parse)
+    GetStatusCSV = function(account_id, batch_id, response_group, start, limit, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetStatusCSVWithHttpInfo(account_id, batch_id, response_group, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -136,7 +131,6 @@ CSVImportApi <- R6::R6Class(
     #' @description
     #' Detail Status
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param batch_id the id of the batch
     #' @param response_group The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -147,7 +141,7 @@ CSVImportApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    GetStatusCSVWithHttpInfo = function(version, account_id, batch_id, response_group, start, limit, data_file = NULL, ..., .parse = TRUE) {
+    GetStatusCSVWithHttpInfo = function(account_id, batch_id, response_group, start, limit, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -156,10 +150,6 @@ CSVImportApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -179,10 +169,6 @@ CSVImportApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CSVImportApi$GetStatusCSV, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -218,11 +204,7 @@ CSVImportApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/csvimport/batch/status/details"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/csvimport/batch/status/details"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -283,7 +265,6 @@ CSVImportApi <- R6::R6Class(
     #' @description
     #' Search Status
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param start the start of the pagination
     #' @param limit the limit of the pagination
@@ -292,8 +273,8 @@ CSVImportApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CsvImportResponse
-    ListStatusCSV = function(version, account_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ListStatusCSVWithHttpInfo(version, account_id, start, limit, data_file = data_file, ..., .parse = .parse)
+    ListStatusCSV = function(account_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ListStatusCSVWithHttpInfo(account_id, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -308,7 +289,6 @@ CSVImportApi <- R6::R6Class(
     #' @description
     #' Search Status
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param start the start of the pagination
     #' @param limit the limit of the pagination
@@ -317,7 +297,7 @@ CSVImportApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CsvImportResponse) with additional information such as HTTP status code, headers
-    ListStatusCSVWithHttpInfo = function(version, account_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
+    ListStatusCSVWithHttpInfo = function(account_id, start, limit, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -326,10 +306,6 @@ CSVImportApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -341,10 +317,6 @@ CSVImportApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CSVImportApi$ListStatusCSV, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -365,11 +337,7 @@ CSVImportApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/csvimport/batch/list"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/csvimport/batch/list"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -430,7 +398,6 @@ CSVImportApi <- R6::R6Class(
     #' @description
     #' Batch Status
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param batch_id the id of the batch to get its status
     #' @param data_file (optional) name of the data file to save the result
@@ -438,8 +405,8 @@ CSVImportApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CsvImportResponse
-    StatusCSV = function(version, account_id, batch_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$StatusCSVWithHttpInfo(version, account_id, batch_id, data_file = data_file, ..., .parse = .parse)
+    StatusCSV = function(account_id, batch_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$StatusCSVWithHttpInfo(account_id, batch_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -454,7 +421,6 @@ CSVImportApi <- R6::R6Class(
     #' @description
     #' Batch Status
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param batch_id the id of the batch to get its status
     #' @param data_file (optional) name of the data file to save the result
@@ -462,7 +428,7 @@ CSVImportApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CsvImportResponse) with additional information such as HTTP status code, headers
-    StatusCSVWithHttpInfo = function(version, account_id, batch_id, data_file = NULL, ..., .parse = TRUE) {
+    StatusCSVWithHttpInfo = function(account_id, batch_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -472,20 +438,12 @@ CSVImportApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`batch_id`)) {
         stop("Missing required parameter `batch_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CSVImportApi$StatusCSV, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -500,11 +458,7 @@ CSVImportApi <- R6::R6Class(
 
       query_params[["batchId"]] <- `batch_id`
 
-      local_var_url_path <- "/api/{version}/csvimport/batch/status"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/csvimport/batch/status"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -565,7 +519,6 @@ CSVImportApi <- R6::R6Class(
     #' @description
     #' Upload CSV
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param upload_type the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
     #' @param import_file the import file to reference
@@ -576,8 +529,8 @@ CSVImportApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CsvImportResponse
-    UploadCSV = function(version, account_id, upload_type, import_file, file_format, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UploadCSVWithHttpInfo(version, account_id, upload_type, import_file, file_format, app_key, data_file = data_file, ..., .parse = .parse)
+    UploadCSV = function(account_id, upload_type, import_file, file_format, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UploadCSVWithHttpInfo(account_id, upload_type, import_file, file_format, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -592,7 +545,6 @@ CSVImportApi <- R6::R6Class(
     #' @description
     #' Upload CSV
     #'
-    #' @param version 
     #' @param account_id the id of the account
     #' @param upload_type the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
     #' @param import_file the import file to reference
@@ -603,7 +555,7 @@ CSVImportApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CsvImportResponse) with additional information such as HTTP status code, headers
-    UploadCSVWithHttpInfo = function(version, account_id, upload_type, import_file, file_format, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UploadCSVWithHttpInfo = function(account_id, upload_type, import_file, file_format, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -612,10 +564,6 @@ CSVImportApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -631,10 +579,6 @@ CSVImportApi <- R6::R6Class(
 
       if (missing(`file_format`)) {
         stop("Missing required parameter `file_format`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CSVImportApi$UploadCSV, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -673,11 +617,7 @@ CSVImportApi <- R6::R6Class(
       }
       query_params[["fileFormat"]] <- `file_format`
 
-      local_var_url_path <- "/api/{version}/csvimport/upload"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/csvimport/upload"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

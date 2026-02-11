@@ -17,7 +17,6 @@
 #' ####################  BatchOperation  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_notable_id <- 56 # integer | The id of the notable object the batch operation will affect
 #' var_notable_type <- "notable_type_example" # character | The notable object type (for example ALBUM, ASSET, OFFER, etc.)
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
@@ -28,15 +27,14 @@
 #' api_instance <- NoteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$BatchOperation(var_version, var_notable_id, var_notable_type, device_id = var_device_id, account_id = var_account_id, batch_operation = var_batch_operationdata_file = "result.txt")
-#' result <- api_instance$BatchOperation(var_version, var_notable_id, var_notable_type, device_id = var_device_id, account_id = var_account_id, batch_operation = var_batch_operation)
+#' # result <- api_instance$BatchOperation(var_notable_id, var_notable_type, device_id = var_device_id, account_id = var_account_id, batch_operation = var_batch_operationdata_file = "result.txt")
+#' result <- api_instance$BatchOperation(var_notable_id, var_notable_type, device_id = var_device_id, account_id = var_account_id, batch_operation = var_batch_operation)
 #' dput(result)
 #'
 #'
 #' ####################  CreateNote  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_comment <- "comment_example" # character | The message the user wishes to leave a comment on
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
 #' var_account_id <- 56 # integer | The unique accountId that made the request (either deviceId or accountId must be used) (Optional)
@@ -84,15 +82,14 @@
 #' api_instance <- NoteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateNote(var_version, var_comment, device_id = var_device_id, account_id = var_account_id, notable_type = var_notable_type, notable_id = var_notable_id, note_type = var_note_type, asset_ids = var_asset_ids, tags = var_tags, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, app_key = var_app_key, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, receiver_account_ids = var_receiver_account_ids, return_full_response = var_return_full_response, initialize_asset = var_initialize_asset, asset_return_nulls = var_asset_return_nulls, asset_album_id = var_asset_album_id, asset_collection_id = var_asset_collection_id, asset_add_to_default_album = var_asset_add_to_default_album, asset_add_to_media_library = var_asset_add_to_media_library, asset_version_code = var_asset_version_code, asset_version_name = var_asset_version_name, asset_meta_data = var_asset_meta_data, asset_caption = var_asset_caption, asset_media = var_asset_media, asset_media_url = var_asset_media_url, asset_media_string = var_asset_media_string, asset_media_string_file_name = var_asset_media_string_file_name, asset_media_string_content_type = var_asset_media_string_content_type, asset_attached_media = var_asset_attached_media, asset_attached_media_url = var_asset_attached_media_url, asset_attached_media_string = var_asset_attached_media_string, asset_attached_media_string_file_name = var_asset_attached_media_string_file_name, asset_attached_media_string_content_type = var_asset_attached_media_string_content_type, asset_location_description = var_asset_location_description, asset_app = var_asset_app, asset_search_tags = var_asset_search_tags, asset_latitude = var_asset_latitude, asset_longitude = var_asset_longitudedata_file = "result.txt")
-#' result <- api_instance$CreateNote(var_version, var_comment, device_id = var_device_id, account_id = var_account_id, notable_type = var_notable_type, notable_id = var_notable_id, note_type = var_note_type, asset_ids = var_asset_ids, tags = var_tags, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, app_key = var_app_key, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, receiver_account_ids = var_receiver_account_ids, return_full_response = var_return_full_response, initialize_asset = var_initialize_asset, asset_return_nulls = var_asset_return_nulls, asset_album_id = var_asset_album_id, asset_collection_id = var_asset_collection_id, asset_add_to_default_album = var_asset_add_to_default_album, asset_add_to_media_library = var_asset_add_to_media_library, asset_version_code = var_asset_version_code, asset_version_name = var_asset_version_name, asset_meta_data = var_asset_meta_data, asset_caption = var_asset_caption, asset_media = var_asset_media, asset_media_url = var_asset_media_url, asset_media_string = var_asset_media_string, asset_media_string_file_name = var_asset_media_string_file_name, asset_media_string_content_type = var_asset_media_string_content_type, asset_attached_media = var_asset_attached_media, asset_attached_media_url = var_asset_attached_media_url, asset_attached_media_string = var_asset_attached_media_string, asset_attached_media_string_file_name = var_asset_attached_media_string_file_name, asset_attached_media_string_content_type = var_asset_attached_media_string_content_type, asset_location_description = var_asset_location_description, asset_app = var_asset_app, asset_search_tags = var_asset_search_tags, asset_latitude = var_asset_latitude, asset_longitude = var_asset_longitude)
+#' # result <- api_instance$CreateNote(var_comment, device_id = var_device_id, account_id = var_account_id, notable_type = var_notable_type, notable_id = var_notable_id, note_type = var_note_type, asset_ids = var_asset_ids, tags = var_tags, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, app_key = var_app_key, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, receiver_account_ids = var_receiver_account_ids, return_full_response = var_return_full_response, initialize_asset = var_initialize_asset, asset_return_nulls = var_asset_return_nulls, asset_album_id = var_asset_album_id, asset_collection_id = var_asset_collection_id, asset_add_to_default_album = var_asset_add_to_default_album, asset_add_to_media_library = var_asset_add_to_media_library, asset_version_code = var_asset_version_code, asset_version_name = var_asset_version_name, asset_meta_data = var_asset_meta_data, asset_caption = var_asset_caption, asset_media = var_asset_media, asset_media_url = var_asset_media_url, asset_media_string = var_asset_media_string, asset_media_string_file_name = var_asset_media_string_file_name, asset_media_string_content_type = var_asset_media_string_content_type, asset_attached_media = var_asset_attached_media, asset_attached_media_url = var_asset_attached_media_url, asset_attached_media_string = var_asset_attached_media_string, asset_attached_media_string_file_name = var_asset_attached_media_string_file_name, asset_attached_media_string_content_type = var_asset_attached_media_string_content_type, asset_location_description = var_asset_location_description, asset_app = var_asset_app, asset_search_tags = var_asset_search_tags, asset_latitude = var_asset_latitude, asset_longitude = var_asset_longitudedata_file = "result.txt")
+#' result <- api_instance$CreateNote(var_comment, device_id = var_device_id, account_id = var_account_id, notable_type = var_notable_type, notable_id = var_notable_id, note_type = var_note_type, asset_ids = var_asset_ids, tags = var_tags, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, app_key = var_app_key, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, receiver_account_ids = var_receiver_account_ids, return_full_response = var_return_full_response, initialize_asset = var_initialize_asset, asset_return_nulls = var_asset_return_nulls, asset_album_id = var_asset_album_id, asset_collection_id = var_asset_collection_id, asset_add_to_default_album = var_asset_add_to_default_album, asset_add_to_media_library = var_asset_add_to_media_library, asset_version_code = var_asset_version_code, asset_version_name = var_asset_version_name, asset_meta_data = var_asset_meta_data, asset_caption = var_asset_caption, asset_media = var_asset_media, asset_media_url = var_asset_media_url, asset_media_string = var_asset_media_string, asset_media_string_file_name = var_asset_media_string_file_name, asset_media_string_content_type = var_asset_media_string_content_type, asset_attached_media = var_asset_attached_media, asset_attached_media_url = var_asset_attached_media_url, asset_attached_media_string = var_asset_attached_media_string, asset_attached_media_string_file_name = var_asset_attached_media_string_file_name, asset_attached_media_string_content_type = var_asset_attached_media_string_content_type, asset_location_description = var_asset_location_description, asset_app = var_asset_app, asset_search_tags = var_asset_search_tags, asset_latitude = var_asset_latitude, asset_longitude = var_asset_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteNote  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_note_id <- 56 # integer | The ID of the note to delete
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
 #' var_account_id <- 56 # integer | The unique accountId that made the request (either deviceId or accountId must be used) (Optional)
@@ -104,15 +101,14 @@
 #' api_instance <- NoteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteNote(var_version, var_note_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$DeleteNote(var_version, var_note_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key)
+#' # result <- api_instance$DeleteNote(var_note_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$DeleteNote(var_note_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  GetNote  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_note_id <- 56 # integer | the id of the note to get
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
 #' var_account_id <- 56 # integer | The unique accountId that made the request (either deviceId or accountId must be used) (Optional)
@@ -122,15 +118,14 @@
 #' api_instance <- NoteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetNote(var_version, var_note_id, device_id = var_device_id, account_id = var_account_id, return_full_response = var_return_full_responsedata_file = "result.txt")
-#' result <- api_instance$GetNote(var_version, var_note_id, device_id = var_device_id, account_id = var_account_id, return_full_response = var_return_full_response)
+#' # result <- api_instance$GetNote(var_note_id, device_id = var_device_id, account_id = var_account_id, return_full_response = var_return_full_responsedata_file = "result.txt")
+#' result <- api_instance$GetNote(var_note_id, device_id = var_device_id, account_id = var_account_id, return_full_response = var_return_full_response)
 #' dput(result)
 #'
 #'
 #' ####################  SearchNotes  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_notable_type <- "notable_type_example" # character | The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (Optional)
@@ -153,15 +148,14 @@
 #' api_instance <- NoteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchNotes(var_version, device_id = var_device_id, account_id = var_account_id, notable_type = var_notable_type, notable_id = var_notable_id, note_types = var_note_types, app_key = var_app_key, keyword = var_keyword, flag_count_minimum = var_flag_count_minimum, flags_exceed_threshold = var_flags_exceed_threshold, include_inactive = var_include_inactive, sort_field = var_sort_field, descending = var_descending, return_full_response = var_return_full_response, updated_since = var_updated_since, updated_before = var_updated_before, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchNotes(var_version, device_id = var_device_id, account_id = var_account_id, notable_type = var_notable_type, notable_id = var_notable_id, note_types = var_note_types, app_key = var_app_key, keyword = var_keyword, flag_count_minimum = var_flag_count_minimum, flags_exceed_threshold = var_flags_exceed_threshold, include_inactive = var_include_inactive, sort_field = var_sort_field, descending = var_descending, return_full_response = var_return_full_response, updated_since = var_updated_since, updated_before = var_updated_before, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchNotes(device_id = var_device_id, account_id = var_account_id, notable_type = var_notable_type, notable_id = var_notable_id, note_types = var_note_types, app_key = var_app_key, keyword = var_keyword, flag_count_minimum = var_flag_count_minimum, flags_exceed_threshold = var_flags_exceed_threshold, include_inactive = var_include_inactive, sort_field = var_sort_field, descending = var_descending, return_full_response = var_return_full_response, updated_since = var_updated_since, updated_before = var_updated_before, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchNotes(device_id = var_device_id, account_id = var_account_id, notable_type = var_notable_type, notable_id = var_notable_id, note_types = var_note_types, app_key = var_app_key, keyword = var_keyword, flag_count_minimum = var_flag_count_minimum, flags_exceed_threshold = var_flags_exceed_threshold, include_inactive = var_include_inactive, sort_field = var_sort_field, descending = var_descending, return_full_response = var_return_full_response, updated_since = var_updated_since, updated_before = var_updated_before, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateNote  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_note_id <- 56 # integer | The id of the note, used when editing a comment
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
 #' var_account_id <- 56 # integer | The unique accountId that made the request (either deviceId or accountId must be used) (Optional)
@@ -208,8 +202,8 @@
 #' api_instance <- NoteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateNote(var_version, var_note_id, device_id = var_device_id, account_id = var_account_id, comment = var_comment, note_type = var_note_type, asset_ids = var_asset_ids, tags = var_tags, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, app_key = var_app_key, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, return_full_response = var_return_full_response, active = var_active, update_asset = var_update_asset, asset_return_nulls = var_asset_return_nulls, asset_album_id = var_asset_album_id, asset_collection_id = var_asset_collection_id, asset_add_to_default_album = var_asset_add_to_default_album, asset_add_to_media_library = var_asset_add_to_media_library, asset_version_code = var_asset_version_code, asset_version_name = var_asset_version_name, asset_meta_data = var_asset_meta_data, asset_caption = var_asset_caption, asset_media = var_asset_media, asset_media_url = var_asset_media_url, asset_media_string = var_asset_media_string, asset_media_string_file_name = var_asset_media_string_file_name, asset_media_string_content_type = var_asset_media_string_content_type, asset_attached_media = var_asset_attached_media, asset_attached_media_url = var_asset_attached_media_url, asset_attached_media_string = var_asset_attached_media_string, asset_attached_media_string_file_name = var_asset_attached_media_string_file_name, asset_attached_media_string_content_type = var_asset_attached_media_string_content_type, asset_location_description = var_asset_location_description, asset_app = var_asset_app, asset_search_tags = var_asset_search_tags, asset_latitude = var_asset_latitude, asset_longitude = var_asset_longitudedata_file = "result.txt")
-#' result <- api_instance$UpdateNote(var_version, var_note_id, device_id = var_device_id, account_id = var_account_id, comment = var_comment, note_type = var_note_type, asset_ids = var_asset_ids, tags = var_tags, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, app_key = var_app_key, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, return_full_response = var_return_full_response, active = var_active, update_asset = var_update_asset, asset_return_nulls = var_asset_return_nulls, asset_album_id = var_asset_album_id, asset_collection_id = var_asset_collection_id, asset_add_to_default_album = var_asset_add_to_default_album, asset_add_to_media_library = var_asset_add_to_media_library, asset_version_code = var_asset_version_code, asset_version_name = var_asset_version_name, asset_meta_data = var_asset_meta_data, asset_caption = var_asset_caption, asset_media = var_asset_media, asset_media_url = var_asset_media_url, asset_media_string = var_asset_media_string, asset_media_string_file_name = var_asset_media_string_file_name, asset_media_string_content_type = var_asset_media_string_content_type, asset_attached_media = var_asset_attached_media, asset_attached_media_url = var_asset_attached_media_url, asset_attached_media_string = var_asset_attached_media_string, asset_attached_media_string_file_name = var_asset_attached_media_string_file_name, asset_attached_media_string_content_type = var_asset_attached_media_string_content_type, asset_location_description = var_asset_location_description, asset_app = var_asset_app, asset_search_tags = var_asset_search_tags, asset_latitude = var_asset_latitude, asset_longitude = var_asset_longitude)
+#' # result <- api_instance$UpdateNote(var_note_id, device_id = var_device_id, account_id = var_account_id, comment = var_comment, note_type = var_note_type, asset_ids = var_asset_ids, tags = var_tags, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, app_key = var_app_key, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, return_full_response = var_return_full_response, active = var_active, update_asset = var_update_asset, asset_return_nulls = var_asset_return_nulls, asset_album_id = var_asset_album_id, asset_collection_id = var_asset_collection_id, asset_add_to_default_album = var_asset_add_to_default_album, asset_add_to_media_library = var_asset_add_to_media_library, asset_version_code = var_asset_version_code, asset_version_name = var_asset_version_name, asset_meta_data = var_asset_meta_data, asset_caption = var_asset_caption, asset_media = var_asset_media, asset_media_url = var_asset_media_url, asset_media_string = var_asset_media_string, asset_media_string_file_name = var_asset_media_string_file_name, asset_media_string_content_type = var_asset_media_string_content_type, asset_attached_media = var_asset_attached_media, asset_attached_media_url = var_asset_attached_media_url, asset_attached_media_string = var_asset_attached_media_string, asset_attached_media_string_file_name = var_asset_attached_media_string_file_name, asset_attached_media_string_content_type = var_asset_attached_media_string_content_type, asset_location_description = var_asset_location_description, asset_app = var_asset_app, asset_search_tags = var_asset_search_tags, asset_latitude = var_asset_latitude, asset_longitude = var_asset_longitudedata_file = "result.txt")
+#' result <- api_instance$UpdateNote(var_note_id, device_id = var_device_id, account_id = var_account_id, comment = var_comment, note_type = var_note_type, asset_ids = var_asset_ids, tags = var_tags, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, app_key = var_app_key, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, return_full_response = var_return_full_response, active = var_active, update_asset = var_update_asset, asset_return_nulls = var_asset_return_nulls, asset_album_id = var_asset_album_id, asset_collection_id = var_asset_collection_id, asset_add_to_default_album = var_asset_add_to_default_album, asset_add_to_media_library = var_asset_add_to_media_library, asset_version_code = var_asset_version_code, asset_version_name = var_asset_version_name, asset_meta_data = var_asset_meta_data, asset_caption = var_asset_caption, asset_media = var_asset_media, asset_media_url = var_asset_media_url, asset_media_string = var_asset_media_string, asset_media_string_file_name = var_asset_media_string_file_name, asset_media_string_content_type = var_asset_media_string_content_type, asset_attached_media = var_asset_attached_media, asset_attached_media_url = var_asset_attached_media_url, asset_attached_media_string = var_asset_attached_media_string, asset_attached_media_string_file_name = var_asset_attached_media_string_file_name, asset_attached_media_string_content_type = var_asset_attached_media_string_content_type, asset_location_description = var_asset_location_description, asset_app = var_asset_app, asset_search_tags = var_asset_search_tags, asset_latitude = var_asset_latitude, asset_longitude = var_asset_longitude)
 #' dput(result)
 #'
 #'
@@ -237,7 +231,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Batch Note Operation
     #'
-    #' @param version 
     #' @param notable_id The id of the notable object the batch operation will affect
     #' @param notable_type The notable object type (for example ALBUM, ASSET, OFFER, etc.)
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -248,8 +241,8 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    BatchOperation = function(version, notable_id, notable_type, device_id = NULL, account_id = NULL, batch_operation = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$BatchOperationWithHttpInfo(version, notable_id, notable_type, device_id, account_id, batch_operation, data_file = data_file, ..., .parse = .parse)
+    BatchOperation = function(notable_id, notable_type, device_id = NULL, account_id = NULL, batch_operation = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BatchOperationWithHttpInfo(notable_id, notable_type, device_id, account_id, batch_operation, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -264,7 +257,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Batch Note Operation
     #'
-    #' @param version 
     #' @param notable_id The id of the notable object the batch operation will affect
     #' @param notable_type The notable object type (for example ALBUM, ASSET, OFFER, etc.)
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -275,7 +267,7 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    BatchOperationWithHttpInfo = function(version, notable_id, notable_type, device_id = NULL, account_id = NULL, batch_operation = NULL, data_file = NULL, ..., .parse = TRUE) {
+    BatchOperationWithHttpInfo = function(notable_id, notable_type, device_id = NULL, account_id = NULL, batch_operation = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -285,20 +277,12 @@ NoteApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`notable_id`)) {
         stop("Missing required parameter `notable_id`.")
       }
 
       if (missing(`notable_type`)) {
         stop("Missing required parameter `notable_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NoteApi$BatchOperation, `version` is not nullable")
       }
 
       if (!missing(`notable_id`) && is.null(`notable_id`)) {
@@ -331,11 +315,7 @@ NoteApi <- R6::R6Class(
 
       query_params[["batchOperation"]] <- `batch_operation`
 
-      local_var_url_path <- "/api/{version}/note/batch"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/note/batch"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -396,7 +376,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Create Note
     #'
-    #' @param version 
     #' @param comment The message the user wishes to leave a comment on
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -444,8 +423,8 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return NoteResponse
-    CreateNote = function(version, comment, device_id = NULL, account_id = NULL, notable_type = NULL, notable_id = NULL, note_type = NULL, asset_ids = NULL, tags = NULL, permissionable_type = NULL, permissionable_id = NULL, app_key = NULL, location_description = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, receiver_account_ids = NULL, return_full_response = NULL, initialize_asset = NULL, asset_return_nulls = NULL, asset_album_id = NULL, asset_collection_id = NULL, asset_add_to_default_album = NULL, asset_add_to_media_library = NULL, asset_version_code = NULL, asset_version_name = NULL, asset_meta_data = NULL, asset_caption = NULL, asset_media = NULL, asset_media_url = NULL, asset_media_string = NULL, asset_media_string_file_name = NULL, asset_media_string_content_type = NULL, asset_attached_media = NULL, asset_attached_media_url = NULL, asset_attached_media_string = NULL, asset_attached_media_string_file_name = NULL, asset_attached_media_string_content_type = NULL, asset_location_description = NULL, asset_app = NULL, asset_search_tags = NULL, asset_latitude = NULL, asset_longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateNoteWithHttpInfo(version, comment, device_id, account_id, notable_type, notable_id, note_type, asset_ids, tags, permissionable_type, permissionable_id, app_key, location_description, latitude, longitude, meta_data, receiver_account_ids, return_full_response, initialize_asset, asset_return_nulls, asset_album_id, asset_collection_id, asset_add_to_default_album, asset_add_to_media_library, asset_version_code, asset_version_name, asset_meta_data, asset_caption, asset_media, asset_media_url, asset_media_string, asset_media_string_file_name, asset_media_string_content_type, asset_attached_media, asset_attached_media_url, asset_attached_media_string, asset_attached_media_string_file_name, asset_attached_media_string_content_type, asset_location_description, asset_app, asset_search_tags, asset_latitude, asset_longitude, data_file = data_file, ..., .parse = .parse)
+    CreateNote = function(comment, device_id = NULL, account_id = NULL, notable_type = NULL, notable_id = NULL, note_type = NULL, asset_ids = NULL, tags = NULL, permissionable_type = NULL, permissionable_id = NULL, app_key = NULL, location_description = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, receiver_account_ids = NULL, return_full_response = NULL, initialize_asset = NULL, asset_return_nulls = NULL, asset_album_id = NULL, asset_collection_id = NULL, asset_add_to_default_album = NULL, asset_add_to_media_library = NULL, asset_version_code = NULL, asset_version_name = NULL, asset_meta_data = NULL, asset_caption = NULL, asset_media = NULL, asset_media_url = NULL, asset_media_string = NULL, asset_media_string_file_name = NULL, asset_media_string_content_type = NULL, asset_attached_media = NULL, asset_attached_media_url = NULL, asset_attached_media_string = NULL, asset_attached_media_string_file_name = NULL, asset_attached_media_string_content_type = NULL, asset_location_description = NULL, asset_app = NULL, asset_search_tags = NULL, asset_latitude = NULL, asset_longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateNoteWithHttpInfo(comment, device_id, account_id, notable_type, notable_id, note_type, asset_ids, tags, permissionable_type, permissionable_id, app_key, location_description, latitude, longitude, meta_data, receiver_account_ids, return_full_response, initialize_asset, asset_return_nulls, asset_album_id, asset_collection_id, asset_add_to_default_album, asset_add_to_media_library, asset_version_code, asset_version_name, asset_meta_data, asset_caption, asset_media, asset_media_url, asset_media_string, asset_media_string_file_name, asset_media_string_content_type, asset_attached_media, asset_attached_media_url, asset_attached_media_string, asset_attached_media_string_file_name, asset_attached_media_string_content_type, asset_location_description, asset_app, asset_search_tags, asset_latitude, asset_longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -460,7 +439,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Create Note
     #'
-    #' @param version 
     #' @param comment The message the user wishes to leave a comment on
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -508,7 +486,7 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (NoteResponse) with additional information such as HTTP status code, headers
-    CreateNoteWithHttpInfo = function(version, comment, device_id = NULL, account_id = NULL, notable_type = NULL, notable_id = NULL, note_type = NULL, asset_ids = NULL, tags = NULL, permissionable_type = NULL, permissionable_id = NULL, app_key = NULL, location_description = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, receiver_account_ids = NULL, return_full_response = NULL, initialize_asset = NULL, asset_return_nulls = NULL, asset_album_id = NULL, asset_collection_id = NULL, asset_add_to_default_album = NULL, asset_add_to_media_library = NULL, asset_version_code = NULL, asset_version_name = NULL, asset_meta_data = NULL, asset_caption = NULL, asset_media = NULL, asset_media_url = NULL, asset_media_string = NULL, asset_media_string_file_name = NULL, asset_media_string_content_type = NULL, asset_attached_media = NULL, asset_attached_media_url = NULL, asset_attached_media_string = NULL, asset_attached_media_string_file_name = NULL, asset_attached_media_string_content_type = NULL, asset_location_description = NULL, asset_app = NULL, asset_search_tags = NULL, asset_latitude = NULL, asset_longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateNoteWithHttpInfo = function(comment, device_id = NULL, account_id = NULL, notable_type = NULL, notable_id = NULL, note_type = NULL, asset_ids = NULL, tags = NULL, permissionable_type = NULL, permissionable_id = NULL, app_key = NULL, location_description = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, receiver_account_ids = NULL, return_full_response = NULL, initialize_asset = NULL, asset_return_nulls = NULL, asset_album_id = NULL, asset_collection_id = NULL, asset_add_to_default_album = NULL, asset_add_to_media_library = NULL, asset_version_code = NULL, asset_version_name = NULL, asset_meta_data = NULL, asset_caption = NULL, asset_media = NULL, asset_media_url = NULL, asset_media_string = NULL, asset_media_string_file_name = NULL, asset_media_string_content_type = NULL, asset_attached_media = NULL, asset_attached_media_url = NULL, asset_attached_media_string = NULL, asset_attached_media_string_file_name = NULL, asset_attached_media_string_content_type = NULL, asset_location_description = NULL, asset_app = NULL, asset_search_tags = NULL, asset_latitude = NULL, asset_longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -518,16 +496,8 @@ NoteApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`comment`)) {
         stop("Missing required parameter `comment`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NoteApi$CreateNote, `version` is not nullable")
       }
 
       if (!missing(`comment`) && is.null(`comment`)) {
@@ -782,11 +752,7 @@ NoteApi <- R6::R6Class(
 
       query_params[["assetLongitude"]] <- `asset_longitude`
 
-      local_var_url_path <- "/api/{version}/note/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/note/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -847,7 +813,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Delete Note
     #'
-    #' @param version 
     #' @param note_id The ID of the note to delete
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -859,8 +824,8 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteNote = function(version, note_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteNoteWithHttpInfo(version, note_id, device_id, account_id, latitude, longitude, app_key, data_file = data_file, ..., .parse = .parse)
+    DeleteNote = function(note_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteNoteWithHttpInfo(note_id, device_id, account_id, latitude, longitude, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -875,7 +840,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Delete Note
     #'
-    #' @param version 
     #' @param note_id The ID of the note to delete
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -887,7 +851,7 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteNoteWithHttpInfo = function(version, note_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteNoteWithHttpInfo = function(note_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -897,16 +861,8 @@ NoteApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`note_id`)) {
         stop("Missing required parameter `note_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NoteApi$DeleteNote, `version` is not nullable")
       }
 
       if (!missing(`note_id`) && is.null(`note_id`)) {
@@ -945,11 +901,7 @@ NoteApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/note/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/note/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1010,7 +962,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Get Note
     #'
-    #' @param version 
     #' @param note_id the id of the note to get
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -1020,8 +971,8 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    GetNote = function(version, note_id, device_id = NULL, account_id = NULL, return_full_response = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetNoteWithHttpInfo(version, note_id, device_id, account_id, return_full_response, data_file = data_file, ..., .parse = .parse)
+    GetNote = function(note_id, device_id = NULL, account_id = NULL, return_full_response = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetNoteWithHttpInfo(note_id, device_id, account_id, return_full_response, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1036,7 +987,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Get Note
     #'
-    #' @param version 
     #' @param note_id the id of the note to get
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -1046,7 +996,7 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    GetNoteWithHttpInfo = function(version, note_id, device_id = NULL, account_id = NULL, return_full_response = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetNoteWithHttpInfo = function(note_id, device_id = NULL, account_id = NULL, return_full_response = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1056,16 +1006,8 @@ NoteApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`note_id`)) {
         stop("Missing required parameter `note_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NoteApi$GetNote, `version` is not nullable")
       }
 
       if (!missing(`note_id`) && is.null(`note_id`)) {
@@ -1092,11 +1034,7 @@ NoteApi <- R6::R6Class(
 
       query_params[["noteId"]] <- `note_id`
 
-      local_var_url_path <- "/api/{version}/note/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/note/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1157,7 +1095,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Search Notes
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param notable_type (optional) The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}
@@ -1180,8 +1117,8 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[NoteResponse]
-    SearchNotes = function(version, device_id = NULL, account_id = NULL, notable_type = NULL, notable_id = NULL, note_types = NULL, app_key = NULL, keyword = NULL, flag_count_minimum = NULL, flags_exceed_threshold = NULL, include_inactive = NULL, sort_field = NULL, descending = NULL, return_full_response = NULL, updated_since = NULL, updated_before = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchNotesWithHttpInfo(version, device_id, account_id, notable_type, notable_id, note_types, app_key, keyword, flag_count_minimum, flags_exceed_threshold, include_inactive, sort_field, descending, return_full_response, updated_since, updated_before, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchNotes = function(device_id = NULL, account_id = NULL, notable_type = NULL, notable_id = NULL, note_types = NULL, app_key = NULL, keyword = NULL, flag_count_minimum = NULL, flags_exceed_threshold = NULL, include_inactive = NULL, sort_field = NULL, descending = NULL, return_full_response = NULL, updated_since = NULL, updated_before = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchNotesWithHttpInfo(device_id, account_id, notable_type, notable_id, note_types, app_key, keyword, flag_count_minimum, flags_exceed_threshold, include_inactive, sort_field, descending, return_full_response, updated_since, updated_before, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1196,7 +1133,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Search Notes
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param notable_type (optional) The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}
@@ -1219,7 +1155,7 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[NoteResponse]) with additional information such as HTTP status code, headers
-    SearchNotesWithHttpInfo = function(version, device_id = NULL, account_id = NULL, notable_type = NULL, notable_id = NULL, note_types = NULL, app_key = NULL, keyword = NULL, flag_count_minimum = NULL, flags_exceed_threshold = NULL, include_inactive = NULL, sort_field = NULL, descending = NULL, return_full_response = NULL, updated_since = NULL, updated_before = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchNotesWithHttpInfo = function(device_id = NULL, account_id = NULL, notable_type = NULL, notable_id = NULL, note_types = NULL, app_key = NULL, keyword = NULL, flag_count_minimum = NULL, flags_exceed_threshold = NULL, include_inactive = NULL, sort_field = NULL, descending = NULL, return_full_response = NULL, updated_since = NULL, updated_before = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1228,14 +1164,6 @@ NoteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NoteApi$SearchNotes, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling NoteApi$SearchNotes, `device_id` is not nullable")
@@ -1342,11 +1270,7 @@ NoteApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/note/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/note/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1407,7 +1331,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Update Note
     #'
-    #' @param version 
     #' @param note_id The id of the note, used when editing a comment
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -1454,8 +1377,8 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return NoteResponse
-    UpdateNote = function(version, note_id, device_id = NULL, account_id = NULL, comment = NULL, note_type = NULL, asset_ids = NULL, tags = NULL, permissionable_type = NULL, permissionable_id = NULL, app_key = NULL, location_description = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, return_full_response = NULL, active = NULL, update_asset = NULL, asset_return_nulls = NULL, asset_album_id = NULL, asset_collection_id = NULL, asset_add_to_default_album = NULL, asset_add_to_media_library = NULL, asset_version_code = NULL, asset_version_name = NULL, asset_meta_data = NULL, asset_caption = NULL, asset_media = NULL, asset_media_url = NULL, asset_media_string = NULL, asset_media_string_file_name = NULL, asset_media_string_content_type = NULL, asset_attached_media = NULL, asset_attached_media_url = NULL, asset_attached_media_string = NULL, asset_attached_media_string_file_name = NULL, asset_attached_media_string_content_type = NULL, asset_location_description = NULL, asset_app = NULL, asset_search_tags = NULL, asset_latitude = NULL, asset_longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateNoteWithHttpInfo(version, note_id, device_id, account_id, comment, note_type, asset_ids, tags, permissionable_type, permissionable_id, app_key, location_description, latitude, longitude, meta_data, return_full_response, active, update_asset, asset_return_nulls, asset_album_id, asset_collection_id, asset_add_to_default_album, asset_add_to_media_library, asset_version_code, asset_version_name, asset_meta_data, asset_caption, asset_media, asset_media_url, asset_media_string, asset_media_string_file_name, asset_media_string_content_type, asset_attached_media, asset_attached_media_url, asset_attached_media_string, asset_attached_media_string_file_name, asset_attached_media_string_content_type, asset_location_description, asset_app, asset_search_tags, asset_latitude, asset_longitude, data_file = data_file, ..., .parse = .parse)
+    UpdateNote = function(note_id, device_id = NULL, account_id = NULL, comment = NULL, note_type = NULL, asset_ids = NULL, tags = NULL, permissionable_type = NULL, permissionable_id = NULL, app_key = NULL, location_description = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, return_full_response = NULL, active = NULL, update_asset = NULL, asset_return_nulls = NULL, asset_album_id = NULL, asset_collection_id = NULL, asset_add_to_default_album = NULL, asset_add_to_media_library = NULL, asset_version_code = NULL, asset_version_name = NULL, asset_meta_data = NULL, asset_caption = NULL, asset_media = NULL, asset_media_url = NULL, asset_media_string = NULL, asset_media_string_file_name = NULL, asset_media_string_content_type = NULL, asset_attached_media = NULL, asset_attached_media_url = NULL, asset_attached_media_string = NULL, asset_attached_media_string_file_name = NULL, asset_attached_media_string_content_type = NULL, asset_location_description = NULL, asset_app = NULL, asset_search_tags = NULL, asset_latitude = NULL, asset_longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateNoteWithHttpInfo(note_id, device_id, account_id, comment, note_type, asset_ids, tags, permissionable_type, permissionable_id, app_key, location_description, latitude, longitude, meta_data, return_full_response, active, update_asset, asset_return_nulls, asset_album_id, asset_collection_id, asset_add_to_default_album, asset_add_to_media_library, asset_version_code, asset_version_name, asset_meta_data, asset_caption, asset_media, asset_media_url, asset_media_string, asset_media_string_file_name, asset_media_string_content_type, asset_attached_media, asset_attached_media_url, asset_attached_media_string, asset_attached_media_string_file_name, asset_attached_media_string_content_type, asset_location_description, asset_app, asset_search_tags, asset_latitude, asset_longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1470,7 +1393,6 @@ NoteApi <- R6::R6Class(
     #' @description
     #' Update Note
     #'
-    #' @param version 
     #' @param note_id The id of the note, used when editing a comment
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -1517,7 +1439,7 @@ NoteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (NoteResponse) with additional information such as HTTP status code, headers
-    UpdateNoteWithHttpInfo = function(version, note_id, device_id = NULL, account_id = NULL, comment = NULL, note_type = NULL, asset_ids = NULL, tags = NULL, permissionable_type = NULL, permissionable_id = NULL, app_key = NULL, location_description = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, return_full_response = NULL, active = NULL, update_asset = NULL, asset_return_nulls = NULL, asset_album_id = NULL, asset_collection_id = NULL, asset_add_to_default_album = NULL, asset_add_to_media_library = NULL, asset_version_code = NULL, asset_version_name = NULL, asset_meta_data = NULL, asset_caption = NULL, asset_media = NULL, asset_media_url = NULL, asset_media_string = NULL, asset_media_string_file_name = NULL, asset_media_string_content_type = NULL, asset_attached_media = NULL, asset_attached_media_url = NULL, asset_attached_media_string = NULL, asset_attached_media_string_file_name = NULL, asset_attached_media_string_content_type = NULL, asset_location_description = NULL, asset_app = NULL, asset_search_tags = NULL, asset_latitude = NULL, asset_longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateNoteWithHttpInfo = function(note_id, device_id = NULL, account_id = NULL, comment = NULL, note_type = NULL, asset_ids = NULL, tags = NULL, permissionable_type = NULL, permissionable_id = NULL, app_key = NULL, location_description = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, return_full_response = NULL, active = NULL, update_asset = NULL, asset_return_nulls = NULL, asset_album_id = NULL, asset_collection_id = NULL, asset_add_to_default_album = NULL, asset_add_to_media_library = NULL, asset_version_code = NULL, asset_version_name = NULL, asset_meta_data = NULL, asset_caption = NULL, asset_media = NULL, asset_media_url = NULL, asset_media_string = NULL, asset_media_string_file_name = NULL, asset_media_string_content_type = NULL, asset_attached_media = NULL, asset_attached_media_url = NULL, asset_attached_media_string = NULL, asset_attached_media_string_file_name = NULL, asset_attached_media_string_content_type = NULL, asset_location_description = NULL, asset_app = NULL, asset_search_tags = NULL, asset_latitude = NULL, asset_longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1527,16 +1449,8 @@ NoteApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`note_id`)) {
         stop("Missing required parameter `note_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling NoteApi$UpdateNote, `version` is not nullable")
       }
 
       if (!missing(`note_id`) && is.null(`note_id`)) {
@@ -1785,11 +1699,7 @@ NoteApi <- R6::R6Class(
 
       query_params[["assetLongitude"]] <- `asset_longitude`
 
-      local_var_url_path <- "/api/{version}/note/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/note/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

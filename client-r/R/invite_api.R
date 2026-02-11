@@ -17,7 +17,6 @@
 #' ####################  AcceptInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_token <- "token_example" # character | the invite token
 #' var_account_id <- 56 # integer | the accountId of the user who is accepting the invite
 #' var_album_id <- 56 # integer | the album id associated with this invite (if applicable) (Optional)
@@ -37,15 +36,14 @@
 #' api_instance <- InviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AcceptInvite(var_version, var_token, var_account_id, album_id = var_album_id, mission_id = var_mission_id, album_contest_id = var_album_contest_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, retailer_location_id = var_retailer_location_id, app_key = var_app_key, auto_friend = var_auto_friend, auto_attend_event = var_auto_attend_event, auto_favorite_offer = var_auto_favorite_offer, auto_favorite_offer_location = var_auto_favorite_offer_location, auto_favorite_retailer_location = var_auto_favorite_retailer_locationdata_file = "result.txt")
-#' result <- api_instance$AcceptInvite(var_version, var_token, var_account_id, album_id = var_album_id, mission_id = var_mission_id, album_contest_id = var_album_contest_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, retailer_location_id = var_retailer_location_id, app_key = var_app_key, auto_friend = var_auto_friend, auto_attend_event = var_auto_attend_event, auto_favorite_offer = var_auto_favorite_offer, auto_favorite_offer_location = var_auto_favorite_offer_location, auto_favorite_retailer_location = var_auto_favorite_retailer_location)
+#' # result <- api_instance$AcceptInvite(var_token, var_account_id, album_id = var_album_id, mission_id = var_mission_id, album_contest_id = var_album_contest_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, retailer_location_id = var_retailer_location_id, app_key = var_app_key, auto_friend = var_auto_friend, auto_attend_event = var_auto_attend_event, auto_favorite_offer = var_auto_favorite_offer, auto_favorite_offer_location = var_auto_favorite_offer_location, auto_favorite_retailer_location = var_auto_favorite_retailer_locationdata_file = "result.txt")
+#' result <- api_instance$AcceptInvite(var_token, var_account_id, album_id = var_album_id, mission_id = var_mission_id, album_contest_id = var_album_contest_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, retailer_location_id = var_retailer_location_id, app_key = var_app_key, auto_friend = var_auto_friend, auto_attend_event = var_auto_attend_event, auto_favorite_offer = var_auto_favorite_offer, auto_favorite_offer_location = var_auto_favorite_offer_location, auto_favorite_retailer_location = var_auto_favorite_retailer_location)
 #' dput(result)
 #'
 #'
 #' ####################  AlbumContestInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
 #' var_app_id <- 56 # integer | This parameter is deprecated. (Optional)
@@ -58,15 +56,14 @@
 #' api_instance <- InviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AlbumContestInvite(var_version, device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, album_contest_id = var_album_contest_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$AlbumContestInvite(var_version, device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, album_contest_id = var_album_contest_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$AlbumContestInvite(device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, album_contest_id = var_album_contest_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$AlbumContestInvite(device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, album_contest_id = var_album_contest_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  AlbumInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
 #' var_app_id <- 56 # integer | This parameter is deprecated. (Optional)
@@ -79,15 +76,14 @@
 #' api_instance <- InviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AlbumInvite(var_version, device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, album_id = var_album_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$AlbumInvite(var_version, device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, album_id = var_album_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$AlbumInvite(device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, album_id = var_album_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$AlbumInvite(device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, album_id = var_album_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  EventInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID of the user making the share
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_listing_id <- 56 # integer | The ID of the event listing
@@ -98,15 +94,14 @@
 #' api_instance <- InviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$EventInvite(var_version, var_account_id, var_app_key, var_listing_id, receiver_account_ids = var_receiver_account_ids, retailer_location_id = var_retailer_location_iddata_file = "result.txt")
-#' result <- api_instance$EventInvite(var_version, var_account_id, var_app_key, var_listing_id, receiver_account_ids = var_receiver_account_ids, retailer_location_id = var_retailer_location_id)
+#' # result <- api_instance$EventInvite(var_account_id, var_app_key, var_listing_id, receiver_account_ids = var_receiver_account_ids, retailer_location_id = var_retailer_location_iddata_file = "result.txt")
+#' result <- api_instance$EventInvite(var_account_id, var_app_key, var_listing_id, receiver_account_ids = var_receiver_account_ids, retailer_location_id = var_retailer_location_id)
 #' dput(result)
 #'
 #'
 #' ####################  GameInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
 #' var_app_id <- 56 # integer | This parameter is deprecated. (Optional)
@@ -119,15 +114,14 @@
 #' api_instance <- InviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GameInvite(var_version, device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, game_level_id = var_game_level_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GameInvite(var_version, device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, game_level_id = var_game_level_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GameInvite(device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, game_level_id = var_game_level_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GameInvite(device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, game_level_id = var_game_level_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GetInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Account ID of the user if they are logged in (Optional)
 #' var_token <- "token_example" # character | the invite token (Optional)
 #' var_album_id <- 56 # integer | album id to match the invite against (if applicable) (Optional)
@@ -142,15 +136,14 @@
 #' api_instance <- InviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetInvite(var_version, account_id = var_account_id, token = var_token, album_id = var_album_id, mission_id = var_mission_id, album_contest_id = var_album_contest_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, retailer_location_id = var_retailer_location_id, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$GetInvite(var_version, account_id = var_account_id, token = var_token, album_id = var_album_id, mission_id = var_mission_id, album_contest_id = var_album_contest_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, retailer_location_id = var_retailer_location_id, app_key = var_app_key)
+#' # result <- api_instance$GetInvite(account_id = var_account_id, token = var_token, album_id = var_album_id, mission_id = var_mission_id, album_contest_id = var_album_contest_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, retailer_location_id = var_retailer_location_id, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$GetInvite(account_id = var_account_id, token = var_token, album_id = var_album_id, mission_id = var_mission_id, album_contest_id = var_album_contest_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, retailer_location_id = var_retailer_location_id, app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  MissionInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
 #' var_app_id <- 56 # integer | This parameter is deprecated. (Optional)
@@ -163,15 +156,14 @@
 #' api_instance <- InviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$MissionInvite(var_version, device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, mission_id = var_mission_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$MissionInvite(var_version, device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, mission_id = var_mission_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$MissionInvite(device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, mission_id = var_mission_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$MissionInvite(device_id = var_device_id, account_id = var_account_id, app_id = var_app_id, app_key = var_app_key, mission_id = var_mission_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  OfferInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID of the user making the share
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_offer_id <- 56 # integer | the ID of the offer used to invite to favorite
@@ -180,15 +172,14 @@
 #' api_instance <- InviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$OfferInvite(var_version, var_account_id, var_app_key, var_offer_iddata_file = "result.txt")
-#' result <- api_instance$OfferInvite(var_version, var_account_id, var_app_key, var_offer_id)
+#' # result <- api_instance$OfferInvite(var_account_id, var_app_key, var_offer_iddata_file = "result.txt")
+#' result <- api_instance$OfferInvite(var_account_id, var_app_key, var_offer_id)
 #' dput(result)
 #'
 #'
 #' ####################  OfferLocationInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID of the user making the share
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_offer_location_id <- 56 # integer | the id of the offer location to share
@@ -197,15 +188,14 @@
 #' api_instance <- InviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$OfferLocationInvite(var_version, var_account_id, var_app_key, var_offer_location_iddata_file = "result.txt")
-#' result <- api_instance$OfferLocationInvite(var_version, var_account_id, var_app_key, var_offer_location_id)
+#' # result <- api_instance$OfferLocationInvite(var_account_id, var_app_key, var_offer_location_iddata_file = "result.txt")
+#' result <- api_instance$OfferLocationInvite(var_account_id, var_app_key, var_offer_location_id)
 #' dput(result)
 #'
 #'
 #' ####################  RetailerLocationInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID of the user making the share
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_retailer_location_id <- 56 # integer | The retailer location id of where the event will take place
@@ -215,8 +205,8 @@
 #' api_instance <- InviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RetailerLocationInvite(var_version, var_account_id, var_app_key, var_retailer_location_id, album_id = var_album_iddata_file = "result.txt")
-#' result <- api_instance$RetailerLocationInvite(var_version, var_account_id, var_app_key, var_retailer_location_id, album_id = var_album_id)
+#' # result <- api_instance$RetailerLocationInvite(var_account_id, var_app_key, var_retailer_location_id, album_id = var_album_iddata_file = "result.txt")
+#' result <- api_instance$RetailerLocationInvite(var_account_id, var_app_key, var_retailer_location_id, album_id = var_album_id)
 #' dput(result)
 #'
 #'
@@ -244,7 +234,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Accept Invite
     #'
-    #' @param version 
     #' @param token the invite token
     #' @param account_id the accountId of the user who is accepting the invite
     #' @param album_id (optional) the album id associated with this invite (if applicable)
@@ -264,8 +253,8 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ConsumerInviteResponse
-    AcceptInvite = function(version, token, account_id, album_id = NULL, mission_id = NULL, album_contest_id = NULL, offer_id = NULL, offer_location_id = NULL, retailer_location_id = NULL, app_key = NULL, auto_friend = TRUE, auto_attend_event = FALSE, auto_favorite_offer = FALSE, auto_favorite_offer_location = FALSE, auto_favorite_retailer_location = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AcceptInviteWithHttpInfo(version, token, account_id, album_id, mission_id, album_contest_id, offer_id, offer_location_id, retailer_location_id, app_key, auto_friend, auto_attend_event, auto_favorite_offer, auto_favorite_offer_location, auto_favorite_retailer_location, data_file = data_file, ..., .parse = .parse)
+    AcceptInvite = function(token, account_id, album_id = NULL, mission_id = NULL, album_contest_id = NULL, offer_id = NULL, offer_location_id = NULL, retailer_location_id = NULL, app_key = NULL, auto_friend = TRUE, auto_attend_event = FALSE, auto_favorite_offer = FALSE, auto_favorite_offer_location = FALSE, auto_favorite_retailer_location = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AcceptInviteWithHttpInfo(token, account_id, album_id, mission_id, album_contest_id, offer_id, offer_location_id, retailer_location_id, app_key, auto_friend, auto_attend_event, auto_favorite_offer, auto_favorite_offer_location, auto_favorite_retailer_location, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -280,7 +269,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Accept Invite
     #'
-    #' @param version 
     #' @param token the invite token
     #' @param account_id the accountId of the user who is accepting the invite
     #' @param album_id (optional) the album id associated with this invite (if applicable)
@@ -300,7 +288,7 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ConsumerInviteResponse) with additional information such as HTTP status code, headers
-    AcceptInviteWithHttpInfo = function(version, token, account_id, album_id = NULL, mission_id = NULL, album_contest_id = NULL, offer_id = NULL, offer_location_id = NULL, retailer_location_id = NULL, app_key = NULL, auto_friend = TRUE, auto_attend_event = FALSE, auto_favorite_offer = FALSE, auto_favorite_offer_location = FALSE, auto_favorite_retailer_location = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    AcceptInviteWithHttpInfo = function(token, account_id, album_id = NULL, mission_id = NULL, album_contest_id = NULL, offer_id = NULL, offer_location_id = NULL, retailer_location_id = NULL, app_key = NULL, auto_friend = TRUE, auto_attend_event = FALSE, auto_favorite_offer = FALSE, auto_favorite_offer_location = FALSE, auto_favorite_retailer_location = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -310,20 +298,12 @@ InviteApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`token`)) {
         stop("Missing required parameter `token`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling InviteApi$AcceptInvite, `version` is not nullable")
       }
 
       if (!missing(`token`) && is.null(`token`)) {
@@ -410,11 +390,7 @@ InviteApi <- R6::R6Class(
 
       query_params[["autoFavoriteRetailerLocation"]] <- `auto_favorite_retailer_location`
 
-      local_var_url_path <- "/api/{version}/invite/accept"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/invite/accept"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -475,7 +451,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Contest
     #'
-    #' @param version 
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
     #' @param app_id (optional) This parameter is deprecated.
@@ -488,8 +463,8 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return InviteResponse
-    AlbumContestInvite = function(version, device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, album_contest_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AlbumContestInviteWithHttpInfo(version, device_id, account_id, app_id, app_key, album_contest_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    AlbumContestInvite = function(device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, album_contest_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AlbumContestInviteWithHttpInfo(device_id, account_id, app_id, app_key, album_contest_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -504,7 +479,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Contest
     #'
-    #' @param version 
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
     #' @param app_id (optional) This parameter is deprecated.
@@ -517,7 +491,7 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (InviteResponse) with additional information such as HTTP status code, headers
-    AlbumContestInviteWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, album_contest_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AlbumContestInviteWithHttpInfo = function(device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, album_contest_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -526,14 +500,6 @@ InviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling InviteApi$AlbumContestInvite, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling InviteApi$AlbumContestInvite, `device_id` is not nullable")
@@ -577,11 +543,7 @@ InviteApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/invite/albumContest"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/invite/albumContest"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -642,7 +604,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Collection
     #'
-    #' @param version 
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
     #' @param app_id (optional) This parameter is deprecated.
@@ -655,8 +616,8 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return InviteResponse
-    AlbumInvite = function(version, device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, album_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AlbumInviteWithHttpInfo(version, device_id, account_id, app_id, app_key, album_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    AlbumInvite = function(device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, album_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AlbumInviteWithHttpInfo(device_id, account_id, app_id, app_key, album_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -671,7 +632,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Collection
     #'
-    #' @param version 
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
     #' @param app_id (optional) This parameter is deprecated.
@@ -684,7 +644,7 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (InviteResponse) with additional information such as HTTP status code, headers
-    AlbumInviteWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, album_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AlbumInviteWithHttpInfo = function(device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, album_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -693,14 +653,6 @@ InviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling InviteApi$AlbumInvite, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling InviteApi$AlbumInvite, `device_id` is not nullable")
@@ -744,11 +696,7 @@ InviteApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/invite/album"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/invite/album"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -809,7 +757,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Event
     #'
-    #' @param version 
     #' @param account_id the account ID of the user making the share
     #' @param app_key the application key
     #' @param listing_id The ID of the event listing
@@ -820,8 +767,8 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return InviteResponse
-    EventInvite = function(version, account_id, app_key, listing_id, receiver_account_ids = NULL, retailer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$EventInviteWithHttpInfo(version, account_id, app_key, listing_id, receiver_account_ids, retailer_location_id, data_file = data_file, ..., .parse = .parse)
+    EventInvite = function(account_id, app_key, listing_id, receiver_account_ids = NULL, retailer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EventInviteWithHttpInfo(account_id, app_key, listing_id, receiver_account_ids, retailer_location_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -836,7 +783,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Event
     #'
-    #' @param version 
     #' @param account_id the account ID of the user making the share
     #' @param app_key the application key
     #' @param listing_id The ID of the event listing
@@ -847,7 +793,7 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (InviteResponse) with additional information such as HTTP status code, headers
-    EventInviteWithHttpInfo = function(version, account_id, app_key, listing_id, receiver_account_ids = NULL, retailer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    EventInviteWithHttpInfo = function(account_id, app_key, listing_id, receiver_account_ids = NULL, retailer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -856,10 +802,6 @@ InviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -871,10 +813,6 @@ InviteApi <- R6::R6Class(
 
       if (missing(`listing_id`)) {
         stop("Missing required parameter `listing_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling InviteApi$EventInvite, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -907,11 +845,7 @@ InviteApi <- R6::R6Class(
 
       query_params[["retailerLocationId"]] <- `retailer_location_id`
 
-      local_var_url_path <- "/api/{version}/invite/event"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/invite/event"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -972,7 +906,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Game Level
     #'
-    #' @param version 
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
     #' @param app_id (optional) This parameter is deprecated.
@@ -985,8 +918,8 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return InviteResponse
-    GameInvite = function(version, device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, game_level_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GameInviteWithHttpInfo(version, device_id, account_id, app_id, app_key, game_level_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GameInvite = function(device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, game_level_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GameInviteWithHttpInfo(device_id, account_id, app_id, app_key, game_level_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1001,7 +934,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Game Level
     #'
-    #' @param version 
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
     #' @param app_id (optional) This parameter is deprecated.
@@ -1014,7 +946,7 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (InviteResponse) with additional information such as HTTP status code, headers
-    GameInviteWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, game_level_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GameInviteWithHttpInfo = function(device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, game_level_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1023,14 +955,6 @@ InviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling InviteApi$GameInvite, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling InviteApi$GameInvite, `device_id` is not nullable")
@@ -1074,11 +998,7 @@ InviteApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/invite/gameLevel"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/invite/gameLevel"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1139,7 +1059,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Get Invite
     #'
-    #' @param version 
     #' @param account_id (optional) Account ID of the user if they are logged in
     #' @param token (optional) the invite token
     #' @param album_id (optional) album id to match the invite against (if applicable)
@@ -1154,8 +1073,8 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    GetInvite = function(version, account_id = NULL, token = NULL, album_id = NULL, mission_id = NULL, album_contest_id = NULL, offer_id = NULL, offer_location_id = NULL, retailer_location_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetInviteWithHttpInfo(version, account_id, token, album_id, mission_id, album_contest_id, offer_id, offer_location_id, retailer_location_id, app_key, data_file = data_file, ..., .parse = .parse)
+    GetInvite = function(account_id = NULL, token = NULL, album_id = NULL, mission_id = NULL, album_contest_id = NULL, offer_id = NULL, offer_location_id = NULL, retailer_location_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetInviteWithHttpInfo(account_id, token, album_id, mission_id, album_contest_id, offer_id, offer_location_id, retailer_location_id, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1170,7 +1089,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Get Invite
     #'
-    #' @param version 
     #' @param account_id (optional) Account ID of the user if they are logged in
     #' @param token (optional) the invite token
     #' @param album_id (optional) album id to match the invite against (if applicable)
@@ -1185,7 +1103,7 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    GetInviteWithHttpInfo = function(version, account_id = NULL, token = NULL, album_id = NULL, mission_id = NULL, album_contest_id = NULL, offer_id = NULL, offer_location_id = NULL, retailer_location_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetInviteWithHttpInfo = function(account_id = NULL, token = NULL, album_id = NULL, mission_id = NULL, album_contest_id = NULL, offer_id = NULL, offer_location_id = NULL, retailer_location_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1194,14 +1112,6 @@ InviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling InviteApi$GetInvite, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling InviteApi$GetInvite, `account_id` is not nullable")
@@ -1257,11 +1167,7 @@ InviteApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/invite/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/invite/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1322,7 +1228,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Mission
     #'
-    #' @param version 
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
     #' @param app_id (optional) This parameter is deprecated.
@@ -1335,8 +1240,8 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return InviteResponse
-    MissionInvite = function(version, device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, mission_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$MissionInviteWithHttpInfo(version, device_id, account_id, app_id, app_key, mission_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    MissionInvite = function(device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, mission_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$MissionInviteWithHttpInfo(device_id, account_id, app_id, app_key, mission_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1351,7 +1256,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Mission
     #'
-    #' @param version 
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
     #' @param app_id (optional) This parameter is deprecated.
@@ -1364,7 +1268,7 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (InviteResponse) with additional information such as HTTP status code, headers
-    MissionInviteWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, mission_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    MissionInviteWithHttpInfo = function(device_id = NULL, account_id = NULL, app_id = NULL, app_key = NULL, mission_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1373,14 +1277,6 @@ InviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling InviteApi$MissionInvite, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling InviteApi$MissionInvite, `device_id` is not nullable")
@@ -1424,11 +1320,7 @@ InviteApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/invite/mission"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/invite/mission"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1489,7 +1381,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Offer
     #'
-    #' @param version 
     #' @param account_id the account ID of the user making the share
     #' @param app_key the application key
     #' @param offer_id the ID of the offer used to invite to favorite
@@ -1498,8 +1389,8 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return InviteResponse
-    OfferInvite = function(version, account_id, app_key, offer_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$OfferInviteWithHttpInfo(version, account_id, app_key, offer_id, data_file = data_file, ..., .parse = .parse)
+    OfferInvite = function(account_id, app_key, offer_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$OfferInviteWithHttpInfo(account_id, app_key, offer_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1514,7 +1405,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Offer
     #'
-    #' @param version 
     #' @param account_id the account ID of the user making the share
     #' @param app_key the application key
     #' @param offer_id the ID of the offer used to invite to favorite
@@ -1523,7 +1413,7 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (InviteResponse) with additional information such as HTTP status code, headers
-    OfferInviteWithHttpInfo = function(version, account_id, app_key, offer_id, data_file = NULL, ..., .parse = TRUE) {
+    OfferInviteWithHttpInfo = function(account_id, app_key, offer_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1532,10 +1422,6 @@ InviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1547,10 +1433,6 @@ InviteApi <- R6::R6Class(
 
       if (missing(`offer_id`)) {
         stop("Missing required parameter `offer_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling InviteApi$OfferInvite, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1571,11 +1453,7 @@ InviteApi <- R6::R6Class(
 
       query_params[["offerId"]] <- `offer_id`
 
-      local_var_url_path <- "/api/{version}/invite/offer"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/invite/offer"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1636,7 +1514,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Offer Location
     #'
-    #' @param version 
     #' @param account_id the account ID of the user making the share
     #' @param app_key the application key
     #' @param offer_location_id the id of the offer location to share
@@ -1645,8 +1522,8 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return InviteResponse
-    OfferLocationInvite = function(version, account_id, app_key, offer_location_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$OfferLocationInviteWithHttpInfo(version, account_id, app_key, offer_location_id, data_file = data_file, ..., .parse = .parse)
+    OfferLocationInvite = function(account_id, app_key, offer_location_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$OfferLocationInviteWithHttpInfo(account_id, app_key, offer_location_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1661,7 +1538,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Offer Location
     #'
-    #' @param version 
     #' @param account_id the account ID of the user making the share
     #' @param app_key the application key
     #' @param offer_location_id the id of the offer location to share
@@ -1670,7 +1546,7 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (InviteResponse) with additional information such as HTTP status code, headers
-    OfferLocationInviteWithHttpInfo = function(version, account_id, app_key, offer_location_id, data_file = NULL, ..., .parse = TRUE) {
+    OfferLocationInviteWithHttpInfo = function(account_id, app_key, offer_location_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1679,10 +1555,6 @@ InviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1694,10 +1566,6 @@ InviteApi <- R6::R6Class(
 
       if (missing(`offer_location_id`)) {
         stop("Missing required parameter `offer_location_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling InviteApi$OfferLocationInvite, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1718,11 +1586,7 @@ InviteApi <- R6::R6Class(
 
       query_params[["offerLocationId"]] <- `offer_location_id`
 
-      local_var_url_path <- "/api/{version}/invite/offerLocation"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/invite/offerLocation"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1783,7 +1647,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Retailer Location
     #'
-    #' @param version 
     #' @param account_id the account ID of the user making the share
     #' @param app_key the application key
     #' @param retailer_location_id The retailer location id of where the event will take place
@@ -1793,8 +1656,8 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return InviteResponse
-    RetailerLocationInvite = function(version, account_id, app_key, retailer_location_id, album_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RetailerLocationInviteWithHttpInfo(version, account_id, app_key, retailer_location_id, album_id, data_file = data_file, ..., .parse = .parse)
+    RetailerLocationInvite = function(account_id, app_key, retailer_location_id, album_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RetailerLocationInviteWithHttpInfo(account_id, app_key, retailer_location_id, album_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1809,7 +1672,6 @@ InviteApi <- R6::R6Class(
     #' @description
     #' Invite to Retailer Location
     #'
-    #' @param version 
     #' @param account_id the account ID of the user making the share
     #' @param app_key the application key
     #' @param retailer_location_id The retailer location id of where the event will take place
@@ -1819,7 +1681,7 @@ InviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (InviteResponse) with additional information such as HTTP status code, headers
-    RetailerLocationInviteWithHttpInfo = function(version, account_id, app_key, retailer_location_id, album_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RetailerLocationInviteWithHttpInfo = function(account_id, app_key, retailer_location_id, album_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1828,10 +1690,6 @@ InviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1843,10 +1701,6 @@ InviteApi <- R6::R6Class(
 
       if (missing(`retailer_location_id`)) {
         stop("Missing required parameter `retailer_location_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling InviteApi$RetailerLocationInvite, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1873,11 +1727,7 @@ InviteApi <- R6::R6Class(
 
       query_params[["albumId"]] <- `album_id`
 
-      local_var_url_path <- "/api/{version}/invite/retailerLocation"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/invite/retailerLocation"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

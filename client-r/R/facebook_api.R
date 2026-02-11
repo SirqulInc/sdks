@@ -17,7 +17,6 @@
 #' ####################  GetToken  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
 #' var_latitude <- 3.4 # numeric | used to update the user's current location (Optional)
@@ -27,15 +26,14 @@
 #' api_instance <- FacebookApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetToken(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetToken(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetToken(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetToken(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GraphInterface  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_event <- "event_example" # character | the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -51,8 +49,8 @@
 #' api_instance <- FacebookApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GraphInterface(var_version, var_event, device_id = var_device_id, account_id = var_account_id, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, asset_id = var_asset_id, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GraphInterface(var_version, var_event, device_id = var_device_id, account_id = var_account_id, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, asset_id = var_asset_id, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GraphInterface(var_event, device_id = var_device_id, account_id = var_account_id, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, asset_id = var_asset_id, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GraphInterface(var_event, device_id = var_device_id, account_id = var_account_id, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, asset_id = var_asset_id, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
@@ -80,7 +78,6 @@ FacebookApi <- R6::R6Class(
     #' @description
     #' Get Facebook Token
     #'
-    #' @param version 
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param latitude (optional) used to update the user's current location
@@ -90,8 +87,8 @@ FacebookApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TokenResponse
-    GetToken = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTokenWithHttpInfo(version, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetToken = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTokenWithHttpInfo(device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -106,7 +103,6 @@ FacebookApi <- R6::R6Class(
     #' @description
     #' Get Facebook Token
     #'
-    #' @param version 
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param latitude (optional) used to update the user's current location
@@ -116,7 +112,7 @@ FacebookApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TokenResponse) with additional information such as HTTP status code, headers
-    GetTokenWithHttpInfo = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetTokenWithHttpInfo = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -125,14 +121,6 @@ FacebookApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FacebookApi$GetToken, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling FacebookApi$GetToken, `device_id` is not nullable")
@@ -158,11 +146,7 @@ FacebookApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/facebook/getfbtoken"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/facebook/getfbtoken"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -223,7 +207,6 @@ FacebookApi <- R6::R6Class(
     #' @description
     #' Post to Facebook
     #'
-    #' @param version 
     #' @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -239,8 +222,8 @@ FacebookApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    GraphInterface = function(version, event, device_id = NULL, account_id = NULL, permissionable_type = NULL, permissionable_id = NULL, asset_id = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GraphInterfaceWithHttpInfo(version, event, device_id, account_id, permissionable_type, permissionable_id, asset_id, game_type, app_key, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GraphInterface = function(event, device_id = NULL, account_id = NULL, permissionable_type = NULL, permissionable_id = NULL, asset_id = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GraphInterfaceWithHttpInfo(event, device_id, account_id, permissionable_type, permissionable_id, asset_id, game_type, app_key, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -255,7 +238,6 @@ FacebookApi <- R6::R6Class(
     #' @description
     #' Post to Facebook
     #'
-    #' @param version 
     #' @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -271,7 +253,7 @@ FacebookApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    GraphInterfaceWithHttpInfo = function(version, event, device_id = NULL, account_id = NULL, permissionable_type = NULL, permissionable_id = NULL, asset_id = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GraphInterfaceWithHttpInfo = function(event, device_id = NULL, account_id = NULL, permissionable_type = NULL, permissionable_id = NULL, asset_id = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -281,16 +263,8 @@ FacebookApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`event`)) {
         stop("Missing required parameter `event`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FacebookApi$GraphInterface, `version` is not nullable")
       }
 
       if (!missing(`event`) && is.null(`event`)) {
@@ -353,11 +327,7 @@ FacebookApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/facebook/graph"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/facebook/graph"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

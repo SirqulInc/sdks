@@ -17,15 +17,14 @@
 #' ####################  ComputeRouting  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_data <- "data_example" # character | Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
 #'
 #' #Compute Route
 #' api_instance <- RoutingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ComputeRouting(var_version, var_datadata_file = "result.txt")
-#' result <- api_instance$ComputeRouting(var_version, var_data)
+#' # result <- api_instance$ComputeRouting(var_datadata_file = "result.txt")
+#' result <- api_instance$ComputeRouting(var_data)
 #' dput(result)
 #'
 #'
@@ -53,15 +52,14 @@ RoutingApi <- R6::R6Class(
     #' @description
     #' Compute Route
     #'
-    #' @param version 
     #' @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RoutingListResponse
-    ComputeRouting = function(version, data, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ComputeRoutingWithHttpInfo(version, data, data_file = data_file, ..., .parse = .parse)
+    ComputeRouting = function(data, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ComputeRoutingWithHttpInfo(data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -76,14 +74,13 @@ RoutingApi <- R6::R6Class(
     #' @description
     #' Compute Route
     #'
-    #' @param version 
     #' @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RoutingListResponse) with additional information such as HTTP status code, headers
-    ComputeRoutingWithHttpInfo = function(version, data, data_file = NULL, ..., .parse = TRUE) {
+    ComputeRoutingWithHttpInfo = function(data, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -93,16 +90,8 @@ RoutingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`data`)) {
         stop("Missing required parameter `data`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RoutingApi$ComputeRouting, `version` is not nullable")
       }
 
       if (!missing(`data`) && is.null(`data`)) {
@@ -111,11 +100,7 @@ RoutingApi <- R6::R6Class(
 
       query_params[["data"]] <- `data`
 
-      local_var_url_path <- "/api/{version}/routing/compute"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/routing/compute"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

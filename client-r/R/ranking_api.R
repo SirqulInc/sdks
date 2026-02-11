@@ -17,7 +17,6 @@
 #' ####################  GetHistoricalRankings  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | the application key for filtering results by application
 #' var_rank_type <- "rank_type_example" # character | the rank type to return
 #' var_start_date <- 56 # integer | timestamp in milliseconds to filter results with
@@ -33,15 +32,14 @@
 #' api_instance <- RankingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetHistoricalRankings(var_version, var_app_key, var_rank_type, var_start_date, var_end_date, device_id = var_device_id, account_id = var_account_id, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$GetHistoricalRankings(var_version, var_app_key, var_rank_type, var_start_date, var_end_date, device_id = var_device_id, account_id = var_account_id, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$GetHistoricalRankings(var_app_key, var_rank_type, var_start_date, var_end_date, device_id = var_device_id, account_id = var_account_id, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$GetHistoricalRankings(var_app_key, var_rank_type, var_start_date, var_end_date, device_id = var_device_id, account_id = var_account_id, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  GetRankings  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
 #' var_game_type <- "game_type_example" # character | This parameter is deprecated. (Optional)
@@ -65,15 +63,14 @@
 #' api_instance <- RankingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetRankings(var_version, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, q = var_q, keyword = var_keyword, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, within_account_ids = var_within_account_ids, return_user_rank = var_return_user_rank, album_id = var_album_id, audience_id = var_audience_id, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$GetRankings(var_version, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, q = var_q, keyword = var_keyword, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, within_account_ids = var_within_account_ids, return_user_rank = var_return_user_rank, album_id = var_album_id, audience_id = var_audience_id, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit)
+#' # result <- api_instance$GetRankings(device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, q = var_q, keyword = var_keyword, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, within_account_ids = var_within_account_ids, return_user_rank = var_return_user_rank, album_id = var_album_id, audience_id = var_audience_id, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$GetRankings(device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, q = var_q, keyword = var_keyword, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, within_account_ids = var_within_account_ids, return_user_rank = var_return_user_rank, album_id = var_album_id, audience_id = var_audience_id, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  GetUserRank  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (Optional)
 #' var_app_key <- "app_key_example" # character | the application key for filtering results by application (required) (Optional)
@@ -90,15 +87,14 @@
 #' api_instance <- RankingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetUserRank(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, return_user_rank = var_return_user_rank, leaderboard_mode = var_leaderboard_mode, sort_field = var_sort_field, keyword = var_keyword, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$GetUserRank(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, return_user_rank = var_return_user_rank, leaderboard_mode = var_leaderboard_mode, sort_field = var_sort_field, keyword = var_keyword, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$GetUserRank(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, return_user_rank = var_return_user_rank, leaderboard_mode = var_leaderboard_mode, sort_field = var_sort_field, keyword = var_keyword, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$GetUserRank(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, return_user_rank = var_return_user_rank, leaderboard_mode = var_leaderboard_mode, sort_field = var_sort_field, keyword = var_keyword, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  OverrideUserRank  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the logged in user's account id (must have permissions to manage data for the application)
 #' var_owner_account_id <- 56 # integer | the end user's account id to override
 #' var_app_key <- "app_key_example" # character | the application key the leaderboard is for
@@ -126,15 +122,14 @@
 #' api_instance <- RankingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$OverrideUserRank(var_version, var_account_id, var_owner_account_id, var_app_key, var_rank_type, total_score = var_total_score, total_count = var_total_count, total_time = var_total_time, daily_score = var_daily_score, daily_count = var_daily_count, daily_time = var_daily_time, weekly_score = var_weekly_score, weekly_count = var_weekly_count, weekly_time = var_weekly_time, monthly_score = var_monthly_score, monthly_count = var_monthly_count, monthly_time = var_monthly_time, top_score = var_top_score, lowest_score = var_lowest_score, streak_count = var_streak_count, streak_best_count = var_streak_best_count, start_date = var_start_date, end_date = var_end_datedata_file = "result.txt")
-#' result <- api_instance$OverrideUserRank(var_version, var_account_id, var_owner_account_id, var_app_key, var_rank_type, total_score = var_total_score, total_count = var_total_count, total_time = var_total_time, daily_score = var_daily_score, daily_count = var_daily_count, daily_time = var_daily_time, weekly_score = var_weekly_score, weekly_count = var_weekly_count, weekly_time = var_weekly_time, monthly_score = var_monthly_score, monthly_count = var_monthly_count, monthly_time = var_monthly_time, top_score = var_top_score, lowest_score = var_lowest_score, streak_count = var_streak_count, streak_best_count = var_streak_best_count, start_date = var_start_date, end_date = var_end_date)
+#' # result <- api_instance$OverrideUserRank(var_account_id, var_owner_account_id, var_app_key, var_rank_type, total_score = var_total_score, total_count = var_total_count, total_time = var_total_time, daily_score = var_daily_score, daily_count = var_daily_count, daily_time = var_daily_time, weekly_score = var_weekly_score, weekly_count = var_weekly_count, weekly_time = var_weekly_time, monthly_score = var_monthly_score, monthly_count = var_monthly_count, monthly_time = var_monthly_time, top_score = var_top_score, lowest_score = var_lowest_score, streak_count = var_streak_count, streak_best_count = var_streak_best_count, start_date = var_start_date, end_date = var_end_datedata_file = "result.txt")
+#' result <- api_instance$OverrideUserRank(var_account_id, var_owner_account_id, var_app_key, var_rank_type, total_score = var_total_score, total_count = var_total_count, total_time = var_total_time, daily_score = var_daily_score, daily_count = var_daily_count, daily_time = var_daily_time, weekly_score = var_weekly_score, weekly_count = var_weekly_count, weekly_time = var_weekly_time, monthly_score = var_monthly_score, monthly_count = var_monthly_count, monthly_time = var_monthly_time, top_score = var_top_score, lowest_score = var_lowest_score, streak_count = var_streak_count, streak_best_count = var_streak_best_count, start_date = var_start_date, end_date = var_end_date)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateRankings  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user
 #' var_app_key <- "app_key_example" # character | the application key for filtering results by application
 #' var_rank_type <- "rank_type_example" # character | a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -150,8 +145,8 @@
 #' api_instance <- RankingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateRankings(var_version, var_account_id, var_app_key, var_rank_type, increment = var_increment, time_increment = var_time_increment, tag = var_tag, start_date = var_start_date, end_date = var_end_date, update_global = var_update_global, create_leaderboard = var_create_leaderboarddata_file = "result.txt")
-#' result <- api_instance$UpdateRankings(var_version, var_account_id, var_app_key, var_rank_type, increment = var_increment, time_increment = var_time_increment, tag = var_tag, start_date = var_start_date, end_date = var_end_date, update_global = var_update_global, create_leaderboard = var_create_leaderboard)
+#' # result <- api_instance$UpdateRankings(var_account_id, var_app_key, var_rank_type, increment = var_increment, time_increment = var_time_increment, tag = var_tag, start_date = var_start_date, end_date = var_end_date, update_global = var_update_global, create_leaderboard = var_create_leaderboarddata_file = "result.txt")
+#' result <- api_instance$UpdateRankings(var_account_id, var_app_key, var_rank_type, increment = var_increment, time_increment = var_time_increment, tag = var_tag, start_date = var_start_date, end_date = var_end_date, update_global = var_update_global, create_leaderboard = var_create_leaderboard)
 #' dput(result)
 #'
 #'
@@ -179,7 +174,6 @@ RankingApi <- R6::R6Class(
     #' @description
     #' Search Historical Rankings
     #'
-    #' @param version 
     #' @param app_key the application key for filtering results by application
     #' @param rank_type the rank type to return
     #' @param start_date timestamp in milliseconds to filter results with
@@ -195,8 +189,8 @@ RankingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RankFullResponse
-    GetHistoricalRankings = function(version, app_key, rank_type, start_date, end_date, device_id = NULL, account_id = NULL, sort_field = "TOTAL", descending = TRUE, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetHistoricalRankingsWithHttpInfo(version, app_key, rank_type, start_date, end_date, device_id, account_id, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    GetHistoricalRankings = function(app_key, rank_type, start_date, end_date, device_id = NULL, account_id = NULL, sort_field = "TOTAL", descending = TRUE, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetHistoricalRankingsWithHttpInfo(app_key, rank_type, start_date, end_date, device_id, account_id, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -211,7 +205,6 @@ RankingApi <- R6::R6Class(
     #' @description
     #' Search Historical Rankings
     #'
-    #' @param version 
     #' @param app_key the application key for filtering results by application
     #' @param rank_type the rank type to return
     #' @param start_date timestamp in milliseconds to filter results with
@@ -227,7 +220,7 @@ RankingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RankFullResponse) with additional information such as HTTP status code, headers
-    GetHistoricalRankingsWithHttpInfo = function(version, app_key, rank_type, start_date, end_date, device_id = NULL, account_id = NULL, sort_field = "TOTAL", descending = TRUE, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+    GetHistoricalRankingsWithHttpInfo = function(app_key, rank_type, start_date, end_date, device_id = NULL, account_id = NULL, sort_field = "TOTAL", descending = TRUE, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -236,10 +229,6 @@ RankingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
@@ -255,10 +244,6 @@ RankingApi <- R6::R6Class(
 
       if (missing(`end_date`)) {
         stop("Missing required parameter `end_date`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RankingApi$GetHistoricalRankings, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -321,11 +306,7 @@ RankingApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/ranking/historical/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ranking/historical/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -386,7 +367,6 @@ RankingApi <- R6::R6Class(
     #' @description
     #' Search Rankings
     #'
-    #' @param version 
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param game_type (optional) This parameter is deprecated.
@@ -410,8 +390,8 @@ RankingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RankFullResponse
-    GetRankings = function(version, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, q = NULL, keyword = NULL, rank_type = "POINTS,DOWNLOADS,INVITATIONS", leaderboard_mode = "GLOBAL", within_account_ids = NULL, return_user_rank = TRUE, album_id = NULL, audience_id = NULL, sort_field = "TOTAL", descending = TRUE, _i = NULL, start = 0, _l = NULL, limit = 100, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetRankingsWithHttpInfo(version, device_id, account_id, game_type, app_key, q, keyword, rank_type, leaderboard_mode, within_account_ids, return_user_rank, album_id, audience_id, sort_field, descending, _i, start, _l, limit, data_file = data_file, ..., .parse = .parse)
+    GetRankings = function(device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, q = NULL, keyword = NULL, rank_type = "POINTS,DOWNLOADS,INVITATIONS", leaderboard_mode = "GLOBAL", within_account_ids = NULL, return_user_rank = TRUE, album_id = NULL, audience_id = NULL, sort_field = "TOTAL", descending = TRUE, _i = NULL, start = 0, _l = NULL, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetRankingsWithHttpInfo(device_id, account_id, game_type, app_key, q, keyword, rank_type, leaderboard_mode, within_account_ids, return_user_rank, album_id, audience_id, sort_field, descending, _i, start, _l, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -426,7 +406,6 @@ RankingApi <- R6::R6Class(
     #' @description
     #' Search Rankings
     #'
-    #' @param version 
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param game_type (optional) This parameter is deprecated.
@@ -450,7 +429,7 @@ RankingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RankFullResponse) with additional information such as HTTP status code, headers
-    GetRankingsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, q = NULL, keyword = NULL, rank_type = "POINTS,DOWNLOADS,INVITATIONS", leaderboard_mode = "GLOBAL", within_account_ids = NULL, return_user_rank = TRUE, album_id = NULL, audience_id = NULL, sort_field = "TOTAL", descending = TRUE, _i = NULL, start = 0, _l = NULL, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+    GetRankingsWithHttpInfo = function(device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, q = NULL, keyword = NULL, rank_type = "POINTS,DOWNLOADS,INVITATIONS", leaderboard_mode = "GLOBAL", within_account_ids = NULL, return_user_rank = TRUE, album_id = NULL, audience_id = NULL, sort_field = "TOTAL", descending = TRUE, _i = NULL, start = 0, _l = NULL, limit = 100, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -459,14 +438,6 @@ RankingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RankingApi$GetRankings, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling RankingApi$GetRankings, `device_id` is not nullable")
@@ -576,11 +547,7 @@ RankingApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/ranking/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ranking/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -641,7 +608,6 @@ RankingApi <- R6::R6Class(
     #' @description
     #' Get Personal Rankings
     #'
-    #' @param version 
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user
     #' @param app_key (optional) the application key for filtering results by application (required)
@@ -658,8 +624,8 @@ RankingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return object
-    GetUserRank = function(version, device_id = NULL, account_id = NULL, app_key = NULL, rank_type = NULL, return_user_rank = FALSE, leaderboard_mode = "GLOBAL", sort_field = "TOTAL", keyword = NULL, descending = TRUE, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetUserRankWithHttpInfo(version, device_id, account_id, app_key, rank_type, return_user_rank, leaderboard_mode, sort_field, keyword, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    GetUserRank = function(device_id = NULL, account_id = NULL, app_key = NULL, rank_type = NULL, return_user_rank = FALSE, leaderboard_mode = "GLOBAL", sort_field = "TOTAL", keyword = NULL, descending = TRUE, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetUserRankWithHttpInfo(device_id, account_id, app_key, rank_type, return_user_rank, leaderboard_mode, sort_field, keyword, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -674,7 +640,6 @@ RankingApi <- R6::R6Class(
     #' @description
     #' Get Personal Rankings
     #'
-    #' @param version 
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user
     #' @param app_key (optional) the application key for filtering results by application (required)
@@ -691,7 +656,7 @@ RankingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (object) with additional information such as HTTP status code, headers
-    GetUserRankWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_key = NULL, rank_type = NULL, return_user_rank = FALSE, leaderboard_mode = "GLOBAL", sort_field = "TOTAL", keyword = NULL, descending = TRUE, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+    GetUserRankWithHttpInfo = function(device_id = NULL, account_id = NULL, app_key = NULL, rank_type = NULL, return_user_rank = FALSE, leaderboard_mode = "GLOBAL", sort_field = "TOTAL", keyword = NULL, descending = TRUE, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -700,14 +665,6 @@ RankingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RankingApi$GetUserRank, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling RankingApi$GetUserRank, `device_id` is not nullable")
@@ -775,11 +732,7 @@ RankingApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/ranking/personal/ranks"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ranking/personal/ranks"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -840,7 +793,6 @@ RankingApi <- R6::R6Class(
     #' @description
     #' Override User Rank
     #'
-    #' @param version 
     #' @param account_id the logged in user's account id (must have permissions to manage data for the application)
     #' @param owner_account_id the end user's account id to override
     #' @param app_key the application key the leaderboard is for
@@ -868,8 +820,8 @@ RankingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    OverrideUserRank = function(version, account_id, owner_account_id, app_key, rank_type, total_score = NULL, total_count = NULL, total_time = NULL, daily_score = NULL, daily_count = NULL, daily_time = NULL, weekly_score = NULL, weekly_count = NULL, weekly_time = NULL, monthly_score = NULL, monthly_count = NULL, monthly_time = NULL, top_score = NULL, lowest_score = NULL, streak_count = NULL, streak_best_count = NULL, start_date = NULL, end_date = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$OverrideUserRankWithHttpInfo(version, account_id, owner_account_id, app_key, rank_type, total_score, total_count, total_time, daily_score, daily_count, daily_time, weekly_score, weekly_count, weekly_time, monthly_score, monthly_count, monthly_time, top_score, lowest_score, streak_count, streak_best_count, start_date, end_date, data_file = data_file, ..., .parse = .parse)
+    OverrideUserRank = function(account_id, owner_account_id, app_key, rank_type, total_score = NULL, total_count = NULL, total_time = NULL, daily_score = NULL, daily_count = NULL, daily_time = NULL, weekly_score = NULL, weekly_count = NULL, weekly_time = NULL, monthly_score = NULL, monthly_count = NULL, monthly_time = NULL, top_score = NULL, lowest_score = NULL, streak_count = NULL, streak_best_count = NULL, start_date = NULL, end_date = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$OverrideUserRankWithHttpInfo(account_id, owner_account_id, app_key, rank_type, total_score, total_count, total_time, daily_score, daily_count, daily_time, weekly_score, weekly_count, weekly_time, monthly_score, monthly_count, monthly_time, top_score, lowest_score, streak_count, streak_best_count, start_date, end_date, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -884,7 +836,6 @@ RankingApi <- R6::R6Class(
     #' @description
     #' Override User Rank
     #'
-    #' @param version 
     #' @param account_id the logged in user's account id (must have permissions to manage data for the application)
     #' @param owner_account_id the end user's account id to override
     #' @param app_key the application key the leaderboard is for
@@ -912,7 +863,7 @@ RankingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    OverrideUserRankWithHttpInfo = function(version, account_id, owner_account_id, app_key, rank_type, total_score = NULL, total_count = NULL, total_time = NULL, daily_score = NULL, daily_count = NULL, daily_time = NULL, weekly_score = NULL, weekly_count = NULL, weekly_time = NULL, monthly_score = NULL, monthly_count = NULL, monthly_time = NULL, top_score = NULL, lowest_score = NULL, streak_count = NULL, streak_best_count = NULL, start_date = NULL, end_date = NULL, data_file = NULL, ..., .parse = TRUE) {
+    OverrideUserRankWithHttpInfo = function(account_id, owner_account_id, app_key, rank_type, total_score = NULL, total_count = NULL, total_time = NULL, daily_score = NULL, daily_count = NULL, daily_time = NULL, weekly_score = NULL, weekly_count = NULL, weekly_time = NULL, monthly_score = NULL, monthly_count = NULL, monthly_time = NULL, top_score = NULL, lowest_score = NULL, streak_count = NULL, streak_best_count = NULL, start_date = NULL, end_date = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -921,10 +872,6 @@ RankingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -940,10 +887,6 @@ RankingApi <- R6::R6Class(
 
       if (missing(`rank_type`)) {
         stop("Missing required parameter `rank_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RankingApi$OverrideUserRank, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1078,11 +1021,7 @@ RankingApi <- R6::R6Class(
 
       query_params[["endDate"]] <- `end_date`
 
-      local_var_url_path <- "/api/{version}/ranking/override"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ranking/override"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1143,7 +1082,6 @@ RankingApi <- R6::R6Class(
     #' @description
     #' Update Ranking
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param app_key the application key for filtering results by application
     #' @param rank_type a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -1159,8 +1097,8 @@ RankingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UpdateRankings = function(version, account_id, app_key, rank_type, increment = 1, time_increment = NULL, tag = NULL, start_date = NULL, end_date = NULL, update_global = NULL, create_leaderboard = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateRankingsWithHttpInfo(version, account_id, app_key, rank_type, increment, time_increment, tag, start_date, end_date, update_global, create_leaderboard, data_file = data_file, ..., .parse = .parse)
+    UpdateRankings = function(account_id, app_key, rank_type, increment = 1, time_increment = NULL, tag = NULL, start_date = NULL, end_date = NULL, update_global = NULL, create_leaderboard = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateRankingsWithHttpInfo(account_id, app_key, rank_type, increment, time_increment, tag, start_date, end_date, update_global, create_leaderboard, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1175,7 +1113,6 @@ RankingApi <- R6::R6Class(
     #' @description
     #' Update Ranking
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param app_key the application key for filtering results by application
     #' @param rank_type a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -1191,7 +1128,7 @@ RankingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UpdateRankingsWithHttpInfo = function(version, account_id, app_key, rank_type, increment = 1, time_increment = NULL, tag = NULL, start_date = NULL, end_date = NULL, update_global = NULL, create_leaderboard = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    UpdateRankingsWithHttpInfo = function(account_id, app_key, rank_type, increment = 1, time_increment = NULL, tag = NULL, start_date = NULL, end_date = NULL, update_global = NULL, create_leaderboard = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1200,10 +1137,6 @@ RankingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1215,10 +1148,6 @@ RankingApi <- R6::R6Class(
 
       if (missing(`rank_type`)) {
         stop("Missing required parameter `rank_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RankingApi$UpdateRankings, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1281,11 +1210,7 @@ RankingApi <- R6::R6Class(
 
       query_params[["createLeaderboard"]] <- `create_leaderboard`
 
-      local_var_url_path <- "/api/{version}/ranking/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ranking/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

@@ -17,7 +17,6 @@
 #' ####################  AddField  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_app_key <- "app_key_example" # character | The application key for updating an existing application
 #' var_object_name <- "object_name_example" # character | The name of the object to add the field to
@@ -28,15 +27,14 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddField(var_version, var_account_id, var_app_key, var_object_name, var_field_name, var_field_typedata_file = "result.txt")
-#' result <- api_instance$AddField(var_version, var_account_id, var_app_key, var_object_name, var_field_name, var_field_type)
+#' # result <- api_instance$AddField(var_account_id, var_app_key, var_object_name, var_field_name, var_field_typedata_file = "result.txt")
+#' result <- api_instance$AddField(var_account_id, var_app_key, var_object_name, var_field_name, var_field_type)
 #' dput(result)
 #'
 #'
 #' ####################  CreateData  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_object_name <- "object_name_example" # character | the name of the object to create data for
 #' var_account_id <- 56 # integer | the account id (Optional)
 #' var_body <- "body_example" # character |  (Optional)
@@ -45,15 +43,14 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateData(var_version, var_object_name, account_id = var_account_id, body = var_bodydata_file = "result.txt")
-#' result <- api_instance$CreateData(var_version, var_object_name, account_id = var_account_id, body = var_body)
+#' # result <- api_instance$CreateData(var_object_name, account_id = var_account_id, body = var_bodydata_file = "result.txt")
+#' result <- api_instance$CreateData(var_object_name, account_id = var_account_id, body = var_body)
 #' dput(result)
 #'
 #'
 #' ####################  CreateObject  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_app_key <- "app_key_example" # character | The application key for updating an existing application
 #' var_object_name <- "object_name_example" # character | The name of the object to create
@@ -62,15 +59,14 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateObject(var_version, var_account_id, var_app_key, var_object_namedata_file = "result.txt")
-#' result <- api_instance$CreateObject(var_version, var_account_id, var_app_key, var_object_name)
+#' # result <- api_instance$CreateObject(var_account_id, var_app_key, var_object_namedata_file = "result.txt")
+#' result <- api_instance$CreateObject(var_account_id, var_app_key, var_object_name)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteData  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_object_name <- "object_name_example" # character | The name of the object to search upon
 #' var_object_id <- "object_id_example" # character | objectId The id of the record to return
 #' var_account_id <- 56 # integer | The account id of the logged in user (Optional)
@@ -79,15 +75,14 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteData(var_version, var_object_name, var_object_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteData(var_version, var_object_name, var_object_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteData(var_object_name, var_object_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteData(var_object_name, var_object_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteField  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_app_key <- "app_key_example" # character | The application key for updating an existing application
 #' var_object_name <- "object_name_example" # character | The name of the object to remove the field from
@@ -97,15 +92,14 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteField(var_version, var_account_id, var_app_key, var_object_name, var_field_namedata_file = "result.txt")
-#' result <- api_instance$DeleteField(var_version, var_account_id, var_app_key, var_object_name, var_field_name)
+#' # result <- api_instance$DeleteField(var_account_id, var_app_key, var_object_name, var_field_namedata_file = "result.txt")
+#' result <- api_instance$DeleteField(var_account_id, var_app_key, var_object_name, var_field_name)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteObject  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_object_name <- "object_name_example" # character | the name of the object to delete
@@ -114,15 +108,14 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteObject(var_version, var_account_id, var_app_key, var_object_namedata_file = "result.txt")
-#' result <- api_instance$DeleteObject(var_version, var_account_id, var_app_key, var_object_name)
+#' # result <- api_instance$DeleteObject(var_account_id, var_app_key, var_object_namedata_file = "result.txt")
+#' result <- api_instance$DeleteObject(var_account_id, var_app_key, var_object_name)
 #' dput(result)
 #'
 #'
 #' ####################  GetData  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_object_name <- "object_name_example" # character | The name of the object to search upon
 #' var_object_id <- "object_id_example" # character | objectId The id of the record to return
 #' var_account_id <- 56 # integer | The account id of the logged in user (Optional)
@@ -132,15 +125,14 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetData(var_version, var_object_name, var_object_id, account_id = var_account_id, include = var_includedata_file = "result.txt")
-#' result <- api_instance$GetData(var_version, var_object_name, var_object_id, account_id = var_account_id, include = var_include)
+#' # result <- api_instance$GetData(var_object_name, var_object_id, account_id = var_account_id, include = var_includedata_file = "result.txt")
+#' result <- api_instance$GetData(var_object_name, var_object_id, account_id = var_account_id, include = var_include)
 #' dput(result)
 #'
 #'
 #' ####################  GetObject  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_app_key <- "app_key_example" # character | The application key for updating an existing application
 #' var_object_name <- "object_name_example" # character | The name of the object to get the definition for
@@ -149,15 +141,14 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetObject(var_version, var_account_id, var_app_key, var_object_namedata_file = "result.txt")
-#' result <- api_instance$GetObject(var_version, var_account_id, var_app_key, var_object_name)
+#' # result <- api_instance$GetObject(var_account_id, var_app_key, var_object_namedata_file = "result.txt")
+#' result <- api_instance$GetObject(var_account_id, var_app_key, var_object_name)
 #' dput(result)
 #'
 #'
 #' ####################  SearchData  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_object_name <- "object_name_example" # character | The name of the object to search upon
 #' var_count <- "count_example" # character | If true just return the record count of the search. False (default) will return the actual records
 #' var_start <- 56 # integer | The start of the pagination
@@ -171,15 +162,14 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchData(var_version, var_object_name, var_count, var_start, var_limit, account_id = var_account_id, criteria = var_criteria, order = var_order, include = var_includedata_file = "result.txt")
-#' result <- api_instance$SearchData(var_version, var_object_name, var_count, var_start, var_limit, account_id = var_account_id, criteria = var_criteria, order = var_order, include = var_include)
+#' # result <- api_instance$SearchData(var_object_name, var_count, var_start, var_limit, account_id = var_account_id, criteria = var_criteria, order = var_order, include = var_includedata_file = "result.txt")
+#' result <- api_instance$SearchData(var_object_name, var_count, var_start, var_limit, account_id = var_account_id, criteria = var_criteria, order = var_order, include = var_include)
 #' dput(result)
 #'
 #'
 #' ####################  SearchObject  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_app_key <- "app_key_example" # character | The application key for updating an existing application
 #' var_start <- 56 # integer | The start of the pagination
@@ -190,15 +180,14 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchObject(var_version, var_account_id, var_app_key, var_start, var_limit, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$SearchObject(var_version, var_account_id, var_app_key, var_start, var_limit, keyword = var_keyword)
+#' # result <- api_instance$SearchObject(var_account_id, var_app_key, var_start, var_limit, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$SearchObject(var_account_id, var_app_key, var_start, var_limit, keyword = var_keyword)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateData  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_object_name <- "object_name_example" # character | The name of the object to search upon
 #' var_object_id <- "object_id_example" # character | objectId The id of the record to return
 #' var_account_id <- 56 # integer | The account id of the logged in user (Optional)
@@ -208,8 +197,8 @@
 #' api_instance <- ObjectStoreApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateData(var_version, var_object_name, var_object_id, account_id = var_account_id, body = var_bodydata_file = "result.txt")
-#' result <- api_instance$UpdateData(var_version, var_object_name, var_object_id, account_id = var_account_id, body = var_body)
+#' # result <- api_instance$UpdateData(var_object_name, var_object_id, account_id = var_account_id, body = var_bodydata_file = "result.txt")
+#' result <- api_instance$UpdateData(var_object_name, var_object_id, account_id = var_account_id, body = var_body)
 #' dput(result)
 #'
 #'
@@ -237,7 +226,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Create Field
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param app_key The application key for updating an existing application
     #' @param object_name The name of the object to add the field to
@@ -248,8 +236,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    AddField = function(version, account_id, app_key, object_name, field_name, field_type, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddFieldWithHttpInfo(version, account_id, app_key, object_name, field_name, field_type, data_file = data_file, ..., .parse = .parse)
+    AddField = function(account_id, app_key, object_name, field_name, field_type, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddFieldWithHttpInfo(account_id, app_key, object_name, field_name, field_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -264,7 +252,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Create Field
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param app_key The application key for updating an existing application
     #' @param object_name The name of the object to add the field to
@@ -275,7 +262,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    AddFieldWithHttpInfo = function(version, account_id, app_key, object_name, field_name, field_type, data_file = NULL, ..., .parse = TRUE) {
+    AddFieldWithHttpInfo = function(account_id, app_key, object_name, field_name, field_type, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -284,10 +271,6 @@ ObjectStoreApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -307,10 +290,6 @@ ObjectStoreApi <- R6::R6Class(
 
       if (missing(`field_type`)) {
         stop("Missing required parameter `field_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$AddField, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -343,11 +322,7 @@ ObjectStoreApi <- R6::R6Class(
 
       query_params[["fieldType"]] <- `field_type`
 
-      local_var_url_path <- "/api/{version}/object/field/add"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/field/add"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -408,7 +383,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Create Data
     #'
-    #' @param version 
     #' @param object_name the name of the object to create data for
     #' @param account_id (optional) the account id
     #' @param body (optional) No description
@@ -417,8 +391,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    CreateData = function(version, object_name, account_id = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateDataWithHttpInfo(version, object_name, account_id, body, data_file = data_file, ..., .parse = .parse)
+    CreateData = function(object_name, account_id = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateDataWithHttpInfo(object_name, account_id, body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -433,7 +407,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Create Data
     #'
-    #' @param version 
     #' @param object_name the name of the object to create data for
     #' @param account_id (optional) the account id
     #' @param body (optional) No description
@@ -442,7 +415,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    CreateDataWithHttpInfo = function(version, object_name, account_id = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateDataWithHttpInfo = function(object_name, account_id = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -452,16 +425,8 @@ ObjectStoreApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`object_name`)) {
         stop("Missing required parameter `object_name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$CreateData, `version` is not nullable")
       }
 
       if (!missing(`object_name`) && is.null(`object_name`)) {
@@ -484,11 +449,7 @@ ObjectStoreApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/object/data/{objectName}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/data/{objectName}"
       if (!missing(`object_name`)) {
         local_var_url_path <- gsub("\\{objectName\\}", URLencode(as.character(`object_name`), reserved = TRUE), local_var_url_path)
       }
@@ -553,7 +514,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Create Object
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param app_key The application key for updating an existing application
     #' @param object_name The name of the object to create
@@ -562,8 +522,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    CreateObject = function(version, account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateObjectWithHttpInfo(version, account_id, app_key, object_name, data_file = data_file, ..., .parse = .parse)
+    CreateObject = function(account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateObjectWithHttpInfo(account_id, app_key, object_name, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -578,7 +538,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Create Object
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param app_key The application key for updating an existing application
     #' @param object_name The name of the object to create
@@ -587,7 +546,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    CreateObjectWithHttpInfo = function(version, account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
+    CreateObjectWithHttpInfo = function(account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -596,10 +555,6 @@ ObjectStoreApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -611,10 +566,6 @@ ObjectStoreApi <- R6::R6Class(
 
       if (missing(`object_name`)) {
         stop("Missing required parameter `object_name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$CreateObject, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -635,11 +586,7 @@ ObjectStoreApi <- R6::R6Class(
 
       query_params[["objectName"]] <- `object_name`
 
-      local_var_url_path <- "/api/{version}/object/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -700,7 +647,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Delete Data
     #'
-    #' @param version 
     #' @param object_name The name of the object to search upon
     #' @param object_id objectId The id of the record to return
     #' @param account_id (optional) The account id of the logged in user
@@ -709,8 +655,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    DeleteData = function(version, object_name, object_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteDataWithHttpInfo(version, object_name, object_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteData = function(object_name, object_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteDataWithHttpInfo(object_name, object_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -725,7 +671,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Delete Data
     #'
-    #' @param version 
     #' @param object_name The name of the object to search upon
     #' @param object_id objectId The id of the record to return
     #' @param account_id (optional) The account id of the logged in user
@@ -734,7 +679,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    DeleteDataWithHttpInfo = function(version, object_name, object_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteDataWithHttpInfo = function(object_name, object_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -744,20 +689,12 @@ ObjectStoreApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`object_name`)) {
         stop("Missing required parameter `object_name`.")
       }
 
       if (missing(`object_id`)) {
         stop("Missing required parameter `object_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$DeleteData, `version` is not nullable")
       }
 
       if (!missing(`object_name`) && is.null(`object_name`)) {
@@ -774,11 +711,7 @@ ObjectStoreApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/object/data/{objectName}/{objectId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/data/{objectName}/{objectId}"
       if (!missing(`object_name`)) {
         local_var_url_path <- gsub("\\{objectName\\}", URLencode(as.character(`object_name`), reserved = TRUE), local_var_url_path)
       }
@@ -847,7 +780,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Delete Field
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param app_key The application key for updating an existing application
     #' @param object_name The name of the object to remove the field from
@@ -857,8 +789,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    DeleteField = function(version, account_id, app_key, object_name, field_name, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteFieldWithHttpInfo(version, account_id, app_key, object_name, field_name, data_file = data_file, ..., .parse = .parse)
+    DeleteField = function(account_id, app_key, object_name, field_name, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteFieldWithHttpInfo(account_id, app_key, object_name, field_name, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -873,7 +805,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Delete Field
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param app_key The application key for updating an existing application
     #' @param object_name The name of the object to remove the field from
@@ -883,7 +814,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    DeleteFieldWithHttpInfo = function(version, account_id, app_key, object_name, field_name, data_file = NULL, ..., .parse = TRUE) {
+    DeleteFieldWithHttpInfo = function(account_id, app_key, object_name, field_name, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -892,10 +823,6 @@ ObjectStoreApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -911,10 +838,6 @@ ObjectStoreApi <- R6::R6Class(
 
       if (missing(`field_name`)) {
         stop("Missing required parameter `field_name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$DeleteField, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -941,11 +864,7 @@ ObjectStoreApi <- R6::R6Class(
 
       query_params[["fieldName"]] <- `field_name`
 
-      local_var_url_path <- "/api/{version}/object/field/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/field/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1006,7 +925,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Delete Object
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param app_key the application key
     #' @param object_name the name of the object to delete
@@ -1015,8 +933,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    DeleteObject = function(version, account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteObjectWithHttpInfo(version, account_id, app_key, object_name, data_file = data_file, ..., .parse = .parse)
+    DeleteObject = function(account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteObjectWithHttpInfo(account_id, app_key, object_name, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1031,7 +949,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Delete Object
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param app_key the application key
     #' @param object_name the name of the object to delete
@@ -1040,7 +957,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    DeleteObjectWithHttpInfo = function(version, account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
+    DeleteObjectWithHttpInfo = function(account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1049,10 +966,6 @@ ObjectStoreApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1064,10 +977,6 @@ ObjectStoreApi <- R6::R6Class(
 
       if (missing(`object_name`)) {
         stop("Missing required parameter `object_name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$DeleteObject, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1088,11 +997,7 @@ ObjectStoreApi <- R6::R6Class(
 
       query_params[["objectName"]] <- `object_name`
 
-      local_var_url_path <- "/api/{version}/object/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1153,7 +1058,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Get Data
     #'
-    #' @param version 
     #' @param object_name The name of the object to search upon
     #' @param object_id objectId The id of the record to return
     #' @param account_id (optional) The account id of the logged in user
@@ -1163,8 +1067,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    GetData = function(version, object_name, object_id, account_id = NULL, include = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetDataWithHttpInfo(version, object_name, object_id, account_id, include, data_file = data_file, ..., .parse = .parse)
+    GetData = function(object_name, object_id, account_id = NULL, include = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetDataWithHttpInfo(object_name, object_id, account_id, include, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1179,7 +1083,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Get Data
     #'
-    #' @param version 
     #' @param object_name The name of the object to search upon
     #' @param object_id objectId The id of the record to return
     #' @param account_id (optional) The account id of the logged in user
@@ -1189,7 +1092,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    GetDataWithHttpInfo = function(version, object_name, object_id, account_id = NULL, include = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetDataWithHttpInfo = function(object_name, object_id, account_id = NULL, include = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1199,20 +1102,12 @@ ObjectStoreApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`object_name`)) {
         stop("Missing required parameter `object_name`.")
       }
 
       if (missing(`object_id`)) {
         stop("Missing required parameter `object_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$GetData, `version` is not nullable")
       }
 
       if (!missing(`object_name`) && is.null(`object_name`)) {
@@ -1235,11 +1130,7 @@ ObjectStoreApi <- R6::R6Class(
 
       query_params[["include"]] <- `include`
 
-      local_var_url_path <- "/api/{version}/object/data/{objectName}/{objectId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/data/{objectName}/{objectId}"
       if (!missing(`object_name`)) {
         local_var_url_path <- gsub("\\{objectName\\}", URLencode(as.character(`object_name`), reserved = TRUE), local_var_url_path)
       }
@@ -1308,7 +1199,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Get Object
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param app_key The application key for updating an existing application
     #' @param object_name The name of the object to get the definition for
@@ -1317,8 +1207,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    GetObject = function(version, account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetObjectWithHttpInfo(version, account_id, app_key, object_name, data_file = data_file, ..., .parse = .parse)
+    GetObject = function(account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetObjectWithHttpInfo(account_id, app_key, object_name, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1333,7 +1223,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Get Object
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param app_key The application key for updating an existing application
     #' @param object_name The name of the object to get the definition for
@@ -1342,7 +1231,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    GetObjectWithHttpInfo = function(version, account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
+    GetObjectWithHttpInfo = function(account_id, app_key, object_name, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1351,10 +1240,6 @@ ObjectStoreApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1366,10 +1251,6 @@ ObjectStoreApi <- R6::R6Class(
 
       if (missing(`object_name`)) {
         stop("Missing required parameter `object_name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$GetObject, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1390,11 +1271,7 @@ ObjectStoreApi <- R6::R6Class(
 
       query_params[["objectName"]] <- `object_name`
 
-      local_var_url_path <- "/api/{version}/object/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1455,7 +1332,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Search Data
     #'
-    #' @param version 
     #' @param object_name The name of the object to search upon
     #' @param count If true just return the record count of the search. False (default) will return the actual records
     #' @param start The start of the pagination
@@ -1469,8 +1345,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    SearchData = function(version, object_name, count, start, limit, account_id = NULL, criteria = NULL, order = NULL, include = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchDataWithHttpInfo(version, object_name, count, start, limit, account_id, criteria, order, include, data_file = data_file, ..., .parse = .parse)
+    SearchData = function(object_name, count, start, limit, account_id = NULL, criteria = NULL, order = NULL, include = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchDataWithHttpInfo(object_name, count, start, limit, account_id, criteria, order, include, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1485,7 +1361,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Search Data
     #'
-    #' @param version 
     #' @param object_name The name of the object to search upon
     #' @param count If true just return the record count of the search. False (default) will return the actual records
     #' @param start The start of the pagination
@@ -1499,7 +1374,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    SearchDataWithHttpInfo = function(version, object_name, count, start, limit, account_id = NULL, criteria = NULL, order = NULL, include = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchDataWithHttpInfo = function(object_name, count, start, limit, account_id = NULL, criteria = NULL, order = NULL, include = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1508,10 +1383,6 @@ ObjectStoreApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`object_name`)) {
         stop("Missing required parameter `object_name`.")
@@ -1527,10 +1398,6 @@ ObjectStoreApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$SearchData, `version` is not nullable")
       }
 
       if (!missing(`object_name`) && is.null(`object_name`)) {
@@ -1579,11 +1446,7 @@ ObjectStoreApi <- R6::R6Class(
 
       query_params[["include"]] <- `include`
 
-      local_var_url_path <- "/api/{version}/object/data/{objectName}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/data/{objectName}"
       if (!missing(`object_name`)) {
         local_var_url_path <- gsub("\\{objectName\\}", URLencode(as.character(`object_name`), reserved = TRUE), local_var_url_path)
       }
@@ -1648,7 +1511,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Search Objects
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param app_key The application key for updating an existing application
     #' @param start The start of the pagination
@@ -1659,8 +1521,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    SearchObject = function(version, account_id, app_key, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchObjectWithHttpInfo(version, account_id, app_key, start, limit, keyword, data_file = data_file, ..., .parse = .parse)
+    SearchObject = function(account_id, app_key, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchObjectWithHttpInfo(account_id, app_key, start, limit, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1675,7 +1537,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Search Objects
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param app_key The application key for updating an existing application
     #' @param start The start of the pagination
@@ -1686,7 +1547,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    SearchObjectWithHttpInfo = function(version, account_id, app_key, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchObjectWithHttpInfo = function(account_id, app_key, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1695,10 +1556,6 @@ ObjectStoreApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1714,10 +1571,6 @@ ObjectStoreApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$SearchObject, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1750,11 +1603,7 @@ ObjectStoreApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/object/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1815,7 +1664,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Update Data
     #'
-    #' @param version 
     #' @param object_name The name of the object to search upon
     #' @param object_id objectId The id of the record to return
     #' @param account_id (optional) The account id of the logged in user
@@ -1825,8 +1673,8 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ObjectStoreResponse
-    UpdateData = function(version, object_name, object_id, account_id = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateDataWithHttpInfo(version, object_name, object_id, account_id, body, data_file = data_file, ..., .parse = .parse)
+    UpdateData = function(object_name, object_id, account_id = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateDataWithHttpInfo(object_name, object_id, account_id, body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1841,7 +1689,6 @@ ObjectStoreApi <- R6::R6Class(
     #' @description
     #' Update Data
     #'
-    #' @param version 
     #' @param object_name The name of the object to search upon
     #' @param object_id objectId The id of the record to return
     #' @param account_id (optional) The account id of the logged in user
@@ -1851,7 +1698,7 @@ ObjectStoreApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ObjectStoreResponse) with additional information such as HTTP status code, headers
-    UpdateDataWithHttpInfo = function(version, object_name, object_id, account_id = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateDataWithHttpInfo = function(object_name, object_id, account_id = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1861,20 +1708,12 @@ ObjectStoreApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`object_name`)) {
         stop("Missing required parameter `object_name`.")
       }
 
       if (missing(`object_id`)) {
         stop("Missing required parameter `object_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ObjectStoreApi$UpdateData, `version` is not nullable")
       }
 
       if (!missing(`object_name`) && is.null(`object_name`)) {
@@ -1901,11 +1740,7 @@ ObjectStoreApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/object/data/{objectName}/{objectId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/object/data/{objectName}/{objectId}"
       if (!missing(`object_name`)) {
         local_var_url_path <- gsub("\\{objectName\\}", URLencode(as.character(`object_name`), reserved = TRUE), local_var_url_path)
       }

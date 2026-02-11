@@ -17,7 +17,6 @@
 #' ####################  GetTicketCount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the id of the device that owns the tickets (Optional)
 #' var_account_id <- 56 # integer | the id of the account that owns the tickets (Optional)
 #' var_game_type <- "game_type_example" # character | this is deprecated. (Optional)
@@ -28,15 +27,14 @@
 #' api_instance <- TicketApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetTicketCount(var_version, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, ticket_type = var_ticket_typedata_file = "result.txt")
-#' result <- api_instance$GetTicketCount(var_version, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, ticket_type = var_ticket_type)
+#' # result <- api_instance$GetTicketCount(device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, ticket_type = var_ticket_typedata_file = "result.txt")
+#' result <- api_instance$GetTicketCount(device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, ticket_type = var_ticket_type)
 #' dput(result)
 #'
 #'
 #' ####################  GetTicketList  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the id of the device that owns the tickets (Optional)
 #' var_account_id <- 56 # integer | the id of the account that owns the tickets (Optional)
 #' var_ticket_object_type <- "ticket_object_type_example" # character | comma separated list of TicketObjectType (Optional)
@@ -51,15 +49,14 @@
 #' api_instance <- TicketApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetTicketList(var_version, device_id = var_device_id, account_id = var_account_id, ticket_object_type = var_ticket_object_type, action_type = var_action_type, ticket_ids = var_ticket_ids, object_ids = var_object_ids, receipt_tokens = var_receipt_tokens, game_type = var_game_type, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$GetTicketList(var_version, device_id = var_device_id, account_id = var_account_id, ticket_object_type = var_ticket_object_type, action_type = var_action_type, ticket_ids = var_ticket_ids, object_ids = var_object_ids, receipt_tokens = var_receipt_tokens, game_type = var_game_type, app_key = var_app_key)
+#' # result <- api_instance$GetTicketList(device_id = var_device_id, account_id = var_account_id, ticket_object_type = var_ticket_object_type, action_type = var_action_type, ticket_ids = var_ticket_ids, object_ids = var_object_ids, receipt_tokens = var_receipt_tokens, game_type = var_game_type, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$GetTicketList(device_id = var_device_id, account_id = var_account_id, ticket_object_type = var_ticket_object_type, action_type = var_action_type, ticket_ids = var_ticket_ids, object_ids = var_object_ids, receipt_tokens = var_receipt_tokens, game_type = var_game_type, app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  GiftPurchase  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_receiver_account_id <- 56 # integer | the id of the account receiving the tickets
 #' var_ticket_id <- 56 # integer | the id of the tickets
 #' var_device_id <- "device_id_example" # character | the id of the device (Optional)
@@ -73,15 +70,14 @@
 #' api_instance <- TicketApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GiftPurchase(var_version, var_receiver_account_id, var_ticket_id, device_id = var_device_id, account_id = var_account_id, asset_id = var_asset_id, custom_message = var_custom_message, game_type = var_game_type, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$GiftPurchase(var_version, var_receiver_account_id, var_ticket_id, device_id = var_device_id, account_id = var_account_id, asset_id = var_asset_id, custom_message = var_custom_message, game_type = var_game_type, app_key = var_app_key)
+#' # result <- api_instance$GiftPurchase(var_receiver_account_id, var_ticket_id, device_id = var_device_id, account_id = var_account_id, asset_id = var_asset_id, custom_message = var_custom_message, game_type = var_game_type, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$GiftPurchase(var_receiver_account_id, var_ticket_id, device_id = var_device_id, account_id = var_account_id, asset_id = var_asset_id, custom_message = var_custom_message, game_type = var_game_type, app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  SaveTicket  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_action_type <- "action_type_example" # character | the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
 #' var_ticket_object_type <- "ticket_object_type_example" # character | the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
 #' var_return_nulls <- "return_nulls_example" # character | whether to return nulls or not (Optional)
@@ -105,15 +101,14 @@
 #' api_instance <- TicketApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SaveTicket(var_version, var_action_type, var_ticket_object_type, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, object_id = var_object_id, purchase_code = var_purchase_code, receipt_token = var_receipt_token, receipt_data = var_receipt_data, count = var_count, ticket_type = var_ticket_type, purchase_provider = var_purchase_provider, purchase_type = var_purchase_type, return_profile_response = var_return_profile_response, include_profile_response = var_include_profile_response, app_version = var_app_versiondata_file = "result.txt")
-#' result <- api_instance$SaveTicket(var_version, var_action_type, var_ticket_object_type, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, object_id = var_object_id, purchase_code = var_purchase_code, receipt_token = var_receipt_token, receipt_data = var_receipt_data, count = var_count, ticket_type = var_ticket_type, purchase_provider = var_purchase_provider, purchase_type = var_purchase_type, return_profile_response = var_return_profile_response, include_profile_response = var_include_profile_response, app_version = var_app_version)
+#' # result <- api_instance$SaveTicket(var_action_type, var_ticket_object_type, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, object_id = var_object_id, purchase_code = var_purchase_code, receipt_token = var_receipt_token, receipt_data = var_receipt_data, count = var_count, ticket_type = var_ticket_type, purchase_provider = var_purchase_provider, purchase_type = var_purchase_type, return_profile_response = var_return_profile_response, include_profile_response = var_include_profile_response, app_version = var_app_versiondata_file = "result.txt")
+#' result <- api_instance$SaveTicket(var_action_type, var_ticket_object_type, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, object_id = var_object_id, purchase_code = var_purchase_code, receipt_token = var_receipt_token, receipt_data = var_receipt_data, count = var_count, ticket_type = var_ticket_type, purchase_provider = var_purchase_provider, purchase_type = var_purchase_type, return_profile_response = var_return_profile_response, include_profile_response = var_include_profile_response, app_version = var_app_version)
 #' dput(result)
 #'
 #'
 #' ####################  SaveTicketViaFileUpload  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_action_type <- "action_type_example" # character | the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
 #' var_ticket_object_type <- "ticket_object_type_example" # character | the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
 #' var_receipt_data <- File.new('/path/to/file') # data.frame | the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -137,22 +132,21 @@
 #' api_instance <- TicketApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SaveTicketViaFileUpload(var_version, var_action_type, var_ticket_object_type, var_receipt_data, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, object_id = var_object_id, purchase_code = var_purchase_code, receipt_token = var_receipt_token, count = var_count, ticket_type = var_ticket_type, purchase_provider = var_purchase_provider, purchase_type = var_purchase_type, return_profile_response = var_return_profile_response, include_profile_response = var_include_profile_response, app_version = var_app_versiondata_file = "result.txt")
-#' result <- api_instance$SaveTicketViaFileUpload(var_version, var_action_type, var_ticket_object_type, var_receipt_data, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, object_id = var_object_id, purchase_code = var_purchase_code, receipt_token = var_receipt_token, count = var_count, ticket_type = var_ticket_type, purchase_provider = var_purchase_provider, purchase_type = var_purchase_type, return_profile_response = var_return_profile_response, include_profile_response = var_include_profile_response, app_version = var_app_version)
+#' # result <- api_instance$SaveTicketViaFileUpload(var_action_type, var_ticket_object_type, var_receipt_data, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, object_id = var_object_id, purchase_code = var_purchase_code, receipt_token = var_receipt_token, count = var_count, ticket_type = var_ticket_type, purchase_provider = var_purchase_provider, purchase_type = var_purchase_type, return_profile_response = var_return_profile_response, include_profile_response = var_include_profile_response, app_version = var_app_versiondata_file = "result.txt")
+#' result <- api_instance$SaveTicketViaFileUpload(var_action_type, var_ticket_object_type, var_receipt_data, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, object_id = var_object_id, purchase_code = var_purchase_code, receipt_token = var_receipt_token, count = var_count, ticket_type = var_ticket_type, purchase_provider = var_purchase_provider, purchase_type = var_purchase_type, return_profile_response = var_return_profile_response, include_profile_response = var_include_profile_response, app_version = var_app_version)
 #' dput(result)
 #'
 #'
 #' ####################  TicketOffers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #'
 #' #Get Ticket Offers
 #' api_instance <- TicketApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$TicketOffers(var_versiondata_file = "result.txt")
-#' result <- api_instance$TicketOffers(var_version)
+#' # result <- api_instance$TicketOffers(data_file = "result.txt")
+#' result <- api_instance$TicketOffers()
 #' dput(result)
 #'
 #'
@@ -180,7 +174,6 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Get Ticket Count
     #'
-    #' @param version 
     #' @param device_id (optional) the id of the device that owns the tickets
     #' @param account_id (optional) the id of the account that owns the tickets
     #' @param game_type (optional) this is deprecated.
@@ -191,8 +184,8 @@ TicketApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CountResponse
-    GetTicketCount = function(version, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, ticket_type = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTicketCountWithHttpInfo(version, device_id, account_id, game_type, app_key, ticket_type, data_file = data_file, ..., .parse = .parse)
+    GetTicketCount = function(device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, ticket_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTicketCountWithHttpInfo(device_id, account_id, game_type, app_key, ticket_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -207,7 +200,6 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Get Ticket Count
     #'
-    #' @param version 
     #' @param device_id (optional) the id of the device that owns the tickets
     #' @param account_id (optional) the id of the account that owns the tickets
     #' @param game_type (optional) this is deprecated.
@@ -218,7 +210,7 @@ TicketApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CountResponse) with additional information such as HTTP status code, headers
-    GetTicketCountWithHttpInfo = function(version, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, ticket_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetTicketCountWithHttpInfo = function(device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, ticket_type = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -227,14 +219,6 @@ TicketApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TicketApi$GetTicketCount, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling TicketApi$GetTicketCount, `device_id` is not nullable")
@@ -266,11 +250,7 @@ TicketApi <- R6::R6Class(
 
       query_params[["ticketType"]] <- `ticket_type`
 
-      local_var_url_path <- "/api/{version}/ticket/count"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ticket/count"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -331,7 +311,6 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Get Ticket List
     #'
-    #' @param version 
     #' @param device_id (optional) the id of the device that owns the tickets
     #' @param account_id (optional) the id of the account that owns the tickets
     #' @param ticket_object_type (optional) comma separated list of TicketObjectType
@@ -346,8 +325,8 @@ TicketApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TicketListResponse
-    GetTicketList = function(version, device_id = NULL, account_id = NULL, ticket_object_type = NULL, action_type = NULL, ticket_ids = NULL, object_ids = NULL, receipt_tokens = NULL, game_type = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTicketListWithHttpInfo(version, device_id, account_id, ticket_object_type, action_type, ticket_ids, object_ids, receipt_tokens, game_type, app_key, data_file = data_file, ..., .parse = .parse)
+    GetTicketList = function(device_id = NULL, account_id = NULL, ticket_object_type = NULL, action_type = NULL, ticket_ids = NULL, object_ids = NULL, receipt_tokens = NULL, game_type = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTicketListWithHttpInfo(device_id, account_id, ticket_object_type, action_type, ticket_ids, object_ids, receipt_tokens, game_type, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -362,7 +341,6 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Get Ticket List
     #'
-    #' @param version 
     #' @param device_id (optional) the id of the device that owns the tickets
     #' @param account_id (optional) the id of the account that owns the tickets
     #' @param ticket_object_type (optional) comma separated list of TicketObjectType
@@ -377,7 +355,7 @@ TicketApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TicketListResponse) with additional information such as HTTP status code, headers
-    GetTicketListWithHttpInfo = function(version, device_id = NULL, account_id = NULL, ticket_object_type = NULL, action_type = NULL, ticket_ids = NULL, object_ids = NULL, receipt_tokens = NULL, game_type = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetTicketListWithHttpInfo = function(device_id = NULL, account_id = NULL, ticket_object_type = NULL, action_type = NULL, ticket_ids = NULL, object_ids = NULL, receipt_tokens = NULL, game_type = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -386,14 +364,6 @@ TicketApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TicketApi$GetTicketList, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling TicketApi$GetTicketList, `device_id` is not nullable")
@@ -449,11 +419,7 @@ TicketApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/ticket/getList"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ticket/getList"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -514,7 +480,6 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Gift Tickets
     #'
-    #' @param version 
     #' @param receiver_account_id the id of the account receiving the tickets
     #' @param ticket_id the id of the tickets
     #' @param device_id (optional) the id of the device
@@ -528,8 +493,8 @@ TicketApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    GiftPurchase = function(version, receiver_account_id, ticket_id, device_id = NULL, account_id = NULL, asset_id = NULL, custom_message = NULL, game_type = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GiftPurchaseWithHttpInfo(version, receiver_account_id, ticket_id, device_id, account_id, asset_id, custom_message, game_type, app_key, data_file = data_file, ..., .parse = .parse)
+    GiftPurchase = function(receiver_account_id, ticket_id, device_id = NULL, account_id = NULL, asset_id = NULL, custom_message = NULL, game_type = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GiftPurchaseWithHttpInfo(receiver_account_id, ticket_id, device_id, account_id, asset_id, custom_message, game_type, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -544,7 +509,6 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Gift Tickets
     #'
-    #' @param version 
     #' @param receiver_account_id the id of the account receiving the tickets
     #' @param ticket_id the id of the tickets
     #' @param device_id (optional) the id of the device
@@ -558,7 +522,7 @@ TicketApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    GiftPurchaseWithHttpInfo = function(version, receiver_account_id, ticket_id, device_id = NULL, account_id = NULL, asset_id = NULL, custom_message = NULL, game_type = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GiftPurchaseWithHttpInfo = function(receiver_account_id, ticket_id, device_id = NULL, account_id = NULL, asset_id = NULL, custom_message = NULL, game_type = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -568,20 +532,12 @@ TicketApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`receiver_account_id`)) {
         stop("Missing required parameter `receiver_account_id`.")
       }
 
       if (missing(`ticket_id`)) {
         stop("Missing required parameter `ticket_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TicketApi$GiftPurchase, `version` is not nullable")
       }
 
       if (!missing(`receiver_account_id`) && is.null(`receiver_account_id`)) {
@@ -632,11 +588,7 @@ TicketApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/purchase/gift"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/purchase/gift"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -697,7 +649,6 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Save Ticket
     #'
-    #' @param version 
     #' @param action_type the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
     #' @param ticket_object_type the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
     #' @param return_nulls (optional) whether to return nulls or not
@@ -721,8 +672,8 @@ TicketApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    SaveTicket = function(version, action_type, ticket_object_type, return_nulls = NULL, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, object_id = NULL, purchase_code = NULL, receipt_token = NULL, receipt_data = NULL, count = NULL, ticket_type = NULL, purchase_provider = NULL, purchase_type = NULL, return_profile_response = NULL, include_profile_response = NULL, app_version = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SaveTicketWithHttpInfo(version, action_type, ticket_object_type, return_nulls, device_id, account_id, game_type, app_key, object_id, purchase_code, receipt_token, receipt_data, count, ticket_type, purchase_provider, purchase_type, return_profile_response, include_profile_response, app_version, data_file = data_file, ..., .parse = .parse)
+    SaveTicket = function(action_type, ticket_object_type, return_nulls = NULL, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, object_id = NULL, purchase_code = NULL, receipt_token = NULL, receipt_data = NULL, count = NULL, ticket_type = NULL, purchase_provider = NULL, purchase_type = NULL, return_profile_response = NULL, include_profile_response = NULL, app_version = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SaveTicketWithHttpInfo(action_type, ticket_object_type, return_nulls, device_id, account_id, game_type, app_key, object_id, purchase_code, receipt_token, receipt_data, count, ticket_type, purchase_provider, purchase_type, return_profile_response, include_profile_response, app_version, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -737,7 +688,6 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Save Ticket
     #'
-    #' @param version 
     #' @param action_type the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
     #' @param ticket_object_type the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
     #' @param return_nulls (optional) whether to return nulls or not
@@ -761,7 +711,7 @@ TicketApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    SaveTicketWithHttpInfo = function(version, action_type, ticket_object_type, return_nulls = NULL, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, object_id = NULL, purchase_code = NULL, receipt_token = NULL, receipt_data = NULL, count = NULL, ticket_type = NULL, purchase_provider = NULL, purchase_type = NULL, return_profile_response = NULL, include_profile_response = NULL, app_version = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SaveTicketWithHttpInfo = function(action_type, ticket_object_type, return_nulls = NULL, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, object_id = NULL, purchase_code = NULL, receipt_token = NULL, receipt_data = NULL, count = NULL, ticket_type = NULL, purchase_provider = NULL, purchase_type = NULL, return_profile_response = NULL, include_profile_response = NULL, app_version = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -771,20 +721,12 @@ TicketApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`action_type`)) {
         stop("Missing required parameter `action_type`.")
       }
 
       if (missing(`ticket_object_type`)) {
         stop("Missing required parameter `ticket_object_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TicketApi$SaveTicket, `version` is not nullable")
       }
 
       if (!missing(`action_type`) && is.null(`action_type`)) {
@@ -895,11 +837,7 @@ TicketApi <- R6::R6Class(
 
       query_params[["appVersion"]] <- `app_version`
 
-      local_var_url_path <- "/api/{version}/ticket/save"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ticket/save"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -960,7 +898,6 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Save Ticket with Reciept
     #'
-    #' @param version 
     #' @param action_type the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
     #' @param ticket_object_type the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
     #' @param receipt_data the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -984,8 +921,8 @@ TicketApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    SaveTicketViaFileUpload = function(version, action_type, ticket_object_type, receipt_data, return_nulls = NULL, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, object_id = NULL, purchase_code = NULL, receipt_token = NULL, count = NULL, ticket_type = NULL, purchase_provider = NULL, purchase_type = NULL, return_profile_response = NULL, include_profile_response = NULL, app_version = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SaveTicketViaFileUploadWithHttpInfo(version, action_type, ticket_object_type, receipt_data, return_nulls, device_id, account_id, game_type, app_key, object_id, purchase_code, receipt_token, count, ticket_type, purchase_provider, purchase_type, return_profile_response, include_profile_response, app_version, data_file = data_file, ..., .parse = .parse)
+    SaveTicketViaFileUpload = function(action_type, ticket_object_type, receipt_data, return_nulls = NULL, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, object_id = NULL, purchase_code = NULL, receipt_token = NULL, count = NULL, ticket_type = NULL, purchase_provider = NULL, purchase_type = NULL, return_profile_response = NULL, include_profile_response = NULL, app_version = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SaveTicketViaFileUploadWithHttpInfo(action_type, ticket_object_type, receipt_data, return_nulls, device_id, account_id, game_type, app_key, object_id, purchase_code, receipt_token, count, ticket_type, purchase_provider, purchase_type, return_profile_response, include_profile_response, app_version, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1000,7 +937,6 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Save Ticket with Reciept
     #'
-    #' @param version 
     #' @param action_type the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
     #' @param ticket_object_type the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
     #' @param receipt_data the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -1024,7 +960,7 @@ TicketApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    SaveTicketViaFileUploadWithHttpInfo = function(version, action_type, ticket_object_type, receipt_data, return_nulls = NULL, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, object_id = NULL, purchase_code = NULL, receipt_token = NULL, count = NULL, ticket_type = NULL, purchase_provider = NULL, purchase_type = NULL, return_profile_response = NULL, include_profile_response = NULL, app_version = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SaveTicketViaFileUploadWithHttpInfo = function(action_type, ticket_object_type, receipt_data, return_nulls = NULL, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, object_id = NULL, purchase_code = NULL, receipt_token = NULL, count = NULL, ticket_type = NULL, purchase_provider = NULL, purchase_type = NULL, return_profile_response = NULL, include_profile_response = NULL, app_version = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1033,10 +969,6 @@ TicketApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`action_type`)) {
         stop("Missing required parameter `action_type`.")
@@ -1048,10 +980,6 @@ TicketApi <- R6::R6Class(
 
       if (missing(`receipt_data`)) {
         stop("Missing required parameter `receipt_data`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TicketApi$SaveTicketViaFileUpload, `version` is not nullable")
       }
 
       if (!missing(`action_type`) && is.null(`action_type`)) {
@@ -1162,11 +1090,7 @@ TicketApi <- R6::R6Class(
 
       query_params[["appVersion"]] <- `app_version`
 
-      local_var_url_path <- "/api/{version}/ticket/save/fileUpload"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ticket/save/fileUpload"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1227,14 +1151,13 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Get Ticket Offers
     #'
-    #' @param version 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TicketOfferResponse
-    TicketOffers = function(version, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$TicketOffersWithHttpInfo(version, data_file = data_file, ..., .parse = .parse)
+    TicketOffers = function(data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$TicketOffersWithHttpInfo(data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1249,13 +1172,12 @@ TicketApi <- R6::R6Class(
     #' @description
     #' Get Ticket Offers
     #'
-    #' @param version 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TicketOfferResponse) with additional information such as HTTP status code, headers
-    TicketOffersWithHttpInfo = function(version, data_file = NULL, ..., .parse = TRUE) {
+    TicketOffersWithHttpInfo = function(data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1265,19 +1187,7 @@ TicketApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TicketApi$TicketOffers, `version` is not nullable")
-      }
-
-      local_var_url_path <- "/api/{version}/ticket/ticketoffers"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/ticket/ticketoffers"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

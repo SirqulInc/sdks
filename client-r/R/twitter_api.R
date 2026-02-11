@@ -17,22 +17,20 @@
 #' ####################  AuthorizeTwitter  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | the application key
 #'
 #' #Authorize Twitter
 #' api_instance <- TwitterApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AuthorizeTwitter(var_version, var_app_keydata_file = "result.txt")
-#' result <- api_instance$AuthorizeTwitter(var_version, var_app_key)
+#' # result <- api_instance$AuthorizeTwitter(var_app_keydata_file = "result.txt")
+#' result <- api_instance$AuthorizeTwitter(var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  LoginTwitter  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_access_token <- "access_token_example" # character | The access token
 #' var_access_token_secret <- "access_token_secret_example" # character | The secret access token
 #' var_app_key <- "app_key_example" # character | The application key
@@ -45,8 +43,8 @@
 #' api_instance <- TwitterApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$LoginTwitter(var_version, var_access_token, var_access_token_secret, var_app_key, var_response_filters, device_id = var_device_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$LoginTwitter(var_version, var_access_token, var_access_token_secret, var_app_key, var_response_filters, device_id = var_device_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$LoginTwitter(var_access_token, var_access_token_secret, var_app_key, var_response_filters, device_id = var_device_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$LoginTwitter(var_access_token, var_access_token_secret, var_app_key, var_response_filters, device_id = var_device_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
@@ -74,15 +72,14 @@ TwitterApi <- R6::R6Class(
     #' @description
     #' Authorize Twitter
     #'
-    #' @param version 
     #' @param app_key the application key
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    AuthorizeTwitter = function(version, app_key, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AuthorizeTwitterWithHttpInfo(version, app_key, data_file = data_file, ..., .parse = .parse)
+    AuthorizeTwitter = function(app_key, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AuthorizeTwitterWithHttpInfo(app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -97,14 +94,13 @@ TwitterApi <- R6::R6Class(
     #' @description
     #' Authorize Twitter
     #'
-    #' @param version 
     #' @param app_key the application key
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    AuthorizeTwitterWithHttpInfo = function(version, app_key, data_file = NULL, ..., .parse = TRUE) {
+    AuthorizeTwitterWithHttpInfo = function(app_key, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -114,16 +110,8 @@ TwitterApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TwitterApi$AuthorizeTwitter, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -132,11 +120,7 @@ TwitterApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/twitter/authorize"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/twitter/authorize"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -197,7 +181,6 @@ TwitterApi <- R6::R6Class(
     #' @description
     #' Login Twitter
     #'
-    #' @param version 
     #' @param access_token The access token
     #' @param access_token_secret The secret access token
     #' @param app_key The application key
@@ -210,8 +193,8 @@ TwitterApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    LoginTwitter = function(version, access_token, access_token_secret, app_key, response_filters, device_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$LoginTwitterWithHttpInfo(version, access_token, access_token_secret, app_key, response_filters, device_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    LoginTwitter = function(access_token, access_token_secret, app_key, response_filters, device_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$LoginTwitterWithHttpInfo(access_token, access_token_secret, app_key, response_filters, device_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -226,7 +209,6 @@ TwitterApi <- R6::R6Class(
     #' @description
     #' Login Twitter
     #'
-    #' @param version 
     #' @param access_token The access token
     #' @param access_token_secret The secret access token
     #' @param app_key The application key
@@ -239,7 +221,7 @@ TwitterApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    LoginTwitterWithHttpInfo = function(version, access_token, access_token_secret, app_key, response_filters, device_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    LoginTwitterWithHttpInfo = function(access_token, access_token_secret, app_key, response_filters, device_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -248,10 +230,6 @@ TwitterApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`access_token`)) {
         stop("Missing required parameter `access_token`.")
@@ -267,10 +245,6 @@ TwitterApi <- R6::R6Class(
 
       if (missing(`response_filters`)) {
         stop("Missing required parameter `response_filters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TwitterApi$LoginTwitter, `version` is not nullable")
       }
 
       if (!missing(`access_token`) && is.null(`access_token`)) {
@@ -315,11 +289,7 @@ TwitterApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/twitter/login"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/twitter/login"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

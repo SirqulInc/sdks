@@ -17,22 +17,20 @@
 #' ####################  CheckDisbursements  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_disbursement_id <- 56 # integer | the ID of the disbursement being checked on
 #'
 #' #Check Disbursements
 #' api_instance <- DisbursementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CheckDisbursements(var_version, var_disbursement_iddata_file = "result.txt")
-#' result <- api_instance$CheckDisbursements(var_version, var_disbursement_id)
+#' # result <- api_instance$CheckDisbursements(var_disbursement_iddata_file = "result.txt")
+#' result <- api_instance$CheckDisbursements(var_disbursement_id)
 #' dput(result)
 #'
 #'
 #' ####################  CreateDisbursement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the ID of the logging in user (must be an EXECUTIVE account)
 #' var_receiver_account_id <- 56 # integer | the ID of the account receiving the disbursement
 #' var_original_sender_account_id <- 56 # integer | the ID of the original sender account
@@ -48,15 +46,14 @@
 #' api_instance <- DisbursementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateDisbursement(var_version, var_account_id, var_receiver_account_id, var_original_sender_account_id, var_amount, var_provider, scheduled_date = var_scheduled_date, title = var_title, comment = var_comment, external_id = var_external_id, introspection_params = var_introspection_paramsdata_file = "result.txt")
-#' result <- api_instance$CreateDisbursement(var_version, var_account_id, var_receiver_account_id, var_original_sender_account_id, var_amount, var_provider, scheduled_date = var_scheduled_date, title = var_title, comment = var_comment, external_id = var_external_id, introspection_params = var_introspection_params)
+#' # result <- api_instance$CreateDisbursement(var_account_id, var_receiver_account_id, var_original_sender_account_id, var_amount, var_provider, scheduled_date = var_scheduled_date, title = var_title, comment = var_comment, external_id = var_external_id, introspection_params = var_introspection_paramsdata_file = "result.txt")
+#' result <- api_instance$CreateDisbursement(var_account_id, var_receiver_account_id, var_original_sender_account_id, var_amount, var_provider, scheduled_date = var_scheduled_date, title = var_title, comment = var_comment, external_id = var_external_id, introspection_params = var_introspection_params)
 #' dput(result)
 #'
 #'
 #' ####################  GetDisbursement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_disbursement_id <- 56 # integer | the id of the disbursement
 #'
@@ -64,15 +61,14 @@
 #' api_instance <- DisbursementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetDisbursement(var_version, var_account_id, var_disbursement_iddata_file = "result.txt")
-#' result <- api_instance$GetDisbursement(var_version, var_account_id, var_disbursement_id)
+#' # result <- api_instance$GetDisbursement(var_account_id, var_disbursement_iddata_file = "result.txt")
+#' result <- api_instance$GetDisbursement(var_account_id, var_disbursement_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchDisbursements  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_receiver_account_id <- 56 # integer | filter results by the id of the account receiving the disbursement (Optional)
 #' var_statuses <- "statuses_example" # character | comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (Optional)
@@ -88,15 +84,14 @@
 #' api_instance <- DisbursementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchDisbursements(var_version, var_account_id, receiver_account_id = var_receiver_account_id, statuses = var_statuses, providers = var_providers, before_date = var_before_date, after_date = var_after_date, start = var_start, limit = var_limit, active_only = var_active_only, external_id = var_external_iddata_file = "result.txt")
-#' result <- api_instance$SearchDisbursements(var_version, var_account_id, receiver_account_id = var_receiver_account_id, statuses = var_statuses, providers = var_providers, before_date = var_before_date, after_date = var_after_date, start = var_start, limit = var_limit, active_only = var_active_only, external_id = var_external_id)
+#' # result <- api_instance$SearchDisbursements(var_account_id, receiver_account_id = var_receiver_account_id, statuses = var_statuses, providers = var_providers, before_date = var_before_date, after_date = var_after_date, start = var_start, limit = var_limit, active_only = var_active_only, external_id = var_external_iddata_file = "result.txt")
+#' result <- api_instance$SearchDisbursements(var_account_id, receiver_account_id = var_receiver_account_id, statuses = var_statuses, providers = var_providers, before_date = var_before_date, after_date = var_after_date, start = var_start, limit = var_limit, active_only = var_active_only, external_id = var_external_id)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateDisbursement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_disbursement_id <- 56 # integer | the id of the disbursement being updated
 #' var_amount <- 3.4 # numeric | the disbursement dollar amount being updated (Optional)
@@ -112,8 +107,8 @@
 #' api_instance <- DisbursementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateDisbursement(var_version, var_account_id, var_disbursement_id, amount = var_amount, provider = var_provider, scheduled_date = var_scheduled_date, title = var_title, comment = var_comment, external_id = var_external_id, retry = var_retry, introspection_params = var_introspection_paramsdata_file = "result.txt")
-#' result <- api_instance$UpdateDisbursement(var_version, var_account_id, var_disbursement_id, amount = var_amount, provider = var_provider, scheduled_date = var_scheduled_date, title = var_title, comment = var_comment, external_id = var_external_id, retry = var_retry, introspection_params = var_introspection_params)
+#' # result <- api_instance$UpdateDisbursement(var_account_id, var_disbursement_id, amount = var_amount, provider = var_provider, scheduled_date = var_scheduled_date, title = var_title, comment = var_comment, external_id = var_external_id, retry = var_retry, introspection_params = var_introspection_paramsdata_file = "result.txt")
+#' result <- api_instance$UpdateDisbursement(var_account_id, var_disbursement_id, amount = var_amount, provider = var_provider, scheduled_date = var_scheduled_date, title = var_title, comment = var_comment, external_id = var_external_id, retry = var_retry, introspection_params = var_introspection_params)
 #' dput(result)
 #'
 #'
@@ -141,15 +136,14 @@ DisbursementApi <- R6::R6Class(
     #' @description
     #' Check Disbursements
     #'
-    #' @param version 
     #' @param disbursement_id the ID of the disbursement being checked on
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return DisbursementResponse
-    CheckDisbursements = function(version, disbursement_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CheckDisbursementsWithHttpInfo(version, disbursement_id, data_file = data_file, ..., .parse = .parse)
+    CheckDisbursements = function(disbursement_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CheckDisbursementsWithHttpInfo(disbursement_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -164,14 +158,13 @@ DisbursementApi <- R6::R6Class(
     #' @description
     #' Check Disbursements
     #'
-    #' @param version 
     #' @param disbursement_id the ID of the disbursement being checked on
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (DisbursementResponse) with additional information such as HTTP status code, headers
-    CheckDisbursementsWithHttpInfo = function(version, disbursement_id, data_file = NULL, ..., .parse = TRUE) {
+    CheckDisbursementsWithHttpInfo = function(disbursement_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -181,16 +174,8 @@ DisbursementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`disbursement_id`)) {
         stop("Missing required parameter `disbursement_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling DisbursementApi$CheckDisbursements, `version` is not nullable")
       }
 
       if (!missing(`disbursement_id`) && is.null(`disbursement_id`)) {
@@ -199,11 +184,7 @@ DisbursementApi <- R6::R6Class(
 
       query_params[["disbursementId"]] <- `disbursement_id`
 
-      local_var_url_path <- "/api/{version}/disbursement/check"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/disbursement/check"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -264,7 +245,6 @@ DisbursementApi <- R6::R6Class(
     #' @description
     #' Create Disbursement
     #'
-    #' @param version 
     #' @param account_id the ID of the logging in user (must be an EXECUTIVE account)
     #' @param receiver_account_id the ID of the account receiving the disbursement
     #' @param original_sender_account_id the ID of the original sender account
@@ -280,8 +260,8 @@ DisbursementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return DisbursementResponse
-    CreateDisbursement = function(version, account_id, receiver_account_id, original_sender_account_id, amount, provider, scheduled_date = NULL, title = NULL, comment = NULL, external_id = NULL, introspection_params = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateDisbursementWithHttpInfo(version, account_id, receiver_account_id, original_sender_account_id, amount, provider, scheduled_date, title, comment, external_id, introspection_params, data_file = data_file, ..., .parse = .parse)
+    CreateDisbursement = function(account_id, receiver_account_id, original_sender_account_id, amount, provider, scheduled_date = NULL, title = NULL, comment = NULL, external_id = NULL, introspection_params = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateDisbursementWithHttpInfo(account_id, receiver_account_id, original_sender_account_id, amount, provider, scheduled_date, title, comment, external_id, introspection_params, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -296,7 +276,6 @@ DisbursementApi <- R6::R6Class(
     #' @description
     #' Create Disbursement
     #'
-    #' @param version 
     #' @param account_id the ID of the logging in user (must be an EXECUTIVE account)
     #' @param receiver_account_id the ID of the account receiving the disbursement
     #' @param original_sender_account_id the ID of the original sender account
@@ -312,7 +291,7 @@ DisbursementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (DisbursementResponse) with additional information such as HTTP status code, headers
-    CreateDisbursementWithHttpInfo = function(version, account_id, receiver_account_id, original_sender_account_id, amount, provider, scheduled_date = NULL, title = NULL, comment = NULL, external_id = NULL, introspection_params = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateDisbursementWithHttpInfo = function(account_id, receiver_account_id, original_sender_account_id, amount, provider, scheduled_date = NULL, title = NULL, comment = NULL, external_id = NULL, introspection_params = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -321,10 +300,6 @@ DisbursementApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -344,10 +319,6 @@ DisbursementApi <- R6::R6Class(
 
       if (missing(`provider`)) {
         stop("Missing required parameter `provider`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling DisbursementApi$CreateDisbursement, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -413,11 +384,7 @@ DisbursementApi <- R6::R6Class(
 
       query_params[["introspectionParams"]] <- `introspection_params`
 
-      local_var_url_path <- "/api/{version}/disbursement/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/disbursement/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -478,7 +445,6 @@ DisbursementApi <- R6::R6Class(
     #' @description
     #' Get Disbursement
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param disbursement_id the id of the disbursement
     #' @param data_file (optional) name of the data file to save the result
@@ -486,8 +452,8 @@ DisbursementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return DisbursementResponse
-    GetDisbursement = function(version, account_id, disbursement_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetDisbursementWithHttpInfo(version, account_id, disbursement_id, data_file = data_file, ..., .parse = .parse)
+    GetDisbursement = function(account_id, disbursement_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetDisbursementWithHttpInfo(account_id, disbursement_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -502,7 +468,6 @@ DisbursementApi <- R6::R6Class(
     #' @description
     #' Get Disbursement
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param disbursement_id the id of the disbursement
     #' @param data_file (optional) name of the data file to save the result
@@ -510,7 +475,7 @@ DisbursementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (DisbursementResponse) with additional information such as HTTP status code, headers
-    GetDisbursementWithHttpInfo = function(version, account_id, disbursement_id, data_file = NULL, ..., .parse = TRUE) {
+    GetDisbursementWithHttpInfo = function(account_id, disbursement_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -520,20 +485,12 @@ DisbursementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`disbursement_id`)) {
         stop("Missing required parameter `disbursement_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling DisbursementApi$GetDisbursement, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -548,11 +505,7 @@ DisbursementApi <- R6::R6Class(
 
       query_params[["disbursementId"]] <- `disbursement_id`
 
-      local_var_url_path <- "/api/{version}/disbursement/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/disbursement/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -613,7 +566,6 @@ DisbursementApi <- R6::R6Class(
     #' @description
     #' Search Disbursements
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param receiver_account_id (optional) filter results by the id of the account receiving the disbursement
     #' @param statuses (optional) comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED
@@ -629,8 +581,8 @@ DisbursementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[DisbursementResponse]
-    SearchDisbursements = function(version, account_id, receiver_account_id = NULL, statuses = NULL, providers = NULL, before_date = NULL, after_date = NULL, start = 0, limit = 20, active_only = FALSE, external_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchDisbursementsWithHttpInfo(version, account_id, receiver_account_id, statuses, providers, before_date, after_date, start, limit, active_only, external_id, data_file = data_file, ..., .parse = .parse)
+    SearchDisbursements = function(account_id, receiver_account_id = NULL, statuses = NULL, providers = NULL, before_date = NULL, after_date = NULL, start = 0, limit = 20, active_only = FALSE, external_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchDisbursementsWithHttpInfo(account_id, receiver_account_id, statuses, providers, before_date, after_date, start, limit, active_only, external_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -645,7 +597,6 @@ DisbursementApi <- R6::R6Class(
     #' @description
     #' Search Disbursements
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param receiver_account_id (optional) filter results by the id of the account receiving the disbursement
     #' @param statuses (optional) comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED
@@ -661,7 +612,7 @@ DisbursementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[DisbursementResponse]) with additional information such as HTTP status code, headers
-    SearchDisbursementsWithHttpInfo = function(version, account_id, receiver_account_id = NULL, statuses = NULL, providers = NULL, before_date = NULL, after_date = NULL, start = 0, limit = 20, active_only = FALSE, external_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchDisbursementsWithHttpInfo = function(account_id, receiver_account_id = NULL, statuses = NULL, providers = NULL, before_date = NULL, after_date = NULL, start = 0, limit = 20, active_only = FALSE, external_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -671,16 +622,8 @@ DisbursementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling DisbursementApi$SearchDisbursements, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -743,11 +686,7 @@ DisbursementApi <- R6::R6Class(
 
       query_params[["externalId"]] <- `external_id`
 
-      local_var_url_path <- "/api/{version}/disbursement/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/disbursement/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -808,7 +747,6 @@ DisbursementApi <- R6::R6Class(
     #' @description
     #' Update Disbursement
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param disbursement_id the id of the disbursement being updated
     #' @param amount (optional) the disbursement dollar amount being updated
@@ -824,8 +762,8 @@ DisbursementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return DisbursementResponse
-    UpdateDisbursement = function(version, account_id, disbursement_id, amount = NULL, provider = NULL, scheduled_date = NULL, title = NULL, comment = NULL, external_id = NULL, retry = NULL, introspection_params = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateDisbursementWithHttpInfo(version, account_id, disbursement_id, amount, provider, scheduled_date, title, comment, external_id, retry, introspection_params, data_file = data_file, ..., .parse = .parse)
+    UpdateDisbursement = function(account_id, disbursement_id, amount = NULL, provider = NULL, scheduled_date = NULL, title = NULL, comment = NULL, external_id = NULL, retry = NULL, introspection_params = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateDisbursementWithHttpInfo(account_id, disbursement_id, amount, provider, scheduled_date, title, comment, external_id, retry, introspection_params, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -840,7 +778,6 @@ DisbursementApi <- R6::R6Class(
     #' @description
     #' Update Disbursement
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param disbursement_id the id of the disbursement being updated
     #' @param amount (optional) the disbursement dollar amount being updated
@@ -856,7 +793,7 @@ DisbursementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (DisbursementResponse) with additional information such as HTTP status code, headers
-    UpdateDisbursementWithHttpInfo = function(version, account_id, disbursement_id, amount = NULL, provider = NULL, scheduled_date = NULL, title = NULL, comment = NULL, external_id = NULL, retry = NULL, introspection_params = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateDisbursementWithHttpInfo = function(account_id, disbursement_id, amount = NULL, provider = NULL, scheduled_date = NULL, title = NULL, comment = NULL, external_id = NULL, retry = NULL, introspection_params = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -866,20 +803,12 @@ DisbursementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`disbursement_id`)) {
         stop("Missing required parameter `disbursement_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling DisbursementApi$UpdateDisbursement, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -945,11 +874,7 @@ DisbursementApi <- R6::R6Class(
 
       query_params[["introspectionParams"]] <- `introspection_params`
 
-      local_var_url_path <- "/api/{version}/disbursement/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/disbursement/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

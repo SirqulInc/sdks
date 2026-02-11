@@ -17,7 +17,6 @@
 #' ####################  AddFavorite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_favoritable_id <- 56 # integer | The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
 #' var_favoritable_type <- "favoritable_type_example" # character | The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
 #' var_device_id <- "device_id_example" # character | The unique ID given by the device (deviceId or accountId required) (Optional)
@@ -29,15 +28,14 @@
 #' api_instance <- FavoriteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddFavorite(var_version, var_favoritable_id, var_favoritable_type, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$AddFavorite(var_version, var_favoritable_id, var_favoritable_type, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$AddFavorite(var_favoritable_id, var_favoritable_type, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$AddFavorite(var_favoritable_id, var_favoritable_type, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteFavorite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account ID of the user (deviceId or accountId required) (Optional)
 #' var_favorite_id <- 56 # integer | The ID of the favorite reference record (only optional if favoritableId & favoritableType is pass in instead) (Optional)
@@ -48,15 +46,14 @@
 #' api_instance <- FavoriteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteFavorite(var_version, device_id = var_device_id, account_id = var_account_id, favorite_id = var_favorite_id, favoritable_id = var_favoritable_id, favoritable_type = var_favoritable_typedata_file = "result.txt")
-#' result <- api_instance$DeleteFavorite(var_version, device_id = var_device_id, account_id = var_account_id, favorite_id = var_favorite_id, favoritable_id = var_favoritable_id, favoritable_type = var_favoritable_type)
+#' # result <- api_instance$DeleteFavorite(device_id = var_device_id, account_id = var_account_id, favorite_id = var_favorite_id, favoritable_id = var_favoritable_id, favoritable_type = var_favoritable_typedata_file = "result.txt")
+#' result <- api_instance$DeleteFavorite(device_id = var_device_id, account_id = var_account_id, favorite_id = var_favorite_id, favoritable_id = var_favoritable_id, favoritable_type = var_favoritable_type)
 #' dput(result)
 #'
 #'
 #' ####################  GetFavorite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_favorite_id <- 56 # integer | The ID of the favorite reference record
 #' var_device_id <- "device_id_example" # character | The unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account ID of the user (deviceId or accountId required) (Optional)
@@ -67,15 +64,14 @@
 #' api_instance <- FavoriteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetFavorite(var_version, var_favorite_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetFavorite(var_version, var_favorite_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetFavorite(var_favorite_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetFavorite(var_favorite_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  SearchFavorites  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_favoritable_type <- "favoritable_type_example" # character | The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
 #' var_sort_field <- "sort_field_example" # character | Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
 #' var_descending <- "descending_example" # character | Determines whether the results are in descending order
@@ -95,15 +91,14 @@
 #' api_instance <- FavoriteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchFavorites(var_version, var_favoritable_type, var_sort_field, var_descending, var_start, var_limit, var_active_only, var_return_full_response, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, secondary_type = var_secondary_type, keyword = var_keyword, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$SearchFavorites(var_version, var_favoritable_type, var_sort_field, var_descending, var_start, var_limit, var_active_only, var_return_full_response, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, secondary_type = var_secondary_type, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$SearchFavorites(var_favoritable_type, var_sort_field, var_descending, var_start, var_limit, var_active_only, var_return_full_response, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, secondary_type = var_secondary_type, keyword = var_keyword, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$SearchFavorites(var_favoritable_type, var_sort_field, var_descending, var_start, var_limit, var_active_only, var_return_full_response, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, secondary_type = var_secondary_type, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  WhoHasFavorited  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_favoritable_id <- 56 # integer | The ID of the favoritableType to search on
 #' var_favoritable_type <- "favoritable_type_example" # character | The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
 #' var_start <- 56 # integer | The start index for pagination
@@ -118,8 +113,8 @@
 #' api_instance <- FavoriteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$WhoHasFavorited(var_version, var_favoritable_id, var_favoritable_type, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$WhoHasFavorited(var_version, var_favoritable_id, var_favoritable_type, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword)
+#' # result <- api_instance$WhoHasFavorited(var_favoritable_id, var_favoritable_type, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$WhoHasFavorited(var_favoritable_id, var_favoritable_type, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword)
 #' dput(result)
 #'
 #'
@@ -147,7 +142,6 @@ FavoriteApi <- R6::R6Class(
     #' @description
     #' Create Favorite
     #'
-    #' @param version 
     #' @param favoritable_id The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
     #' @param favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
     #' @param device_id (optional) The unique ID given by the device (deviceId or accountId required)
@@ -159,8 +153,8 @@ FavoriteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return WrappedResponse
-    AddFavorite = function(version, favoritable_id, favoritable_type, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddFavoriteWithHttpInfo(version, favoritable_id, favoritable_type, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    AddFavorite = function(favoritable_id, favoritable_type, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddFavoriteWithHttpInfo(favoritable_id, favoritable_type, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -175,7 +169,6 @@ FavoriteApi <- R6::R6Class(
     #' @description
     #' Create Favorite
     #'
-    #' @param version 
     #' @param favoritable_id The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
     #' @param favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
     #' @param device_id (optional) The unique ID given by the device (deviceId or accountId required)
@@ -187,7 +180,7 @@ FavoriteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (WrappedResponse) with additional information such as HTTP status code, headers
-    AddFavoriteWithHttpInfo = function(version, favoritable_id, favoritable_type, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddFavoriteWithHttpInfo = function(favoritable_id, favoritable_type, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -197,20 +190,12 @@ FavoriteApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`favoritable_id`)) {
         stop("Missing required parameter `favoritable_id`.")
       }
 
       if (missing(`favoritable_type`)) {
         stop("Missing required parameter `favoritable_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FavoriteApi$AddFavorite, `version` is not nullable")
       }
 
       if (!missing(`favoritable_id`) && is.null(`favoritable_id`)) {
@@ -249,11 +234,7 @@ FavoriteApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/favorite/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/favorite/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -314,7 +295,6 @@ FavoriteApi <- R6::R6Class(
     #' @description
     #' Delete Favorite
     #'
-    #' @param version 
     #' @param device_id (optional) The unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) The account ID of the user (deviceId or accountId required)
     #' @param favorite_id (optional) The ID of the favorite reference record (only optional if favoritableId & favoritableType is pass in instead)
@@ -325,8 +305,8 @@ FavoriteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteFavorite = function(version, device_id = NULL, account_id = NULL, favorite_id = NULL, favoritable_id = NULL, favoritable_type = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteFavoriteWithHttpInfo(version, device_id, account_id, favorite_id, favoritable_id, favoritable_type, data_file = data_file, ..., .parse = .parse)
+    DeleteFavorite = function(device_id = NULL, account_id = NULL, favorite_id = NULL, favoritable_id = NULL, favoritable_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteFavoriteWithHttpInfo(device_id, account_id, favorite_id, favoritable_id, favoritable_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -341,7 +321,6 @@ FavoriteApi <- R6::R6Class(
     #' @description
     #' Delete Favorite
     #'
-    #' @param version 
     #' @param device_id (optional) The unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) The account ID of the user (deviceId or accountId required)
     #' @param favorite_id (optional) The ID of the favorite reference record (only optional if favoritableId & favoritableType is pass in instead)
@@ -352,7 +331,7 @@ FavoriteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteFavoriteWithHttpInfo = function(version, device_id = NULL, account_id = NULL, favorite_id = NULL, favoritable_id = NULL, favoritable_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteFavoriteWithHttpInfo = function(device_id = NULL, account_id = NULL, favorite_id = NULL, favoritable_id = NULL, favoritable_type = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -361,14 +340,6 @@ FavoriteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FavoriteApi$DeleteFavorite, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling FavoriteApi$DeleteFavorite, `device_id` is not nullable")
@@ -400,11 +371,7 @@ FavoriteApi <- R6::R6Class(
 
       query_params[["favoritableType"]] <- `favoritable_type`
 
-      local_var_url_path <- "/api/{version}/favorite/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/favorite/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -465,7 +432,6 @@ FavoriteApi <- R6::R6Class(
     #' @description
     #' Get Favorite
     #'
-    #' @param version 
     #' @param favorite_id The ID of the favorite reference record
     #' @param device_id (optional) The unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) The account ID of the user (deviceId or accountId required)
@@ -476,8 +442,8 @@ FavoriteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return WrappedResponse
-    GetFavorite = function(version, favorite_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetFavoriteWithHttpInfo(version, favorite_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetFavorite = function(favorite_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetFavoriteWithHttpInfo(favorite_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -492,7 +458,6 @@ FavoriteApi <- R6::R6Class(
     #' @description
     #' Get Favorite
     #'
-    #' @param version 
     #' @param favorite_id The ID of the favorite reference record
     #' @param device_id (optional) The unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) The account ID of the user (deviceId or accountId required)
@@ -503,7 +468,7 @@ FavoriteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (WrappedResponse) with additional information such as HTTP status code, headers
-    GetFavoriteWithHttpInfo = function(version, favorite_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetFavoriteWithHttpInfo = function(favorite_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -513,16 +478,8 @@ FavoriteApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`favorite_id`)) {
         stop("Missing required parameter `favorite_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FavoriteApi$GetFavorite, `version` is not nullable")
       }
 
       if (!missing(`favorite_id`) && is.null(`favorite_id`)) {
@@ -555,11 +512,7 @@ FavoriteApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/favorite/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/favorite/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -620,7 +573,6 @@ FavoriteApi <- R6::R6Class(
     #' @description
     #' Search Favorites
     #'
-    #' @param version 
     #' @param favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
     #' @param sort_field Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
     #' @param descending Determines whether the results are in descending order
@@ -640,8 +592,8 @@ FavoriteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SearchResponse
-    SearchFavorites = function(version, favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, device_id = NULL, account_id = NULL, connection_account_id = NULL, secondary_type = NULL, keyword = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchFavoritesWithHttpInfo(version, favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, device_id, account_id, connection_account_id, secondary_type, keyword, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    SearchFavorites = function(favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, device_id = NULL, account_id = NULL, connection_account_id = NULL, secondary_type = NULL, keyword = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchFavoritesWithHttpInfo(favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, device_id, account_id, connection_account_id, secondary_type, keyword, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -656,7 +608,6 @@ FavoriteApi <- R6::R6Class(
     #' @description
     #' Search Favorites
     #'
-    #' @param version 
     #' @param favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
     #' @param sort_field Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
     #' @param descending Determines whether the results are in descending order
@@ -676,7 +627,7 @@ FavoriteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SearchResponse) with additional information such as HTTP status code, headers
-    SearchFavoritesWithHttpInfo = function(version, favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, device_id = NULL, account_id = NULL, connection_account_id = NULL, secondary_type = NULL, keyword = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchFavoritesWithHttpInfo = function(favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, device_id = NULL, account_id = NULL, connection_account_id = NULL, secondary_type = NULL, keyword = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -685,10 +636,6 @@ FavoriteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`favoritable_type`)) {
         stop("Missing required parameter `favoritable_type`.")
@@ -716,10 +663,6 @@ FavoriteApi <- R6::R6Class(
 
       if (missing(`return_full_response`)) {
         stop("Missing required parameter `return_full_response`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FavoriteApi$SearchFavorites, `version` is not nullable")
       }
 
       if (!missing(`favoritable_type`) && is.null(`favoritable_type`)) {
@@ -809,11 +752,7 @@ FavoriteApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/favorite/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/favorite/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -874,7 +813,6 @@ FavoriteApi <- R6::R6Class(
     #' @description
     #' Who has Favorited
     #'
-    #' @param version 
     #' @param favoritable_id The ID of the favoritableType to search on
     #' @param favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
     #' @param start The start index for pagination
@@ -889,8 +827,8 @@ FavoriteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AccountResponse]
-    WhoHasFavorited = function(version, favoritable_id, favoritable_type, start, limit, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$WhoHasFavoritedWithHttpInfo(version, favoritable_id, favoritable_type, start, limit, device_id, account_id, latitude, longitude, keyword, data_file = data_file, ..., .parse = .parse)
+    WhoHasFavorited = function(favoritable_id, favoritable_type, start, limit, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$WhoHasFavoritedWithHttpInfo(favoritable_id, favoritable_type, start, limit, device_id, account_id, latitude, longitude, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -905,7 +843,6 @@ FavoriteApi <- R6::R6Class(
     #' @description
     #' Who has Favorited
     #'
-    #' @param version 
     #' @param favoritable_id The ID of the favoritableType to search on
     #' @param favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
     #' @param start The start index for pagination
@@ -920,7 +857,7 @@ FavoriteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AccountResponse]) with additional information such as HTTP status code, headers
-    WhoHasFavoritedWithHttpInfo = function(version, favoritable_id, favoritable_type, start, limit, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    WhoHasFavoritedWithHttpInfo = function(favoritable_id, favoritable_type, start, limit, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -929,10 +866,6 @@ FavoriteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`favoritable_id`)) {
         stop("Missing required parameter `favoritable_id`.")
@@ -948,10 +881,6 @@ FavoriteApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FavoriteApi$WhoHasFavorited, `version` is not nullable")
       }
 
       if (!missing(`favoritable_id`) && is.null(`favoritable_id`)) {
@@ -1008,11 +937,7 @@ FavoriteApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/favorite/whois"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/favorite/whois"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

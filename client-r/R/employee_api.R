@@ -17,7 +17,6 @@
 #' ####################  AssignEmployee  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_manager_account_id <- 56 # integer | The account id of the manager to assign under
 #' var_employee_account_id <- 56 # integer | The account id of the user to be assigned as employee
@@ -27,15 +26,14 @@
 #' api_instance <- EmployeeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignEmployee(var_version, var_account_id, var_manager_account_id, var_employee_account_id, role = var_roledata_file = "result.txt")
-#' result <- api_instance$AssignEmployee(var_version, var_account_id, var_manager_account_id, var_employee_account_id, role = var_role)
+#' # result <- api_instance$AssignEmployee(var_account_id, var_manager_account_id, var_employee_account_id, role = var_roledata_file = "result.txt")
+#' result <- api_instance$AssignEmployee(var_account_id, var_manager_account_id, var_employee_account_id, role = var_role)
 #' dput(result)
 #'
 #'
 #' ####################  AssignToLocationEmployee  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_retailer_location_id <- 56 # integer | The retailer location to apply the change to
 #' var_employee_account_id <- 56 # integer | The account id of the user to apply the change to (Optional)
@@ -45,15 +43,14 @@
 #' api_instance <- EmployeeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssignToLocationEmployee(var_version, var_account_id, var_retailer_location_id, employee_account_id = var_employee_account_id, assign = var_assigndata_file = "result.txt")
-#' result <- api_instance$AssignToLocationEmployee(var_version, var_account_id, var_retailer_location_id, employee_account_id = var_employee_account_id, assign = var_assign)
+#' # result <- api_instance$AssignToLocationEmployee(var_account_id, var_retailer_location_id, employee_account_id = var_employee_account_id, assign = var_assigndata_file = "result.txt")
+#' result <- api_instance$AssignToLocationEmployee(var_account_id, var_retailer_location_id, employee_account_id = var_employee_account_id, assign = var_assign)
 #' dput(result)
 #'
 #'
 #' ####################  CreateEmployee  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_manager_account_id <- 56 # integer | The account id of the manager to assign under
 #' var_username <- "username_example" # character | The username/email for the new user. This must be unique across the entire the system.
@@ -89,15 +86,14 @@
 #' api_instance <- EmployeeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateEmployee(var_version, var_account_id, var_manager_account_id, var_username, var_password, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, about_us = var_about_us, asset_id = var_asset_id, gender = var_gender, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, role = var_role, retailer_location_ids = var_retailer_location_ids, settings_app_key = var_settings_app_key, app_blob = var_app_blob, assigned_device_id = var_assigned_device_iddata_file = "result.txt")
-#' result <- api_instance$CreateEmployee(var_version, var_account_id, var_manager_account_id, var_username, var_password, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, about_us = var_about_us, asset_id = var_asset_id, gender = var_gender, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, role = var_role, retailer_location_ids = var_retailer_location_ids, settings_app_key = var_settings_app_key, app_blob = var_app_blob, assigned_device_id = var_assigned_device_id)
+#' # result <- api_instance$CreateEmployee(var_account_id, var_manager_account_id, var_username, var_password, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, about_us = var_about_us, asset_id = var_asset_id, gender = var_gender, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, role = var_role, retailer_location_ids = var_retailer_location_ids, settings_app_key = var_settings_app_key, app_blob = var_app_blob, assigned_device_id = var_assigned_device_iddata_file = "result.txt")
+#' result <- api_instance$CreateEmployee(var_account_id, var_manager_account_id, var_username, var_password, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, about_us = var_about_us, asset_id = var_asset_id, gender = var_gender, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, role = var_role, retailer_location_ids = var_retailer_location_ids, settings_app_key = var_settings_app_key, app_blob = var_app_blob, assigned_device_id = var_assigned_device_id)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteEmployee  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_employee_account_id <- 56 # integer | the id of the employee to delete
 #'
@@ -105,15 +101,14 @@
 #' api_instance <- EmployeeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteEmployee(var_version, var_account_id, var_employee_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteEmployee(var_version, var_account_id, var_employee_account_id)
+#' # result <- api_instance$DeleteEmployee(var_account_id, var_employee_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteEmployee(var_account_id, var_employee_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetEmployee  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of logged in user
 #' var_employee_account_id <- 56 # integer | the id of the employee account to get
 #' var_settings_app_key <- "settings_app_key_example" # character | Determines whether to return the application settings for the employee for a particular application (Optional)
@@ -122,15 +117,14 @@
 #' api_instance <- EmployeeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetEmployee(var_version, var_account_id, var_employee_account_id, settings_app_key = var_settings_app_keydata_file = "result.txt")
-#' result <- api_instance$GetEmployee(var_version, var_account_id, var_employee_account_id, settings_app_key = var_settings_app_key)
+#' # result <- api_instance$GetEmployee(var_account_id, var_employee_account_id, settings_app_key = var_settings_app_keydata_file = "result.txt")
+#' result <- api_instance$GetEmployee(var_account_id, var_employee_account_id, settings_app_key = var_settings_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  SearchEmployees  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_role <- "role_example" # character | The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (Optional)
 #' var_retailer_id <- 56 # integer | Filters employees by retailer (Optional)
@@ -153,15 +147,14 @@
 #' api_instance <- EmployeeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchEmployees(var_version, var_account_id, role = var_role, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, active_only = var_active_only, managed_only = var_managed_only, settings_app_key = var_settings_app_key, category_ids = var_category_ids, query = var_querydata_file = "result.txt")
-#' result <- api_instance$SearchEmployees(var_version, var_account_id, role = var_role, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, active_only = var_active_only, managed_only = var_managed_only, settings_app_key = var_settings_app_key, category_ids = var_category_ids, query = var_query)
+#' # result <- api_instance$SearchEmployees(var_account_id, role = var_role, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, active_only = var_active_only, managed_only = var_managed_only, settings_app_key = var_settings_app_key, category_ids = var_category_ids, query = var_querydata_file = "result.txt")
+#' result <- api_instance$SearchEmployees(var_account_id, role = var_role, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, start = var_start, _l = var__l, limit = var_limit, active_only = var_active_only, managed_only = var_managed_only, settings_app_key = var_settings_app_key, category_ids = var_category_ids, query = var_query)
 #' dput(result)
 #'
 #'
 #' ####################  UnassignEmployee  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_employee_account_id <- 56 # integer | The account id of the user to be unassigned
 #'
@@ -169,15 +162,14 @@
 #' api_instance <- EmployeeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UnassignEmployee(var_version, var_account_id, var_employee_account_iddata_file = "result.txt")
-#' result <- api_instance$UnassignEmployee(var_version, var_account_id, var_employee_account_id)
+#' # result <- api_instance$UnassignEmployee(var_account_id, var_employee_account_iddata_file = "result.txt")
+#' result <- api_instance$UnassignEmployee(var_account_id, var_employee_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateEmployee  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_employee_account_id <- 56 # integer | the id of the employee account
 #' var_manager_account_id <- 56 # integer | The account id of the manager to assign under (Optional)
@@ -213,8 +205,8 @@
 #' api_instance <- EmployeeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateEmployee(var_version, var_account_id, var_employee_account_id, manager_account_id = var_manager_account_id, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, asset_id = var_asset_id, gender = var_gender, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, role = var_role, active = var_active, password = var_password, retailer_location_ids = var_retailer_location_ids, settings_app_key = var_settings_app_key, app_blob = var_app_blob, assigned_device_id = var_assigned_device_iddata_file = "result.txt")
-#' result <- api_instance$UpdateEmployee(var_version, var_account_id, var_employee_account_id, manager_account_id = var_manager_account_id, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, asset_id = var_asset_id, gender = var_gender, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, role = var_role, active = var_active, password = var_password, retailer_location_ids = var_retailer_location_ids, settings_app_key = var_settings_app_key, app_blob = var_app_blob, assigned_device_id = var_assigned_device_id)
+#' # result <- api_instance$UpdateEmployee(var_account_id, var_employee_account_id, manager_account_id = var_manager_account_id, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, asset_id = var_asset_id, gender = var_gender, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, role = var_role, active = var_active, password = var_password, retailer_location_ids = var_retailer_location_ids, settings_app_key = var_settings_app_key, app_blob = var_app_blob, assigned_device_id = var_assigned_device_iddata_file = "result.txt")
+#' result <- api_instance$UpdateEmployee(var_account_id, var_employee_account_id, manager_account_id = var_manager_account_id, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, asset_id = var_asset_id, gender = var_gender, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, role = var_role, active = var_active, password = var_password, retailer_location_ids = var_retailer_location_ids, settings_app_key = var_settings_app_key, app_blob = var_app_blob, assigned_device_id = var_assigned_device_id)
 #' dput(result)
 #'
 #'
@@ -242,7 +234,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Assign Employee
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param manager_account_id The account id of the manager to assign under
     #' @param employee_account_id The account id of the user to be assigned as employee
@@ -252,8 +243,8 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return EmployeeResponse
-    AssignEmployee = function(version, account_id, manager_account_id, employee_account_id, role = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignEmployeeWithHttpInfo(version, account_id, manager_account_id, employee_account_id, role, data_file = data_file, ..., .parse = .parse)
+    AssignEmployee = function(account_id, manager_account_id, employee_account_id, role = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignEmployeeWithHttpInfo(account_id, manager_account_id, employee_account_id, role, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -268,7 +259,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Assign Employee
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param manager_account_id The account id of the manager to assign under
     #' @param employee_account_id The account id of the user to be assigned as employee
@@ -278,7 +268,7 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (EmployeeResponse) with additional information such as HTTP status code, headers
-    AssignEmployeeWithHttpInfo = function(version, account_id, manager_account_id, employee_account_id, role = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AssignEmployeeWithHttpInfo = function(account_id, manager_account_id, employee_account_id, role = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -287,10 +277,6 @@ EmployeeApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -302,10 +288,6 @@ EmployeeApi <- R6::R6Class(
 
       if (missing(`employee_account_id`)) {
         stop("Missing required parameter `employee_account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EmployeeApi$AssignEmployee, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -332,11 +314,7 @@ EmployeeApi <- R6::R6Class(
 
       query_params[["role"]] <- `role`
 
-      local_var_url_path <- "/api/{version}/employee/assign"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/employee/assign"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -397,7 +375,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Assign Employee to Location
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param retailer_location_id The retailer location to apply the change to
     #' @param employee_account_id (optional) The account id of the user to apply the change to
@@ -407,8 +384,8 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    AssignToLocationEmployee = function(version, account_id, retailer_location_id, employee_account_id = NULL, assign = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssignToLocationEmployeeWithHttpInfo(version, account_id, retailer_location_id, employee_account_id, assign, data_file = data_file, ..., .parse = .parse)
+    AssignToLocationEmployee = function(account_id, retailer_location_id, employee_account_id = NULL, assign = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssignToLocationEmployeeWithHttpInfo(account_id, retailer_location_id, employee_account_id, assign, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -423,7 +400,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Assign Employee to Location
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param retailer_location_id The retailer location to apply the change to
     #' @param employee_account_id (optional) The account id of the user to apply the change to
@@ -433,7 +409,7 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    AssignToLocationEmployeeWithHttpInfo = function(version, account_id, retailer_location_id, employee_account_id = NULL, assign = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    AssignToLocationEmployeeWithHttpInfo = function(account_id, retailer_location_id, employee_account_id = NULL, assign = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -443,20 +419,12 @@ EmployeeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`retailer_location_id`)) {
         stop("Missing required parameter `retailer_location_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EmployeeApi$AssignToLocationEmployee, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -483,11 +451,7 @@ EmployeeApi <- R6::R6Class(
 
       query_params[["assign"]] <- `assign`
 
-      local_var_url_path <- "/api/{version}/employee/assignToLocation"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/employee/assignToLocation"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -548,7 +512,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Create Employee
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param manager_account_id The account id of the manager to assign under
     #' @param username The username/email for the new user. This must be unique across the entire the system.
@@ -584,8 +547,8 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return EmployeeResponse
-    CreateEmployee = function(version, account_id, manager_account_id, username, password, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, about_us = NULL, asset_id = NULL, gender = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, role = NULL, retailer_location_ids = NULL, settings_app_key = NULL, app_blob = NULL, assigned_device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateEmployeeWithHttpInfo(version, account_id, manager_account_id, username, password, name, prefix_name, first_name, middle_name, last_name, suffix_name, title, about_us, asset_id, gender, home_phone, cell_phone, cell_phone_carrier, business_phone, email_address, street_address, street_address2, city, state, zipcode, country, role, retailer_location_ids, settings_app_key, app_blob, assigned_device_id, data_file = data_file, ..., .parse = .parse)
+    CreateEmployee = function(account_id, manager_account_id, username, password, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, about_us = NULL, asset_id = NULL, gender = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, role = NULL, retailer_location_ids = NULL, settings_app_key = NULL, app_blob = NULL, assigned_device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateEmployeeWithHttpInfo(account_id, manager_account_id, username, password, name, prefix_name, first_name, middle_name, last_name, suffix_name, title, about_us, asset_id, gender, home_phone, cell_phone, cell_phone_carrier, business_phone, email_address, street_address, street_address2, city, state, zipcode, country, role, retailer_location_ids, settings_app_key, app_blob, assigned_device_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -600,7 +563,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Create Employee
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param manager_account_id The account id of the manager to assign under
     #' @param username The username/email for the new user. This must be unique across the entire the system.
@@ -636,7 +598,7 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (EmployeeResponse) with additional information such as HTTP status code, headers
-    CreateEmployeeWithHttpInfo = function(version, account_id, manager_account_id, username, password, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, about_us = NULL, asset_id = NULL, gender = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, role = NULL, retailer_location_ids = NULL, settings_app_key = NULL, app_blob = NULL, assigned_device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateEmployeeWithHttpInfo = function(account_id, manager_account_id, username, password, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, about_us = NULL, asset_id = NULL, gender = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, role = NULL, retailer_location_ids = NULL, settings_app_key = NULL, app_blob = NULL, assigned_device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -645,10 +607,6 @@ EmployeeApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -664,10 +622,6 @@ EmployeeApi <- R6::R6Class(
 
       if (missing(`password`)) {
         stop("Missing required parameter `password`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EmployeeApi$CreateEmployee, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -853,11 +807,7 @@ EmployeeApi <- R6::R6Class(
 
       query_params[["assignedDeviceId"]] <- `assigned_device_id`
 
-      local_var_url_path <- "/api/{version}/employee/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/employee/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -918,7 +868,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Delete Employee
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param employee_account_id the id of the employee to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -926,8 +875,8 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteEmployee = function(version, account_id, employee_account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteEmployeeWithHttpInfo(version, account_id, employee_account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteEmployee = function(account_id, employee_account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteEmployeeWithHttpInfo(account_id, employee_account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -942,7 +891,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Delete Employee
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param employee_account_id the id of the employee to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -950,7 +898,7 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteEmployeeWithHttpInfo = function(version, account_id, employee_account_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteEmployeeWithHttpInfo = function(account_id, employee_account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -960,20 +908,12 @@ EmployeeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`employee_account_id`)) {
         stop("Missing required parameter `employee_account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EmployeeApi$DeleteEmployee, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -988,11 +928,7 @@ EmployeeApi <- R6::R6Class(
 
       query_params[["employeeAccountId"]] <- `employee_account_id`
 
-      local_var_url_path <- "/api/{version}/employee/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/employee/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1053,7 +989,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Get Employee
     #'
-    #' @param version 
     #' @param account_id the id of logged in user
     #' @param employee_account_id the id of the employee account to get
     #' @param settings_app_key (optional) Determines whether to return the application settings for the employee for a particular application
@@ -1062,8 +997,8 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return EmployeeResponse
-    GetEmployee = function(version, account_id, employee_account_id, settings_app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetEmployeeWithHttpInfo(version, account_id, employee_account_id, settings_app_key, data_file = data_file, ..., .parse = .parse)
+    GetEmployee = function(account_id, employee_account_id, settings_app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetEmployeeWithHttpInfo(account_id, employee_account_id, settings_app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1078,7 +1013,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Get Employee
     #'
-    #' @param version 
     #' @param account_id the id of logged in user
     #' @param employee_account_id the id of the employee account to get
     #' @param settings_app_key (optional) Determines whether to return the application settings for the employee for a particular application
@@ -1087,7 +1021,7 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (EmployeeResponse) with additional information such as HTTP status code, headers
-    GetEmployeeWithHttpInfo = function(version, account_id, employee_account_id, settings_app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetEmployeeWithHttpInfo = function(account_id, employee_account_id, settings_app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1097,20 +1031,12 @@ EmployeeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`employee_account_id`)) {
         stop("Missing required parameter `employee_account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EmployeeApi$GetEmployee, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1131,11 +1057,7 @@ EmployeeApi <- R6::R6Class(
 
       query_params[["settingsAppKey"]] <- `settings_app_key`
 
-      local_var_url_path <- "/api/{version}/employee/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/employee/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1196,7 +1118,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Search Employees
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param role (optional) The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
     #' @param retailer_id (optional) Filters employees by retailer
@@ -1219,8 +1140,8 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[EmployeeResponse]
-    SearchEmployees = function(version, account_id, role = NULL, retailer_id = NULL, retailer_location_id = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = FALSE, _i = NULL, start = 0, _l = NULL, limit = 20, active_only = TRUE, managed_only = NULL, settings_app_key = NULL, category_ids = NULL, query = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchEmployeesWithHttpInfo(version, account_id, role, retailer_id, retailer_location_id, q, keyword, sort_field, descending, _i, start, _l, limit, active_only, managed_only, settings_app_key, category_ids, query, data_file = data_file, ..., .parse = .parse)
+    SearchEmployees = function(account_id, role = NULL, retailer_id = NULL, retailer_location_id = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = FALSE, _i = NULL, start = 0, _l = NULL, limit = 20, active_only = TRUE, managed_only = NULL, settings_app_key = NULL, category_ids = NULL, query = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchEmployeesWithHttpInfo(account_id, role, retailer_id, retailer_location_id, q, keyword, sort_field, descending, _i, start, _l, limit, active_only, managed_only, settings_app_key, category_ids, query, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1235,7 +1156,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Search Employees
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param role (optional) The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
     #' @param retailer_id (optional) Filters employees by retailer
@@ -1258,7 +1178,7 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[EmployeeResponse]) with additional information such as HTTP status code, headers
-    SearchEmployeesWithHttpInfo = function(version, account_id, role = NULL, retailer_id = NULL, retailer_location_id = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = FALSE, _i = NULL, start = 0, _l = NULL, limit = 20, active_only = TRUE, managed_only = NULL, settings_app_key = NULL, category_ids = NULL, query = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchEmployeesWithHttpInfo = function(account_id, role = NULL, retailer_id = NULL, retailer_location_id = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = FALSE, _i = NULL, start = 0, _l = NULL, limit = 20, active_only = TRUE, managed_only = NULL, settings_app_key = NULL, category_ids = NULL, query = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1268,16 +1188,8 @@ EmployeeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EmployeeApi$SearchEmployees, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1385,11 +1297,7 @@ EmployeeApi <- R6::R6Class(
 
       query_params[["query"]] <- `query`
 
-      local_var_url_path <- "/api/{version}/employee/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/employee/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1450,7 +1358,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Unassign Employee
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param employee_account_id The account id of the user to be unassigned
     #' @param data_file (optional) name of the data file to save the result
@@ -1458,8 +1365,8 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return EmployeeResponse
-    UnassignEmployee = function(version, account_id, employee_account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UnassignEmployeeWithHttpInfo(version, account_id, employee_account_id, data_file = data_file, ..., .parse = .parse)
+    UnassignEmployee = function(account_id, employee_account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UnassignEmployeeWithHttpInfo(account_id, employee_account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1474,7 +1381,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Unassign Employee
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param employee_account_id The account id of the user to be unassigned
     #' @param data_file (optional) name of the data file to save the result
@@ -1482,7 +1388,7 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (EmployeeResponse) with additional information such as HTTP status code, headers
-    UnassignEmployeeWithHttpInfo = function(version, account_id, employee_account_id, data_file = NULL, ..., .parse = TRUE) {
+    UnassignEmployeeWithHttpInfo = function(account_id, employee_account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1492,20 +1398,12 @@ EmployeeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`employee_account_id`)) {
         stop("Missing required parameter `employee_account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EmployeeApi$UnassignEmployee, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1520,11 +1418,7 @@ EmployeeApi <- R6::R6Class(
 
       query_params[["employeeAccountId"]] <- `employee_account_id`
 
-      local_var_url_path <- "/api/{version}/employee/unassign"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/employee/unassign"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1585,7 +1479,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Update Employee
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param employee_account_id the id of the employee account
     #' @param manager_account_id (optional) The account id of the manager to assign under
@@ -1621,8 +1514,8 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return EmployeeResponse
-    UpdateEmployee = function(version, account_id, employee_account_id, manager_account_id = NULL, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, asset_id = NULL, gender = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, role = NULL, active = NULL, password = NULL, retailer_location_ids = NULL, settings_app_key = NULL, app_blob = NULL, assigned_device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateEmployeeWithHttpInfo(version, account_id, employee_account_id, manager_account_id, name, prefix_name, first_name, middle_name, last_name, suffix_name, title, asset_id, gender, home_phone, cell_phone, cell_phone_carrier, business_phone, email_address, street_address, street_address2, city, state, zipcode, country, role, active, password, retailer_location_ids, settings_app_key, app_blob, assigned_device_id, data_file = data_file, ..., .parse = .parse)
+    UpdateEmployee = function(account_id, employee_account_id, manager_account_id = NULL, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, asset_id = NULL, gender = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, role = NULL, active = NULL, password = NULL, retailer_location_ids = NULL, settings_app_key = NULL, app_blob = NULL, assigned_device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateEmployeeWithHttpInfo(account_id, employee_account_id, manager_account_id, name, prefix_name, first_name, middle_name, last_name, suffix_name, title, asset_id, gender, home_phone, cell_phone, cell_phone_carrier, business_phone, email_address, street_address, street_address2, city, state, zipcode, country, role, active, password, retailer_location_ids, settings_app_key, app_blob, assigned_device_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1637,7 +1530,6 @@ EmployeeApi <- R6::R6Class(
     #' @description
     #' Update Employee
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param employee_account_id the id of the employee account
     #' @param manager_account_id (optional) The account id of the manager to assign under
@@ -1673,7 +1565,7 @@ EmployeeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (EmployeeResponse) with additional information such as HTTP status code, headers
-    UpdateEmployeeWithHttpInfo = function(version, account_id, employee_account_id, manager_account_id = NULL, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, asset_id = NULL, gender = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, role = NULL, active = NULL, password = NULL, retailer_location_ids = NULL, settings_app_key = NULL, app_blob = NULL, assigned_device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateEmployeeWithHttpInfo = function(account_id, employee_account_id, manager_account_id = NULL, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, asset_id = NULL, gender = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, role = NULL, active = NULL, password = NULL, retailer_location_ids = NULL, settings_app_key = NULL, app_blob = NULL, assigned_device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1683,20 +1575,12 @@ EmployeeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`employee_account_id`)) {
         stop("Missing required parameter `employee_account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EmployeeApi$UpdateEmployee, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1882,11 +1766,7 @@ EmployeeApi <- R6::R6Class(
 
       query_params[["assignedDeviceId"]] <- `assigned_device_id`
 
-      local_var_url_path <- "/api/{version}/employee/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/employee/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

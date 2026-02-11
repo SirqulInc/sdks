@@ -17,7 +17,6 @@
 #' ####################  AddOrUpdateThemeDescriptor  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_public_read <- "public_read_example" # character | determines whether the theme's participants have read permissions
 #' var_public_write <- "public_write_example" # character | determines whether the theme's participants have write permissions
 #' var_public_delete <- "public_delete_example" # character | determines whether the theme's participants have delete permissions
@@ -50,15 +49,14 @@
 #' api_instance <- ThemeDescriptorApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddOrUpdateThemeDescriptor(var_version, var_public_read, var_public_write, var_public_delete, var_public_add, var_visibility, var_include_friend_group, var_complete_with_default_values, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, theme_descriptor_id = var_theme_descriptor_id, title = var_title, description = var_description, connection_ids_to_add = var_connection_ids_to_add, connection_group_ids_to_add = var_connection_group_ids_to_add, app_version = var_app_version, color_value_json = var_color_value_json, string_replacer_json = var_string_replacer_json, custom_json_objects = var_custom_json_objects, icon_image = var_icon_image, scene_atlas_image = var_scene_atlas_image, bg_image = var_bg_image, bg_sound = var_bg_sound, music_selection = var_music_selection, location_description = var_location_description, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$AddOrUpdateThemeDescriptor(var_version, var_public_read, var_public_write, var_public_delete, var_public_add, var_visibility, var_include_friend_group, var_complete_with_default_values, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, theme_descriptor_id = var_theme_descriptor_id, title = var_title, description = var_description, connection_ids_to_add = var_connection_ids_to_add, connection_group_ids_to_add = var_connection_group_ids_to_add, app_version = var_app_version, color_value_json = var_color_value_json, string_replacer_json = var_string_replacer_json, custom_json_objects = var_custom_json_objects, icon_image = var_icon_image, scene_atlas_image = var_scene_atlas_image, bg_image = var_bg_image, bg_sound = var_bg_sound, music_selection = var_music_selection, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$AddOrUpdateThemeDescriptor(var_public_read, var_public_write, var_public_delete, var_public_add, var_visibility, var_include_friend_group, var_complete_with_default_values, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, theme_descriptor_id = var_theme_descriptor_id, title = var_title, description = var_description, connection_ids_to_add = var_connection_ids_to_add, connection_group_ids_to_add = var_connection_group_ids_to_add, app_version = var_app_version, color_value_json = var_color_value_json, string_replacer_json = var_string_replacer_json, custom_json_objects = var_custom_json_objects, icon_image = var_icon_image, scene_atlas_image = var_scene_atlas_image, bg_image = var_bg_image, bg_sound = var_bg_sound, music_selection = var_music_selection, location_description = var_location_description, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$AddOrUpdateThemeDescriptor(var_public_read, var_public_write, var_public_delete, var_public_add, var_visibility, var_include_friend_group, var_complete_with_default_values, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, theme_descriptor_id = var_theme_descriptor_id, title = var_title, description = var_description, connection_ids_to_add = var_connection_ids_to_add, connection_group_ids_to_add = var_connection_group_ids_to_add, app_version = var_app_version, color_value_json = var_color_value_json, string_replacer_json = var_string_replacer_json, custom_json_objects = var_custom_json_objects, icon_image = var_icon_image, scene_atlas_image = var_scene_atlas_image, bg_image = var_bg_image, bg_sound = var_bg_sound, music_selection = var_music_selection, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GetThemeDescriptor  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_theme_descriptor_id <- 56 # integer | the theme id
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
@@ -70,15 +68,14 @@
 #' api_instance <- ThemeDescriptorApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetThemeDescriptor(var_version, var_theme_descriptor_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetThemeDescriptor(var_version, var_theme_descriptor_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetThemeDescriptor(var_theme_descriptor_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetThemeDescriptor(var_theme_descriptor_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GetThemeDescriptors  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_filter <- "filter_example" # character | a comma separated list of Ownership
 #' var_sort_field <- "sort_field_example" # character | the field to sort by. See ThemeDescriptorApiMap
 #' var_descending <- "descending_example" # character | determines whether the sorted list is in descending or ascending order
@@ -102,15 +99,14 @@
 #' api_instance <- ThemeDescriptorApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetThemeDescriptors(var_version, var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, contest_type = var_contest_type, owner_id = var_owner_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, date_created = var_date_created, app_version = var_app_version, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetThemeDescriptors(var_version, var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, contest_type = var_contest_type, owner_id = var_owner_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, date_created = var_date_created, app_version = var_app_version, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetThemeDescriptors(var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, contest_type = var_contest_type, owner_id = var_owner_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, date_created = var_date_created, app_version = var_app_version, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetThemeDescriptors(var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, contest_type = var_contest_type, owner_id = var_owner_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, date_created = var_date_created, app_version = var_app_version, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  RemoveThemeDescriptor  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_theme_descriptor_id <- 56 # integer | the theme id to remove
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -122,8 +118,8 @@
 #' api_instance <- ThemeDescriptorApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemoveThemeDescriptor(var_version, var_theme_descriptor_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$RemoveThemeDescriptor(var_version, var_theme_descriptor_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$RemoveThemeDescriptor(var_theme_descriptor_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$RemoveThemeDescriptor(var_theme_descriptor_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
@@ -151,7 +147,6 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @description
     #' Create/Update Theme
     #'
-    #' @param version 
     #' @param public_read determines whether the theme's participants have read permissions
     #' @param public_write determines whether the theme's participants have write permissions
     #' @param public_delete determines whether the theme's participants have delete permissions
@@ -184,8 +179,8 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ThemeDescriptorResponse
-    AddOrUpdateThemeDescriptor = function(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, device_id = NULL, account_id = NULL, game_type = NULL, theme_descriptor_id = NULL, title = NULL, description = NULL, connection_ids_to_add = NULL, connection_group_ids_to_add = NULL, app_version = NULL, color_value_json = NULL, string_replacer_json = NULL, custom_json_objects = NULL, icon_image = NULL, scene_atlas_image = NULL, bg_image = NULL, bg_sound = NULL, music_selection = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddOrUpdateThemeDescriptorWithHttpInfo(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, device_id, account_id, game_type, theme_descriptor_id, title, description, connection_ids_to_add, connection_group_ids_to_add, app_version, color_value_json, string_replacer_json, custom_json_objects, icon_image, scene_atlas_image, bg_image, bg_sound, music_selection, location_description, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    AddOrUpdateThemeDescriptor = function(public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, device_id = NULL, account_id = NULL, game_type = NULL, theme_descriptor_id = NULL, title = NULL, description = NULL, connection_ids_to_add = NULL, connection_group_ids_to_add = NULL, app_version = NULL, color_value_json = NULL, string_replacer_json = NULL, custom_json_objects = NULL, icon_image = NULL, scene_atlas_image = NULL, bg_image = NULL, bg_sound = NULL, music_selection = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddOrUpdateThemeDescriptorWithHttpInfo(public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, device_id, account_id, game_type, theme_descriptor_id, title, description, connection_ids_to_add, connection_group_ids_to_add, app_version, color_value_json, string_replacer_json, custom_json_objects, icon_image, scene_atlas_image, bg_image, bg_sound, music_selection, location_description, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -200,7 +195,6 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @description
     #' Create/Update Theme
     #'
-    #' @param version 
     #' @param public_read determines whether the theme's participants have read permissions
     #' @param public_write determines whether the theme's participants have write permissions
     #' @param public_delete determines whether the theme's participants have delete permissions
@@ -233,7 +227,7 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ThemeDescriptorResponse) with additional information such as HTTP status code, headers
-    AddOrUpdateThemeDescriptorWithHttpInfo = function(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, device_id = NULL, account_id = NULL, game_type = NULL, theme_descriptor_id = NULL, title = NULL, description = NULL, connection_ids_to_add = NULL, connection_group_ids_to_add = NULL, app_version = NULL, color_value_json = NULL, string_replacer_json = NULL, custom_json_objects = NULL, icon_image = NULL, scene_atlas_image = NULL, bg_image = NULL, bg_sound = NULL, music_selection = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddOrUpdateThemeDescriptorWithHttpInfo = function(public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, device_id = NULL, account_id = NULL, game_type = NULL, theme_descriptor_id = NULL, title = NULL, description = NULL, connection_ids_to_add = NULL, connection_group_ids_to_add = NULL, app_version = NULL, color_value_json = NULL, string_replacer_json = NULL, custom_json_objects = NULL, icon_image = NULL, scene_atlas_image = NULL, bg_image = NULL, bg_sound = NULL, music_selection = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -242,10 +236,6 @@ ThemeDescriptorApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`public_read`)) {
         stop("Missing required parameter `public_read`.")
@@ -273,10 +263,6 @@ ThemeDescriptorApi <- R6::R6Class(
 
       if (missing(`complete_with_default_values`)) {
         stop("Missing required parameter `complete_with_default_values`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThemeDescriptorApi$AddOrUpdateThemeDescriptor, `version` is not nullable")
       }
 
       if (!missing(`public_read`) && is.null(`public_read`)) {
@@ -444,11 +430,7 @@ ThemeDescriptorApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/theme"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/theme"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -509,7 +491,6 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @description
     #' Get Theme
     #'
-    #' @param version 
     #' @param theme_descriptor_id the theme id
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -521,8 +502,8 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PurchaseItemListResponse
-    GetThemeDescriptor = function(version, theme_descriptor_id, device_id = NULL, account_id = NULL, game_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetThemeDescriptorWithHttpInfo(version, theme_descriptor_id, device_id, account_id, game_type, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetThemeDescriptor = function(theme_descriptor_id, device_id = NULL, account_id = NULL, game_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetThemeDescriptorWithHttpInfo(theme_descriptor_id, device_id, account_id, game_type, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -537,7 +518,6 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @description
     #' Get Theme
     #'
-    #' @param version 
     #' @param theme_descriptor_id the theme id
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -549,7 +529,7 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PurchaseItemListResponse) with additional information such as HTTP status code, headers
-    GetThemeDescriptorWithHttpInfo = function(version, theme_descriptor_id, device_id = NULL, account_id = NULL, game_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetThemeDescriptorWithHttpInfo = function(theme_descriptor_id, device_id = NULL, account_id = NULL, game_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -559,16 +539,8 @@ ThemeDescriptorApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`theme_descriptor_id`)) {
         stop("Missing required parameter `theme_descriptor_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThemeDescriptorApi$GetThemeDescriptor, `version` is not nullable")
       }
 
       if (!missing(`theme_descriptor_id`) && is.null(`theme_descriptor_id`)) {
@@ -607,11 +579,7 @@ ThemeDescriptorApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/theme/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/theme/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -672,7 +640,6 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @description
     #' Search Themes
     #'
-    #' @param version 
     #' @param filter a comma separated list of Ownership
     #' @param sort_field the field to sort by. See ThemeDescriptorApiMap
     #' @param descending determines whether the sorted list is in descending or ascending order
@@ -696,8 +663,8 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PurchaseItemListResponse
-    GetThemeDescriptors = function(version, filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, game_type = NULL, contest_type = NULL, owner_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, date_created = NULL, app_version = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetThemeDescriptorsWithHttpInfo(version, filter, sort_field, descending, start, limit, device_id, account_id, game_type, contest_type, owner_id, q, keyword, _i, _l, date_created, app_version, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetThemeDescriptors = function(filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, game_type = NULL, contest_type = NULL, owner_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, date_created = NULL, app_version = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetThemeDescriptorsWithHttpInfo(filter, sort_field, descending, start, limit, device_id, account_id, game_type, contest_type, owner_id, q, keyword, _i, _l, date_created, app_version, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -712,7 +679,6 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @description
     #' Search Themes
     #'
-    #' @param version 
     #' @param filter a comma separated list of Ownership
     #' @param sort_field the field to sort by. See ThemeDescriptorApiMap
     #' @param descending determines whether the sorted list is in descending or ascending order
@@ -736,7 +702,7 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PurchaseItemListResponse) with additional information such as HTTP status code, headers
-    GetThemeDescriptorsWithHttpInfo = function(version, filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, game_type = NULL, contest_type = NULL, owner_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, date_created = NULL, app_version = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetThemeDescriptorsWithHttpInfo = function(filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, game_type = NULL, contest_type = NULL, owner_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, date_created = NULL, app_version = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -745,10 +711,6 @@ ThemeDescriptorApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`filter`)) {
         stop("Missing required parameter `filter`.")
@@ -768,10 +730,6 @@ ThemeDescriptorApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThemeDescriptorApi$GetThemeDescriptors, `version` is not nullable")
       }
 
       if (!missing(`filter`) && is.null(`filter`)) {
@@ -882,11 +840,7 @@ ThemeDescriptorApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/theme/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/theme/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -947,7 +901,6 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @description
     #' Delete Theme
     #'
-    #' @param version 
     #' @param theme_descriptor_id the theme id to remove
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -959,8 +912,8 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RemoveThemeDescriptor = function(version, theme_descriptor_id, device_id = NULL, account_id = NULL, game_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemoveThemeDescriptorWithHttpInfo(version, theme_descriptor_id, device_id, account_id, game_type, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    RemoveThemeDescriptor = function(theme_descriptor_id, device_id = NULL, account_id = NULL, game_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemoveThemeDescriptorWithHttpInfo(theme_descriptor_id, device_id, account_id, game_type, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -975,7 +928,6 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @description
     #' Delete Theme
     #'
-    #' @param version 
     #' @param theme_descriptor_id the theme id to remove
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -987,7 +939,7 @@ ThemeDescriptorApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RemoveThemeDescriptorWithHttpInfo = function(version, theme_descriptor_id, device_id = NULL, account_id = NULL, game_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RemoveThemeDescriptorWithHttpInfo = function(theme_descriptor_id, device_id = NULL, account_id = NULL, game_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -997,16 +949,8 @@ ThemeDescriptorApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`theme_descriptor_id`)) {
         stop("Missing required parameter `theme_descriptor_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThemeDescriptorApi$RemoveThemeDescriptor, `version` is not nullable")
       }
 
       if (!missing(`theme_descriptor_id`) && is.null(`theme_descriptor_id`)) {
@@ -1045,11 +989,7 @@ ThemeDescriptorApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/theme/remove"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/theme/remove"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

@@ -17,7 +17,6 @@
 #' ####################  CreateOfferTransaction  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_offer_id <- 56 # integer | The id of the offer being added (offerId or offeLocationId required) (Optional)
@@ -34,15 +33,14 @@
 #' api_instance <- WalletApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateOfferTransaction(var_version, device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, offer_cart = var_offer_cart, promo_code = var_promo_code, currency_type = var_currency_type, use_points = var_use_points, meta_data = var_meta_data, app_key = var_app_key, status = var_statusdata_file = "result.txt")
-#' result <- api_instance$CreateOfferTransaction(var_version, device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, offer_cart = var_offer_cart, promo_code = var_promo_code, currency_type = var_currency_type, use_points = var_use_points, meta_data = var_meta_data, app_key = var_app_key, status = var_status)
+#' # result <- api_instance$CreateOfferTransaction(device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, offer_cart = var_offer_cart, promo_code = var_promo_code, currency_type = var_currency_type, use_points = var_use_points, meta_data = var_meta_data, app_key = var_app_key, status = var_statusdata_file = "result.txt")
+#' result <- api_instance$CreateOfferTransaction(device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, offer_cart = var_offer_cart, promo_code = var_promo_code, currency_type = var_currency_type, use_points = var_use_points, meta_data = var_meta_data, app_key = var_app_key, status = var_status)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteOfferTransaction  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_transaction_id <- 56 # integer | The offer transaction id to remove
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -51,15 +49,14 @@
 #' api_instance <- WalletApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteOfferTransaction(var_version, var_transaction_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteOfferTransaction(var_version, var_transaction_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteOfferTransaction(var_transaction_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteOfferTransaction(var_transaction_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetOfferTransaction  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_transaction_id <- 56 # integer | The offer transaction id to get details of
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -72,15 +69,14 @@
 #' api_instance <- WalletApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetOfferTransaction(var_version, var_transaction_id, device_id = var_device_id, account_id = var_account_id, include_mission = var_include_mission, latitude = var_latitude, longitude = var_longitude, return_full_response = var_return_full_responsedata_file = "result.txt")
-#' result <- api_instance$GetOfferTransaction(var_version, var_transaction_id, device_id = var_device_id, account_id = var_account_id, include_mission = var_include_mission, latitude = var_latitude, longitude = var_longitude, return_full_response = var_return_full_response)
+#' # result <- api_instance$GetOfferTransaction(var_transaction_id, device_id = var_device_id, account_id = var_account_id, include_mission = var_include_mission, latitude = var_latitude, longitude = var_longitude, return_full_response = var_return_full_responsedata_file = "result.txt")
+#' result <- api_instance$GetOfferTransaction(var_transaction_id, device_id = var_device_id, account_id = var_account_id, include_mission = var_include_mission, latitude = var_latitude, longitude = var_longitude, return_full_response = var_return_full_response)
 #' dput(result)
 #'
 #'
 #' ####################  PreviewOfferTransaction  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_offer_id <- 56 # integer | The id of the offer being added (offerId or offeLocationId required) (Optional)
@@ -96,15 +92,14 @@
 #' api_instance <- WalletApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$PreviewOfferTransaction(var_version, device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, offer_cart = var_offer_cart, promo_code = var_promo_code, currency_type = var_currency_type, use_points = var_use_points, meta_data = var_meta_data, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$PreviewOfferTransaction(var_version, device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, offer_cart = var_offer_cart, promo_code = var_promo_code, currency_type = var_currency_type, use_points = var_use_points, meta_data = var_meta_data, app_key = var_app_key)
+#' # result <- api_instance$PreviewOfferTransaction(device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, offer_cart = var_offer_cart, promo_code = var_promo_code, currency_type = var_currency_type, use_points = var_use_points, meta_data = var_meta_data, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$PreviewOfferTransaction(device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, offer_cart = var_offer_cart, promo_code = var_promo_code, currency_type = var_currency_type, use_points = var_use_points, meta_data = var_meta_data, app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  SearchOfferTransactions  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_keyword <- "keyword_example" # character | The keyword to search for (Optional)
@@ -151,15 +146,14 @@
 #' api_instance <- WalletApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchOfferTransactions(var_version, device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, retailer_id = var_retailer_id, retailer_ids = var_retailer_ids, retailer_location_id = var_retailer_location_id, retailer_location_ids = var_retailer_location_ids, exclude_retailer_location_ids = var_exclude_retailer_location_ids, offer_id = var_offer_id, offer_ids = var_offer_ids, offer_location_id = var_offer_location_id, offer_location_ids = var_offer_location_ids, offer_type = var_offer_type, offer_types = var_offer_types, special_offer_type = var_special_offer_type, special_offer_types = var_special_offer_types, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, latitude = var_latitude, longitude = var_longitude, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, filter_by_parent_offer = var_filter_by_parent_offer, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_before, redeemed = var_redeemed, statuses = var_statuses, reservations_only = var_reservations_only, active_only = var_active_only, return_full_response = var_return_full_response, recurring_started_since = var_recurring_started_since, recurring_started_before = var_recurring_started_before, recurring_expiration_since = var_recurring_expiration_since, recurring_expiration_before = var_recurring_expiration_beforedata_file = "result.txt")
-#' result <- api_instance$SearchOfferTransactions(var_version, device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, retailer_id = var_retailer_id, retailer_ids = var_retailer_ids, retailer_location_id = var_retailer_location_id, retailer_location_ids = var_retailer_location_ids, exclude_retailer_location_ids = var_exclude_retailer_location_ids, offer_id = var_offer_id, offer_ids = var_offer_ids, offer_location_id = var_offer_location_id, offer_location_ids = var_offer_location_ids, offer_type = var_offer_type, offer_types = var_offer_types, special_offer_type = var_special_offer_type, special_offer_types = var_special_offer_types, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, latitude = var_latitude, longitude = var_longitude, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, filter_by_parent_offer = var_filter_by_parent_offer, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_before, redeemed = var_redeemed, statuses = var_statuses, reservations_only = var_reservations_only, active_only = var_active_only, return_full_response = var_return_full_response, recurring_started_since = var_recurring_started_since, recurring_started_before = var_recurring_started_before, recurring_expiration_since = var_recurring_expiration_since, recurring_expiration_before = var_recurring_expiration_before)
+#' # result <- api_instance$SearchOfferTransactions(device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, retailer_id = var_retailer_id, retailer_ids = var_retailer_ids, retailer_location_id = var_retailer_location_id, retailer_location_ids = var_retailer_location_ids, exclude_retailer_location_ids = var_exclude_retailer_location_ids, offer_id = var_offer_id, offer_ids = var_offer_ids, offer_location_id = var_offer_location_id, offer_location_ids = var_offer_location_ids, offer_type = var_offer_type, offer_types = var_offer_types, special_offer_type = var_special_offer_type, special_offer_types = var_special_offer_types, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, latitude = var_latitude, longitude = var_longitude, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, filter_by_parent_offer = var_filter_by_parent_offer, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_before, redeemed = var_redeemed, statuses = var_statuses, reservations_only = var_reservations_only, active_only = var_active_only, return_full_response = var_return_full_response, recurring_started_since = var_recurring_started_since, recurring_started_before = var_recurring_started_before, recurring_expiration_since = var_recurring_expiration_since, recurring_expiration_before = var_recurring_expiration_beforedata_file = "result.txt")
+#' result <- api_instance$SearchOfferTransactions(device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, retailer_id = var_retailer_id, retailer_ids = var_retailer_ids, retailer_location_id = var_retailer_location_id, retailer_location_ids = var_retailer_location_ids, exclude_retailer_location_ids = var_exclude_retailer_location_ids, offer_id = var_offer_id, offer_ids = var_offer_ids, offer_location_id = var_offer_location_id, offer_location_ids = var_offer_location_ids, offer_type = var_offer_type, offer_types = var_offer_types, special_offer_type = var_special_offer_type, special_offer_types = var_special_offer_types, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, latitude = var_latitude, longitude = var_longitude, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, filter_by_parent_offer = var_filter_by_parent_offer, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_before, redeemed = var_redeemed, statuses = var_statuses, reservations_only = var_reservations_only, active_only = var_active_only, return_full_response = var_return_full_response, recurring_started_since = var_recurring_started_since, recurring_started_before = var_recurring_started_before, recurring_expiration_since = var_recurring_expiration_since, recurring_expiration_before = var_recurring_expiration_before)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateOfferTransaction  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_transaction_id <- 56 # integer | The offer transaction id to remove
 #' var_status <- 56 # integer | The status value to change to (0 or 1)
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
@@ -178,8 +172,8 @@
 #' api_instance <- WalletApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateOfferTransaction(var_version, var_transaction_id, var_status, device_id = var_device_id, account_id = var_account_id, offer_location_id = var_offer_location_id, currency_type = var_currency_type, use_points = var_use_points, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, return_full_response = var_return_full_response, exception_membership_offer_ids = var_exception_membership_offer_idsdata_file = "result.txt")
-#' result <- api_instance$UpdateOfferTransaction(var_version, var_transaction_id, var_status, device_id = var_device_id, account_id = var_account_id, offer_location_id = var_offer_location_id, currency_type = var_currency_type, use_points = var_use_points, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, return_full_response = var_return_full_response, exception_membership_offer_ids = var_exception_membership_offer_ids)
+#' # result <- api_instance$UpdateOfferTransaction(var_transaction_id, var_status, device_id = var_device_id, account_id = var_account_id, offer_location_id = var_offer_location_id, currency_type = var_currency_type, use_points = var_use_points, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, return_full_response = var_return_full_response, exception_membership_offer_ids = var_exception_membership_offer_idsdata_file = "result.txt")
+#' result <- api_instance$UpdateOfferTransaction(var_transaction_id, var_status, device_id = var_device_id, account_id = var_account_id, offer_location_id = var_offer_location_id, currency_type = var_currency_type, use_points = var_use_points, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, return_full_response = var_return_full_response, exception_membership_offer_ids = var_exception_membership_offer_ids)
 #' dput(result)
 #'
 #'
@@ -207,7 +201,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Create Wallet Offers
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param offer_id (optional) The id of the offer being added (offerId or offeLocationId required)
@@ -224,8 +217,8 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[OfferTransactionResponse]
-    CreateOfferTransaction = function(version, device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, offer_cart = NULL, promo_code = NULL, currency_type = "CASH", use_points = NULL, meta_data = NULL, app_key = NULL, status = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateOfferTransactionWithHttpInfo(version, device_id, account_id, offer_id, offer_location_id, offer_cart, promo_code, currency_type, use_points, meta_data, app_key, status, data_file = data_file, ..., .parse = .parse)
+    CreateOfferTransaction = function(device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, offer_cart = NULL, promo_code = NULL, currency_type = "CASH", use_points = NULL, meta_data = NULL, app_key = NULL, status = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateOfferTransactionWithHttpInfo(device_id, account_id, offer_id, offer_location_id, offer_cart, promo_code, currency_type, use_points, meta_data, app_key, status, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -240,7 +233,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Create Wallet Offers
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param offer_id (optional) The id of the offer being added (offerId or offeLocationId required)
@@ -257,7 +249,7 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[OfferTransactionResponse]) with additional information such as HTTP status code, headers
-    CreateOfferTransactionWithHttpInfo = function(version, device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, offer_cart = NULL, promo_code = NULL, currency_type = "CASH", use_points = NULL, meta_data = NULL, app_key = NULL, status = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateOfferTransactionWithHttpInfo = function(device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, offer_cart = NULL, promo_code = NULL, currency_type = "CASH", use_points = NULL, meta_data = NULL, app_key = NULL, status = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -266,14 +258,6 @@ WalletApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WalletApi$CreateOfferTransaction, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling WalletApi$CreateOfferTransaction, `device_id` is not nullable")
@@ -341,11 +325,7 @@ WalletApi <- R6::R6Class(
 
       query_params[["status"]] <- `status`
 
-      local_var_url_path <- "/api/{version}/wallet/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/wallet/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -406,7 +386,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Delete Wallet Offer
     #'
-    #' @param version 
     #' @param transaction_id The offer transaction id to remove
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -415,8 +394,8 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteOfferTransaction = function(version, transaction_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteOfferTransactionWithHttpInfo(version, transaction_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteOfferTransaction = function(transaction_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteOfferTransactionWithHttpInfo(transaction_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -431,7 +410,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Delete Wallet Offer
     #'
-    #' @param version 
     #' @param transaction_id The offer transaction id to remove
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -440,7 +418,7 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteOfferTransactionWithHttpInfo = function(version, transaction_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteOfferTransactionWithHttpInfo = function(transaction_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -450,16 +428,8 @@ WalletApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`transaction_id`)) {
         stop("Missing required parameter `transaction_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WalletApi$DeleteOfferTransaction, `version` is not nullable")
       }
 
       if (!missing(`transaction_id`) && is.null(`transaction_id`)) {
@@ -480,11 +450,7 @@ WalletApi <- R6::R6Class(
 
       query_params[["transactionId"]] <- `transaction_id`
 
-      local_var_url_path <- "/api/{version}/wallet/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/wallet/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -545,7 +511,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Get Wallet Offer
     #'
-    #' @param version 
     #' @param transaction_id The offer transaction id to get details of
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -558,8 +523,8 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferTransactionResponse
-    GetOfferTransaction = function(version, transaction_id, device_id = NULL, account_id = NULL, include_mission = FALSE, latitude = NULL, longitude = NULL, return_full_response = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetOfferTransactionWithHttpInfo(version, transaction_id, device_id, account_id, include_mission, latitude, longitude, return_full_response, data_file = data_file, ..., .parse = .parse)
+    GetOfferTransaction = function(transaction_id, device_id = NULL, account_id = NULL, include_mission = FALSE, latitude = NULL, longitude = NULL, return_full_response = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetOfferTransactionWithHttpInfo(transaction_id, device_id, account_id, include_mission, latitude, longitude, return_full_response, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -574,7 +539,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Get Wallet Offer
     #'
-    #' @param version 
     #' @param transaction_id The offer transaction id to get details of
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -587,7 +551,7 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferTransactionResponse) with additional information such as HTTP status code, headers
-    GetOfferTransactionWithHttpInfo = function(version, transaction_id, device_id = NULL, account_id = NULL, include_mission = FALSE, latitude = NULL, longitude = NULL, return_full_response = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    GetOfferTransactionWithHttpInfo = function(transaction_id, device_id = NULL, account_id = NULL, include_mission = FALSE, latitude = NULL, longitude = NULL, return_full_response = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -597,16 +561,8 @@ WalletApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`transaction_id`)) {
         stop("Missing required parameter `transaction_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WalletApi$GetOfferTransaction, `version` is not nullable")
       }
 
       if (!missing(`transaction_id`) && is.null(`transaction_id`)) {
@@ -651,11 +607,7 @@ WalletApi <- R6::R6Class(
 
       query_params[["returnFullResponse"]] <- `return_full_response`
 
-      local_var_url_path <- "/api/{version}/wallet/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/wallet/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -716,7 +668,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Preview Wallet Offers
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param offer_id (optional) The id of the offer being added (offerId or offeLocationId required)
@@ -732,8 +683,8 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[OfferTransactionResponse]
-    PreviewOfferTransaction = function(version, device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, offer_cart = NULL, promo_code = NULL, currency_type = "CASH", use_points = NULL, meta_data = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$PreviewOfferTransactionWithHttpInfo(version, device_id, account_id, offer_id, offer_location_id, offer_cart, promo_code, currency_type, use_points, meta_data, app_key, data_file = data_file, ..., .parse = .parse)
+    PreviewOfferTransaction = function(device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, offer_cart = NULL, promo_code = NULL, currency_type = "CASH", use_points = NULL, meta_data = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PreviewOfferTransactionWithHttpInfo(device_id, account_id, offer_id, offer_location_id, offer_cart, promo_code, currency_type, use_points, meta_data, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -748,7 +699,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Preview Wallet Offers
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param offer_id (optional) The id of the offer being added (offerId or offeLocationId required)
@@ -764,7 +714,7 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[OfferTransactionResponse]) with additional information such as HTTP status code, headers
-    PreviewOfferTransactionWithHttpInfo = function(version, device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, offer_cart = NULL, promo_code = NULL, currency_type = "CASH", use_points = NULL, meta_data = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    PreviewOfferTransactionWithHttpInfo = function(device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, offer_cart = NULL, promo_code = NULL, currency_type = "CASH", use_points = NULL, meta_data = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -773,14 +723,6 @@ WalletApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WalletApi$PreviewOfferTransaction, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling WalletApi$PreviewOfferTransaction, `device_id` is not nullable")
@@ -842,11 +784,7 @@ WalletApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/wallet/preview"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/wallet/preview"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -907,7 +845,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Search Wallet Offers
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param keyword (optional) The keyword to search for
@@ -954,8 +891,8 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[OfferTransactionResponse]
-    SearchOfferTransactions = function(version, device_id = NULL, account_id = NULL, keyword = NULL, retailer_id = NULL, retailer_ids = NULL, retailer_location_id = NULL, retailer_location_ids = NULL, exclude_retailer_location_ids = NULL, offer_id = NULL, offer_ids = NULL, offer_location_id = NULL, offer_location_ids = NULL, offer_type = NULL, offer_types = NULL, special_offer_type = NULL, special_offer_types = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, latitude = NULL, longitude = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, filter_by_parent_offer = FALSE, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, redeemed = FALSE, statuses = NULL, reservations_only = FALSE, active_only = FALSE, return_full_response = FALSE, recurring_started_since = NULL, recurring_started_before = NULL, recurring_expiration_since = NULL, recurring_expiration_before = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchOfferTransactionsWithHttpInfo(version, device_id, account_id, keyword, retailer_id, retailer_ids, retailer_location_id, retailer_location_ids, exclude_retailer_location_ids, offer_id, offer_ids, offer_location_id, offer_location_ids, offer_type, offer_types, special_offer_type, special_offer_types, category_ids, filter_ids, offer_audience_ids, sort_field, descending, start, limit, latitude, longitude, redeemable_start_date, redeemable_end_date, filter_by_parent_offer, started_since, started_before, ended_since, ended_before, redeemed, statuses, reservations_only, active_only, return_full_response, recurring_started_since, recurring_started_before, recurring_expiration_since, recurring_expiration_before, data_file = data_file, ..., .parse = .parse)
+    SearchOfferTransactions = function(device_id = NULL, account_id = NULL, keyword = NULL, retailer_id = NULL, retailer_ids = NULL, retailer_location_id = NULL, retailer_location_ids = NULL, exclude_retailer_location_ids = NULL, offer_id = NULL, offer_ids = NULL, offer_location_id = NULL, offer_location_ids = NULL, offer_type = NULL, offer_types = NULL, special_offer_type = NULL, special_offer_types = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, latitude = NULL, longitude = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, filter_by_parent_offer = FALSE, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, redeemed = FALSE, statuses = NULL, reservations_only = FALSE, active_only = FALSE, return_full_response = FALSE, recurring_started_since = NULL, recurring_started_before = NULL, recurring_expiration_since = NULL, recurring_expiration_before = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchOfferTransactionsWithHttpInfo(device_id, account_id, keyword, retailer_id, retailer_ids, retailer_location_id, retailer_location_ids, exclude_retailer_location_ids, offer_id, offer_ids, offer_location_id, offer_location_ids, offer_type, offer_types, special_offer_type, special_offer_types, category_ids, filter_ids, offer_audience_ids, sort_field, descending, start, limit, latitude, longitude, redeemable_start_date, redeemable_end_date, filter_by_parent_offer, started_since, started_before, ended_since, ended_before, redeemed, statuses, reservations_only, active_only, return_full_response, recurring_started_since, recurring_started_before, recurring_expiration_since, recurring_expiration_before, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -970,7 +907,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Search Wallet Offers
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param keyword (optional) The keyword to search for
@@ -1017,7 +953,7 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[OfferTransactionResponse]) with additional information such as HTTP status code, headers
-    SearchOfferTransactionsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, keyword = NULL, retailer_id = NULL, retailer_ids = NULL, retailer_location_id = NULL, retailer_location_ids = NULL, exclude_retailer_location_ids = NULL, offer_id = NULL, offer_ids = NULL, offer_location_id = NULL, offer_location_ids = NULL, offer_type = NULL, offer_types = NULL, special_offer_type = NULL, special_offer_types = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, latitude = NULL, longitude = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, filter_by_parent_offer = FALSE, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, redeemed = FALSE, statuses = NULL, reservations_only = FALSE, active_only = FALSE, return_full_response = FALSE, recurring_started_since = NULL, recurring_started_before = NULL, recurring_expiration_since = NULL, recurring_expiration_before = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchOfferTransactionsWithHttpInfo = function(device_id = NULL, account_id = NULL, keyword = NULL, retailer_id = NULL, retailer_ids = NULL, retailer_location_id = NULL, retailer_location_ids = NULL, exclude_retailer_location_ids = NULL, offer_id = NULL, offer_ids = NULL, offer_location_id = NULL, offer_location_ids = NULL, offer_type = NULL, offer_types = NULL, special_offer_type = NULL, special_offer_types = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, latitude = NULL, longitude = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, filter_by_parent_offer = FALSE, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, redeemed = FALSE, statuses = NULL, reservations_only = FALSE, active_only = FALSE, return_full_response = FALSE, recurring_started_since = NULL, recurring_started_before = NULL, recurring_expiration_since = NULL, recurring_expiration_before = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1026,14 +962,6 @@ WalletApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WalletApi$SearchOfferTransactions, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling WalletApi$SearchOfferTransactions, `device_id` is not nullable")
@@ -1287,11 +1215,7 @@ WalletApi <- R6::R6Class(
 
       query_params[["recurringExpirationBefore"]] <- `recurring_expiration_before`
 
-      local_var_url_path <- "/api/{version}/wallet/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/wallet/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1352,7 +1276,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Update Wallet Offer
     #'
-    #' @param version 
     #' @param transaction_id The offer transaction id to remove
     #' @param status The status value to change to (0 or 1)
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -1371,8 +1294,8 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferTransactionResponse
-    UpdateOfferTransaction = function(version, transaction_id, status, device_id = NULL, account_id = NULL, offer_location_id = NULL, currency_type = "CASH", use_points = NULL, app_key = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, return_full_response = FALSE, exception_membership_offer_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateOfferTransactionWithHttpInfo(version, transaction_id, status, device_id, account_id, offer_location_id, currency_type, use_points, app_key, latitude, longitude, meta_data, return_full_response, exception_membership_offer_ids, data_file = data_file, ..., .parse = .parse)
+    UpdateOfferTransaction = function(transaction_id, status, device_id = NULL, account_id = NULL, offer_location_id = NULL, currency_type = "CASH", use_points = NULL, app_key = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, return_full_response = FALSE, exception_membership_offer_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateOfferTransactionWithHttpInfo(transaction_id, status, device_id, account_id, offer_location_id, currency_type, use_points, app_key, latitude, longitude, meta_data, return_full_response, exception_membership_offer_ids, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1387,7 +1310,6 @@ WalletApi <- R6::R6Class(
     #' @description
     #' Update Wallet Offer
     #'
-    #' @param version 
     #' @param transaction_id The offer transaction id to remove
     #' @param status The status value to change to (0 or 1)
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -1406,7 +1328,7 @@ WalletApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferTransactionResponse) with additional information such as HTTP status code, headers
-    UpdateOfferTransactionWithHttpInfo = function(version, transaction_id, status, device_id = NULL, account_id = NULL, offer_location_id = NULL, currency_type = "CASH", use_points = NULL, app_key = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, return_full_response = FALSE, exception_membership_offer_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateOfferTransactionWithHttpInfo = function(transaction_id, status, device_id = NULL, account_id = NULL, offer_location_id = NULL, currency_type = "CASH", use_points = NULL, app_key = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, return_full_response = FALSE, exception_membership_offer_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1416,20 +1338,12 @@ WalletApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`transaction_id`)) {
         stop("Missing required parameter `transaction_id`.")
       }
 
       if (missing(`status`)) {
         stop("Missing required parameter `status`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WalletApi$UpdateOfferTransaction, `version` is not nullable")
       }
 
       if (!missing(`transaction_id`) && is.null(`transaction_id`)) {
@@ -1510,11 +1424,7 @@ WalletApi <- R6::R6Class(
 
       query_params[["exceptionMembershipOfferIds"]] <- `exception_membership_offer_ids`
 
-      local_var_url_path <- "/api/{version}/wallet/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/wallet/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

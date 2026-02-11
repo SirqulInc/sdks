@@ -17,7 +17,6 @@
 #' ####################  ConsumerCreate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 #' var_name <- "name_example" # character | The name of the queue to connect to
 #' var_hostname <- "hostname_example" # character | The hostname of the server the queue is hosted on
@@ -37,15 +36,14 @@
 #' api_instance <- AMQPApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ConsumerCreate(var_version, var_app_key, var_name, var_hostname, var_username, var_password, var_data_mapping, device_id = var_device_id, account_id = var_account_id, port = var_port, virtual_host = var_virtual_host, exchanger = var_exchanger, exchanger_type = var_exchanger_type, workers = var_workers, use_ssl = var_use_ssldata_file = "result.txt")
-#' result <- api_instance$ConsumerCreate(var_version, var_app_key, var_name, var_hostname, var_username, var_password, var_data_mapping, device_id = var_device_id, account_id = var_account_id, port = var_port, virtual_host = var_virtual_host, exchanger = var_exchanger, exchanger_type = var_exchanger_type, workers = var_workers, use_ssl = var_use_ssl)
+#' # result <- api_instance$ConsumerCreate(var_app_key, var_name, var_hostname, var_username, var_password, var_data_mapping, device_id = var_device_id, account_id = var_account_id, port = var_port, virtual_host = var_virtual_host, exchanger = var_exchanger, exchanger_type = var_exchanger_type, workers = var_workers, use_ssl = var_use_ssldata_file = "result.txt")
+#' result <- api_instance$ConsumerCreate(var_app_key, var_name, var_hostname, var_username, var_password, var_data_mapping, device_id = var_device_id, account_id = var_account_id, port = var_port, virtual_host = var_virtual_host, exchanger = var_exchanger, exchanger_type = var_exchanger_type, workers = var_workers, use_ssl = var_use_ssl)
 #' dput(result)
 #'
 #'
 #' ####################  ConsumerUpdate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 #' var_queue_id <- 56 # integer | The queue to update
 #' var_data_mapping <- "data_mapping_example" # character | The data mapping information in the format of AMQPRequest
@@ -57,15 +55,14 @@
 #' api_instance <- AMQPApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ConsumerUpdate(var_version, var_app_key, var_queue_id, var_data_mapping, device_id = var_device_id, account_id = var_account_id, use_ssl = var_use_ssldata_file = "result.txt")
-#' result <- api_instance$ConsumerUpdate(var_version, var_app_key, var_queue_id, var_data_mapping, device_id = var_device_id, account_id = var_account_id, use_ssl = var_use_ssl)
+#' # result <- api_instance$ConsumerUpdate(var_app_key, var_queue_id, var_data_mapping, device_id = var_device_id, account_id = var_account_id, use_ssl = var_use_ssldata_file = "result.txt")
+#' result <- api_instance$ConsumerUpdate(var_app_key, var_queue_id, var_data_mapping, device_id = var_device_id, account_id = var_account_id, use_ssl = var_use_ssl)
 #' dput(result)
 #'
 #'
 #' ####################  QueueCreate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key unique to each application.
 #' var_name <- "name_example" # character | The name of the queue to create
 #' var_device_id <- "device_id_example" # character | The client deviceID (Optional)
@@ -83,15 +80,14 @@
 #' api_instance <- AMQPApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$QueueCreate(var_version, var_app_key, var_name, device_id = var_device_id, account_id = var_account_id, workers = var_workers, analytic_tags = var_analytic_tags, hostname = var_hostname, port = var_port, username = var_username, password = var_password, virtual_host = var_virtual_host, use_ssl = var_use_ssldata_file = "result.txt")
-#' result <- api_instance$QueueCreate(var_version, var_app_key, var_name, device_id = var_device_id, account_id = var_account_id, workers = var_workers, analytic_tags = var_analytic_tags, hostname = var_hostname, port = var_port, username = var_username, password = var_password, virtual_host = var_virtual_host, use_ssl = var_use_ssl)
+#' # result <- api_instance$QueueCreate(var_app_key, var_name, device_id = var_device_id, account_id = var_account_id, workers = var_workers, analytic_tags = var_analytic_tags, hostname = var_hostname, port = var_port, username = var_username, password = var_password, virtual_host = var_virtual_host, use_ssl = var_use_ssldata_file = "result.txt")
+#' result <- api_instance$QueueCreate(var_app_key, var_name, device_id = var_device_id, account_id = var_account_id, workers = var_workers, analytic_tags = var_analytic_tags, hostname = var_hostname, port = var_port, username = var_username, password = var_password, virtual_host = var_virtual_host, use_ssl = var_use_ssl)
 #' dput(result)
 #'
 #'
 #' ####################  QueueDelete  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_queue_id <- 56 # integer | The id of the queue to find
 #' var_device_id <- "device_id_example" # character | The client device ID (Optional)
 #' var_account_id <- 56 # integer | The logged in user ID (Optional)
@@ -100,15 +96,14 @@
 #' api_instance <- AMQPApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$QueueDelete(var_version, var_queue_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$QueueDelete(var_version, var_queue_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$QueueDelete(var_queue_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$QueueDelete(var_queue_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  QueueGet  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The client device ID (Optional)
 #' var_account_id <- 56 # integer | The logged in user ID (Optional)
 #' var_queue_id <- 56 # integer | The id of the queue to find (Optional)
@@ -121,15 +116,14 @@
 #' api_instance <- AMQPApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$QueueGet(var_version, device_id = var_device_id, account_id = var_account_id, queue_id = var_queue_id, app_key = var_app_key, name = var_name, hostname = var_hostname, virtual_host = var_virtual_hostdata_file = "result.txt")
-#' result <- api_instance$QueueGet(var_version, device_id = var_device_id, account_id = var_account_id, queue_id = var_queue_id, app_key = var_app_key, name = var_name, hostname = var_hostname, virtual_host = var_virtual_host)
+#' # result <- api_instance$QueueGet(device_id = var_device_id, account_id = var_account_id, queue_id = var_queue_id, app_key = var_app_key, name = var_name, hostname = var_hostname, virtual_host = var_virtual_hostdata_file = "result.txt")
+#' result <- api_instance$QueueGet(device_id = var_device_id, account_id = var_account_id, queue_id = var_queue_id, app_key = var_app_key, name = var_name, hostname = var_hostname, virtual_host = var_virtual_host)
 #' dput(result)
 #'
 #'
 #' ####################  QueuePublish  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_message <- "message_example" # character | The payload to send to the queue
 #' var_queue_id <- 56 # integer | The id of the queue to publish to (Optional)
 #' var_app_key <- "app_key_example" # character | The application key the queue was assigned to (Optional)
@@ -141,15 +135,14 @@
 #' api_instance <- AMQPApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$QueuePublish(var_version, var_message, queue_id = var_queue_id, app_key = var_app_key, name = var_name, hostname = var_hostname, virtual_host = var_virtual_hostdata_file = "result.txt")
-#' result <- api_instance$QueuePublish(var_version, var_message, queue_id = var_queue_id, app_key = var_app_key, name = var_name, hostname = var_hostname, virtual_host = var_virtual_host)
+#' # result <- api_instance$QueuePublish(var_message, queue_id = var_queue_id, app_key = var_app_key, name = var_name, hostname = var_hostname, virtual_host = var_virtual_hostdata_file = "result.txt")
+#' result <- api_instance$QueuePublish(var_message, queue_id = var_queue_id, app_key = var_app_key, name = var_name, hostname = var_hostname, virtual_host = var_virtual_host)
 #' dput(result)
 #'
 #'
 #' ####################  QueueSearch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_queue_id <- 56 # integer | The id of the queue to find (Optional)
 #' var_device_id <- "device_id_example" # character | The client device ID (Optional)
 #' var_account_id <- 56 # integer | The logged in user ID (Optional)
@@ -161,15 +154,14 @@
 #' api_instance <- AMQPApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$QueueSearch(var_version, queue_id = var_queue_id, device_id = var_device_id, account_id = var_account_id, name = var_name, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$QueueSearch(var_version, queue_id = var_queue_id, device_id = var_device_id, account_id = var_account_id, name = var_name, start = var_start, limit = var_limit)
+#' # result <- api_instance$QueueSearch(queue_id = var_queue_id, device_id = var_device_id, account_id = var_account_id, name = var_name, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$QueueSearch(queue_id = var_queue_id, device_id = var_device_id, account_id = var_account_id, name = var_name, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  QueueUpdate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_queue_id <- 56 # integer | The id of the queue to update
 #' var_device_id <- "device_id_example" # character | The client deviceID (Optional)
 #' var_account_id <- 56 # integer | The logged in user ID (Optional)
@@ -187,8 +179,8 @@
 #' api_instance <- AMQPApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$QueueUpdate(var_version, var_queue_id, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, workers = var_workers, analytic_tags = var_analytic_tags, hostname = var_hostname, port = var_port, username = var_username, password = var_password, virtual_host = var_virtual_host, use_ssl = var_use_ssldata_file = "result.txt")
-#' result <- api_instance$QueueUpdate(var_version, var_queue_id, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, workers = var_workers, analytic_tags = var_analytic_tags, hostname = var_hostname, port = var_port, username = var_username, password = var_password, virtual_host = var_virtual_host, use_ssl = var_use_ssl)
+#' # result <- api_instance$QueueUpdate(var_queue_id, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, workers = var_workers, analytic_tags = var_analytic_tags, hostname = var_hostname, port = var_port, username = var_username, password = var_password, virtual_host = var_virtual_host, use_ssl = var_use_ssldata_file = "result.txt")
+#' result <- api_instance$QueueUpdate(var_queue_id, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, workers = var_workers, analytic_tags = var_analytic_tags, hostname = var_hostname, port = var_port, username = var_username, password = var_password, virtual_host = var_virtual_host, use_ssl = var_use_ssl)
 #' dput(result)
 #'
 #'
@@ -216,7 +208,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Create Consumer
     #'
-    #' @param version 
     #' @param app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
     #' @param name The name of the queue to connect to
     #' @param hostname The hostname of the server the queue is hosted on
@@ -236,8 +227,8 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return QueueResponse
-    ConsumerCreate = function(version, app_key, name, hostname, username, password, data_mapping, device_id = NULL, account_id = NULL, port = 5672, virtual_host = NULL, exchanger = NULL, exchanger_type = NULL, workers = 1, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ConsumerCreateWithHttpInfo(version, app_key, name, hostname, username, password, data_mapping, device_id, account_id, port, virtual_host, exchanger, exchanger_type, workers, use_ssl, data_file = data_file, ..., .parse = .parse)
+    ConsumerCreate = function(app_key, name, hostname, username, password, data_mapping, device_id = NULL, account_id = NULL, port = 5672, virtual_host = NULL, exchanger = NULL, exchanger_type = NULL, workers = 1, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ConsumerCreateWithHttpInfo(app_key, name, hostname, username, password, data_mapping, device_id, account_id, port, virtual_host, exchanger, exchanger_type, workers, use_ssl, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -252,7 +243,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Create Consumer
     #'
-    #' @param version 
     #' @param app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
     #' @param name The name of the queue to connect to
     #' @param hostname The hostname of the server the queue is hosted on
@@ -272,7 +262,7 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (QueueResponse) with additional information such as HTTP status code, headers
-    ConsumerCreateWithHttpInfo = function(version, app_key, name, hostname, username, password, data_mapping, device_id = NULL, account_id = NULL, port = 5672, virtual_host = NULL, exchanger = NULL, exchanger_type = NULL, workers = 1, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ConsumerCreateWithHttpInfo = function(app_key, name, hostname, username, password, data_mapping, device_id = NULL, account_id = NULL, port = 5672, virtual_host = NULL, exchanger = NULL, exchanger_type = NULL, workers = 1, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -281,10 +271,6 @@ AMQPApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
@@ -308,10 +294,6 @@ AMQPApi <- R6::R6Class(
 
       if (missing(`data_mapping`)) {
         stop("Missing required parameter `data_mapping`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AMQPApi$ConsumerCreate, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -398,11 +380,7 @@ AMQPApi <- R6::R6Class(
 
       query_params[["useSSL"]] <- `use_ssl`
 
-      local_var_url_path <- "/api/{version}/queue/consumer/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/queue/consumer/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -463,7 +441,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Update Consumer
     #'
-    #' @param version 
     #' @param app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
     #' @param queue_id The queue to update
     #' @param data_mapping The data mapping information in the format of AMQPRequest
@@ -475,8 +452,8 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return QueueResponse
-    ConsumerUpdate = function(version, app_key, queue_id, data_mapping, device_id = NULL, account_id = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ConsumerUpdateWithHttpInfo(version, app_key, queue_id, data_mapping, device_id, account_id, use_ssl, data_file = data_file, ..., .parse = .parse)
+    ConsumerUpdate = function(app_key, queue_id, data_mapping, device_id = NULL, account_id = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ConsumerUpdateWithHttpInfo(app_key, queue_id, data_mapping, device_id, account_id, use_ssl, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -491,7 +468,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Update Consumer
     #'
-    #' @param version 
     #' @param app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
     #' @param queue_id The queue to update
     #' @param data_mapping The data mapping information in the format of AMQPRequest
@@ -503,7 +479,7 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (QueueResponse) with additional information such as HTTP status code, headers
-    ConsumerUpdateWithHttpInfo = function(version, app_key, queue_id, data_mapping, device_id = NULL, account_id = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ConsumerUpdateWithHttpInfo = function(app_key, queue_id, data_mapping, device_id = NULL, account_id = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -512,10 +488,6 @@ AMQPApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
@@ -527,10 +499,6 @@ AMQPApi <- R6::R6Class(
 
       if (missing(`data_mapping`)) {
         stop("Missing required parameter `data_mapping`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AMQPApi$ConsumerUpdate, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -569,11 +537,7 @@ AMQPApi <- R6::R6Class(
 
       query_params[["useSSL"]] <- `use_ssl`
 
-      local_var_url_path <- "/api/{version}/queue/consumer/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/queue/consumer/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -634,7 +598,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Create Queue
     #'
-    #' @param version 
     #' @param app_key The application key unique to each application.
     #' @param name The name of the queue to create
     #' @param device_id (optional) The client deviceID
@@ -652,8 +615,8 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return QueueResponse
-    QueueCreate = function(version, app_key, name, device_id = NULL, account_id = NULL, workers = 1, analytic_tags = NULL, hostname = NULL, port = NULL, username = NULL, password = NULL, virtual_host = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$QueueCreateWithHttpInfo(version, app_key, name, device_id, account_id, workers, analytic_tags, hostname, port, username, password, virtual_host, use_ssl, data_file = data_file, ..., .parse = .parse)
+    QueueCreate = function(app_key, name, device_id = NULL, account_id = NULL, workers = 1, analytic_tags = NULL, hostname = NULL, port = NULL, username = NULL, password = NULL, virtual_host = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$QueueCreateWithHttpInfo(app_key, name, device_id, account_id, workers, analytic_tags, hostname, port, username, password, virtual_host, use_ssl, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -668,7 +631,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Create Queue
     #'
-    #' @param version 
     #' @param app_key The application key unique to each application.
     #' @param name The name of the queue to create
     #' @param device_id (optional) The client deviceID
@@ -686,7 +648,7 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (QueueResponse) with additional information such as HTTP status code, headers
-    QueueCreateWithHttpInfo = function(version, app_key, name, device_id = NULL, account_id = NULL, workers = 1, analytic_tags = NULL, hostname = NULL, port = NULL, username = NULL, password = NULL, virtual_host = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
+    QueueCreateWithHttpInfo = function(app_key, name, device_id = NULL, account_id = NULL, workers = 1, analytic_tags = NULL, hostname = NULL, port = NULL, username = NULL, password = NULL, virtual_host = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -696,20 +658,12 @@ AMQPApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
       }
 
       if (missing(`name`)) {
         stop("Missing required parameter `name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AMQPApi$QueueCreate, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -784,11 +738,7 @@ AMQPApi <- R6::R6Class(
 
       query_params[["useSSL"]] <- `use_ssl`
 
-      local_var_url_path <- "/api/{version}/queue/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/queue/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -849,7 +799,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Delete Queue
     #'
-    #' @param version 
     #' @param queue_id The id of the queue to find
     #' @param device_id (optional) The client device ID
     #' @param account_id (optional) The logged in user ID
@@ -858,8 +807,8 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    QueueDelete = function(version, queue_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$QueueDeleteWithHttpInfo(version, queue_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    QueueDelete = function(queue_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$QueueDeleteWithHttpInfo(queue_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -874,7 +823,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Delete Queue
     #'
-    #' @param version 
     #' @param queue_id The id of the queue to find
     #' @param device_id (optional) The client device ID
     #' @param account_id (optional) The logged in user ID
@@ -883,7 +831,7 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    QueueDeleteWithHttpInfo = function(version, queue_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    QueueDeleteWithHttpInfo = function(queue_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -893,16 +841,8 @@ AMQPApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`queue_id`)) {
         stop("Missing required parameter `queue_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AMQPApi$QueueDelete, `version` is not nullable")
       }
 
       if (!missing(`queue_id`) && is.null(`queue_id`)) {
@@ -923,11 +863,7 @@ AMQPApi <- R6::R6Class(
 
       query_params[["queueId"]] <- `queue_id`
 
-      local_var_url_path <- "/api/{version}/queue/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/queue/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -988,7 +924,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Get Queue
     #'
-    #' @param version 
     #' @param device_id (optional) The client device ID
     #' @param account_id (optional) The logged in user ID
     #' @param queue_id (optional) The id of the queue to find
@@ -1001,8 +936,8 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return QueueResponse
-    QueueGet = function(version, device_id = NULL, account_id = NULL, queue_id = NULL, app_key = NULL, name = NULL, hostname = NULL, virtual_host = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$QueueGetWithHttpInfo(version, device_id, account_id, queue_id, app_key, name, hostname, virtual_host, data_file = data_file, ..., .parse = .parse)
+    QueueGet = function(device_id = NULL, account_id = NULL, queue_id = NULL, app_key = NULL, name = NULL, hostname = NULL, virtual_host = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$QueueGetWithHttpInfo(device_id, account_id, queue_id, app_key, name, hostname, virtual_host, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1017,7 +952,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Get Queue
     #'
-    #' @param version 
     #' @param device_id (optional) The client device ID
     #' @param account_id (optional) The logged in user ID
     #' @param queue_id (optional) The id of the queue to find
@@ -1030,7 +964,7 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (QueueResponse) with additional information such as HTTP status code, headers
-    QueueGetWithHttpInfo = function(version, device_id = NULL, account_id = NULL, queue_id = NULL, app_key = NULL, name = NULL, hostname = NULL, virtual_host = NULL, data_file = NULL, ..., .parse = TRUE) {
+    QueueGetWithHttpInfo = function(device_id = NULL, account_id = NULL, queue_id = NULL, app_key = NULL, name = NULL, hostname = NULL, virtual_host = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1039,14 +973,6 @@ AMQPApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AMQPApi$QueueGet, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AMQPApi$QueueGet, `device_id` is not nullable")
@@ -1090,11 +1016,7 @@ AMQPApi <- R6::R6Class(
 
       query_params[["virtualHost"]] <- `virtual_host`
 
-      local_var_url_path <- "/api/{version}/queue/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/queue/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1155,7 +1077,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Publish Queue
     #'
-    #' @param version 
     #' @param message The payload to send to the queue
     #' @param queue_id (optional) The id of the queue to publish to
     #' @param app_key (optional) The application key the queue was assigned to
@@ -1167,8 +1088,8 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    QueuePublish = function(version, message, queue_id = NULL, app_key = NULL, name = NULL, hostname = NULL, virtual_host = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$QueuePublishWithHttpInfo(version, message, queue_id, app_key, name, hostname, virtual_host, data_file = data_file, ..., .parse = .parse)
+    QueuePublish = function(message, queue_id = NULL, app_key = NULL, name = NULL, hostname = NULL, virtual_host = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$QueuePublishWithHttpInfo(message, queue_id, app_key, name, hostname, virtual_host, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1183,7 +1104,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Publish Queue
     #'
-    #' @param version 
     #' @param message The payload to send to the queue
     #' @param queue_id (optional) The id of the queue to publish to
     #' @param app_key (optional) The application key the queue was assigned to
@@ -1195,7 +1115,7 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    QueuePublishWithHttpInfo = function(version, message, queue_id = NULL, app_key = NULL, name = NULL, hostname = NULL, virtual_host = NULL, data_file = NULL, ..., .parse = TRUE) {
+    QueuePublishWithHttpInfo = function(message, queue_id = NULL, app_key = NULL, name = NULL, hostname = NULL, virtual_host = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1205,16 +1125,8 @@ AMQPApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`message`)) {
         stop("Missing required parameter `message`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AMQPApi$QueuePublish, `version` is not nullable")
       }
 
       if (!missing(`message`) && is.null(`message`)) {
@@ -1253,11 +1165,7 @@ AMQPApi <- R6::R6Class(
 
       query_params[["message"]] <- `message`
 
-      local_var_url_path <- "/api/{version}/queue/publish"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/queue/publish"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1318,7 +1226,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Search Queue
     #'
-    #' @param version 
     #' @param queue_id (optional) The id of the queue to find
     #' @param device_id (optional) The client device ID
     #' @param account_id (optional) The logged in user ID
@@ -1330,8 +1237,8 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return QueueResponse
-    QueueSearch = function(version, queue_id = NULL, device_id = NULL, account_id = NULL, name = NULL, start = 0, limit = 10, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$QueueSearchWithHttpInfo(version, queue_id, device_id, account_id, name, start, limit, data_file = data_file, ..., .parse = .parse)
+    QueueSearch = function(queue_id = NULL, device_id = NULL, account_id = NULL, name = NULL, start = 0, limit = 10, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$QueueSearchWithHttpInfo(queue_id, device_id, account_id, name, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1346,7 +1253,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Search Queue
     #'
-    #' @param version 
     #' @param queue_id (optional) The id of the queue to find
     #' @param device_id (optional) The client device ID
     #' @param account_id (optional) The logged in user ID
@@ -1358,7 +1264,7 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (QueueResponse) with additional information such as HTTP status code, headers
-    QueueSearchWithHttpInfo = function(version, queue_id = NULL, device_id = NULL, account_id = NULL, name = NULL, start = 0, limit = 10, data_file = NULL, ..., .parse = TRUE) {
+    QueueSearchWithHttpInfo = function(queue_id = NULL, device_id = NULL, account_id = NULL, name = NULL, start = 0, limit = 10, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1367,14 +1273,6 @@ AMQPApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AMQPApi$QueueSearch, `version` is not nullable")
-      }
 
       if (!missing(`queue_id`) && is.null(`queue_id`)) {
         stop("Invalid value for `queue_id` when calling AMQPApi$QueueSearch, `queue_id` is not nullable")
@@ -1412,11 +1310,7 @@ AMQPApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/queue/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/queue/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1477,7 +1371,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Update Queue
     #'
-    #' @param version 
     #' @param queue_id The id of the queue to update
     #' @param device_id (optional) The client deviceID
     #' @param account_id (optional) The logged in user ID
@@ -1495,8 +1388,8 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return QueueResponse
-    QueueUpdate = function(version, queue_id, device_id = NULL, account_id = NULL, app_key = NULL, workers = NULL, analytic_tags = NULL, hostname = NULL, port = NULL, username = NULL, password = NULL, virtual_host = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$QueueUpdateWithHttpInfo(version, queue_id, device_id, account_id, app_key, workers, analytic_tags, hostname, port, username, password, virtual_host, use_ssl, data_file = data_file, ..., .parse = .parse)
+    QueueUpdate = function(queue_id, device_id = NULL, account_id = NULL, app_key = NULL, workers = NULL, analytic_tags = NULL, hostname = NULL, port = NULL, username = NULL, password = NULL, virtual_host = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$QueueUpdateWithHttpInfo(queue_id, device_id, account_id, app_key, workers, analytic_tags, hostname, port, username, password, virtual_host, use_ssl, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1511,7 +1404,6 @@ AMQPApi <- R6::R6Class(
     #' @description
     #' Update Queue
     #'
-    #' @param version 
     #' @param queue_id The id of the queue to update
     #' @param device_id (optional) The client deviceID
     #' @param account_id (optional) The logged in user ID
@@ -1529,7 +1421,7 @@ AMQPApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (QueueResponse) with additional information such as HTTP status code, headers
-    QueueUpdateWithHttpInfo = function(version, queue_id, device_id = NULL, account_id = NULL, app_key = NULL, workers = NULL, analytic_tags = NULL, hostname = NULL, port = NULL, username = NULL, password = NULL, virtual_host = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
+    QueueUpdateWithHttpInfo = function(queue_id, device_id = NULL, account_id = NULL, app_key = NULL, workers = NULL, analytic_tags = NULL, hostname = NULL, port = NULL, username = NULL, password = NULL, virtual_host = NULL, use_ssl = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1539,16 +1431,8 @@ AMQPApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`queue_id`)) {
         stop("Missing required parameter `queue_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AMQPApi$QueueUpdate, `version` is not nullable")
       }
 
       if (!missing(`queue_id`) && is.null(`queue_id`)) {
@@ -1623,11 +1507,7 @@ AMQPApi <- R6::R6Class(
 
       query_params[["useSSL"]] <- `use_ssl`
 
-      local_var_url_path <- "/api/{version}/queue/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/queue/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

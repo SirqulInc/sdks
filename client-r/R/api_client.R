@@ -38,7 +38,7 @@ ApiClient <- R6::R6Class(
   "ApiClient",
   public = list(
     # base path of all requests
-    base_path = "http://localhost",
+    base_path = "https://dev.sirqul.com/api/3.18",
     # user agent in the HTTP request
     user_agent = "OpenAPI-Generator/1.0.0/r",
     # default headers in the HTTP request

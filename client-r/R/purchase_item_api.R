@@ -17,7 +17,6 @@
 #' ####################  CreatePurchaseItem  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key that the purchase can be used in
 #' var_name <- "name_example" # character | The name of the purchase item
 #' var_purchase_type <- "purchase_type_example" # character | The purchase provider <ul> <li>SIRQUL - the Sirqul store to make purchases using tickets</li> <li>IOS - the iTunes store for iPhone, iPod, iPod Touch</li> <li>GOOGLE - the Google Play store</li> <li>AMAZON - the Amazon Android store</li> <li>MAC - the iTunes store for OSX</li> <li>WP8 - the Windows Phone 8 store</li> <li>FREE - used for purchase items that are free (can be used for development/testing purposes)</li> </ul>
@@ -43,15 +42,14 @@
 #' api_instance <- PurchaseItemApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreatePurchaseItem(var_version, var_app_key, var_name, var_purchase_type, device_id = var_device_id, account_id = var_account_id, description = var_description, tickets = var_tickets, price = var_price, purchase_code = var_purchase_code, secret_key = var_secret_key, purchase_limit = var_purchase_limit, service_action = var_service_action, cover_asset_id = var_cover_asset_id, promo_asset_id = var_promo_asset_id, giftable = var_giftable, assetable = var_assetable, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points, offer_location_id = var_offer_location_iddata_file = "result.txt")
-#' result <- api_instance$CreatePurchaseItem(var_version, var_app_key, var_name, var_purchase_type, device_id = var_device_id, account_id = var_account_id, description = var_description, tickets = var_tickets, price = var_price, purchase_code = var_purchase_code, secret_key = var_secret_key, purchase_limit = var_purchase_limit, service_action = var_service_action, cover_asset_id = var_cover_asset_id, promo_asset_id = var_promo_asset_id, giftable = var_giftable, assetable = var_assetable, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points, offer_location_id = var_offer_location_id)
+#' # result <- api_instance$CreatePurchaseItem(var_app_key, var_name, var_purchase_type, device_id = var_device_id, account_id = var_account_id, description = var_description, tickets = var_tickets, price = var_price, purchase_code = var_purchase_code, secret_key = var_secret_key, purchase_limit = var_purchase_limit, service_action = var_service_action, cover_asset_id = var_cover_asset_id, promo_asset_id = var_promo_asset_id, giftable = var_giftable, assetable = var_assetable, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points, offer_location_id = var_offer_location_iddata_file = "result.txt")
+#' result <- api_instance$CreatePurchaseItem(var_app_key, var_name, var_purchase_type, device_id = var_device_id, account_id = var_account_id, description = var_description, tickets = var_tickets, price = var_price, purchase_code = var_purchase_code, secret_key = var_secret_key, purchase_limit = var_purchase_limit, service_action = var_service_action, cover_asset_id = var_cover_asset_id, promo_asset_id = var_promo_asset_id, giftable = var_giftable, assetable = var_assetable, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points, offer_location_id = var_offer_location_id)
 #' dput(result)
 #'
 #'
 #' ####################  DeletePurchaseItem  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_purchase_item_id <- 56 # integer | The purchase item id
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -60,15 +58,14 @@
 #' api_instance <- PurchaseItemApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeletePurchaseItem(var_version, var_purchase_item_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeletePurchaseItem(var_version, var_purchase_item_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$DeletePurchaseItem(var_purchase_item_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeletePurchaseItem(var_purchase_item_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetPurchaseItem  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_purchase_item_id <- 56 # integer | The purchase item id
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -77,15 +74,14 @@
 #' api_instance <- PurchaseItemApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetPurchaseItem(var_version, var_purchase_item_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetPurchaseItem(var_version, var_purchase_item_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$GetPurchaseItem(var_purchase_item_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetPurchaseItem(var_purchase_item_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchPurchaseItems  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_app_key <- "app_key_example" # character | The application key to filter results by application (Optional)
@@ -103,15 +99,14 @@
 #' api_instance <- PurchaseItemApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchPurchaseItems(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, filter_by_billable = var_filter_by_billable, purchase_type = var_purchase_type, service_action = var_service_action, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
-#' result <- api_instance$SearchPurchaseItems(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, filter_by_billable = var_filter_by_billable, purchase_type = var_purchase_type, service_action = var_service_action, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
+#' # result <- api_instance$SearchPurchaseItems(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, filter_by_billable = var_filter_by_billable, purchase_type = var_purchase_type, service_action = var_service_action, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
+#' result <- api_instance$SearchPurchaseItems(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, filter_by_billable = var_filter_by_billable, purchase_type = var_purchase_type, service_action = var_service_action, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
 #' dput(result)
 #'
 #'
 #' ####################  UpdatePurchaseItem  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_purchase_item_id <- 56 # integer | The purchase item id
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -138,8 +133,8 @@
 #' api_instance <- PurchaseItemApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdatePurchaseItem(var_version, var_purchase_item_id, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, tickets = var_tickets, price = var_price, purchase_type = var_purchase_type, purchase_code = var_purchase_code, secret_key = var_secret_key, purchase_limit = var_purchase_limit, service_action = var_service_action, cover_asset_id = var_cover_asset_id, promo_asset_id = var_promo_asset_id, giftable = var_giftable, assetable = var_assetable, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points, offer_location_id = var_offer_location_iddata_file = "result.txt")
-#' result <- api_instance$UpdatePurchaseItem(var_version, var_purchase_item_id, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, tickets = var_tickets, price = var_price, purchase_type = var_purchase_type, purchase_code = var_purchase_code, secret_key = var_secret_key, purchase_limit = var_purchase_limit, service_action = var_service_action, cover_asset_id = var_cover_asset_id, promo_asset_id = var_promo_asset_id, giftable = var_giftable, assetable = var_assetable, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points, offer_location_id = var_offer_location_id)
+#' # result <- api_instance$UpdatePurchaseItem(var_purchase_item_id, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, tickets = var_tickets, price = var_price, purchase_type = var_purchase_type, purchase_code = var_purchase_code, secret_key = var_secret_key, purchase_limit = var_purchase_limit, service_action = var_service_action, cover_asset_id = var_cover_asset_id, promo_asset_id = var_promo_asset_id, giftable = var_giftable, assetable = var_assetable, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points, offer_location_id = var_offer_location_iddata_file = "result.txt")
+#' result <- api_instance$UpdatePurchaseItem(var_purchase_item_id, device_id = var_device_id, account_id = var_account_id, name = var_name, description = var_description, tickets = var_tickets, price = var_price, purchase_type = var_purchase_type, purchase_code = var_purchase_code, secret_key = var_secret_key, purchase_limit = var_purchase_limit, service_action = var_service_action, cover_asset_id = var_cover_asset_id, promo_asset_id = var_promo_asset_id, giftable = var_giftable, assetable = var_assetable, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points, offer_location_id = var_offer_location_id)
 #' dput(result)
 #'
 #'
@@ -167,7 +162,6 @@ PurchaseItemApi <- R6::R6Class(
     #' @description
     #' Create Purchase
     #'
-    #' @param version 
     #' @param app_key The application key that the purchase can be used in
     #' @param name The name of the purchase item
     #' @param purchase_type The purchase provider <ul> <li>SIRQUL - the Sirqul store to make purchases using tickets</li> <li>IOS - the iTunes store for iPhone, iPod, iPod Touch</li> <li>GOOGLE - the Google Play store</li> <li>AMAZON - the Amazon Android store</li> <li>MAC - the iTunes store for OSX</li> <li>WP8 - the Windows Phone 8 store</li> <li>FREE - used for purchase items that are free (can be used for development/testing purposes)</li> </ul>
@@ -193,8 +187,8 @@ PurchaseItemApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PurchaseItemFullResponse
-    CreatePurchaseItem = function(version, app_key, name, purchase_type, device_id = NULL, account_id = NULL, description = NULL, tickets = NULL, price = NULL, purchase_code = NULL, secret_key = NULL, purchase_limit = 0, service_action = NULL, cover_asset_id = NULL, promo_asset_id = NULL, giftable = NULL, assetable = NULL, allocate_tickets = FALSE, ticket_type = NULL, points = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreatePurchaseItemWithHttpInfo(version, app_key, name, purchase_type, device_id, account_id, description, tickets, price, purchase_code, secret_key, purchase_limit, service_action, cover_asset_id, promo_asset_id, giftable, assetable, allocate_tickets, ticket_type, points, offer_location_id, data_file = data_file, ..., .parse = .parse)
+    CreatePurchaseItem = function(app_key, name, purchase_type, device_id = NULL, account_id = NULL, description = NULL, tickets = NULL, price = NULL, purchase_code = NULL, secret_key = NULL, purchase_limit = 0, service_action = NULL, cover_asset_id = NULL, promo_asset_id = NULL, giftable = NULL, assetable = NULL, allocate_tickets = FALSE, ticket_type = NULL, points = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreatePurchaseItemWithHttpInfo(app_key, name, purchase_type, device_id, account_id, description, tickets, price, purchase_code, secret_key, purchase_limit, service_action, cover_asset_id, promo_asset_id, giftable, assetable, allocate_tickets, ticket_type, points, offer_location_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -209,7 +203,6 @@ PurchaseItemApi <- R6::R6Class(
     #' @description
     #' Create Purchase
     #'
-    #' @param version 
     #' @param app_key The application key that the purchase can be used in
     #' @param name The name of the purchase item
     #' @param purchase_type The purchase provider <ul> <li>SIRQUL - the Sirqul store to make purchases using tickets</li> <li>IOS - the iTunes store for iPhone, iPod, iPod Touch</li> <li>GOOGLE - the Google Play store</li> <li>AMAZON - the Amazon Android store</li> <li>MAC - the iTunes store for OSX</li> <li>WP8 - the Windows Phone 8 store</li> <li>FREE - used for purchase items that are free (can be used for development/testing purposes)</li> </ul>
@@ -235,7 +228,7 @@ PurchaseItemApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PurchaseItemFullResponse) with additional information such as HTTP status code, headers
-    CreatePurchaseItemWithHttpInfo = function(version, app_key, name, purchase_type, device_id = NULL, account_id = NULL, description = NULL, tickets = NULL, price = NULL, purchase_code = NULL, secret_key = NULL, purchase_limit = 0, service_action = NULL, cover_asset_id = NULL, promo_asset_id = NULL, giftable = NULL, assetable = NULL, allocate_tickets = FALSE, ticket_type = NULL, points = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreatePurchaseItemWithHttpInfo = function(app_key, name, purchase_type, device_id = NULL, account_id = NULL, description = NULL, tickets = NULL, price = NULL, purchase_code = NULL, secret_key = NULL, purchase_limit = 0, service_action = NULL, cover_asset_id = NULL, promo_asset_id = NULL, giftable = NULL, assetable = NULL, allocate_tickets = FALSE, ticket_type = NULL, points = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -244,10 +237,6 @@ PurchaseItemApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
@@ -259,10 +248,6 @@ PurchaseItemApi <- R6::R6Class(
 
       if (missing(`purchase_type`)) {
         stop("Missing required parameter `purchase_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseItemApi$CreatePurchaseItem, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -391,11 +376,7 @@ PurchaseItemApi <- R6::R6Class(
 
       query_params[["offerLocationId"]] <- `offer_location_id`
 
-      local_var_url_path <- "/api/{version}/purchase/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/purchase/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -456,7 +437,6 @@ PurchaseItemApi <- R6::R6Class(
     #' @description
     #' Delete Purchase
     #'
-    #' @param version 
     #' @param purchase_item_id The purchase item id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -465,8 +445,8 @@ PurchaseItemApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeletePurchaseItem = function(version, purchase_item_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeletePurchaseItemWithHttpInfo(version, purchase_item_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeletePurchaseItem = function(purchase_item_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeletePurchaseItemWithHttpInfo(purchase_item_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -481,7 +461,6 @@ PurchaseItemApi <- R6::R6Class(
     #' @description
     #' Delete Purchase
     #'
-    #' @param version 
     #' @param purchase_item_id The purchase item id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -490,7 +469,7 @@ PurchaseItemApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeletePurchaseItemWithHttpInfo = function(version, purchase_item_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeletePurchaseItemWithHttpInfo = function(purchase_item_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -500,16 +479,8 @@ PurchaseItemApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`purchase_item_id`)) {
         stop("Missing required parameter `purchase_item_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseItemApi$DeletePurchaseItem, `version` is not nullable")
       }
 
       if (!missing(`purchase_item_id`) && is.null(`purchase_item_id`)) {
@@ -530,11 +501,7 @@ PurchaseItemApi <- R6::R6Class(
 
       query_params[["purchaseItemId"]] <- `purchase_item_id`
 
-      local_var_url_path <- "/api/{version}/purchase/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/purchase/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -595,7 +562,6 @@ PurchaseItemApi <- R6::R6Class(
     #' @description
     #' Get Purchase
     #'
-    #' @param version 
     #' @param purchase_item_id The purchase item id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -604,8 +570,8 @@ PurchaseItemApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PurchaseItemFullResponse
-    GetPurchaseItem = function(version, purchase_item_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetPurchaseItemWithHttpInfo(version, purchase_item_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetPurchaseItem = function(purchase_item_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetPurchaseItemWithHttpInfo(purchase_item_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -620,7 +586,6 @@ PurchaseItemApi <- R6::R6Class(
     #' @description
     #' Get Purchase
     #'
-    #' @param version 
     #' @param purchase_item_id The purchase item id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -629,7 +594,7 @@ PurchaseItemApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PurchaseItemFullResponse) with additional information such as HTTP status code, headers
-    GetPurchaseItemWithHttpInfo = function(version, purchase_item_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetPurchaseItemWithHttpInfo = function(purchase_item_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -639,16 +604,8 @@ PurchaseItemApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`purchase_item_id`)) {
         stop("Missing required parameter `purchase_item_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseItemApi$GetPurchaseItem, `version` is not nullable")
       }
 
       if (!missing(`purchase_item_id`) && is.null(`purchase_item_id`)) {
@@ -669,11 +626,7 @@ PurchaseItemApi <- R6::R6Class(
 
       query_params[["purchaseItemId"]] <- `purchase_item_id`
 
-      local_var_url_path <- "/api/{version}/purchase/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/purchase/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -734,7 +687,6 @@ PurchaseItemApi <- R6::R6Class(
     #' @description
     #' Search Purchases
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param app_key (optional) The application key to filter results by application
@@ -752,8 +704,8 @@ PurchaseItemApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[PurchaseItemResponse]
-    SearchPurchaseItems = function(version, device_id = NULL, account_id = NULL, app_key = NULL, filter_by_billable = FALSE, purchase_type = NULL, service_action = NULL, keyword = NULL, sort_field = "NAME", descending = FALSE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchPurchaseItemsWithHttpInfo(version, device_id, account_id, app_key, filter_by_billable, purchase_type, service_action, keyword, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
+    SearchPurchaseItems = function(device_id = NULL, account_id = NULL, app_key = NULL, filter_by_billable = FALSE, purchase_type = NULL, service_action = NULL, keyword = NULL, sort_field = "NAME", descending = FALSE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchPurchaseItemsWithHttpInfo(device_id, account_id, app_key, filter_by_billable, purchase_type, service_action, keyword, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -768,7 +720,6 @@ PurchaseItemApi <- R6::R6Class(
     #' @description
     #' Search Purchases
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param app_key (optional) The application key to filter results by application
@@ -786,7 +737,7 @@ PurchaseItemApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[PurchaseItemResponse]) with additional information such as HTTP status code, headers
-    SearchPurchaseItemsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_key = NULL, filter_by_billable = FALSE, purchase_type = NULL, service_action = NULL, keyword = NULL, sort_field = "NAME", descending = FALSE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    SearchPurchaseItemsWithHttpInfo = function(device_id = NULL, account_id = NULL, app_key = NULL, filter_by_billable = FALSE, purchase_type = NULL, service_action = NULL, keyword = NULL, sort_field = "NAME", descending = FALSE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -795,14 +746,6 @@ PurchaseItemApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseItemApi$SearchPurchaseItems, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling PurchaseItemApi$SearchPurchaseItems, `device_id` is not nullable")
@@ -879,11 +822,7 @@ PurchaseItemApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/purchase/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/purchase/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -944,7 +883,6 @@ PurchaseItemApi <- R6::R6Class(
     #' @description
     #' Update Purchase
     #'
-    #' @param version 
     #' @param purchase_item_id The purchase item id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -971,8 +909,8 @@ PurchaseItemApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PurchaseItemFullResponse
-    UpdatePurchaseItem = function(version, purchase_item_id, device_id = NULL, account_id = NULL, name = NULL, description = NULL, tickets = NULL, price = NULL, purchase_type = NULL, purchase_code = NULL, secret_key = NULL, purchase_limit = NULL, service_action = NULL, cover_asset_id = NULL, promo_asset_id = NULL, giftable = NULL, assetable = NULL, active = NULL, allocate_tickets = FALSE, ticket_type = NULL, points = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdatePurchaseItemWithHttpInfo(version, purchase_item_id, device_id, account_id, name, description, tickets, price, purchase_type, purchase_code, secret_key, purchase_limit, service_action, cover_asset_id, promo_asset_id, giftable, assetable, active, allocate_tickets, ticket_type, points, offer_location_id, data_file = data_file, ..., .parse = .parse)
+    UpdatePurchaseItem = function(purchase_item_id, device_id = NULL, account_id = NULL, name = NULL, description = NULL, tickets = NULL, price = NULL, purchase_type = NULL, purchase_code = NULL, secret_key = NULL, purchase_limit = NULL, service_action = NULL, cover_asset_id = NULL, promo_asset_id = NULL, giftable = NULL, assetable = NULL, active = NULL, allocate_tickets = FALSE, ticket_type = NULL, points = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdatePurchaseItemWithHttpInfo(purchase_item_id, device_id, account_id, name, description, tickets, price, purchase_type, purchase_code, secret_key, purchase_limit, service_action, cover_asset_id, promo_asset_id, giftable, assetable, active, allocate_tickets, ticket_type, points, offer_location_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -987,7 +925,6 @@ PurchaseItemApi <- R6::R6Class(
     #' @description
     #' Update Purchase
     #'
-    #' @param version 
     #' @param purchase_item_id The purchase item id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -1014,7 +951,7 @@ PurchaseItemApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PurchaseItemFullResponse) with additional information such as HTTP status code, headers
-    UpdatePurchaseItemWithHttpInfo = function(version, purchase_item_id, device_id = NULL, account_id = NULL, name = NULL, description = NULL, tickets = NULL, price = NULL, purchase_type = NULL, purchase_code = NULL, secret_key = NULL, purchase_limit = NULL, service_action = NULL, cover_asset_id = NULL, promo_asset_id = NULL, giftable = NULL, assetable = NULL, active = NULL, allocate_tickets = FALSE, ticket_type = NULL, points = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdatePurchaseItemWithHttpInfo = function(purchase_item_id, device_id = NULL, account_id = NULL, name = NULL, description = NULL, tickets = NULL, price = NULL, purchase_type = NULL, purchase_code = NULL, secret_key = NULL, purchase_limit = NULL, service_action = NULL, cover_asset_id = NULL, promo_asset_id = NULL, giftable = NULL, assetable = NULL, active = NULL, allocate_tickets = FALSE, ticket_type = NULL, points = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1024,16 +961,8 @@ PurchaseItemApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`purchase_item_id`)) {
         stop("Missing required parameter `purchase_item_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseItemApi$UpdatePurchaseItem, `version` is not nullable")
       }
 
       if (!missing(`purchase_item_id`) && is.null(`purchase_item_id`)) {
@@ -1168,11 +1097,7 @@ PurchaseItemApi <- R6::R6Class(
 
       query_params[["offerLocationId"]] <- `offer_location_id`
 
-      local_var_url_path <- "/api/{version}/purchase/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/purchase/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

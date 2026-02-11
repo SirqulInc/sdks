@@ -14,10 +14,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' ####################  ApiVersionAchievementTierSearchPost  ####################
+#' ####################  AchievementTierSearchPost  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
 #' var_app_key <- "app_key_example" # character | the application key (Optional)
@@ -34,15 +33,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ApiVersionAchievementTierSearchPost(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_type, sort_field = var_sort_field, descending = var_descending, descending_goal = var_descending_goal, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$ApiVersionAchievementTierSearchPost(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_type, sort_field = var_sort_field, descending = var_descending, descending_goal = var_descending_goal, start = var_start, limit = var_limit)
+#' # result <- api_instance$AchievementTierSearchPost(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_type, sort_field = var_sort_field, descending = var_descending, descending_goal = var_descending_goal, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$AchievementTierSearchPost(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_type, sort_field = var_sort_field, descending = var_descending, descending_goal = var_descending_goal, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  CreateAchievement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | the application key the achievement is for
 #' var_title <- "title_example" # character | the title of the achievement (255 character limit)
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
@@ -61,15 +59,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateAchievement(var_version, var_app_key, var_title, device_id = var_device_id, account_id = var_account_id, analytics_tag = var_analytics_tag, description = var_description, rank_type = var_rank_type, rank_increment = var_rank_increment, min_increment = var_min_increment, max_increment = var_max_increment, validate = var_validate, active = var_active, trigger_definition = var_trigger_definitiondata_file = "result.txt")
-#' result <- api_instance$CreateAchievement(var_version, var_app_key, var_title, device_id = var_device_id, account_id = var_account_id, analytics_tag = var_analytics_tag, description = var_description, rank_type = var_rank_type, rank_increment = var_rank_increment, min_increment = var_min_increment, max_increment = var_max_increment, validate = var_validate, active = var_active, trigger_definition = var_trigger_definition)
+#' # result <- api_instance$CreateAchievement(var_app_key, var_title, device_id = var_device_id, account_id = var_account_id, analytics_tag = var_analytics_tag, description = var_description, rank_type = var_rank_type, rank_increment = var_rank_increment, min_increment = var_min_increment, max_increment = var_max_increment, validate = var_validate, active = var_active, trigger_definition = var_trigger_definitiondata_file = "result.txt")
+#' result <- api_instance$CreateAchievement(var_app_key, var_title, device_id = var_device_id, account_id = var_account_id, analytics_tag = var_analytics_tag, description = var_description, rank_type = var_rank_type, rank_increment = var_rank_increment, min_increment = var_min_increment, max_increment = var_max_increment, validate = var_validate, active = var_active, trigger_definition = var_trigger_definition)
 #' dput(result)
 #'
 #'
 #' ####################  CreateAchievementTier  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_achievement_id <- 56 # integer | the achievement id for adding a new tier
 #' var_score_all_instances <- "score_all_instances_example" # character | score all instances
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
@@ -89,15 +86,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateAchievementTier(var_version, var_achievement_id, var_score_all_instances, device_id = var_device_id, account_id = var_account_id, icon = var_icon, icon_asset_id = var_icon_asset_id, title = var_title, description = var_description, goal_count = var_goal_count, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_iddata_file = "result.txt")
-#' result <- api_instance$CreateAchievementTier(var_version, var_achievement_id, var_score_all_instances, device_id = var_device_id, account_id = var_account_id, icon = var_icon, icon_asset_id = var_icon_asset_id, title = var_title, description = var_description, goal_count = var_goal_count, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id)
+#' # result <- api_instance$CreateAchievementTier(var_achievement_id, var_score_all_instances, device_id = var_device_id, account_id = var_account_id, icon = var_icon, icon_asset_id = var_icon_asset_id, title = var_title, description = var_description, goal_count = var_goal_count, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_iddata_file = "result.txt")
+#' result <- api_instance$CreateAchievementTier(var_achievement_id, var_score_all_instances, device_id = var_device_id, account_id = var_account_id, icon = var_icon, icon_asset_id = var_icon_asset_id, title = var_title, description = var_description, goal_count = var_goal_count, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteAchievement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_achievement_id <- 56 # integer | The ID of the achievement
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
 #'
@@ -105,15 +101,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteAchievement(var_version, var_achievement_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteAchievement(var_version, var_achievement_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteAchievement(var_achievement_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteAchievement(var_achievement_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteAchievementTier  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_achievement_tier_id <- 56 # integer | the achievement id for deletion
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required). (Optional)
 #'
@@ -121,15 +116,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteAchievementTier(var_version, var_achievement_tier_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteAchievementTier(var_version, var_achievement_tier_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteAchievementTier(var_achievement_tier_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteAchievementTier(var_achievement_tier_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetAchievement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_achievement_id <- 56 # integer | The ID of the achievement
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -139,15 +133,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAchievement(var_version, var_achievement_id, device_id = var_device_id, account_id = var_account_id, achievement_type = var_achievement_typedata_file = "result.txt")
-#' result <- api_instance$GetAchievement(var_version, var_achievement_id, device_id = var_device_id, account_id = var_account_id, achievement_type = var_achievement_type)
+#' # result <- api_instance$GetAchievement(var_achievement_id, device_id = var_device_id, account_id = var_account_id, achievement_type = var_achievement_typedata_file = "result.txt")
+#' result <- api_instance$GetAchievement(var_achievement_id, device_id = var_device_id, account_id = var_account_id, achievement_type = var_achievement_type)
 #' dput(result)
 #'
 #'
 #' ####################  GetAchievementTier  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required)
 #' var_achievement_tier_id <- 56 # integer | the achievement tier id that is being retrieved
 #'
@@ -155,15 +148,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAchievementTier(var_version, var_account_id, var_achievement_tier_iddata_file = "result.txt")
-#' result <- api_instance$GetAchievementTier(var_version, var_account_id, var_achievement_tier_id)
+#' # result <- api_instance$GetAchievementTier(var_account_id, var_achievement_tier_iddata_file = "result.txt")
+#' result <- api_instance$GetAchievementTier(var_account_id, var_achievement_tier_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetUserAchievements  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- TRUE # character | determines whether to return null fields in the response
 #' var_app_key <- "app_key_example" # character | the application key for filtering results by application
 #' var_include_undiscovered <- TRUE # character | determines whether to return achievements that the user has not discovered yet
@@ -180,30 +172,28 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetUserAchievements(var_version, var_return_nulls, var_app_key, var_include_undiscovered, device_id = var_device_id, account_id = var_account_id, connection_account_email = var_connection_account_email, connection_account_id = var_connection_account_id, rank_type = var_rank_type, achievement_type = var_achievement_type, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetUserAchievements(var_version, var_return_nulls, var_app_key, var_include_undiscovered, device_id = var_device_id, account_id = var_account_id, connection_account_email = var_connection_account_email, connection_account_id = var_connection_account_id, rank_type = var_rank_type, achievement_type = var_achievement_type, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetUserAchievements(var_return_nulls, var_app_key, var_include_undiscovered, device_id = var_device_id, account_id = var_account_id, connection_account_email = var_connection_account_email, connection_account_id = var_connection_account_id, rank_type = var_rank_type, achievement_type = var_achievement_type, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetUserAchievements(var_return_nulls, var_app_key, var_include_undiscovered, device_id = var_device_id, account_id = var_account_id, connection_account_email = var_connection_account_email, connection_account_id = var_connection_account_id, rank_type = var_rank_type, achievement_type = var_achievement_type, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  ListAchievementTags  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | filter results by application key (Optional)
 #'
 #' #List Achievement Tags
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ListAchievementTags(var_version, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$ListAchievementTags(var_version, app_key = var_app_key)
+#' # result <- api_instance$ListAchievementTags(app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$ListAchievementTags(app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  ListAchievements  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_sort_field <- "sort_field_example" # character | the field to sort by. See AchievementApiMap
 #' var_descending <- "descending_example" # character | determines whether the sorted list is in descending or ascending order
 #' var_start <- 56 # integer | the start index for pagination
@@ -220,15 +210,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ListAchievements(var_version, var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_typedata_file = "result.txt")
-#' result <- api_instance$ListAchievements(var_version, var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_type)
+#' # result <- api_instance$ListAchievements(var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_typedata_file = "result.txt")
+#' result <- api_instance$ListAchievements(var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_type)
 #' dput(result)
 #'
 #'
 #' ####################  SearchAchievements  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_sort_field <- "TITLE" # character | the field to sort by. See AchievementApiMap
 #' var_descending <- FALSE # character | determines whether the sorted list is in descending or ascending order
@@ -246,15 +235,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchAchievements(var_version, var_app_key, var_sort_field, var_descending, var_include_tiers, var_include_inactive_tiers, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_typedata_file = "result.txt")
-#' result <- api_instance$SearchAchievements(var_version, var_app_key, var_sort_field, var_descending, var_include_tiers, var_include_inactive_tiers, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_type)
+#' # result <- api_instance$SearchAchievements(var_app_key, var_sort_field, var_descending, var_include_tiers, var_include_inactive_tiers, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_typedata_file = "result.txt")
+#' result <- api_instance$SearchAchievements(var_app_key, var_sort_field, var_descending, var_include_tiers, var_include_inactive_tiers, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, achievement_type = var_achievement_type, rank_type = var_rank_type)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateAchievement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
 #' var_achievement_id <- 56 # integer | the achievement ID for updating an existing achievement (Optional)
@@ -275,15 +263,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateAchievement(var_version, device_id = var_device_id, account_id = var_account_id, achievement_id = var_achievement_id, analytics_tag = var_analytics_tag, title = var_title, description = var_description, rank_type = var_rank_type, rank_increment = var_rank_increment, min_increment = var_min_increment, null_min_increment = var_null_min_increment, max_increment = var_max_increment, null_max_increment = var_null_max_increment, validate = var_validate, active = var_active, trigger_definition = var_trigger_definitiondata_file = "result.txt")
-#' result <- api_instance$UpdateAchievement(var_version, device_id = var_device_id, account_id = var_account_id, achievement_id = var_achievement_id, analytics_tag = var_analytics_tag, title = var_title, description = var_description, rank_type = var_rank_type, rank_increment = var_rank_increment, min_increment = var_min_increment, null_min_increment = var_null_min_increment, max_increment = var_max_increment, null_max_increment = var_null_max_increment, validate = var_validate, active = var_active, trigger_definition = var_trigger_definition)
+#' # result <- api_instance$UpdateAchievement(device_id = var_device_id, account_id = var_account_id, achievement_id = var_achievement_id, analytics_tag = var_analytics_tag, title = var_title, description = var_description, rank_type = var_rank_type, rank_increment = var_rank_increment, min_increment = var_min_increment, null_min_increment = var_null_min_increment, max_increment = var_max_increment, null_max_increment = var_null_max_increment, validate = var_validate, active = var_active, trigger_definition = var_trigger_definitiondata_file = "result.txt")
+#' result <- api_instance$UpdateAchievement(device_id = var_device_id, account_id = var_account_id, achievement_id = var_achievement_id, analytics_tag = var_analytics_tag, title = var_title, description = var_description, rank_type = var_rank_type, rank_increment = var_rank_increment, min_increment = var_min_increment, null_min_increment = var_null_min_increment, max_increment = var_max_increment, null_max_increment = var_null_max_increment, validate = var_validate, active = var_active, trigger_definition = var_trigger_definition)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateAchievementTier  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_achievement_tier_id <- 56 # integer | the achievement tier id for updating
 #' var_device_id <- "device_id_example" # character | a unique id given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -303,15 +290,14 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateAchievementTier(var_version, var_achievement_tier_id, device_id = var_device_id, account_id = var_account_id, icon = var_icon, icon_asset_id = var_icon_asset_id, title = var_title, description = var_description, goal_count = var_goal_count, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, score_all_instances = var_score_all_instancesdata_file = "result.txt")
-#' result <- api_instance$UpdateAchievementTier(var_version, var_achievement_tier_id, device_id = var_device_id, account_id = var_account_id, icon = var_icon, icon_asset_id = var_icon_asset_id, title = var_title, description = var_description, goal_count = var_goal_count, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, score_all_instances = var_score_all_instances)
+#' # result <- api_instance$UpdateAchievementTier(var_achievement_tier_id, device_id = var_device_id, account_id = var_account_id, icon = var_icon, icon_asset_id = var_icon_asset_id, title = var_title, description = var_description, goal_count = var_goal_count, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, score_all_instances = var_score_all_instancesdata_file = "result.txt")
+#' result <- api_instance$UpdateAchievementTier(var_achievement_tier_id, device_id = var_device_id, account_id = var_account_id, icon = var_icon, icon_asset_id = var_icon_asset_id, title = var_title, description = var_description, goal_count = var_goal_count, mission_id = var_mission_id, game_id = var_game_id, pack_id = var_pack_id, game_level_id = var_game_level_id, game_object_id = var_game_object_id, score_all_instances = var_score_all_instances)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateUserAchievement  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user
 #' var_achievement_id <- 56 # integer | the achievement id (achievementId or tag required) (Optional)
 #' var_tag <- "tag_example" # character | the analytic tag to identify an achievement (achievementId or tag required) (Optional)
@@ -325,8 +311,8 @@
 #' api_instance <- AchievementApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateUserAchievement(var_version, var_account_id, achievement_id = var_achievement_id, tag = var_tag, custom_id = var_custom_id, increment = var_increment, start_date = var_start_date, end_date = var_end_date, return_progress = var_return_progressdata_file = "result.txt")
-#' result <- api_instance$UpdateUserAchievement(var_version, var_account_id, achievement_id = var_achievement_id, tag = var_tag, custom_id = var_custom_id, increment = var_increment, start_date = var_start_date, end_date = var_end_date, return_progress = var_return_progress)
+#' # result <- api_instance$UpdateUserAchievement(var_account_id, achievement_id = var_achievement_id, tag = var_tag, custom_id = var_custom_id, increment = var_increment, start_date = var_start_date, end_date = var_end_date, return_progress = var_return_progressdata_file = "result.txt")
+#' result <- api_instance$UpdateUserAchievement(var_account_id, achievement_id = var_achievement_id, tag = var_tag, custom_id = var_custom_id, increment = var_increment, start_date = var_start_date, end_date = var_end_date, return_progress = var_return_progress)
 #' dput(result)
 #'
 #'
@@ -354,7 +340,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Searches an Achievement Tier
     #'
-    #' @param version 
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param app_key (optional) the application key
@@ -371,8 +356,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AchievementTierResponse
-    ApiVersionAchievementTierSearchPost = function(version, device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, sort_field = NULL, descending = NULL, descending_goal = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ApiVersionAchievementTierSearchPostWithHttpInfo(version, device_id, account_id, app_key, keyword, achievement_type, rank_type, sort_field, descending, descending_goal, start, limit, data_file = data_file, ..., .parse = .parse)
+    AchievementTierSearchPost = function(device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, sort_field = NULL, descending = NULL, descending_goal = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AchievementTierSearchPostWithHttpInfo(device_id, account_id, app_key, keyword, achievement_type, rank_type, sort_field, descending, descending_goal, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -387,7 +372,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Searches an Achievement Tier
     #'
-    #' @param version 
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param app_key (optional) the application key
@@ -404,7 +388,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AchievementTierResponse) with additional information such as HTTP status code, headers
-    ApiVersionAchievementTierSearchPostWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, sort_field = NULL, descending = NULL, descending_goal = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AchievementTierSearchPostWithHttpInfo = function(device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, sort_field = NULL, descending = NULL, descending_goal = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -414,56 +398,48 @@ AchievementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `version` is not nullable")
-      }
-
       if (!missing(`device_id`) && is.null(`device_id`)) {
-        stop("Invalid value for `device_id` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `device_id` is not nullable")
+        stop("Invalid value for `device_id` when calling AchievementApi$AchievementTierSearchPost, `device_id` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
-        stop("Invalid value for `account_id` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `account_id` is not nullable")
+        stop("Invalid value for `account_id` when calling AchievementApi$AchievementTierSearchPost, `account_id` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
-        stop("Invalid value for `app_key` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `app_key` is not nullable")
+        stop("Invalid value for `app_key` when calling AchievementApi$AchievementTierSearchPost, `app_key` is not nullable")
       }
 
       if (!missing(`keyword`) && is.null(`keyword`)) {
-        stop("Invalid value for `keyword` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `keyword` is not nullable")
+        stop("Invalid value for `keyword` when calling AchievementApi$AchievementTierSearchPost, `keyword` is not nullable")
       }
 
       if (!missing(`achievement_type`) && is.null(`achievement_type`)) {
-        stop("Invalid value for `achievement_type` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `achievement_type` is not nullable")
+        stop("Invalid value for `achievement_type` when calling AchievementApi$AchievementTierSearchPost, `achievement_type` is not nullable")
       }
 
       if (!missing(`rank_type`) && is.null(`rank_type`)) {
-        stop("Invalid value for `rank_type` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `rank_type` is not nullable")
+        stop("Invalid value for `rank_type` when calling AchievementApi$AchievementTierSearchPost, `rank_type` is not nullable")
       }
 
       if (!missing(`sort_field`) && is.null(`sort_field`)) {
-        stop("Invalid value for `sort_field` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `sort_field` is not nullable")
+        stop("Invalid value for `sort_field` when calling AchievementApi$AchievementTierSearchPost, `sort_field` is not nullable")
       }
 
       if (!missing(`descending`) && is.null(`descending`)) {
-        stop("Invalid value for `descending` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `descending` is not nullable")
+        stop("Invalid value for `descending` when calling AchievementApi$AchievementTierSearchPost, `descending` is not nullable")
       }
 
       if (!missing(`descending_goal`) && is.null(`descending_goal`)) {
-        stop("Invalid value for `descending_goal` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `descending_goal` is not nullable")
+        stop("Invalid value for `descending_goal` when calling AchievementApi$AchievementTierSearchPost, `descending_goal` is not nullable")
       }
 
       if (!missing(`start`) && is.null(`start`)) {
-        stop("Invalid value for `start` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `start` is not nullable")
+        stop("Invalid value for `start` when calling AchievementApi$AchievementTierSearchPost, `start` is not nullable")
       }
 
       if (!missing(`limit`) && is.null(`limit`)) {
-        stop("Invalid value for `limit` when calling AchievementApi$ApiVersionAchievementTierSearchPost, `limit` is not nullable")
+        stop("Invalid value for `limit` when calling AchievementApi$AchievementTierSearchPost, `limit` is not nullable")
       }
 
       query_params[["deviceId"]] <- `device_id`
@@ -488,11 +464,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/achievement/tier/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/tier/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -553,7 +525,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Create Achievement
     #'
-    #' @param version 
     #' @param app_key the application key the achievement is for
     #' @param title the title of the achievement (255 character limit)
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
@@ -572,8 +543,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AchievementResponse
-    CreateAchievement = function(version, app_key, title, device_id = NULL, account_id = NULL, analytics_tag = NULL, description = NULL, rank_type = NULL, rank_increment = NULL, min_increment = NULL, max_increment = NULL, validate = NULL, active = NULL, trigger_definition = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateAchievementWithHttpInfo(version, app_key, title, device_id, account_id, analytics_tag, description, rank_type, rank_increment, min_increment, max_increment, validate, active, trigger_definition, data_file = data_file, ..., .parse = .parse)
+    CreateAchievement = function(app_key, title, device_id = NULL, account_id = NULL, analytics_tag = NULL, description = NULL, rank_type = NULL, rank_increment = NULL, min_increment = NULL, max_increment = NULL, validate = NULL, active = NULL, trigger_definition = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateAchievementWithHttpInfo(app_key, title, device_id, account_id, analytics_tag, description, rank_type, rank_increment, min_increment, max_increment, validate, active, trigger_definition, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -588,7 +559,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Create Achievement
     #'
-    #' @param version 
     #' @param app_key the application key the achievement is for
     #' @param title the title of the achievement (255 character limit)
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
@@ -607,7 +577,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AchievementResponse) with additional information such as HTTP status code, headers
-    CreateAchievementWithHttpInfo = function(version, app_key, title, device_id = NULL, account_id = NULL, analytics_tag = NULL, description = NULL, rank_type = NULL, rank_increment = NULL, min_increment = NULL, max_increment = NULL, validate = NULL, active = NULL, trigger_definition = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateAchievementWithHttpInfo = function(app_key, title, device_id = NULL, account_id = NULL, analytics_tag = NULL, description = NULL, rank_type = NULL, rank_increment = NULL, min_increment = NULL, max_increment = NULL, validate = NULL, active = NULL, trigger_definition = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -617,20 +587,12 @@ AchievementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
       }
 
       if (missing(`title`)) {
         stop("Missing required parameter `title`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$CreateAchievement, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -711,11 +673,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["triggerDefinition"]] <- `trigger_definition`
 
-      local_var_url_path <- "/api/{version}/achievement/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -776,7 +734,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Create Achievement Tier
     #'
-    #' @param version 
     #' @param achievement_id the achievement id for adding a new tier
     #' @param score_all_instances score all instances
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
@@ -796,8 +753,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AchievementTierResponse
-    CreateAchievementTier = function(version, achievement_id, score_all_instances, device_id = NULL, account_id = NULL, icon = NULL, icon_asset_id = NULL, title = NULL, description = NULL, goal_count = NULL, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateAchievementTierWithHttpInfo(version, achievement_id, score_all_instances, device_id, account_id, icon, icon_asset_id, title, description, goal_count, mission_id, game_id, pack_id, game_level_id, game_object_id, data_file = data_file, ..., .parse = .parse)
+    CreateAchievementTier = function(achievement_id, score_all_instances, device_id = NULL, account_id = NULL, icon = NULL, icon_asset_id = NULL, title = NULL, description = NULL, goal_count = NULL, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateAchievementTierWithHttpInfo(achievement_id, score_all_instances, device_id, account_id, icon, icon_asset_id, title, description, goal_count, mission_id, game_id, pack_id, game_level_id, game_object_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -812,7 +769,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Create Achievement Tier
     #'
-    #' @param version 
     #' @param achievement_id the achievement id for adding a new tier
     #' @param score_all_instances score all instances
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
@@ -832,7 +788,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AchievementTierResponse) with additional information such as HTTP status code, headers
-    CreateAchievementTierWithHttpInfo = function(version, achievement_id, score_all_instances, device_id = NULL, account_id = NULL, icon = NULL, icon_asset_id = NULL, title = NULL, description = NULL, goal_count = NULL, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateAchievementTierWithHttpInfo = function(achievement_id, score_all_instances, device_id = NULL, account_id = NULL, icon = NULL, icon_asset_id = NULL, title = NULL, description = NULL, goal_count = NULL, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -842,20 +798,12 @@ AchievementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`achievement_id`)) {
         stop("Missing required parameter `achievement_id`.")
       }
 
       if (missing(`score_all_instances`)) {
         stop("Missing required parameter `score_all_instances`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$CreateAchievementTier, `version` is not nullable")
       }
 
       if (!missing(`achievement_id`) && is.null(`achievement_id`)) {
@@ -942,11 +890,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["scoreAllInstances"]] <- `score_all_instances`
 
-      local_var_url_path <- "/api/{version}/achievement/tier/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/tier/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1007,7 +951,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Delete Achievement
     #'
-    #' @param version 
     #' @param achievement_id The ID of the achievement
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param data_file (optional) name of the data file to save the result
@@ -1015,8 +958,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteAchievement = function(version, achievement_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteAchievementWithHttpInfo(version, achievement_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteAchievement = function(achievement_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteAchievementWithHttpInfo(achievement_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1031,7 +974,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Delete Achievement
     #'
-    #' @param version 
     #' @param achievement_id The ID of the achievement
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param data_file (optional) name of the data file to save the result
@@ -1039,7 +981,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteAchievementWithHttpInfo = function(version, achievement_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteAchievementWithHttpInfo = function(achievement_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1049,16 +991,8 @@ AchievementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`achievement_id`)) {
         stop("Missing required parameter `achievement_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$DeleteAchievement, `version` is not nullable")
       }
 
       if (!missing(`achievement_id`) && is.null(`achievement_id`)) {
@@ -1073,11 +1007,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["achievementId"]] <- `achievement_id`
 
-      local_var_url_path <- "/api/{version}/achievement/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1138,7 +1068,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Delete Achievement Tier
     #'
-    #' @param version 
     #' @param achievement_tier_id the achievement id for deletion
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param data_file (optional) name of the data file to save the result
@@ -1146,8 +1075,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteAchievementTier = function(version, achievement_tier_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteAchievementTierWithHttpInfo(version, achievement_tier_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteAchievementTier = function(achievement_tier_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteAchievementTierWithHttpInfo(achievement_tier_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1162,7 +1091,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Delete Achievement Tier
     #'
-    #' @param version 
     #' @param achievement_tier_id the achievement id for deletion
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param data_file (optional) name of the data file to save the result
@@ -1170,7 +1098,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteAchievementTierWithHttpInfo = function(version, achievement_tier_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteAchievementTierWithHttpInfo = function(achievement_tier_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1180,16 +1108,8 @@ AchievementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`achievement_tier_id`)) {
         stop("Missing required parameter `achievement_tier_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$DeleteAchievementTier, `version` is not nullable")
       }
 
       if (!missing(`achievement_tier_id`) && is.null(`achievement_tier_id`)) {
@@ -1204,11 +1124,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["achievementTierId"]] <- `achievement_tier_id`
 
-      local_var_url_path <- "/api/{version}/achievement/tier/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/tier/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1269,7 +1185,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Get Achievement
     #'
-    #' @param version 
     #' @param achievement_id The ID of the achievement
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -1279,8 +1194,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AchievementTierResponse
-    GetAchievement = function(version, achievement_id, device_id = NULL, account_id = NULL, achievement_type = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAchievementWithHttpInfo(version, achievement_id, device_id, account_id, achievement_type, data_file = data_file, ..., .parse = .parse)
+    GetAchievement = function(achievement_id, device_id = NULL, account_id = NULL, achievement_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAchievementWithHttpInfo(achievement_id, device_id, account_id, achievement_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1295,7 +1210,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Get Achievement
     #'
-    #' @param version 
     #' @param achievement_id The ID of the achievement
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -1305,7 +1219,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AchievementTierResponse) with additional information such as HTTP status code, headers
-    GetAchievementWithHttpInfo = function(version, achievement_id, device_id = NULL, account_id = NULL, achievement_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetAchievementWithHttpInfo = function(achievement_id, device_id = NULL, account_id = NULL, achievement_type = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1315,16 +1229,8 @@ AchievementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`achievement_id`)) {
         stop("Missing required parameter `achievement_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$GetAchievement, `version` is not nullable")
       }
 
       if (!missing(`achievement_id`) && is.null(`achievement_id`)) {
@@ -1351,11 +1257,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["achievementType"]] <- `achievement_type`
 
-      local_var_url_path <- "/api/{version}/achievement/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1416,7 +1318,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Gets an achievement tier
     #'
-    #' @param version 
     #' @param account_id the account id of the user (deviceId or accountId required)
     #' @param achievement_tier_id the achievement tier id that is being retrieved
     #' @param data_file (optional) name of the data file to save the result
@@ -1424,8 +1325,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AchievementTierResponse
-    GetAchievementTier = function(version, account_id, achievement_tier_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAchievementTierWithHttpInfo(version, account_id, achievement_tier_id, data_file = data_file, ..., .parse = .parse)
+    GetAchievementTier = function(account_id, achievement_tier_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAchievementTierWithHttpInfo(account_id, achievement_tier_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1440,7 +1341,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Gets an achievement tier
     #'
-    #' @param version 
     #' @param account_id the account id of the user (deviceId or accountId required)
     #' @param achievement_tier_id the achievement tier id that is being retrieved
     #' @param data_file (optional) name of the data file to save the result
@@ -1448,7 +1348,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AchievementTierResponse) with additional information such as HTTP status code, headers
-    GetAchievementTierWithHttpInfo = function(version, account_id, achievement_tier_id, data_file = NULL, ..., .parse = TRUE) {
+    GetAchievementTierWithHttpInfo = function(account_id, achievement_tier_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1458,20 +1358,12 @@ AchievementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`achievement_tier_id`)) {
         stop("Missing required parameter `achievement_tier_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$GetAchievementTier, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1486,11 +1378,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["achievementTierId"]] <- `achievement_tier_id`
 
-      local_var_url_path <- "/api/{version}/achievement/tier/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/tier/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1551,7 +1439,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Get Achievement Progress
     #'
-    #' @param version 
     #' @param return_nulls determines whether to return null fields in the response
     #' @param app_key the application key for filtering results by application
     #' @param include_undiscovered determines whether to return achievements that the user has not discovered yet
@@ -1568,8 +1455,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AchievementProgressResponse]
-    GetUserAchievements = function(version, return_nulls, app_key, include_undiscovered, device_id = NULL, account_id = NULL, connection_account_email = NULL, connection_account_id = NULL, rank_type = NULL, achievement_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetUserAchievementsWithHttpInfo(version, return_nulls, app_key, include_undiscovered, device_id, account_id, connection_account_email, connection_account_id, rank_type, achievement_type, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetUserAchievements = function(return_nulls, app_key, include_undiscovered, device_id = NULL, account_id = NULL, connection_account_email = NULL, connection_account_id = NULL, rank_type = NULL, achievement_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetUserAchievementsWithHttpInfo(return_nulls, app_key, include_undiscovered, device_id, account_id, connection_account_email, connection_account_id, rank_type, achievement_type, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1584,7 +1471,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Get Achievement Progress
     #'
-    #' @param version 
     #' @param return_nulls determines whether to return null fields in the response
     #' @param app_key the application key for filtering results by application
     #' @param include_undiscovered determines whether to return achievements that the user has not discovered yet
@@ -1601,7 +1487,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AchievementProgressResponse]) with additional information such as HTTP status code, headers
-    GetUserAchievementsWithHttpInfo = function(version, return_nulls, app_key, include_undiscovered, device_id = NULL, account_id = NULL, connection_account_email = NULL, connection_account_id = NULL, rank_type = NULL, achievement_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetUserAchievementsWithHttpInfo = function(return_nulls, app_key, include_undiscovered, device_id = NULL, account_id = NULL, connection_account_email = NULL, connection_account_id = NULL, rank_type = NULL, achievement_type = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1610,10 +1496,6 @@ AchievementApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`return_nulls`)) {
         stop("Missing required parameter `return_nulls`.")
@@ -1625,10 +1507,6 @@ AchievementApi <- R6::R6Class(
 
       if (missing(`include_undiscovered`)) {
         stop("Missing required parameter `include_undiscovered`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$GetUserAchievements, `version` is not nullable")
       }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
@@ -1697,11 +1575,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/achievement/progress/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/progress/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1762,15 +1636,14 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' List Achievement Tags
     #'
-    #' @param version 
     #' @param app_key (optional) filter results by application key
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    ListAchievementTags = function(version, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ListAchievementTagsWithHttpInfo(version, app_key, data_file = data_file, ..., .parse = .parse)
+    ListAchievementTags = function(app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ListAchievementTagsWithHttpInfo(app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1785,14 +1658,13 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' List Achievement Tags
     #'
-    #' @param version 
     #' @param app_key (optional) filter results by application key
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    ListAchievementTagsWithHttpInfo = function(version, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ListAchievementTagsWithHttpInfo = function(app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1802,25 +1674,13 @@ AchievementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$ListAchievementTags, `version` is not nullable")
-      }
-
       if (!missing(`app_key`) && is.null(`app_key`)) {
         stop("Invalid value for `app_key` when calling AchievementApi$ListAchievementTags, `app_key` is not nullable")
       }
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/achievement/tag/list"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/tag/list"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1881,7 +1741,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' List Achievements
     #'
-    #' @param version 
     #' @param sort_field the field to sort by. See AchievementApiMap
     #' @param descending determines whether the sorted list is in descending or ascending order
     #' @param start the start index for pagination
@@ -1898,8 +1757,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AchievementShortResponse]
-    ListAchievements = function(version, sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ListAchievementsWithHttpInfo(version, sort_field, descending, start, limit, active_only, device_id, account_id, app_key, keyword, achievement_type, rank_type, data_file = data_file, ..., .parse = .parse)
+    ListAchievements = function(sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ListAchievementsWithHttpInfo(sort_field, descending, start, limit, active_only, device_id, account_id, app_key, keyword, achievement_type, rank_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1914,7 +1773,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' List Achievements
     #'
-    #' @param version 
     #' @param sort_field the field to sort by. See AchievementApiMap
     #' @param descending determines whether the sorted list is in descending or ascending order
     #' @param start the start index for pagination
@@ -1931,7 +1789,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AchievementShortResponse]) with additional information such as HTTP status code, headers
-    ListAchievementsWithHttpInfo = function(version, sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ListAchievementsWithHttpInfo = function(sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1940,10 +1798,6 @@ AchievementApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`sort_field`)) {
         stop("Missing required parameter `sort_field`.")
@@ -1963,10 +1817,6 @@ AchievementApi <- R6::R6Class(
 
       if (missing(`active_only`)) {
         stop("Missing required parameter `active_only`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$ListAchievements, `version` is not nullable")
       }
 
       if (!missing(`sort_field`) && is.null(`sort_field`)) {
@@ -2038,11 +1888,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/achievement/list"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/list"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2103,7 +1949,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Search Achievements
     #'
-    #' @param version 
     #' @param app_key the application key
     #' @param sort_field the field to sort by. See AchievementApiMap
     #' @param descending determines whether the sorted list is in descending or ascending order
@@ -2121,8 +1966,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AchievementShortResponse]
-    SearchAchievements = function(version, app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, device_id = NULL, account_id = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchAchievementsWithHttpInfo(version, app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, device_id, account_id, keyword, achievement_type, rank_type, data_file = data_file, ..., .parse = .parse)
+    SearchAchievements = function(app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, device_id = NULL, account_id = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchAchievementsWithHttpInfo(app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, device_id, account_id, keyword, achievement_type, rank_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2137,7 +1982,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Search Achievements
     #'
-    #' @param version 
     #' @param app_key the application key
     #' @param sort_field the field to sort by. See AchievementApiMap
     #' @param descending determines whether the sorted list is in descending or ascending order
@@ -2155,7 +1999,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AchievementShortResponse]) with additional information such as HTTP status code, headers
-    SearchAchievementsWithHttpInfo = function(version, app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, device_id = NULL, account_id = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchAchievementsWithHttpInfo = function(app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, device_id = NULL, account_id = NULL, keyword = NULL, achievement_type = NULL, rank_type = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2164,10 +2008,6 @@ AchievementApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
@@ -2195,10 +2035,6 @@ AchievementApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$SearchAchievements, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -2276,11 +2112,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/achievement/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2341,7 +2173,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Update Achievement
     #'
-    #' @param version 
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param achievement_id (optional) the achievement ID for updating an existing achievement
@@ -2362,8 +2193,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AchievementResponse
-    UpdateAchievement = function(version, device_id = NULL, account_id = NULL, achievement_id = NULL, analytics_tag = NULL, title = NULL, description = NULL, rank_type = NULL, rank_increment = NULL, min_increment = NULL, null_min_increment = NULL, max_increment = NULL, null_max_increment = NULL, validate = NULL, active = NULL, trigger_definition = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateAchievementWithHttpInfo(version, device_id, account_id, achievement_id, analytics_tag, title, description, rank_type, rank_increment, min_increment, null_min_increment, max_increment, null_max_increment, validate, active, trigger_definition, data_file = data_file, ..., .parse = .parse)
+    UpdateAchievement = function(device_id = NULL, account_id = NULL, achievement_id = NULL, analytics_tag = NULL, title = NULL, description = NULL, rank_type = NULL, rank_increment = NULL, min_increment = NULL, null_min_increment = NULL, max_increment = NULL, null_max_increment = NULL, validate = NULL, active = NULL, trigger_definition = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateAchievementWithHttpInfo(device_id, account_id, achievement_id, analytics_tag, title, description, rank_type, rank_increment, min_increment, null_min_increment, max_increment, null_max_increment, validate, active, trigger_definition, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2378,7 +2209,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Update Achievement
     #'
-    #' @param version 
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param achievement_id (optional) the achievement ID for updating an existing achievement
@@ -2399,7 +2229,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AchievementResponse) with additional information such as HTTP status code, headers
-    UpdateAchievementWithHttpInfo = function(version, device_id = NULL, account_id = NULL, achievement_id = NULL, analytics_tag = NULL, title = NULL, description = NULL, rank_type = NULL, rank_increment = NULL, min_increment = NULL, null_min_increment = NULL, max_increment = NULL, null_max_increment = NULL, validate = NULL, active = NULL, trigger_definition = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateAchievementWithHttpInfo = function(device_id = NULL, account_id = NULL, achievement_id = NULL, analytics_tag = NULL, title = NULL, description = NULL, rank_type = NULL, rank_increment = NULL, min_increment = NULL, null_min_increment = NULL, max_increment = NULL, null_max_increment = NULL, validate = NULL, active = NULL, trigger_definition = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2408,14 +2238,6 @@ AchievementApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$UpdateAchievement, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AchievementApi$UpdateAchievement, `device_id` is not nullable")
@@ -2507,11 +2329,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["triggerDefinition"]] <- `trigger_definition`
 
-      local_var_url_path <- "/api/{version}/achievement/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2572,7 +2390,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Update Achievement Tier
     #'
-    #' @param version 
     #' @param achievement_tier_id the achievement tier id for updating
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -2592,8 +2409,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AchievementTierResponse
-    UpdateAchievementTier = function(version, achievement_tier_id, device_id = NULL, account_id = NULL, icon = NULL, icon_asset_id = NULL, title = NULL, description = NULL, goal_count = NULL, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, score_all_instances = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateAchievementTierWithHttpInfo(version, achievement_tier_id, device_id, account_id, icon, icon_asset_id, title, description, goal_count, mission_id, game_id, pack_id, game_level_id, game_object_id, score_all_instances, data_file = data_file, ..., .parse = .parse)
+    UpdateAchievementTier = function(achievement_tier_id, device_id = NULL, account_id = NULL, icon = NULL, icon_asset_id = NULL, title = NULL, description = NULL, goal_count = NULL, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, score_all_instances = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateAchievementTierWithHttpInfo(achievement_tier_id, device_id, account_id, icon, icon_asset_id, title, description, goal_count, mission_id, game_id, pack_id, game_level_id, game_object_id, score_all_instances, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2608,7 +2425,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Update Achievement Tier
     #'
-    #' @param version 
     #' @param achievement_tier_id the achievement tier id for updating
     #' @param device_id (optional) a unique id given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -2628,7 +2444,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AchievementTierResponse) with additional information such as HTTP status code, headers
-    UpdateAchievementTierWithHttpInfo = function(version, achievement_tier_id, device_id = NULL, account_id = NULL, icon = NULL, icon_asset_id = NULL, title = NULL, description = NULL, goal_count = NULL, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, score_all_instances = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateAchievementTierWithHttpInfo = function(achievement_tier_id, device_id = NULL, account_id = NULL, icon = NULL, icon_asset_id = NULL, title = NULL, description = NULL, goal_count = NULL, mission_id = NULL, game_id = NULL, pack_id = NULL, game_level_id = NULL, game_object_id = NULL, score_all_instances = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2638,16 +2454,8 @@ AchievementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`achievement_tier_id`)) {
         stop("Missing required parameter `achievement_tier_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$UpdateAchievementTier, `version` is not nullable")
       }
 
       if (!missing(`achievement_tier_id`) && is.null(`achievement_tier_id`)) {
@@ -2734,11 +2542,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["scoreAllInstances"]] <- `score_all_instances`
 
-      local_var_url_path <- "/api/{version}/achievement/tier/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/tier/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2799,7 +2603,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Update Achievement Progress
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param achievement_id (optional) the achievement id (achievementId or tag required)
     #' @param tag (optional) the analytic tag to identify an achievement (achievementId or tag required)
@@ -2813,8 +2616,8 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UpdateUserAchievement = function(version, account_id, achievement_id = NULL, tag = NULL, custom_id = NULL, increment = NULL, start_date = NULL, end_date = NULL, return_progress = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateUserAchievementWithHttpInfo(version, account_id, achievement_id, tag, custom_id, increment, start_date, end_date, return_progress, data_file = data_file, ..., .parse = .parse)
+    UpdateUserAchievement = function(account_id, achievement_id = NULL, tag = NULL, custom_id = NULL, increment = NULL, start_date = NULL, end_date = NULL, return_progress = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateUserAchievementWithHttpInfo(account_id, achievement_id, tag, custom_id, increment, start_date, end_date, return_progress, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2829,7 +2632,6 @@ AchievementApi <- R6::R6Class(
     #' @description
     #' Update Achievement Progress
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param achievement_id (optional) the achievement id (achievementId or tag required)
     #' @param tag (optional) the analytic tag to identify an achievement (achievementId or tag required)
@@ -2843,7 +2645,7 @@ AchievementApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UpdateUserAchievementWithHttpInfo = function(version, account_id, achievement_id = NULL, tag = NULL, custom_id = NULL, increment = NULL, start_date = NULL, end_date = NULL, return_progress = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateUserAchievementWithHttpInfo = function(account_id, achievement_id = NULL, tag = NULL, custom_id = NULL, increment = NULL, start_date = NULL, end_date = NULL, return_progress = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2853,16 +2655,8 @@ AchievementApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AchievementApi$UpdateUserAchievement, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2913,11 +2707,7 @@ AchievementApi <- R6::R6Class(
 
       query_params[["returnProgress"]] <- `return_progress`
 
-      local_var_url_path <- "/api/{version}/achievement/progress/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/achievement/progress/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

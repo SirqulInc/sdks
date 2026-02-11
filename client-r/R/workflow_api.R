@@ -17,7 +17,6 @@
 #' ####################  RunWorkflow  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID of the user
 #' var_workflow_id <- 56 # integer | the workflow to run
 #' var_sku_id <- 56 # integer | this runs a particular sku on the workflow (Optional)
@@ -28,8 +27,8 @@
 #' api_instance <- WorkflowApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RunWorkflow(var_version, var_account_id, var_workflow_id, sku_id = var_sku_id, version_code = var_version_code, parameters = var_parametersdata_file = "result.txt")
-#' result <- api_instance$RunWorkflow(var_version, var_account_id, var_workflow_id, sku_id = var_sku_id, version_code = var_version_code, parameters = var_parameters)
+#' # result <- api_instance$RunWorkflow(var_account_id, var_workflow_id, sku_id = var_sku_id, version_code = var_version_code, parameters = var_parametersdata_file = "result.txt")
+#' result <- api_instance$RunWorkflow(var_account_id, var_workflow_id, sku_id = var_sku_id, version_code = var_version_code, parameters = var_parameters)
 #' dput(result)
 #'
 #'
@@ -57,7 +56,6 @@ WorkflowApi <- R6::R6Class(
     #' @description
     #' Run Workflow
     #'
-    #' @param version 
     #' @param account_id the account ID of the user
     #' @param workflow_id the workflow to run
     #' @param sku_id (optional) this runs a particular sku on the workflow
@@ -68,8 +66,8 @@ WorkflowApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RunWorkflow = function(version, account_id, workflow_id, sku_id = NULL, version_code = NULL, parameters = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RunWorkflowWithHttpInfo(version, account_id, workflow_id, sku_id, version_code, parameters, data_file = data_file, ..., .parse = .parse)
+    RunWorkflow = function(account_id, workflow_id, sku_id = NULL, version_code = NULL, parameters = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RunWorkflowWithHttpInfo(account_id, workflow_id, sku_id, version_code, parameters, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -84,7 +82,6 @@ WorkflowApi <- R6::R6Class(
     #' @description
     #' Run Workflow
     #'
-    #' @param version 
     #' @param account_id the account ID of the user
     #' @param workflow_id the workflow to run
     #' @param sku_id (optional) this runs a particular sku on the workflow
@@ -95,7 +92,7 @@ WorkflowApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RunWorkflowWithHttpInfo = function(version, account_id, workflow_id, sku_id = NULL, version_code = NULL, parameters = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RunWorkflowWithHttpInfo = function(account_id, workflow_id, sku_id = NULL, version_code = NULL, parameters = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -105,20 +102,12 @@ WorkflowApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`workflow_id`)) {
         stop("Missing required parameter `workflow_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WorkflowApi$RunWorkflow, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -151,11 +140,7 @@ WorkflowApi <- R6::R6Class(
 
       query_params[["parameters"]] <- `parameters`
 
-      local_var_url_path <- "/api/{version}/workflow/run"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/workflow/run"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

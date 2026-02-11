@@ -17,7 +17,6 @@
 #' ####################  CreateSubscription  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the create, must be the responsible manager
 #' var_plan_id <- 56 # integer | The plan to subscribe to, if null use default plan (Optional)
 #' var_promo_code <- "promo_code_example" # character | Set a promo code for a discount. (Optional)
@@ -26,60 +25,56 @@
 #' api_instance <- SubscriptionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateSubscription(var_version, var_account_id, plan_id = var_plan_id, promo_code = var_promo_codedata_file = "result.txt")
-#' result <- api_instance$CreateSubscription(var_version, var_account_id, plan_id = var_plan_id, promo_code = var_promo_code)
+#' # result <- api_instance$CreateSubscription(var_account_id, plan_id = var_plan_id, promo_code = var_promo_codedata_file = "result.txt")
+#' result <- api_instance$CreateSubscription(var_account_id, plan_id = var_plan_id, promo_code = var_promo_code)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteSubscription  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the delete, must be the responsible manager
 #'
 #' #Delete Subscription
 #' api_instance <- SubscriptionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteSubscription(var_version, var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteSubscription(var_version, var_account_id)
+#' # result <- api_instance$DeleteSubscription(var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteSubscription(var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetSubscription  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the lookup
 #'
 #' #Get Subscription
 #' api_instance <- SubscriptionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetSubscription(var_version, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetSubscription(var_version, var_account_id)
+#' # result <- api_instance$GetSubscription(var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetSubscription(var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetSubscriptionPlan  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_plan_id <- 56 # integer | The ID of the plan to get
 #'
 #' #Get Subscription Plan
 #' api_instance <- SubscriptionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetSubscriptionPlan(var_version, var_plan_iddata_file = "result.txt")
-#' result <- api_instance$GetSubscriptionPlan(var_version, var_plan_id)
+#' # result <- api_instance$GetSubscriptionPlan(var_plan_iddata_file = "result.txt")
+#' result <- api_instance$GetSubscriptionPlan(var_plan_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetSubscriptionPlans  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_visible <- "visible_example" # character | Include visible only (true), hidden only (false), or all (null) (Optional)
 #' var_role <- "role_example" # character | The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (Optional)
 #'
@@ -87,15 +82,14 @@
 #' api_instance <- SubscriptionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetSubscriptionPlans(var_version, visible = var_visible, role = var_roledata_file = "result.txt")
-#' result <- api_instance$GetSubscriptionPlans(var_version, visible = var_visible, role = var_role)
+#' # result <- api_instance$GetSubscriptionPlans(visible = var_visible, role = var_roledata_file = "result.txt")
+#' result <- api_instance$GetSubscriptionPlans(visible = var_visible, role = var_role)
 #' dput(result)
 #'
 #'
 #' ####################  GetSubscriptionUsage  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the lookup
 #' var_application_id <- 56 # integer | Get for just 1 application instead of the BillableEntity (Optional)
 #' var_start <- 56 # integer | The start time frame (Optional)
@@ -105,15 +99,14 @@
 #' api_instance <- SubscriptionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetSubscriptionUsage(var_version, var_account_id, application_id = var_application_id, start = var_start, end = var_enddata_file = "result.txt")
-#' result <- api_instance$GetSubscriptionUsage(var_version, var_account_id, application_id = var_application_id, start = var_start, end = var_end)
+#' # result <- api_instance$GetSubscriptionUsage(var_account_id, application_id = var_application_id, start = var_start, end = var_enddata_file = "result.txt")
+#' result <- api_instance$GetSubscriptionUsage(var_account_id, application_id = var_application_id, start = var_start, end = var_end)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateSubscription  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the update, must be the responsible manager
 #' var_plan_id <- 56 # integer | The plan to subscribe to (Optional)
 #' var_promo_code <- "promo_code_example" # character | Set a promo code for a discount. (Optional)
@@ -123,8 +116,8 @@
 #' api_instance <- SubscriptionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateSubscription(var_version, var_account_id, plan_id = var_plan_id, promo_code = var_promo_code, active = var_activedata_file = "result.txt")
-#' result <- api_instance$UpdateSubscription(var_version, var_account_id, plan_id = var_plan_id, promo_code = var_promo_code, active = var_active)
+#' # result <- api_instance$UpdateSubscription(var_account_id, plan_id = var_plan_id, promo_code = var_promo_code, active = var_activedata_file = "result.txt")
+#' result <- api_instance$UpdateSubscription(var_account_id, plan_id = var_plan_id, promo_code = var_promo_code, active = var_active)
 #' dput(result)
 #'
 #'
@@ -152,7 +145,6 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Create Subscription
     #'
-    #' @param version 
     #' @param account_id The account used to perform the create, must be the responsible manager
     #' @param plan_id (optional) The plan to subscribe to, if null use default plan
     #' @param promo_code (optional) Set a promo code for a discount.
@@ -161,8 +153,8 @@ SubscriptionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SubscriptionResponse
-    CreateSubscription = function(version, account_id, plan_id = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateSubscriptionWithHttpInfo(version, account_id, plan_id, promo_code, data_file = data_file, ..., .parse = .parse)
+    CreateSubscription = function(account_id, plan_id = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateSubscriptionWithHttpInfo(account_id, plan_id, promo_code, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -177,7 +169,6 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Create Subscription
     #'
-    #' @param version 
     #' @param account_id The account used to perform the create, must be the responsible manager
     #' @param plan_id (optional) The plan to subscribe to, if null use default plan
     #' @param promo_code (optional) Set a promo code for a discount.
@@ -186,7 +177,7 @@ SubscriptionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SubscriptionResponse) with additional information such as HTTP status code, headers
-    CreateSubscriptionWithHttpInfo = function(version, account_id, plan_id = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateSubscriptionWithHttpInfo = function(account_id, plan_id = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -196,16 +187,8 @@ SubscriptionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SubscriptionApi$CreateSubscription, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -226,11 +209,7 @@ SubscriptionApi <- R6::R6Class(
 
       query_params[["promoCode"]] <- `promo_code`
 
-      local_var_url_path <- "/api/{version}/subscription/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/subscription/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -291,15 +270,14 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Delete Subscription
     #'
-    #' @param version 
     #' @param account_id The account used to perform the delete, must be the responsible manager
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteSubscription = function(version, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteSubscriptionWithHttpInfo(version, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteSubscription = function(account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteSubscriptionWithHttpInfo(account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -314,14 +292,13 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Delete Subscription
     #'
-    #' @param version 
     #' @param account_id The account used to perform the delete, must be the responsible manager
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteSubscriptionWithHttpInfo = function(version, account_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteSubscriptionWithHttpInfo = function(account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -331,16 +308,8 @@ SubscriptionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SubscriptionApi$DeleteSubscription, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -349,11 +318,7 @@ SubscriptionApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/subscription/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/subscription/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -414,15 +379,14 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Get Subscription
     #'
-    #' @param version 
     #' @param account_id The account used to perform the lookup
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SubscriptionResponse
-    GetSubscription = function(version, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetSubscriptionWithHttpInfo(version, account_id, data_file = data_file, ..., .parse = .parse)
+    GetSubscription = function(account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetSubscriptionWithHttpInfo(account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -437,14 +401,13 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Get Subscription
     #'
-    #' @param version 
     #' @param account_id The account used to perform the lookup
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SubscriptionResponse) with additional information such as HTTP status code, headers
-    GetSubscriptionWithHttpInfo = function(version, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetSubscriptionWithHttpInfo = function(account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -454,16 +417,8 @@ SubscriptionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SubscriptionApi$GetSubscription, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -472,11 +427,7 @@ SubscriptionApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/subscription/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/subscription/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -537,15 +488,14 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Get Subscription Plan
     #'
-    #' @param version 
     #' @param plan_id The ID of the plan to get
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SubscriptionPlanResponse
-    GetSubscriptionPlan = function(version, plan_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetSubscriptionPlanWithHttpInfo(version, plan_id, data_file = data_file, ..., .parse = .parse)
+    GetSubscriptionPlan = function(plan_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetSubscriptionPlanWithHttpInfo(plan_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -560,14 +510,13 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Get Subscription Plan
     #'
-    #' @param version 
     #' @param plan_id The ID of the plan to get
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SubscriptionPlanResponse) with additional information such as HTTP status code, headers
-    GetSubscriptionPlanWithHttpInfo = function(version, plan_id, data_file = NULL, ..., .parse = TRUE) {
+    GetSubscriptionPlanWithHttpInfo = function(plan_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -577,16 +526,8 @@ SubscriptionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`plan_id`)) {
         stop("Missing required parameter `plan_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SubscriptionApi$GetSubscriptionPlan, `version` is not nullable")
       }
 
       if (!missing(`plan_id`) && is.null(`plan_id`)) {
@@ -595,11 +536,7 @@ SubscriptionApi <- R6::R6Class(
 
       query_params[["planId"]] <- `plan_id`
 
-      local_var_url_path <- "/api/{version}/subscription/plan/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/subscription/plan/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -660,7 +597,6 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' List Subscription Plans
     #'
-    #' @param version 
     #' @param visible (optional) Include visible only (true), hidden only (false), or all (null)
     #' @param role (optional) The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
     #' @param data_file (optional) name of the data file to save the result
@@ -668,8 +604,8 @@ SubscriptionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[SubscriptionPlanResponse]
-    GetSubscriptionPlans = function(version, visible = NULL, role = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetSubscriptionPlansWithHttpInfo(version, visible, role, data_file = data_file, ..., .parse = .parse)
+    GetSubscriptionPlans = function(visible = NULL, role = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetSubscriptionPlansWithHttpInfo(visible, role, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -684,7 +620,6 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' List Subscription Plans
     #'
-    #' @param version 
     #' @param visible (optional) Include visible only (true), hidden only (false), or all (null)
     #' @param role (optional) The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
     #' @param data_file (optional) name of the data file to save the result
@@ -692,7 +627,7 @@ SubscriptionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[SubscriptionPlanResponse]) with additional information such as HTTP status code, headers
-    GetSubscriptionPlansWithHttpInfo = function(version, visible = NULL, role = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetSubscriptionPlansWithHttpInfo = function(visible = NULL, role = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -701,14 +636,6 @@ SubscriptionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SubscriptionApi$GetSubscriptionPlans, `version` is not nullable")
-      }
 
       if (!missing(`visible`) && is.null(`visible`)) {
         stop("Invalid value for `visible` when calling SubscriptionApi$GetSubscriptionPlans, `visible` is not nullable")
@@ -722,11 +649,7 @@ SubscriptionApi <- R6::R6Class(
 
       query_params[["role"]] <- `role`
 
-      local_var_url_path <- "/api/{version}/subscription/plan/list"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/subscription/plan/list"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -787,7 +710,6 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Get Subscription Usage
     #'
-    #' @param version 
     #' @param account_id The account used to perform the lookup
     #' @param application_id (optional) Get for just 1 application instead of the BillableEntity
     #' @param start (optional) The start time frame
@@ -797,8 +719,8 @@ SubscriptionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ApplicationUsageResponse
-    GetSubscriptionUsage = function(version, account_id, application_id = NULL, start = NULL, end = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetSubscriptionUsageWithHttpInfo(version, account_id, application_id, start, end, data_file = data_file, ..., .parse = .parse)
+    GetSubscriptionUsage = function(account_id, application_id = NULL, start = NULL, end = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetSubscriptionUsageWithHttpInfo(account_id, application_id, start, end, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -813,7 +735,6 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Get Subscription Usage
     #'
-    #' @param version 
     #' @param account_id The account used to perform the lookup
     #' @param application_id (optional) Get for just 1 application instead of the BillableEntity
     #' @param start (optional) The start time frame
@@ -823,7 +744,7 @@ SubscriptionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ApplicationUsageResponse) with additional information such as HTTP status code, headers
-    GetSubscriptionUsageWithHttpInfo = function(version, account_id, application_id = NULL, start = NULL, end = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetSubscriptionUsageWithHttpInfo = function(account_id, application_id = NULL, start = NULL, end = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -833,16 +754,8 @@ SubscriptionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SubscriptionApi$GetSubscriptionUsage, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -869,11 +782,7 @@ SubscriptionApi <- R6::R6Class(
 
       query_params[["end"]] <- `end`
 
-      local_var_url_path <- "/api/{version}/subscription/usage/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/subscription/usage/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -934,7 +843,6 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Update Subscription
     #'
-    #' @param version 
     #' @param account_id The account used to perform the update, must be the responsible manager
     #' @param plan_id (optional) The plan to subscribe to
     #' @param promo_code (optional) Set a promo code for a discount.
@@ -944,8 +852,8 @@ SubscriptionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SubscriptionResponse
-    UpdateSubscription = function(version, account_id, plan_id = NULL, promo_code = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateSubscriptionWithHttpInfo(version, account_id, plan_id, promo_code, active, data_file = data_file, ..., .parse = .parse)
+    UpdateSubscription = function(account_id, plan_id = NULL, promo_code = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateSubscriptionWithHttpInfo(account_id, plan_id, promo_code, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -960,7 +868,6 @@ SubscriptionApi <- R6::R6Class(
     #' @description
     #' Update Subscription
     #'
-    #' @param version 
     #' @param account_id The account used to perform the update, must be the responsible manager
     #' @param plan_id (optional) The plan to subscribe to
     #' @param promo_code (optional) Set a promo code for a discount.
@@ -970,7 +877,7 @@ SubscriptionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SubscriptionResponse) with additional information such as HTTP status code, headers
-    UpdateSubscriptionWithHttpInfo = function(version, account_id, plan_id = NULL, promo_code = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateSubscriptionWithHttpInfo = function(account_id, plan_id = NULL, promo_code = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -980,16 +887,8 @@ SubscriptionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SubscriptionApi$UpdateSubscription, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1016,11 +915,7 @@ SubscriptionApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/subscription/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/subscription/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

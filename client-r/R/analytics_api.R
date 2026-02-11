@@ -17,7 +17,6 @@
 #' ####################  Activities  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_start <- 56 # integer | The start of the pagination
 #' var_limit <- 56 # integer | The limit of the pagination
 #' var_account_id <- 56 # integer | the account id of the user
@@ -26,15 +25,14 @@
 #' api_instance <- AnalyticsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$Activities(var_version, var_start, var_limit, var_account_iddata_file = "result.txt")
-#' result <- api_instance$Activities(var_version, var_start, var_limit, var_account_id)
+#' # result <- api_instance$Activities(var_start, var_limit, var_account_iddata_file = "result.txt")
+#' result <- api_instance$Activities(var_start, var_limit, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  AggregatedFilteredUsage  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_application_id <- 56 # integer | This parameter is deprecated. (Optional)
@@ -71,15 +69,14 @@
 #' api_instance <- AnalyticsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AggregatedFilteredUsage(var_version, device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, start_date = var_start_date, end_date = var_end_date, device_type = var_device_type, device = var_device, device_os = var_device_os, gender = var_gender, age_group = var_age_group, country = var_country, state = var_state, city = var_city, zip = var_zip, model = var_model, tag = var_tag, user_account_id = var_user_account_id, user_account_display = var_user_account_display, user_account_username = var_user_account_username, group_by_root = var_group_by_root, group_by = var_group_by, distinct_count = var_distinct_count, sort_field = var_sort_field, descending = var_descending, hide_unknown = var_hide_unknown, response_format = var_response_format, _l = var__l, limit = var_limit, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$AggregatedFilteredUsage(var_version, device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, start_date = var_start_date, end_date = var_end_date, device_type = var_device_type, device = var_device, device_os = var_device_os, gender = var_gender, age_group = var_age_group, country = var_country, state = var_state, city = var_city, zip = var_zip, model = var_model, tag = var_tag, user_account_id = var_user_account_id, user_account_display = var_user_account_display, user_account_username = var_user_account_username, group_by_root = var_group_by_root, group_by = var_group_by, distinct_count = var_distinct_count, sort_field = var_sort_field, descending = var_descending, hide_unknown = var_hide_unknown, response_format = var_response_format, _l = var__l, limit = var_limit, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$AggregatedFilteredUsage(device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, start_date = var_start_date, end_date = var_end_date, device_type = var_device_type, device = var_device, device_os = var_device_os, gender = var_gender, age_group = var_age_group, country = var_country, state = var_state, city = var_city, zip = var_zip, model = var_model, tag = var_tag, user_account_id = var_user_account_id, user_account_display = var_user_account_display, user_account_username = var_user_account_username, group_by_root = var_group_by_root, group_by = var_group_by, distinct_count = var_distinct_count, sort_field = var_sort_field, descending = var_descending, hide_unknown = var_hide_unknown, response_format = var_response_format, _l = var__l, limit = var_limit, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$AggregatedFilteredUsage(device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, start_date = var_start_date, end_date = var_end_date, device_type = var_device_type, device = var_device, device_os = var_device_os, gender = var_gender, age_group = var_age_group, country = var_country, state = var_state, city = var_city, zip = var_zip, model = var_model, tag = var_tag, user_account_id = var_user_account_id, user_account_display = var_user_account_display, user_account_username = var_user_account_username, group_by_root = var_group_by_root, group_by = var_group_by, distinct_count = var_distinct_count, sort_field = var_sort_field, descending = var_descending, hide_unknown = var_hide_unknown, response_format = var_response_format, _l = var__l, limit = var_limit, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  FilteredUsage  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The unique id of the device making the request (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_application_id <- 56 # integer | This parameter is deprecated. (Optional)
@@ -124,15 +121,14 @@
 #' api_instance <- AnalyticsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$FilteredUsage(var_version, device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, start_date = var_start_date, end_date = var_end_date, device_type = var_device_type, device = var_device, device_os = var_device_os, gender = var_gender, age_group = var_age_group, country = var_country, state = var_state, city = var_city, zip = var_zip, model = var_model, tag = var_tag, user_account_id = var_user_account_id, user_account_display = var_user_account_display, user_account_username = var_user_account_username, custom_id = var_custom_id, custom_type = var_custom_type, custom_value = var_custom_value, custom_value2 = var_custom_value2, custom_long = var_custom_long, custom_long2 = var_custom_long2, custom_message = var_custom_message, custom_message2 = var_custom_message2, group_by = var_group_by, distinct_count = var_distinct_count, sum_column = var_sum_column, sort_field = var_sort_field, descending = var_descending, hide_unknown = var_hide_unknown, response_format = var_response_format, _l = var__l, limit = var_limit, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$FilteredUsage(var_version, device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, start_date = var_start_date, end_date = var_end_date, device_type = var_device_type, device = var_device, device_os = var_device_os, gender = var_gender, age_group = var_age_group, country = var_country, state = var_state, city = var_city, zip = var_zip, model = var_model, tag = var_tag, user_account_id = var_user_account_id, user_account_display = var_user_account_display, user_account_username = var_user_account_username, custom_id = var_custom_id, custom_type = var_custom_type, custom_value = var_custom_value, custom_value2 = var_custom_value2, custom_long = var_custom_long, custom_long2 = var_custom_long2, custom_message = var_custom_message, custom_message2 = var_custom_message2, group_by = var_group_by, distinct_count = var_distinct_count, sum_column = var_sum_column, sort_field = var_sort_field, descending = var_descending, hide_unknown = var_hide_unknown, response_format = var_response_format, _l = var__l, limit = var_limit, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$FilteredUsage(device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, start_date = var_start_date, end_date = var_end_date, device_type = var_device_type, device = var_device, device_os = var_device_os, gender = var_gender, age_group = var_age_group, country = var_country, state = var_state, city = var_city, zip = var_zip, model = var_model, tag = var_tag, user_account_id = var_user_account_id, user_account_display = var_user_account_display, user_account_username = var_user_account_username, custom_id = var_custom_id, custom_type = var_custom_type, custom_value = var_custom_value, custom_value2 = var_custom_value2, custom_long = var_custom_long, custom_long2 = var_custom_long2, custom_message = var_custom_message, custom_message2 = var_custom_message2, group_by = var_group_by, distinct_count = var_distinct_count, sum_column = var_sum_column, sort_field = var_sort_field, descending = var_descending, hide_unknown = var_hide_unknown, response_format = var_response_format, _l = var__l, limit = var_limit, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$FilteredUsage(device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, start_date = var_start_date, end_date = var_end_date, device_type = var_device_type, device = var_device, device_os = var_device_os, gender = var_gender, age_group = var_age_group, country = var_country, state = var_state, city = var_city, zip = var_zip, model = var_model, tag = var_tag, user_account_id = var_user_account_id, user_account_display = var_user_account_display, user_account_username = var_user_account_username, custom_id = var_custom_id, custom_type = var_custom_type, custom_value = var_custom_value, custom_value2 = var_custom_value2, custom_long = var_custom_long, custom_long2 = var_custom_long2, custom_message = var_custom_message, custom_message2 = var_custom_message2, group_by = var_group_by, distinct_count = var_distinct_count, sum_column = var_sum_column, sort_field = var_sort_field, descending = var_descending, hide_unknown = var_hide_unknown, response_format = var_response_format, _l = var__l, limit = var_limit, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  Usage  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_tag <- "tag_example" # character | The tag to apply: the name of the action or thing being logged.
 #' var_device_id <- "device_id_example" # character | The client deviceID (Optional)
 #' var_account_id <- 56 # integer | The logged in user ID (Optional)
@@ -169,15 +165,14 @@
 #' api_instance <- AnalyticsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$Usage(var_version, var_tag, device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, app_version = var_app_version, device = var_device, device_type = var_device_type, device_os = var_device_os, model = var_model, latitude = var_latitude, longitude = var_longitude, custom_id = var_custom_id, custom_type = var_custom_type, achievement_increment = var_achievement_increment, city = var_city, state = var_state, country = var_country, zip = var_zip, location_description = var_location_description, client_time = var_client_time, error_message = var_error_message, ip = var_ip, user_agent = var_user_agent, background_event = var_background_event, custom_message = var_custom_message, custom_message2 = var_custom_message2, custom_value = var_custom_value, custom_value2 = var_custom_value2, custom_long = var_custom_long, custom_long2 = var_custom_long2data_file = "result.txt")
-#' result <- api_instance$Usage(var_version, var_tag, device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, app_version = var_app_version, device = var_device, device_type = var_device_type, device_os = var_device_os, model = var_model, latitude = var_latitude, longitude = var_longitude, custom_id = var_custom_id, custom_type = var_custom_type, achievement_increment = var_achievement_increment, city = var_city, state = var_state, country = var_country, zip = var_zip, location_description = var_location_description, client_time = var_client_time, error_message = var_error_message, ip = var_ip, user_agent = var_user_agent, background_event = var_background_event, custom_message = var_custom_message, custom_message2 = var_custom_message2, custom_value = var_custom_value, custom_value2 = var_custom_value2, custom_long = var_custom_long, custom_long2 = var_custom_long2)
+#' # result <- api_instance$Usage(var_tag, device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, app_version = var_app_version, device = var_device, device_type = var_device_type, device_os = var_device_os, model = var_model, latitude = var_latitude, longitude = var_longitude, custom_id = var_custom_id, custom_type = var_custom_type, achievement_increment = var_achievement_increment, city = var_city, state = var_state, country = var_country, zip = var_zip, location_description = var_location_description, client_time = var_client_time, error_message = var_error_message, ip = var_ip, user_agent = var_user_agent, background_event = var_background_event, custom_message = var_custom_message, custom_message2 = var_custom_message2, custom_value = var_custom_value, custom_value2 = var_custom_value2, custom_long = var_custom_long, custom_long2 = var_custom_long2data_file = "result.txt")
+#' result <- api_instance$Usage(var_tag, device_id = var_device_id, account_id = var_account_id, application_id = var_application_id, app_key = var_app_key, app_version = var_app_version, device = var_device, device_type = var_device_type, device_os = var_device_os, model = var_model, latitude = var_latitude, longitude = var_longitude, custom_id = var_custom_id, custom_type = var_custom_type, achievement_increment = var_achievement_increment, city = var_city, state = var_state, country = var_country, zip = var_zip, location_description = var_location_description, client_time = var_client_time, error_message = var_error_message, ip = var_ip, user_agent = var_user_agent, background_event = var_background_event, custom_message = var_custom_message, custom_message2 = var_custom_message2, custom_value = var_custom_value, custom_value2 = var_custom_value2, custom_long = var_custom_long, custom_long2 = var_custom_long2)
 #' dput(result)
 #'
 #'
 #' ####################  UsageBatch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key unique to each application.
 #' var_device <- "device_example" # character | The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
 #' var_data <- "data_example" # character | The analytic data AnalyticListResponse
@@ -194,8 +189,8 @@
 #' api_instance <- AnalyticsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UsageBatch(var_version, var_app_key, var_device, var_data, device_id = var_device_id, account_id = var_account_id, app_version = var_app_version, device_type = var_device_type, device_os = var_device_os, model = var_model, update_ranking = var_update_ranking, return_summary_response = var_return_summary_responsedata_file = "result.txt")
-#' result <- api_instance$UsageBatch(var_version, var_app_key, var_device, var_data, device_id = var_device_id, account_id = var_account_id, app_version = var_app_version, device_type = var_device_type, device_os = var_device_os, model = var_model, update_ranking = var_update_ranking, return_summary_response = var_return_summary_response)
+#' # result <- api_instance$UsageBatch(var_app_key, var_device, var_data, device_id = var_device_id, account_id = var_account_id, app_version = var_app_version, device_type = var_device_type, device_os = var_device_os, model = var_model, update_ranking = var_update_ranking, return_summary_response = var_return_summary_responsedata_file = "result.txt")
+#' result <- api_instance$UsageBatch(var_app_key, var_device, var_data, device_id = var_device_id, account_id = var_account_id, app_version = var_app_version, device_type = var_device_type, device_os = var_device_os, model = var_model, update_ranking = var_update_ranking, return_summary_response = var_return_summary_response)
 #' dput(result)
 #'
 #'
@@ -223,7 +218,6 @@ AnalyticsApi <- R6::R6Class(
     #' @description
     #' Get User Activity
     #'
-    #' @param version 
     #' @param start The start of the pagination
     #' @param limit The limit of the pagination
     #' @param account_id the account id of the user
@@ -232,8 +226,8 @@ AnalyticsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[UserActivityResponse]
-    Activities = function(version, start, limit, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ActivitiesWithHttpInfo(version, start, limit, account_id, data_file = data_file, ..., .parse = .parse)
+    Activities = function(start, limit, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ActivitiesWithHttpInfo(start, limit, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -248,7 +242,6 @@ AnalyticsApi <- R6::R6Class(
     #' @description
     #' Get User Activity
     #'
-    #' @param version 
     #' @param start The start of the pagination
     #' @param limit The limit of the pagination
     #' @param account_id the account id of the user
@@ -257,7 +250,7 @@ AnalyticsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[UserActivityResponse]) with additional information such as HTTP status code, headers
-    ActivitiesWithHttpInfo = function(version, start, limit, account_id, data_file = NULL, ..., .parse = TRUE) {
+    ActivitiesWithHttpInfo = function(start, limit, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -266,10 +259,6 @@ AnalyticsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`start`)) {
         stop("Missing required parameter `start`.")
@@ -281,10 +270,6 @@ AnalyticsApi <- R6::R6Class(
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AnalyticsApi$Activities, `version` is not nullable")
       }
 
       if (!missing(`start`) && is.null(`start`)) {
@@ -305,11 +290,7 @@ AnalyticsApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/analytics/useractivity"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/analytics/useractivity"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -370,7 +351,6 @@ AnalyticsApi <- R6::R6Class(
     #' @description
     #' Get Aggregated Filtered Usage
     #'
-    #' @param version 
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param application_id (optional) This parameter is deprecated.
@@ -407,8 +387,8 @@ AnalyticsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ChartData
-    AggregatedFilteredUsage = function(version, device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, start_date = NULL, end_date = NULL, device_type = NULL, device = NULL, device_os = NULL, gender = NULL, age_group = NULL, country = NULL, state = NULL, city = NULL, zip = NULL, model = NULL, tag = NULL, user_account_id = NULL, user_account_display = NULL, user_account_username = NULL, group_by_root = NULL, group_by = NULL, distinct_count = NULL, sort_field = NULL, descending = NULL, hide_unknown = NULL, response_format = NULL, _l = NULL, limit = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AggregatedFilteredUsageWithHttpInfo(version, device_id, account_id, application_id, app_key, start_date, end_date, device_type, device, device_os, gender, age_group, country, state, city, zip, model, tag, user_account_id, user_account_display, user_account_username, group_by_root, group_by, distinct_count, sort_field, descending, hide_unknown, response_format, _l, limit, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    AggregatedFilteredUsage = function(device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, start_date = NULL, end_date = NULL, device_type = NULL, device = NULL, device_os = NULL, gender = NULL, age_group = NULL, country = NULL, state = NULL, city = NULL, zip = NULL, model = NULL, tag = NULL, user_account_id = NULL, user_account_display = NULL, user_account_username = NULL, group_by_root = NULL, group_by = NULL, distinct_count = NULL, sort_field = NULL, descending = NULL, hide_unknown = NULL, response_format = NULL, _l = NULL, limit = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AggregatedFilteredUsageWithHttpInfo(device_id, account_id, application_id, app_key, start_date, end_date, device_type, device, device_os, gender, age_group, country, state, city, zip, model, tag, user_account_id, user_account_display, user_account_username, group_by_root, group_by, distinct_count, sort_field, descending, hide_unknown, response_format, _l, limit, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -423,7 +403,6 @@ AnalyticsApi <- R6::R6Class(
     #' @description
     #' Get Aggregated Filtered Usage
     #'
-    #' @param version 
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param application_id (optional) This parameter is deprecated.
@@ -460,7 +439,7 @@ AnalyticsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ChartData) with additional information such as HTTP status code, headers
-    AggregatedFilteredUsageWithHttpInfo = function(version, device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, start_date = NULL, end_date = NULL, device_type = NULL, device = NULL, device_os = NULL, gender = NULL, age_group = NULL, country = NULL, state = NULL, city = NULL, zip = NULL, model = NULL, tag = NULL, user_account_id = NULL, user_account_display = NULL, user_account_username = NULL, group_by_root = NULL, group_by = NULL, distinct_count = NULL, sort_field = NULL, descending = NULL, hide_unknown = NULL, response_format = NULL, _l = NULL, limit = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AggregatedFilteredUsageWithHttpInfo = function(device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, start_date = NULL, end_date = NULL, device_type = NULL, device = NULL, device_os = NULL, gender = NULL, age_group = NULL, country = NULL, state = NULL, city = NULL, zip = NULL, model = NULL, tag = NULL, user_account_id = NULL, user_account_display = NULL, user_account_username = NULL, group_by_root = NULL, group_by = NULL, distinct_count = NULL, sort_field = NULL, descending = NULL, hide_unknown = NULL, response_format = NULL, _l = NULL, limit = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -469,14 +448,6 @@ AnalyticsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AnalyticsApi$AggregatedFilteredUsage, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AnalyticsApi$AggregatedFilteredUsage, `device_id` is not nullable")
@@ -679,11 +650,7 @@ AnalyticsApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/analytics/aggregatedFilteredUsage"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/analytics/aggregatedFilteredUsage"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -744,7 +711,6 @@ AnalyticsApi <- R6::R6Class(
     #' @description
     #' Get Filtered Usage
     #'
-    #' @param version 
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param application_id (optional) This parameter is deprecated.
@@ -789,8 +755,8 @@ AnalyticsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ChartData
-    FilteredUsage = function(version, device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, start_date = NULL, end_date = NULL, device_type = NULL, device = NULL, device_os = NULL, gender = NULL, age_group = NULL, country = NULL, state = NULL, city = NULL, zip = NULL, model = NULL, tag = NULL, user_account_id = NULL, user_account_display = NULL, user_account_username = NULL, custom_id = NULL, custom_type = NULL, custom_value = NULL, custom_value2 = NULL, custom_long = NULL, custom_long2 = NULL, custom_message = NULL, custom_message2 = NULL, group_by = NULL, distinct_count = NULL, sum_column = NULL, sort_field = NULL, descending = NULL, hide_unknown = NULL, response_format = NULL, _l = NULL, limit = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$FilteredUsageWithHttpInfo(version, device_id, account_id, application_id, app_key, start_date, end_date, device_type, device, device_os, gender, age_group, country, state, city, zip, model, tag, user_account_id, user_account_display, user_account_username, custom_id, custom_type, custom_value, custom_value2, custom_long, custom_long2, custom_message, custom_message2, group_by, distinct_count, sum_column, sort_field, descending, hide_unknown, response_format, _l, limit, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    FilteredUsage = function(device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, start_date = NULL, end_date = NULL, device_type = NULL, device = NULL, device_os = NULL, gender = NULL, age_group = NULL, country = NULL, state = NULL, city = NULL, zip = NULL, model = NULL, tag = NULL, user_account_id = NULL, user_account_display = NULL, user_account_username = NULL, custom_id = NULL, custom_type = NULL, custom_value = NULL, custom_value2 = NULL, custom_long = NULL, custom_long2 = NULL, custom_message = NULL, custom_message2 = NULL, group_by = NULL, distinct_count = NULL, sum_column = NULL, sort_field = NULL, descending = NULL, hide_unknown = NULL, response_format = NULL, _l = NULL, limit = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$FilteredUsageWithHttpInfo(device_id, account_id, application_id, app_key, start_date, end_date, device_type, device, device_os, gender, age_group, country, state, city, zip, model, tag, user_account_id, user_account_display, user_account_username, custom_id, custom_type, custom_value, custom_value2, custom_long, custom_long2, custom_message, custom_message2, group_by, distinct_count, sum_column, sort_field, descending, hide_unknown, response_format, _l, limit, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -805,7 +771,6 @@ AnalyticsApi <- R6::R6Class(
     #' @description
     #' Get Filtered Usage
     #'
-    #' @param version 
     #' @param device_id (optional) The unique id of the device making the request (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param application_id (optional) This parameter is deprecated.
@@ -850,7 +815,7 @@ AnalyticsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ChartData) with additional information such as HTTP status code, headers
-    FilteredUsageWithHttpInfo = function(version, device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, start_date = NULL, end_date = NULL, device_type = NULL, device = NULL, device_os = NULL, gender = NULL, age_group = NULL, country = NULL, state = NULL, city = NULL, zip = NULL, model = NULL, tag = NULL, user_account_id = NULL, user_account_display = NULL, user_account_username = NULL, custom_id = NULL, custom_type = NULL, custom_value = NULL, custom_value2 = NULL, custom_long = NULL, custom_long2 = NULL, custom_message = NULL, custom_message2 = NULL, group_by = NULL, distinct_count = NULL, sum_column = NULL, sort_field = NULL, descending = NULL, hide_unknown = NULL, response_format = NULL, _l = NULL, limit = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    FilteredUsageWithHttpInfo = function(device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, start_date = NULL, end_date = NULL, device_type = NULL, device = NULL, device_os = NULL, gender = NULL, age_group = NULL, country = NULL, state = NULL, city = NULL, zip = NULL, model = NULL, tag = NULL, user_account_id = NULL, user_account_display = NULL, user_account_username = NULL, custom_id = NULL, custom_type = NULL, custom_value = NULL, custom_value2 = NULL, custom_long = NULL, custom_long2 = NULL, custom_message = NULL, custom_message2 = NULL, group_by = NULL, distinct_count = NULL, sum_column = NULL, sort_field = NULL, descending = NULL, hide_unknown = NULL, response_format = NULL, _l = NULL, limit = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -859,14 +824,6 @@ AnalyticsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AnalyticsApi$FilteredUsage, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AnalyticsApi$FilteredUsage, `device_id` is not nullable")
@@ -1117,11 +1074,7 @@ AnalyticsApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/analytics/filteredUsage"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/analytics/filteredUsage"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1182,7 +1135,6 @@ AnalyticsApi <- R6::R6Class(
     #' @description
     #' Create Usage Record
     #'
-    #' @param version 
     #' @param tag The tag to apply: the name of the action or thing being logged.
     #' @param device_id (optional) The client deviceID
     #' @param account_id (optional) The logged in user ID
@@ -1219,8 +1171,8 @@ AnalyticsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    Usage = function(version, tag, device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, app_version = NULL, device = NULL, device_type = NULL, device_os = NULL, model = NULL, latitude = NULL, longitude = NULL, custom_id = NULL, custom_type = NULL, achievement_increment = NULL, city = NULL, state = NULL, country = NULL, zip = NULL, location_description = NULL, client_time = NULL, error_message = NULL, ip = NULL, user_agent = NULL, background_event = NULL, custom_message = NULL, custom_message2 = NULL, custom_value = NULL, custom_value2 = NULL, custom_long = NULL, custom_long2 = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UsageWithHttpInfo(version, tag, device_id, account_id, application_id, app_key, app_version, device, device_type, device_os, model, latitude, longitude, custom_id, custom_type, achievement_increment, city, state, country, zip, location_description, client_time, error_message, ip, user_agent, background_event, custom_message, custom_message2, custom_value, custom_value2, custom_long, custom_long2, data_file = data_file, ..., .parse = .parse)
+    Usage = function(tag, device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, app_version = NULL, device = NULL, device_type = NULL, device_os = NULL, model = NULL, latitude = NULL, longitude = NULL, custom_id = NULL, custom_type = NULL, achievement_increment = NULL, city = NULL, state = NULL, country = NULL, zip = NULL, location_description = NULL, client_time = NULL, error_message = NULL, ip = NULL, user_agent = NULL, background_event = NULL, custom_message = NULL, custom_message2 = NULL, custom_value = NULL, custom_value2 = NULL, custom_long = NULL, custom_long2 = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UsageWithHttpInfo(tag, device_id, account_id, application_id, app_key, app_version, device, device_type, device_os, model, latitude, longitude, custom_id, custom_type, achievement_increment, city, state, country, zip, location_description, client_time, error_message, ip, user_agent, background_event, custom_message, custom_message2, custom_value, custom_value2, custom_long, custom_long2, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1235,7 +1187,6 @@ AnalyticsApi <- R6::R6Class(
     #' @description
     #' Create Usage Record
     #'
-    #' @param version 
     #' @param tag The tag to apply: the name of the action or thing being logged.
     #' @param device_id (optional) The client deviceID
     #' @param account_id (optional) The logged in user ID
@@ -1272,7 +1223,7 @@ AnalyticsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UsageWithHttpInfo = function(version, tag, device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, app_version = NULL, device = NULL, device_type = NULL, device_os = NULL, model = NULL, latitude = NULL, longitude = NULL, custom_id = NULL, custom_type = NULL, achievement_increment = NULL, city = NULL, state = NULL, country = NULL, zip = NULL, location_description = NULL, client_time = NULL, error_message = NULL, ip = NULL, user_agent = NULL, background_event = NULL, custom_message = NULL, custom_message2 = NULL, custom_value = NULL, custom_value2 = NULL, custom_long = NULL, custom_long2 = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UsageWithHttpInfo = function(tag, device_id = NULL, account_id = NULL, application_id = NULL, app_key = NULL, app_version = NULL, device = NULL, device_type = NULL, device_os = NULL, model = NULL, latitude = NULL, longitude = NULL, custom_id = NULL, custom_type = NULL, achievement_increment = NULL, city = NULL, state = NULL, country = NULL, zip = NULL, location_description = NULL, client_time = NULL, error_message = NULL, ip = NULL, user_agent = NULL, background_event = NULL, custom_message = NULL, custom_message2 = NULL, custom_value = NULL, custom_value2 = NULL, custom_long = NULL, custom_long2 = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1282,16 +1233,8 @@ AnalyticsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`tag`)) {
         stop("Missing required parameter `tag`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AnalyticsApi$Usage, `version` is not nullable")
       }
 
       if (!missing(`tag`) && is.null(`tag`)) {
@@ -1480,11 +1423,7 @@ AnalyticsApi <- R6::R6Class(
 
       query_params[["customLong2"]] <- `custom_long2`
 
-      local_var_url_path <- "/api/{version}/analytics/usage"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/analytics/usage"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1545,7 +1484,6 @@ AnalyticsApi <- R6::R6Class(
     #' @description
     #' Create Multiple Usage Records
     #'
-    #' @param version 
     #' @param app_key The application key unique to each application.
     #' @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
     #' @param data The analytic data AnalyticListResponse
@@ -1562,8 +1500,8 @@ AnalyticsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UsageBatch = function(version, app_key, device, data, device_id = NULL, account_id = NULL, app_version = NULL, device_type = NULL, device_os = NULL, model = NULL, update_ranking = NULL, return_summary_response = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UsageBatchWithHttpInfo(version, app_key, device, data, device_id, account_id, app_version, device_type, device_os, model, update_ranking, return_summary_response, data_file = data_file, ..., .parse = .parse)
+    UsageBatch = function(app_key, device, data, device_id = NULL, account_id = NULL, app_version = NULL, device_type = NULL, device_os = NULL, model = NULL, update_ranking = NULL, return_summary_response = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UsageBatchWithHttpInfo(app_key, device, data, device_id, account_id, app_version, device_type, device_os, model, update_ranking, return_summary_response, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1578,7 +1516,6 @@ AnalyticsApi <- R6::R6Class(
     #' @description
     #' Create Multiple Usage Records
     #'
-    #' @param version 
     #' @param app_key The application key unique to each application.
     #' @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
     #' @param data The analytic data AnalyticListResponse
@@ -1595,7 +1532,7 @@ AnalyticsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UsageBatchWithHttpInfo = function(version, app_key, device, data, device_id = NULL, account_id = NULL, app_version = NULL, device_type = NULL, device_os = NULL, model = NULL, update_ranking = NULL, return_summary_response = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UsageBatchWithHttpInfo = function(app_key, device, data, device_id = NULL, account_id = NULL, app_version = NULL, device_type = NULL, device_os = NULL, model = NULL, update_ranking = NULL, return_summary_response = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1604,10 +1541,6 @@ AnalyticsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
@@ -1619,10 +1552,6 @@ AnalyticsApi <- R6::R6Class(
 
       if (missing(`data`)) {
         stop("Missing required parameter `data`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AnalyticsApi$UsageBatch, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -1691,11 +1620,7 @@ AnalyticsApi <- R6::R6Class(
 
       query_params[["returnSummaryResponse"]] <- `return_summary_response`
 
-      local_var_url_path <- "/api/{version}/analytics/usage/batch"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/analytics/usage/batch"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

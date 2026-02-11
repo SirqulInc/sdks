@@ -17,7 +17,6 @@
 #' ####################  ProcessAllParticipants  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user
 #' var_app_key <- "app_key_example" # character | The application key used to identify the application (Optional)
 #' var_use_short_name_as_id <- "use_short_name_as_id_example" # character | Whether to use short name as the participant ID (Optional)
@@ -26,15 +25,14 @@
 #' api_instance <- ParticipantsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ProcessAllParticipants(var_version, var_account_id, app_key = var_app_key, use_short_name_as_id = var_use_short_name_as_iddata_file = "result.txt")
-#' result <- api_instance$ProcessAllParticipants(var_version, var_account_id, app_key = var_app_key, use_short_name_as_id = var_use_short_name_as_id)
+#' # result <- api_instance$ProcessAllParticipants(var_account_id, app_key = var_app_key, use_short_name_as_id = var_use_short_name_as_iddata_file = "result.txt")
+#' result <- api_instance$ProcessAllParticipants(var_account_id, app_key = var_app_key, use_short_name_as_id = var_use_short_name_as_id)
 #' dput(result)
 #'
 #'
 #' ####################  ProcessParticipants  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user
 #' var_league <- "league_example" # character | The league identifier to process
 #' var_app_key <- "app_key_example" # character | The application key used to identify the application (Optional)
@@ -45,8 +43,8 @@
 #' api_instance <- ParticipantsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ProcessParticipants(var_version, var_account_id, var_league, app_key = var_app_key, use_short_name_as_id = var_use_short_name_as_id, file = var_filedata_file = "result.txt")
-#' result <- api_instance$ProcessParticipants(var_version, var_account_id, var_league, app_key = var_app_key, use_short_name_as_id = var_use_short_name_as_id, file = var_file)
+#' # result <- api_instance$ProcessParticipants(var_account_id, var_league, app_key = var_app_key, use_short_name_as_id = var_use_short_name_as_id, file = var_filedata_file = "result.txt")
+#' result <- api_instance$ProcessParticipants(var_account_id, var_league, app_key = var_app_key, use_short_name_as_id = var_use_short_name_as_id, file = var_file)
 #' dput(result)
 #'
 #'
@@ -74,7 +72,6 @@ ParticipantsApi <- R6::R6Class(
     #' @description
     #' Process All Participant Feeds
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param app_key (optional) The application key used to identify the application
     #' @param use_short_name_as_id (optional) Whether to use short name as the participant ID
@@ -83,8 +80,8 @@ ParticipantsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    ProcessAllParticipants = function(version, account_id, app_key = NULL, use_short_name_as_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ProcessAllParticipantsWithHttpInfo(version, account_id, app_key, use_short_name_as_id, data_file = data_file, ..., .parse = .parse)
+    ProcessAllParticipants = function(account_id, app_key = NULL, use_short_name_as_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ProcessAllParticipantsWithHttpInfo(account_id, app_key, use_short_name_as_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -99,7 +96,6 @@ ParticipantsApi <- R6::R6Class(
     #' @description
     #' Process All Participant Feeds
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param app_key (optional) The application key used to identify the application
     #' @param use_short_name_as_id (optional) Whether to use short name as the participant ID
@@ -108,7 +104,7 @@ ParticipantsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    ProcessAllParticipantsWithHttpInfo = function(version, account_id, app_key = NULL, use_short_name_as_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ProcessAllParticipantsWithHttpInfo = function(account_id, app_key = NULL, use_short_name_as_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -118,16 +114,8 @@ ParticipantsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ParticipantsApi$ProcessAllParticipants, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -148,11 +136,7 @@ ParticipantsApi <- R6::R6Class(
 
       query_params[["useShortNameAsID"]] <- `use_short_name_as_id`
 
-      local_var_url_path <- "/api/{version}/participant/process/all"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/participant/process/all"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -213,7 +197,6 @@ ParticipantsApi <- R6::R6Class(
     #' @description
     #' Process Participants Feed
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param league The league identifier to process
     #' @param app_key (optional) The application key used to identify the application
@@ -224,8 +207,8 @@ ParticipantsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    ProcessParticipants = function(version, account_id, league, app_key = NULL, use_short_name_as_id = NULL, file = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ProcessParticipantsWithHttpInfo(version, account_id, league, app_key, use_short_name_as_id, file, data_file = data_file, ..., .parse = .parse)
+    ProcessParticipants = function(account_id, league, app_key = NULL, use_short_name_as_id = NULL, file = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ProcessParticipantsWithHttpInfo(account_id, league, app_key, use_short_name_as_id, file, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -240,7 +223,6 @@ ParticipantsApi <- R6::R6Class(
     #' @description
     #' Process Participants Feed
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param league The league identifier to process
     #' @param app_key (optional) The application key used to identify the application
@@ -251,7 +233,7 @@ ParticipantsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    ProcessParticipantsWithHttpInfo = function(version, account_id, league, app_key = NULL, use_short_name_as_id = NULL, file = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ProcessParticipantsWithHttpInfo = function(account_id, league, app_key = NULL, use_short_name_as_id = NULL, file = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -261,20 +243,12 @@ ParticipantsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`league`)) {
         stop("Missing required parameter `league`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ParticipantsApi$ProcessParticipants, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -307,11 +281,7 @@ ParticipantsApi <- R6::R6Class(
 
       query_params[["file"]] <- `file`
 
-      local_var_url_path <- "/api/{version}/participant/process"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/participant/process"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

@@ -17,7 +17,6 @@
 #' ####################  AddMovie  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_movie_name <- "movie_name_example" # character | Movie Name
 #' var_third_party_account_id <- "third_party_account_id_example" # character | A third-party account id that is meaningful to your systems (Optional)
@@ -30,15 +29,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddMovie(var_version, var_account_id, var_movie_name, third_party_account_id = var_third_party_account_id, tags = var_tags, file = var_file, url = var_url, callback = var_callbackdata_file = "result.txt")
-#' result <- api_instance$AddMovie(var_version, var_account_id, var_movie_name, third_party_account_id = var_third_party_account_id, tags = var_tags, file = var_file, url = var_url, callback = var_callback)
+#' # result <- api_instance$AddMovie(var_account_id, var_movie_name, third_party_account_id = var_third_party_account_id, tags = var_tags, file = var_file, url = var_url, callback = var_callbackdata_file = "result.txt")
+#' result <- api_instance$AddMovie(var_account_id, var_movie_name, third_party_account_id = var_third_party_account_id, tags = var_tags, file = var_file, url = var_url, callback = var_callback)
 #' dput(result)
 #'
 #'
 #' ####################  AiDocs  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_doc <- "doc_example" # character | Doc
 #' var_return_topics <- "return_topics_example" # character | Return Topics (Optional)
@@ -49,15 +47,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AiDocs(var_version, var_account_id, var_doc, return_topics = var_return_topics, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-#' result <- api_instance$AiDocs(var_version, var_account_id, var_doc, return_topics = var_return_topics, limit = var_limit, offset = var_offset)
+#' # result <- api_instance$AiDocs(var_account_id, var_doc, return_topics = var_return_topics, limit = var_limit, offset = var_offsetdata_file = "result.txt")
+#' result <- api_instance$AiDocs(var_account_id, var_doc, return_topics = var_return_topics, limit = var_limit, offset = var_offset)
 #' dput(result)
 #'
 #'
 #' ####################  AiFindImages  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_text <- "text_example" # character | Text
 #' var_parse_flag <- "parse_flag_example" # character | Parse Flag (Optional)
@@ -68,15 +65,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AiFindImages(var_version, var_account_id, var_text, parse_flag = var_parse_flag, fetch_flag = var_fetch_flag, size = var_sizedata_file = "result.txt")
-#' result <- api_instance$AiFindImages(var_version, var_account_id, var_text, parse_flag = var_parse_flag, fetch_flag = var_fetch_flag, size = var_size)
+#' # result <- api_instance$AiFindImages(var_account_id, var_text, parse_flag = var_parse_flag, fetch_flag = var_fetch_flag, size = var_sizedata_file = "result.txt")
+#' result <- api_instance$AiFindImages(var_account_id, var_text, parse_flag = var_parse_flag, fetch_flag = var_fetch_flag, size = var_size)
 #' dput(result)
 #'
 #'
 #' ####################  AiTags  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_tags <- "tags_example" # character | Tags
 #' var_conditional <- "conditional_example" # character | Conditional (Optional)
@@ -87,15 +83,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AiTags(var_version, var_account_id, var_tags, conditional = var_conditional, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-#' result <- api_instance$AiTags(var_version, var_account_id, var_tags, conditional = var_conditional, limit = var_limit, offset = var_offset)
+#' # result <- api_instance$AiTags(var_account_id, var_tags, conditional = var_conditional, limit = var_limit, offset = var_offsetdata_file = "result.txt")
+#' result <- api_instance$AiTags(var_account_id, var_tags, conditional = var_conditional, limit = var_limit, offset = var_offset)
 #' dput(result)
 #'
 #'
 #' ####################  AiText  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_terms <- "terms_example" # character | Terms
 #' var_conditional <- "conditional_example" # character | Conditional (Optional)
@@ -106,15 +101,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AiText(var_version, var_account_id, var_terms, conditional = var_conditional, limit = var_limit, offset = var_offsetdata_file = "result.txt")
-#' result <- api_instance$AiText(var_version, var_account_id, var_terms, conditional = var_conditional, limit = var_limit, offset = var_offset)
+#' # result <- api_instance$AiText(var_account_id, var_terms, conditional = var_conditional, limit = var_limit, offset = var_offsetdata_file = "result.txt")
+#' result <- api_instance$AiText(var_account_id, var_terms, conditional = var_conditional, limit = var_limit, offset = var_offset)
 #' dput(result)
 #'
 #'
 #' ####################  Batch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_third_party_account_id <- "third_party_account_id_example" # character | A third-party account id that is meaningful to your systems (Optional)
 #' var_limit <- 56 # integer | The number of topics to return (Optional)
@@ -127,15 +121,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$Batch(var_version, var_account_id, third_party_account_id = var_third_party_account_id, limit = var_limit, operations = var_operations, file = var_file, url = var_url, callback = var_callbackdata_file = "result.txt")
-#' result <- api_instance$Batch(var_version, var_account_id, third_party_account_id = var_third_party_account_id, limit = var_limit, operations = var_operations, file = var_file, url = var_url, callback = var_callback)
+#' # result <- api_instance$Batch(var_account_id, third_party_account_id = var_third_party_account_id, limit = var_limit, operations = var_operations, file = var_file, url = var_url, callback = var_callbackdata_file = "result.txt")
+#' result <- api_instance$Batch(var_account_id, third_party_account_id = var_third_party_account_id, limit = var_limit, operations = var_operations, file = var_file, url = var_url, callback = var_callback)
 #' dput(result)
 #'
 #'
 #' ####################  CreateInstantEpisode  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_data <- "data_example" # character | Request Data String
 #'
@@ -143,15 +136,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateInstantEpisode(var_version, var_account_id, var_datadata_file = "result.txt")
-#' result <- api_instance$CreateInstantEpisode(var_version, var_account_id, var_data)
+#' # result <- api_instance$CreateInstantEpisode(var_account_id, var_datadata_file = "result.txt")
+#' result <- api_instance$CreateInstantEpisode(var_account_id, var_data)
 #' dput(result)
 #'
 #'
 #' ####################  CreateVoiceCanvas  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_dimensions <- "dimensions_example" # character | Enum: \"256x256\" \"512x512\" \"1024x1024\"
 #' var_third_party_account_id <- "third_party_account_id_example" # character | A third-party account id that is meaningful to your systems (Optional)
@@ -166,15 +158,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateVoiceCanvas(var_version, var_account_id, var_dimensions, third_party_account_id = var_third_party_account_id, text = var_text, file = var_file, url = var_url, parse_flag = var_parse_flag, fetch_flag = var_fetch_flag, callback = var_callbackdata_file = "result.txt")
-#' result <- api_instance$CreateVoiceCanvas(var_version, var_account_id, var_dimensions, third_party_account_id = var_third_party_account_id, text = var_text, file = var_file, url = var_url, parse_flag = var_parse_flag, fetch_flag = var_fetch_flag, callback = var_callback)
+#' # result <- api_instance$CreateVoiceCanvas(var_account_id, var_dimensions, third_party_account_id = var_third_party_account_id, text = var_text, file = var_file, url = var_url, parse_flag = var_parse_flag, fetch_flag = var_fetch_flag, callback = var_callbackdata_file = "result.txt")
+#' result <- api_instance$CreateVoiceCanvas(var_account_id, var_dimensions, third_party_account_id = var_third_party_account_id, text = var_text, file = var_file, url = var_url, parse_flag = var_parse_flag, fetch_flag = var_fetch_flag, callback = var_callback)
 #' dput(result)
 #'
 #'
 #' ####################  Emotion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_third_party_account_id <- "third_party_account_id_example" # character | A third-party account id that is meaningful to your systems (Optional)
 #' var_file <- File.new('/path/to/file') # data.frame | An uploaded recording to analyze (Currently limited to 10MB) (Optional)
@@ -185,15 +176,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$Emotion(var_version, var_account_id, third_party_account_id = var_third_party_account_id, file = var_file, url = var_url, callback = var_callbackdata_file = "result.txt")
-#' result <- api_instance$Emotion(var_version, var_account_id, third_party_account_id = var_third_party_account_id, file = var_file, url = var_url, callback = var_callback)
+#' # result <- api_instance$Emotion(var_account_id, third_party_account_id = var_third_party_account_id, file = var_file, url = var_url, callback = var_callbackdata_file = "result.txt")
+#' result <- api_instance$Emotion(var_account_id, third_party_account_id = var_third_party_account_id, file = var_file, url = var_url, callback = var_callback)
 #' dput(result)
 #'
 #'
 #' ####################  GetAddMovieResult  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_request_id <- "request_id_example" # character | Orson Request Id
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #'
@@ -201,15 +191,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAddMovieResult(var_version, var_request_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetAddMovieResult(var_version, var_request_id, var_account_id)
+#' # result <- api_instance$GetAddMovieResult(var_request_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetAddMovieResult(var_request_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetBatch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_request_id <- "request_id_example" # character | Orson Request Id
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #'
@@ -217,15 +206,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetBatch(var_version, var_request_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetBatch(var_version, var_request_id, var_account_id)
+#' # result <- api_instance$GetBatch(var_request_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetBatch(var_request_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetEmotion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_request_id <- "request_id_example" # character | Orson Request Id
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #'
@@ -233,15 +221,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetEmotion(var_version, var_request_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetEmotion(var_version, var_request_id, var_account_id)
+#' # result <- api_instance$GetEmotion(var_request_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetEmotion(var_request_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetEpisodeStatus  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_episode_id <- 56 # integer | Episode ID
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #'
@@ -249,15 +236,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetEpisodeStatus(var_version, var_episode_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetEpisodeStatus(var_version, var_episode_id, var_account_id)
+#' # result <- api_instance$GetEpisodeStatus(var_episode_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetEpisodeStatus(var_episode_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetRenderStatus  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_render_id <- "render_id_example" # character | Render ID
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #'
@@ -265,15 +251,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetRenderStatus(var_version, var_render_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetRenderStatus(var_version, var_render_id, var_account_id)
+#' # result <- api_instance$GetRenderStatus(var_render_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetRenderStatus(var_render_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetSTT  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_request_id <- "request_id_example" # character | Orson Request Id
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #'
@@ -281,15 +266,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetSTT(var_version, var_request_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetSTT(var_version, var_request_id, var_account_id)
+#' # result <- api_instance$GetSTT(var_request_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetSTT(var_request_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetTTS  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_request_id <- "request_id_example" # character | Orson Request Id
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #'
@@ -297,15 +281,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetTTS(var_version, var_request_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetTTS(var_version, var_request_id, var_account_id)
+#' # result <- api_instance$GetTTS(var_request_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetTTS(var_request_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetTechTune  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_request_id <- "request_id_example" # character | Orson Request Id
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #'
@@ -313,15 +296,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetTechTune(var_version, var_request_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetTechTune(var_version, var_request_id, var_account_id)
+#' # result <- api_instance$GetTechTune(var_request_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetTechTune(var_request_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetTopics  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_request_id <- "request_id_example" # character | Orson Request Id
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #'
@@ -329,15 +311,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetTopics(var_version, var_request_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetTopics(var_version, var_request_id, var_account_id)
+#' # result <- api_instance$GetTopics(var_request_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetTopics(var_request_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetVoiceCanvas  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_request_id <- "request_id_example" # character | Orson Request Id
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #'
@@ -345,15 +326,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetVoiceCanvas(var_version, var_request_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetVoiceCanvas(var_version, var_request_id, var_account_id)
+#' # result <- api_instance$GetVoiceCanvas(var_request_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetVoiceCanvas(var_request_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  StartVideoRender  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_data <- "data_example" # character | Request Data String
 #'
@@ -361,15 +341,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$StartVideoRender(var_version, var_account_id, var_datadata_file = "result.txt")
-#' result <- api_instance$StartVideoRender(var_version, var_account_id, var_data)
+#' # result <- api_instance$StartVideoRender(var_account_id, var_datadata_file = "result.txt")
+#' result <- api_instance$StartVideoRender(var_account_id, var_data)
 #' dput(result)
 #'
 #'
 #' ####################  Stt  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_third_party_account_id <- "third_party_account_id_example" # character | A third-party account id that is meaningful to your systems (Optional)
 #' var_source_language <- "source_language_example" # character | Source Language (Optional)
@@ -382,15 +361,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$Stt(var_version, var_account_id, third_party_account_id = var_third_party_account_id, source_language = var_source_language, target_language = var_target_language, file = var_file, url = var_url, callback = var_callbackdata_file = "result.txt")
-#' result <- api_instance$Stt(var_version, var_account_id, third_party_account_id = var_third_party_account_id, source_language = var_source_language, target_language = var_target_language, file = var_file, url = var_url, callback = var_callback)
+#' # result <- api_instance$Stt(var_account_id, third_party_account_id = var_third_party_account_id, source_language = var_source_language, target_language = var_target_language, file = var_file, url = var_url, callback = var_callbackdata_file = "result.txt")
+#' result <- api_instance$Stt(var_account_id, third_party_account_id = var_third_party_account_id, source_language = var_source_language, target_language = var_target_language, file = var_file, url = var_url, callback = var_callback)
 #' dput(result)
 #'
 #'
 #' ####################  SummarizeTopics  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_third_party_account_id <- "third_party_account_id_example" # character | A third-party account id that is meaningful to your systems (Optional)
 #' var_doc <- "doc_example" # character | The text to get topics for. (Optional)
@@ -404,15 +382,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SummarizeTopics(var_version, var_account_id, third_party_account_id = var_third_party_account_id, doc = var_doc, file = var_file, url = var_url, limit = var_limit, offset = var_offset, callback = var_callbackdata_file = "result.txt")
-#' result <- api_instance$SummarizeTopics(var_version, var_account_id, third_party_account_id = var_third_party_account_id, doc = var_doc, file = var_file, url = var_url, limit = var_limit, offset = var_offset, callback = var_callback)
+#' # result <- api_instance$SummarizeTopics(var_account_id, third_party_account_id = var_third_party_account_id, doc = var_doc, file = var_file, url = var_url, limit = var_limit, offset = var_offset, callback = var_callbackdata_file = "result.txt")
+#' result <- api_instance$SummarizeTopics(var_account_id, third_party_account_id = var_third_party_account_id, doc = var_doc, file = var_file, url = var_url, limit = var_limit, offset = var_offset, callback = var_callback)
 #' dput(result)
 #'
 #'
 #' ####################  TechTune  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_num_faces_expected <- 56 # integer | Number of expected faces
 #' var_third_party_account_id <- "third_party_account_id_example" # character | A third-party account id that is meaningful to your systems (Optional)
@@ -424,15 +401,14 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$TechTune(var_version, var_account_id, var_num_faces_expected, third_party_account_id = var_third_party_account_id, file = var_file, url = var_url, callback = var_callbackdata_file = "result.txt")
-#' result <- api_instance$TechTune(var_version, var_account_id, var_num_faces_expected, third_party_account_id = var_third_party_account_id, file = var_file, url = var_url, callback = var_callback)
+#' # result <- api_instance$TechTune(var_account_id, var_num_faces_expected, third_party_account_id = var_third_party_account_id, file = var_file, url = var_url, callback = var_callbackdata_file = "result.txt")
+#' result <- api_instance$TechTune(var_account_id, var_num_faces_expected, third_party_account_id = var_third_party_account_id, file = var_file, url = var_url, callback = var_callback)
 #' dput(result)
 #'
 #'
 #' ####################  Tts  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_text <- "text_example" # character | Text
 #' var_third_party_account_id <- "third_party_account_id_example" # character | A third-party account id that is meaningful to your systems (Optional)
@@ -444,8 +420,8 @@
 #' api_instance <- OrsonApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$Tts(var_version, var_account_id, var_text, third_party_account_id = var_third_party_account_id, language = var_language, voice = var_voice, callback = var_callbackdata_file = "result.txt")
-#' result <- api_instance$Tts(var_version, var_account_id, var_text, third_party_account_id = var_third_party_account_id, language = var_language, voice = var_voice, callback = var_callback)
+#' # result <- api_instance$Tts(var_account_id, var_text, third_party_account_id = var_third_party_account_id, language = var_language, voice = var_voice, callback = var_callbackdata_file = "result.txt")
+#' result <- api_instance$Tts(var_account_id, var_text, third_party_account_id = var_third_party_account_id, language = var_language, voice = var_voice, callback = var_callback)
 #' dput(result)
 #'
 #'
@@ -473,7 +449,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Add Movie
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param movie_name Movie Name
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
@@ -486,8 +461,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiAddMovieResponse
-    AddMovie = function(version, account_id, movie_name, third_party_account_id = NULL, tags = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddMovieWithHttpInfo(version, account_id, movie_name, third_party_account_id, tags, file, url, callback, data_file = data_file, ..., .parse = .parse)
+    AddMovie = function(account_id, movie_name, third_party_account_id = NULL, tags = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddMovieWithHttpInfo(account_id, movie_name, third_party_account_id, tags, file, url, callback, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -502,7 +477,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Add Movie
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param movie_name Movie Name
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
@@ -515,7 +489,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiAddMovieResponse) with additional information such as HTTP status code, headers
-    AddMovieWithHttpInfo = function(version, account_id, movie_name, third_party_account_id = NULL, tags = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddMovieWithHttpInfo = function(account_id, movie_name, third_party_account_id = NULL, tags = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -525,20 +499,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`movie_name`)) {
         stop("Missing required parameter `movie_name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$AddMovie, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -583,11 +549,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["callback"]] <- `callback`
 
-      local_var_url_path <- "/api/{version}/orson/ai/addMovie"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/addMovie"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -648,7 +610,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Search Docs
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param doc Doc
     #' @param return_topics (optional) Return Topics
@@ -659,8 +620,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiProtoResponse
-    AiDocs = function(version, account_id, doc, return_topics = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AiDocsWithHttpInfo(version, account_id, doc, return_topics, limit, offset, data_file = data_file, ..., .parse = .parse)
+    AiDocs = function(account_id, doc, return_topics = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AiDocsWithHttpInfo(account_id, doc, return_topics, limit, offset, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -675,7 +636,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Search Docs
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param doc Doc
     #' @param return_topics (optional) Return Topics
@@ -686,7 +646,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiProtoResponse) with additional information such as HTTP status code, headers
-    AiDocsWithHttpInfo = function(version, account_id, doc, return_topics = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AiDocsWithHttpInfo = function(account_id, doc, return_topics = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -696,20 +656,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`doc`)) {
         stop("Missing required parameter `doc`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$AiDocs, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -742,11 +694,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["offset"]] <- `offset`
 
-      local_var_url_path <- "/api/{version}/orson/ai/docs"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/docs"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -807,7 +755,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Find images
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param text Text
     #' @param parse_flag (optional) Parse Flag
@@ -818,8 +765,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiProtoResponse
-    AiFindImages = function(version, account_id, text, parse_flag = NULL, fetch_flag = NULL, size = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AiFindImagesWithHttpInfo(version, account_id, text, parse_flag, fetch_flag, size, data_file = data_file, ..., .parse = .parse)
+    AiFindImages = function(account_id, text, parse_flag = NULL, fetch_flag = NULL, size = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AiFindImagesWithHttpInfo(account_id, text, parse_flag, fetch_flag, size, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -834,7 +781,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Find images
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param text Text
     #' @param parse_flag (optional) Parse Flag
@@ -845,7 +791,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiProtoResponse) with additional information such as HTTP status code, headers
-    AiFindImagesWithHttpInfo = function(version, account_id, text, parse_flag = NULL, fetch_flag = NULL, size = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AiFindImagesWithHttpInfo = function(account_id, text, parse_flag = NULL, fetch_flag = NULL, size = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -855,20 +801,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`text`)) {
         stop("Missing required parameter `text`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$AiFindImages, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -901,11 +839,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["size"]] <- `size`
 
-      local_var_url_path <- "/api/{version}/orson/ai/img"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/img"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -966,7 +900,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Search Tags
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param tags Tags
     #' @param conditional (optional) Conditional
@@ -977,8 +910,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiProtoResponse
-    AiTags = function(version, account_id, tags, conditional = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AiTagsWithHttpInfo(version, account_id, tags, conditional, limit, offset, data_file = data_file, ..., .parse = .parse)
+    AiTags = function(account_id, tags, conditional = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AiTagsWithHttpInfo(account_id, tags, conditional, limit, offset, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -993,7 +926,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Search Tags
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param tags Tags
     #' @param conditional (optional) Conditional
@@ -1004,7 +936,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiProtoResponse) with additional information such as HTTP status code, headers
-    AiTagsWithHttpInfo = function(version, account_id, tags, conditional = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AiTagsWithHttpInfo = function(account_id, tags, conditional = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1014,20 +946,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`tags`)) {
         stop("Missing required parameter `tags`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$AiTags, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1060,11 +984,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["offset"]] <- `offset`
 
-      local_var_url_path <- "/api/{version}/orson/ai/tags"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/tags"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1125,7 +1045,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Search Text
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param terms Terms
     #' @param conditional (optional) Conditional
@@ -1136,8 +1055,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiProtoResponse
-    AiText = function(version, account_id, terms, conditional = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AiTextWithHttpInfo(version, account_id, terms, conditional, limit, offset, data_file = data_file, ..., .parse = .parse)
+    AiText = function(account_id, terms, conditional = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AiTextWithHttpInfo(account_id, terms, conditional, limit, offset, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1152,7 +1071,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Search Text
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param terms Terms
     #' @param conditional (optional) Conditional
@@ -1163,7 +1081,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiProtoResponse) with additional information such as HTTP status code, headers
-    AiTextWithHttpInfo = function(version, account_id, terms, conditional = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AiTextWithHttpInfo = function(account_id, terms, conditional = NULL, limit = NULL, offset = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1173,20 +1091,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`terms`)) {
         stop("Missing required parameter `terms`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$AiText, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1219,11 +1129,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["offset"]] <- `offset`
 
-      local_var_url_path <- "/api/{version}/orson/ai/text"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/text"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1284,7 +1190,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Batch Analysis
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
     #' @param limit (optional) The number of topics to return
@@ -1297,8 +1202,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiBatchResponse
-    Batch = function(version, account_id, third_party_account_id = NULL, limit = NULL, operations = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$BatchWithHttpInfo(version, account_id, third_party_account_id, limit, operations, file, url, callback, data_file = data_file, ..., .parse = .parse)
+    Batch = function(account_id, third_party_account_id = NULL, limit = NULL, operations = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BatchWithHttpInfo(account_id, third_party_account_id, limit, operations, file, url, callback, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1313,7 +1218,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Batch Analysis
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
     #' @param limit (optional) The number of topics to return
@@ -1326,7 +1230,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiBatchResponse) with additional information such as HTTP status code, headers
-    BatchWithHttpInfo = function(version, account_id, third_party_account_id = NULL, limit = NULL, operations = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+    BatchWithHttpInfo = function(account_id, third_party_account_id = NULL, limit = NULL, operations = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1336,16 +1240,8 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$Batch, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1390,11 +1286,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["callback"]] <- `callback`
 
-      local_var_url_path <- "/api/{version}/orson/ai/batch"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/batch"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1455,7 +1347,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Creates an instant episode
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param data Request Data String
     #' @param data_file (optional) name of the data file to save the result
@@ -1463,8 +1354,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonEpisodeResponse
-    CreateInstantEpisode = function(version, account_id, data, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateInstantEpisodeWithHttpInfo(version, account_id, data, data_file = data_file, ..., .parse = .parse)
+    CreateInstantEpisode = function(account_id, data, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateInstantEpisodeWithHttpInfo(account_id, data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1479,7 +1370,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Creates an instant episode
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param data Request Data String
     #' @param data_file (optional) name of the data file to save the result
@@ -1487,7 +1377,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonEpisodeResponse) with additional information such as HTTP status code, headers
-    CreateInstantEpisodeWithHttpInfo = function(version, account_id, data, data_file = NULL, ..., .parse = TRUE) {
+    CreateInstantEpisodeWithHttpInfo = function(account_id, data, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1497,20 +1387,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`data`)) {
         stop("Missing required parameter `data`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$CreateInstantEpisode, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1525,11 +1407,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["data"]] <- `data`
 
-      local_var_url_path <- "/api/{version}/orson/stories/episodes/instant"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/stories/episodes/instant"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1590,7 +1468,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Create VoiceCanvas images
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param dimensions Enum: \"256x256\" \"512x512\" \"1024x1024\"
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
@@ -1605,8 +1482,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiVoiceCanvasResponse
-    CreateVoiceCanvas = function(version, account_id, dimensions, third_party_account_id = NULL, text = NULL, file = NULL, url = NULL, parse_flag = NULL, fetch_flag = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateVoiceCanvasWithHttpInfo(version, account_id, dimensions, third_party_account_id, text, file, url, parse_flag, fetch_flag, callback, data_file = data_file, ..., .parse = .parse)
+    CreateVoiceCanvas = function(account_id, dimensions, third_party_account_id = NULL, text = NULL, file = NULL, url = NULL, parse_flag = NULL, fetch_flag = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateVoiceCanvasWithHttpInfo(account_id, dimensions, third_party_account_id, text, file, url, parse_flag, fetch_flag, callback, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1621,7 +1498,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Create VoiceCanvas images
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param dimensions Enum: \"256x256\" \"512x512\" \"1024x1024\"
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
@@ -1636,7 +1512,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiVoiceCanvasResponse) with additional information such as HTTP status code, headers
-    CreateVoiceCanvasWithHttpInfo = function(version, account_id, dimensions, third_party_account_id = NULL, text = NULL, file = NULL, url = NULL, parse_flag = NULL, fetch_flag = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateVoiceCanvasWithHttpInfo = function(account_id, dimensions, third_party_account_id = NULL, text = NULL, file = NULL, url = NULL, parse_flag = NULL, fetch_flag = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1646,20 +1522,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`dimensions`)) {
         stop("Missing required parameter `dimensions`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$CreateVoiceCanvas, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1716,11 +1584,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["callback"]] <- `callback`
 
-      local_var_url_path <- "/api/{version}/orson/ai/voiceCanvas"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/voiceCanvas"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1781,7 +1645,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Detect emotions
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
     #' @param file (optional) An uploaded recording to analyze (Currently limited to 10MB)
@@ -1792,8 +1655,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiEmotionsResponse
-    Emotion = function(version, account_id, third_party_account_id = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$EmotionWithHttpInfo(version, account_id, third_party_account_id, file, url, callback, data_file = data_file, ..., .parse = .parse)
+    Emotion = function(account_id, third_party_account_id = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EmotionWithHttpInfo(account_id, third_party_account_id, file, url, callback, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1808,7 +1671,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Detect emotions
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
     #' @param file (optional) An uploaded recording to analyze (Currently limited to 10MB)
@@ -1819,7 +1681,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiEmotionsResponse) with additional information such as HTTP status code, headers
-    EmotionWithHttpInfo = function(version, account_id, third_party_account_id = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+    EmotionWithHttpInfo = function(account_id, third_party_account_id = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1829,16 +1691,8 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$Emotion, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1871,11 +1725,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["callback"]] <- `callback`
 
-      local_var_url_path <- "/api/{version}/orson/ai/emotion"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/emotion"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1936,7 +1786,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Add Movie Result
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -1944,8 +1793,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiAddMovieResponse
-    GetAddMovieResult = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAddMovieResultWithHttpInfo(version, request_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetAddMovieResult = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAddMovieResultWithHttpInfo(request_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1960,7 +1809,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Add Movie Result
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -1968,7 +1816,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiAddMovieResponse) with additional information such as HTTP status code, headers
-    GetAddMovieResultWithHttpInfo = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetAddMovieResultWithHttpInfo = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1978,20 +1826,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`request_id`)) {
         stop("Missing required parameter `request_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$GetAddMovieResult, `version` is not nullable")
       }
 
       if (!missing(`request_id`) && is.null(`request_id`)) {
@@ -2004,11 +1844,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/orson/ai/addMovie/{requestId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/addMovie/{requestId}"
       if (!missing(`request_id`)) {
         local_var_url_path <- gsub("\\{requestId\\}", URLencode(as.character(`request_id`), reserved = TRUE), local_var_url_path)
       }
@@ -2073,7 +1909,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Batch Analysis Results
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2081,8 +1916,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiBatchResponse
-    GetBatch = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetBatchWithHttpInfo(version, request_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetBatch = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetBatchWithHttpInfo(request_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2097,7 +1932,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Batch Analysis Results
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2105,7 +1939,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiBatchResponse) with additional information such as HTTP status code, headers
-    GetBatchWithHttpInfo = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetBatchWithHttpInfo = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2115,20 +1949,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`request_id`)) {
         stop("Missing required parameter `request_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$GetBatch, `version` is not nullable")
       }
 
       if (!missing(`request_id`) && is.null(`request_id`)) {
@@ -2141,11 +1967,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/orson/ai/batch/{requestId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/batch/{requestId}"
       if (!missing(`request_id`)) {
         local_var_url_path <- gsub("\\{requestId\\}", URLencode(as.character(`request_id`), reserved = TRUE), local_var_url_path)
       }
@@ -2210,7 +2032,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Emotion Results
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2218,8 +2039,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiEmotionsResponse
-    GetEmotion = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetEmotionWithHttpInfo(version, request_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetEmotion = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetEmotionWithHttpInfo(request_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2234,7 +2055,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Emotion Results
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2242,7 +2062,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiEmotionsResponse) with additional information such as HTTP status code, headers
-    GetEmotionWithHttpInfo = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetEmotionWithHttpInfo = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2252,20 +2072,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`request_id`)) {
         stop("Missing required parameter `request_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$GetEmotion, `version` is not nullable")
       }
 
       if (!missing(`request_id`) && is.null(`request_id`)) {
@@ -2278,11 +2090,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/orson/ai/emotion/{requestId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/emotion/{requestId}"
       if (!missing(`request_id`)) {
         local_var_url_path <- gsub("\\{requestId\\}", URLencode(as.character(`request_id`), reserved = TRUE), local_var_url_path)
       }
@@ -2347,7 +2155,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Check episode status
     #'
-    #' @param version 
     #' @param episode_id Episode ID
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2355,8 +2162,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonEpisodeResponse
-    GetEpisodeStatus = function(version, episode_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetEpisodeStatusWithHttpInfo(version, episode_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetEpisodeStatus = function(episode_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetEpisodeStatusWithHttpInfo(episode_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2371,7 +2178,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Check episode status
     #'
-    #' @param version 
     #' @param episode_id Episode ID
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2379,7 +2185,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonEpisodeResponse) with additional information such as HTTP status code, headers
-    GetEpisodeStatusWithHttpInfo = function(version, episode_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetEpisodeStatusWithHttpInfo = function(episode_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2389,20 +2195,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`episode_id`)) {
         stop("Missing required parameter `episode_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$GetEpisodeStatus, `version` is not nullable")
       }
 
       if (!missing(`episode_id`) && is.null(`episode_id`)) {
@@ -2415,11 +2213,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/orson/stories/episodes/{episodeId}/status"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/stories/episodes/{episodeId}/status"
       if (!missing(`episode_id`)) {
         local_var_url_path <- gsub("\\{episodeId\\}", URLencode(as.character(`episode_id`), reserved = TRUE), local_var_url_path)
       }
@@ -2484,7 +2278,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Check episode status
     #'
-    #' @param version 
     #' @param render_id Render ID
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2492,8 +2285,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonRenderResponse
-    GetRenderStatus = function(version, render_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetRenderStatusWithHttpInfo(version, render_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetRenderStatus = function(render_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetRenderStatusWithHttpInfo(render_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2508,7 +2301,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Check episode status
     #'
-    #' @param version 
     #' @param render_id Render ID
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2516,7 +2308,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonRenderResponse) with additional information such as HTTP status code, headers
-    GetRenderStatusWithHttpInfo = function(version, render_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetRenderStatusWithHttpInfo = function(render_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2526,20 +2318,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`render_id`)) {
         stop("Missing required parameter `render_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$GetRenderStatus, `version` is not nullable")
       }
 
       if (!missing(`render_id`) && is.null(`render_id`)) {
@@ -2552,11 +2336,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/orson/stories/renders/{renderId}/status"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/stories/renders/{renderId}/status"
       if (!missing(`render_id`)) {
         local_var_url_path <- gsub("\\{renderId\\}", URLencode(as.character(`render_id`), reserved = TRUE), local_var_url_path)
       }
@@ -2621,7 +2401,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Speach to Text Result
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2629,8 +2408,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiSTTResponse
-    GetSTT = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetSTTWithHttpInfo(version, request_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetSTT = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetSTTWithHttpInfo(request_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2645,7 +2424,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Speach to Text Result
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2653,7 +2431,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiSTTResponse) with additional information such as HTTP status code, headers
-    GetSTTWithHttpInfo = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetSTTWithHttpInfo = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2663,20 +2441,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`request_id`)) {
         stop("Missing required parameter `request_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$GetSTT, `version` is not nullable")
       }
 
       if (!missing(`request_id`) && is.null(`request_id`)) {
@@ -2689,11 +2459,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/orson/ai/stt/{requestId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/stt/{requestId}"
       if (!missing(`request_id`)) {
         local_var_url_path <- gsub("\\{requestId\\}", URLencode(as.character(`request_id`), reserved = TRUE), local_var_url_path)
       }
@@ -2758,7 +2524,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Text to Speach Result
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2766,8 +2531,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiTTSResponse
-    GetTTS = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTTSWithHttpInfo(version, request_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetTTS = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTTSWithHttpInfo(request_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2782,7 +2547,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Text to Speach Result
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2790,7 +2554,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiTTSResponse) with additional information such as HTTP status code, headers
-    GetTTSWithHttpInfo = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetTTSWithHttpInfo = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2800,20 +2564,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`request_id`)) {
         stop("Missing required parameter `request_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$GetTTS, `version` is not nullable")
       }
 
       if (!missing(`request_id`) && is.null(`request_id`)) {
@@ -2826,11 +2582,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/orson/ai/tts/{requestId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/tts/{requestId}"
       if (!missing(`request_id`)) {
         local_var_url_path <- gsub("\\{requestId\\}", URLencode(as.character(`request_id`), reserved = TRUE), local_var_url_path)
       }
@@ -2895,7 +2647,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get TechTune Results
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2903,8 +2654,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiTechTuneResponse
-    GetTechTune = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTechTuneWithHttpInfo(version, request_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetTechTune = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTechTuneWithHttpInfo(request_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2919,7 +2670,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get TechTune Results
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -2927,7 +2677,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiTechTuneResponse) with additional information such as HTTP status code, headers
-    GetTechTuneWithHttpInfo = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetTechTuneWithHttpInfo = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2937,20 +2687,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`request_id`)) {
         stop("Missing required parameter `request_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$GetTechTune, `version` is not nullable")
       }
 
       if (!missing(`request_id`) && is.null(`request_id`)) {
@@ -2963,11 +2705,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/orson/ai/techTune/{requestId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/techTune/{requestId}"
       if (!missing(`request_id`)) {
         local_var_url_path <- gsub("\\{requestId\\}", URLencode(as.character(`request_id`), reserved = TRUE), local_var_url_path)
       }
@@ -3032,7 +2770,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Topics
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -3040,8 +2777,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiTopicsResponse
-    GetTopics = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTopicsWithHttpInfo(version, request_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetTopics = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTopicsWithHttpInfo(request_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3056,7 +2793,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get Topics
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -3064,7 +2800,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiTopicsResponse) with additional information such as HTTP status code, headers
-    GetTopicsWithHttpInfo = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetTopicsWithHttpInfo = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3074,20 +2810,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`request_id`)) {
         stop("Missing required parameter `request_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$GetTopics, `version` is not nullable")
       }
 
       if (!missing(`request_id`) && is.null(`request_id`)) {
@@ -3100,11 +2828,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/orson/ai/topics/{requestId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/topics/{requestId}"
       if (!missing(`request_id`)) {
         local_var_url_path <- gsub("\\{requestId\\}", URLencode(as.character(`request_id`), reserved = TRUE), local_var_url_path)
       }
@@ -3169,7 +2893,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get VoiceCanvas images
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -3177,8 +2900,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiVoiceCanvasResponse
-    GetVoiceCanvas = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetVoiceCanvasWithHttpInfo(version, request_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetVoiceCanvas = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetVoiceCanvasWithHttpInfo(request_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3193,7 +2916,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Get VoiceCanvas images
     #'
-    #' @param version 
     #' @param request_id Orson Request Id
     #' @param account_id Sirqul Account Id
     #' @param data_file (optional) name of the data file to save the result
@@ -3201,7 +2923,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiVoiceCanvasResponse) with additional information such as HTTP status code, headers
-    GetVoiceCanvasWithHttpInfo = function(version, request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetVoiceCanvasWithHttpInfo = function(request_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3211,20 +2933,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`request_id`)) {
         stop("Missing required parameter `request_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$GetVoiceCanvas, `version` is not nullable")
       }
 
       if (!missing(`request_id`) && is.null(`request_id`)) {
@@ -3237,11 +2951,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/orson/ai/voiceCanvas/{requestId}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/voiceCanvas/{requestId}"
       if (!missing(`request_id`)) {
         local_var_url_path <- gsub("\\{requestId\\}", URLencode(as.character(`request_id`), reserved = TRUE), local_var_url_path)
       }
@@ -3306,7 +3016,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Starts a StoryStitch video render
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param data Request Data String
     #' @param data_file (optional) name of the data file to save the result
@@ -3314,8 +3023,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonRenderResponse
-    StartVideoRender = function(version, account_id, data, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$StartVideoRenderWithHttpInfo(version, account_id, data, data_file = data_file, ..., .parse = .parse)
+    StartVideoRender = function(account_id, data, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$StartVideoRenderWithHttpInfo(account_id, data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3330,7 +3039,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Starts a StoryStitch video render
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param data Request Data String
     #' @param data_file (optional) name of the data file to save the result
@@ -3338,7 +3046,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonRenderResponse) with additional information such as HTTP status code, headers
-    StartVideoRenderWithHttpInfo = function(version, account_id, data, data_file = NULL, ..., .parse = TRUE) {
+    StartVideoRenderWithHttpInfo = function(account_id, data, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3348,20 +3056,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`data`)) {
         stop("Missing required parameter `data`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$StartVideoRender, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3376,11 +3076,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["data"]] <- `data`
 
-      local_var_url_path <- "/api/{version}/orson/stories/renders"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/stories/renders"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3441,7 +3137,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Speach to Text
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
     #' @param source_language (optional) Source Language
@@ -3454,8 +3149,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiSTTResponse
-    Stt = function(version, account_id, third_party_account_id = NULL, source_language = NULL, target_language = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SttWithHttpInfo(version, account_id, third_party_account_id, source_language, target_language, file, url, callback, data_file = data_file, ..., .parse = .parse)
+    Stt = function(account_id, third_party_account_id = NULL, source_language = NULL, target_language = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SttWithHttpInfo(account_id, third_party_account_id, source_language, target_language, file, url, callback, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3470,7 +3165,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Speach to Text
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
     #' @param source_language (optional) Source Language
@@ -3483,7 +3177,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiSTTResponse) with additional information such as HTTP status code, headers
-    SttWithHttpInfo = function(version, account_id, third_party_account_id = NULL, source_language = NULL, target_language = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SttWithHttpInfo = function(account_id, third_party_account_id = NULL, source_language = NULL, target_language = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3493,16 +3187,8 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$Stt, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3547,11 +3233,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["callback"]] <- `callback`
 
-      local_var_url_path <- "/api/{version}/orson/ai/stt"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/stt"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3612,7 +3294,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Summarize Topics
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
     #' @param doc (optional) The text to get topics for.
@@ -3626,8 +3307,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiTopicsResponse
-    SummarizeTopics = function(version, account_id, third_party_account_id = NULL, doc = NULL, file = NULL, url = NULL, limit = NULL, offset = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SummarizeTopicsWithHttpInfo(version, account_id, third_party_account_id, doc, file, url, limit, offset, callback, data_file = data_file, ..., .parse = .parse)
+    SummarizeTopics = function(account_id, third_party_account_id = NULL, doc = NULL, file = NULL, url = NULL, limit = NULL, offset = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SummarizeTopicsWithHttpInfo(account_id, third_party_account_id, doc, file, url, limit, offset, callback, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3642,7 +3323,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Summarize Topics
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
     #' @param doc (optional) The text to get topics for.
@@ -3656,7 +3336,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiTopicsResponse) with additional information such as HTTP status code, headers
-    SummarizeTopicsWithHttpInfo = function(version, account_id, third_party_account_id = NULL, doc = NULL, file = NULL, url = NULL, limit = NULL, offset = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SummarizeTopicsWithHttpInfo = function(account_id, third_party_account_id = NULL, doc = NULL, file = NULL, url = NULL, limit = NULL, offset = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3666,16 +3346,8 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$SummarizeTopics, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3726,11 +3398,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["callback"]] <- `callback`
 
-      local_var_url_path <- "/api/{version}/orson/ai/topics"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/topics"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3791,7 +3459,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Detect Technical Issues
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param num_faces_expected Number of expected faces
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
@@ -3803,8 +3470,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiTechTuneResponse
-    TechTune = function(version, account_id, num_faces_expected, third_party_account_id = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$TechTuneWithHttpInfo(version, account_id, num_faces_expected, third_party_account_id, file, url, callback, data_file = data_file, ..., .parse = .parse)
+    TechTune = function(account_id, num_faces_expected, third_party_account_id = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$TechTuneWithHttpInfo(account_id, num_faces_expected, third_party_account_id, file, url, callback, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3819,7 +3486,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Detect Technical Issues
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param num_faces_expected Number of expected faces
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
@@ -3831,7 +3497,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiTechTuneResponse) with additional information such as HTTP status code, headers
-    TechTuneWithHttpInfo = function(version, account_id, num_faces_expected, third_party_account_id = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+    TechTuneWithHttpInfo = function(account_id, num_faces_expected, third_party_account_id = NULL, file = NULL, url = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3841,20 +3507,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`num_faces_expected`)) {
         stop("Missing required parameter `num_faces_expected`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$TechTune, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3893,11 +3551,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["callback"]] <- `callback`
 
-      local_var_url_path <- "/api/{version}/orson/ai/techTune"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/techTune"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3958,7 +3612,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Text to Speach
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param text Text
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
@@ -3970,8 +3623,8 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrsonAiTTSResponse
-    Tts = function(version, account_id, text, third_party_account_id = NULL, language = NULL, voice = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$TtsWithHttpInfo(version, account_id, text, third_party_account_id, language, voice, callback, data_file = data_file, ..., .parse = .parse)
+    Tts = function(account_id, text, third_party_account_id = NULL, language = NULL, voice = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$TtsWithHttpInfo(account_id, text, third_party_account_id, language, voice, callback, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3986,7 +3639,6 @@ OrsonApi <- R6::R6Class(
     #' @description
     #' Text to Speach
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param text Text
     #' @param third_party_account_id (optional) A third-party account id that is meaningful to your systems
@@ -3998,7 +3650,7 @@ OrsonApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrsonAiTTSResponse) with additional information such as HTTP status code, headers
-    TtsWithHttpInfo = function(version, account_id, text, third_party_account_id = NULL, language = NULL, voice = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
+    TtsWithHttpInfo = function(account_id, text, third_party_account_id = NULL, language = NULL, voice = NULL, callback = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4008,20 +3660,12 @@ OrsonApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`text`)) {
         stop("Missing required parameter `text`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OrsonApi$Tts, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4060,11 +3704,7 @@ OrsonApi <- R6::R6Class(
 
       query_params[["callback"]] <- `callback`
 
-      local_var_url_path <- "/api/{version}/orson/ai/tts"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/orson/ai/tts"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

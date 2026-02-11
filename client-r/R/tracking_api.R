@@ -17,7 +17,6 @@
 #' ####################  BatchSaveTracking  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_data <- "data_example" # character | JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` 
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -30,15 +29,14 @@
 #' api_instance <- TrackingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$BatchSaveTracking(var_version, var_data, device_id = var_device_id, account_id = var_account_id, generate_accounts = var_generate_accounts, update_account_locations = var_update_account_locations, default_tag = var_default_tag, slave_uid = var_slave_uiddata_file = "result.txt")
-#' result <- api_instance$BatchSaveTracking(var_version, var_data, device_id = var_device_id, account_id = var_account_id, generate_accounts = var_generate_accounts, update_account_locations = var_update_account_locations, default_tag = var_default_tag, slave_uid = var_slave_uid)
+#' # result <- api_instance$BatchSaveTracking(var_data, device_id = var_device_id, account_id = var_account_id, generate_accounts = var_generate_accounts, update_account_locations = var_update_account_locations, default_tag = var_default_tag, slave_uid = var_slave_uiddata_file = "result.txt")
+#' result <- api_instance$BatchSaveTracking(var_data, device_id = var_device_id, account_id = var_account_id, generate_accounts = var_generate_accounts, update_account_locations = var_update_account_locations, default_tag = var_default_tag, slave_uid = var_slave_uid)
 #' dput(result)
 #'
 #'
 #' ####################  GetPredictedLocations  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the customer
 #' var_latitude <- 3.4 # numeric | latitude to return a more likely result set based on the user's current location (Optional)
 #' var_longitude <- 3.4 # numeric | longitude to return a more likely result set based on the user's current location (Optional)
@@ -53,15 +51,14 @@
 #' api_instance <- TrackingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetPredictedLocations(var_version, var_account_id, latitude = var_latitude, longitude = var_longitude, date_check = var_date_check, hour_check = var_hour_check, threshold = var_threshold, distance_unit = var_distance_unit, search_range = var_search_range, sort_order = var_sort_orderdata_file = "result.txt")
-#' result <- api_instance$GetPredictedLocations(var_version, var_account_id, latitude = var_latitude, longitude = var_longitude, date_check = var_date_check, hour_check = var_hour_check, threshold = var_threshold, distance_unit = var_distance_unit, search_range = var_search_range, sort_order = var_sort_order)
+#' # result <- api_instance$GetPredictedLocations(var_account_id, latitude = var_latitude, longitude = var_longitude, date_check = var_date_check, hour_check = var_hour_check, threshold = var_threshold, distance_unit = var_distance_unit, search_range = var_search_range, sort_order = var_sort_orderdata_file = "result.txt")
+#' result <- api_instance$GetPredictedLocations(var_account_id, latitude = var_latitude, longitude = var_longitude, date_check = var_date_check, hour_check = var_hour_check, threshold = var_threshold, distance_unit = var_distance_unit, search_range = var_search_range, sort_order = var_sort_order)
 #' dput(result)
 #'
 #'
 #' ####################  GetPredictedPath  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the customer
 #' var_start_step_id <- 56 # integer | The stepId to begin from
 #' var_end_step_id <- 56 # integer | The stepId to end with
@@ -70,15 +67,14 @@
 #' api_instance <- TrackingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetPredictedPath(var_version, var_account_id, var_start_step_id, var_end_step_iddata_file = "result.txt")
-#' result <- api_instance$GetPredictedPath(var_version, var_account_id, var_start_step_id, var_end_step_id)
+#' # result <- api_instance$GetPredictedPath(var_account_id, var_start_step_id, var_end_step_iddata_file = "result.txt")
+#' result <- api_instance$GetPredictedPath(var_account_id, var_start_step_id, var_end_step_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetPreferredLocations  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the customer
 #' var_latitude <- 3.4 # numeric | latitude to return a more likely result set based on the user's current location (Optional)
 #' var_longitude <- 3.4 # numeric | longitude to return a more likely result set based on the user's current location (Optional)
@@ -95,15 +91,14 @@
 #' api_instance <- TrackingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetPreferredLocations(var_version, var_account_id, latitude = var_latitude, longitude = var_longitude, date_check = var_date_check, hour_check = var_hour_check, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, search_range = var_search_range, distance_unit = var_distance_unitdata_file = "result.txt")
-#' result <- api_instance$GetPreferredLocations(var_version, var_account_id, latitude = var_latitude, longitude = var_longitude, date_check = var_date_check, hour_check = var_hour_check, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, search_range = var_search_range, distance_unit = var_distance_unit)
+#' # result <- api_instance$GetPreferredLocations(var_account_id, latitude = var_latitude, longitude = var_longitude, date_check = var_date_check, hour_check = var_hour_check, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, search_range = var_search_range, distance_unit = var_distance_unitdata_file = "result.txt")
+#' result <- api_instance$GetPreferredLocations(var_account_id, latitude = var_latitude, longitude = var_longitude, date_check = var_date_check, hour_check = var_hour_check, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, search_range = var_search_range, distance_unit = var_distance_unit)
 #' dput(result)
 #'
 #'
 #' ####################  GetTrackingLegs  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
 #' var_owner_id <- 56 # integer | the account id of the person the user wants to tracking data for (Optional)
@@ -117,15 +112,14 @@
 #' api_instance <- TrackingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetTrackingLegs(var_version, device_id = var_device_id, account_id = var_account_id, owner_id = var_owner_id, tracking_device_id = var_tracking_device_id, start_date = var_start_date, end_date = var_end_date, tags = var_tags, get_last_point = var_get_last_pointdata_file = "result.txt")
-#' result <- api_instance$GetTrackingLegs(var_version, device_id = var_device_id, account_id = var_account_id, owner_id = var_owner_id, tracking_device_id = var_tracking_device_id, start_date = var_start_date, end_date = var_end_date, tags = var_tags, get_last_point = var_get_last_point)
+#' # result <- api_instance$GetTrackingLegs(device_id = var_device_id, account_id = var_account_id, owner_id = var_owner_id, tracking_device_id = var_tracking_device_id, start_date = var_start_date, end_date = var_end_date, tags = var_tags, get_last_point = var_get_last_pointdata_file = "result.txt")
+#' result <- api_instance$GetTrackingLegs(device_id = var_device_id, account_id = var_account_id, owner_id = var_owner_id, tracking_device_id = var_tracking_device_id, start_date = var_start_date, end_date = var_end_date, tags = var_tags, get_last_point = var_get_last_point)
 #' dput(result)
 #'
 #'
 #' ####################  SaveTrackingLeg  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_start_lat <- 3.4 # numeric | the latitude of the first point
 #' var_start_lng <- 3.4 # numeric | the longitude of the first point
 #' var_start_date <- 56 # integer | the start date (in UTC milliseconds) of the first point
@@ -143,15 +137,14 @@
 #' api_instance <- TrackingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SaveTrackingLeg(var_version, var_start_lat, var_start_lng, var_start_date, var_end_lat, var_end_lng, var_end_date, device_id = var_device_id, account_id = var_account_id, distance = var_distance, duration = var_duration, steps = var_steps, tags = var_tagsdata_file = "result.txt")
-#' result <- api_instance$SaveTrackingLeg(var_version, var_start_lat, var_start_lng, var_start_date, var_end_lat, var_end_lng, var_end_date, device_id = var_device_id, account_id = var_account_id, distance = var_distance, duration = var_duration, steps = var_steps, tags = var_tags)
+#' # result <- api_instance$SaveTrackingLeg(var_start_lat, var_start_lng, var_start_date, var_end_lat, var_end_lng, var_end_date, device_id = var_device_id, account_id = var_account_id, distance = var_distance, duration = var_duration, steps = var_steps, tags = var_tagsdata_file = "result.txt")
+#' result <- api_instance$SaveTrackingLeg(var_start_lat, var_start_lng, var_start_date, var_end_lat, var_end_lng, var_end_date, device_id = var_device_id, account_id = var_account_id, distance = var_distance, duration = var_duration, steps = var_steps, tags = var_tags)
 #' dput(result)
 #'
 #'
 #' ####################  SaveTrackingStep  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_leg_id <- 56 # integer | the leg to add the step to
 #' var_start_lat <- 3.4 # numeric | the latitude of the first point
 #' var_start_lng <- 3.4 # numeric | the longitude of the first point
@@ -168,15 +161,14 @@
 #' api_instance <- TrackingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SaveTrackingStep(var_version, var_leg_id, var_start_lat, var_start_lng, var_start_date, var_end_lat, var_end_lng, var_end_date, device_id = var_device_id, account_id = var_account_id, distance = var_distance, duration = var_durationdata_file = "result.txt")
-#' result <- api_instance$SaveTrackingStep(var_version, var_leg_id, var_start_lat, var_start_lng, var_start_date, var_end_lat, var_end_lng, var_end_date, device_id = var_device_id, account_id = var_account_id, distance = var_distance, duration = var_duration)
+#' # result <- api_instance$SaveTrackingStep(var_leg_id, var_start_lat, var_start_lng, var_start_date, var_end_lat, var_end_lng, var_end_date, device_id = var_device_id, account_id = var_account_id, distance = var_distance, duration = var_durationdata_file = "result.txt")
+#' result <- api_instance$SaveTrackingStep(var_leg_id, var_start_lat, var_start_lng, var_start_date, var_end_lat, var_end_lng, var_end_date, device_id = var_device_id, account_id = var_account_id, distance = var_distance, duration = var_duration)
 #' dput(result)
 #'
 #'
 #' ####################  SearchAccountsWithTrackingLegs  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user
 #' var_keyword <- "keyword_example" # character | Used for LIKE search of first or last name on the acocunt (Optional)
 #' var_start_date <- 56 # integer | Range to begin in UTC milliseconds (Optional)
@@ -196,15 +188,14 @@
 #' api_instance <- TrackingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchAccountsWithTrackingLegs(var_version, var_account_id, keyword = var_keyword, start_date = var_start_date, end_date = var_end_date, tags = var_tags, audience_ids = var_audience_ids, latitude = var_latitude, longitude = var_longitude, range = var_range, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
-#' result <- api_instance$SearchAccountsWithTrackingLegs(var_version, var_account_id, keyword = var_keyword, start_date = var_start_date, end_date = var_end_date, tags = var_tags, audience_ids = var_audience_ids, latitude = var_latitude, longitude = var_longitude, range = var_range, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
+#' # result <- api_instance$SearchAccountsWithTrackingLegs(var_account_id, keyword = var_keyword, start_date = var_start_date, end_date = var_end_date, tags = var_tags, audience_ids = var_audience_ids, latitude = var_latitude, longitude = var_longitude, range = var_range, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
+#' result <- api_instance$SearchAccountsWithTrackingLegs(var_account_id, keyword = var_keyword, start_date = var_start_date, end_date = var_end_date, tags = var_tags, audience_ids = var_audience_ids, latitude = var_latitude, longitude = var_longitude, range = var_range, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
 #' dput(result)
 #'
 #'
 #' ####################  SearchTrackingLegs  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id to search tracking for
 #' var_app_key <- "app_key_example" # character | The application key
 #' var_tracking_device_id <- "tracking_device_id_example" # character | The id of the tracking device (Optional)
@@ -218,8 +209,8 @@
 #' api_instance <- TrackingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchTrackingLegs(var_version, var_account_id, var_app_key, tracking_device_id = var_tracking_device_id, start_date = var_start_date, end_date = var_end_date, tags = var_tags, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchTrackingLegs(var_version, var_account_id, var_app_key, tracking_device_id = var_tracking_device_id, start_date = var_start_date, end_date = var_end_date, tags = var_tags, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchTrackingLegs(var_account_id, var_app_key, tracking_device_id = var_tracking_device_id, start_date = var_start_date, end_date = var_end_date, tags = var_tags, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchTrackingLegs(var_account_id, var_app_key, tracking_device_id = var_tracking_device_id, start_date = var_start_date, end_date = var_end_date, tags = var_tags, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
@@ -247,7 +238,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Create Batch Tracking
     #'
-    #' @param version 
     #' @param data JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` 
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -260,8 +250,8 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[Leg]
-    BatchSaveTracking = function(version, data, device_id = NULL, account_id = NULL, generate_accounts = NULL, update_account_locations = NULL, default_tag = "PASSIVE", slave_uid = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$BatchSaveTrackingWithHttpInfo(version, data, device_id, account_id, generate_accounts, update_account_locations, default_tag, slave_uid, data_file = data_file, ..., .parse = .parse)
+    BatchSaveTracking = function(data, device_id = NULL, account_id = NULL, generate_accounts = NULL, update_account_locations = NULL, default_tag = "PASSIVE", slave_uid = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BatchSaveTrackingWithHttpInfo(data, device_id, account_id, generate_accounts, update_account_locations, default_tag, slave_uid, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -276,7 +266,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Create Batch Tracking
     #'
-    #' @param version 
     #' @param data JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` 
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -289,7 +278,7 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[Leg]) with additional information such as HTTP status code, headers
-    BatchSaveTrackingWithHttpInfo = function(version, data, device_id = NULL, account_id = NULL, generate_accounts = NULL, update_account_locations = NULL, default_tag = "PASSIVE", slave_uid = NULL, data_file = NULL, ..., .parse = TRUE) {
+    BatchSaveTrackingWithHttpInfo = function(data, device_id = NULL, account_id = NULL, generate_accounts = NULL, update_account_locations = NULL, default_tag = "PASSIVE", slave_uid = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -299,16 +288,8 @@ TrackingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`data`)) {
         stop("Missing required parameter `data`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TrackingApi$BatchSaveTracking, `version` is not nullable")
       }
 
       if (!missing(`data`) && is.null(`data`)) {
@@ -353,11 +334,7 @@ TrackingApi <- R6::R6Class(
 
       query_params[["slaveUID"]] <- `slave_uid`
 
-      local_var_url_path <- "/api/{version}/tracking/batch/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tracking/batch/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -418,7 +395,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Get Predicted Locations
     #'
-    #' @param version 
     #' @param account_id The account id of the customer
     #' @param latitude (optional) latitude to return a more likely result set based on the user's current location
     #' @param longitude (optional) longitude to return a more likely result set based on the user's current location
@@ -433,8 +409,8 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PredictedLocationResponse
-    GetPredictedLocations = function(version, account_id, latitude = NULL, longitude = NULL, date_check = NULL, hour_check = NULL, threshold = 1, distance_unit = "MILES", search_range = 0, sort_order = "MATCHES", data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetPredictedLocationsWithHttpInfo(version, account_id, latitude, longitude, date_check, hour_check, threshold, distance_unit, search_range, sort_order, data_file = data_file, ..., .parse = .parse)
+    GetPredictedLocations = function(account_id, latitude = NULL, longitude = NULL, date_check = NULL, hour_check = NULL, threshold = 1, distance_unit = "MILES", search_range = 0, sort_order = "MATCHES", data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetPredictedLocationsWithHttpInfo(account_id, latitude, longitude, date_check, hour_check, threshold, distance_unit, search_range, sort_order, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -449,7 +425,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Get Predicted Locations
     #'
-    #' @param version 
     #' @param account_id The account id of the customer
     #' @param latitude (optional) latitude to return a more likely result set based on the user's current location
     #' @param longitude (optional) longitude to return a more likely result set based on the user's current location
@@ -464,7 +439,7 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PredictedLocationResponse) with additional information such as HTTP status code, headers
-    GetPredictedLocationsWithHttpInfo = function(version, account_id, latitude = NULL, longitude = NULL, date_check = NULL, hour_check = NULL, threshold = 1, distance_unit = "MILES", search_range = 0, sort_order = "MATCHES", data_file = NULL, ..., .parse = TRUE) {
+    GetPredictedLocationsWithHttpInfo = function(account_id, latitude = NULL, longitude = NULL, date_check = NULL, hour_check = NULL, threshold = 1, distance_unit = "MILES", search_range = 0, sort_order = "MATCHES", data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -474,16 +449,8 @@ TrackingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TrackingApi$GetPredictedLocations, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -546,11 +513,7 @@ TrackingApi <- R6::R6Class(
       }
       query_params[["sortOrder"]] <- `sort_order`
 
-      local_var_url_path <- "/api/{version}/tracking/predicted/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tracking/predicted/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -611,7 +574,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Get Tracking Path
     #'
-    #' @param version 
     #' @param account_id The account id of the customer
     #' @param start_step_id The stepId to begin from
     #' @param end_step_id The stepId to end with
@@ -620,8 +582,8 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[StepResponse]
-    GetPredictedPath = function(version, account_id, start_step_id, end_step_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetPredictedPathWithHttpInfo(version, account_id, start_step_id, end_step_id, data_file = data_file, ..., .parse = .parse)
+    GetPredictedPath = function(account_id, start_step_id, end_step_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetPredictedPathWithHttpInfo(account_id, start_step_id, end_step_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -636,7 +598,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Get Tracking Path
     #'
-    #' @param version 
     #' @param account_id The account id of the customer
     #' @param start_step_id The stepId to begin from
     #' @param end_step_id The stepId to end with
@@ -645,7 +606,7 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[StepResponse]) with additional information such as HTTP status code, headers
-    GetPredictedPathWithHttpInfo = function(version, account_id, start_step_id, end_step_id, data_file = NULL, ..., .parse = TRUE) {
+    GetPredictedPathWithHttpInfo = function(account_id, start_step_id, end_step_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -654,10 +615,6 @@ TrackingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -669,10 +626,6 @@ TrackingApi <- R6::R6Class(
 
       if (missing(`end_step_id`)) {
         stop("Missing required parameter `end_step_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TrackingApi$GetPredictedPath, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -693,11 +646,7 @@ TrackingApi <- R6::R6Class(
 
       query_params[["endStepId"]] <- `end_step_id`
 
-      local_var_url_path <- "/api/{version}/tracking/path/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tracking/path/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -758,7 +707,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Search Preferred Locations
     #'
-    #' @param version 
     #' @param account_id The account id of the customer
     #' @param latitude (optional) latitude to return a more likely result set based on the user's current location
     #' @param longitude (optional) longitude to return a more likely result set based on the user's current location
@@ -775,8 +723,8 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[PreferredLocationResponse]
-    GetPreferredLocations = function(version, account_id, latitude = NULL, longitude = NULL, date_check = NULL, hour_check = NULL, sort_field = "PREFERRED_DATE", descending = TRUE, start = 0, limit = 20, search_range = 0, distance_unit = "MILES", data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetPreferredLocationsWithHttpInfo(version, account_id, latitude, longitude, date_check, hour_check, sort_field, descending, start, limit, search_range, distance_unit, data_file = data_file, ..., .parse = .parse)
+    GetPreferredLocations = function(account_id, latitude = NULL, longitude = NULL, date_check = NULL, hour_check = NULL, sort_field = "PREFERRED_DATE", descending = TRUE, start = 0, limit = 20, search_range = 0, distance_unit = "MILES", data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetPreferredLocationsWithHttpInfo(account_id, latitude, longitude, date_check, hour_check, sort_field, descending, start, limit, search_range, distance_unit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -791,7 +739,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Search Preferred Locations
     #'
-    #' @param version 
     #' @param account_id The account id of the customer
     #' @param latitude (optional) latitude to return a more likely result set based on the user's current location
     #' @param longitude (optional) longitude to return a more likely result set based on the user's current location
@@ -808,7 +755,7 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[PreferredLocationResponse]) with additional information such as HTTP status code, headers
-    GetPreferredLocationsWithHttpInfo = function(version, account_id, latitude = NULL, longitude = NULL, date_check = NULL, hour_check = NULL, sort_field = "PREFERRED_DATE", descending = TRUE, start = 0, limit = 20, search_range = 0, distance_unit = "MILES", data_file = NULL, ..., .parse = TRUE) {
+    GetPreferredLocationsWithHttpInfo = function(account_id, latitude = NULL, longitude = NULL, date_check = NULL, hour_check = NULL, sort_field = "PREFERRED_DATE", descending = TRUE, start = 0, limit = 20, search_range = 0, distance_unit = "MILES", data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -818,16 +765,8 @@ TrackingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TrackingApi$GetPreferredLocations, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -899,11 +838,7 @@ TrackingApi <- R6::R6Class(
       }
       query_params[["distanceUnit"]] <- `distance_unit`
 
-      local_var_url_path <- "/api/{version}/tracking/preferred/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tracking/preferred/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -964,7 +899,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Search Tracking
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param owner_id (optional) the account id of the person the user wants to tracking data for
@@ -978,8 +912,8 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[LegResponse]
-    GetTrackingLegs = function(version, device_id = NULL, account_id = NULL, owner_id = NULL, tracking_device_id = NULL, start_date = NULL, end_date = NULL, tags = NULL, get_last_point = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTrackingLegsWithHttpInfo(version, device_id, account_id, owner_id, tracking_device_id, start_date, end_date, tags, get_last_point, data_file = data_file, ..., .parse = .parse)
+    GetTrackingLegs = function(device_id = NULL, account_id = NULL, owner_id = NULL, tracking_device_id = NULL, start_date = NULL, end_date = NULL, tags = NULL, get_last_point = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTrackingLegsWithHttpInfo(device_id, account_id, owner_id, tracking_device_id, start_date, end_date, tags, get_last_point, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -994,7 +928,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Search Tracking
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param owner_id (optional) the account id of the person the user wants to tracking data for
@@ -1008,7 +941,7 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[LegResponse]) with additional information such as HTTP status code, headers
-    GetTrackingLegsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, owner_id = NULL, tracking_device_id = NULL, start_date = NULL, end_date = NULL, tags = NULL, get_last_point = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    GetTrackingLegsWithHttpInfo = function(device_id = NULL, account_id = NULL, owner_id = NULL, tracking_device_id = NULL, start_date = NULL, end_date = NULL, tags = NULL, get_last_point = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1017,14 +950,6 @@ TrackingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TrackingApi$GetTrackingLegs, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling TrackingApi$GetTrackingLegs, `device_id` is not nullable")
@@ -1074,11 +999,7 @@ TrackingApi <- R6::R6Class(
 
       query_params[["getLastPoint"]] <- `get_last_point`
 
-      local_var_url_path <- "/api/{version}/tracking/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tracking/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1139,7 +1060,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Create Tracking Leg
     #'
-    #' @param version 
     #' @param start_lat the latitude of the first point
     #' @param start_lng the longitude of the first point
     #' @param start_date the start date (in UTC milliseconds) of the first point
@@ -1157,8 +1077,8 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SaveTrackingLeg = function(version, start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id = NULL, account_id = NULL, distance = NULL, duration = NULL, steps = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SaveTrackingLegWithHttpInfo(version, start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id, account_id, distance, duration, steps, tags, data_file = data_file, ..., .parse = .parse)
+    SaveTrackingLeg = function(start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id = NULL, account_id = NULL, distance = NULL, duration = NULL, steps = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SaveTrackingLegWithHttpInfo(start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id, account_id, distance, duration, steps, tags, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1173,7 +1093,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Create Tracking Leg
     #'
-    #' @param version 
     #' @param start_lat the latitude of the first point
     #' @param start_lng the longitude of the first point
     #' @param start_date the start date (in UTC milliseconds) of the first point
@@ -1191,7 +1110,7 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SaveTrackingLegWithHttpInfo = function(version, start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id = NULL, account_id = NULL, distance = NULL, duration = NULL, steps = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SaveTrackingLegWithHttpInfo = function(start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id = NULL, account_id = NULL, distance = NULL, duration = NULL, steps = NULL, tags = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1200,10 +1119,6 @@ TrackingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`start_lat`)) {
         stop("Missing required parameter `start_lat`.")
@@ -1227,10 +1142,6 @@ TrackingApi <- R6::R6Class(
 
       if (missing(`end_date`)) {
         stop("Missing required parameter `end_date`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TrackingApi$SaveTrackingLeg, `version` is not nullable")
       }
 
       if (!missing(`start_lat`) && is.null(`start_lat`)) {
@@ -1305,11 +1216,7 @@ TrackingApi <- R6::R6Class(
 
       query_params[["tags"]] <- `tags`
 
-      local_var_url_path <- "/api/{version}/tracking/leg/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tracking/leg/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1370,7 +1277,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Create Tracking Step
     #'
-    #' @param version 
     #' @param leg_id the leg to add the step to
     #' @param start_lat the latitude of the first point
     #' @param start_lng the longitude of the first point
@@ -1387,8 +1293,8 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SaveTrackingStep = function(version, leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id = NULL, account_id = NULL, distance = NULL, duration = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SaveTrackingStepWithHttpInfo(version, leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id, account_id, distance, duration, data_file = data_file, ..., .parse = .parse)
+    SaveTrackingStep = function(leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id = NULL, account_id = NULL, distance = NULL, duration = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SaveTrackingStepWithHttpInfo(leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id, account_id, distance, duration, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1403,7 +1309,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Create Tracking Step
     #'
-    #' @param version 
     #' @param leg_id the leg to add the step to
     #' @param start_lat the latitude of the first point
     #' @param start_lng the longitude of the first point
@@ -1420,7 +1325,7 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SaveTrackingStepWithHttpInfo = function(version, leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id = NULL, account_id = NULL, distance = NULL, duration = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SaveTrackingStepWithHttpInfo = function(leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, device_id = NULL, account_id = NULL, distance = NULL, duration = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1429,10 +1334,6 @@ TrackingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`leg_id`)) {
         stop("Missing required parameter `leg_id`.")
@@ -1460,10 +1361,6 @@ TrackingApi <- R6::R6Class(
 
       if (missing(`end_date`)) {
         stop("Missing required parameter `end_date`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TrackingApi$SaveTrackingStep, `version` is not nullable")
       }
 
       if (!missing(`leg_id`) && is.null(`leg_id`)) {
@@ -1532,11 +1429,7 @@ TrackingApi <- R6::R6Class(
 
       query_params[["endDate"]] <- `end_date`
 
-      local_var_url_path <- "/api/{version}/tracking/step/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tracking/step/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1597,7 +1490,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' List Tracking
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param keyword (optional) Used for LIKE search of first or last name on the acocunt
     #' @param start_date (optional) Range to begin in UTC milliseconds
@@ -1617,8 +1509,8 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AccountMiniResponse]
-    SearchAccountsWithTrackingLegs = function(version, account_id, keyword = NULL, start_date = NULL, end_date = NULL, tags = NULL, audience_ids = NULL, latitude = NULL, longitude = NULL, range = 5, sort_field = "LEG_START_DATE", descending = TRUE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchAccountsWithTrackingLegsWithHttpInfo(version, account_id, keyword, start_date, end_date, tags, audience_ids, latitude, longitude, range, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
+    SearchAccountsWithTrackingLegs = function(account_id, keyword = NULL, start_date = NULL, end_date = NULL, tags = NULL, audience_ids = NULL, latitude = NULL, longitude = NULL, range = 5, sort_field = "LEG_START_DATE", descending = TRUE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchAccountsWithTrackingLegsWithHttpInfo(account_id, keyword, start_date, end_date, tags, audience_ids, latitude, longitude, range, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1633,7 +1525,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' List Tracking
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param keyword (optional) Used for LIKE search of first or last name on the acocunt
     #' @param start_date (optional) Range to begin in UTC milliseconds
@@ -1653,7 +1544,7 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AccountMiniResponse]) with additional information such as HTTP status code, headers
-    SearchAccountsWithTrackingLegsWithHttpInfo = function(version, account_id, keyword = NULL, start_date = NULL, end_date = NULL, tags = NULL, audience_ids = NULL, latitude = NULL, longitude = NULL, range = 5, sort_field = "LEG_START_DATE", descending = TRUE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    SearchAccountsWithTrackingLegsWithHttpInfo = function(account_id, keyword = NULL, start_date = NULL, end_date = NULL, tags = NULL, audience_ids = NULL, latitude = NULL, longitude = NULL, range = 5, sort_field = "LEG_START_DATE", descending = TRUE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1663,16 +1554,8 @@ TrackingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TrackingApi$SearchAccountsWithTrackingLegs, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1759,11 +1642,7 @@ TrackingApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/tracking/list"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tracking/list"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1824,7 +1703,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Search Tracking (Billable)
     #'
-    #' @param version 
     #' @param account_id The account id to search tracking for
     #' @param app_key The application key
     #' @param tracking_device_id (optional) The id of the tracking device
@@ -1838,8 +1716,8 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[LegResponse]
-    SearchTrackingLegs = function(version, account_id, app_key, tracking_device_id = NULL, start_date = NULL, end_date = NULL, tags = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchTrackingLegsWithHttpInfo(version, account_id, app_key, tracking_device_id, start_date, end_date, tags, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchTrackingLegs = function(account_id, app_key, tracking_device_id = NULL, start_date = NULL, end_date = NULL, tags = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchTrackingLegsWithHttpInfo(account_id, app_key, tracking_device_id, start_date, end_date, tags, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1854,7 +1732,6 @@ TrackingApi <- R6::R6Class(
     #' @description
     #' Search Tracking (Billable)
     #'
-    #' @param version 
     #' @param account_id The account id to search tracking for
     #' @param app_key The application key
     #' @param tracking_device_id (optional) The id of the tracking device
@@ -1868,7 +1745,7 @@ TrackingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[LegResponse]) with additional information such as HTTP status code, headers
-    SearchTrackingLegsWithHttpInfo = function(version, account_id, app_key, tracking_device_id = NULL, start_date = NULL, end_date = NULL, tags = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+    SearchTrackingLegsWithHttpInfo = function(account_id, app_key, tracking_device_id = NULL, start_date = NULL, end_date = NULL, tags = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1878,20 +1755,12 @@ TrackingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TrackingApi$SearchTrackingLegs, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1942,11 +1811,7 @@ TrackingApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/tracking/searchByBillable"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tracking/searchByBillable"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

@@ -17,7 +17,6 @@
 #' ####################  AddUsersToPermissionable  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_permissionable_type <- "permissionable_type_example" # character | the permissionable type of the object
 #' var_permissionable_id <- 56 # integer | the id of the permissionable object
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
@@ -40,15 +39,14 @@
 #' api_instance <- UserPermissionsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddUsersToPermissionable(var_version, var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, read = var_read, write = var_write, delete = var_delete, add = var_add, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, connection_group_ids = var_connection_group_ids, pending = var_pending, admin = var_admin, include_friend_group = var_include_friend_group, latitude = var_latitude, longitude = var_longitude, audience_ids = var_audience_idsdata_file = "result.txt")
-#' result <- api_instance$AddUsersToPermissionable(var_version, var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, read = var_read, write = var_write, delete = var_delete, add = var_add, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, connection_group_ids = var_connection_group_ids, pending = var_pending, admin = var_admin, include_friend_group = var_include_friend_group, latitude = var_latitude, longitude = var_longitude, audience_ids = var_audience_ids)
+#' # result <- api_instance$AddUsersToPermissionable(var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, read = var_read, write = var_write, delete = var_delete, add = var_add, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, connection_group_ids = var_connection_group_ids, pending = var_pending, admin = var_admin, include_friend_group = var_include_friend_group, latitude = var_latitude, longitude = var_longitude, audience_ids = var_audience_idsdata_file = "result.txt")
+#' result <- api_instance$AddUsersToPermissionable(var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, read = var_read, write = var_write, delete = var_delete, add = var_add, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, connection_group_ids = var_connection_group_ids, pending = var_pending, admin = var_admin, include_friend_group = var_include_friend_group, latitude = var_latitude, longitude = var_longitude, audience_ids = var_audience_ids)
 #' dput(result)
 #'
 #'
 #' ####################  ApprovePermissionable  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_permissionable_type <- "permissionable_type_example" # character | The permissionable type of the object
 #' var_permissionable_id <- 56 # integer | The id of the permissionable object
 #' var_device_id <- "device_id_example" # character | A unique ID given by the device (deviceId or accountId required) (Optional)
@@ -59,15 +57,14 @@
 #' api_instance <- UserPermissionsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ApprovePermissionable(var_version, var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, approval_status = var_approval_statusdata_file = "result.txt")
-#' result <- api_instance$ApprovePermissionable(var_version, var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, approval_status = var_approval_status)
+#' # result <- api_instance$ApprovePermissionable(var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, approval_status = var_approval_statusdata_file = "result.txt")
+#' result <- api_instance$ApprovePermissionable(var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, approval_status = var_approval_status)
 #' dput(result)
 #'
 #'
 #' ####################  LeaveFromPermissionable  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_permissionable_type <- "permissionable_type_example" # character | the permissionable type PermissionableType
 #' var_permissionable_id <- 56 # integer | the id of the permissionable object
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
@@ -79,15 +76,14 @@
 #' api_instance <- UserPermissionsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$LeaveFromPermissionable(var_version, var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$LeaveFromPermissionable(var_version, var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$LeaveFromPermissionable(var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$LeaveFromPermissionable(var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  RemoveUsersFromPermissionable  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_permissionable_type <- "permissionable_type_example" # character | the permissionable type of the object
 #' var_permissionable_id <- 56 # integer | the id of the permissionable object
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
@@ -104,15 +100,14 @@
 #' api_instance <- UserPermissionsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemoveUsersFromPermissionable(var_version, var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, connection_group_ids = var_connection_group_ids, remove_friend_group = var_remove_friend_group, latitude = var_latitude, longitude = var_longitude, audience_ids = var_audience_idsdata_file = "result.txt")
-#' result <- api_instance$RemoveUsersFromPermissionable(var_version, var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, connection_group_ids = var_connection_group_ids, remove_friend_group = var_remove_friend_group, latitude = var_latitude, longitude = var_longitude, audience_ids = var_audience_ids)
+#' # result <- api_instance$RemoveUsersFromPermissionable(var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, connection_group_ids = var_connection_group_ids, remove_friend_group = var_remove_friend_group, latitude = var_latitude, longitude = var_longitude, audience_ids = var_audience_idsdata_file = "result.txt")
+#' result <- api_instance$RemoveUsersFromPermissionable(var_permissionable_type, var_permissionable_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, connection_group_ids = var_connection_group_ids, remove_friend_group = var_remove_friend_group, latitude = var_latitude, longitude = var_longitude, audience_ids = var_audience_ids)
 #' dput(result)
 #'
 #'
 #' ####################  SearchPermissionables  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | A unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account ID of the user (deviceId or accountId required) (Optional)
 #' var_connection_account_id <- 56 # integer | Filter results for a specific user account (Optional)
@@ -131,15 +126,14 @@
 #' api_instance <- UserPermissionsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchPermissionables(var_version, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, connection_account_ids = var_connection_account_ids, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, pending = var_pending, admin = var_admin, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchPermissionables(var_version, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, connection_account_ids = var_connection_account_ids, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, pending = var_pending, admin = var_admin, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchPermissionables(device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, connection_account_ids = var_connection_account_ids, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, pending = var_pending, admin = var_admin, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchPermissionables(device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, connection_account_ids = var_connection_account_ids, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, pending = var_pending, admin = var_admin, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchPermissionablesFollowingDistance  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_latitude <- 3.4 # numeric | The latitude of the current account
 #' var_longitude <- 3.4 # numeric | The longitude of the current account
 #' var_device_id <- "device_id_example" # character | A unique ID given by the device (deviceId or accountId required) (Optional)
@@ -159,8 +153,8 @@
 #' api_instance <- UserPermissionsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchPermissionablesFollowingDistance(var_version, var_latitude, var_longitude, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, connection_account_ids = var_connection_account_ids, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, search_range = var_search_range, keyword = var_keyword, pending = var_pending, admin = var_admin, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchPermissionablesFollowingDistance(var_version, var_latitude, var_longitude, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, connection_account_ids = var_connection_account_ids, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, search_range = var_search_range, keyword = var_keyword, pending = var_pending, admin = var_admin, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchPermissionablesFollowingDistance(var_latitude, var_longitude, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, connection_account_ids = var_connection_account_ids, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, search_range = var_search_range, keyword = var_keyword, pending = var_pending, admin = var_admin, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchPermissionablesFollowingDistance(var_latitude, var_longitude, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, connection_account_ids = var_connection_account_ids, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, search_range = var_search_range, keyword = var_keyword, pending = var_pending, admin = var_admin, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
@@ -188,7 +182,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Add User
     #'
-    #' @param version 
     #' @param permissionable_type the permissionable type of the object
     #' @param permissionable_id the id of the permissionable object
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -211,8 +204,8 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    AddUsersToPermissionable = function(version, permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, read = TRUE, write = FALSE, delete = FALSE, add = FALSE, connection_ids = NULL, connection_account_ids = NULL, connection_group_ids = NULL, pending = FALSE, admin = NULL, include_friend_group = FALSE, latitude = NULL, longitude = NULL, audience_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddUsersToPermissionableWithHttpInfo(version, permissionable_type, permissionable_id, device_id, account_id, read, write, delete, add, connection_ids, connection_account_ids, connection_group_ids, pending, admin, include_friend_group, latitude, longitude, audience_ids, data_file = data_file, ..., .parse = .parse)
+    AddUsersToPermissionable = function(permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, read = TRUE, write = FALSE, delete = FALSE, add = FALSE, connection_ids = NULL, connection_account_ids = NULL, connection_group_ids = NULL, pending = FALSE, admin = NULL, include_friend_group = FALSE, latitude = NULL, longitude = NULL, audience_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddUsersToPermissionableWithHttpInfo(permissionable_type, permissionable_id, device_id, account_id, read, write, delete, add, connection_ids, connection_account_ids, connection_group_ids, pending, admin, include_friend_group, latitude, longitude, audience_ids, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -227,7 +220,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Add User
     #'
-    #' @param version 
     #' @param permissionable_type the permissionable type of the object
     #' @param permissionable_id the id of the permissionable object
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -250,7 +242,7 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    AddUsersToPermissionableWithHttpInfo = function(version, permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, read = TRUE, write = FALSE, delete = FALSE, add = FALSE, connection_ids = NULL, connection_account_ids = NULL, connection_group_ids = NULL, pending = FALSE, admin = NULL, include_friend_group = FALSE, latitude = NULL, longitude = NULL, audience_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddUsersToPermissionableWithHttpInfo = function(permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, read = TRUE, write = FALSE, delete = FALSE, add = FALSE, connection_ids = NULL, connection_account_ids = NULL, connection_group_ids = NULL, pending = FALSE, admin = NULL, include_friend_group = FALSE, latitude = NULL, longitude = NULL, audience_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -260,20 +252,12 @@ UserPermissionsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`permissionable_type`)) {
         stop("Missing required parameter `permissionable_type`.")
       }
 
       if (missing(`permissionable_id`)) {
         stop("Missing required parameter `permissionable_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling UserPermissionsApi$AddUsersToPermissionable, `version` is not nullable")
       }
 
       if (!missing(`permissionable_type`) && is.null(`permissionable_type`)) {
@@ -381,11 +365,7 @@ UserPermissionsApi <- R6::R6Class(
 
       query_params[["audienceIds"]] <- `audience_ids`
 
-      local_var_url_path <- "/api/{version}/consumer/permissions/add"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/permissions/add"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -446,7 +426,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Approve Permissionable
     #'
-    #' @param version 
     #' @param permissionable_type The permissionable type of the object
     #' @param permissionable_id The id of the permissionable object
     #' @param device_id (optional) A unique ID given by the device (deviceId or accountId required)
@@ -457,8 +436,8 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    ApprovePermissionable = function(version, permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, approval_status = "APPROVED", data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ApprovePermissionableWithHttpInfo(version, permissionable_type, permissionable_id, device_id, account_id, approval_status, data_file = data_file, ..., .parse = .parse)
+    ApprovePermissionable = function(permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, approval_status = "APPROVED", data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ApprovePermissionableWithHttpInfo(permissionable_type, permissionable_id, device_id, account_id, approval_status, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -473,7 +452,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Approve Permissionable
     #'
-    #' @param version 
     #' @param permissionable_type The permissionable type of the object
     #' @param permissionable_id The id of the permissionable object
     #' @param device_id (optional) A unique ID given by the device (deviceId or accountId required)
@@ -484,7 +462,7 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    ApprovePermissionableWithHttpInfo = function(version, permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, approval_status = "APPROVED", data_file = NULL, ..., .parse = TRUE) {
+    ApprovePermissionableWithHttpInfo = function(permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, approval_status = "APPROVED", data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -494,20 +472,12 @@ UserPermissionsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`permissionable_type`)) {
         stop("Missing required parameter `permissionable_type`.")
       }
 
       if (missing(`permissionable_id`)) {
         stop("Missing required parameter `permissionable_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling UserPermissionsApi$ApprovePermissionable, `version` is not nullable")
       }
 
       if (!missing(`permissionable_type`) && is.null(`permissionable_type`)) {
@@ -546,11 +516,7 @@ UserPermissionsApi <- R6::R6Class(
       }
       query_params[["approvalStatus"]] <- `approval_status`
 
-      local_var_url_path <- "/api/{version}/permissionable/approve"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/permissionable/approve"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -611,7 +577,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Leave
     #'
-    #' @param version 
     #' @param permissionable_type the permissionable type PermissionableType
     #' @param permissionable_id the id of the permissionable object
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -623,8 +588,8 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    LeaveFromPermissionable = function(version, permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$LeaveFromPermissionableWithHttpInfo(version, permissionable_type, permissionable_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    LeaveFromPermissionable = function(permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$LeaveFromPermissionableWithHttpInfo(permissionable_type, permissionable_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -639,7 +604,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Leave
     #'
-    #' @param version 
     #' @param permissionable_type the permissionable type PermissionableType
     #' @param permissionable_id the id of the permissionable object
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -651,7 +615,7 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    LeaveFromPermissionableWithHttpInfo = function(version, permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    LeaveFromPermissionableWithHttpInfo = function(permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -661,20 +625,12 @@ UserPermissionsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`permissionable_type`)) {
         stop("Missing required parameter `permissionable_type`.")
       }
 
       if (missing(`permissionable_id`)) {
         stop("Missing required parameter `permissionable_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling UserPermissionsApi$LeaveFromPermissionable, `version` is not nullable")
       }
 
       if (!missing(`permissionable_type`) && is.null(`permissionable_type`)) {
@@ -713,11 +669,7 @@ UserPermissionsApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/permissions/leave"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/permissions/leave"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -778,7 +730,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Remove User
     #'
-    #' @param version 
     #' @param permissionable_type the permissionable type of the object
     #' @param permissionable_id the id of the permissionable object
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -795,8 +746,8 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RemoveUsersFromPermissionable = function(version, permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, connection_group_ids = NULL, remove_friend_group = FALSE, latitude = NULL, longitude = NULL, audience_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemoveUsersFromPermissionableWithHttpInfo(version, permissionable_type, permissionable_id, device_id, account_id, connection_ids, connection_account_ids, connection_group_ids, remove_friend_group, latitude, longitude, audience_ids, data_file = data_file, ..., .parse = .parse)
+    RemoveUsersFromPermissionable = function(permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, connection_group_ids = NULL, remove_friend_group = FALSE, latitude = NULL, longitude = NULL, audience_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemoveUsersFromPermissionableWithHttpInfo(permissionable_type, permissionable_id, device_id, account_id, connection_ids, connection_account_ids, connection_group_ids, remove_friend_group, latitude, longitude, audience_ids, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -811,7 +762,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Remove User
     #'
-    #' @param version 
     #' @param permissionable_type the permissionable type of the object
     #' @param permissionable_id the id of the permissionable object
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -828,7 +778,7 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RemoveUsersFromPermissionableWithHttpInfo = function(version, permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, connection_group_ids = NULL, remove_friend_group = FALSE, latitude = NULL, longitude = NULL, audience_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RemoveUsersFromPermissionableWithHttpInfo = function(permissionable_type, permissionable_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, connection_group_ids = NULL, remove_friend_group = FALSE, latitude = NULL, longitude = NULL, audience_ids = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -838,20 +788,12 @@ UserPermissionsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`permissionable_type`)) {
         stop("Missing required parameter `permissionable_type`.")
       }
 
       if (missing(`permissionable_id`)) {
         stop("Missing required parameter `permissionable_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling UserPermissionsApi$RemoveUsersFromPermissionable, `version` is not nullable")
       }
 
       if (!missing(`permissionable_type`) && is.null(`permissionable_type`)) {
@@ -923,11 +865,7 @@ UserPermissionsApi <- R6::R6Class(
 
       query_params[["audienceIds"]] <- `audience_ids`
 
-      local_var_url_path <- "/api/{version}/consumer/permissions/remove"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/permissions/remove"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -988,7 +926,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Search Permissionables
     #'
-    #' @param version 
     #' @param device_id (optional) A unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) The account ID of the user (deviceId or accountId required)
     #' @param connection_account_id (optional) Filter results for a specific user account
@@ -1007,8 +944,8 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[UserPermissionsResponse]
-    SearchPermissionables = function(version, device_id = NULL, account_id = NULL, connection_account_id = NULL, connection_account_ids = NULL, permissionable_type = NULL, permissionable_id = NULL, keyword = NULL, sort_field = NULL, descending = NULL, pending = NULL, admin = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchPermissionablesWithHttpInfo(version, device_id, account_id, connection_account_id, connection_account_ids, permissionable_type, permissionable_id, keyword, sort_field, descending, pending, admin, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchPermissionables = function(device_id = NULL, account_id = NULL, connection_account_id = NULL, connection_account_ids = NULL, permissionable_type = NULL, permissionable_id = NULL, keyword = NULL, sort_field = NULL, descending = NULL, pending = NULL, admin = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchPermissionablesWithHttpInfo(device_id, account_id, connection_account_id, connection_account_ids, permissionable_type, permissionable_id, keyword, sort_field, descending, pending, admin, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1023,7 +960,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Search Permissionables
     #'
-    #' @param version 
     #' @param device_id (optional) A unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) The account ID of the user (deviceId or accountId required)
     #' @param connection_account_id (optional) Filter results for a specific user account
@@ -1042,7 +978,7 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[UserPermissionsResponse]) with additional information such as HTTP status code, headers
-    SearchPermissionablesWithHttpInfo = function(version, device_id = NULL, account_id = NULL, connection_account_id = NULL, connection_account_ids = NULL, permissionable_type = NULL, permissionable_id = NULL, keyword = NULL, sort_field = NULL, descending = NULL, pending = NULL, admin = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    SearchPermissionablesWithHttpInfo = function(device_id = NULL, account_id = NULL, connection_account_id = NULL, connection_account_ids = NULL, permissionable_type = NULL, permissionable_id = NULL, keyword = NULL, sort_field = NULL, descending = NULL, pending = NULL, admin = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1051,14 +987,6 @@ UserPermissionsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling UserPermissionsApi$SearchPermissionables, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling UserPermissionsApi$SearchPermissionables, `device_id` is not nullable")
@@ -1141,11 +1069,7 @@ UserPermissionsApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/permissions/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/permissions/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1206,7 +1130,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Search Permissionables by Distnace
     #'
-    #' @param version 
     #' @param latitude The latitude of the current account
     #' @param longitude The longitude of the current account
     #' @param device_id (optional) A unique ID given by the device (deviceId or accountId required)
@@ -1226,8 +1149,8 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[UserPermissionsResponse]
-    SearchPermissionablesFollowingDistance = function(version, latitude, longitude, device_id = NULL, account_id = NULL, connection_account_id = NULL, connection_account_ids = NULL, permissionable_type = NULL, permissionable_id = NULL, search_range = 5, keyword = NULL, pending = NULL, admin = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchPermissionablesFollowingDistanceWithHttpInfo(version, latitude, longitude, device_id, account_id, connection_account_id, connection_account_ids, permissionable_type, permissionable_id, search_range, keyword, pending, admin, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchPermissionablesFollowingDistance = function(latitude, longitude, device_id = NULL, account_id = NULL, connection_account_id = NULL, connection_account_ids = NULL, permissionable_type = NULL, permissionable_id = NULL, search_range = 5, keyword = NULL, pending = NULL, admin = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchPermissionablesFollowingDistanceWithHttpInfo(latitude, longitude, device_id, account_id, connection_account_id, connection_account_ids, permissionable_type, permissionable_id, search_range, keyword, pending, admin, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1242,7 +1165,6 @@ UserPermissionsApi <- R6::R6Class(
     #' @description
     #' Search Permissionables by Distnace
     #'
-    #' @param version 
     #' @param latitude The latitude of the current account
     #' @param longitude The longitude of the current account
     #' @param device_id (optional) A unique ID given by the device (deviceId or accountId required)
@@ -1262,7 +1184,7 @@ UserPermissionsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[UserPermissionsResponse]) with additional information such as HTTP status code, headers
-    SearchPermissionablesFollowingDistanceWithHttpInfo = function(version, latitude, longitude, device_id = NULL, account_id = NULL, connection_account_id = NULL, connection_account_ids = NULL, permissionable_type = NULL, permissionable_id = NULL, search_range = 5, keyword = NULL, pending = NULL, admin = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    SearchPermissionablesFollowingDistanceWithHttpInfo = function(latitude, longitude, device_id = NULL, account_id = NULL, connection_account_id = NULL, connection_account_ids = NULL, permissionable_type = NULL, permissionable_id = NULL, search_range = 5, keyword = NULL, pending = NULL, admin = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1272,20 +1194,12 @@ UserPermissionsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`latitude`)) {
         stop("Missing required parameter `latitude`.")
       }
 
       if (missing(`longitude`)) {
         stop("Missing required parameter `longitude`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling UserPermissionsApi$SearchPermissionablesFollowingDistance, `version` is not nullable")
       }
 
       if (!missing(`latitude`) && is.null(`latitude`)) {
@@ -1375,11 +1289,7 @@ UserPermissionsApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/permissions/distancesearch"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/permissions/distancesearch"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

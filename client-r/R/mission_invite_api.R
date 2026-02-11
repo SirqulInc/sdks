@@ -17,7 +17,6 @@
 #' ####################  CreateMissionInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required). (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required). (Optional)
 #' var_mission_id <- 56 # integer | The mission to find the invite for. (Optional)
@@ -28,15 +27,14 @@
 #' api_instance <- MissionInviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateMissionInvite(var_version, device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, join_code = var_join_code, include_game_data = var_include_game_datadata_file = "result.txt")
-#' result <- api_instance$CreateMissionInvite(var_version, device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, join_code = var_join_code, include_game_data = var_include_game_data)
+#' # result <- api_instance$CreateMissionInvite(device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, join_code = var_join_code, include_game_data = var_include_game_datadata_file = "result.txt")
+#' result <- api_instance$CreateMissionInvite(device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, join_code = var_join_code, include_game_data = var_include_game_data)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteMissionInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required). (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required). (Optional)
 #' var_mission_id <- 56 # integer | The mission to find the invite for (missionId or missionInviteId requried). (Optional)
@@ -47,15 +45,14 @@
 #' api_instance <- MissionInviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteMissionInvite(var_version, device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, include_game_data = var_include_game_datadata_file = "result.txt")
-#' result <- api_instance$DeleteMissionInvite(var_version, device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, include_game_data = var_include_game_data)
+#' # result <- api_instance$DeleteMissionInvite(device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, include_game_data = var_include_game_datadata_file = "result.txt")
+#' result <- api_instance$DeleteMissionInvite(device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, include_game_data = var_include_game_data)
 #' dput(result)
 #'
 #'
 #' ####################  GetMissionInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required). (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required). (Optional)
 #' var_mission_id <- 56 # integer | The mission to find the invite for (missionId or missionInviteId requried). (Optional)
@@ -67,15 +64,14 @@
 #' api_instance <- MissionInviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetMissionInvite(var_version, device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, include_game_data = var_include_game_data, include_scores = var_include_scoresdata_file = "result.txt")
-#' result <- api_instance$GetMissionInvite(var_version, device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, include_game_data = var_include_game_data, include_scores = var_include_scores)
+#' # result <- api_instance$GetMissionInvite(device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, include_game_data = var_include_game_data, include_scores = var_include_scoresdata_file = "result.txt")
+#' result <- api_instance$GetMissionInvite(device_id = var_device_id, account_id = var_account_id, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, include_game_data = var_include_game_data, include_scores = var_include_scores)
 #' dput(result)
 #'
 #'
 #' ####################  SearchMissionInvites  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required). (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required). (Optional)
 #' var_app_key <- "app_key_example" # character | the app to retrieve the data for, use your application key. (Optional)
@@ -94,15 +90,14 @@
 #' api_instance <- MissionInviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchMissionInvites(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, app_version = var_app_version, mission_id = var_mission_id, status = var_status, last_updated = var_last_updated, start = var_start, limit = var_limit, keyword = var_keyword, mission_types = var_mission_types, filter_by_billable = var_filter_by_billable, include_game_data = var_include_game_datadata_file = "result.txt")
-#' result <- api_instance$SearchMissionInvites(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, app_version = var_app_version, mission_id = var_mission_id, status = var_status, last_updated = var_last_updated, start = var_start, limit = var_limit, keyword = var_keyword, mission_types = var_mission_types, filter_by_billable = var_filter_by_billable, include_game_data = var_include_game_data)
+#' # result <- api_instance$SearchMissionInvites(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, app_version = var_app_version, mission_id = var_mission_id, status = var_status, last_updated = var_last_updated, start = var_start, limit = var_limit, keyword = var_keyword, mission_types = var_mission_types, filter_by_billable = var_filter_by_billable, include_game_data = var_include_game_datadata_file = "result.txt")
+#' result <- api_instance$SearchMissionInvites(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, app_version = var_app_version, mission_id = var_mission_id, status = var_status, last_updated = var_last_updated, start = var_start, limit = var_limit, keyword = var_keyword, mission_types = var_mission_types, filter_by_billable = var_filter_by_billable, include_game_data = var_include_game_data)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateMissionInvite  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required). (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required). (Optional)
 #' var_app_key <- "app_key_example" # character | the application key (Optional)
@@ -119,8 +114,8 @@
 #' api_instance <- MissionInviteApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateMissionInvite(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, pack_id = var_pack_id, game_level_id = var_game_level_id, status = var_status, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, include_game_data = var_include_game_datadata_file = "result.txt")
-#' result <- api_instance$UpdateMissionInvite(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, pack_id = var_pack_id, game_level_id = var_game_level_id, status = var_status, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, include_game_data = var_include_game_data)
+#' # result <- api_instance$UpdateMissionInvite(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, pack_id = var_pack_id, game_level_id = var_game_level_id, status = var_status, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, include_game_data = var_include_game_datadata_file = "result.txt")
+#' result <- api_instance$UpdateMissionInvite(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, mission_id = var_mission_id, mission_invite_id = var_mission_invite_id, pack_id = var_pack_id, game_level_id = var_game_level_id, status = var_status, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, include_game_data = var_include_game_data)
 #' dput(result)
 #'
 #'
@@ -148,7 +143,6 @@ MissionInviteApi <- R6::R6Class(
     #' @description
     #' Create Mission Invite
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required).
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param mission_id (optional) The mission to find the invite for.
@@ -159,8 +153,8 @@ MissionInviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MissionResponse
-    CreateMissionInvite = function(version, device_id = NULL, account_id = NULL, mission_id = NULL, join_code = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateMissionInviteWithHttpInfo(version, device_id, account_id, mission_id, join_code, include_game_data, data_file = data_file, ..., .parse = .parse)
+    CreateMissionInvite = function(device_id = NULL, account_id = NULL, mission_id = NULL, join_code = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateMissionInviteWithHttpInfo(device_id, account_id, mission_id, join_code, include_game_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -175,7 +169,6 @@ MissionInviteApi <- R6::R6Class(
     #' @description
     #' Create Mission Invite
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required).
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param mission_id (optional) The mission to find the invite for.
@@ -186,7 +179,7 @@ MissionInviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MissionResponse) with additional information such as HTTP status code, headers
-    CreateMissionInviteWithHttpInfo = function(version, device_id = NULL, account_id = NULL, mission_id = NULL, join_code = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateMissionInviteWithHttpInfo = function(device_id = NULL, account_id = NULL, mission_id = NULL, join_code = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -195,14 +188,6 @@ MissionInviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionInviteApi$CreateMissionInvite, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling MissionInviteApi$CreateMissionInvite, `device_id` is not nullable")
@@ -234,11 +219,7 @@ MissionInviteApi <- R6::R6Class(
 
       query_params[["includeGameData"]] <- `include_game_data`
 
-      local_var_url_path <- "/api/{version}/mission/invite/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/invite/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -299,7 +280,6 @@ MissionInviteApi <- R6::R6Class(
     #' @description
     #' Delete Mission Invite
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required).
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param mission_id (optional) The mission to find the invite for (missionId or missionInviteId requried).
@@ -310,8 +290,8 @@ MissionInviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteMissionInvite = function(version, device_id = NULL, account_id = NULL, mission_id = NULL, mission_invite_id = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteMissionInviteWithHttpInfo(version, device_id, account_id, mission_id, mission_invite_id, include_game_data, data_file = data_file, ..., .parse = .parse)
+    DeleteMissionInvite = function(device_id = NULL, account_id = NULL, mission_id = NULL, mission_invite_id = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteMissionInviteWithHttpInfo(device_id, account_id, mission_id, mission_invite_id, include_game_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -326,7 +306,6 @@ MissionInviteApi <- R6::R6Class(
     #' @description
     #' Delete Mission Invite
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required).
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param mission_id (optional) The mission to find the invite for (missionId or missionInviteId requried).
@@ -337,7 +316,7 @@ MissionInviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteMissionInviteWithHttpInfo = function(version, device_id = NULL, account_id = NULL, mission_id = NULL, mission_invite_id = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteMissionInviteWithHttpInfo = function(device_id = NULL, account_id = NULL, mission_id = NULL, mission_invite_id = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -346,14 +325,6 @@ MissionInviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionInviteApi$DeleteMissionInvite, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling MissionInviteApi$DeleteMissionInvite, `device_id` is not nullable")
@@ -385,11 +356,7 @@ MissionInviteApi <- R6::R6Class(
 
       query_params[["includeGameData"]] <- `include_game_data`
 
-      local_var_url_path <- "/api/{version}/mission/invite/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/invite/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -450,7 +417,6 @@ MissionInviteApi <- R6::R6Class(
     #' @description
     #' Get Mission Invite
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required).
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param mission_id (optional) The mission to find the invite for (missionId or missionInviteId requried).
@@ -462,8 +428,8 @@ MissionInviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MissionResponse
-    GetMissionInvite = function(version, device_id = NULL, account_id = NULL, mission_id = NULL, mission_invite_id = NULL, include_game_data = NULL, include_scores = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetMissionInviteWithHttpInfo(version, device_id, account_id, mission_id, mission_invite_id, include_game_data, include_scores, data_file = data_file, ..., .parse = .parse)
+    GetMissionInvite = function(device_id = NULL, account_id = NULL, mission_id = NULL, mission_invite_id = NULL, include_game_data = NULL, include_scores = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetMissionInviteWithHttpInfo(device_id, account_id, mission_id, mission_invite_id, include_game_data, include_scores, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -478,7 +444,6 @@ MissionInviteApi <- R6::R6Class(
     #' @description
     #' Get Mission Invite
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required).
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param mission_id (optional) The mission to find the invite for (missionId or missionInviteId requried).
@@ -490,7 +455,7 @@ MissionInviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MissionResponse) with additional information such as HTTP status code, headers
-    GetMissionInviteWithHttpInfo = function(version, device_id = NULL, account_id = NULL, mission_id = NULL, mission_invite_id = NULL, include_game_data = NULL, include_scores = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetMissionInviteWithHttpInfo = function(device_id = NULL, account_id = NULL, mission_id = NULL, mission_invite_id = NULL, include_game_data = NULL, include_scores = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -499,14 +464,6 @@ MissionInviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionInviteApi$GetMissionInvite, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling MissionInviteApi$GetMissionInvite, `device_id` is not nullable")
@@ -544,11 +501,7 @@ MissionInviteApi <- R6::R6Class(
 
       query_params[["includeScores"]] <- `include_scores`
 
-      local_var_url_path <- "/api/{version}/mission/invite/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/invite/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -609,7 +562,6 @@ MissionInviteApi <- R6::R6Class(
     #' @description
     #' Search Mission Invites
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required).
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param app_key (optional) the app to retrieve the data for, use your application key.
@@ -628,8 +580,8 @@ MissionInviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[MissionResponse]
-    SearchMissionInvites = function(version, device_id = NULL, account_id = NULL, app_key = NULL, app_version = NULL, mission_id = NULL, status = NULL, last_updated = NULL, start = NULL, limit = NULL, keyword = NULL, mission_types = NULL, filter_by_billable = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchMissionInvitesWithHttpInfo(version, device_id, account_id, app_key, app_version, mission_id, status, last_updated, start, limit, keyword, mission_types, filter_by_billable, include_game_data, data_file = data_file, ..., .parse = .parse)
+    SearchMissionInvites = function(device_id = NULL, account_id = NULL, app_key = NULL, app_version = NULL, mission_id = NULL, status = NULL, last_updated = NULL, start = NULL, limit = NULL, keyword = NULL, mission_types = NULL, filter_by_billable = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchMissionInvitesWithHttpInfo(device_id, account_id, app_key, app_version, mission_id, status, last_updated, start, limit, keyword, mission_types, filter_by_billable, include_game_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -644,7 +596,6 @@ MissionInviteApi <- R6::R6Class(
     #' @description
     #' Search Mission Invites
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required).
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param app_key (optional) the app to retrieve the data for, use your application key.
@@ -663,7 +614,7 @@ MissionInviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[MissionResponse]) with additional information such as HTTP status code, headers
-    SearchMissionInvitesWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_key = NULL, app_version = NULL, mission_id = NULL, status = NULL, last_updated = NULL, start = NULL, limit = NULL, keyword = NULL, mission_types = NULL, filter_by_billable = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchMissionInvitesWithHttpInfo = function(device_id = NULL, account_id = NULL, app_key = NULL, app_version = NULL, mission_id = NULL, status = NULL, last_updated = NULL, start = NULL, limit = NULL, keyword = NULL, mission_types = NULL, filter_by_billable = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -672,14 +623,6 @@ MissionInviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionInviteApi$SearchMissionInvites, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling MissionInviteApi$SearchMissionInvites, `device_id` is not nullable")
@@ -759,11 +702,7 @@ MissionInviteApi <- R6::R6Class(
 
       query_params[["includeGameData"]] <- `include_game_data`
 
-      local_var_url_path <- "/api/{version}/mission/invite/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/invite/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -824,7 +763,6 @@ MissionInviteApi <- R6::R6Class(
     #' @description
     #' Update Mission Invite
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required).
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param app_key (optional) the application key
@@ -841,8 +779,8 @@ MissionInviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MissionResponse
-    UpdateMissionInvite = function(version, device_id = NULL, account_id = NULL, app_key = NULL, mission_id = NULL, mission_invite_id = NULL, pack_id = NULL, game_level_id = NULL, status = NULL, permissionable_type = NULL, permissionable_id = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateMissionInviteWithHttpInfo(version, device_id, account_id, app_key, mission_id, mission_invite_id, pack_id, game_level_id, status, permissionable_type, permissionable_id, include_game_data, data_file = data_file, ..., .parse = .parse)
+    UpdateMissionInvite = function(device_id = NULL, account_id = NULL, app_key = NULL, mission_id = NULL, mission_invite_id = NULL, pack_id = NULL, game_level_id = NULL, status = NULL, permissionable_type = NULL, permissionable_id = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateMissionInviteWithHttpInfo(device_id, account_id, app_key, mission_id, mission_invite_id, pack_id, game_level_id, status, permissionable_type, permissionable_id, include_game_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -857,7 +795,6 @@ MissionInviteApi <- R6::R6Class(
     #' @description
     #' Update Mission Invite
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required).
     #' @param account_id (optional) the account id of the user (deviceId or accountId required).
     #' @param app_key (optional) the application key
@@ -874,7 +811,7 @@ MissionInviteApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MissionResponse) with additional information such as HTTP status code, headers
-    UpdateMissionInviteWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_key = NULL, mission_id = NULL, mission_invite_id = NULL, pack_id = NULL, game_level_id = NULL, status = NULL, permissionable_type = NULL, permissionable_id = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateMissionInviteWithHttpInfo = function(device_id = NULL, account_id = NULL, app_key = NULL, mission_id = NULL, mission_invite_id = NULL, pack_id = NULL, game_level_id = NULL, status = NULL, permissionable_type = NULL, permissionable_id = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -883,14 +820,6 @@ MissionInviteApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MissionInviteApi$UpdateMissionInvite, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling MissionInviteApi$UpdateMissionInvite, `device_id` is not nullable")
@@ -958,11 +887,7 @@ MissionInviteApi <- R6::R6Class(
 
       query_params[["includeGameData"]] <- `include_game_data`
 
-      local_var_url_path <- "/api/{version}/mission/invite/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/mission/invite/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

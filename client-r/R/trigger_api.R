@@ -17,7 +17,6 @@
 #' ####################  CreateTrigger  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user
 #' var_name <- "name_example" # character | The name of the trigger
 #' var_app_key <- "app_key_example" # character | The application to target (Optional)
@@ -36,15 +35,14 @@
 #' api_instance <- TriggerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateTrigger(var_version, var_account_id, var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, conditional_input = var_conditional_input, visibility = var_visibility, active = var_activedata_file = "result.txt")
-#' result <- api_instance$CreateTrigger(var_version, var_account_id, var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, conditional_input = var_conditional_input, visibility = var_visibility, active = var_active)
+#' # result <- api_instance$CreateTrigger(var_account_id, var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, conditional_input = var_conditional_input, visibility = var_visibility, active = var_activedata_file = "result.txt")
+#' result <- api_instance$CreateTrigger(var_account_id, var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, conditional_input = var_conditional_input, visibility = var_visibility, active = var_active)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteTrigger  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_trigger_id <- 56 # integer | The id of the trigger to delete.
 #'
@@ -52,15 +50,14 @@
 #' api_instance <- TriggerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteTrigger(var_version, var_account_id, var_trigger_iddata_file = "result.txt")
-#' result <- api_instance$DeleteTrigger(var_version, var_account_id, var_trigger_id)
+#' # result <- api_instance$DeleteTrigger(var_account_id, var_trigger_iddata_file = "result.txt")
+#' result <- api_instance$DeleteTrigger(var_account_id, var_trigger_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetTrigger  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_trigger_id <- 56 # integer | The id of the Trigger to return.
 #'
@@ -68,15 +65,14 @@
 #' api_instance <- TriggerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetTrigger(var_version, var_account_id, var_trigger_iddata_file = "result.txt")
-#' result <- api_instance$GetTrigger(var_version, var_account_id, var_trigger_id)
+#' # result <- api_instance$GetTrigger(var_account_id, var_trigger_iddata_file = "result.txt")
+#' result <- api_instance$GetTrigger(var_account_id, var_trigger_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchTriggers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_grouping_id <- "grouping_id_example" # character | Filter results by a grouping identifier defined by the client (Optional)
 #' var_filter <- "MINE" # character | A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (Optional)
@@ -94,15 +90,14 @@
 #' api_instance <- TriggerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchTriggers(var_version, var_account_id, grouping_id = var_grouping_id, filter = var_filter, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
-#' result <- api_instance$SearchTriggers(var_version, var_account_id, grouping_id = var_grouping_id, filter = var_filter, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
+#' # result <- api_instance$SearchTriggers(var_account_id, grouping_id = var_grouping_id, filter = var_filter, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
+#' result <- api_instance$SearchTriggers(var_account_id, grouping_id = var_grouping_id, filter = var_filter, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateTrigger  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_trigger_id <- 56 # integer | The trigger to update
 #' var_account_id <- 56 # integer | The logged in user
 #' var_name <- "name_example" # character | The name of the trigger (Optional)
@@ -122,8 +117,8 @@
 #' api_instance <- TriggerApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateTrigger(var_version, var_trigger_id, var_account_id, name = var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, conditional_input = var_conditional_input, visibility = var_visibility, active = var_activedata_file = "result.txt")
-#' result <- api_instance$UpdateTrigger(var_version, var_trigger_id, var_account_id, name = var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, conditional_input = var_conditional_input, visibility = var_visibility, active = var_active)
+#' # result <- api_instance$UpdateTrigger(var_trigger_id, var_account_id, name = var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, conditional_input = var_conditional_input, visibility = var_visibility, active = var_activedata_file = "result.txt")
+#' result <- api_instance$UpdateTrigger(var_trigger_id, var_account_id, name = var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, conditional_input = var_conditional_input, visibility = var_visibility, active = var_active)
 #' dput(result)
 #'
 #'
@@ -151,7 +146,6 @@ TriggerApi <- R6::R6Class(
     #' @description
     #' Create Trigger
     #'
-    #' @param version 
     #' @param account_id The logged in user
     #' @param name The name of the trigger
     #' @param app_key (optional) The application to target
@@ -170,8 +164,8 @@ TriggerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TriggerResponse
-    CreateTrigger = function(version, account_id, name, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, conditional_input = NULL, visibility = NULL, active = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateTriggerWithHttpInfo(version, account_id, name, app_key, grouping_id, endpoint_url, payload, scheduled_date, start_date, end_date, cron_expression, conditional_input, visibility, active, data_file = data_file, ..., .parse = .parse)
+    CreateTrigger = function(account_id, name, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, conditional_input = NULL, visibility = NULL, active = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateTriggerWithHttpInfo(account_id, name, app_key, grouping_id, endpoint_url, payload, scheduled_date, start_date, end_date, cron_expression, conditional_input, visibility, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -186,7 +180,6 @@ TriggerApi <- R6::R6Class(
     #' @description
     #' Create Trigger
     #'
-    #' @param version 
     #' @param account_id The logged in user
     #' @param name The name of the trigger
     #' @param app_key (optional) The application to target
@@ -205,7 +198,7 @@ TriggerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TriggerResponse) with additional information such as HTTP status code, headers
-    CreateTriggerWithHttpInfo = function(version, account_id, name, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, conditional_input = NULL, visibility = NULL, active = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    CreateTriggerWithHttpInfo = function(account_id, name, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, conditional_input = NULL, visibility = NULL, active = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -215,20 +208,12 @@ TriggerApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`name`)) {
         stop("Missing required parameter `name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TriggerApi$CreateTrigger, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -312,11 +297,7 @@ TriggerApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/trigger/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/trigger/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -377,7 +358,6 @@ TriggerApi <- R6::R6Class(
     #' @description
     #' Delete Trigger
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param trigger_id The id of the trigger to delete.
     #' @param data_file (optional) name of the data file to save the result
@@ -385,8 +365,8 @@ TriggerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteTrigger = function(version, account_id, trigger_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteTriggerWithHttpInfo(version, account_id, trigger_id, data_file = data_file, ..., .parse = .parse)
+    DeleteTrigger = function(account_id, trigger_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteTriggerWithHttpInfo(account_id, trigger_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -401,7 +381,6 @@ TriggerApi <- R6::R6Class(
     #' @description
     #' Delete Trigger
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param trigger_id The id of the trigger to delete.
     #' @param data_file (optional) name of the data file to save the result
@@ -409,7 +388,7 @@ TriggerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteTriggerWithHttpInfo = function(version, account_id, trigger_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteTriggerWithHttpInfo = function(account_id, trigger_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -419,20 +398,12 @@ TriggerApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`trigger_id`)) {
         stop("Missing required parameter `trigger_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TriggerApi$DeleteTrigger, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -447,11 +418,7 @@ TriggerApi <- R6::R6Class(
 
       query_params[["triggerId"]] <- `trigger_id`
 
-      local_var_url_path <- "/api/{version}/trigger/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/trigger/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -512,7 +479,6 @@ TriggerApi <- R6::R6Class(
     #' @description
     #' Get Trigger
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param trigger_id The id of the Trigger to return.
     #' @param data_file (optional) name of the data file to save the result
@@ -520,8 +486,8 @@ TriggerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TriggerResponse
-    GetTrigger = function(version, account_id, trigger_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTriggerWithHttpInfo(version, account_id, trigger_id, data_file = data_file, ..., .parse = .parse)
+    GetTrigger = function(account_id, trigger_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTriggerWithHttpInfo(account_id, trigger_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -536,7 +502,6 @@ TriggerApi <- R6::R6Class(
     #' @description
     #' Get Trigger
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param trigger_id The id of the Trigger to return.
     #' @param data_file (optional) name of the data file to save the result
@@ -544,7 +509,7 @@ TriggerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TriggerResponse) with additional information such as HTTP status code, headers
-    GetTriggerWithHttpInfo = function(version, account_id, trigger_id, data_file = NULL, ..., .parse = TRUE) {
+    GetTriggerWithHttpInfo = function(account_id, trigger_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -554,20 +519,12 @@ TriggerApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`trigger_id`)) {
         stop("Missing required parameter `trigger_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TriggerApi$GetTrigger, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -582,11 +539,7 @@ TriggerApi <- R6::R6Class(
 
       query_params[["triggerId"]] <- `trigger_id`
 
-      local_var_url_path <- "/api/{version}/trigger/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/trigger/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -647,7 +600,6 @@ TriggerApi <- R6::R6Class(
     #' @description
     #' Search Triggers
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param grouping_id (optional) Filter results by a grouping identifier defined by the client
     #' @param filter (optional) A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (default value: "MINE")
@@ -665,8 +617,8 @@ TriggerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[TriggerResponse]
-    SearchTriggers = function(version, account_id, grouping_id = NULL, filter = "MINE", statuses = "NEW,ERROR,COMPLETE,PROCESSING", template_types = NULL, app_key = NULL, keyword = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchTriggersWithHttpInfo(version, account_id, grouping_id, filter, statuses, template_types, app_key, keyword, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
+    SearchTriggers = function(account_id, grouping_id = NULL, filter = "MINE", statuses = "NEW,ERROR,COMPLETE,PROCESSING", template_types = NULL, app_key = NULL, keyword = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchTriggersWithHttpInfo(account_id, grouping_id, filter, statuses, template_types, app_key, keyword, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -681,7 +633,6 @@ TriggerApi <- R6::R6Class(
     #' @description
     #' Search Triggers
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param grouping_id (optional) Filter results by a grouping identifier defined by the client
     #' @param filter (optional) A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (default value: "MINE")
@@ -699,7 +650,7 @@ TriggerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[TriggerResponse]) with additional information such as HTTP status code, headers
-    SearchTriggersWithHttpInfo = function(version, account_id, grouping_id = NULL, filter = "MINE", statuses = "NEW,ERROR,COMPLETE,PROCESSING", template_types = NULL, app_key = NULL, keyword = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    SearchTriggersWithHttpInfo = function(account_id, grouping_id = NULL, filter = "MINE", statuses = "NEW,ERROR,COMPLETE,PROCESSING", template_types = NULL, app_key = NULL, keyword = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -709,16 +660,8 @@ TriggerApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TriggerApi$SearchTriggers, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -793,11 +736,7 @@ TriggerApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/trigger/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/trigger/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -858,7 +797,6 @@ TriggerApi <- R6::R6Class(
     #' @description
     #' Update Trigger
     #'
-    #' @param version 
     #' @param trigger_id The trigger to update
     #' @param account_id The logged in user
     #' @param name (optional) The name of the trigger
@@ -878,8 +816,8 @@ TriggerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TriggerResponse
-    UpdateTrigger = function(version, trigger_id, account_id, name = NULL, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, conditional_input = NULL, visibility = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateTriggerWithHttpInfo(version, trigger_id, account_id, name, app_key, grouping_id, endpoint_url, payload, scheduled_date, start_date, end_date, cron_expression, conditional_input, visibility, active, data_file = data_file, ..., .parse = .parse)
+    UpdateTrigger = function(trigger_id, account_id, name = NULL, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, conditional_input = NULL, visibility = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateTriggerWithHttpInfo(trigger_id, account_id, name, app_key, grouping_id, endpoint_url, payload, scheduled_date, start_date, end_date, cron_expression, conditional_input, visibility, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -894,7 +832,6 @@ TriggerApi <- R6::R6Class(
     #' @description
     #' Update Trigger
     #'
-    #' @param version 
     #' @param trigger_id The trigger to update
     #' @param account_id The logged in user
     #' @param name (optional) The name of the trigger
@@ -914,7 +851,7 @@ TriggerApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TriggerResponse) with additional information such as HTTP status code, headers
-    UpdateTriggerWithHttpInfo = function(version, trigger_id, account_id, name = NULL, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, conditional_input = NULL, visibility = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateTriggerWithHttpInfo = function(trigger_id, account_id, name = NULL, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, conditional_input = NULL, visibility = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -924,20 +861,12 @@ TriggerApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`trigger_id`)) {
         stop("Missing required parameter `trigger_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TriggerApi$UpdateTrigger, `version` is not nullable")
       }
 
       if (!missing(`trigger_id`) && is.null(`trigger_id`)) {
@@ -1027,11 +956,7 @@ TriggerApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/trigger/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/trigger/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

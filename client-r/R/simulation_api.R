@@ -17,7 +17,6 @@
 #' ####################  Simulation  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_data <- "data_example" # character | JSON string in the following format: ```json {   \"startDate\": 1474268400000,   \"endDate\": 1474268700000,   \"checkoutStops\": [     {       \"latitude\": 25.060453943481615,       \"longitude\": 121.57487118216957     }   ],   \"requests\": [     {       \"vehicles\": [         {           \"id\": \"customer1\",           \"name\": \"Customer 1\",           \"depot\": {             \"latitude\": 25.060453943481615,             \"longitude\": 121.57487118216957           },           \"startWindow\": 1474268464537         }       ],       \"items\": [         {           \"id\": 152712,           \"name\": \"Appliance Product\",           \"pickup\": {             \"latitude\": 25.060306635544144,             \"longitude\": 121.5750770690688           }         },         {           \"id\": 152711,           \"name\": \"TV product\",           \"pickup\": {             \"latitude\": 25.060126352576326,             \"longitude\": 121.57505023621624           }         }       ]     }   ],   \"featuredItems\": [],   \"floorPlan\": {     \"metersPerX\": 0.81493109028875,     \"metersPerY\": 1.8525267552262,     \"width\": 75,     \"height\": 50,     \"exclusions\": [       { \"x\": 14, \"y\": 49 }     ],     \"southwest\": {       \"x\": 0,       \"y\": 0,       \"latitude\": 25.05961539530497,       \"longitude\": 121.57487591737885     }   } } ``` 
 #' var_real_time <- "real_time_example" # character | determines whether to run the simulation and return the results in the same request
 #'
@@ -25,8 +24,8 @@
 #' api_instance <- SimulationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$Simulation(var_version, var_data, var_real_timedata_file = "result.txt")
-#' result <- api_instance$Simulation(var_version, var_data, var_real_time)
+#' # result <- api_instance$Simulation(var_data, var_real_timedata_file = "result.txt")
+#' result <- api_instance$Simulation(var_data, var_real_time)
 #' dput(result)
 #'
 #'
@@ -54,7 +53,6 @@ SimulationApi <- R6::R6Class(
     #' @description
     #' Routing Simulation
     #'
-    #' @param version 
     #' @param data JSON string in the following format: ```json {   \"startDate\": 1474268400000,   \"endDate\": 1474268700000,   \"checkoutStops\": [     {       \"latitude\": 25.060453943481615,       \"longitude\": 121.57487118216957     }   ],   \"requests\": [     {       \"vehicles\": [         {           \"id\": \"customer1\",           \"name\": \"Customer 1\",           \"depot\": {             \"latitude\": 25.060453943481615,             \"longitude\": 121.57487118216957           },           \"startWindow\": 1474268464537         }       ],       \"items\": [         {           \"id\": 152712,           \"name\": \"Appliance Product\",           \"pickup\": {             \"latitude\": 25.060306635544144,             \"longitude\": 121.5750770690688           }         },         {           \"id\": 152711,           \"name\": \"TV product\",           \"pickup\": {             \"latitude\": 25.060126352576326,             \"longitude\": 121.57505023621624           }         }       ]     }   ],   \"featuredItems\": [],   \"floorPlan\": {     \"metersPerX\": 0.81493109028875,     \"metersPerY\": 1.8525267552262,     \"width\": 75,     \"height\": 50,     \"exclusions\": [       { \"x\": 14, \"y\": 49 }     ],     \"southwest\": {       \"x\": 0,       \"y\": 0,       \"latitude\": 25.05961539530497,       \"longitude\": 121.57487591737885     }   } } ``` 
     #' @param real_time determines whether to run the simulation and return the results in the same request
     #' @param data_file (optional) name of the data file to save the result
@@ -62,8 +60,8 @@ SimulationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    Simulation = function(version, data, real_time, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SimulationWithHttpInfo(version, data, real_time, data_file = data_file, ..., .parse = .parse)
+    Simulation = function(data, real_time, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SimulationWithHttpInfo(data, real_time, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -78,7 +76,6 @@ SimulationApi <- R6::R6Class(
     #' @description
     #' Routing Simulation
     #'
-    #' @param version 
     #' @param data JSON string in the following format: ```json {   \"startDate\": 1474268400000,   \"endDate\": 1474268700000,   \"checkoutStops\": [     {       \"latitude\": 25.060453943481615,       \"longitude\": 121.57487118216957     }   ],   \"requests\": [     {       \"vehicles\": [         {           \"id\": \"customer1\",           \"name\": \"Customer 1\",           \"depot\": {             \"latitude\": 25.060453943481615,             \"longitude\": 121.57487118216957           },           \"startWindow\": 1474268464537         }       ],       \"items\": [         {           \"id\": 152712,           \"name\": \"Appliance Product\",           \"pickup\": {             \"latitude\": 25.060306635544144,             \"longitude\": 121.5750770690688           }         },         {           \"id\": 152711,           \"name\": \"TV product\",           \"pickup\": {             \"latitude\": 25.060126352576326,             \"longitude\": 121.57505023621624           }         }       ]     }   ],   \"featuredItems\": [],   \"floorPlan\": {     \"metersPerX\": 0.81493109028875,     \"metersPerY\": 1.8525267552262,     \"width\": 75,     \"height\": 50,     \"exclusions\": [       { \"x\": 14, \"y\": 49 }     ],     \"southwest\": {       \"x\": 0,       \"y\": 0,       \"latitude\": 25.05961539530497,       \"longitude\": 121.57487591737885     }   } } ``` 
     #' @param real_time determines whether to run the simulation and return the results in the same request
     #' @param data_file (optional) name of the data file to save the result
@@ -86,7 +83,7 @@ SimulationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SimulationWithHttpInfo = function(version, data, real_time, data_file = NULL, ..., .parse = TRUE) {
+    SimulationWithHttpInfo = function(data, real_time, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -96,20 +93,12 @@ SimulationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`data`)) {
         stop("Missing required parameter `data`.")
       }
 
       if (missing(`real_time`)) {
         stop("Missing required parameter `real_time`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling SimulationApi$Simulation, `version` is not nullable")
       }
 
       if (!missing(`data`) && is.null(`data`)) {
@@ -124,11 +113,7 @@ SimulationApi <- R6::R6Class(
 
       query_params[["realTime"]] <- `real_time`
 
-      local_var_url_path <- "/api/{version}/simulation/routing"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/simulation/routing"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

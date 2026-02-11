@@ -17,7 +17,6 @@
 #' ####################  ImageGeneration  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_post_body <- "post_body_example" # character | Post Body Parameters
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -26,8 +25,8 @@
 #' api_instance <- OpenAIApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ImageGeneration(var_version, var_account_id, var_post_body, return_raw_response = var_return_raw_responsedata_file = "result.txt")
-#' result <- api_instance$ImageGeneration(var_version, var_account_id, var_post_body, return_raw_response = var_return_raw_response)
+#' # result <- api_instance$ImageGeneration(var_account_id, var_post_body, return_raw_response = var_return_raw_responsedata_file = "result.txt")
+#' result <- api_instance$ImageGeneration(var_account_id, var_post_body, return_raw_response = var_return_raw_response)
 #' dput(result)
 #'
 #'
@@ -55,7 +54,6 @@ OpenAIApi <- R6::R6Class(
     #' @description
     #' Generate images with OpenAI
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param post_body Post Body Parameters
     #' @param return_raw_response (optional) Return raw response
@@ -64,8 +62,8 @@ OpenAIApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return WrappedProxyItemResponse
-    ImageGeneration = function(version, account_id, post_body, return_raw_response = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ImageGenerationWithHttpInfo(version, account_id, post_body, return_raw_response, data_file = data_file, ..., .parse = .parse)
+    ImageGeneration = function(account_id, post_body, return_raw_response = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ImageGenerationWithHttpInfo(account_id, post_body, return_raw_response, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -80,7 +78,6 @@ OpenAIApi <- R6::R6Class(
     #' @description
     #' Generate images with OpenAI
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param post_body Post Body Parameters
     #' @param return_raw_response (optional) Return raw response
@@ -89,7 +86,7 @@ OpenAIApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (WrappedProxyItemResponse) with additional information such as HTTP status code, headers
-    ImageGenerationWithHttpInfo = function(version, account_id, post_body, return_raw_response = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ImageGenerationWithHttpInfo = function(account_id, post_body, return_raw_response = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -99,20 +96,12 @@ OpenAIApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`post_body`)) {
         stop("Missing required parameter `post_body`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OpenAIApi$ImageGeneration, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -133,11 +122,7 @@ OpenAIApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/openai/v1/images/generations"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/openai/v1/images/generations"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

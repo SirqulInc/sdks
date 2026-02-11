@@ -17,7 +17,6 @@
 #' ####################  CreateRating  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_ratable_type <- "ratable_type_example" # character | The ratable object type {RETAILER_LOCATION}
 #' var_ratable_id <- 56 # integer | The id of the ratable object
 #' var_rating_value <- 56 # integer | The integer value of 0-100
@@ -34,15 +33,14 @@
 #' api_instance <- RatingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateRating(var_version, var_ratable_type, var_ratable_id, var_rating_value, device_id = var_device_id, account_id = var_account_id, category_id = var_category_id, display = var_display, description = var_description, location_description = var_location_description, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$CreateRating(var_version, var_ratable_type, var_ratable_id, var_rating_value, device_id = var_device_id, account_id = var_account_id, category_id = var_category_id, display = var_display, description = var_description, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$CreateRating(var_ratable_type, var_ratable_id, var_rating_value, device_id = var_device_id, account_id = var_account_id, category_id = var_category_id, display = var_display, description = var_description, location_description = var_location_description, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$CreateRating(var_ratable_type, var_ratable_id, var_rating_value, device_id = var_device_id, account_id = var_account_id, category_id = var_category_id, display = var_display, description = var_description, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteRating  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_rating_id <- 56 # integer | The ID of the rating to delete
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
 #' var_account_id <- 56 # integer | The unique accountId that made the request (either deviceId or accountId must be used) (Optional)
@@ -51,15 +49,14 @@
 #' api_instance <- RatingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteRating(var_version, var_rating_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteRating(var_version, var_rating_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteRating(var_rating_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteRating(var_rating_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchLocationRatingIndexes  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_category_ids <- "category_ids_example" # character | Comma separated list of category ids to filter the results by (Optional)
 #' var_keyword <- "keyword_example" # character | The keyword used to search (Optional)
 #' var_location_type <- "location_type_example" # character | The type of location to filter the results by (Optional)
@@ -82,15 +79,14 @@
 #' api_instance <- RatingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchLocationRatingIndexes(var_version, category_ids = var_category_ids, keyword = var_keyword, location_type = var_location_type, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, search_range = var_search_range, latitude = var_latitude, longitude = var_longitude, return_overall_rating = var_return_overall_rating, distance_unit = var_distance_unit, return_retailer = var_return_retailer, return_assets = var_return_assets, return_offers = var_return_offers, return_categories = var_return_categories, return_filters = var_return_filtersdata_file = "result.txt")
-#' result <- api_instance$SearchLocationRatingIndexes(var_version, category_ids = var_category_ids, keyword = var_keyword, location_type = var_location_type, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, search_range = var_search_range, latitude = var_latitude, longitude = var_longitude, return_overall_rating = var_return_overall_rating, distance_unit = var_distance_unit, return_retailer = var_return_retailer, return_assets = var_return_assets, return_offers = var_return_offers, return_categories = var_return_categories, return_filters = var_return_filters)
+#' # result <- api_instance$SearchLocationRatingIndexes(category_ids = var_category_ids, keyword = var_keyword, location_type = var_location_type, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, search_range = var_search_range, latitude = var_latitude, longitude = var_longitude, return_overall_rating = var_return_overall_rating, distance_unit = var_distance_unit, return_retailer = var_return_retailer, return_assets = var_return_assets, return_offers = var_return_offers, return_categories = var_return_categories, return_filters = var_return_filtersdata_file = "result.txt")
+#' result <- api_instance$SearchLocationRatingIndexes(category_ids = var_category_ids, keyword = var_keyword, location_type = var_location_type, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, search_range = var_search_range, latitude = var_latitude, longitude = var_longitude, return_overall_rating = var_return_overall_rating, distance_unit = var_distance_unit, return_retailer = var_return_retailer, return_assets = var_return_assets, return_offers = var_return_offers, return_categories = var_return_categories, return_filters = var_return_filters)
 #' dput(result)
 #'
 #'
 #' ####################  SearchRatingIndexes  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_ratable_type <- "ratable_type_example" # character | Filter results by a ratable type {RETAILER_LOCATION}
 #' var_ratable_ids <- "ratable_ids_example" # character | Comma separated list of ratable ids to filter the resuts by (Optional)
 #' var_category_ids <- "category_ids_example" # character | Comma separated list of category ids to filter the results by (Optional)
@@ -109,15 +105,14 @@
 #' api_instance <- RatingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchRatingIndexes(var_version, var_ratable_type, ratable_ids = var_ratable_ids, category_ids = var_category_ids, secondary_type = var_secondary_type, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, latitude = var_latitude, longitude = var_longitude, return_ratable = var_return_ratable, return_overall_rating = var_return_overall_ratingdata_file = "result.txt")
-#' result <- api_instance$SearchRatingIndexes(var_version, var_ratable_type, ratable_ids = var_ratable_ids, category_ids = var_category_ids, secondary_type = var_secondary_type, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, latitude = var_latitude, longitude = var_longitude, return_ratable = var_return_ratable, return_overall_rating = var_return_overall_rating)
+#' # result <- api_instance$SearchRatingIndexes(var_ratable_type, ratable_ids = var_ratable_ids, category_ids = var_category_ids, secondary_type = var_secondary_type, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, latitude = var_latitude, longitude = var_longitude, return_ratable = var_return_ratable, return_overall_rating = var_return_overall_ratingdata_file = "result.txt")
+#' result <- api_instance$SearchRatingIndexes(var_ratable_type, ratable_ids = var_ratable_ids, category_ids = var_category_ids, secondary_type = var_secondary_type, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, latitude = var_latitude, longitude = var_longitude, return_ratable = var_return_ratable, return_overall_rating = var_return_overall_rating)
 #' dput(result)
 #'
 #'
 #' ####################  SearchRatings  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_filter_account_id <- 56 # integer | Filter results for a particular account (Optional)
@@ -134,15 +129,14 @@
 #' api_instance <- RatingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchRatings(var_version, device_id = var_device_id, account_id = var_account_id, filter_account_id = var_filter_account_id, ratable_type = var_ratable_type, ratable_id = var_ratable_id, category_ids = var_category_ids, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchRatings(var_version, device_id = var_device_id, account_id = var_account_id, filter_account_id = var_filter_account_id, ratable_type = var_ratable_type, ratable_id = var_ratable_id, category_ids = var_category_ids, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchRatings(device_id = var_device_id, account_id = var_account_id, filter_account_id = var_filter_account_id, ratable_type = var_ratable_type, ratable_id = var_ratable_id, category_ids = var_category_ids, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchRatings(device_id = var_device_id, account_id = var_account_id, filter_account_id = var_filter_account_id, ratable_type = var_ratable_type, ratable_id = var_ratable_id, category_ids = var_category_ids, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateRating  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_rating_id <- 56 # integer | The id of the rating (Note: this is not the ratable object id)
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
 #' var_account_id <- 56 # integer | The unique accountId that made the request (either deviceId or accountId must be used) (Optional)
@@ -158,8 +152,8 @@
 #' api_instance <- RatingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateRating(var_version, var_rating_id, device_id = var_device_id, account_id = var_account_id, rating_value = var_rating_value, category_id = var_category_id, display = var_display, description = var_description, location_description = var_location_description, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$UpdateRating(var_version, var_rating_id, device_id = var_device_id, account_id = var_account_id, rating_value = var_rating_value, category_id = var_category_id, display = var_display, description = var_description, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$UpdateRating(var_rating_id, device_id = var_device_id, account_id = var_account_id, rating_value = var_rating_value, category_id = var_category_id, display = var_display, description = var_description, location_description = var_location_description, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$UpdateRating(var_rating_id, device_id = var_device_id, account_id = var_account_id, rating_value = var_rating_value, category_id = var_category_id, display = var_display, description = var_description, location_description = var_location_description, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
@@ -187,7 +181,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Create Rating
     #'
-    #' @param version 
     #' @param ratable_type The ratable object type {RETAILER_LOCATION}
     #' @param ratable_id The id of the ratable object
     #' @param rating_value The integer value of 0-100
@@ -204,8 +197,8 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RatingResponse
-    CreateRating = function(version, ratable_type, ratable_id, rating_value, device_id = NULL, account_id = NULL, category_id = NULL, display = NULL, description = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateRatingWithHttpInfo(version, ratable_type, ratable_id, rating_value, device_id, account_id, category_id, display, description, location_description, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    CreateRating = function(ratable_type, ratable_id, rating_value, device_id = NULL, account_id = NULL, category_id = NULL, display = NULL, description = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateRatingWithHttpInfo(ratable_type, ratable_id, rating_value, device_id, account_id, category_id, display, description, location_description, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -220,7 +213,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Create Rating
     #'
-    #' @param version 
     #' @param ratable_type The ratable object type {RETAILER_LOCATION}
     #' @param ratable_id The id of the ratable object
     #' @param rating_value The integer value of 0-100
@@ -237,7 +229,7 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RatingResponse) with additional information such as HTTP status code, headers
-    CreateRatingWithHttpInfo = function(version, ratable_type, ratable_id, rating_value, device_id = NULL, account_id = NULL, category_id = NULL, display = NULL, description = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateRatingWithHttpInfo = function(ratable_type, ratable_id, rating_value, device_id = NULL, account_id = NULL, category_id = NULL, display = NULL, description = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -246,10 +238,6 @@ RatingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`ratable_type`)) {
         stop("Missing required parameter `ratable_type`.")
@@ -261,10 +249,6 @@ RatingApi <- R6::R6Class(
 
       if (missing(`rating_value`)) {
         stop("Missing required parameter `rating_value`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RatingApi$CreateRating, `version` is not nullable")
       }
 
       if (!missing(`ratable_type`) && is.null(`ratable_type`)) {
@@ -333,11 +317,7 @@ RatingApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/rating/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/rating/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -398,7 +378,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Delete Rating
     #'
-    #' @param version 
     #' @param rating_id The ID of the rating to delete
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -407,8 +386,8 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteRating = function(version, rating_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteRatingWithHttpInfo(version, rating_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteRating = function(rating_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteRatingWithHttpInfo(rating_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -423,7 +402,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Delete Rating
     #'
-    #' @param version 
     #' @param rating_id The ID of the rating to delete
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -432,7 +410,7 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteRatingWithHttpInfo = function(version, rating_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteRatingWithHttpInfo = function(rating_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -442,16 +420,8 @@ RatingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`rating_id`)) {
         stop("Missing required parameter `rating_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RatingApi$DeleteRating, `version` is not nullable")
       }
 
       if (!missing(`rating_id`) && is.null(`rating_id`)) {
@@ -472,11 +442,7 @@ RatingApi <- R6::R6Class(
 
       query_params[["ratingId"]] <- `rating_id`
 
-      local_var_url_path <- "/api/{version}/rating/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/rating/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -537,7 +503,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Search Location Rating Indexes
     #'
-    #' @param version 
     #' @param category_ids (optional) Comma separated list of category ids to filter the results by
     #' @param keyword (optional) The keyword used to search
     #' @param location_type (optional) The type of location to filter the results by
@@ -560,8 +525,8 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[RatingIndexResponse]
-    SearchLocationRatingIndexes = function(version, category_ids = NULL, keyword = NULL, location_type = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, search_range = NULL, latitude = NULL, longitude = NULL, return_overall_rating = NULL, distance_unit = NULL, return_retailer = NULL, return_assets = NULL, return_offers = NULL, return_categories = NULL, return_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchLocationRatingIndexesWithHttpInfo(version, category_ids, keyword, location_type, sort_field, descending, start, limit, search_range, latitude, longitude, return_overall_rating, distance_unit, return_retailer, return_assets, return_offers, return_categories, return_filters, data_file = data_file, ..., .parse = .parse)
+    SearchLocationRatingIndexes = function(category_ids = NULL, keyword = NULL, location_type = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, search_range = NULL, latitude = NULL, longitude = NULL, return_overall_rating = NULL, distance_unit = NULL, return_retailer = NULL, return_assets = NULL, return_offers = NULL, return_categories = NULL, return_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchLocationRatingIndexesWithHttpInfo(category_ids, keyword, location_type, sort_field, descending, start, limit, search_range, latitude, longitude, return_overall_rating, distance_unit, return_retailer, return_assets, return_offers, return_categories, return_filters, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -576,7 +541,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Search Location Rating Indexes
     #'
-    #' @param version 
     #' @param category_ids (optional) Comma separated list of category ids to filter the results by
     #' @param keyword (optional) The keyword used to search
     #' @param location_type (optional) The type of location to filter the results by
@@ -599,7 +563,7 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[RatingIndexResponse]) with additional information such as HTTP status code, headers
-    SearchLocationRatingIndexesWithHttpInfo = function(version, category_ids = NULL, keyword = NULL, location_type = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, search_range = NULL, latitude = NULL, longitude = NULL, return_overall_rating = NULL, distance_unit = NULL, return_retailer = NULL, return_assets = NULL, return_offers = NULL, return_categories = NULL, return_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchLocationRatingIndexesWithHttpInfo = function(category_ids = NULL, keyword = NULL, location_type = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, search_range = NULL, latitude = NULL, longitude = NULL, return_overall_rating = NULL, distance_unit = NULL, return_retailer = NULL, return_assets = NULL, return_offers = NULL, return_categories = NULL, return_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -608,14 +572,6 @@ RatingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RatingApi$SearchLocationRatingIndexes, `version` is not nullable")
-      }
 
       if (!missing(`category_ids`) && is.null(`category_ids`)) {
         stop("Invalid value for `category_ids` when calling RatingApi$SearchLocationRatingIndexes, `category_ids` is not nullable")
@@ -725,11 +681,7 @@ RatingApi <- R6::R6Class(
 
       query_params[["returnFilters"]] <- `return_filters`
 
-      local_var_url_path <- "/api/{version}/location/rating/index/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/location/rating/index/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -790,7 +742,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Search Rating Indexes
     #'
-    #' @param version 
     #' @param ratable_type Filter results by a ratable type {RETAILER_LOCATION}
     #' @param ratable_ids (optional) Comma separated list of ratable ids to filter the resuts by
     #' @param category_ids (optional) Comma separated list of category ids to filter the results by
@@ -809,8 +760,8 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[RatingIndexResponse]
-    SearchRatingIndexes = function(version, ratable_type, ratable_ids = NULL, category_ids = NULL, secondary_type = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, latitude = NULL, longitude = NULL, return_ratable = NULL, return_overall_rating = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchRatingIndexesWithHttpInfo(version, ratable_type, ratable_ids, category_ids, secondary_type, keyword, sort_field, descending, start, limit, latitude, longitude, return_ratable, return_overall_rating, data_file = data_file, ..., .parse = .parse)
+    SearchRatingIndexes = function(ratable_type, ratable_ids = NULL, category_ids = NULL, secondary_type = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, latitude = NULL, longitude = NULL, return_ratable = NULL, return_overall_rating = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchRatingIndexesWithHttpInfo(ratable_type, ratable_ids, category_ids, secondary_type, keyword, sort_field, descending, start, limit, latitude, longitude, return_ratable, return_overall_rating, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -825,7 +776,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Search Rating Indexes
     #'
-    #' @param version 
     #' @param ratable_type Filter results by a ratable type {RETAILER_LOCATION}
     #' @param ratable_ids (optional) Comma separated list of ratable ids to filter the resuts by
     #' @param category_ids (optional) Comma separated list of category ids to filter the results by
@@ -844,7 +794,7 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[RatingIndexResponse]) with additional information such as HTTP status code, headers
-    SearchRatingIndexesWithHttpInfo = function(version, ratable_type, ratable_ids = NULL, category_ids = NULL, secondary_type = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, latitude = NULL, longitude = NULL, return_ratable = NULL, return_overall_rating = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchRatingIndexesWithHttpInfo = function(ratable_type, ratable_ids = NULL, category_ids = NULL, secondary_type = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, latitude = NULL, longitude = NULL, return_ratable = NULL, return_overall_rating = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -854,16 +804,8 @@ RatingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`ratable_type`)) {
         stop("Missing required parameter `ratable_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RatingApi$SearchRatingIndexes, `version` is not nullable")
       }
 
       if (!missing(`ratable_type`) && is.null(`ratable_type`)) {
@@ -950,11 +892,7 @@ RatingApi <- R6::R6Class(
 
       query_params[["returnOverallRating"]] <- `return_overall_rating`
 
-      local_var_url_path <- "/api/{version}/rating/index/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/rating/index/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1015,7 +953,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Search Ratings
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param filter_account_id (optional) Filter results for a particular account
@@ -1032,8 +969,8 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[RatingResponse]
-    SearchRatings = function(version, device_id = NULL, account_id = NULL, filter_account_id = NULL, ratable_type = NULL, ratable_id = NULL, category_ids = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchRatingsWithHttpInfo(version, device_id, account_id, filter_account_id, ratable_type, ratable_id, category_ids, keyword, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchRatings = function(device_id = NULL, account_id = NULL, filter_account_id = NULL, ratable_type = NULL, ratable_id = NULL, category_ids = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchRatingsWithHttpInfo(device_id, account_id, filter_account_id, ratable_type, ratable_id, category_ids, keyword, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1048,7 +985,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Search Ratings
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param filter_account_id (optional) Filter results for a particular account
@@ -1065,7 +1001,7 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[RatingResponse]) with additional information such as HTTP status code, headers
-    SearchRatingsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, filter_account_id = NULL, ratable_type = NULL, ratable_id = NULL, category_ids = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchRatingsWithHttpInfo = function(device_id = NULL, account_id = NULL, filter_account_id = NULL, ratable_type = NULL, ratable_id = NULL, category_ids = NULL, keyword = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1074,14 +1010,6 @@ RatingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RatingApi$SearchRatings, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling RatingApi$SearchRatings, `device_id` is not nullable")
@@ -1152,11 +1080,7 @@ RatingApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/rating/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/rating/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1217,7 +1141,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Update Rating
     #'
-    #' @param version 
     #' @param rating_id The id of the rating (Note: this is not the ratable object id)
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -1233,8 +1156,8 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RatingResponse
-    UpdateRating = function(version, rating_id, device_id = NULL, account_id = NULL, rating_value = NULL, category_id = NULL, display = NULL, description = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateRatingWithHttpInfo(version, rating_id, device_id, account_id, rating_value, category_id, display, description, location_description, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    UpdateRating = function(rating_id, device_id = NULL, account_id = NULL, rating_value = NULL, category_id = NULL, display = NULL, description = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateRatingWithHttpInfo(rating_id, device_id, account_id, rating_value, category_id, display, description, location_description, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1249,7 +1172,6 @@ RatingApi <- R6::R6Class(
     #' @description
     #' Update Rating
     #'
-    #' @param version 
     #' @param rating_id The id of the rating (Note: this is not the ratable object id)
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
@@ -1265,7 +1187,7 @@ RatingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RatingResponse) with additional information such as HTTP status code, headers
-    UpdateRatingWithHttpInfo = function(version, rating_id, device_id = NULL, account_id = NULL, rating_value = NULL, category_id = NULL, display = NULL, description = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateRatingWithHttpInfo = function(rating_id, device_id = NULL, account_id = NULL, rating_value = NULL, category_id = NULL, display = NULL, description = NULL, location_description = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1275,16 +1197,8 @@ RatingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`rating_id`)) {
         stop("Missing required parameter `rating_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling RatingApi$UpdateRating, `version` is not nullable")
       }
 
       if (!missing(`rating_id`) && is.null(`rating_id`)) {
@@ -1347,11 +1261,7 @@ RatingApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/rating/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/rating/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

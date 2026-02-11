@@ -17,7 +17,6 @@
 #' ####################  CreateTournament  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_app_key <- "app_key_example" # character | The appKey the tournament is created for.
 #' var_title <- "title_example" # character | The title of the tournament
@@ -58,15 +57,14 @@
 #' api_instance <- TournamentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateTournament(var_version, var_account_id, var_app_key, var_title, var_cost_to_play, var_start_date, sub_type = var_sub_type, image_asset_id = var_image_asset_id, seconds_between_levels = var_seconds_between_levels, seconds_for_tie_breaker = var_seconds_for_tie_breaker, seconds_between_packs = var_seconds_between_packs, maximum_level_length = var_maximum_level_length, cost_to_play_type = var_cost_to_play_type, minimum_to_play = var_minimum_to_play, starting_limit = var_starting_limit, available_limit = var_available_limit, description = var_description, meta_data = var_meta_data, audience_ids = var_audience_ids, active = var_active, enable_buy_back = var_enable_buy_back, offer_ids = var_offer_ids, offer_asset_id = var_offer_asset_id, fixed_reward = var_fixed_reward, split_reward = var_split_reward, allocate_tickets = var_allocate_tickets, tournament_data = var_tournament_data, mission_type = var_mission_type, visibility = var_visibility, preliminary_groups = var_preliminary_groups, preliminary_group_advancements = var_preliminary_group_advancements, enable_multiple_entries = var_enable_multiple_entries, enable_multiple_votes = var_enable_multiple_votes, featured = var_featured, winner_tag = var_winner_tag, tie_tag = var_tie_tagdata_file = "result.txt")
-#' result <- api_instance$CreateTournament(var_version, var_account_id, var_app_key, var_title, var_cost_to_play, var_start_date, sub_type = var_sub_type, image_asset_id = var_image_asset_id, seconds_between_levels = var_seconds_between_levels, seconds_for_tie_breaker = var_seconds_for_tie_breaker, seconds_between_packs = var_seconds_between_packs, maximum_level_length = var_maximum_level_length, cost_to_play_type = var_cost_to_play_type, minimum_to_play = var_minimum_to_play, starting_limit = var_starting_limit, available_limit = var_available_limit, description = var_description, meta_data = var_meta_data, audience_ids = var_audience_ids, active = var_active, enable_buy_back = var_enable_buy_back, offer_ids = var_offer_ids, offer_asset_id = var_offer_asset_id, fixed_reward = var_fixed_reward, split_reward = var_split_reward, allocate_tickets = var_allocate_tickets, tournament_data = var_tournament_data, mission_type = var_mission_type, visibility = var_visibility, preliminary_groups = var_preliminary_groups, preliminary_group_advancements = var_preliminary_group_advancements, enable_multiple_entries = var_enable_multiple_entries, enable_multiple_votes = var_enable_multiple_votes, featured = var_featured, winner_tag = var_winner_tag, tie_tag = var_tie_tag)
+#' # result <- api_instance$CreateTournament(var_account_id, var_app_key, var_title, var_cost_to_play, var_start_date, sub_type = var_sub_type, image_asset_id = var_image_asset_id, seconds_between_levels = var_seconds_between_levels, seconds_for_tie_breaker = var_seconds_for_tie_breaker, seconds_between_packs = var_seconds_between_packs, maximum_level_length = var_maximum_level_length, cost_to_play_type = var_cost_to_play_type, minimum_to_play = var_minimum_to_play, starting_limit = var_starting_limit, available_limit = var_available_limit, description = var_description, meta_data = var_meta_data, audience_ids = var_audience_ids, active = var_active, enable_buy_back = var_enable_buy_back, offer_ids = var_offer_ids, offer_asset_id = var_offer_asset_id, fixed_reward = var_fixed_reward, split_reward = var_split_reward, allocate_tickets = var_allocate_tickets, tournament_data = var_tournament_data, mission_type = var_mission_type, visibility = var_visibility, preliminary_groups = var_preliminary_groups, preliminary_group_advancements = var_preliminary_group_advancements, enable_multiple_entries = var_enable_multiple_entries, enable_multiple_votes = var_enable_multiple_votes, featured = var_featured, winner_tag = var_winner_tag, tie_tag = var_tie_tagdata_file = "result.txt")
+#' result <- api_instance$CreateTournament(var_account_id, var_app_key, var_title, var_cost_to_play, var_start_date, sub_type = var_sub_type, image_asset_id = var_image_asset_id, seconds_between_levels = var_seconds_between_levels, seconds_for_tie_breaker = var_seconds_for_tie_breaker, seconds_between_packs = var_seconds_between_packs, maximum_level_length = var_maximum_level_length, cost_to_play_type = var_cost_to_play_type, minimum_to_play = var_minimum_to_play, starting_limit = var_starting_limit, available_limit = var_available_limit, description = var_description, meta_data = var_meta_data, audience_ids = var_audience_ids, active = var_active, enable_buy_back = var_enable_buy_back, offer_ids = var_offer_ids, offer_asset_id = var_offer_asset_id, fixed_reward = var_fixed_reward, split_reward = var_split_reward, allocate_tickets = var_allocate_tickets, tournament_data = var_tournament_data, mission_type = var_mission_type, visibility = var_visibility, preliminary_groups = var_preliminary_groups, preliminary_group_advancements = var_preliminary_group_advancements, enable_multiple_entries = var_enable_multiple_entries, enable_multiple_votes = var_enable_multiple_votes, featured = var_featured, winner_tag = var_winner_tag, tie_tag = var_tie_tag)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteTournament  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_mission_id <- 56 # integer | the id of the mission to delete
 #'
@@ -74,15 +72,14 @@
 #' api_instance <- TournamentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteTournament(var_version, var_account_id, var_mission_iddata_file = "result.txt")
-#' result <- api_instance$DeleteTournament(var_version, var_account_id, var_mission_id)
+#' # result <- api_instance$DeleteTournament(var_account_id, var_mission_iddata_file = "result.txt")
+#' result <- api_instance$DeleteTournament(var_account_id, var_mission_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetTournament  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The id of the logged in user
 #' var_mission_id <- 56 # integer | The id of the mission to return (either missionId or joinCode is required) (Optional)
 #' var_join_code <- "join_code_example" # character | Optional identifier for getting the tournament (either missionId or joinCode is required) (Optional)
@@ -93,15 +90,14 @@
 #' api_instance <- TournamentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetTournament(var_version, var_account_id, mission_id = var_mission_id, join_code = var_join_code, include_scores = var_include_scores, object_preview_size = var_object_preview_sizedata_file = "result.txt")
-#' result <- api_instance$GetTournament(var_version, var_account_id, mission_id = var_mission_id, join_code = var_join_code, include_scores = var_include_scores, object_preview_size = var_object_preview_size)
+#' # result <- api_instance$GetTournament(var_account_id, mission_id = var_mission_id, join_code = var_join_code, include_scores = var_include_scores, object_preview_size = var_object_preview_sizedata_file = "result.txt")
+#' result <- api_instance$GetTournament(var_account_id, mission_id = var_mission_id, join_code = var_join_code, include_scores = var_include_scores, object_preview_size = var_object_preview_size)
 #' dput(result)
 #'
 #'
 #' ####################  SearchObjects  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID
 #' var_game_level_id <- 56 # integer | the game level id to filter results by
 #' var_sort_field <- "PLAYER_SCORE_COUNT" # character | the field to sort by (Optional)
@@ -113,15 +109,14 @@
 #' api_instance <- TournamentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchObjects(var_version, var_account_id, var_game_level_id, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchObjects(var_version, var_account_id, var_game_level_id, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchObjects(var_account_id, var_game_level_id, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchObjects(var_account_id, var_game_level_id, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchRounds  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account ID
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_status <- "ACCEPTED,ACTIVE" # character | comma separated list of statuses to filter results by (Optional)
@@ -135,15 +130,14 @@
 #' api_instance <- TournamentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchRounds(var_version, var_account_id, var_app_key, status = var_status, mission_type = var_mission_type, current_only = var_current_only, visibilities = var_visibilities, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchRounds(var_version, var_account_id, var_app_key, status = var_status, mission_type = var_mission_type, current_only = var_current_only, visibilities = var_visibilities, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchRounds(var_account_id, var_app_key, status = var_status, mission_type = var_mission_type, current_only = var_current_only, visibilities = var_visibilities, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchRounds(var_account_id, var_app_key, status = var_status, mission_type = var_mission_type, current_only = var_current_only, visibilities = var_visibilities, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchTournaments  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_app_key <- "app_key_example" # character | The application key
 #' var_keyword <- "keyword_example" # character | the keyword to search tournament on (Optional)
@@ -161,15 +155,14 @@
 #' api_instance <- TournamentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchTournaments(var_version, var_account_id, var_app_key, keyword = var_keyword, sub_type = var_sub_type, include_inactive = var_include_inactive, mission_types = var_mission_types, filter = var_filter, sort_field = var_sort_field, descending = var_descending, visibility = var_visibility, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchTournaments(var_version, var_account_id, var_app_key, keyword = var_keyword, sub_type = var_sub_type, include_inactive = var_include_inactive, mission_types = var_mission_types, filter = var_filter, sort_field = var_sort_field, descending = var_descending, visibility = var_visibility, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchTournaments(var_account_id, var_app_key, keyword = var_keyword, sub_type = var_sub_type, include_inactive = var_include_inactive, mission_types = var_mission_types, filter = var_filter, sort_field = var_sort_field, descending = var_descending, visibility = var_visibility, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchTournaments(var_account_id, var_app_key, keyword = var_keyword, sub_type = var_sub_type, include_inactive = var_include_inactive, mission_types = var_mission_types, filter = var_filter, sort_field = var_sort_field, descending = var_descending, visibility = var_visibility, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SubmitTournamentScore  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user account ID.
 #' var_app_key <- "app_key_example" # character | The application key.
 #' var_mission_id <- 56 # integer | The missionId to score for
@@ -182,15 +175,14 @@
 #' api_instance <- TournamentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SubmitTournamentScore(var_version, var_account_id, var_app_key, var_mission_id, var_game_id, var_pack_id, var_scores, game_level_id = var_game_level_iddata_file = "result.txt")
-#' result <- api_instance$SubmitTournamentScore(var_version, var_account_id, var_app_key, var_mission_id, var_game_id, var_pack_id, var_scores, game_level_id = var_game_level_id)
+#' # result <- api_instance$SubmitTournamentScore(var_account_id, var_app_key, var_mission_id, var_game_id, var_pack_id, var_scores, game_level_id = var_game_level_iddata_file = "result.txt")
+#' result <- api_instance$SubmitTournamentScore(var_account_id, var_app_key, var_mission_id, var_game_id, var_pack_id, var_scores, game_level_id = var_game_level_id)
 #' dput(result)
 #'
 #'
 #' ####################  SubmitTournamentVote  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_app_key <- "app_key_example" # character | The application to target
 #' var_mission_id <- 56 # integer | The tournament's primary id
@@ -202,15 +194,14 @@
 #' api_instance <- TournamentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SubmitTournamentVote(var_version, var_account_id, var_app_key, var_mission_id, var_game_object_id, device_id = var_device_id, check_if_device_already_voted = var_check_if_device_already_voteddata_file = "result.txt")
-#' result <- api_instance$SubmitTournamentVote(var_version, var_account_id, var_app_key, var_mission_id, var_game_object_id, device_id = var_device_id, check_if_device_already_voted = var_check_if_device_already_voted)
+#' # result <- api_instance$SubmitTournamentVote(var_account_id, var_app_key, var_mission_id, var_game_object_id, device_id = var_device_id, check_if_device_already_voted = var_check_if_device_already_voteddata_file = "result.txt")
+#' result <- api_instance$SubmitTournamentVote(var_account_id, var_app_key, var_mission_id, var_game_object_id, device_id = var_device_id, check_if_device_already_voted = var_check_if_device_already_voted)
 #' dput(result)
 #'
 #'
 #' ####################  SubstituteTournamentPlayer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_mission_id <- 56 # integer | the id of the mission
 #' var_pack_id <- 56 # integer | the id of the pack
@@ -220,15 +211,14 @@
 #' api_instance <- TournamentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SubstituteTournamentPlayer(var_version, var_account_id, var_mission_id, var_pack_id, var_game_level_iddata_file = "result.txt")
-#' result <- api_instance$SubstituteTournamentPlayer(var_version, var_account_id, var_mission_id, var_pack_id, var_game_level_id)
+#' # result <- api_instance$SubstituteTournamentPlayer(var_account_id, var_mission_id, var_pack_id, var_game_level_iddata_file = "result.txt")
+#' result <- api_instance$SubstituteTournamentPlayer(var_account_id, var_mission_id, var_pack_id, var_game_level_id)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateTournament  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_mission_id <- 56 # integer | The mission/tournament to update
 #' var_title <- "title_example" # character | The title of the tournament (Optional)
@@ -268,8 +258,8 @@
 #' api_instance <- TournamentApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateTournament(var_version, var_account_id, var_mission_id, title = var_title, sub_type = var_sub_type, image_asset_id = var_image_asset_id, seconds_between_levels = var_seconds_between_levels, seconds_for_tie_breaker = var_seconds_for_tie_breaker, seconds_between_packs = var_seconds_between_packs, maximum_level_length = var_maximum_level_length, cost_to_play = var_cost_to_play, cost_to_play_type = var_cost_to_play_type, minimum_to_play = var_minimum_to_play, starting_limit = var_starting_limit, available_limit = var_available_limit, description = var_description, meta_data = var_meta_data, start_date = var_start_date, audience_ids = var_audience_ids, active = var_active, enable_buy_back = var_enable_buy_back, offer_ids = var_offer_ids, offer_asset_id = var_offer_asset_id, fixed_reward = var_fixed_reward, split_reward = var_split_reward, allocate_tickets = var_allocate_tickets, tournament_data = var_tournament_data, visibility = var_visibility, preliminary_groups = var_preliminary_groups, preliminary_group_advancements = var_preliminary_group_advancements, enable_multiple_entries = var_enable_multiple_entries, enable_multiple_votes = var_enable_multiple_votes, featured = var_featured, winner_tag = var_winner_tag, tie_tag = var_tie_tagdata_file = "result.txt")
-#' result <- api_instance$UpdateTournament(var_version, var_account_id, var_mission_id, title = var_title, sub_type = var_sub_type, image_asset_id = var_image_asset_id, seconds_between_levels = var_seconds_between_levels, seconds_for_tie_breaker = var_seconds_for_tie_breaker, seconds_between_packs = var_seconds_between_packs, maximum_level_length = var_maximum_level_length, cost_to_play = var_cost_to_play, cost_to_play_type = var_cost_to_play_type, minimum_to_play = var_minimum_to_play, starting_limit = var_starting_limit, available_limit = var_available_limit, description = var_description, meta_data = var_meta_data, start_date = var_start_date, audience_ids = var_audience_ids, active = var_active, enable_buy_back = var_enable_buy_back, offer_ids = var_offer_ids, offer_asset_id = var_offer_asset_id, fixed_reward = var_fixed_reward, split_reward = var_split_reward, allocate_tickets = var_allocate_tickets, tournament_data = var_tournament_data, visibility = var_visibility, preliminary_groups = var_preliminary_groups, preliminary_group_advancements = var_preliminary_group_advancements, enable_multiple_entries = var_enable_multiple_entries, enable_multiple_votes = var_enable_multiple_votes, featured = var_featured, winner_tag = var_winner_tag, tie_tag = var_tie_tag)
+#' # result <- api_instance$UpdateTournament(var_account_id, var_mission_id, title = var_title, sub_type = var_sub_type, image_asset_id = var_image_asset_id, seconds_between_levels = var_seconds_between_levels, seconds_for_tie_breaker = var_seconds_for_tie_breaker, seconds_between_packs = var_seconds_between_packs, maximum_level_length = var_maximum_level_length, cost_to_play = var_cost_to_play, cost_to_play_type = var_cost_to_play_type, minimum_to_play = var_minimum_to_play, starting_limit = var_starting_limit, available_limit = var_available_limit, description = var_description, meta_data = var_meta_data, start_date = var_start_date, audience_ids = var_audience_ids, active = var_active, enable_buy_back = var_enable_buy_back, offer_ids = var_offer_ids, offer_asset_id = var_offer_asset_id, fixed_reward = var_fixed_reward, split_reward = var_split_reward, allocate_tickets = var_allocate_tickets, tournament_data = var_tournament_data, visibility = var_visibility, preliminary_groups = var_preliminary_groups, preliminary_group_advancements = var_preliminary_group_advancements, enable_multiple_entries = var_enable_multiple_entries, enable_multiple_votes = var_enable_multiple_votes, featured = var_featured, winner_tag = var_winner_tag, tie_tag = var_tie_tagdata_file = "result.txt")
+#' result <- api_instance$UpdateTournament(var_account_id, var_mission_id, title = var_title, sub_type = var_sub_type, image_asset_id = var_image_asset_id, seconds_between_levels = var_seconds_between_levels, seconds_for_tie_breaker = var_seconds_for_tie_breaker, seconds_between_packs = var_seconds_between_packs, maximum_level_length = var_maximum_level_length, cost_to_play = var_cost_to_play, cost_to_play_type = var_cost_to_play_type, minimum_to_play = var_minimum_to_play, starting_limit = var_starting_limit, available_limit = var_available_limit, description = var_description, meta_data = var_meta_data, start_date = var_start_date, audience_ids = var_audience_ids, active = var_active, enable_buy_back = var_enable_buy_back, offer_ids = var_offer_ids, offer_asset_id = var_offer_asset_id, fixed_reward = var_fixed_reward, split_reward = var_split_reward, allocate_tickets = var_allocate_tickets, tournament_data = var_tournament_data, visibility = var_visibility, preliminary_groups = var_preliminary_groups, preliminary_group_advancements = var_preliminary_group_advancements, enable_multiple_entries = var_enable_multiple_entries, enable_multiple_votes = var_enable_multiple_votes, featured = var_featured, winner_tag = var_winner_tag, tie_tag = var_tie_tag)
 #' dput(result)
 #'
 #'
@@ -297,7 +287,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Create Tournament
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The appKey the tournament is created for.
     #' @param title The title of the tournament
@@ -338,8 +327,8 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TournamentResponse
-    CreateTournament = function(version, account_id, app_key, title, cost_to_play, start_date, sub_type = NULL, image_asset_id = NULL, seconds_between_levels = 600, seconds_for_tie_breaker = 600, seconds_between_packs = 86400, maximum_level_length = 1800, cost_to_play_type = NULL, minimum_to_play = 1, starting_limit = NULL, available_limit = NULL, description = NULL, meta_data = NULL, audience_ids = NULL, active = NULL, enable_buy_back = FALSE, offer_ids = NULL, offer_asset_id = NULL, fixed_reward = FALSE, split_reward = "ALL", allocate_tickets = NULL, tournament_data = NULL, mission_type = "MULTISTAGE", visibility = "PUBLIC", preliminary_groups = 1, preliminary_group_advancements = "1", enable_multiple_entries = FALSE, enable_multiple_votes = FALSE, featured = FALSE, winner_tag = NULL, tie_tag = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateTournamentWithHttpInfo(version, account_id, app_key, title, cost_to_play, start_date, sub_type, image_asset_id, seconds_between_levels, seconds_for_tie_breaker, seconds_between_packs, maximum_level_length, cost_to_play_type, minimum_to_play, starting_limit, available_limit, description, meta_data, audience_ids, active, enable_buy_back, offer_ids, offer_asset_id, fixed_reward, split_reward, allocate_tickets, tournament_data, mission_type, visibility, preliminary_groups, preliminary_group_advancements, enable_multiple_entries, enable_multiple_votes, featured, winner_tag, tie_tag, data_file = data_file, ..., .parse = .parse)
+    CreateTournament = function(account_id, app_key, title, cost_to_play, start_date, sub_type = NULL, image_asset_id = NULL, seconds_between_levels = 600, seconds_for_tie_breaker = 600, seconds_between_packs = 86400, maximum_level_length = 1800, cost_to_play_type = NULL, minimum_to_play = 1, starting_limit = NULL, available_limit = NULL, description = NULL, meta_data = NULL, audience_ids = NULL, active = NULL, enable_buy_back = FALSE, offer_ids = NULL, offer_asset_id = NULL, fixed_reward = FALSE, split_reward = "ALL", allocate_tickets = NULL, tournament_data = NULL, mission_type = "MULTISTAGE", visibility = "PUBLIC", preliminary_groups = 1, preliminary_group_advancements = "1", enable_multiple_entries = FALSE, enable_multiple_votes = FALSE, featured = FALSE, winner_tag = NULL, tie_tag = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateTournamentWithHttpInfo(account_id, app_key, title, cost_to_play, start_date, sub_type, image_asset_id, seconds_between_levels, seconds_for_tie_breaker, seconds_between_packs, maximum_level_length, cost_to_play_type, minimum_to_play, starting_limit, available_limit, description, meta_data, audience_ids, active, enable_buy_back, offer_ids, offer_asset_id, fixed_reward, split_reward, allocate_tickets, tournament_data, mission_type, visibility, preliminary_groups, preliminary_group_advancements, enable_multiple_entries, enable_multiple_votes, featured, winner_tag, tie_tag, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -354,7 +343,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Create Tournament
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The appKey the tournament is created for.
     #' @param title The title of the tournament
@@ -395,7 +383,7 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TournamentResponse) with additional information such as HTTP status code, headers
-    CreateTournamentWithHttpInfo = function(version, account_id, app_key, title, cost_to_play, start_date, sub_type = NULL, image_asset_id = NULL, seconds_between_levels = 600, seconds_for_tie_breaker = 600, seconds_between_packs = 86400, maximum_level_length = 1800, cost_to_play_type = NULL, minimum_to_play = 1, starting_limit = NULL, available_limit = NULL, description = NULL, meta_data = NULL, audience_ids = NULL, active = NULL, enable_buy_back = FALSE, offer_ids = NULL, offer_asset_id = NULL, fixed_reward = FALSE, split_reward = "ALL", allocate_tickets = NULL, tournament_data = NULL, mission_type = "MULTISTAGE", visibility = "PUBLIC", preliminary_groups = 1, preliminary_group_advancements = "1", enable_multiple_entries = FALSE, enable_multiple_votes = FALSE, featured = FALSE, winner_tag = NULL, tie_tag = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateTournamentWithHttpInfo = function(account_id, app_key, title, cost_to_play, start_date, sub_type = NULL, image_asset_id = NULL, seconds_between_levels = 600, seconds_for_tie_breaker = 600, seconds_between_packs = 86400, maximum_level_length = 1800, cost_to_play_type = NULL, minimum_to_play = 1, starting_limit = NULL, available_limit = NULL, description = NULL, meta_data = NULL, audience_ids = NULL, active = NULL, enable_buy_back = FALSE, offer_ids = NULL, offer_asset_id = NULL, fixed_reward = FALSE, split_reward = "ALL", allocate_tickets = NULL, tournament_data = NULL, mission_type = "MULTISTAGE", visibility = "PUBLIC", preliminary_groups = 1, preliminary_group_advancements = "1", enable_multiple_entries = FALSE, enable_multiple_votes = FALSE, featured = FALSE, winner_tag = NULL, tie_tag = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -404,10 +392,6 @@ TournamentApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -427,10 +411,6 @@ TournamentApi <- R6::R6Class(
 
       if (missing(`start_date`)) {
         stop("Missing required parameter `start_date`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TournamentApi$CreateTournament, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -652,11 +632,7 @@ TournamentApi <- R6::R6Class(
 
       query_params[["tieTag"]] <- `tie_tag`
 
-      local_var_url_path <- "/api/{version}/tournament/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tournament/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -717,7 +693,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Delete Tournament
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param mission_id the id of the mission to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -725,8 +700,8 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteTournament = function(version, account_id, mission_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteTournamentWithHttpInfo(version, account_id, mission_id, data_file = data_file, ..., .parse = .parse)
+    DeleteTournament = function(account_id, mission_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteTournamentWithHttpInfo(account_id, mission_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -741,7 +716,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Delete Tournament
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param mission_id the id of the mission to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -749,7 +723,7 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteTournamentWithHttpInfo = function(version, account_id, mission_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteTournamentWithHttpInfo = function(account_id, mission_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -759,20 +733,12 @@ TournamentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`mission_id`)) {
         stop("Missing required parameter `mission_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TournamentApi$DeleteTournament, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -787,11 +753,7 @@ TournamentApi <- R6::R6Class(
 
       query_params[["missionId"]] <- `mission_id`
 
-      local_var_url_path <- "/api/{version}/tournament/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tournament/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -852,7 +814,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Get Tournament
     #'
-    #' @param version 
     #' @param account_id The id of the logged in user
     #' @param mission_id (optional) The id of the mission to return (either missionId or joinCode is required)
     #' @param join_code (optional) Optional identifier for getting the tournament (either missionId or joinCode is required)
@@ -863,8 +824,8 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TournamentResponse
-    GetTournament = function(version, account_id, mission_id = NULL, join_code = NULL, include_scores = NULL, object_preview_size = 50, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTournamentWithHttpInfo(version, account_id, mission_id, join_code, include_scores, object_preview_size, data_file = data_file, ..., .parse = .parse)
+    GetTournament = function(account_id, mission_id = NULL, join_code = NULL, include_scores = NULL, object_preview_size = 50, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTournamentWithHttpInfo(account_id, mission_id, join_code, include_scores, object_preview_size, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -879,7 +840,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Get Tournament
     #'
-    #' @param version 
     #' @param account_id The id of the logged in user
     #' @param mission_id (optional) The id of the mission to return (either missionId or joinCode is required)
     #' @param join_code (optional) Optional identifier for getting the tournament (either missionId or joinCode is required)
@@ -890,7 +850,7 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TournamentResponse) with additional information such as HTTP status code, headers
-    GetTournamentWithHttpInfo = function(version, account_id, mission_id = NULL, join_code = NULL, include_scores = NULL, object_preview_size = 50, data_file = NULL, ..., .parse = TRUE) {
+    GetTournamentWithHttpInfo = function(account_id, mission_id = NULL, join_code = NULL, include_scores = NULL, object_preview_size = 50, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -900,16 +860,8 @@ TournamentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TournamentApi$GetTournament, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -945,11 +897,7 @@ TournamentApi <- R6::R6Class(
 
       query_params[["objectPreviewSize"]] <- `object_preview_size`
 
-      local_var_url_path <- "/api/{version}/tournament/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tournament/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1010,7 +958,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Search Tournament Objects
     #'
-    #' @param version 
     #' @param account_id the account ID
     #' @param game_level_id the game level id to filter results by
     #' @param sort_field (optional) the field to sort by (default value: "PLAYER_SCORE_COUNT")
@@ -1022,8 +969,8 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SearchObjects = function(version, account_id, game_level_id, sort_field = "PLAYER_SCORE_COUNT", descending = TRUE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchObjectsWithHttpInfo(version, account_id, game_level_id, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchObjects = function(account_id, game_level_id, sort_field = "PLAYER_SCORE_COUNT", descending = TRUE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchObjectsWithHttpInfo(account_id, game_level_id, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1038,7 +985,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Search Tournament Objects
     #'
-    #' @param version 
     #' @param account_id the account ID
     #' @param game_level_id the game level id to filter results by
     #' @param sort_field (optional) the field to sort by (default value: "PLAYER_SCORE_COUNT")
@@ -1050,7 +996,7 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SearchObjectsWithHttpInfo = function(version, account_id, game_level_id, sort_field = "PLAYER_SCORE_COUNT", descending = TRUE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    SearchObjectsWithHttpInfo = function(account_id, game_level_id, sort_field = "PLAYER_SCORE_COUNT", descending = TRUE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1060,20 +1006,12 @@ TournamentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`game_level_id`)) {
         stop("Missing required parameter `game_level_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TournamentApi$SearchObjects, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1115,11 +1053,7 @@ TournamentApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/tournament/object/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tournament/object/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1180,7 +1114,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Search Tournament Rounds
     #'
-    #' @param version 
     #' @param account_id the account ID
     #' @param app_key the application key
     #' @param status (optional) comma separated list of statuses to filter results by (default value: "ACCEPTED,ACTIVE")
@@ -1194,8 +1127,8 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SearchRounds = function(version, account_id, app_key, status = "ACCEPTED,ACTIVE", mission_type = NULL, current_only = TRUE, visibilities = "PUBLIC", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchRoundsWithHttpInfo(version, account_id, app_key, status, mission_type, current_only, visibilities, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchRounds = function(account_id, app_key, status = "ACCEPTED,ACTIVE", mission_type = NULL, current_only = TRUE, visibilities = "PUBLIC", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchRoundsWithHttpInfo(account_id, app_key, status, mission_type, current_only, visibilities, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1210,7 +1143,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Search Tournament Rounds
     #'
-    #' @param version 
     #' @param account_id the account ID
     #' @param app_key the application key
     #' @param status (optional) comma separated list of statuses to filter results by (default value: "ACCEPTED,ACTIVE")
@@ -1224,7 +1156,7 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SearchRoundsWithHttpInfo = function(version, account_id, app_key, status = "ACCEPTED,ACTIVE", mission_type = NULL, current_only = TRUE, visibilities = "PUBLIC", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    SearchRoundsWithHttpInfo = function(account_id, app_key, status = "ACCEPTED,ACTIVE", mission_type = NULL, current_only = TRUE, visibilities = "PUBLIC", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1234,20 +1166,12 @@ TournamentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TournamentApi$SearchRounds, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1301,11 +1225,7 @@ TournamentApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/tournament/round/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tournament/round/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1366,7 +1286,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Search Tournaments
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The application key
     #' @param keyword (optional) the keyword to search tournament on
@@ -1384,8 +1303,8 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MissionShortResponse
-    SearchTournaments = function(version, account_id, app_key, keyword = NULL, sub_type = NULL, include_inactive = FALSE, mission_types = "MULTISTAGE,TOURNAMENT,POOLPLAY", filter = "UPCOMING", sort_field = "START_DATE", descending = NULL, visibility = "PUBLIC", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchTournamentsWithHttpInfo(version, account_id, app_key, keyword, sub_type, include_inactive, mission_types, filter, sort_field, descending, visibility, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchTournaments = function(account_id, app_key, keyword = NULL, sub_type = NULL, include_inactive = FALSE, mission_types = "MULTISTAGE,TOURNAMENT,POOLPLAY", filter = "UPCOMING", sort_field = "START_DATE", descending = NULL, visibility = "PUBLIC", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchTournamentsWithHttpInfo(account_id, app_key, keyword, sub_type, include_inactive, mission_types, filter, sort_field, descending, visibility, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1400,7 +1319,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Search Tournaments
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The application key
     #' @param keyword (optional) the keyword to search tournament on
@@ -1418,7 +1336,7 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MissionShortResponse) with additional information such as HTTP status code, headers
-    SearchTournamentsWithHttpInfo = function(version, account_id, app_key, keyword = NULL, sub_type = NULL, include_inactive = FALSE, mission_types = "MULTISTAGE,TOURNAMENT,POOLPLAY", filter = "UPCOMING", sort_field = "START_DATE", descending = NULL, visibility = "PUBLIC", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    SearchTournamentsWithHttpInfo = function(account_id, app_key, keyword = NULL, sub_type = NULL, include_inactive = FALSE, mission_types = "MULTISTAGE,TOURNAMENT,POOLPLAY", filter = "UPCOMING", sort_field = "START_DATE", descending = NULL, visibility = "PUBLIC", start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1428,20 +1346,12 @@ TournamentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TournamentApi$SearchTournaments, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1522,11 +1432,7 @@ TournamentApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/tournament/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tournament/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1587,7 +1493,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Submit Tournament Score
     #'
-    #' @param version 
     #' @param account_id The logged in user account ID.
     #' @param app_key The application key.
     #' @param mission_id The missionId to score for
@@ -1600,8 +1505,8 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SubmitTournamentScore = function(version, account_id, app_key, mission_id, game_id, pack_id, scores, game_level_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SubmitTournamentScoreWithHttpInfo(version, account_id, app_key, mission_id, game_id, pack_id, scores, game_level_id, data_file = data_file, ..., .parse = .parse)
+    SubmitTournamentScore = function(account_id, app_key, mission_id, game_id, pack_id, scores, game_level_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SubmitTournamentScoreWithHttpInfo(account_id, app_key, mission_id, game_id, pack_id, scores, game_level_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1616,7 +1521,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Submit Tournament Score
     #'
-    #' @param version 
     #' @param account_id The logged in user account ID.
     #' @param app_key The application key.
     #' @param mission_id The missionId to score for
@@ -1629,7 +1533,7 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SubmitTournamentScoreWithHttpInfo = function(version, account_id, app_key, mission_id, game_id, pack_id, scores, game_level_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SubmitTournamentScoreWithHttpInfo = function(account_id, app_key, mission_id, game_id, pack_id, scores, game_level_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1638,10 +1542,6 @@ TournamentApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1665,10 +1565,6 @@ TournamentApi <- R6::R6Class(
 
       if (missing(`scores`)) {
         stop("Missing required parameter `scores`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TournamentApi$SubmitTournamentScore, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1713,11 +1609,7 @@ TournamentApi <- R6::R6Class(
 
       query_params[["scores"]] <- `scores`
 
-      local_var_url_path <- "/api/{version}/tournament/score"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tournament/score"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1778,7 +1670,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Submit a vote for a multi-stage album tournament.
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The application to target
     #' @param mission_id The tournament's primary id
@@ -1790,8 +1681,8 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SubmitTournamentVote = function(version, account_id, app_key, mission_id, game_object_id, device_id = NULL, check_if_device_already_voted = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SubmitTournamentVoteWithHttpInfo(version, account_id, app_key, mission_id, game_object_id, device_id, check_if_device_already_voted, data_file = data_file, ..., .parse = .parse)
+    SubmitTournamentVote = function(account_id, app_key, mission_id, game_object_id, device_id = NULL, check_if_device_already_voted = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SubmitTournamentVoteWithHttpInfo(account_id, app_key, mission_id, game_object_id, device_id, check_if_device_already_voted, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1806,7 +1697,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Submit a vote for a multi-stage album tournament.
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key The application to target
     #' @param mission_id The tournament's primary id
@@ -1818,7 +1708,7 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SubmitTournamentVoteWithHttpInfo = function(version, account_id, app_key, mission_id, game_object_id, device_id = NULL, check_if_device_already_voted = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    SubmitTournamentVoteWithHttpInfo = function(account_id, app_key, mission_id, game_object_id, device_id = NULL, check_if_device_already_voted = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1827,10 +1717,6 @@ TournamentApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1846,10 +1732,6 @@ TournamentApi <- R6::R6Class(
 
       if (missing(`game_object_id`)) {
         stop("Missing required parameter `game_object_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TournamentApi$SubmitTournamentVote, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1888,11 +1770,7 @@ TournamentApi <- R6::R6Class(
 
       query_params[["checkIfDeviceAlreadyVoted"]] <- `check_if_device_already_voted`
 
-      local_var_url_path <- "/api/{version}/tournament/vote"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tournament/vote"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1953,7 +1831,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Substitute Tournament Player
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param mission_id the id of the mission
     #' @param pack_id the id of the pack
@@ -1963,8 +1840,8 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SubstituteTournamentPlayer = function(version, account_id, mission_id, pack_id, game_level_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SubstituteTournamentPlayerWithHttpInfo(version, account_id, mission_id, pack_id, game_level_id, data_file = data_file, ..., .parse = .parse)
+    SubstituteTournamentPlayer = function(account_id, mission_id, pack_id, game_level_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SubstituteTournamentPlayerWithHttpInfo(account_id, mission_id, pack_id, game_level_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1979,7 +1856,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Substitute Tournament Player
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param mission_id the id of the mission
     #' @param pack_id the id of the pack
@@ -1989,7 +1865,7 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SubstituteTournamentPlayerWithHttpInfo = function(version, account_id, mission_id, pack_id, game_level_id, data_file = NULL, ..., .parse = TRUE) {
+    SubstituteTournamentPlayerWithHttpInfo = function(account_id, mission_id, pack_id, game_level_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1998,10 +1874,6 @@ TournamentApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -2017,10 +1889,6 @@ TournamentApi <- R6::R6Class(
 
       if (missing(`game_level_id`)) {
         stop("Missing required parameter `game_level_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TournamentApi$SubstituteTournamentPlayer, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2047,11 +1915,7 @@ TournamentApi <- R6::R6Class(
 
       query_params[["gameLevelId"]] <- `game_level_id`
 
-      local_var_url_path <- "/api/{version}/tournament/substitute"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tournament/substitute"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2112,7 +1976,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Update Tournament
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param mission_id The mission/tournament to update
     #' @param title (optional) The title of the tournament
@@ -2152,8 +2015,8 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TournamentResponse
-    UpdateTournament = function(version, account_id, mission_id, title = NULL, sub_type = NULL, image_asset_id = NULL, seconds_between_levels = NULL, seconds_for_tie_breaker = NULL, seconds_between_packs = NULL, maximum_level_length = NULL, cost_to_play = NULL, cost_to_play_type = NULL, minimum_to_play = NULL, starting_limit = NULL, available_limit = NULL, description = NULL, meta_data = NULL, start_date = NULL, audience_ids = NULL, active = NULL, enable_buy_back = NULL, offer_ids = NULL, offer_asset_id = NULL, fixed_reward = NULL, split_reward = NULL, allocate_tickets = NULL, tournament_data = NULL, visibility = NULL, preliminary_groups = NULL, preliminary_group_advancements = NULL, enable_multiple_entries = NULL, enable_multiple_votes = NULL, featured = NULL, winner_tag = NULL, tie_tag = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateTournamentWithHttpInfo(version, account_id, mission_id, title, sub_type, image_asset_id, seconds_between_levels, seconds_for_tie_breaker, seconds_between_packs, maximum_level_length, cost_to_play, cost_to_play_type, minimum_to_play, starting_limit, available_limit, description, meta_data, start_date, audience_ids, active, enable_buy_back, offer_ids, offer_asset_id, fixed_reward, split_reward, allocate_tickets, tournament_data, visibility, preliminary_groups, preliminary_group_advancements, enable_multiple_entries, enable_multiple_votes, featured, winner_tag, tie_tag, data_file = data_file, ..., .parse = .parse)
+    UpdateTournament = function(account_id, mission_id, title = NULL, sub_type = NULL, image_asset_id = NULL, seconds_between_levels = NULL, seconds_for_tie_breaker = NULL, seconds_between_packs = NULL, maximum_level_length = NULL, cost_to_play = NULL, cost_to_play_type = NULL, minimum_to_play = NULL, starting_limit = NULL, available_limit = NULL, description = NULL, meta_data = NULL, start_date = NULL, audience_ids = NULL, active = NULL, enable_buy_back = NULL, offer_ids = NULL, offer_asset_id = NULL, fixed_reward = NULL, split_reward = NULL, allocate_tickets = NULL, tournament_data = NULL, visibility = NULL, preliminary_groups = NULL, preliminary_group_advancements = NULL, enable_multiple_entries = NULL, enable_multiple_votes = NULL, featured = NULL, winner_tag = NULL, tie_tag = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateTournamentWithHttpInfo(account_id, mission_id, title, sub_type, image_asset_id, seconds_between_levels, seconds_for_tie_breaker, seconds_between_packs, maximum_level_length, cost_to_play, cost_to_play_type, minimum_to_play, starting_limit, available_limit, description, meta_data, start_date, audience_ids, active, enable_buy_back, offer_ids, offer_asset_id, fixed_reward, split_reward, allocate_tickets, tournament_data, visibility, preliminary_groups, preliminary_group_advancements, enable_multiple_entries, enable_multiple_votes, featured, winner_tag, tie_tag, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2168,7 +2031,6 @@ TournamentApi <- R6::R6Class(
     #' @description
     #' Update Tournament
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param mission_id The mission/tournament to update
     #' @param title (optional) The title of the tournament
@@ -2208,7 +2070,7 @@ TournamentApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TournamentResponse) with additional information such as HTTP status code, headers
-    UpdateTournamentWithHttpInfo = function(version, account_id, mission_id, title = NULL, sub_type = NULL, image_asset_id = NULL, seconds_between_levels = NULL, seconds_for_tie_breaker = NULL, seconds_between_packs = NULL, maximum_level_length = NULL, cost_to_play = NULL, cost_to_play_type = NULL, minimum_to_play = NULL, starting_limit = NULL, available_limit = NULL, description = NULL, meta_data = NULL, start_date = NULL, audience_ids = NULL, active = NULL, enable_buy_back = NULL, offer_ids = NULL, offer_asset_id = NULL, fixed_reward = NULL, split_reward = NULL, allocate_tickets = NULL, tournament_data = NULL, visibility = NULL, preliminary_groups = NULL, preliminary_group_advancements = NULL, enable_multiple_entries = NULL, enable_multiple_votes = NULL, featured = NULL, winner_tag = NULL, tie_tag = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateTournamentWithHttpInfo = function(account_id, mission_id, title = NULL, sub_type = NULL, image_asset_id = NULL, seconds_between_levels = NULL, seconds_for_tie_breaker = NULL, seconds_between_packs = NULL, maximum_level_length = NULL, cost_to_play = NULL, cost_to_play_type = NULL, minimum_to_play = NULL, starting_limit = NULL, available_limit = NULL, description = NULL, meta_data = NULL, start_date = NULL, audience_ids = NULL, active = NULL, enable_buy_back = NULL, offer_ids = NULL, offer_asset_id = NULL, fixed_reward = NULL, split_reward = NULL, allocate_tickets = NULL, tournament_data = NULL, visibility = NULL, preliminary_groups = NULL, preliminary_group_advancements = NULL, enable_multiple_entries = NULL, enable_multiple_votes = NULL, featured = NULL, winner_tag = NULL, tie_tag = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2218,20 +2080,12 @@ TournamentApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`mission_id`)) {
         stop("Missing required parameter `mission_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TournamentApi$UpdateTournament, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2444,11 +2298,7 @@ TournamentApi <- R6::R6Class(
 
       query_params[["tieTag"]] <- `tie_tag`
 
-      local_var_url_path <- "/api/{version}/tournament/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/tournament/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

@@ -17,7 +17,6 @@
 #' ####################  AddConnectionToGroup  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- "return_nulls_example" # character | whether to return nulls or not
 #' var_group_id <- 56 # integer | the group id
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
@@ -32,15 +31,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddConnectionToGroup(var_version, var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$AddConnectionToGroup(var_version, var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$AddConnectionToGroup(var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$AddConnectionToGroup(var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  AddConnectionsToGroup  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_connection_group_id <- 56 # integer | the connection group ID
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -53,15 +51,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddConnectionsToGroup(var_version, var_connection_group_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$AddConnectionsToGroup(var_version, var_connection_group_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$AddConnectionsToGroup(var_connection_group_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$AddConnectionsToGroup(var_connection_group_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  AddSubGroups  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- "return_nulls_example" # character | whether to return nulls or not
 #' var_group_id <- 56 # integer | the parent group id
 #' var_sub_group_ids <- "sub_group_ids_example" # character | comma separated list of group IDs to add to the parent group
@@ -74,15 +71,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddSubGroups(var_version, var_return_nulls, var_group_id, var_sub_group_ids, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$AddSubGroups(var_version, var_return_nulls, var_group_id, var_sub_group_ids, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$AddSubGroups(var_return_nulls, var_group_id, var_sub_group_ids, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$AddSubGroups(var_return_nulls, var_group_id, var_sub_group_ids, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  CreateOrUpdateConnection  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
 #' var_connection_id <- 56 # integer | the connection id for editing (Optional)
@@ -102,15 +98,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateOrUpdateConnection(var_version, device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, group_id = var_group_id, game_type = var_game_type, app_key = var_app_key, is_trusted = var_is_trusted, ignore_friend_request = var_ignore_friend_request, is_contact = var_is_contact, is_blocked = var_is_blocked, is_following = var_is_following, connection_response = var_connection_responsedata_file = "result.txt")
-#' result <- api_instance$CreateOrUpdateConnection(var_version, device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, group_id = var_group_id, game_type = var_game_type, app_key = var_app_key, is_trusted = var_is_trusted, ignore_friend_request = var_ignore_friend_request, is_contact = var_is_contact, is_blocked = var_is_blocked, is_following = var_is_following, connection_response = var_connection_response)
+#' # result <- api_instance$CreateOrUpdateConnection(device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, group_id = var_group_id, game_type = var_game_type, app_key = var_app_key, is_trusted = var_is_trusted, ignore_friend_request = var_ignore_friend_request, is_contact = var_is_contact, is_blocked = var_is_blocked, is_following = var_is_following, connection_response = var_connection_responsedata_file = "result.txt")
+#' result <- api_instance$CreateOrUpdateConnection(device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, group_id = var_group_id, game_type = var_game_type, app_key = var_app_key, is_trusted = var_is_trusted, ignore_friend_request = var_ignore_friend_request, is_contact = var_is_contact, is_blocked = var_is_blocked, is_following = var_is_following, connection_response = var_connection_response)
 #' dput(result)
 #'
 #'
 #' ####################  CreateOrUpdateGroup  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- "return_nulls_example" # character | whether to return nulls or not
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -130,15 +125,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateOrUpdateGroup(var_version, var_return_nulls, device_id = var_device_id, account_id = var_account_id, name = var_name, group_id = var_group_id, asset_id = var_asset_id, connections = var_connections, description = var_description, can_view_profile_info = var_can_view_profile_info, can_view_game_info = var_can_view_game_info, can_view_friend_info = var_can_view_friend_info, active = var_active, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$CreateOrUpdateGroup(var_version, var_return_nulls, device_id = var_device_id, account_id = var_account_id, name = var_name, group_id = var_group_id, asset_id = var_asset_id, connections = var_connections, description = var_description, can_view_profile_info = var_can_view_profile_info, can_view_game_info = var_can_view_game_info, can_view_friend_info = var_can_view_friend_info, active = var_active, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$CreateOrUpdateGroup(var_return_nulls, device_id = var_device_id, account_id = var_account_id, name = var_name, group_id = var_group_id, asset_id = var_asset_id, connections = var_connections, description = var_description, can_view_profile_info = var_can_view_profile_info, can_view_game_info = var_can_view_game_info, can_view_friend_info = var_can_view_friend_info, active = var_active, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$CreateOrUpdateGroup(var_return_nulls, device_id = var_device_id, account_id = var_account_id, name = var_name, group_id = var_group_id, asset_id = var_asset_id, connections = var_connections, description = var_description, can_view_profile_info = var_can_view_profile_info, can_view_game_info = var_can_view_game_info, can_view_friend_info = var_can_view_friend_info, active = var_active, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  FollowAccept  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user
 #' var_connection_account_id <- 56 # integer | the account ID of the user who initiated the follow
 #' var_app_key <- "app_key_example" # character | the application key for sending notifications
@@ -147,15 +141,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$FollowAccept(var_version, var_account_id, var_connection_account_id, var_app_keydata_file = "result.txt")
-#' result <- api_instance$FollowAccept(var_version, var_account_id, var_connection_account_id, var_app_key)
+#' # result <- api_instance$FollowAccept(var_account_id, var_connection_account_id, var_app_keydata_file = "result.txt")
+#' result <- api_instance$FollowAccept(var_account_id, var_connection_account_id, var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  FollowReject  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user
 #' var_connection_account_id <- 56 # integer | the account ID of the user who initiated the follow
 #' var_app_key <- "app_key_example" # character | the application key for sending notifications
@@ -164,15 +157,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$FollowReject(var_version, var_account_id, var_connection_account_id, var_app_keydata_file = "result.txt")
-#' result <- api_instance$FollowReject(var_version, var_account_id, var_connection_account_id, var_app_key)
+#' # result <- api_instance$FollowReject(var_account_id, var_connection_account_id, var_app_keydata_file = "result.txt")
+#' result <- api_instance$FollowReject(var_account_id, var_connection_account_id, var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  FollowRemove  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user
 #' var_connection_account_id <- 56 # integer | the account ID of the user who you want to unfollow
 #' var_app_key <- "app_key_example" # character | the application key for sending notifications
@@ -181,15 +173,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$FollowRemove(var_version, var_account_id, var_connection_account_id, var_app_keydata_file = "result.txt")
-#' result <- api_instance$FollowRemove(var_version, var_account_id, var_connection_account_id, var_app_key)
+#' # result <- api_instance$FollowRemove(var_account_id, var_connection_account_id, var_app_keydata_file = "result.txt")
+#' result <- api_instance$FollowRemove(var_account_id, var_connection_account_id, var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  FollowRequest  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user
 #' var_connection_account_id <- 56 # integer | the account ID of the user who you want to follow
 #' var_app_key <- "app_key_example" # character | the application key for sending notifications
@@ -199,15 +190,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$FollowRequest(var_version, var_account_id, var_connection_account_id, var_app_key, approval_needed = var_approval_neededdata_file = "result.txt")
-#' result <- api_instance$FollowRequest(var_version, var_account_id, var_connection_account_id, var_app_key, approval_needed = var_approval_needed)
+#' # result <- api_instance$FollowRequest(var_account_id, var_connection_account_id, var_app_key, approval_needed = var_approval_neededdata_file = "result.txt")
+#' result <- api_instance$FollowRequest(var_account_id, var_connection_account_id, var_app_key, approval_needed = var_approval_needed)
 #' dput(result)
 #'
 #'
 #' ####################  FriendAccept  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_friend_account_id <- 56 # integer | the friend's account id
 #' var_notify_friend <- "notify_friend_example" # character | determines whether to send a notification to the afflicting party
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
@@ -220,15 +210,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$FriendAccept(var_version, var_friend_account_id, var_notify_friend, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notification_message = var_notification_messagedata_file = "result.txt")
-#' result <- api_instance$FriendAccept(var_version, var_friend_account_id, var_notify_friend, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notification_message = var_notification_message)
+#' # result <- api_instance$FriendAccept(var_friend_account_id, var_notify_friend, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notification_message = var_notification_messagedata_file = "result.txt")
+#' result <- api_instance$FriendAccept(var_friend_account_id, var_notify_friend, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notification_message = var_notification_message)
 #' dput(result)
 #'
 #'
 #' ####################  FriendReject  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_friend_account_id <- 56 # integer | the friend's account id
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -241,15 +230,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$FriendReject(var_version, var_friend_account_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notify_friend = var_notify_friend, notification_message = var_notification_messagedata_file = "result.txt")
-#' result <- api_instance$FriendReject(var_version, var_friend_account_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notify_friend = var_notify_friend, notification_message = var_notification_message)
+#' # result <- api_instance$FriendReject(var_friend_account_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notify_friend = var_notify_friend, notification_message = var_notification_messagedata_file = "result.txt")
+#' result <- api_instance$FriendReject(var_friend_account_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notify_friend = var_notify_friend, notification_message = var_notification_message)
 #' dput(result)
 #'
 #'
 #' ####################  FriendRemove  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_friend_account_id <- 56 # integer | the account ID of the friend to remove
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -260,15 +248,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$FriendRemove(var_version, var_friend_account_id, device_id = var_device_id, account_id = var_account_id, notify_friend = var_notify_friend, remove_from_groups = var_remove_from_groupsdata_file = "result.txt")
-#' result <- api_instance$FriendRemove(var_version, var_friend_account_id, device_id = var_device_id, account_id = var_account_id, notify_friend = var_notify_friend, remove_from_groups = var_remove_from_groups)
+#' # result <- api_instance$FriendRemove(var_friend_account_id, device_id = var_device_id, account_id = var_account_id, notify_friend = var_notify_friend, remove_from_groups = var_remove_from_groupsdata_file = "result.txt")
+#' result <- api_instance$FriendRemove(var_friend_account_id, device_id = var_device_id, account_id = var_account_id, notify_friend = var_notify_friend, remove_from_groups = var_remove_from_groups)
 #' dput(result)
 #'
 #'
 #' ####################  FriendRequest  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_friend_account_id <- 56 # integer | the friend's account id
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -280,15 +267,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$FriendRequest(var_version, var_friend_account_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notification_message = var_notification_messagedata_file = "result.txt")
-#' result <- api_instance$FriendRequest(var_version, var_friend_account_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notification_message = var_notification_message)
+#' # result <- api_instance$FriendRequest(var_friend_account_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notification_message = var_notification_messagedata_file = "result.txt")
+#' result <- api_instance$FriendRequest(var_friend_account_id, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, app_key = var_app_key, notification_message = var_notification_message)
 #' dput(result)
 #'
 #'
 #' ####################  GetConnectionSentFriendRequests  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | the ID of the device (Optional)
 #' var_account_id <- 56 # integer | the id of the account (Optional)
 #'
@@ -296,15 +282,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetConnectionSentFriendRequests(var_version, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetConnectionSentFriendRequests(var_version, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$GetConnectionSentFriendRequests(device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetConnectionSentFriendRequests(device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetConnections  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- "return_nulls_example" # character | whether to return nulls or not
 #' var_filter <- "filter_example" # character | a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
 #' var_sort_field <- "sort_field_example" # character | sorts the response list by ConnectionApiMap
@@ -325,15 +310,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetConnections(var_version, var_return_nulls, var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetConnections(var_version, var_return_nulls, var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetConnections(var_return_nulls, var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetConnections(var_return_nulls, var_filter, var_sort_field, var_descending, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, q = var_q, keyword = var_keyword, _i = var__i, _l = var__l, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GetGroupDetails  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_combine_connections <- "combine_connections_example" # character | whether to combine connections or not
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -345,15 +329,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetGroupDetails(var_version, var_combine_connections, device_id = var_device_id, account_id = var_account_id, group_id = var_group_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetGroupDetails(var_version, var_combine_connections, device_id = var_device_id, account_id = var_account_id, group_id = var_group_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetGroupDetails(var_combine_connections, device_id = var_device_id, account_id = var_account_id, group_id = var_group_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetGroupDetails(var_combine_connections, device_id = var_device_id, account_id = var_account_id, group_id = var_group_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GroupSearch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_sort_field <- "sort_field_example" # character | the field to sort by
 #' var_descending <- "descending_example" # character | whether to return results in descending or ascending order
 #' var_active_only <- "active_only_example" # character | to search on active only or not
@@ -369,15 +352,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GroupSearch(var_version, var_sort_field, var_descending, var_active_only, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$GroupSearch(var_version, var_sort_field, var_descending, var_active_only, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword)
+#' # result <- api_instance$GroupSearch(var_sort_field, var_descending, var_active_only, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$GroupSearch(var_sort_field, var_descending, var_active_only, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword)
 #' dput(result)
 #'
 #'
 #' ####################  RemoveConnectionFromGroup  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- "return_nulls_example" # character | whether to return nulls or not
 #' var_group_id <- 56 # integer | the group id
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
@@ -392,15 +374,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemoveConnectionFromGroup(var_version, var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$RemoveConnectionFromGroup(var_version, var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$RemoveConnectionFromGroup(var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$RemoveConnectionFromGroup(var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, connection_id = var_connection_id, connection_account_id = var_connection_account_id, pending_id = var_pending_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  RemoveConnectionsFromGroup  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_connection_group_id <- 56 # integer | connection group id
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -413,15 +394,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemoveConnectionsFromGroup(var_version, var_connection_group_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$RemoveConnectionsFromGroup(var_version, var_connection_group_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$RemoveConnectionsFromGroup(var_connection_group_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$RemoveConnectionsFromGroup(var_connection_group_id, device_id = var_device_id, account_id = var_account_id, connection_ids = var_connection_ids, connection_account_ids = var_connection_account_ids, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  RemoveGroup  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- "return_nulls_example" # character | whether to return nulls or not
 #' var_group_id <- 56 # integer | the group id
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
@@ -433,15 +413,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemoveGroup(var_version, var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$RemoveGroup(var_version, var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$RemoveGroup(var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$RemoveGroup(var_return_nulls, var_group_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  RemoveSubGroups  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- "return_nulls_example" # character | whether to return nulls or not
 #' var_group_id <- 56 # integer | the parent group id
 #' var_sub_group_ids <- "sub_group_ids_example" # character | comma separated list of group IDs to remove from the parent group
@@ -454,15 +433,14 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemoveSubGroups(var_version, var_return_nulls, var_group_id, var_sub_group_ids, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$RemoveSubGroups(var_version, var_return_nulls, var_group_id, var_sub_group_ids, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$RemoveSubGroups(var_return_nulls, var_group_id, var_sub_group_ids, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$RemoveSubGroups(var_return_nulls, var_group_id, var_sub_group_ids, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  SearchConnections  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- "return_nulls_example" # character | return all json attributes if true. defualt is true.
 #' var_start <- 56 # integer | start index of the pagination
 #' var_limit <- 56 # integer | limit of the pagination
@@ -483,8 +461,8 @@
 #' api_instance <- ConnectionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchConnections(var_version, var_return_nulls, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, game_type = var_game_type, app_key = var_app_key, _i = var__i, _l = var__l, sort_field = var_sort_field, has_location = var_has_locationdata_file = "result.txt")
-#' result <- api_instance$SearchConnections(var_version, var_return_nulls, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, game_type = var_game_type, app_key = var_app_key, _i = var__i, _l = var__l, sort_field = var_sort_field, has_location = var_has_location)
+#' # result <- api_instance$SearchConnections(var_return_nulls, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, game_type = var_game_type, app_key = var_app_key, _i = var__i, _l = var__l, sort_field = var_sort_field, has_location = var_has_locationdata_file = "result.txt")
+#' result <- api_instance$SearchConnections(var_return_nulls, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, game_type = var_game_type, app_key = var_app_key, _i = var__i, _l = var__l, sort_field = var_sort_field, has_location = var_has_location)
 #' dput(result)
 #'
 #'
@@ -512,7 +490,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Add Connection
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param group_id the group id
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -527,8 +504,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    AddConnectionToGroup = function(version, return_nulls, group_id, device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddConnectionToGroupWithHttpInfo(version, return_nulls, group_id, device_id, account_id, connection_id, connection_account_id, pending_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    AddConnectionToGroup = function(return_nulls, group_id, device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddConnectionToGroupWithHttpInfo(return_nulls, group_id, device_id, account_id, connection_id, connection_account_id, pending_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -543,7 +520,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Add Connection
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param group_id the group id
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -558,7 +534,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    AddConnectionToGroupWithHttpInfo = function(version, return_nulls, group_id, device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddConnectionToGroupWithHttpInfo = function(return_nulls, group_id, device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -568,20 +544,12 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`return_nulls`)) {
         stop("Missing required parameter `return_nulls`.")
       }
 
       if (missing(`group_id`)) {
         stop("Missing required parameter `group_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$AddConnectionToGroup, `version` is not nullable")
       }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
@@ -638,11 +606,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/connection/group/addConnection"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/connection/group/addConnection"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -703,7 +667,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Add Connections
     #'
-    #' @param version 
     #' @param connection_group_id the connection group ID
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -716,8 +679,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    AddConnectionsToGroup = function(version, connection_group_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddConnectionsToGroupWithHttpInfo(version, connection_group_id, device_id, account_id, connection_ids, connection_account_ids, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    AddConnectionsToGroup = function(connection_group_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddConnectionsToGroupWithHttpInfo(connection_group_id, device_id, account_id, connection_ids, connection_account_ids, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -732,7 +695,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Add Connections
     #'
-    #' @param version 
     #' @param connection_group_id the connection group ID
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -745,7 +707,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    AddConnectionsToGroupWithHttpInfo = function(version, connection_group_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddConnectionsToGroupWithHttpInfo = function(connection_group_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -755,16 +717,8 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`connection_group_id`)) {
         stop("Missing required parameter `connection_group_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$AddConnectionsToGroup, `version` is not nullable")
       }
 
       if (!missing(`connection_group_id`) && is.null(`connection_group_id`)) {
@@ -809,11 +763,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/connection/group/addConnections"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/connection/group/addConnections"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -874,7 +824,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Add Connection Groups
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param group_id the parent group id
     #' @param sub_group_ids comma separated list of group IDs to add to the parent group
@@ -887,8 +836,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ConnectionGroupResponse
-    AddSubGroups = function(version, return_nulls, group_id, sub_group_ids, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddSubGroupsWithHttpInfo(version, return_nulls, group_id, sub_group_ids, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    AddSubGroups = function(return_nulls, group_id, sub_group_ids, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddSubGroupsWithHttpInfo(return_nulls, group_id, sub_group_ids, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -903,7 +852,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Add Connection Groups
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param group_id the parent group id
     #' @param sub_group_ids comma separated list of group IDs to add to the parent group
@@ -916,7 +864,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ConnectionGroupResponse) with additional information such as HTTP status code, headers
-    AddSubGroupsWithHttpInfo = function(version, return_nulls, group_id, sub_group_ids, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddSubGroupsWithHttpInfo = function(return_nulls, group_id, sub_group_ids, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -925,10 +873,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`return_nulls`)) {
         stop("Missing required parameter `return_nulls`.")
@@ -940,10 +884,6 @@ ConnectionApi <- R6::R6Class(
 
       if (missing(`sub_group_ids`)) {
         stop("Missing required parameter `sub_group_ids`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$AddSubGroups, `version` is not nullable")
       }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
@@ -988,11 +928,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/connection/group/addSubGroup"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/connection/group/addSubGroup"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1053,7 +989,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Create or Update Connection
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param connection_id (optional) the connection id for editing
@@ -1073,8 +1008,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ConnectionResponse
-    CreateOrUpdateConnection = function(version, device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, group_id = NULL, game_type = NULL, app_key = NULL, is_trusted = NULL, ignore_friend_request = NULL, is_contact = NULL, is_blocked = NULL, is_following = NULL, connection_response = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateOrUpdateConnectionWithHttpInfo(version, device_id, account_id, connection_id, connection_account_id, pending_id, group_id, game_type, app_key, is_trusted, ignore_friend_request, is_contact, is_blocked, is_following, connection_response, data_file = data_file, ..., .parse = .parse)
+    CreateOrUpdateConnection = function(device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, group_id = NULL, game_type = NULL, app_key = NULL, is_trusted = NULL, ignore_friend_request = NULL, is_contact = NULL, is_blocked = NULL, is_following = NULL, connection_response = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateOrUpdateConnectionWithHttpInfo(device_id, account_id, connection_id, connection_account_id, pending_id, group_id, game_type, app_key, is_trusted, ignore_friend_request, is_contact, is_blocked, is_following, connection_response, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1089,7 +1024,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Create or Update Connection
     #'
-    #' @param version 
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
     #' @param connection_id (optional) the connection id for editing
@@ -1109,7 +1043,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ConnectionResponse) with additional information such as HTTP status code, headers
-    CreateOrUpdateConnectionWithHttpInfo = function(version, device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, group_id = NULL, game_type = NULL, app_key = NULL, is_trusted = NULL, ignore_friend_request = NULL, is_contact = NULL, is_blocked = NULL, is_following = NULL, connection_response = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateOrUpdateConnectionWithHttpInfo = function(device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, group_id = NULL, game_type = NULL, app_key = NULL, is_trusted = NULL, ignore_friend_request = NULL, is_contact = NULL, is_blocked = NULL, is_following = NULL, connection_response = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1118,14 +1052,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$CreateOrUpdateConnection, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling ConnectionApi$CreateOrUpdateConnection, `device_id` is not nullable")
@@ -1211,11 +1137,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["connectionResponse"]] <- `connection_response`
 
-      local_var_url_path <- "/api/{version}/consumer/connection/add"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/connection/add"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1276,7 +1198,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Create or Update Connection Group
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -1296,8 +1217,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    CreateOrUpdateGroup = function(version, return_nulls, device_id = NULL, account_id = NULL, name = NULL, group_id = NULL, asset_id = NULL, connections = NULL, description = NULL, can_view_profile_info = NULL, can_view_game_info = NULL, can_view_friend_info = NULL, active = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateOrUpdateGroupWithHttpInfo(version, return_nulls, device_id, account_id, name, group_id, asset_id, connections, description, can_view_profile_info, can_view_game_info, can_view_friend_info, active, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    CreateOrUpdateGroup = function(return_nulls, device_id = NULL, account_id = NULL, name = NULL, group_id = NULL, asset_id = NULL, connections = NULL, description = NULL, can_view_profile_info = NULL, can_view_game_info = NULL, can_view_friend_info = NULL, active = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateOrUpdateGroupWithHttpInfo(return_nulls, device_id, account_id, name, group_id, asset_id, connections, description, can_view_profile_info, can_view_game_info, can_view_friend_info, active, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1312,7 +1233,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Create or Update Connection Group
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -1332,7 +1252,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    CreateOrUpdateGroupWithHttpInfo = function(version, return_nulls, device_id = NULL, account_id = NULL, name = NULL, group_id = NULL, asset_id = NULL, connections = NULL, description = NULL, can_view_profile_info = NULL, can_view_game_info = NULL, can_view_friend_info = NULL, active = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateOrUpdateGroupWithHttpInfo = function(return_nulls, device_id = NULL, account_id = NULL, name = NULL, group_id = NULL, asset_id = NULL, connections = NULL, description = NULL, can_view_profile_info = NULL, can_view_game_info = NULL, can_view_friend_info = NULL, active = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1342,16 +1262,8 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`return_nulls`)) {
         stop("Missing required parameter `return_nulls`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$CreateOrUpdateGroup, `version` is not nullable")
       }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
@@ -1438,11 +1350,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/connection/group"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/connection/group"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1503,7 +1411,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Accept Follow Request
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param connection_account_id the account ID of the user who initiated the follow
     #' @param app_key the application key for sending notifications
@@ -1512,8 +1419,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    FollowAccept = function(version, account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$FollowAcceptWithHttpInfo(version, account_id, connection_account_id, app_key, data_file = data_file, ..., .parse = .parse)
+    FollowAccept = function(account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$FollowAcceptWithHttpInfo(account_id, connection_account_id, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1528,7 +1435,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Accept Follow Request
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param connection_account_id the account ID of the user who initiated the follow
     #' @param app_key the application key for sending notifications
@@ -1537,7 +1443,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    FollowAcceptWithHttpInfo = function(version, account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+    FollowAcceptWithHttpInfo = function(account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1546,10 +1452,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1561,10 +1463,6 @@ ConnectionApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$FollowAccept, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1585,11 +1483,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/consumer/follow/accept"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/follow/accept"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1650,7 +1544,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Reject Follow Request
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param connection_account_id the account ID of the user who initiated the follow
     #' @param app_key the application key for sending notifications
@@ -1659,8 +1552,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    FollowReject = function(version, account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$FollowRejectWithHttpInfo(version, account_id, connection_account_id, app_key, data_file = data_file, ..., .parse = .parse)
+    FollowReject = function(account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$FollowRejectWithHttpInfo(account_id, connection_account_id, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1675,7 +1568,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Reject Follow Request
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param connection_account_id the account ID of the user who initiated the follow
     #' @param app_key the application key for sending notifications
@@ -1684,7 +1576,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    FollowRejectWithHttpInfo = function(version, account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+    FollowRejectWithHttpInfo = function(account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1693,10 +1585,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1708,10 +1596,6 @@ ConnectionApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$FollowReject, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1732,11 +1616,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/consumer/follow/reject"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/follow/reject"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1797,7 +1677,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Remove Follower / Unfollow
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param connection_account_id the account ID of the user who you want to unfollow
     #' @param app_key the application key for sending notifications
@@ -1806,8 +1685,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    FollowRemove = function(version, account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$FollowRemoveWithHttpInfo(version, account_id, connection_account_id, app_key, data_file = data_file, ..., .parse = .parse)
+    FollowRemove = function(account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$FollowRemoveWithHttpInfo(account_id, connection_account_id, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1822,7 +1701,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Remove Follower / Unfollow
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param connection_account_id the account ID of the user who you want to unfollow
     #' @param app_key the application key for sending notifications
@@ -1831,7 +1709,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    FollowRemoveWithHttpInfo = function(version, account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+    FollowRemoveWithHttpInfo = function(account_id, connection_account_id, app_key, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1840,10 +1718,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1855,10 +1729,6 @@ ConnectionApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$FollowRemove, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1879,11 +1749,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/consumer/follow/remove"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/follow/remove"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1944,7 +1810,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Send Follow Request
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param connection_account_id the account ID of the user who you want to follow
     #' @param app_key the application key for sending notifications
@@ -1954,8 +1819,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    FollowRequest = function(version, account_id, connection_account_id, app_key, approval_needed = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$FollowRequestWithHttpInfo(version, account_id, connection_account_id, app_key, approval_needed, data_file = data_file, ..., .parse = .parse)
+    FollowRequest = function(account_id, connection_account_id, app_key, approval_needed = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$FollowRequestWithHttpInfo(account_id, connection_account_id, app_key, approval_needed, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1970,7 +1835,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Send Follow Request
     #'
-    #' @param version 
     #' @param account_id the account id of the user
     #' @param connection_account_id the account ID of the user who you want to follow
     #' @param app_key the application key for sending notifications
@@ -1980,7 +1844,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    FollowRequestWithHttpInfo = function(version, account_id, connection_account_id, app_key, approval_needed = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    FollowRequestWithHttpInfo = function(account_id, connection_account_id, app_key, approval_needed = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1989,10 +1853,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -2004,10 +1864,6 @@ ConnectionApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$FollowRequest, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2034,11 +1890,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["approvalNeeded"]] <- `approval_needed`
 
-      local_var_url_path <- "/api/{version}/consumer/follow/request"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/follow/request"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2099,7 +1951,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Accept Friend
     #'
-    #' @param version 
     #' @param friend_account_id the friend's account id
     #' @param notify_friend determines whether to send a notification to the afflicting party
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -2112,8 +1963,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    FriendAccept = function(version, friend_account_id, notify_friend, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$FriendAcceptWithHttpInfo(version, friend_account_id, notify_friend, device_id, account_id, game_type, app_key, notification_message, data_file = data_file, ..., .parse = .parse)
+    FriendAccept = function(friend_account_id, notify_friend, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$FriendAcceptWithHttpInfo(friend_account_id, notify_friend, device_id, account_id, game_type, app_key, notification_message, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2128,7 +1979,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Accept Friend
     #'
-    #' @param version 
     #' @param friend_account_id the friend's account id
     #' @param notify_friend determines whether to send a notification to the afflicting party
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -2141,7 +1991,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    FriendAcceptWithHttpInfo = function(version, friend_account_id, notify_friend, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
+    FriendAcceptWithHttpInfo = function(friend_account_id, notify_friend, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2151,20 +2001,12 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`friend_account_id`)) {
         stop("Missing required parameter `friend_account_id`.")
       }
 
       if (missing(`notify_friend`)) {
         stop("Missing required parameter `notify_friend`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$FriendAccept, `version` is not nullable")
       }
 
       if (!missing(`friend_account_id`) && is.null(`friend_account_id`)) {
@@ -2209,11 +2051,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["notificationMessage"]] <- `notification_message`
 
-      local_var_url_path <- "/api/{version}/consumer/friend/accept"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/friend/accept"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2274,7 +2112,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Decline Friend
     #'
-    #' @param version 
     #' @param friend_account_id the friend's account id
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -2287,8 +2124,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    FriendReject = function(version, friend_account_id, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notify_friend = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$FriendRejectWithHttpInfo(version, friend_account_id, device_id, account_id, game_type, app_key, notify_friend, notification_message, data_file = data_file, ..., .parse = .parse)
+    FriendReject = function(friend_account_id, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notify_friend = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$FriendRejectWithHttpInfo(friend_account_id, device_id, account_id, game_type, app_key, notify_friend, notification_message, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2303,7 +2140,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Decline Friend
     #'
-    #' @param version 
     #' @param friend_account_id the friend's account id
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -2316,7 +2152,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    FriendRejectWithHttpInfo = function(version, friend_account_id, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notify_friend = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
+    FriendRejectWithHttpInfo = function(friend_account_id, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notify_friend = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2326,16 +2162,8 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`friend_account_id`)) {
         stop("Missing required parameter `friend_account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$FriendReject, `version` is not nullable")
       }
 
       if (!missing(`friend_account_id`) && is.null(`friend_account_id`)) {
@@ -2380,11 +2208,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["notificationMessage"]] <- `notification_message`
 
-      local_var_url_path <- "/api/{version}/consumer/friend/reject"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/friend/reject"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2445,7 +2269,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Delete Friend
     #'
-    #' @param version 
     #' @param friend_account_id the account ID of the friend to remove
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -2456,8 +2279,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    FriendRemove = function(version, friend_account_id, device_id = NULL, account_id = NULL, notify_friend = NULL, remove_from_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$FriendRemoveWithHttpInfo(version, friend_account_id, device_id, account_id, notify_friend, remove_from_groups, data_file = data_file, ..., .parse = .parse)
+    FriendRemove = function(friend_account_id, device_id = NULL, account_id = NULL, notify_friend = NULL, remove_from_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$FriendRemoveWithHttpInfo(friend_account_id, device_id, account_id, notify_friend, remove_from_groups, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2472,7 +2295,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Delete Friend
     #'
-    #' @param version 
     #' @param friend_account_id the account ID of the friend to remove
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -2483,7 +2305,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    FriendRemoveWithHttpInfo = function(version, friend_account_id, device_id = NULL, account_id = NULL, notify_friend = NULL, remove_from_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
+    FriendRemoveWithHttpInfo = function(friend_account_id, device_id = NULL, account_id = NULL, notify_friend = NULL, remove_from_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2493,16 +2315,8 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`friend_account_id`)) {
         stop("Missing required parameter `friend_account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$FriendRemove, `version` is not nullable")
       }
 
       if (!missing(`friend_account_id`) && is.null(`friend_account_id`)) {
@@ -2535,11 +2349,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["removeFromGroups"]] <- `remove_from_groups`
 
-      local_var_url_path <- "/api/{version}/consumer/friend/remove"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/friend/remove"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2600,7 +2410,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Request Friend
     #'
-    #' @param version 
     #' @param friend_account_id the friend's account id
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -2612,8 +2421,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    FriendRequest = function(version, friend_account_id, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$FriendRequestWithHttpInfo(version, friend_account_id, device_id, account_id, game_type, app_key, notification_message, data_file = data_file, ..., .parse = .parse)
+    FriendRequest = function(friend_account_id, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$FriendRequestWithHttpInfo(friend_account_id, device_id, account_id, game_type, app_key, notification_message, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2628,7 +2437,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Request Friend
     #'
-    #' @param version 
     #' @param friend_account_id the friend's account id
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -2640,7 +2448,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    FriendRequestWithHttpInfo = function(version, friend_account_id, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
+    FriendRequestWithHttpInfo = function(friend_account_id, device_id = NULL, account_id = NULL, game_type = NULL, app_key = NULL, notification_message = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2650,16 +2458,8 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`friend_account_id`)) {
         stop("Missing required parameter `friend_account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$FriendRequest, `version` is not nullable")
       }
 
       if (!missing(`friend_account_id`) && is.null(`friend_account_id`)) {
@@ -2698,11 +2498,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["notificationMessage"]] <- `notification_message`
 
-      local_var_url_path <- "/api/{version}/consumer/friend/request"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/friend/request"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2763,7 +2559,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Get Sent Friend Requests
     #'
-    #' @param version 
     #' @param device_id (optional) the ID of the device
     #' @param account_id (optional) the id of the account
     #' @param data_file (optional) name of the data file to save the result
@@ -2771,8 +2566,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ConnectionListResponse
-    GetConnectionSentFriendRequests = function(version, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetConnectionSentFriendRequestsWithHttpInfo(version, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetConnectionSentFriendRequests = function(device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetConnectionSentFriendRequestsWithHttpInfo(device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2787,7 +2582,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Get Sent Friend Requests
     #'
-    #' @param version 
     #' @param device_id (optional) the ID of the device
     #' @param account_id (optional) the id of the account
     #' @param data_file (optional) name of the data file to save the result
@@ -2795,7 +2589,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ConnectionListResponse) with additional information such as HTTP status code, headers
-    GetConnectionSentFriendRequestsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetConnectionSentFriendRequestsWithHttpInfo = function(device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2804,14 +2598,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$GetConnectionSentFriendRequests, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling ConnectionApi$GetConnectionSentFriendRequests, `device_id` is not nullable")
@@ -2825,11 +2611,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/consumer/connection/getRequested"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/connection/getRequested"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2890,7 +2672,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Search Connections
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
     #' @param sort_field sorts the response list by ConnectionApiMap
@@ -2911,8 +2692,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ConnectionListResponse
-    GetConnections = function(version, return_nulls, filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, connection_account_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetConnectionsWithHttpInfo(version, return_nulls, filter, sort_field, descending, start, limit, device_id, account_id, connection_account_id, q, keyword, _i, _l, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetConnections = function(return_nulls, filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, connection_account_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetConnectionsWithHttpInfo(return_nulls, filter, sort_field, descending, start, limit, device_id, account_id, connection_account_id, q, keyword, _i, _l, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2927,7 +2708,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Search Connections
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
     #' @param sort_field sorts the response list by ConnectionApiMap
@@ -2948,7 +2728,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ConnectionListResponse) with additional information such as HTTP status code, headers
-    GetConnectionsWithHttpInfo = function(version, return_nulls, filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, connection_account_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetConnectionsWithHttpInfo = function(return_nulls, filter, sort_field, descending, start, limit, device_id = NULL, account_id = NULL, connection_account_id = NULL, q = NULL, keyword = NULL, _i = NULL, _l = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2957,10 +2737,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`return_nulls`)) {
         stop("Missing required parameter `return_nulls`.")
@@ -2984,10 +2760,6 @@ ConnectionApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$GetConnections, `version` is not nullable")
       }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
@@ -3080,11 +2852,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/connection/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/connection/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3145,7 +2913,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Get Connection Group
     #'
-    #' @param version 
     #' @param combine_connections whether to combine connections or not
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -3157,8 +2924,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ConnectionGroupResponse
-    GetGroupDetails = function(version, combine_connections, device_id = NULL, account_id = NULL, group_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetGroupDetailsWithHttpInfo(version, combine_connections, device_id, account_id, group_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetGroupDetails = function(combine_connections, device_id = NULL, account_id = NULL, group_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetGroupDetailsWithHttpInfo(combine_connections, device_id, account_id, group_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3173,7 +2940,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Get Connection Group
     #'
-    #' @param version 
     #' @param combine_connections whether to combine connections or not
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -3185,7 +2951,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ConnectionGroupResponse) with additional information such as HTTP status code, headers
-    GetGroupDetailsWithHttpInfo = function(version, combine_connections, device_id = NULL, account_id = NULL, group_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetGroupDetailsWithHttpInfo = function(combine_connections, device_id = NULL, account_id = NULL, group_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3195,16 +2961,8 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`combine_connections`)) {
         stop("Missing required parameter `combine_connections`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$GetGroupDetails, `version` is not nullable")
       }
 
       if (!missing(`combine_connections`) && is.null(`combine_connections`)) {
@@ -3243,11 +3001,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/connection/group/details/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/connection/group/details/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3308,7 +3062,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Search Connection Groups
     #'
-    #' @param version 
     #' @param sort_field the field to sort by
     #' @param descending whether to return results in descending or ascending order
     #' @param active_only to search on active only or not
@@ -3324,8 +3077,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ConnectionInfoResponse]
-    GroupSearch = function(version, sort_field, descending, active_only, start, limit, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GroupSearchWithHttpInfo(version, sort_field, descending, active_only, start, limit, device_id, account_id, latitude, longitude, keyword, data_file = data_file, ..., .parse = .parse)
+    GroupSearch = function(sort_field, descending, active_only, start, limit, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GroupSearchWithHttpInfo(sort_field, descending, active_only, start, limit, device_id, account_id, latitude, longitude, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3340,7 +3093,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Search Connection Groups
     #'
-    #' @param version 
     #' @param sort_field the field to sort by
     #' @param descending whether to return results in descending or ascending order
     #' @param active_only to search on active only or not
@@ -3356,7 +3108,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ConnectionInfoResponse]) with additional information such as HTTP status code, headers
-    GroupSearchWithHttpInfo = function(version, sort_field, descending, active_only, start, limit, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GroupSearchWithHttpInfo = function(sort_field, descending, active_only, start, limit, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3365,10 +3117,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`sort_field`)) {
         stop("Missing required parameter `sort_field`.")
@@ -3388,10 +3136,6 @@ ConnectionApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$GroupSearch, `version` is not nullable")
       }
 
       if (!missing(`sort_field`) && is.null(`sort_field`)) {
@@ -3457,11 +3201,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/connection/group/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/connection/group/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3522,7 +3262,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Delete Connection
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param group_id the group id
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -3537,8 +3276,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RemoveConnectionFromGroup = function(version, return_nulls, group_id, device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemoveConnectionFromGroupWithHttpInfo(version, return_nulls, group_id, device_id, account_id, connection_id, connection_account_id, pending_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    RemoveConnectionFromGroup = function(return_nulls, group_id, device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemoveConnectionFromGroupWithHttpInfo(return_nulls, group_id, device_id, account_id, connection_id, connection_account_id, pending_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3553,7 +3292,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Delete Connection
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param group_id the group id
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -3568,7 +3306,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RemoveConnectionFromGroupWithHttpInfo = function(version, return_nulls, group_id, device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RemoveConnectionFromGroupWithHttpInfo = function(return_nulls, group_id, device_id = NULL, account_id = NULL, connection_id = NULL, connection_account_id = NULL, pending_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3578,20 +3316,12 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`return_nulls`)) {
         stop("Missing required parameter `return_nulls`.")
       }
 
       if (missing(`group_id`)) {
         stop("Missing required parameter `group_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$RemoveConnectionFromGroup, `version` is not nullable")
       }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
@@ -3648,11 +3378,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/connection/group/removeConnection"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/connection/group/removeConnection"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3713,7 +3439,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Remove Connections
     #'
-    #' @param version 
     #' @param connection_group_id connection group id
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -3726,8 +3451,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RemoveConnectionsFromGroup = function(version, connection_group_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemoveConnectionsFromGroupWithHttpInfo(version, connection_group_id, device_id, account_id, connection_ids, connection_account_ids, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    RemoveConnectionsFromGroup = function(connection_group_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemoveConnectionsFromGroupWithHttpInfo(connection_group_id, device_id, account_id, connection_ids, connection_account_ids, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3742,7 +3467,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Remove Connections
     #'
-    #' @param version 
     #' @param connection_group_id connection group id
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -3755,7 +3479,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RemoveConnectionsFromGroupWithHttpInfo = function(version, connection_group_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RemoveConnectionsFromGroupWithHttpInfo = function(connection_group_id, device_id = NULL, account_id = NULL, connection_ids = NULL, connection_account_ids = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3765,16 +3489,8 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`connection_group_id`)) {
         stop("Missing required parameter `connection_group_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$RemoveConnectionsFromGroup, `version` is not nullable")
       }
 
       if (!missing(`connection_group_id`) && is.null(`connection_group_id`)) {
@@ -3819,11 +3535,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/connection/group/removeConnections"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/connection/group/removeConnections"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3884,7 +3596,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Delete Connection Group
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param group_id the group id
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -3896,8 +3607,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RemoveGroup = function(version, return_nulls, group_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemoveGroupWithHttpInfo(version, return_nulls, group_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    RemoveGroup = function(return_nulls, group_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemoveGroupWithHttpInfo(return_nulls, group_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3912,7 +3623,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Delete Connection Group
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param group_id the group id
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -3924,7 +3634,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RemoveGroupWithHttpInfo = function(version, return_nulls, group_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RemoveGroupWithHttpInfo = function(return_nulls, group_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3934,20 +3644,12 @@ ConnectionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`return_nulls`)) {
         stop("Missing required parameter `return_nulls`.")
       }
 
       if (missing(`group_id`)) {
         stop("Missing required parameter `group_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$RemoveGroup, `version` is not nullable")
       }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
@@ -3986,11 +3688,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/connection/group/remove"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/connection/group/remove"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4051,7 +3749,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Remove Connection Groups
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param group_id the parent group id
     #' @param sub_group_ids comma separated list of group IDs to remove from the parent group
@@ -4064,8 +3761,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RemoveSubGroups = function(version, return_nulls, group_id, sub_group_ids, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemoveSubGroupsWithHttpInfo(version, return_nulls, group_id, sub_group_ids, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    RemoveSubGroups = function(return_nulls, group_id, sub_group_ids, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemoveSubGroupsWithHttpInfo(return_nulls, group_id, sub_group_ids, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4080,7 +3777,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Remove Connection Groups
     #'
-    #' @param version 
     #' @param return_nulls whether to return nulls or not
     #' @param group_id the parent group id
     #' @param sub_group_ids comma separated list of group IDs to remove from the parent group
@@ -4093,7 +3789,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RemoveSubGroupsWithHttpInfo = function(version, return_nulls, group_id, sub_group_ids, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RemoveSubGroupsWithHttpInfo = function(return_nulls, group_id, sub_group_ids, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4102,10 +3798,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`return_nulls`)) {
         stop("Missing required parameter `return_nulls`.")
@@ -4117,10 +3809,6 @@ ConnectionApi <- R6::R6Class(
 
       if (missing(`sub_group_ids`)) {
         stop("Missing required parameter `sub_group_ids`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$RemoveSubGroups, `version` is not nullable")
       }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
@@ -4165,11 +3853,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/connection/group/removeSubGroup"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/connection/group/removeSubGroup"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4230,7 +3914,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Search Possible Connections
     #'
-    #' @param version 
     #' @param return_nulls return all json attributes if true. defualt is true.
     #' @param start start index of the pagination
     #' @param limit limit of the pagination
@@ -4251,8 +3934,8 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ConnectionListResponse
-    SearchConnections = function(version, return_nulls, start, limit, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, latitude = NULL, longitude = NULL, game_type = NULL, app_key = NULL, _i = NULL, _l = NULL, sort_field = NULL, has_location = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchConnectionsWithHttpInfo(version, return_nulls, start, limit, device_id, account_id, q, keyword, latitude, longitude, game_type, app_key, _i, _l, sort_field, has_location, data_file = data_file, ..., .parse = .parse)
+    SearchConnections = function(return_nulls, start, limit, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, latitude = NULL, longitude = NULL, game_type = NULL, app_key = NULL, _i = NULL, _l = NULL, sort_field = NULL, has_location = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchConnectionsWithHttpInfo(return_nulls, start, limit, device_id, account_id, q, keyword, latitude, longitude, game_type, app_key, _i, _l, sort_field, has_location, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4267,7 +3950,6 @@ ConnectionApi <- R6::R6Class(
     #' @description
     #' Search Possible Connections
     #'
-    #' @param version 
     #' @param return_nulls return all json attributes if true. defualt is true.
     #' @param start start index of the pagination
     #' @param limit limit of the pagination
@@ -4288,7 +3970,7 @@ ConnectionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ConnectionListResponse) with additional information such as HTTP status code, headers
-    SearchConnectionsWithHttpInfo = function(version, return_nulls, start, limit, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, latitude = NULL, longitude = NULL, game_type = NULL, app_key = NULL, _i = NULL, _l = NULL, sort_field = NULL, has_location = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchConnectionsWithHttpInfo = function(return_nulls, start, limit, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, latitude = NULL, longitude = NULL, game_type = NULL, app_key = NULL, _i = NULL, _l = NULL, sort_field = NULL, has_location = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4297,10 +3979,6 @@ ConnectionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`return_nulls`)) {
         stop("Missing required parameter `return_nulls`.")
@@ -4312,10 +3990,6 @@ ConnectionApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ConnectionApi$SearchConnections, `version` is not nullable")
       }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
@@ -4408,11 +4082,7 @@ ConnectionApi <- R6::R6Class(
 
       query_params[["hasLocation"]] <- `has_location`
 
-      local_var_url_path <- "/api/{version}/connection/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/connection/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

@@ -17,7 +17,6 @@
 #' ####################  CreateReservation  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_start_date <- 56 # integer | The start date (Optional)
@@ -30,13 +29,12 @@
 #' #Create Reservation
 #' api_instance <- ReservationApi$new()
 #'
-#' api_instance$CreateReservation(var_version, device_id = var_device_id, account_id = var_account_id, start_date = var_start_date, end_date = var_end_date, offer_id = var_offer_id, offer_location_id = var_offer_location_id, app_key = var_app_key, meta_data = var_meta_data)
+#' api_instance$CreateReservation(device_id = var_device_id, account_id = var_account_id, start_date = var_start_date, end_date = var_end_date, offer_id = var_offer_id, offer_location_id = var_offer_location_id, app_key = var_app_key, meta_data = var_meta_data)
 #'
 #'
 #' ####################  DeleteReservation  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_reservation_id <- 56 # integer | The reservation id
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -44,13 +42,12 @@
 #' #Delete Reservation
 #' api_instance <- ReservationApi$new()
 #'
-#' api_instance$DeleteReservation(var_version, var_reservation_id, device_id = var_device_id, account_id = var_account_id)
+#' api_instance$DeleteReservation(var_reservation_id, device_id = var_device_id, account_id = var_account_id)
 #'
 #'
 #' ####################  ReservableAvailability  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_reservable_id <- 56 # integer | the id of the reservation
 #' var_reservable_type <- "reservable_type_example" # character | the type of reservation
 #' var_device_id <- "device_id_example" # character | the device id of the reservation (Optional)
@@ -62,15 +59,14 @@
 #' api_instance <- ReservationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ReservableAvailability(var_version, var_reservable_id, var_reservable_type, device_id = var_device_id, account_id = var_account_id, availability = var_availability, availability_summary = var_availability_summarydata_file = "result.txt")
-#' result <- api_instance$ReservableAvailability(var_version, var_reservable_id, var_reservable_type, device_id = var_device_id, account_id = var_account_id, availability = var_availability, availability_summary = var_availability_summary)
+#' # result <- api_instance$ReservableAvailability(var_reservable_id, var_reservable_type, device_id = var_device_id, account_id = var_account_id, availability = var_availability, availability_summary = var_availability_summarydata_file = "result.txt")
+#' result <- api_instance$ReservableAvailability(var_reservable_id, var_reservable_type, device_id = var_device_id, account_id = var_account_id, availability = var_availability, availability_summary = var_availability_summary)
 #' dput(result)
 #'
 #'
 #' ####################  SearchAvailability  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_reservable_id <- 56 # integer | the id of the reservation
 #' var_reservable_type <- "reservable_type_example" # character | the reservable type
 #' var_device_id <- "device_id_example" # character | the device ID that the reservation is on (Optional)
@@ -84,15 +80,14 @@
 #' api_instance <- ReservationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchAvailability(var_version, var_reservable_id, var_reservable_type, device_id = var_device_id, account_id = var_account_id, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchAvailability(var_version, var_reservable_id, var_reservable_type, device_id = var_device_id, account_id = var_account_id, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchAvailability(var_reservable_id, var_reservable_type, device_id = var_device_id, account_id = var_account_id, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchAvailability(var_reservable_id, var_reservable_type, device_id = var_device_id, account_id = var_account_id, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchReservations  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | Device Id (Optional)
 #' var_app_key <- "app_key_example" # character | Appilcation Key (Optional)
 #' var_account_id <- 56 # integer | the id of the logged in user (Optional)
@@ -109,15 +104,14 @@
 #' api_instance <- ReservationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchReservations(var_version, device_id = var_device_id, app_key = var_app_key, account_id = var_account_id, filter_account_id = var_filter_account_id, reservable_id = var_reservable_id, reservable_type = var_reservable_type, keyword = var_keyword, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchReservations(var_version, device_id = var_device_id, app_key = var_app_key, account_id = var_account_id, filter_account_id = var_filter_account_id, reservable_id = var_reservable_id, reservable_type = var_reservable_type, keyword = var_keyword, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchReservations(device_id = var_device_id, app_key = var_app_key, account_id = var_account_id, filter_account_id = var_filter_account_id, reservable_id = var_reservable_id, reservable_type = var_reservable_type, keyword = var_keyword, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchReservations(device_id = var_device_id, app_key = var_app_key, account_id = var_account_id, filter_account_id = var_filter_account_id, reservable_id = var_reservable_id, reservable_type = var_reservable_type, keyword = var_keyword, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchSchedule  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_reservable_id <- 56 # integer | the id of the reservation
 #' var_reservable_type <- "reservable_type_example" # character | the reservation type
 #' var_start_date <- 56 # integer | the start date of the reservation
@@ -130,8 +124,8 @@
 #' api_instance <- ReservationApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchSchedule(var_version, var_reservable_id, var_reservable_type, var_start_date, var_end_date, device_id = var_device_id, account_id = var_account_id, time_bucket_mins = var_time_bucket_minsdata_file = "result.txt")
-#' result <- api_instance$SearchSchedule(var_version, var_reservable_id, var_reservable_type, var_start_date, var_end_date, device_id = var_device_id, account_id = var_account_id, time_bucket_mins = var_time_bucket_mins)
+#' # result <- api_instance$SearchSchedule(var_reservable_id, var_reservable_type, var_start_date, var_end_date, device_id = var_device_id, account_id = var_account_id, time_bucket_mins = var_time_bucket_minsdata_file = "result.txt")
+#' result <- api_instance$SearchSchedule(var_reservable_id, var_reservable_type, var_start_date, var_end_date, device_id = var_device_id, account_id = var_account_id, time_bucket_mins = var_time_bucket_mins)
 #' dput(result)
 #'
 #'
@@ -159,7 +153,6 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Create Reservation
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param start_date (optional) The start date
@@ -171,8 +164,8 @@ ReservationApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    CreateReservation = function(version, device_id = NULL, account_id = NULL, start_date = NULL, end_date = NULL, offer_id = NULL, offer_location_id = NULL, app_key = NULL, meta_data = NULL, ...) {
-      local_var_response <- self$CreateReservationWithHttpInfo(version, device_id, account_id, start_date, end_date, offer_id, offer_location_id, app_key, meta_data, ...)
+    CreateReservation = function(device_id = NULL, account_id = NULL, start_date = NULL, end_date = NULL, offer_id = NULL, offer_location_id = NULL, app_key = NULL, meta_data = NULL, ...) {
+      local_var_response <- self$CreateReservationWithHttpInfo(device_id, account_id, start_date, end_date, offer_id, offer_location_id, app_key, meta_data, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -187,7 +180,6 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Create Reservation
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param start_date (optional) The start date
@@ -199,7 +191,7 @@ ReservationApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    CreateReservationWithHttpInfo = function(version, device_id = NULL, account_id = NULL, start_date = NULL, end_date = NULL, offer_id = NULL, offer_location_id = NULL, app_key = NULL, meta_data = NULL, ...) {
+    CreateReservationWithHttpInfo = function(device_id = NULL, account_id = NULL, start_date = NULL, end_date = NULL, offer_id = NULL, offer_location_id = NULL, app_key = NULL, meta_data = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -208,14 +200,6 @@ ReservationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReservationApi$CreateReservation, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling ReservationApi$CreateReservation, `device_id` is not nullable")
@@ -265,11 +249,7 @@ ReservationApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/reservation/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/reservation/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -315,15 +295,14 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Delete Reservation
     #'
-    #' @param version 
     #' @param reservation_id The reservation id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param ... Other optional arguments
     #'
     #' @return void
-    DeleteReservation = function(version, reservation_id, device_id = NULL, account_id = NULL, ...) {
-      local_var_response <- self$DeleteReservationWithHttpInfo(version, reservation_id, device_id, account_id, ...)
+    DeleteReservation = function(reservation_id, device_id = NULL, account_id = NULL, ...) {
+      local_var_response <- self$DeleteReservationWithHttpInfo(reservation_id, device_id, account_id, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -338,14 +317,13 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Delete Reservation
     #'
-    #' @param version 
     #' @param reservation_id The reservation id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    DeleteReservationWithHttpInfo = function(version, reservation_id, device_id = NULL, account_id = NULL, ...) {
+    DeleteReservationWithHttpInfo = function(reservation_id, device_id = NULL, account_id = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -355,16 +333,8 @@ ReservationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`reservation_id`)) {
         stop("Missing required parameter `reservation_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReservationApi$DeleteReservation, `version` is not nullable")
       }
 
       if (!missing(`reservation_id`) && is.null(`reservation_id`)) {
@@ -385,11 +355,7 @@ ReservationApi <- R6::R6Class(
 
       query_params[["reservationId"]] <- `reservation_id`
 
-      local_var_url_path <- "/api/{version}/reservation/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/reservation/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -435,7 +401,6 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Update Availability
     #'
-    #' @param version 
     #' @param reservable_id the id of the reservation
     #' @param reservable_type the type of reservation
     #' @param device_id (optional) the device id of the reservation
@@ -447,8 +412,8 @@ ReservationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AvailabilityResponse]
-    ReservableAvailability = function(version, reservable_id, reservable_type, device_id = NULL, account_id = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ReservableAvailabilityWithHttpInfo(version, reservable_id, reservable_type, device_id, account_id, availability, availability_summary, data_file = data_file, ..., .parse = .parse)
+    ReservableAvailability = function(reservable_id, reservable_type, device_id = NULL, account_id = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ReservableAvailabilityWithHttpInfo(reservable_id, reservable_type, device_id, account_id, availability, availability_summary, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -463,7 +428,6 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Update Availability
     #'
-    #' @param version 
     #' @param reservable_id the id of the reservation
     #' @param reservable_type the type of reservation
     #' @param device_id (optional) the device id of the reservation
@@ -475,7 +439,7 @@ ReservationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AvailabilityResponse]) with additional information such as HTTP status code, headers
-    ReservableAvailabilityWithHttpInfo = function(version, reservable_id, reservable_type, device_id = NULL, account_id = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ReservableAvailabilityWithHttpInfo = function(reservable_id, reservable_type, device_id = NULL, account_id = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -485,20 +449,12 @@ ReservationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`reservable_id`)) {
         stop("Missing required parameter `reservable_id`.")
       }
 
       if (missing(`reservable_type`)) {
         stop("Missing required parameter `reservable_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReservationApi$ReservableAvailability, `version` is not nullable")
       }
 
       if (!missing(`reservable_id`) && is.null(`reservable_id`)) {
@@ -540,11 +496,7 @@ ReservationApi <- R6::R6Class(
 
       query_params[["availabilitySummary"]] <- `availability_summary`
 
-      local_var_url_path <- "/api/{version}/reservable/availability/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/reservable/availability/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -605,7 +557,6 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Search Availability
     #'
-    #' @param version 
     #' @param reservable_id the id of the reservation
     #' @param reservable_type the reservable type
     #' @param device_id (optional) the device ID that the reservation is on
@@ -619,8 +570,8 @@ ReservationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AvailabilityResponse]
-    SearchAvailability = function(version, reservable_id, reservable_type, device_id = NULL, account_id = NULL, start_date = NULL, end_date = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchAvailabilityWithHttpInfo(version, reservable_id, reservable_type, device_id, account_id, start_date, end_date, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchAvailability = function(reservable_id, reservable_type, device_id = NULL, account_id = NULL, start_date = NULL, end_date = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchAvailabilityWithHttpInfo(reservable_id, reservable_type, device_id, account_id, start_date, end_date, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -635,7 +586,6 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Search Availability
     #'
-    #' @param version 
     #' @param reservable_id the id of the reservation
     #' @param reservable_type the reservable type
     #' @param device_id (optional) the device ID that the reservation is on
@@ -649,7 +599,7 @@ ReservationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AvailabilityResponse]) with additional information such as HTTP status code, headers
-    SearchAvailabilityWithHttpInfo = function(version, reservable_id, reservable_type, device_id = NULL, account_id = NULL, start_date = NULL, end_date = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+    SearchAvailabilityWithHttpInfo = function(reservable_id, reservable_type, device_id = NULL, account_id = NULL, start_date = NULL, end_date = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -659,20 +609,12 @@ ReservationApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`reservable_id`)) {
         stop("Missing required parameter `reservable_id`.")
       }
 
       if (missing(`reservable_type`)) {
         stop("Missing required parameter `reservable_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReservationApi$SearchAvailability, `version` is not nullable")
       }
 
       if (!missing(`reservable_id`) && is.null(`reservable_id`)) {
@@ -726,11 +668,7 @@ ReservationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/reservable/availability/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/reservable/availability/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -791,7 +729,6 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Search Reservations
     #'
-    #' @param version 
     #' @param device_id (optional) Device Id
     #' @param app_key (optional) Appilcation Key
     #' @param account_id (optional) the id of the logged in user
@@ -808,8 +745,8 @@ ReservationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ReservationResponse]
-    SearchReservations = function(version, device_id = NULL, app_key = NULL, account_id = NULL, filter_account_id = NULL, reservable_id = NULL, reservable_type = NULL, keyword = NULL, start_date = NULL, end_date = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchReservationsWithHttpInfo(version, device_id, app_key, account_id, filter_account_id, reservable_id, reservable_type, keyword, start_date, end_date, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchReservations = function(device_id = NULL, app_key = NULL, account_id = NULL, filter_account_id = NULL, reservable_id = NULL, reservable_type = NULL, keyword = NULL, start_date = NULL, end_date = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchReservationsWithHttpInfo(device_id, app_key, account_id, filter_account_id, reservable_id, reservable_type, keyword, start_date, end_date, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -824,7 +761,6 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Search Reservations
     #'
-    #' @param version 
     #' @param device_id (optional) Device Id
     #' @param app_key (optional) Appilcation Key
     #' @param account_id (optional) the id of the logged in user
@@ -841,7 +777,7 @@ ReservationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ReservationResponse]) with additional information such as HTTP status code, headers
-    SearchReservationsWithHttpInfo = function(version, device_id = NULL, app_key = NULL, account_id = NULL, filter_account_id = NULL, reservable_id = NULL, reservable_type = NULL, keyword = NULL, start_date = NULL, end_date = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
+    SearchReservationsWithHttpInfo = function(device_id = NULL, app_key = NULL, account_id = NULL, filter_account_id = NULL, reservable_id = NULL, reservable_type = NULL, keyword = NULL, start_date = NULL, end_date = NULL, start = 0, limit = 100, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -850,14 +786,6 @@ ReservationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReservationApi$SearchReservations, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling ReservationApi$SearchReservations, `device_id` is not nullable")
@@ -928,11 +856,7 @@ ReservationApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/reservation/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/reservation/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -993,7 +917,6 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Search Schedule
     #'
-    #' @param version 
     #' @param reservable_id the id of the reservation
     #' @param reservable_type the reservation type
     #' @param start_date the start date of the reservation
@@ -1006,8 +929,8 @@ ReservationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[TimeSlotResponse]
-    SearchSchedule = function(version, reservable_id, reservable_type, start_date, end_date, device_id = NULL, account_id = NULL, time_bucket_mins = 30, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchScheduleWithHttpInfo(version, reservable_id, reservable_type, start_date, end_date, device_id, account_id, time_bucket_mins, data_file = data_file, ..., .parse = .parse)
+    SearchSchedule = function(reservable_id, reservable_type, start_date, end_date, device_id = NULL, account_id = NULL, time_bucket_mins = 30, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchScheduleWithHttpInfo(reservable_id, reservable_type, start_date, end_date, device_id, account_id, time_bucket_mins, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1022,7 +945,6 @@ ReservationApi <- R6::R6Class(
     #' @description
     #' Search Schedule
     #'
-    #' @param version 
     #' @param reservable_id the id of the reservation
     #' @param reservable_type the reservation type
     #' @param start_date the start date of the reservation
@@ -1035,7 +957,7 @@ ReservationApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[TimeSlotResponse]) with additional information such as HTTP status code, headers
-    SearchScheduleWithHttpInfo = function(version, reservable_id, reservable_type, start_date, end_date, device_id = NULL, account_id = NULL, time_bucket_mins = 30, data_file = NULL, ..., .parse = TRUE) {
+    SearchScheduleWithHttpInfo = function(reservable_id, reservable_type, start_date, end_date, device_id = NULL, account_id = NULL, time_bucket_mins = 30, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1044,10 +966,6 @@ ReservationApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`reservable_id`)) {
         stop("Missing required parameter `reservable_id`.")
@@ -1063,10 +981,6 @@ ReservationApi <- R6::R6Class(
 
       if (missing(`end_date`)) {
         stop("Missing required parameter `end_date`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ReservationApi$SearchSchedule, `version` is not nullable")
       }
 
       if (!missing(`reservable_id`) && is.null(`reservable_id`)) {
@@ -1114,11 +1028,7 @@ ReservationApi <- R6::R6Class(
 
       query_params[["timeBucketMins"]] <- `time_bucket_mins`
 
-      local_var_url_path <- "/api/{version}/reservable/schedule/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/reservable/schedule/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

@@ -17,7 +17,6 @@
 #' ####################  CreateLeaderboard  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user creating the leaderboard. (Optional)
 #' var_app_key <- "app_key_example" # character | The application key (Optional)
 #' var_rank_type <- "rank_type_example" # character | a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (Optional)
@@ -36,15 +35,14 @@
 #' api_instance <- LeaderboardApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateLeaderboard(var_version, account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, icon_media = var_icon_media, icon_asset_id = var_icon_asset_id, banner_media = var_banner_media, banner_asset_id = var_banner_asset_id, limitation = var_limitation, sort_field = var_sort_field, title = var_title, description = var_description, meta_data = var_meta_datadata_file = "result.txt")
-#' result <- api_instance$CreateLeaderboard(var_version, account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, icon_media = var_icon_media, icon_asset_id = var_icon_asset_id, banner_media = var_banner_media, banner_asset_id = var_banner_asset_id, limitation = var_limitation, sort_field = var_sort_field, title = var_title, description = var_description, meta_data = var_meta_data)
+#' # result <- api_instance$CreateLeaderboard(account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, icon_media = var_icon_media, icon_asset_id = var_icon_asset_id, banner_media = var_banner_media, banner_asset_id = var_banner_asset_id, limitation = var_limitation, sort_field = var_sort_field, title = var_title, description = var_description, meta_data = var_meta_datadata_file = "result.txt")
+#' result <- api_instance$CreateLeaderboard(account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, icon_media = var_icon_media, icon_asset_id = var_icon_asset_id, banner_media = var_banner_media, banner_asset_id = var_banner_asset_id, limitation = var_limitation, sort_field = var_sort_field, title = var_title, description = var_description, meta_data = var_meta_data)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteLeaderboard  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_leaderboard_id <- 56 # integer | The leaderboard id to delete.
 #' var_account_id <- 56 # integer | The account id of the user making the request. (Optional)
 #'
@@ -52,15 +50,14 @@
 #' api_instance <- LeaderboardApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteLeaderboard(var_version, var_leaderboard_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteLeaderboard(var_version, var_leaderboard_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteLeaderboard(var_leaderboard_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteLeaderboard(var_leaderboard_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetLeaderboard  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_leaderboard_id <- 56 # integer | The leaderboard id.
 #' var_account_id <- 56 # integer | A valid account. (Optional)
 #' var_include_full_ranking_list <- "include_full_ranking_list_example" # character | set to true if need to return the leaderboard's full ranking list (Optional)
@@ -69,15 +66,14 @@
 #' api_instance <- LeaderboardApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetLeaderboard(var_version, var_leaderboard_id, account_id = var_account_id, include_full_ranking_list = var_include_full_ranking_listdata_file = "result.txt")
-#' result <- api_instance$GetLeaderboard(var_version, var_leaderboard_id, account_id = var_account_id, include_full_ranking_list = var_include_full_ranking_list)
+#' # result <- api_instance$GetLeaderboard(var_leaderboard_id, account_id = var_account_id, include_full_ranking_list = var_include_full_ranking_listdata_file = "result.txt")
+#' result <- api_instance$GetLeaderboard(var_leaderboard_id, account_id = var_account_id, include_full_ranking_list = var_include_full_ranking_list)
 #' dput(result)
 #'
 #'
 #' ####################  SearchLeaderboards  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user requesting the search. (Optional)
 #' var_app_key <- "app_key_example" # character | The application key. (Optional)
 #' var_global_only <- "global_only_example" # character | only include global leaderboards (this overrides the appKey filter) (Optional)
@@ -95,15 +91,14 @@
 #' api_instance <- LeaderboardApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchLeaderboards(var_version, account_id = var_account_id, app_key = var_app_key, global_only = var_global_only, keyword = var_keyword, leaderboard_ids = var_leaderboard_ids, rank_types = var_rank_types, sort_field = var_sort_field, descending = var_descending, include_inactive = var_include_inactive, include_app_response = var_include_app_response, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchLeaderboards(var_version, account_id = var_account_id, app_key = var_app_key, global_only = var_global_only, keyword = var_keyword, leaderboard_ids = var_leaderboard_ids, rank_types = var_rank_types, sort_field = var_sort_field, descending = var_descending, include_inactive = var_include_inactive, include_app_response = var_include_app_response, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchLeaderboards(account_id = var_account_id, app_key = var_app_key, global_only = var_global_only, keyword = var_keyword, leaderboard_ids = var_leaderboard_ids, rank_types = var_rank_types, sort_field = var_sort_field, descending = var_descending, include_inactive = var_include_inactive, include_app_response = var_include_app_response, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchLeaderboards(account_id = var_account_id, app_key = var_app_key, global_only = var_global_only, keyword = var_keyword, leaderboard_ids = var_leaderboard_ids, rank_types = var_rank_types, sort_field = var_sort_field, descending = var_descending, include_inactive = var_include_inactive, include_app_response = var_include_app_response, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateLeaderboard  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_leaderboard_id <- 56 # integer | The leaderboard id to update.
 #' var_account_id <- 56 # integer | The account id of the user updating the leaderboard. (Optional)
 #' var_app_key <- "app_key_example" # character | The application key (Optional)
@@ -124,8 +119,8 @@
 #' api_instance <- LeaderboardApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateLeaderboard(var_version, var_leaderboard_id, account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, sort_field = var_sort_field, icon_media = var_icon_media, icon_asset_id = var_icon_asset_id, banner_media = var_banner_media, banner_asset_id = var_banner_asset_id, limitation = var_limitation, active = var_active, title = var_title, description = var_description, meta_data = var_meta_datadata_file = "result.txt")
-#' result <- api_instance$UpdateLeaderboard(var_version, var_leaderboard_id, account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, sort_field = var_sort_field, icon_media = var_icon_media, icon_asset_id = var_icon_asset_id, banner_media = var_banner_media, banner_asset_id = var_banner_asset_id, limitation = var_limitation, active = var_active, title = var_title, description = var_description, meta_data = var_meta_data)
+#' # result <- api_instance$UpdateLeaderboard(var_leaderboard_id, account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, sort_field = var_sort_field, icon_media = var_icon_media, icon_asset_id = var_icon_asset_id, banner_media = var_banner_media, banner_asset_id = var_banner_asset_id, limitation = var_limitation, active = var_active, title = var_title, description = var_description, meta_data = var_meta_datadata_file = "result.txt")
+#' result <- api_instance$UpdateLeaderboard(var_leaderboard_id, account_id = var_account_id, app_key = var_app_key, rank_type = var_rank_type, leaderboard_mode = var_leaderboard_mode, sort_field = var_sort_field, icon_media = var_icon_media, icon_asset_id = var_icon_asset_id, banner_media = var_banner_media, banner_asset_id = var_banner_asset_id, limitation = var_limitation, active = var_active, title = var_title, description = var_description, meta_data = var_meta_data)
 #' dput(result)
 #'
 #'
@@ -153,7 +148,6 @@ LeaderboardApi <- R6::R6Class(
     #' @description
     #' Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user creating the leaderboard.
     #' @param app_key (optional) The application key
     #' @param rank_type (optional) a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -172,8 +166,8 @@ LeaderboardApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return LeaderboardResponse
-    CreateLeaderboard = function(version, account_id = NULL, app_key = NULL, rank_type = NULL, leaderboard_mode = NULL, icon_media = NULL, icon_asset_id = NULL, banner_media = NULL, banner_asset_id = NULL, limitation = NULL, sort_field = NULL, title = NULL, description = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateLeaderboardWithHttpInfo(version, account_id, app_key, rank_type, leaderboard_mode, icon_media, icon_asset_id, banner_media, banner_asset_id, limitation, sort_field, title, description, meta_data, data_file = data_file, ..., .parse = .parse)
+    CreateLeaderboard = function(account_id = NULL, app_key = NULL, rank_type = NULL, leaderboard_mode = NULL, icon_media = NULL, icon_asset_id = NULL, banner_media = NULL, banner_asset_id = NULL, limitation = NULL, sort_field = NULL, title = NULL, description = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateLeaderboardWithHttpInfo(account_id, app_key, rank_type, leaderboard_mode, icon_media, icon_asset_id, banner_media, banner_asset_id, limitation, sort_field, title, description, meta_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -188,7 +182,6 @@ LeaderboardApi <- R6::R6Class(
     #' @description
     #' Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user creating the leaderboard.
     #' @param app_key (optional) The application key
     #' @param rank_type (optional) a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -207,7 +200,7 @@ LeaderboardApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (LeaderboardResponse) with additional information such as HTTP status code, headers
-    CreateLeaderboardWithHttpInfo = function(version, account_id = NULL, app_key = NULL, rank_type = NULL, leaderboard_mode = NULL, icon_media = NULL, icon_asset_id = NULL, banner_media = NULL, banner_asset_id = NULL, limitation = NULL, sort_field = NULL, title = NULL, description = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateLeaderboardWithHttpInfo = function(account_id = NULL, app_key = NULL, rank_type = NULL, leaderboard_mode = NULL, icon_media = NULL, icon_asset_id = NULL, banner_media = NULL, banner_asset_id = NULL, limitation = NULL, sort_field = NULL, title = NULL, description = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -216,14 +209,6 @@ LeaderboardApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LeaderboardApi$CreateLeaderboard, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling LeaderboardApi$CreateLeaderboard, `account_id` is not nullable")
@@ -303,11 +288,7 @@ LeaderboardApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/leaderboard/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/leaderboard/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -368,7 +349,6 @@ LeaderboardApi <- R6::R6Class(
     #' @description
     #' Delete the Leader Board
     #'
-    #' @param version 
     #' @param leaderboard_id The leaderboard id to delete.
     #' @param account_id (optional) The account id of the user making the request.
     #' @param data_file (optional) name of the data file to save the result
@@ -376,8 +356,8 @@ LeaderboardApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteLeaderboard = function(version, leaderboard_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteLeaderboardWithHttpInfo(version, leaderboard_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteLeaderboard = function(leaderboard_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteLeaderboardWithHttpInfo(leaderboard_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -392,7 +372,6 @@ LeaderboardApi <- R6::R6Class(
     #' @description
     #' Delete the Leader Board
     #'
-    #' @param version 
     #' @param leaderboard_id The leaderboard id to delete.
     #' @param account_id (optional) The account id of the user making the request.
     #' @param data_file (optional) name of the data file to save the result
@@ -400,7 +379,7 @@ LeaderboardApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteLeaderboardWithHttpInfo = function(version, leaderboard_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteLeaderboardWithHttpInfo = function(leaderboard_id, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -410,16 +389,8 @@ LeaderboardApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`leaderboard_id`)) {
         stop("Missing required parameter `leaderboard_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LeaderboardApi$DeleteLeaderboard, `version` is not nullable")
       }
 
       if (!missing(`leaderboard_id`) && is.null(`leaderboard_id`)) {
@@ -434,11 +405,7 @@ LeaderboardApi <- R6::R6Class(
 
       query_params[["leaderboardId"]] <- `leaderboard_id`
 
-      local_var_url_path <- "/api/{version}/leaderboard/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/leaderboard/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -499,7 +466,6 @@ LeaderboardApi <- R6::R6Class(
     #' @description
     #' Read a leaderboard by id and retrieve the matching ranking list
     #'
-    #' @param version 
     #' @param leaderboard_id The leaderboard id.
     #' @param account_id (optional) A valid account.
     #' @param include_full_ranking_list (optional) set to true if need to return the leaderboard's full ranking list
@@ -508,8 +474,8 @@ LeaderboardApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return LeaderboardResponse
-    GetLeaderboard = function(version, leaderboard_id, account_id = NULL, include_full_ranking_list = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetLeaderboardWithHttpInfo(version, leaderboard_id, account_id, include_full_ranking_list, data_file = data_file, ..., .parse = .parse)
+    GetLeaderboard = function(leaderboard_id, account_id = NULL, include_full_ranking_list = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetLeaderboardWithHttpInfo(leaderboard_id, account_id, include_full_ranking_list, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -524,7 +490,6 @@ LeaderboardApi <- R6::R6Class(
     #' @description
     #' Read a leaderboard by id and retrieve the matching ranking list
     #'
-    #' @param version 
     #' @param leaderboard_id The leaderboard id.
     #' @param account_id (optional) A valid account.
     #' @param include_full_ranking_list (optional) set to true if need to return the leaderboard's full ranking list
@@ -533,7 +498,7 @@ LeaderboardApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (LeaderboardResponse) with additional information such as HTTP status code, headers
-    GetLeaderboardWithHttpInfo = function(version, leaderboard_id, account_id = NULL, include_full_ranking_list = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetLeaderboardWithHttpInfo = function(leaderboard_id, account_id = NULL, include_full_ranking_list = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -543,16 +508,8 @@ LeaderboardApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`leaderboard_id`)) {
         stop("Missing required parameter `leaderboard_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LeaderboardApi$GetLeaderboard, `version` is not nullable")
       }
 
       if (!missing(`leaderboard_id`) && is.null(`leaderboard_id`)) {
@@ -573,11 +530,7 @@ LeaderboardApi <- R6::R6Class(
 
       query_params[["includeFullRankingList"]] <- `include_full_ranking_list`
 
-      local_var_url_path <- "/api/{version}/leaderboard/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/leaderboard/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -638,7 +591,6 @@ LeaderboardApi <- R6::R6Class(
     #' @description
     #' Search leaderboard and retrieve the matching ranking list
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user requesting the search.
     #' @param app_key (optional) The application key.
     #' @param global_only (optional) only include global leaderboards (this overrides the appKey filter)
@@ -656,8 +608,8 @@ LeaderboardApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return LeaderboardResponse
-    SearchLeaderboards = function(version, account_id = NULL, app_key = NULL, global_only = NULL, keyword = NULL, leaderboard_ids = NULL, rank_types = NULL, sort_field = NULL, descending = NULL, include_inactive = NULL, include_app_response = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchLeaderboardsWithHttpInfo(version, account_id, app_key, global_only, keyword, leaderboard_ids, rank_types, sort_field, descending, include_inactive, include_app_response, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchLeaderboards = function(account_id = NULL, app_key = NULL, global_only = NULL, keyword = NULL, leaderboard_ids = NULL, rank_types = NULL, sort_field = NULL, descending = NULL, include_inactive = NULL, include_app_response = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchLeaderboardsWithHttpInfo(account_id, app_key, global_only, keyword, leaderboard_ids, rank_types, sort_field, descending, include_inactive, include_app_response, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -672,7 +624,6 @@ LeaderboardApi <- R6::R6Class(
     #' @description
     #' Search leaderboard and retrieve the matching ranking list
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user requesting the search.
     #' @param app_key (optional) The application key.
     #' @param global_only (optional) only include global leaderboards (this overrides the appKey filter)
@@ -690,7 +641,7 @@ LeaderboardApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (LeaderboardResponse) with additional information such as HTTP status code, headers
-    SearchLeaderboardsWithHttpInfo = function(version, account_id = NULL, app_key = NULL, global_only = NULL, keyword = NULL, leaderboard_ids = NULL, rank_types = NULL, sort_field = NULL, descending = NULL, include_inactive = NULL, include_app_response = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchLeaderboardsWithHttpInfo = function(account_id = NULL, app_key = NULL, global_only = NULL, keyword = NULL, leaderboard_ids = NULL, rank_types = NULL, sort_field = NULL, descending = NULL, include_inactive = NULL, include_app_response = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -699,14 +650,6 @@ LeaderboardApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LeaderboardApi$SearchLeaderboards, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling LeaderboardApi$SearchLeaderboards, `account_id` is not nullable")
@@ -780,11 +723,7 @@ LeaderboardApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/leaderboard/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/leaderboard/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -845,7 +784,6 @@ LeaderboardApi <- R6::R6Class(
     #' @description
     #' Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
     #'
-    #' @param version 
     #' @param leaderboard_id The leaderboard id to update.
     #' @param account_id (optional) The account id of the user updating the leaderboard.
     #' @param app_key (optional) The application key
@@ -866,8 +804,8 @@ LeaderboardApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return LeaderboardResponse
-    UpdateLeaderboard = function(version, leaderboard_id, account_id = NULL, app_key = NULL, rank_type = NULL, leaderboard_mode = NULL, sort_field = NULL, icon_media = NULL, icon_asset_id = NULL, banner_media = NULL, banner_asset_id = NULL, limitation = NULL, active = NULL, title = NULL, description = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateLeaderboardWithHttpInfo(version, leaderboard_id, account_id, app_key, rank_type, leaderboard_mode, sort_field, icon_media, icon_asset_id, banner_media, banner_asset_id, limitation, active, title, description, meta_data, data_file = data_file, ..., .parse = .parse)
+    UpdateLeaderboard = function(leaderboard_id, account_id = NULL, app_key = NULL, rank_type = NULL, leaderboard_mode = NULL, sort_field = NULL, icon_media = NULL, icon_asset_id = NULL, banner_media = NULL, banner_asset_id = NULL, limitation = NULL, active = NULL, title = NULL, description = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateLeaderboardWithHttpInfo(leaderboard_id, account_id, app_key, rank_type, leaderboard_mode, sort_field, icon_media, icon_asset_id, banner_media, banner_asset_id, limitation, active, title, description, meta_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -882,7 +820,6 @@ LeaderboardApi <- R6::R6Class(
     #' @description
     #' Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
     #'
-    #' @param version 
     #' @param leaderboard_id The leaderboard id to update.
     #' @param account_id (optional) The account id of the user updating the leaderboard.
     #' @param app_key (optional) The application key
@@ -903,7 +840,7 @@ LeaderboardApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (LeaderboardResponse) with additional information such as HTTP status code, headers
-    UpdateLeaderboardWithHttpInfo = function(version, leaderboard_id, account_id = NULL, app_key = NULL, rank_type = NULL, leaderboard_mode = NULL, sort_field = NULL, icon_media = NULL, icon_asset_id = NULL, banner_media = NULL, banner_asset_id = NULL, limitation = NULL, active = NULL, title = NULL, description = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateLeaderboardWithHttpInfo = function(leaderboard_id, account_id = NULL, app_key = NULL, rank_type = NULL, leaderboard_mode = NULL, sort_field = NULL, icon_media = NULL, icon_asset_id = NULL, banner_media = NULL, banner_asset_id = NULL, limitation = NULL, active = NULL, title = NULL, description = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -913,16 +850,8 @@ LeaderboardApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`leaderboard_id`)) {
         stop("Missing required parameter `leaderboard_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LeaderboardApi$UpdateLeaderboard, `version` is not nullable")
       }
 
       if (!missing(`leaderboard_id`) && is.null(`leaderboard_id`)) {
@@ -1015,11 +944,7 @@ LeaderboardApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/leaderboard/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/leaderboard/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

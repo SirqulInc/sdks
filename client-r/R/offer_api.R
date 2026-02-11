@@ -17,7 +17,6 @@
 #' ####################  BatchUpdateOfferLocations  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_data <- "data_example" # character | JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -26,15 +25,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$BatchUpdateOfferLocations(var_version, var_data, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$BatchUpdateOfferLocations(var_version, var_data, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$BatchUpdateOfferLocations(var_data, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$BatchUpdateOfferLocations(var_data, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  CreateOffer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_include_offer_locations <- "include_offer_locations_example" # character | If true return all the offer locations associated with the offer
 #' var_title <- "title_example" # character | The title (255 char limit)
 #' var_barcode_type <- "barcode_type_example" # character | The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -126,15 +124,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateOffer(var_version, var_include_offer_locations, var_title, var_barcode_type, var_no_expiration, var_available_limit, var_available_limit_per_user, var_added_limit, var_view_limit, var_max_prints, var_ticket_price, var_full_price, var_discount_price, var_offer_type, var_special_offer_type, var_offer_visibility, var_active, device_id = var_device_id, account_id = var_account_id, tags = var_tags, parent_offer_id = var_parent_offer_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, external_id = var_external_id, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, ticket_price_type = var_ticket_price_type, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, category_ids = var_category_ids, filter_ids = var_filter_ids, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, brand = var_brand, product_type = var_product_type, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, department = var_department, features = var_features, minimum_price = var_minimum_price, width = var_width, height = var_height, depth = var_depth, weight = var_weight, unit = var_unit, studio = var_studio, parental_rating = var_parental_rating, publish_date = var_publish_date, availability_date = var_availability_date, size_id = var_size_id, listing_id = var_listing_id, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, reboot_time_hour = var_reboot_time_hour, reboot_time_minute = var_reboot_time_minute, idle_timeout_in_second = var_idle_timeout_in_second, serial_number = var_serial_number, udid = var_udid, device_type = var_device_type, device_power = var_device_power, device_interference = var_device_interference, availability = var_availability, availability_summary = var_availability_summarydata_file = "result.txt")
-#' result <- api_instance$CreateOffer(var_version, var_include_offer_locations, var_title, var_barcode_type, var_no_expiration, var_available_limit, var_available_limit_per_user, var_added_limit, var_view_limit, var_max_prints, var_ticket_price, var_full_price, var_discount_price, var_offer_type, var_special_offer_type, var_offer_visibility, var_active, device_id = var_device_id, account_id = var_account_id, tags = var_tags, parent_offer_id = var_parent_offer_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, external_id = var_external_id, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, ticket_price_type = var_ticket_price_type, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, category_ids = var_category_ids, filter_ids = var_filter_ids, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, brand = var_brand, product_type = var_product_type, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, department = var_department, features = var_features, minimum_price = var_minimum_price, width = var_width, height = var_height, depth = var_depth, weight = var_weight, unit = var_unit, studio = var_studio, parental_rating = var_parental_rating, publish_date = var_publish_date, availability_date = var_availability_date, size_id = var_size_id, listing_id = var_listing_id, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, reboot_time_hour = var_reboot_time_hour, reboot_time_minute = var_reboot_time_minute, idle_timeout_in_second = var_idle_timeout_in_second, serial_number = var_serial_number, udid = var_udid, device_type = var_device_type, device_power = var_device_power, device_interference = var_device_interference, availability = var_availability, availability_summary = var_availability_summary)
+#' # result <- api_instance$CreateOffer(var_include_offer_locations, var_title, var_barcode_type, var_no_expiration, var_available_limit, var_available_limit_per_user, var_added_limit, var_view_limit, var_max_prints, var_ticket_price, var_full_price, var_discount_price, var_offer_type, var_special_offer_type, var_offer_visibility, var_active, device_id = var_device_id, account_id = var_account_id, tags = var_tags, parent_offer_id = var_parent_offer_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, external_id = var_external_id, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, ticket_price_type = var_ticket_price_type, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, category_ids = var_category_ids, filter_ids = var_filter_ids, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, brand = var_brand, product_type = var_product_type, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, department = var_department, features = var_features, minimum_price = var_minimum_price, width = var_width, height = var_height, depth = var_depth, weight = var_weight, unit = var_unit, studio = var_studio, parental_rating = var_parental_rating, publish_date = var_publish_date, availability_date = var_availability_date, size_id = var_size_id, listing_id = var_listing_id, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, reboot_time_hour = var_reboot_time_hour, reboot_time_minute = var_reboot_time_minute, idle_timeout_in_second = var_idle_timeout_in_second, serial_number = var_serial_number, udid = var_udid, device_type = var_device_type, device_power = var_device_power, device_interference = var_device_interference, availability = var_availability, availability_summary = var_availability_summarydata_file = "result.txt")
+#' result <- api_instance$CreateOffer(var_include_offer_locations, var_title, var_barcode_type, var_no_expiration, var_available_limit, var_available_limit_per_user, var_added_limit, var_view_limit, var_max_prints, var_ticket_price, var_full_price, var_discount_price, var_offer_type, var_special_offer_type, var_offer_visibility, var_active, device_id = var_device_id, account_id = var_account_id, tags = var_tags, parent_offer_id = var_parent_offer_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, external_id = var_external_id, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, ticket_price_type = var_ticket_price_type, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, category_ids = var_category_ids, filter_ids = var_filter_ids, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, brand = var_brand, product_type = var_product_type, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, department = var_department, features = var_features, minimum_price = var_minimum_price, width = var_width, height = var_height, depth = var_depth, weight = var_weight, unit = var_unit, studio = var_studio, parental_rating = var_parental_rating, publish_date = var_publish_date, availability_date = var_availability_date, size_id = var_size_id, listing_id = var_listing_id, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, reboot_time_hour = var_reboot_time_hour, reboot_time_minute = var_reboot_time_minute, idle_timeout_in_second = var_idle_timeout_in_second, serial_number = var_serial_number, udid = var_udid, device_type = var_device_type, device_power = var_device_power, device_interference = var_device_interference, availability = var_availability, availability_summary = var_availability_summary)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteOffer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_offer_id <- 56 # integer | The ID of the offer to be deleted
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account used to perform the delete, must have rights to edit the offer. (Optional)
@@ -143,15 +140,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteOffer(var_version, var_offer_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteOffer(var_version, var_offer_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteOffer(var_offer_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteOffer(var_offer_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteOfferLocation  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_offer_location_id <- 56 # integer | The ID of the offer location to be deleted
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account used to perform the delete, must have rights to edit the offer location. (Optional)
@@ -160,15 +156,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteOfferLocation(var_version, var_offer_location_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteOfferLocation(var_version, var_offer_location_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteOfferLocation(var_offer_location_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteOfferLocation(var_offer_location_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetOffer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_offer_id <- 56 # integer | The id of the offer
 #' var_include_offer_locations <- "include_offer_locations_example" # character | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
@@ -178,15 +173,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetOffer(var_version, var_offer_id, var_include_offer_locations, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetOffer(var_version, var_offer_id, var_include_offer_locations, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$GetOffer(var_offer_id, var_include_offer_locations, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetOffer(var_offer_id, var_include_offer_locations, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetOfferDetails  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id for returning account information (i.e. favorites) (Optional)
 #' var_account_id <- 56 # integer | The account id for returning account information (i.e. favorites) (Optional)
 #' var_offer_id <- 56 # integer | The offer id (either offeLocationId or offerId must be provided) (Optional)
@@ -202,15 +196,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetOfferDetails(var_version, device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, distance = var_distance, latitude = var_latitude, longitude = var_longitude, include_offer_locations = var_include_offer_locations, include_retailer_locations = var_include_retailer_locations, include_child_offers = var_include_child_offersdata_file = "result.txt")
-#' result <- api_instance$GetOfferDetails(var_version, device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, distance = var_distance, latitude = var_latitude, longitude = var_longitude, include_offer_locations = var_include_offer_locations, include_retailer_locations = var_include_retailer_locations, include_child_offers = var_include_child_offers)
+#' # result <- api_instance$GetOfferDetails(device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, distance = var_distance, latitude = var_latitude, longitude = var_longitude, include_offer_locations = var_include_offer_locations, include_retailer_locations = var_include_retailer_locations, include_child_offers = var_include_child_offersdata_file = "result.txt")
+#' result <- api_instance$GetOfferDetails(device_id = var_device_id, account_id = var_account_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, distance = var_distance, latitude = var_latitude, longitude = var_longitude, include_offer_locations = var_include_offer_locations, include_retailer_locations = var_include_retailer_locations, include_child_offers = var_include_child_offers)
 #' dput(result)
 #'
 #'
 #' ####################  GetOfferListCounts  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_latitude <- 3.4 # numeric | The latitude of where the search will center at
 #' var_longitude <- 3.4 # numeric | The longitude of where the search will center at
 #' var_search_range <- 5 # numeric | The range of the search (Optional)
@@ -220,15 +213,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetOfferListCounts(var_version, var_latitude, var_longitude, search_range = var_search_range, distance_unit = var_distance_unitdata_file = "result.txt")
-#' result <- api_instance$GetOfferListCounts(var_version, var_latitude, var_longitude, search_range = var_search_range, distance_unit = var_distance_unit)
+#' # result <- api_instance$GetOfferListCounts(var_latitude, var_longitude, search_range = var_search_range, distance_unit = var_distance_unitdata_file = "result.txt")
+#' result <- api_instance$GetOfferListCounts(var_latitude, var_longitude, search_range = var_search_range, distance_unit = var_distance_unit)
 #' dput(result)
 #'
 #'
 #' ####################  GetOfferLocation  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_offer_location_id <- 56 # integer | the id of the offer location to get (Optional)
 #' var_udid <- "udid_example" # character | the UDID of the device (Optional)
 #'
@@ -236,15 +228,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetOfferLocation(var_version, offer_location_id = var_offer_location_id, udid = var_udiddata_file = "result.txt")
-#' result <- api_instance$GetOfferLocation(var_version, offer_location_id = var_offer_location_id, udid = var_udid)
+#' # result <- api_instance$GetOfferLocation(offer_location_id = var_offer_location_id, udid = var_udiddata_file = "result.txt")
+#' result <- api_instance$GetOfferLocation(offer_location_id = var_offer_location_id, udid = var_udid)
 #' dput(result)
 #'
 #'
 #' ####################  GetOfferLocationsForRetailers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_sort_field <- "sort_field_example" # character | The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
 #' var_descending <- "descending_example" # character | The order to return the results. Default is false, which will return the results in ascending order.
 #' var_start <- 56 # integer | The index into the record set to start with. Default is 0.
@@ -270,15 +261,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetOfferLocationsForRetailers(var_version, var_sort_field, var_descending, var_start, var_limit, var_active_only, var_include_retailer_location, device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, offer_type = var_offer_type, special_offer_type = var_special_offer_type, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, isbn = var_isbn, asin = var_asin, device_status = var_device_status, needs_notification_sent = var_needs_notification_sent, last_notification_sent = var_last_notification_sentdata_file = "result.txt")
-#' result <- api_instance$GetOfferLocationsForRetailers(var_version, var_sort_field, var_descending, var_start, var_limit, var_active_only, var_include_retailer_location, device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, offer_type = var_offer_type, special_offer_type = var_special_offer_type, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, isbn = var_isbn, asin = var_asin, device_status = var_device_status, needs_notification_sent = var_needs_notification_sent, last_notification_sent = var_last_notification_sent)
+#' # result <- api_instance$GetOfferLocationsForRetailers(var_sort_field, var_descending, var_start, var_limit, var_active_only, var_include_retailer_location, device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, offer_type = var_offer_type, special_offer_type = var_special_offer_type, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, isbn = var_isbn, asin = var_asin, device_status = var_device_status, needs_notification_sent = var_needs_notification_sent, last_notification_sent = var_last_notification_sentdata_file = "result.txt")
+#' result <- api_instance$GetOfferLocationsForRetailers(var_sort_field, var_descending, var_start, var_limit, var_active_only, var_include_retailer_location, device_id = var_device_id, account_id = var_account_id, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, offer_type = var_offer_type, special_offer_type = var_special_offer_type, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, isbn = var_isbn, asin = var_asin, device_status = var_device_status, needs_notification_sent = var_needs_notification_sent, last_notification_sent = var_last_notification_sent)
 #' dput(result)
 #'
 #'
 #' ####################  GetOffersForRetailers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_offer_visibility <- "offer_visibility_example" # character | 
 #' var_sort_field <- "sort_field_example" # character | The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
 #' var_descending <- "descending_example" # character | The order to return the search results
@@ -315,15 +305,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetOffersForRetailers(var_version, var_offer_visibility, var_sort_field, var_descending, var_start, var_limit, var_available_only, var_active_only, var_include_categories, var_include_filters, var_include_offer_locations, device_id = var_device_id, account_id = var_account_id, category_ids = var_category_ids, filter_ids = var_filter_ids, q = var_q, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, coupon_type = var_coupon_type, offer_type = var_offer_type, offer_types = var_offer_types, special_offer_type = var_special_offer_type, _i = var__i, _l = var__l, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, isbn = var_isbn, asin = var_asin, device_status = var_device_status, needs_notification_sent = var_needs_notification_sent, last_notification_sent = var_last_notification_sentdata_file = "result.txt")
-#' result <- api_instance$GetOffersForRetailers(var_version, var_offer_visibility, var_sort_field, var_descending, var_start, var_limit, var_available_only, var_active_only, var_include_categories, var_include_filters, var_include_offer_locations, device_id = var_device_id, account_id = var_account_id, category_ids = var_category_ids, filter_ids = var_filter_ids, q = var_q, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, coupon_type = var_coupon_type, offer_type = var_offer_type, offer_types = var_offer_types, special_offer_type = var_special_offer_type, _i = var__i, _l = var__l, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, isbn = var_isbn, asin = var_asin, device_status = var_device_status, needs_notification_sent = var_needs_notification_sent, last_notification_sent = var_last_notification_sent)
+#' # result <- api_instance$GetOffersForRetailers(var_offer_visibility, var_sort_field, var_descending, var_start, var_limit, var_available_only, var_active_only, var_include_categories, var_include_filters, var_include_offer_locations, device_id = var_device_id, account_id = var_account_id, category_ids = var_category_ids, filter_ids = var_filter_ids, q = var_q, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, coupon_type = var_coupon_type, offer_type = var_offer_type, offer_types = var_offer_types, special_offer_type = var_special_offer_type, _i = var__i, _l = var__l, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, isbn = var_isbn, asin = var_asin, device_status = var_device_status, needs_notification_sent = var_needs_notification_sent, last_notification_sent = var_last_notification_sentdata_file = "result.txt")
+#' result <- api_instance$GetOffersForRetailers(var_offer_visibility, var_sort_field, var_descending, var_start, var_limit, var_available_only, var_active_only, var_include_categories, var_include_filters, var_include_offer_locations, device_id = var_device_id, account_id = var_account_id, category_ids = var_category_ids, filter_ids = var_filter_ids, q = var_q, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, coupon_type = var_coupon_type, offer_type = var_offer_type, offer_types = var_offer_types, special_offer_type = var_special_offer_type, _i = var__i, _l = var__l, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, isbn = var_isbn, asin = var_asin, device_status = var_device_status, needs_notification_sent = var_needs_notification_sent, last_notification_sent = var_last_notification_sent)
 #' dput(result)
 #'
 #'
 #' ####################  RedeemOfferTransaction  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_offer_transaction_id <- 56 # integer | the OfferTransaction ID of the transaction being redeemed
 #' var_status <- 56 # integer | the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
@@ -334,15 +323,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RedeemOfferTransaction(var_version, var_offer_transaction_id, var_status, device_id = var_device_id, account_id = var_account_id, offer_location_id = var_offer_location_iddata_file = "result.txt")
-#' result <- api_instance$RedeemOfferTransaction(var_version, var_offer_transaction_id, var_status, device_id = var_device_id, account_id = var_account_id, offer_location_id = var_offer_location_id)
+#' # result <- api_instance$RedeemOfferTransaction(var_offer_transaction_id, var_status, device_id = var_device_id, account_id = var_account_id, offer_location_id = var_offer_location_iddata_file = "result.txt")
+#' result <- api_instance$RedeemOfferTransaction(var_offer_transaction_id, var_status, device_id = var_device_id, account_id = var_account_id, offer_location_id = var_offer_location_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchOfferTransactionsForRetailers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_sort_field <- "sort_field_example" # character | Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
 #' var_descending <- "descending_example" # character | Determines whether the results are in descending order
 #' var_start <- 56 # integer | The start index for pagination
@@ -372,15 +360,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchOfferTransactionsForRetailers(var_version, var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, redeemed = var_redeemed, reservations_only = var_reservations_only, coupon_type = var_coupon_type, offer_type = var_offer_type, special_offer_type = var_special_offer_type, customer_account_ids = var_customer_account_ids, category_ids = var_category_ids, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, _i = var__i, _l = var__ldata_file = "result.txt")
-#' result <- api_instance$SearchOfferTransactionsForRetailers(var_version, var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, redeemed = var_redeemed, reservations_only = var_reservations_only, coupon_type = var_coupon_type, offer_type = var_offer_type, special_offer_type = var_special_offer_type, customer_account_ids = var_customer_account_ids, category_ids = var_category_ids, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, _i = var__i, _l = var__l)
+#' # result <- api_instance$SearchOfferTransactionsForRetailers(var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, redeemed = var_redeemed, reservations_only = var_reservations_only, coupon_type = var_coupon_type, offer_type = var_offer_type, special_offer_type = var_special_offer_type, customer_account_ids = var_customer_account_ids, category_ids = var_category_ids, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, _i = var__i, _l = var__ldata_file = "result.txt")
+#' result <- api_instance$SearchOfferTransactionsForRetailers(var_sort_field, var_descending, var_start, var_limit, var_active_only, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, redeemed = var_redeemed, reservations_only = var_reservations_only, coupon_type = var_coupon_type, offer_type = var_offer_type, special_offer_type = var_special_offer_type, customer_account_ids = var_customer_account_ids, category_ids = var_category_ids, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, _i = var__i, _l = var__l)
 #' dput(result)
 #'
 #'
 #' ####################  SearchOffersForConsumer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_latitude <- 3.4 # numeric | The latitude of where the search will center at
 #' var_longitude <- 3.4 # numeric | The longitude of where the search will center at
 #' var_recommendation_type <- "recommendation_type_example" # character | The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -417,15 +404,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchOffersForConsumer(var_version, var_latitude, var_longitude, var_recommendation_type, var_location_id, var_start, var_limit, var_max_recommendations, var_distance_unit, app_key = var_app_key, device_id = var_device_id, account_id = var_account_id, search_range = var_search_range, tags = var_tags, supported_postal_codes = var_supported_postal_codes, keyword = var_keyword, categories = var_categories, filters = var_filters, offer_types = var_offer_types, type = var_type, sort_field = var_sort_field, recommend_offer_ids = var_recommend_offer_ids, retailer_location_ids = var_retailer_location_ids, offer_id = var_offer_id, include_mission = var_include_mission, include_categories = var_include_categories, include_filters = var_include_filters, include_expired = var_include_expired, include_favorite = var_include_favorite, closest_offer_only = var_closest_offer_only, search_expression = var_search_expression, group_by = var_group_bydata_file = "result.txt")
-#' result <- api_instance$SearchOffersForConsumer(var_version, var_latitude, var_longitude, var_recommendation_type, var_location_id, var_start, var_limit, var_max_recommendations, var_distance_unit, app_key = var_app_key, device_id = var_device_id, account_id = var_account_id, search_range = var_search_range, tags = var_tags, supported_postal_codes = var_supported_postal_codes, keyword = var_keyword, categories = var_categories, filters = var_filters, offer_types = var_offer_types, type = var_type, sort_field = var_sort_field, recommend_offer_ids = var_recommend_offer_ids, retailer_location_ids = var_retailer_location_ids, offer_id = var_offer_id, include_mission = var_include_mission, include_categories = var_include_categories, include_filters = var_include_filters, include_expired = var_include_expired, include_favorite = var_include_favorite, closest_offer_only = var_closest_offer_only, search_expression = var_search_expression, group_by = var_group_by)
+#' # result <- api_instance$SearchOffersForConsumer(var_latitude, var_longitude, var_recommendation_type, var_location_id, var_start, var_limit, var_max_recommendations, var_distance_unit, app_key = var_app_key, device_id = var_device_id, account_id = var_account_id, search_range = var_search_range, tags = var_tags, supported_postal_codes = var_supported_postal_codes, keyword = var_keyword, categories = var_categories, filters = var_filters, offer_types = var_offer_types, type = var_type, sort_field = var_sort_field, recommend_offer_ids = var_recommend_offer_ids, retailer_location_ids = var_retailer_location_ids, offer_id = var_offer_id, include_mission = var_include_mission, include_categories = var_include_categories, include_filters = var_include_filters, include_expired = var_include_expired, include_favorite = var_include_favorite, closest_offer_only = var_closest_offer_only, search_expression = var_search_expression, group_by = var_group_bydata_file = "result.txt")
+#' result <- api_instance$SearchOffersForConsumer(var_latitude, var_longitude, var_recommendation_type, var_location_id, var_start, var_limit, var_max_recommendations, var_distance_unit, app_key = var_app_key, device_id = var_device_id, account_id = var_account_id, search_range = var_search_range, tags = var_tags, supported_postal_codes = var_supported_postal_codes, keyword = var_keyword, categories = var_categories, filters = var_filters, offer_types = var_offer_types, type = var_type, sort_field = var_sort_field, recommend_offer_ids = var_recommend_offer_ids, retailer_location_ids = var_retailer_location_ids, offer_id = var_offer_id, include_mission = var_include_mission, include_categories = var_include_categories, include_filters = var_include_filters, include_expired = var_include_expired, include_favorite = var_include_favorite, closest_offer_only = var_closest_offer_only, search_expression = var_search_expression, group_by = var_group_by)
 #' dput(result)
 #'
 #'
 #' ####################  TopOfferTransactions  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_start <- 0 # integer | The index into the record set to start with. Default is 0. (Optional)
 #' var_limit <- 20 # integer | The total number of record to return. Default id 20. (Optional)
 #'
@@ -433,15 +419,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$TopOfferTransactions(var_version, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$TopOfferTransactions(var_version, start = var_start, limit = var_limit)
+#' # result <- api_instance$TopOfferTransactions(start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$TopOfferTransactions(start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateOffer  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_offer_id <- 56 # integer | The offer to update
 #' var_include_offer_locations <- "include_offer_locations_example" # character | If true return all the offer locations associated with the offer
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
@@ -534,15 +519,14 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateOffer(var_version, var_offer_id, var_include_offer_locations, device_id = var_device_id, account_id = var_account_id, parent_offer_id = var_parent_offer_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, tags = var_tags, title = var_title, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, external_id = var_external_id, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, no_expiration = var_no_expiration, available_limit = var_available_limit, available_limit_per_user = var_available_limit_per_user, added_limit = var_added_limit, view_limit = var_view_limit, max_prints = var_max_prints, ticket_price_type = var_ticket_price_type, ticket_price = var_ticket_price, full_price = var_full_price, discount_price = var_discount_price, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, offer_type = var_offer_type, special_offer_type = var_special_offer_type, offer_visibility = var_offer_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, brand = var_brand, product_type = var_product_type, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, department = var_department, features = var_features, minimum_price = var_minimum_price, width = var_width, height = var_height, depth = var_depth, weight = var_weight, unit = var_unit, studio = var_studio, parental_rating = var_parental_rating, publish_date = var_publish_date, availability_date = var_availability_date, size_id = var_size_id, listing_id = var_listing_id, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, reboot_time_hour = var_reboot_time_hour, reboot_time_minute = var_reboot_time_minute, idle_timeout_in_second = var_idle_timeout_in_second, serial_number = var_serial_number, udid = var_udid, device_type = var_device_type, device_power = var_device_power, device_interference = var_device_interference, availability = var_availability, availability_summary = var_availability_summarydata_file = "result.txt")
-#' result <- api_instance$UpdateOffer(var_version, var_offer_id, var_include_offer_locations, device_id = var_device_id, account_id = var_account_id, parent_offer_id = var_parent_offer_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, tags = var_tags, title = var_title, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, external_id = var_external_id, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, no_expiration = var_no_expiration, available_limit = var_available_limit, available_limit_per_user = var_available_limit_per_user, added_limit = var_added_limit, view_limit = var_view_limit, max_prints = var_max_prints, ticket_price_type = var_ticket_price_type, ticket_price = var_ticket_price, full_price = var_full_price, discount_price = var_discount_price, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, offer_type = var_offer_type, special_offer_type = var_special_offer_type, offer_visibility = var_offer_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, brand = var_brand, product_type = var_product_type, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, department = var_department, features = var_features, minimum_price = var_minimum_price, width = var_width, height = var_height, depth = var_depth, weight = var_weight, unit = var_unit, studio = var_studio, parental_rating = var_parental_rating, publish_date = var_publish_date, availability_date = var_availability_date, size_id = var_size_id, listing_id = var_listing_id, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, reboot_time_hour = var_reboot_time_hour, reboot_time_minute = var_reboot_time_minute, idle_timeout_in_second = var_idle_timeout_in_second, serial_number = var_serial_number, udid = var_udid, device_type = var_device_type, device_power = var_device_power, device_interference = var_device_interference, availability = var_availability, availability_summary = var_availability_summary)
+#' # result <- api_instance$UpdateOffer(var_offer_id, var_include_offer_locations, device_id = var_device_id, account_id = var_account_id, parent_offer_id = var_parent_offer_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, tags = var_tags, title = var_title, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, external_id = var_external_id, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, no_expiration = var_no_expiration, available_limit = var_available_limit, available_limit_per_user = var_available_limit_per_user, added_limit = var_added_limit, view_limit = var_view_limit, max_prints = var_max_prints, ticket_price_type = var_ticket_price_type, ticket_price = var_ticket_price, full_price = var_full_price, discount_price = var_discount_price, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, offer_type = var_offer_type, special_offer_type = var_special_offer_type, offer_visibility = var_offer_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, brand = var_brand, product_type = var_product_type, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, department = var_department, features = var_features, minimum_price = var_minimum_price, width = var_width, height = var_height, depth = var_depth, weight = var_weight, unit = var_unit, studio = var_studio, parental_rating = var_parental_rating, publish_date = var_publish_date, availability_date = var_availability_date, size_id = var_size_id, listing_id = var_listing_id, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, reboot_time_hour = var_reboot_time_hour, reboot_time_minute = var_reboot_time_minute, idle_timeout_in_second = var_idle_timeout_in_second, serial_number = var_serial_number, udid = var_udid, device_type = var_device_type, device_power = var_device_power, device_interference = var_device_interference, availability = var_availability, availability_summary = var_availability_summarydata_file = "result.txt")
+#' result <- api_instance$UpdateOffer(var_offer_id, var_include_offer_locations, device_id = var_device_id, account_id = var_account_id, parent_offer_id = var_parent_offer_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, tags = var_tags, title = var_title, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, external_id = var_external_id, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, no_expiration = var_no_expiration, available_limit = var_available_limit, available_limit_per_user = var_available_limit_per_user, added_limit = var_added_limit, view_limit = var_view_limit, max_prints = var_max_prints, ticket_price_type = var_ticket_price_type, ticket_price = var_ticket_price, full_price = var_full_price, discount_price = var_discount_price, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, offer_type = var_offer_type, special_offer_type = var_special_offer_type, offer_visibility = var_offer_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, brand = var_brand, product_type = var_product_type, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, department = var_department, features = var_features, minimum_price = var_minimum_price, width = var_width, height = var_height, depth = var_depth, weight = var_weight, unit = var_unit, studio = var_studio, parental_rating = var_parental_rating, publish_date = var_publish_date, availability_date = var_availability_date, size_id = var_size_id, listing_id = var_listing_id, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, reboot_time_hour = var_reboot_time_hour, reboot_time_minute = var_reboot_time_minute, idle_timeout_in_second = var_idle_timeout_in_second, serial_number = var_serial_number, udid = var_udid, device_type = var_device_type, device_power = var_device_power, device_interference = var_device_interference, availability = var_availability, availability_summary = var_availability_summary)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateOfferStatus  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_offer_ids <- "offer_ids_example" # character | Comma separated list of offer ids
 #' var_active <- "active_example" # character | Determines whether to make the offer active as well
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
@@ -552,8 +536,8 @@
 #' api_instance <- OfferApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateOfferStatus(var_version, var_offer_ids, var_active, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$UpdateOfferStatus(var_version, var_offer_ids, var_active, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$UpdateOfferStatus(var_offer_ids, var_active, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$UpdateOfferStatus(var_offer_ids, var_active, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
@@ -581,7 +565,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Update Offer Locations
     #'
-    #' @param version 
     #' @param data JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -590,8 +573,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    BatchUpdateOfferLocations = function(version, data, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$BatchUpdateOfferLocationsWithHttpInfo(version, data, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    BatchUpdateOfferLocations = function(data, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BatchUpdateOfferLocationsWithHttpInfo(data, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -606,7 +589,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Update Offer Locations
     #'
-    #' @param version 
     #' @param data JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -615,7 +597,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    BatchUpdateOfferLocationsWithHttpInfo = function(version, data, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    BatchUpdateOfferLocationsWithHttpInfo = function(data, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -625,16 +607,8 @@ OfferApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`data`)) {
         stop("Missing required parameter `data`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$BatchUpdateOfferLocations, `version` is not nullable")
       }
 
       if (!missing(`data`) && is.null(`data`)) {
@@ -655,11 +629,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["data"]] <- `data`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/location/batchUpdate"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/location/batchUpdate"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -720,7 +690,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Create Offer
     #'
-    #' @param version 
     #' @param include_offer_locations If true return all the offer locations associated with the offer
     #' @param title The title (255 char limit)
     #' @param barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -812,8 +781,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RetailerOfferResponse
-    CreateOffer = function(version, include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, device_id = NULL, account_id = NULL, tags = NULL, parent_offer_id = NULL, retailer_location_ids = NULL, offer_locations = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, external_id = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, ticket_price_type = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, category_ids = NULL, filter_ids = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, brand = NULL, product_type = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, department = NULL, features = NULL, minimum_price = NULL, width = NULL, height = NULL, depth = NULL, weight = NULL, unit = NULL, studio = NULL, parental_rating = NULL, publish_date = NULL, availability_date = NULL, size_id = NULL, listing_id = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, reboot_time_hour = NULL, reboot_time_minute = NULL, idle_timeout_in_second = NULL, serial_number = NULL, udid = NULL, device_type = NULL, device_power = NULL, device_interference = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateOfferWithHttpInfo(version, include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, device_id, account_id, tags, parent_offer_id, retailer_location_ids, offer_locations, sub_title, details, sub_details, fine_print, barcode_entry, external_redeem_options, external_url, external_id, tickets_reward_type, tickets_reward, activated, expires, ticket_price_type, show_remaining, show_redeemed, replaced, featured, category_ids, filter_ids, barcode_asset_id, image_asset_id, image_asset_id1, image_asset_id2, image_asset_id3, image_asset_id4, image_asset_id5, publisher, redeemable_start, redeemable_end, brand, product_type, condition_type, isbn, asin, catalog_numbers, department, features, minimum_price, width, height, depth, weight, unit, studio, parental_rating, publish_date, availability_date, size_id, listing_id, media_type, duration, author, release_date, collection_ids, reboot_time_hour, reboot_time_minute, idle_timeout_in_second, serial_number, udid, device_type, device_power, device_interference, availability, availability_summary, data_file = data_file, ..., .parse = .parse)
+    CreateOffer = function(include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, device_id = NULL, account_id = NULL, tags = NULL, parent_offer_id = NULL, retailer_location_ids = NULL, offer_locations = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, external_id = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, ticket_price_type = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, category_ids = NULL, filter_ids = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, brand = NULL, product_type = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, department = NULL, features = NULL, minimum_price = NULL, width = NULL, height = NULL, depth = NULL, weight = NULL, unit = NULL, studio = NULL, parental_rating = NULL, publish_date = NULL, availability_date = NULL, size_id = NULL, listing_id = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, reboot_time_hour = NULL, reboot_time_minute = NULL, idle_timeout_in_second = NULL, serial_number = NULL, udid = NULL, device_type = NULL, device_power = NULL, device_interference = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateOfferWithHttpInfo(include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, device_id, account_id, tags, parent_offer_id, retailer_location_ids, offer_locations, sub_title, details, sub_details, fine_print, barcode_entry, external_redeem_options, external_url, external_id, tickets_reward_type, tickets_reward, activated, expires, ticket_price_type, show_remaining, show_redeemed, replaced, featured, category_ids, filter_ids, barcode_asset_id, image_asset_id, image_asset_id1, image_asset_id2, image_asset_id3, image_asset_id4, image_asset_id5, publisher, redeemable_start, redeemable_end, brand, product_type, condition_type, isbn, asin, catalog_numbers, department, features, minimum_price, width, height, depth, weight, unit, studio, parental_rating, publish_date, availability_date, size_id, listing_id, media_type, duration, author, release_date, collection_ids, reboot_time_hour, reboot_time_minute, idle_timeout_in_second, serial_number, udid, device_type, device_power, device_interference, availability, availability_summary, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -828,7 +797,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Create Offer
     #'
-    #' @param version 
     #' @param include_offer_locations If true return all the offer locations associated with the offer
     #' @param title The title (255 char limit)
     #' @param barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -920,7 +888,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RetailerOfferResponse) with additional information such as HTTP status code, headers
-    CreateOfferWithHttpInfo = function(version, include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, device_id = NULL, account_id = NULL, tags = NULL, parent_offer_id = NULL, retailer_location_ids = NULL, offer_locations = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, external_id = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, ticket_price_type = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, category_ids = NULL, filter_ids = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, brand = NULL, product_type = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, department = NULL, features = NULL, minimum_price = NULL, width = NULL, height = NULL, depth = NULL, weight = NULL, unit = NULL, studio = NULL, parental_rating = NULL, publish_date = NULL, availability_date = NULL, size_id = NULL, listing_id = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, reboot_time_hour = NULL, reboot_time_minute = NULL, idle_timeout_in_second = NULL, serial_number = NULL, udid = NULL, device_type = NULL, device_power = NULL, device_interference = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateOfferWithHttpInfo = function(include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, device_id = NULL, account_id = NULL, tags = NULL, parent_offer_id = NULL, retailer_location_ids = NULL, offer_locations = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, external_id = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, ticket_price_type = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, category_ids = NULL, filter_ids = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, brand = NULL, product_type = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, department = NULL, features = NULL, minimum_price = NULL, width = NULL, height = NULL, depth = NULL, weight = NULL, unit = NULL, studio = NULL, parental_rating = NULL, publish_date = NULL, availability_date = NULL, size_id = NULL, listing_id = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, reboot_time_hour = NULL, reboot_time_minute = NULL, idle_timeout_in_second = NULL, serial_number = NULL, udid = NULL, device_type = NULL, device_power = NULL, device_interference = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -929,10 +897,6 @@ OfferApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`include_offer_locations`)) {
         stop("Missing required parameter `include_offer_locations`.")
@@ -996,10 +960,6 @@ OfferApi <- R6::R6Class(
 
       if (missing(`active`)) {
         stop("Missing required parameter `active`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$CreateOffer, `version` is not nullable")
       }
 
       if (!missing(`include_offer_locations`) && is.null(`include_offer_locations`)) {
@@ -1542,11 +1502,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["availabilitySummary"]] <- `availability_summary`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1607,7 +1563,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Delete Offer
     #'
-    #' @param version 
     #' @param offer_id The ID of the offer to be deleted
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the offer.
@@ -1616,8 +1571,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteOffer = function(version, offer_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteOfferWithHttpInfo(version, offer_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteOffer = function(offer_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteOfferWithHttpInfo(offer_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1632,7 +1587,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Delete Offer
     #'
-    #' @param version 
     #' @param offer_id The ID of the offer to be deleted
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the offer.
@@ -1641,7 +1595,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteOfferWithHttpInfo = function(version, offer_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteOfferWithHttpInfo = function(offer_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1651,16 +1605,8 @@ OfferApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`offer_id`)) {
         stop("Missing required parameter `offer_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$DeleteOffer, `version` is not nullable")
       }
 
       if (!missing(`offer_id`) && is.null(`offer_id`)) {
@@ -1681,11 +1627,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["offerId"]] <- `offer_id`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1746,7 +1688,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Delete Offer Location
     #'
-    #' @param version 
     #' @param offer_location_id The ID of the offer location to be deleted
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the offer location.
@@ -1755,8 +1696,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteOfferLocation = function(version, offer_location_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteOfferLocationWithHttpInfo(version, offer_location_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteOfferLocation = function(offer_location_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteOfferLocationWithHttpInfo(offer_location_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1771,7 +1712,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Delete Offer Location
     #'
-    #' @param version 
     #' @param offer_location_id The ID of the offer location to be deleted
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the offer location.
@@ -1780,7 +1720,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteOfferLocationWithHttpInfo = function(version, offer_location_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteOfferLocationWithHttpInfo = function(offer_location_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1790,16 +1730,8 @@ OfferApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`offer_location_id`)) {
         stop("Missing required parameter `offer_location_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$DeleteOfferLocation, `version` is not nullable")
       }
 
       if (!missing(`offer_location_id`) && is.null(`offer_location_id`)) {
@@ -1820,11 +1752,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["offerLocationId"]] <- `offer_location_id`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/location/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/location/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1885,7 +1813,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Get Offer
     #'
-    #' @param version 
     #' @param offer_id The id of the offer
     #' @param include_offer_locations 
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -1895,8 +1822,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RetailerOfferResponse
-    GetOffer = function(version, offer_id, include_offer_locations, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetOfferWithHttpInfo(version, offer_id, include_offer_locations, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetOffer = function(offer_id, include_offer_locations, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetOfferWithHttpInfo(offer_id, include_offer_locations, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1911,7 +1838,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Get Offer
     #'
-    #' @param version 
     #' @param offer_id The id of the offer
     #' @param include_offer_locations 
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -1921,7 +1847,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RetailerOfferResponse) with additional information such as HTTP status code, headers
-    GetOfferWithHttpInfo = function(version, offer_id, include_offer_locations, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetOfferWithHttpInfo = function(offer_id, include_offer_locations, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1931,20 +1857,12 @@ OfferApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`offer_id`)) {
         stop("Missing required parameter `offer_id`.")
       }
 
       if (missing(`include_offer_locations`)) {
         stop("Missing required parameter `include_offer_locations`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$GetOffer, `version` is not nullable")
       }
 
       if (!missing(`offer_id`) && is.null(`offer_id`)) {
@@ -1971,11 +1889,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["includeOfferLocations"]] <- `include_offer_locations`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2036,7 +1950,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Get Offer
     #'
-    #' @param version 
     #' @param device_id (optional) The device id for returning account information (i.e. favorites)
     #' @param account_id (optional) The account id for returning account information (i.e. favorites)
     #' @param offer_id (optional) The offer id (either offeLocationId or offerId must be provided)
@@ -2052,8 +1965,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferResponse
-    GetOfferDetails = function(version, device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, distance = NULL, latitude = NULL, longitude = NULL, include_offer_locations = FALSE, include_retailer_locations = FALSE, include_child_offers = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetOfferDetailsWithHttpInfo(version, device_id, account_id, offer_id, offer_location_id, distance, latitude, longitude, include_offer_locations, include_retailer_locations, include_child_offers, data_file = data_file, ..., .parse = .parse)
+    GetOfferDetails = function(device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, distance = NULL, latitude = NULL, longitude = NULL, include_offer_locations = FALSE, include_retailer_locations = FALSE, include_child_offers = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetOfferDetailsWithHttpInfo(device_id, account_id, offer_id, offer_location_id, distance, latitude, longitude, include_offer_locations, include_retailer_locations, include_child_offers, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2068,7 +1981,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Get Offer
     #'
-    #' @param version 
     #' @param device_id (optional) The device id for returning account information (i.e. favorites)
     #' @param account_id (optional) The account id for returning account information (i.e. favorites)
     #' @param offer_id (optional) The offer id (either offeLocationId or offerId must be provided)
@@ -2084,7 +1996,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferResponse) with additional information such as HTTP status code, headers
-    GetOfferDetailsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, distance = NULL, latitude = NULL, longitude = NULL, include_offer_locations = FALSE, include_retailer_locations = FALSE, include_child_offers = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    GetOfferDetailsWithHttpInfo = function(device_id = NULL, account_id = NULL, offer_id = NULL, offer_location_id = NULL, distance = NULL, latitude = NULL, longitude = NULL, include_offer_locations = FALSE, include_retailer_locations = FALSE, include_child_offers = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2093,14 +2005,6 @@ OfferApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$GetOfferDetails, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling OfferApi$GetOfferDetails, `device_id` is not nullable")
@@ -2162,11 +2066,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["includeChildOffers"]] <- `include_child_offers`
 
-      local_var_url_path <- "/api/{version}/offer/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/offer/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2227,7 +2127,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Get Offers (Counts)
     #'
-    #' @param version 
     #' @param latitude The latitude of where the search will center at
     #' @param longitude The longitude of where the search will center at
     #' @param search_range (optional) The range of the search (default value: 5)
@@ -2237,8 +2136,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ListCountResponse
-    GetOfferListCounts = function(version, latitude, longitude, search_range = 5, distance_unit = "MILES", data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetOfferListCountsWithHttpInfo(version, latitude, longitude, search_range, distance_unit, data_file = data_file, ..., .parse = .parse)
+    GetOfferListCounts = function(latitude, longitude, search_range = 5, distance_unit = "MILES", data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetOfferListCountsWithHttpInfo(latitude, longitude, search_range, distance_unit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2253,7 +2152,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Get Offers (Counts)
     #'
-    #' @param version 
     #' @param latitude The latitude of where the search will center at
     #' @param longitude The longitude of where the search will center at
     #' @param search_range (optional) The range of the search (default value: 5)
@@ -2263,7 +2161,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ListCountResponse) with additional information such as HTTP status code, headers
-    GetOfferListCountsWithHttpInfo = function(version, latitude, longitude, search_range = 5, distance_unit = "MILES", data_file = NULL, ..., .parse = TRUE) {
+    GetOfferListCountsWithHttpInfo = function(latitude, longitude, search_range = 5, distance_unit = "MILES", data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2273,20 +2171,12 @@ OfferApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`latitude`)) {
         stop("Missing required parameter `latitude`.")
       }
 
       if (missing(`longitude`)) {
         stop("Missing required parameter `longitude`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$GetOfferListCounts, `version` is not nullable")
       }
 
       if (!missing(`latitude`) && is.null(`latitude`)) {
@@ -2316,11 +2206,7 @@ OfferApi <- R6::R6Class(
       }
       query_params[["distanceUnit"]] <- `distance_unit`
 
-      local_var_url_path <- "/api/{version}/offer/lists/count"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/offer/lists/count"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2381,7 +2267,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Get Offer Location
     #'
-    #' @param version 
     #' @param offer_location_id (optional) the id of the offer location to get
     #' @param udid (optional) the UDID of the device
     #' @param data_file (optional) name of the data file to save the result
@@ -2389,8 +2274,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferShortResponse
-    GetOfferLocation = function(version, offer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetOfferLocationWithHttpInfo(version, offer_location_id, udid, data_file = data_file, ..., .parse = .parse)
+    GetOfferLocation = function(offer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetOfferLocationWithHttpInfo(offer_location_id, udid, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2405,7 +2290,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Get Offer Location
     #'
-    #' @param version 
     #' @param offer_location_id (optional) the id of the offer location to get
     #' @param udid (optional) the UDID of the device
     #' @param data_file (optional) name of the data file to save the result
@@ -2413,7 +2297,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferShortResponse) with additional information such as HTTP status code, headers
-    GetOfferLocationWithHttpInfo = function(version, offer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetOfferLocationWithHttpInfo = function(offer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2422,14 +2306,6 @@ OfferApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$GetOfferLocation, `version` is not nullable")
-      }
 
       if (!missing(`offer_location_id`) && is.null(`offer_location_id`)) {
         stop("Invalid value for `offer_location_id` when calling OfferApi$GetOfferLocation, `offer_location_id` is not nullable")
@@ -2443,11 +2319,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["udid"]] <- `udid`
 
-      local_var_url_path <- "/api/{version}/offer/location/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/offer/location/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2508,7 +2380,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Search Offer Locations
     #'
-    #' @param version 
     #' @param sort_field The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
     #' @param descending The order to return the results. Default is false, which will return the results in ascending order.
     #' @param start The index into the record set to start with. Default is 0.
@@ -2534,8 +2405,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[OfferShortResponse]
-    GetOfferLocationsForRetailers = function(version, sort_field, descending, start, limit, active_only, include_retailer_location, device_id = NULL, account_id = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, offer_type = NULL, special_offer_type = NULL, barcode_type = NULL, barcode_entry = NULL, isbn = NULL, asin = NULL, device_status = NULL, needs_notification_sent = NULL, last_notification_sent = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetOfferLocationsForRetailersWithHttpInfo(version, sort_field, descending, start, limit, active_only, include_retailer_location, device_id, account_id, keyword, retailer_id, retailer_location_id, offer_type, special_offer_type, barcode_type, barcode_entry, isbn, asin, device_status, needs_notification_sent, last_notification_sent, data_file = data_file, ..., .parse = .parse)
+    GetOfferLocationsForRetailers = function(sort_field, descending, start, limit, active_only, include_retailer_location, device_id = NULL, account_id = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, offer_type = NULL, special_offer_type = NULL, barcode_type = NULL, barcode_entry = NULL, isbn = NULL, asin = NULL, device_status = NULL, needs_notification_sent = NULL, last_notification_sent = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetOfferLocationsForRetailersWithHttpInfo(sort_field, descending, start, limit, active_only, include_retailer_location, device_id, account_id, keyword, retailer_id, retailer_location_id, offer_type, special_offer_type, barcode_type, barcode_entry, isbn, asin, device_status, needs_notification_sent, last_notification_sent, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2550,7 +2421,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Search Offer Locations
     #'
-    #' @param version 
     #' @param sort_field The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
     #' @param descending The order to return the results. Default is false, which will return the results in ascending order.
     #' @param start The index into the record set to start with. Default is 0.
@@ -2576,7 +2446,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[OfferShortResponse]) with additional information such as HTTP status code, headers
-    GetOfferLocationsForRetailersWithHttpInfo = function(version, sort_field, descending, start, limit, active_only, include_retailer_location, device_id = NULL, account_id = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, offer_type = NULL, special_offer_type = NULL, barcode_type = NULL, barcode_entry = NULL, isbn = NULL, asin = NULL, device_status = NULL, needs_notification_sent = NULL, last_notification_sent = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetOfferLocationsForRetailersWithHttpInfo = function(sort_field, descending, start, limit, active_only, include_retailer_location, device_id = NULL, account_id = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, offer_type = NULL, special_offer_type = NULL, barcode_type = NULL, barcode_entry = NULL, isbn = NULL, asin = NULL, device_status = NULL, needs_notification_sent = NULL, last_notification_sent = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2585,10 +2455,6 @@ OfferApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`sort_field`)) {
         stop("Missing required parameter `sort_field`.")
@@ -2612,10 +2478,6 @@ OfferApi <- R6::R6Class(
 
       if (missing(`include_retailer_location`)) {
         stop("Missing required parameter `include_retailer_location`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$GetOfferLocationsForRetailers, `version` is not nullable")
       }
 
       if (!missing(`sort_field`) && is.null(`sort_field`)) {
@@ -2750,11 +2612,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["lastNotificationSent"]] <- `last_notification_sent`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/location/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/location/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2815,7 +2673,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Search Offers
     #'
-    #' @param version 
     #' @param offer_visibility 
     #' @param sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
     #' @param descending The order to return the search results
@@ -2852,8 +2709,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[OfferResponse]
-    GetOffersForRetailers = function(version, offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, device_id = NULL, account_id = NULL, category_ids = NULL, filter_ids = NULL, q = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, coupon_type = NULL, offer_type = NULL, offer_types = NULL, special_offer_type = NULL, _i = NULL, _l = NULL, barcode_type = NULL, barcode_entry = NULL, isbn = NULL, asin = NULL, device_status = NULL, needs_notification_sent = NULL, last_notification_sent = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetOffersForRetailersWithHttpInfo(version, offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, device_id, account_id, category_ids, filter_ids, q, keyword, retailer_id, retailer_location_id, coupon_type, offer_type, offer_types, special_offer_type, _i, _l, barcode_type, barcode_entry, isbn, asin, device_status, needs_notification_sent, last_notification_sent, data_file = data_file, ..., .parse = .parse)
+    GetOffersForRetailers = function(offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, device_id = NULL, account_id = NULL, category_ids = NULL, filter_ids = NULL, q = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, coupon_type = NULL, offer_type = NULL, offer_types = NULL, special_offer_type = NULL, _i = NULL, _l = NULL, barcode_type = NULL, barcode_entry = NULL, isbn = NULL, asin = NULL, device_status = NULL, needs_notification_sent = NULL, last_notification_sent = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetOffersForRetailersWithHttpInfo(offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, device_id, account_id, category_ids, filter_ids, q, keyword, retailer_id, retailer_location_id, coupon_type, offer_type, offer_types, special_offer_type, _i, _l, barcode_type, barcode_entry, isbn, asin, device_status, needs_notification_sent, last_notification_sent, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2868,7 +2725,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Search Offers
     #'
-    #' @param version 
     #' @param offer_visibility 
     #' @param sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
     #' @param descending The order to return the search results
@@ -2905,7 +2761,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[OfferResponse]) with additional information such as HTTP status code, headers
-    GetOffersForRetailersWithHttpInfo = function(version, offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, device_id = NULL, account_id = NULL, category_ids = NULL, filter_ids = NULL, q = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, coupon_type = NULL, offer_type = NULL, offer_types = NULL, special_offer_type = NULL, _i = NULL, _l = NULL, barcode_type = NULL, barcode_entry = NULL, isbn = NULL, asin = NULL, device_status = NULL, needs_notification_sent = NULL, last_notification_sent = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetOffersForRetailersWithHttpInfo = function(offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, device_id = NULL, account_id = NULL, category_ids = NULL, filter_ids = NULL, q = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, coupon_type = NULL, offer_type = NULL, offer_types = NULL, special_offer_type = NULL, _i = NULL, _l = NULL, barcode_type = NULL, barcode_entry = NULL, isbn = NULL, asin = NULL, device_status = NULL, needs_notification_sent = NULL, last_notification_sent = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2914,10 +2770,6 @@ OfferApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`offer_visibility`)) {
         stop("Missing required parameter `offer_visibility`.")
@@ -2957,10 +2809,6 @@ OfferApi <- R6::R6Class(
 
       if (missing(`include_offer_locations`)) {
         stop("Missing required parameter `include_offer_locations`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$GetOffersForRetailers, `version` is not nullable")
       }
 
       if (!missing(`offer_visibility`) && is.null(`offer_visibility`)) {
@@ -3167,11 +3015,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["lastNotificationSent"]] <- `last_notification_sent`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3232,7 +3076,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Update Offer Transaction
     #'
-    #' @param version 
     #' @param offer_transaction_id the OfferTransaction ID of the transaction being redeemed
     #' @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -3243,8 +3086,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RedeemOfferTransaction = function(version, offer_transaction_id, status, device_id = NULL, account_id = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RedeemOfferTransactionWithHttpInfo(version, offer_transaction_id, status, device_id, account_id, offer_location_id, data_file = data_file, ..., .parse = .parse)
+    RedeemOfferTransaction = function(offer_transaction_id, status, device_id = NULL, account_id = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RedeemOfferTransactionWithHttpInfo(offer_transaction_id, status, device_id, account_id, offer_location_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3259,7 +3102,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Update Offer Transaction
     #'
-    #' @param version 
     #' @param offer_transaction_id the OfferTransaction ID of the transaction being redeemed
     #' @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
     #' @param device_id (optional) the device id (deviceId or accountId required)
@@ -3270,7 +3112,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RedeemOfferTransactionWithHttpInfo = function(version, offer_transaction_id, status, device_id = NULL, account_id = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RedeemOfferTransactionWithHttpInfo = function(offer_transaction_id, status, device_id = NULL, account_id = NULL, offer_location_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3280,20 +3122,12 @@ OfferApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`offer_transaction_id`)) {
         stop("Missing required parameter `offer_transaction_id`.")
       }
 
       if (missing(`status`)) {
         stop("Missing required parameter `status`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$RedeemOfferTransaction, `version` is not nullable")
       }
 
       if (!missing(`offer_transaction_id`) && is.null(`offer_transaction_id`)) {
@@ -3326,11 +3160,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["status"]] <- `status`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/transaction/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/transaction/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3391,7 +3221,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Search Offer Transactions
     #'
-    #' @param version 
     #' @param sort_field Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
     #' @param descending Determines whether the results are in descending order
     #' @param start The start index for pagination
@@ -3421,8 +3250,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[OfferTransactionResponse]
-    SearchOfferTransactionsForRetailers = function(version, sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, offer_id = NULL, offer_location_id = NULL, redeemed = NULL, reservations_only = NULL, coupon_type = NULL, offer_type = NULL, special_offer_type = NULL, customer_account_ids = NULL, category_ids = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, _i = NULL, _l = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchOfferTransactionsForRetailersWithHttpInfo(version, sort_field, descending, start, limit, active_only, device_id, account_id, q, keyword, retailer_id, retailer_location_id, offer_id, offer_location_id, redeemed, reservations_only, coupon_type, offer_type, special_offer_type, customer_account_ids, category_ids, redeemable_start_date, redeemable_end_date, _i, _l, data_file = data_file, ..., .parse = .parse)
+    SearchOfferTransactionsForRetailers = function(sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, offer_id = NULL, offer_location_id = NULL, redeemed = NULL, reservations_only = NULL, coupon_type = NULL, offer_type = NULL, special_offer_type = NULL, customer_account_ids = NULL, category_ids = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, _i = NULL, _l = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchOfferTransactionsForRetailersWithHttpInfo(sort_field, descending, start, limit, active_only, device_id, account_id, q, keyword, retailer_id, retailer_location_id, offer_id, offer_location_id, redeemed, reservations_only, coupon_type, offer_type, special_offer_type, customer_account_ids, category_ids, redeemable_start_date, redeemable_end_date, _i, _l, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3437,7 +3266,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Search Offer Transactions
     #'
-    #' @param version 
     #' @param sort_field Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
     #' @param descending Determines whether the results are in descending order
     #' @param start The start index for pagination
@@ -3467,7 +3295,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[OfferTransactionResponse]) with additional information such as HTTP status code, headers
-    SearchOfferTransactionsForRetailersWithHttpInfo = function(version, sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, offer_id = NULL, offer_location_id = NULL, redeemed = NULL, reservations_only = NULL, coupon_type = NULL, offer_type = NULL, special_offer_type = NULL, customer_account_ids = NULL, category_ids = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, _i = NULL, _l = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchOfferTransactionsForRetailersWithHttpInfo = function(sort_field, descending, start, limit, active_only, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, offer_id = NULL, offer_location_id = NULL, redeemed = NULL, reservations_only = NULL, coupon_type = NULL, offer_type = NULL, special_offer_type = NULL, customer_account_ids = NULL, category_ids = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, _i = NULL, _l = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3476,10 +3304,6 @@ OfferApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`sort_field`)) {
         stop("Missing required parameter `sort_field`.")
@@ -3499,10 +3323,6 @@ OfferApi <- R6::R6Class(
 
       if (missing(`active_only`)) {
         stop("Missing required parameter `active_only`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$SearchOfferTransactionsForRetailers, `version` is not nullable")
       }
 
       if (!missing(`sort_field`) && is.null(`sort_field`)) {
@@ -3661,11 +3481,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/transaction/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/transaction/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3726,7 +3542,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Search Offers
     #'
-    #' @param version 
     #' @param latitude The latitude of where the search will center at
     #' @param longitude The longitude of where the search will center at
     #' @param recommendation_type The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -3763,8 +3578,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferListResponse
-    SearchOffersForConsumer = function(version, latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, app_key = NULL, device_id = NULL, account_id = NULL, search_range = 5, tags = NULL, supported_postal_codes = NULL, keyword = NULL, categories = NULL, filters = NULL, offer_types = "COUPON, VOUCHER", type = NULL, sort_field = NULL, recommend_offer_ids = NULL, retailer_location_ids = NULL, offer_id = NULL, include_mission = NULL, include_categories = NULL, include_filters = NULL, include_expired = NULL, include_favorite = NULL, closest_offer_only = NULL, search_expression = NULL, group_by = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchOffersForConsumerWithHttpInfo(version, latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, app_key, device_id, account_id, search_range, tags, supported_postal_codes, keyword, categories, filters, offer_types, type, sort_field, recommend_offer_ids, retailer_location_ids, offer_id, include_mission, include_categories, include_filters, include_expired, include_favorite, closest_offer_only, search_expression, group_by, data_file = data_file, ..., .parse = .parse)
+    SearchOffersForConsumer = function(latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, app_key = NULL, device_id = NULL, account_id = NULL, search_range = 5, tags = NULL, supported_postal_codes = NULL, keyword = NULL, categories = NULL, filters = NULL, offer_types = "COUPON, VOUCHER", type = NULL, sort_field = NULL, recommend_offer_ids = NULL, retailer_location_ids = NULL, offer_id = NULL, include_mission = NULL, include_categories = NULL, include_filters = NULL, include_expired = NULL, include_favorite = NULL, closest_offer_only = NULL, search_expression = NULL, group_by = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchOffersForConsumerWithHttpInfo(latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, app_key, device_id, account_id, search_range, tags, supported_postal_codes, keyword, categories, filters, offer_types, type, sort_field, recommend_offer_ids, retailer_location_ids, offer_id, include_mission, include_categories, include_filters, include_expired, include_favorite, closest_offer_only, search_expression, group_by, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3779,7 +3594,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Search Offers
     #'
-    #' @param version 
     #' @param latitude The latitude of where the search will center at
     #' @param longitude The longitude of where the search will center at
     #' @param recommendation_type The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -3816,7 +3630,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferListResponse) with additional information such as HTTP status code, headers
-    SearchOffersForConsumerWithHttpInfo = function(version, latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, app_key = NULL, device_id = NULL, account_id = NULL, search_range = 5, tags = NULL, supported_postal_codes = NULL, keyword = NULL, categories = NULL, filters = NULL, offer_types = "COUPON, VOUCHER", type = NULL, sort_field = NULL, recommend_offer_ids = NULL, retailer_location_ids = NULL, offer_id = NULL, include_mission = NULL, include_categories = NULL, include_filters = NULL, include_expired = NULL, include_favorite = NULL, closest_offer_only = NULL, search_expression = NULL, group_by = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchOffersForConsumerWithHttpInfo = function(latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, app_key = NULL, device_id = NULL, account_id = NULL, search_range = 5, tags = NULL, supported_postal_codes = NULL, keyword = NULL, categories = NULL, filters = NULL, offer_types = "COUPON, VOUCHER", type = NULL, sort_field = NULL, recommend_offer_ids = NULL, retailer_location_ids = NULL, offer_id = NULL, include_mission = NULL, include_categories = NULL, include_filters = NULL, include_expired = NULL, include_favorite = NULL, closest_offer_only = NULL, search_expression = NULL, group_by = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3825,10 +3639,6 @@ OfferApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`latitude`)) {
         stop("Missing required parameter `latitude`.")
@@ -3860,10 +3670,6 @@ OfferApi <- R6::R6Class(
 
       if (missing(`distance_unit`)) {
         stop("Missing required parameter `distance_unit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$SearchOffersForConsumer, `version` is not nullable")
       }
 
       if (!missing(`latitude`) && is.null(`latitude`)) {
@@ -4061,11 +3867,7 @@ OfferApi <- R6::R6Class(
       }
       query_params[["groupBy"]] <- `group_by`
 
-      local_var_url_path <- "/api/{version}/offer/lists"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/offer/lists"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4126,7 +3928,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Get Offers (Top)
     #'
-    #' @param version 
     #' @param start (optional) The index into the record set to start with. Default is 0. (default value: 0)
     #' @param limit (optional) The total number of record to return. Default id 20. (default value: 20)
     #' @param data_file (optional) name of the data file to save the result
@@ -4134,8 +3935,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferListResponse
-    TopOfferTransactions = function(version, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$TopOfferTransactionsWithHttpInfo(version, start, limit, data_file = data_file, ..., .parse = .parse)
+    TopOfferTransactions = function(start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$TopOfferTransactionsWithHttpInfo(start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4150,7 +3951,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Get Offers (Top)
     #'
-    #' @param version 
     #' @param start (optional) The index into the record set to start with. Default is 0. (default value: 0)
     #' @param limit (optional) The total number of record to return. Default id 20. (default value: 20)
     #' @param data_file (optional) name of the data file to save the result
@@ -4158,7 +3958,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferListResponse) with additional information such as HTTP status code, headers
-    TopOfferTransactionsWithHttpInfo = function(version, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    TopOfferTransactionsWithHttpInfo = function(start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4167,14 +3967,6 @@ OfferApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$TopOfferTransactions, `version` is not nullable")
-      }
 
       if (!missing(`start`) && is.null(`start`)) {
         stop("Invalid value for `start` when calling OfferApi$TopOfferTransactions, `start` is not nullable")
@@ -4188,11 +3980,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/offer/top"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/offer/top"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4253,7 +4041,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Update Offer
     #'
-    #' @param version 
     #' @param offer_id The offer to update
     #' @param include_offer_locations If true return all the offer locations associated with the offer
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -4346,8 +4133,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return RetailerOfferResponse
-    UpdateOffer = function(version, offer_id, include_offer_locations, device_id = NULL, account_id = NULL, parent_offer_id = NULL, retailer_location_ids = NULL, offer_locations = NULL, tags = NULL, title = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_type = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, external_id = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, no_expiration = NULL, available_limit = NULL, available_limit_per_user = NULL, added_limit = NULL, view_limit = NULL, max_prints = NULL, ticket_price_type = NULL, ticket_price = NULL, full_price = NULL, discount_price = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, offer_type = NULL, special_offer_type = NULL, offer_visibility = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, brand = NULL, product_type = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, department = NULL, features = NULL, minimum_price = NULL, width = NULL, height = NULL, depth = NULL, weight = NULL, unit = NULL, studio = NULL, parental_rating = NULL, publish_date = NULL, availability_date = NULL, size_id = NULL, listing_id = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, reboot_time_hour = NULL, reboot_time_minute = NULL, idle_timeout_in_second = NULL, serial_number = NULL, udid = NULL, device_type = NULL, device_power = NULL, device_interference = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateOfferWithHttpInfo(version, offer_id, include_offer_locations, device_id, account_id, parent_offer_id, retailer_location_ids, offer_locations, tags, title, sub_title, details, sub_details, fine_print, barcode_type, barcode_entry, external_redeem_options, external_url, external_id, tickets_reward_type, tickets_reward, activated, expires, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price_type, ticket_price, full_price, discount_price, show_remaining, show_redeemed, replaced, featured, offer_type, special_offer_type, offer_visibility, category_ids, filter_ids, active, barcode_asset_id, image_asset_id, image_asset_id1, image_asset_id2, image_asset_id3, image_asset_id4, image_asset_id5, publisher, redeemable_start, redeemable_end, brand, product_type, condition_type, isbn, asin, catalog_numbers, department, features, minimum_price, width, height, depth, weight, unit, studio, parental_rating, publish_date, availability_date, size_id, listing_id, media_type, duration, author, release_date, collection_ids, reboot_time_hour, reboot_time_minute, idle_timeout_in_second, serial_number, udid, device_type, device_power, device_interference, availability, availability_summary, data_file = data_file, ..., .parse = .parse)
+    UpdateOffer = function(offer_id, include_offer_locations, device_id = NULL, account_id = NULL, parent_offer_id = NULL, retailer_location_ids = NULL, offer_locations = NULL, tags = NULL, title = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_type = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, external_id = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, no_expiration = NULL, available_limit = NULL, available_limit_per_user = NULL, added_limit = NULL, view_limit = NULL, max_prints = NULL, ticket_price_type = NULL, ticket_price = NULL, full_price = NULL, discount_price = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, offer_type = NULL, special_offer_type = NULL, offer_visibility = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, brand = NULL, product_type = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, department = NULL, features = NULL, minimum_price = NULL, width = NULL, height = NULL, depth = NULL, weight = NULL, unit = NULL, studio = NULL, parental_rating = NULL, publish_date = NULL, availability_date = NULL, size_id = NULL, listing_id = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, reboot_time_hour = NULL, reboot_time_minute = NULL, idle_timeout_in_second = NULL, serial_number = NULL, udid = NULL, device_type = NULL, device_power = NULL, device_interference = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateOfferWithHttpInfo(offer_id, include_offer_locations, device_id, account_id, parent_offer_id, retailer_location_ids, offer_locations, tags, title, sub_title, details, sub_details, fine_print, barcode_type, barcode_entry, external_redeem_options, external_url, external_id, tickets_reward_type, tickets_reward, activated, expires, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price_type, ticket_price, full_price, discount_price, show_remaining, show_redeemed, replaced, featured, offer_type, special_offer_type, offer_visibility, category_ids, filter_ids, active, barcode_asset_id, image_asset_id, image_asset_id1, image_asset_id2, image_asset_id3, image_asset_id4, image_asset_id5, publisher, redeemable_start, redeemable_end, brand, product_type, condition_type, isbn, asin, catalog_numbers, department, features, minimum_price, width, height, depth, weight, unit, studio, parental_rating, publish_date, availability_date, size_id, listing_id, media_type, duration, author, release_date, collection_ids, reboot_time_hour, reboot_time_minute, idle_timeout_in_second, serial_number, udid, device_type, device_power, device_interference, availability, availability_summary, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4362,7 +4149,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Update Offer
     #'
-    #' @param version 
     #' @param offer_id The offer to update
     #' @param include_offer_locations If true return all the offer locations associated with the offer
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -4455,7 +4241,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (RetailerOfferResponse) with additional information such as HTTP status code, headers
-    UpdateOfferWithHttpInfo = function(version, offer_id, include_offer_locations, device_id = NULL, account_id = NULL, parent_offer_id = NULL, retailer_location_ids = NULL, offer_locations = NULL, tags = NULL, title = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_type = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, external_id = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, no_expiration = NULL, available_limit = NULL, available_limit_per_user = NULL, added_limit = NULL, view_limit = NULL, max_prints = NULL, ticket_price_type = NULL, ticket_price = NULL, full_price = NULL, discount_price = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, offer_type = NULL, special_offer_type = NULL, offer_visibility = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, brand = NULL, product_type = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, department = NULL, features = NULL, minimum_price = NULL, width = NULL, height = NULL, depth = NULL, weight = NULL, unit = NULL, studio = NULL, parental_rating = NULL, publish_date = NULL, availability_date = NULL, size_id = NULL, listing_id = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, reboot_time_hour = NULL, reboot_time_minute = NULL, idle_timeout_in_second = NULL, serial_number = NULL, udid = NULL, device_type = NULL, device_power = NULL, device_interference = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateOfferWithHttpInfo = function(offer_id, include_offer_locations, device_id = NULL, account_id = NULL, parent_offer_id = NULL, retailer_location_ids = NULL, offer_locations = NULL, tags = NULL, title = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_type = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, external_id = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, no_expiration = NULL, available_limit = NULL, available_limit_per_user = NULL, added_limit = NULL, view_limit = NULL, max_prints = NULL, ticket_price_type = NULL, ticket_price = NULL, full_price = NULL, discount_price = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, offer_type = NULL, special_offer_type = NULL, offer_visibility = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, brand = NULL, product_type = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, department = NULL, features = NULL, minimum_price = NULL, width = NULL, height = NULL, depth = NULL, weight = NULL, unit = NULL, studio = NULL, parental_rating = NULL, publish_date = NULL, availability_date = NULL, size_id = NULL, listing_id = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, reboot_time_hour = NULL, reboot_time_minute = NULL, idle_timeout_in_second = NULL, serial_number = NULL, udid = NULL, device_type = NULL, device_power = NULL, device_interference = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4465,20 +4251,12 @@ OfferApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`offer_id`)) {
         stop("Missing required parameter `offer_id`.")
       }
 
       if (missing(`include_offer_locations`)) {
         stop("Missing required parameter `include_offer_locations`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$UpdateOffer, `version` is not nullable")
       }
 
       if (!missing(`offer_id`) && is.null(`offer_id`)) {
@@ -5027,11 +4805,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["availabilitySummary"]] <- `availability_summary`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -5092,7 +4866,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Activate Offer
     #'
-    #' @param version 
     #' @param offer_ids Comma separated list of offer ids
     #' @param active Determines whether to make the offer active as well
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -5102,8 +4875,8 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UpdateOfferStatus = function(version, offer_ids, active, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateOfferStatusWithHttpInfo(version, offer_ids, active, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    UpdateOfferStatus = function(offer_ids, active, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateOfferStatusWithHttpInfo(offer_ids, active, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5118,7 +4891,6 @@ OfferApi <- R6::R6Class(
     #' @description
     #' Activate Offer
     #'
-    #' @param version 
     #' @param offer_ids Comma separated list of offer ids
     #' @param active Determines whether to make the offer active as well
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -5128,7 +4900,7 @@ OfferApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UpdateOfferStatusWithHttpInfo = function(version, offer_ids, active, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateOfferStatusWithHttpInfo = function(offer_ids, active, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5138,20 +4910,12 @@ OfferApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`offer_ids`)) {
         stop("Missing required parameter `offer_ids`.")
       }
 
       if (missing(`active`)) {
         stop("Missing required parameter `active`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling OfferApi$UpdateOfferStatus, `version` is not nullable")
       }
 
       if (!missing(`offer_ids`) && is.null(`offer_ids`)) {
@@ -5178,11 +4942,7 @@ OfferApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/retailer/offer/status"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/retailer/offer/status"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

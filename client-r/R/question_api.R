@@ -17,7 +17,6 @@
 #' ####################  CreateQuestion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_question <- "question_example" # character | the text of the question
 #' var_answers <- "answers_example" # character | ```json [   {     \"text\": \"1942\",     \"image\": 123,     \"videoURL\": \"http://www.here.com\",     \"correct\": true   },   {     \"text\": \"1943\",     \"image\": 124,     \"videoURL\": \"http://www.there.com\",     \"correct\": false   } ] ``` 
@@ -34,15 +33,14 @@
 #' api_instance <- QuestionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateQuestion(var_version, var_account_id, var_question, var_answers, var_active, var_allocate_tickets, var_ticket_count, tags = var_tags, video_url = var_video_url, asset_id = var_asset_id, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
-#' result <- api_instance$CreateQuestion(var_version, var_account_id, var_question, var_answers, var_active, var_allocate_tickets, var_ticket_count, tags = var_tags, video_url = var_video_url, asset_id = var_asset_id, ticket_type = var_ticket_type, points = var_points)
+#' # result <- api_instance$CreateQuestion(var_account_id, var_question, var_answers, var_active, var_allocate_tickets, var_ticket_count, tags = var_tags, video_url = var_video_url, asset_id = var_asset_id, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
+#' result <- api_instance$CreateQuestion(var_account_id, var_question, var_answers, var_active, var_allocate_tickets, var_ticket_count, tags = var_tags, video_url = var_video_url, asset_id = var_asset_id, ticket_type = var_ticket_type, points = var_points)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteQuestion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_question_id <- 56 # integer | the id of the question to delete
 #' var_account_id <- 56 # integer | the id of the account that can execute this request
 #'
@@ -50,15 +48,14 @@
 #' api_instance <- QuestionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteQuestion(var_version, var_question_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteQuestion(var_version, var_question_id, var_account_id)
+#' # result <- api_instance$DeleteQuestion(var_question_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteQuestion(var_question_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetQuestion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_question_id <- 56 # integer | the id of the question to get
 #' var_account_id <- 56 # integer | the id of the account that can make this request
 #'
@@ -66,15 +63,14 @@
 #' api_instance <- QuestionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetQuestion(var_version, var_question_id, var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetQuestion(var_version, var_question_id, var_account_id)
+#' # result <- api_instance$GetQuestion(var_question_id, var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetQuestion(var_question_id, var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchQuestions  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_sort_field <- "sort_field_example" # character | The column to sort the search on
 #' var_descending <- "descending_example" # character | The order to return the search results
@@ -87,15 +83,14 @@
 #' api_instance <- QuestionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchQuestions(var_version, var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, keyword = var_keyworddata_file = "result.txt")
-#' result <- api_instance$SearchQuestions(var_version, var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, keyword = var_keyword)
+#' # result <- api_instance$SearchQuestions(var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, keyword = var_keyworddata_file = "result.txt")
+#' result <- api_instance$SearchQuestions(var_account_id, var_sort_field, var_descending, var_active_only, var_start, var_limit, keyword = var_keyword)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateQuestion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_question_id <- 56 # integer | The id of the question to update.
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_ticket_count <- 56 # integer | The number of tickets to reward
@@ -113,8 +108,8 @@
 #' api_instance <- QuestionApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateQuestion(var_version, var_question_id, var_account_id, var_ticket_count, question = var_question, answers = var_answers, tags = var_tags, video_url = var_video_url, asset_id = var_asset_id, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
-#' result <- api_instance$UpdateQuestion(var_version, var_question_id, var_account_id, var_ticket_count, question = var_question, answers = var_answers, tags = var_tags, video_url = var_video_url, asset_id = var_asset_id, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points)
+#' # result <- api_instance$UpdateQuestion(var_question_id, var_account_id, var_ticket_count, question = var_question, answers = var_answers, tags = var_tags, video_url = var_video_url, asset_id = var_asset_id, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_pointsdata_file = "result.txt")
+#' result <- api_instance$UpdateQuestion(var_question_id, var_account_id, var_ticket_count, question = var_question, answers = var_answers, tags = var_tags, video_url = var_video_url, asset_id = var_asset_id, active = var_active, allocate_tickets = var_allocate_tickets, ticket_type = var_ticket_type, points = var_points)
 #' dput(result)
 #'
 #'
@@ -142,7 +137,6 @@ QuestionApi <- R6::R6Class(
     #' @description
     #' Create Question
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param question the text of the question
     #' @param answers ```json [   {     \"text\": \"1942\",     \"image\": 123,     \"videoURL\": \"http://www.here.com\",     \"correct\": true   },   {     \"text\": \"1943\",     \"image\": 124,     \"videoURL\": \"http://www.there.com\",     \"correct\": false   } ] ``` 
@@ -159,8 +153,8 @@ QuestionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return QuestionResponse
-    CreateQuestion = function(version, account_id, question, answers, active, allocate_tickets, ticket_count, tags = NULL, video_url = NULL, asset_id = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateQuestionWithHttpInfo(version, account_id, question, answers, active, allocate_tickets, ticket_count, tags, video_url, asset_id, ticket_type, points, data_file = data_file, ..., .parse = .parse)
+    CreateQuestion = function(account_id, question, answers, active, allocate_tickets, ticket_count, tags = NULL, video_url = NULL, asset_id = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateQuestionWithHttpInfo(account_id, question, answers, active, allocate_tickets, ticket_count, tags, video_url, asset_id, ticket_type, points, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -175,7 +169,6 @@ QuestionApi <- R6::R6Class(
     #' @description
     #' Create Question
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param question the text of the question
     #' @param answers ```json [   {     \"text\": \"1942\",     \"image\": 123,     \"videoURL\": \"http://www.here.com\",     \"correct\": true   },   {     \"text\": \"1943\",     \"image\": 124,     \"videoURL\": \"http://www.there.com\",     \"correct\": false   } ] ``` 
@@ -192,7 +185,7 @@ QuestionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (QuestionResponse) with additional information such as HTTP status code, headers
-    CreateQuestionWithHttpInfo = function(version, account_id, question, answers, active, allocate_tickets, ticket_count, tags = NULL, video_url = NULL, asset_id = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateQuestionWithHttpInfo = function(account_id, question, answers, active, allocate_tickets, ticket_count, tags = NULL, video_url = NULL, asset_id = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -201,10 +194,6 @@ QuestionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -228,10 +217,6 @@ QuestionApi <- R6::R6Class(
 
       if (missing(`ticket_count`)) {
         stop("Missing required parameter `ticket_count`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling QuestionApi$CreateQuestion, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -300,11 +285,7 @@ QuestionApi <- R6::R6Class(
 
       query_params[["points"]] <- `points`
 
-      local_var_url_path <- "/api/{version}/game/question/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/question/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -365,7 +346,6 @@ QuestionApi <- R6::R6Class(
     #' @description
     #' Delete Question
     #'
-    #' @param version 
     #' @param question_id the id of the question to delete
     #' @param account_id the id of the account that can execute this request
     #' @param data_file (optional) name of the data file to save the result
@@ -373,8 +353,8 @@ QuestionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteQuestion = function(version, question_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteQuestionWithHttpInfo(version, question_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteQuestion = function(question_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteQuestionWithHttpInfo(question_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -389,7 +369,6 @@ QuestionApi <- R6::R6Class(
     #' @description
     #' Delete Question
     #'
-    #' @param version 
     #' @param question_id the id of the question to delete
     #' @param account_id the id of the account that can execute this request
     #' @param data_file (optional) name of the data file to save the result
@@ -397,7 +376,7 @@ QuestionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteQuestionWithHttpInfo = function(version, question_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteQuestionWithHttpInfo = function(question_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -407,20 +386,12 @@ QuestionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`question_id`)) {
         stop("Missing required parameter `question_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling QuestionApi$DeleteQuestion, `version` is not nullable")
       }
 
       if (!missing(`question_id`) && is.null(`question_id`)) {
@@ -435,11 +406,7 @@ QuestionApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/game/question/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/question/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -500,7 +467,6 @@ QuestionApi <- R6::R6Class(
     #' @description
     #' Get Question
     #'
-    #' @param version 
     #' @param question_id the id of the question to get
     #' @param account_id the id of the account that can make this request
     #' @param data_file (optional) name of the data file to save the result
@@ -508,8 +474,8 @@ QuestionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return QuestionResponse
-    GetQuestion = function(version, question_id, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetQuestionWithHttpInfo(version, question_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetQuestion = function(question_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetQuestionWithHttpInfo(question_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -524,7 +490,6 @@ QuestionApi <- R6::R6Class(
     #' @description
     #' Get Question
     #'
-    #' @param version 
     #' @param question_id the id of the question to get
     #' @param account_id the id of the account that can make this request
     #' @param data_file (optional) name of the data file to save the result
@@ -532,7 +497,7 @@ QuestionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (QuestionResponse) with additional information such as HTTP status code, headers
-    GetQuestionWithHttpInfo = function(version, question_id, account_id, data_file = NULL, ..., .parse = TRUE) {
+    GetQuestionWithHttpInfo = function(question_id, account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -542,20 +507,12 @@ QuestionApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`question_id`)) {
         stop("Missing required parameter `question_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling QuestionApi$GetQuestion, `version` is not nullable")
       }
 
       if (!missing(`question_id`) && is.null(`question_id`)) {
@@ -570,11 +527,7 @@ QuestionApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/game/question/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/question/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -635,7 +588,6 @@ QuestionApi <- R6::R6Class(
     #' @description
     #' Search Questions
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param sort_field The column to sort the search on
     #' @param descending The order to return the search results
@@ -648,8 +600,8 @@ QuestionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[QuestionResponse]
-    SearchQuestions = function(version, account_id, sort_field, descending, active_only, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchQuestionsWithHttpInfo(version, account_id, sort_field, descending, active_only, start, limit, keyword, data_file = data_file, ..., .parse = .parse)
+    SearchQuestions = function(account_id, sort_field, descending, active_only, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchQuestionsWithHttpInfo(account_id, sort_field, descending, active_only, start, limit, keyword, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -664,7 +616,6 @@ QuestionApi <- R6::R6Class(
     #' @description
     #' Search Questions
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param sort_field The column to sort the search on
     #' @param descending The order to return the search results
@@ -677,7 +628,7 @@ QuestionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[QuestionResponse]) with additional information such as HTTP status code, headers
-    SearchQuestionsWithHttpInfo = function(version, account_id, sort_field, descending, active_only, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchQuestionsWithHttpInfo = function(account_id, sort_field, descending, active_only, start, limit, keyword = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -686,10 +637,6 @@ QuestionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -713,10 +660,6 @@ QuestionApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling QuestionApi$SearchQuestions, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -761,11 +704,7 @@ QuestionApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/game/question/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/question/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -826,7 +765,6 @@ QuestionApi <- R6::R6Class(
     #' @description
     #' Update Question
     #'
-    #' @param version 
     #' @param question_id The id of the question to update.
     #' @param account_id The logged in user.
     #' @param ticket_count The number of tickets to reward
@@ -844,8 +782,8 @@ QuestionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return QuestionResponse
-    UpdateQuestion = function(version, question_id, account_id, ticket_count, question = NULL, answers = NULL, tags = NULL, video_url = NULL, asset_id = NULL, active = NULL, allocate_tickets = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateQuestionWithHttpInfo(version, question_id, account_id, ticket_count, question, answers, tags, video_url, asset_id, active, allocate_tickets, ticket_type, points, data_file = data_file, ..., .parse = .parse)
+    UpdateQuestion = function(question_id, account_id, ticket_count, question = NULL, answers = NULL, tags = NULL, video_url = NULL, asset_id = NULL, active = NULL, allocate_tickets = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateQuestionWithHttpInfo(question_id, account_id, ticket_count, question, answers, tags, video_url, asset_id, active, allocate_tickets, ticket_type, points, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -860,7 +798,6 @@ QuestionApi <- R6::R6Class(
     #' @description
     #' Update Question
     #'
-    #' @param version 
     #' @param question_id The id of the question to update.
     #' @param account_id The logged in user.
     #' @param ticket_count The number of tickets to reward
@@ -878,7 +815,7 @@ QuestionApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (QuestionResponse) with additional information such as HTTP status code, headers
-    UpdateQuestionWithHttpInfo = function(version, question_id, account_id, ticket_count, question = NULL, answers = NULL, tags = NULL, video_url = NULL, asset_id = NULL, active = NULL, allocate_tickets = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateQuestionWithHttpInfo = function(question_id, account_id, ticket_count, question = NULL, answers = NULL, tags = NULL, video_url = NULL, asset_id = NULL, active = NULL, allocate_tickets = NULL, ticket_type = NULL, points = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -887,10 +824,6 @@ QuestionApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`question_id`)) {
         stop("Missing required parameter `question_id`.")
@@ -902,10 +835,6 @@ QuestionApi <- R6::R6Class(
 
       if (missing(`ticket_count`)) {
         stop("Missing required parameter `ticket_count`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling QuestionApi$UpdateQuestion, `version` is not nullable")
       }
 
       if (!missing(`question_id`) && is.null(`question_id`)) {
@@ -980,11 +909,7 @@ QuestionApi <- R6::R6Class(
 
       query_params[["points"]] <- `points`
 
-      local_var_url_path <- "/api/{version}/game/question/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/question/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

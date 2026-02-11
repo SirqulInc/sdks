@@ -17,7 +17,6 @@
 #' ####################  AttendEvent  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id (deviceId or accountId required) (Optional)
 #' var_app_key <- "app_key_example" # character | The application of where to send notifications about the attend action (Optional)
@@ -33,15 +32,14 @@
 #' api_instance <- EventApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AttendEvent(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, listing_id = var_listing_id, retailer_location_id = var_retailer_location_id, offer_location_id = var_offer_location_id, transaction_id = var_transaction_id, status = var_status, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$AttendEvent(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, listing_id = var_listing_id, retailer_location_id = var_retailer_location_id, offer_location_id = var_offer_location_id, transaction_id = var_transaction_id, status = var_status, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$AttendEvent(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, listing_id = var_listing_id, retailer_location_id = var_retailer_location_id, offer_location_id = var_offer_location_id, transaction_id = var_transaction_id, status = var_status, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$AttendEvent(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, listing_id = var_listing_id, retailer_location_id = var_retailer_location_id, offer_location_id = var_offer_location_id, transaction_id = var_transaction_id, status = var_status, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  CreateEvent  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_title <- "title_example" # character | The event title
 #' var_retailer_location_ids <- "retailer_location_ids_example" # character | The retailer location to have the event at (Optional)
@@ -59,15 +57,14 @@
 #' api_instance <- EventApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateEvent(var_version, var_account_id, var_title, retailer_location_ids = var_retailer_location_ids, sub_title = var_sub_title, details = var_details, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, image_asset_id = var_image_asset_id, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, meta_data = var_meta_datadata_file = "result.txt")
-#' result <- api_instance$CreateEvent(var_version, var_account_id, var_title, retailer_location_ids = var_retailer_location_ids, sub_title = var_sub_title, details = var_details, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, image_asset_id = var_image_asset_id, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, meta_data = var_meta_data)
+#' # result <- api_instance$CreateEvent(var_account_id, var_title, retailer_location_ids = var_retailer_location_ids, sub_title = var_sub_title, details = var_details, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, image_asset_id = var_image_asset_id, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, meta_data = var_meta_datadata_file = "result.txt")
+#' result <- api_instance$CreateEvent(var_account_id, var_title, retailer_location_ids = var_retailer_location_ids, sub_title = var_sub_title, details = var_details, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, image_asset_id = var_image_asset_id, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, meta_data = var_meta_data)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteEvent  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_event_id <- 56 # integer | the id of the event to update
 #'
@@ -75,15 +72,14 @@
 #' api_instance <- EventApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteEvent(var_version, var_account_id, var_event_iddata_file = "result.txt")
-#' result <- api_instance$DeleteEvent(var_version, var_account_id, var_event_id)
+#' # result <- api_instance$DeleteEvent(var_account_id, var_event_iddata_file = "result.txt")
+#' result <- api_instance$DeleteEvent(var_account_id, var_event_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetEvent  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_event_id <- 56 # integer | The id of the event to return
 #'
@@ -91,15 +87,14 @@
 #' api_instance <- EventApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetEvent(var_version, var_account_id, var_event_iddata_file = "result.txt")
-#' result <- api_instance$GetEvent(var_version, var_account_id, var_event_id)
+#' # result <- api_instance$GetEvent(var_account_id, var_event_iddata_file = "result.txt")
+#' result <- api_instance$GetEvent(var_account_id, var_event_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchEventTransactions  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_app_key <- "app_key_example" # character | The application key (Optional)
@@ -124,15 +119,14 @@
 #' api_instance <- EventApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchEventTransactions(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, exclude_retailer_location_id = var_exclude_retailer_location_id, listing_id = var_listing_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, customer_account_ids = var_customer_account_ids, affiliated_category_ids = var_affiliated_category_ids, start_date = var_start_date, end_date = var_end_date, statuses = var_statuses, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchEventTransactions(var_version, device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, exclude_retailer_location_id = var_exclude_retailer_location_id, listing_id = var_listing_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, customer_account_ids = var_customer_account_ids, affiliated_category_ids = var_affiliated_category_ids, start_date = var_start_date, end_date = var_end_date, statuses = var_statuses, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchEventTransactions(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, exclude_retailer_location_id = var_exclude_retailer_location_id, listing_id = var_listing_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, customer_account_ids = var_customer_account_ids, affiliated_category_ids = var_affiliated_category_ids, start_date = var_start_date, end_date = var_end_date, statuses = var_statuses, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchEventTransactions(device_id = var_device_id, account_id = var_account_id, app_key = var_app_key, keyword = var_keyword, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, exclude_retailer_location_id = var_exclude_retailer_location_id, listing_id = var_listing_id, offer_id = var_offer_id, offer_location_id = var_offer_location_id, customer_account_ids = var_customer_account_ids, affiliated_category_ids = var_affiliated_category_ids, start_date = var_start_date, end_date = var_end_date, statuses = var_statuses, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchEvents  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_keyword <- "keyword_example" # character | The keyword used to search (Optional)
 #' var_active_only <- "active_only_example" # character | Return only active results (Optional)
@@ -151,15 +145,14 @@
 #' api_instance <- EventApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchEvents(var_version, var_account_id, keyword = var_keyword, active_only = var_active_only, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, transaction_audience_ids = var_transaction_audience_ids, sort_field = var_sort_field, descending = var_descending, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchEvents(var_version, var_account_id, keyword = var_keyword, active_only = var_active_only, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, transaction_audience_ids = var_transaction_audience_ids, sort_field = var_sort_field, descending = var_descending, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchEvents(var_account_id, keyword = var_keyword, active_only = var_active_only, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, transaction_audience_ids = var_transaction_audience_ids, sort_field = var_sort_field, descending = var_descending, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchEvents(var_account_id, keyword = var_keyword, active_only = var_active_only, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, transaction_audience_ids = var_transaction_audience_ids, sort_field = var_sort_field, descending = var_descending, start_date = var_start_date, end_date = var_end_date, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateEvent  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_event_id <- 56 # integer | The id of the event to update
 #' var_retailer_location_ids <- "retailer_location_ids_example" # character | The retailer location to have the event at (Optional)
@@ -177,8 +170,8 @@
 #' api_instance <- EventApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateEvent(var_version, var_account_id, var_event_id, retailer_location_ids = var_retailer_location_ids, title = var_title, sub_title = var_sub_title, details = var_details, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, image_asset_id = var_image_asset_id, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_enddata_file = "result.txt")
-#' result <- api_instance$UpdateEvent(var_version, var_account_id, var_event_id, retailer_location_ids = var_retailer_location_ids, title = var_title, sub_title = var_sub_title, details = var_details, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, image_asset_id = var_image_asset_id, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end)
+#' # result <- api_instance$UpdateEvent(var_account_id, var_event_id, retailer_location_ids = var_retailer_location_ids, title = var_title, sub_title = var_sub_title, details = var_details, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, image_asset_id = var_image_asset_id, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_enddata_file = "result.txt")
+#' result <- api_instance$UpdateEvent(var_account_id, var_event_id, retailer_location_ids = var_retailer_location_ids, title = var_title, sub_title = var_sub_title, details = var_details, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, image_asset_id = var_image_asset_id, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end)
 #' dput(result)
 #'
 #'
@@ -206,7 +199,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Attend Event
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id (deviceId or accountId required)
     #' @param app_key (optional) The application of where to send notifications about the attend action
@@ -222,8 +214,8 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferResponse
-    AttendEvent = function(version, device_id = NULL, account_id = NULL, app_key = NULL, listing_id = NULL, retailer_location_id = NULL, offer_location_id = NULL, transaction_id = NULL, status = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AttendEventWithHttpInfo(version, device_id, account_id, app_key, listing_id, retailer_location_id, offer_location_id, transaction_id, status, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    AttendEvent = function(device_id = NULL, account_id = NULL, app_key = NULL, listing_id = NULL, retailer_location_id = NULL, offer_location_id = NULL, transaction_id = NULL, status = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AttendEventWithHttpInfo(device_id, account_id, app_key, listing_id, retailer_location_id, offer_location_id, transaction_id, status, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -238,7 +230,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Attend Event
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id (deviceId or accountId required)
     #' @param app_key (optional) The application of where to send notifications about the attend action
@@ -254,7 +245,7 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferResponse) with additional information such as HTTP status code, headers
-    AttendEventWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_key = NULL, listing_id = NULL, retailer_location_id = NULL, offer_location_id = NULL, transaction_id = NULL, status = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AttendEventWithHttpInfo = function(device_id = NULL, account_id = NULL, app_key = NULL, listing_id = NULL, retailer_location_id = NULL, offer_location_id = NULL, transaction_id = NULL, status = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -263,14 +254,6 @@ EventApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EventApi$AttendEvent, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling EventApi$AttendEvent, `device_id` is not nullable")
@@ -332,11 +315,7 @@ EventApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/event/attend"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/event/attend"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -397,7 +376,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Create Event
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param title The event title
     #' @param retailer_location_ids (optional) The retailer location to have the event at
@@ -415,8 +393,8 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferResponse
-    CreateEvent = function(version, account_id, title, retailer_location_ids = NULL, sub_title = NULL, details = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, image_asset_id = NULL, redeemable_start = NULL, redeemable_end = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateEventWithHttpInfo(version, account_id, title, retailer_location_ids, sub_title, details, category_ids, filter_ids, active, image_asset_id, redeemable_start, redeemable_end, meta_data, data_file = data_file, ..., .parse = .parse)
+    CreateEvent = function(account_id, title, retailer_location_ids = NULL, sub_title = NULL, details = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, image_asset_id = NULL, redeemable_start = NULL, redeemable_end = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateEventWithHttpInfo(account_id, title, retailer_location_ids, sub_title, details, category_ids, filter_ids, active, image_asset_id, redeemable_start, redeemable_end, meta_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -431,7 +409,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Create Event
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param title The event title
     #' @param retailer_location_ids (optional) The retailer location to have the event at
@@ -449,7 +426,7 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferResponse) with additional information such as HTTP status code, headers
-    CreateEventWithHttpInfo = function(version, account_id, title, retailer_location_ids = NULL, sub_title = NULL, details = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, image_asset_id = NULL, redeemable_start = NULL, redeemable_end = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateEventWithHttpInfo = function(account_id, title, retailer_location_ids = NULL, sub_title = NULL, details = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, image_asset_id = NULL, redeemable_start = NULL, redeemable_end = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -459,20 +436,12 @@ EventApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`title`)) {
         stop("Missing required parameter `title`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EventApi$CreateEvent, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -547,11 +516,7 @@ EventApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/event/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/event/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -612,7 +577,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Delete Event
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param event_id the id of the event to update
     #' @param data_file (optional) name of the data file to save the result
@@ -620,8 +584,8 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteEvent = function(version, account_id, event_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteEventWithHttpInfo(version, account_id, event_id, data_file = data_file, ..., .parse = .parse)
+    DeleteEvent = function(account_id, event_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteEventWithHttpInfo(account_id, event_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -636,7 +600,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Delete Event
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param event_id the id of the event to update
     #' @param data_file (optional) name of the data file to save the result
@@ -644,7 +607,7 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteEventWithHttpInfo = function(version, account_id, event_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteEventWithHttpInfo = function(account_id, event_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -654,20 +617,12 @@ EventApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`event_id`)) {
         stop("Missing required parameter `event_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EventApi$DeleteEvent, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -682,11 +637,7 @@ EventApi <- R6::R6Class(
 
       query_params[["eventId"]] <- `event_id`
 
-      local_var_url_path <- "/api/{version}/event/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/event/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -747,7 +698,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Get Event
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param event_id The id of the event to return
     #' @param data_file (optional) name of the data file to save the result
@@ -755,8 +705,8 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferResponse
-    GetEvent = function(version, account_id, event_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetEventWithHttpInfo(version, account_id, event_id, data_file = data_file, ..., .parse = .parse)
+    GetEvent = function(account_id, event_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetEventWithHttpInfo(account_id, event_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -771,7 +721,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Get Event
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param event_id The id of the event to return
     #' @param data_file (optional) name of the data file to save the result
@@ -779,7 +728,7 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferResponse) with additional information such as HTTP status code, headers
-    GetEventWithHttpInfo = function(version, account_id, event_id, data_file = NULL, ..., .parse = TRUE) {
+    GetEventWithHttpInfo = function(account_id, event_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -789,20 +738,12 @@ EventApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`event_id`)) {
         stop("Missing required parameter `event_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EventApi$GetEvent, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -817,11 +758,7 @@ EventApi <- R6::R6Class(
 
       query_params[["eventId"]] <- `event_id`
 
-      local_var_url_path <- "/api/{version}/event/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/event/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -882,7 +819,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Search Event Attendance
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param app_key (optional) The application key
@@ -907,8 +843,8 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[EventAttendanceResponse]
-    SearchEventTransactions = function(version, device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, exclude_retailer_location_id = NULL, listing_id = NULL, offer_id = NULL, offer_location_id = NULL, customer_account_ids = NULL, affiliated_category_ids = NULL, start_date = NULL, end_date = NULL, statuses = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchEventTransactionsWithHttpInfo(version, device_id, account_id, app_key, keyword, retailer_id, retailer_location_id, exclude_retailer_location_id, listing_id, offer_id, offer_location_id, customer_account_ids, affiliated_category_ids, start_date, end_date, statuses, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchEventTransactions = function(device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, exclude_retailer_location_id = NULL, listing_id = NULL, offer_id = NULL, offer_location_id = NULL, customer_account_ids = NULL, affiliated_category_ids = NULL, start_date = NULL, end_date = NULL, statuses = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchEventTransactionsWithHttpInfo(device_id, account_id, app_key, keyword, retailer_id, retailer_location_id, exclude_retailer_location_id, listing_id, offer_id, offer_location_id, customer_account_ids, affiliated_category_ids, start_date, end_date, statuses, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -923,7 +859,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Search Event Attendance
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param app_key (optional) The application key
@@ -948,7 +883,7 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[EventAttendanceResponse]) with additional information such as HTTP status code, headers
-    SearchEventTransactionsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, exclude_retailer_location_id = NULL, listing_id = NULL, offer_id = NULL, offer_location_id = NULL, customer_account_ids = NULL, affiliated_category_ids = NULL, start_date = NULL, end_date = NULL, statuses = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchEventTransactionsWithHttpInfo = function(device_id = NULL, account_id = NULL, app_key = NULL, keyword = NULL, retailer_id = NULL, retailer_location_id = NULL, exclude_retailer_location_id = NULL, listing_id = NULL, offer_id = NULL, offer_location_id = NULL, customer_account_ids = NULL, affiliated_category_ids = NULL, start_date = NULL, end_date = NULL, statuses = NULL, sort_field = NULL, descending = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -957,14 +892,6 @@ EventApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EventApi$SearchEventTransactions, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling EventApi$SearchEventTransactions, `device_id` is not nullable")
@@ -1083,11 +1010,7 @@ EventApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/event/attendance/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/event/attendance/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1148,7 +1071,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Search Events
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param keyword (optional) The keyword used to search
     #' @param active_only (optional) Return only active results
@@ -1167,8 +1089,8 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[OfferShortResponse]
-    SearchEvents = function(version, account_id, keyword = NULL, active_only = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, transaction_audience_ids = NULL, sort_field = NULL, descending = NULL, start_date = NULL, end_date = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchEventsWithHttpInfo(version, account_id, keyword, active_only, category_ids, filter_ids, offer_audience_ids, transaction_audience_ids, sort_field, descending, start_date, end_date, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchEvents = function(account_id, keyword = NULL, active_only = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, transaction_audience_ids = NULL, sort_field = NULL, descending = NULL, start_date = NULL, end_date = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchEventsWithHttpInfo(account_id, keyword, active_only, category_ids, filter_ids, offer_audience_ids, transaction_audience_ids, sort_field, descending, start_date, end_date, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1183,7 +1105,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Search Events
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param keyword (optional) The keyword used to search
     #' @param active_only (optional) Return only active results
@@ -1202,7 +1123,7 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[OfferShortResponse]) with additional information such as HTTP status code, headers
-    SearchEventsWithHttpInfo = function(version, account_id, keyword = NULL, active_only = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, transaction_audience_ids = NULL, sort_field = NULL, descending = NULL, start_date = NULL, end_date = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchEventsWithHttpInfo = function(account_id, keyword = NULL, active_only = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, transaction_audience_ids = NULL, sort_field = NULL, descending = NULL, start_date = NULL, end_date = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1212,16 +1133,8 @@ EventApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EventApi$SearchEvents, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1305,11 +1218,7 @@ EventApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/event/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/event/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1370,7 +1279,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Update Event
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param event_id The id of the event to update
     #' @param retailer_location_ids (optional) The retailer location to have the event at
@@ -1388,8 +1296,8 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OfferResponse
-    UpdateEvent = function(version, account_id, event_id, retailer_location_ids = NULL, title = NULL, sub_title = NULL, details = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, image_asset_id = NULL, redeemable_start = NULL, redeemable_end = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateEventWithHttpInfo(version, account_id, event_id, retailer_location_ids, title, sub_title, details, category_ids, filter_ids, active, image_asset_id, redeemable_start, redeemable_end, data_file = data_file, ..., .parse = .parse)
+    UpdateEvent = function(account_id, event_id, retailer_location_ids = NULL, title = NULL, sub_title = NULL, details = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, image_asset_id = NULL, redeemable_start = NULL, redeemable_end = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateEventWithHttpInfo(account_id, event_id, retailer_location_ids, title, sub_title, details, category_ids, filter_ids, active, image_asset_id, redeemable_start, redeemable_end, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1404,7 +1312,6 @@ EventApi <- R6::R6Class(
     #' @description
     #' Update Event
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param event_id The id of the event to update
     #' @param retailer_location_ids (optional) The retailer location to have the event at
@@ -1422,7 +1329,7 @@ EventApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OfferResponse) with additional information such as HTTP status code, headers
-    UpdateEventWithHttpInfo = function(version, account_id, event_id, retailer_location_ids = NULL, title = NULL, sub_title = NULL, details = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, image_asset_id = NULL, redeemable_start = NULL, redeemable_end = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateEventWithHttpInfo = function(account_id, event_id, retailer_location_ids = NULL, title = NULL, sub_title = NULL, details = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, image_asset_id = NULL, redeemable_start = NULL, redeemable_end = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1432,20 +1339,12 @@ EventApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`event_id`)) {
         stop("Missing required parameter `event_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling EventApi$UpdateEvent, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1520,11 +1419,7 @@ EventApi <- R6::R6Class(
 
       query_params[["redeemableEnd"]] <- `redeemable_end`
 
-      local_var_url_path <- "/api/{version}/event/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/event/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

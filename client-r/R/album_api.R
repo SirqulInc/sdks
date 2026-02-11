@@ -17,7 +17,6 @@
 #' ####################  AddAlbumCollection  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_title <- "title_example" # character | the title of the album
 #' var_cover_asset_nullable <- "cover_asset_nullable_example" # character | determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image
 #' var_include_cover_in_asset_list <- "include_cover_in_asset_list_example" # character | determines whether the cover image should be added to the album asset list
@@ -69,15 +68,14 @@
 #' api_instance <- AlbumApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddAlbumCollection(var_version, var_title, var_cover_asset_nullable, var_include_cover_in_asset_list, var_public_read, var_public_write, var_public_delete, var_public_add, var_anonymous, device_id = var_device_id, account_id = var_account_id, assets_to_add = var_assets_to_add, media = var_media, media_url = var_media_url, asset_id = var_asset_id, attached_media = var_attached_media, attached_media_url = var_attached_media_url, start_date = var_start_date, end_date = var_end_date, tags = var_tags, description = var_description, album_type = var_album_type, album_type_id = var_album_type_id, sub_type = var_sub_type, latitude = var_latitude, longitude = var_longitude, location_description = var_location_description, visibility = var_visibility, game_type = var_game_type, app_key = var_app_key, cell_phone = var_cell_phone, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, full_address = var_full_address, meta_data = var_meta_data, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, include_all_app_users_as_members = var_include_all_app_users_as_members, include_audiences_as_members = var_include_audiences_as_members, audience_operator = var_audience_operator, approval_status = var_approval_status, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_iddata_file = "result.txt")
-#' result <- api_instance$AddAlbumCollection(var_version, var_title, var_cover_asset_nullable, var_include_cover_in_asset_list, var_public_read, var_public_write, var_public_delete, var_public_add, var_anonymous, device_id = var_device_id, account_id = var_account_id, assets_to_add = var_assets_to_add, media = var_media, media_url = var_media_url, asset_id = var_asset_id, attached_media = var_attached_media, attached_media_url = var_attached_media_url, start_date = var_start_date, end_date = var_end_date, tags = var_tags, description = var_description, album_type = var_album_type, album_type_id = var_album_type_id, sub_type = var_sub_type, latitude = var_latitude, longitude = var_longitude, location_description = var_location_description, visibility = var_visibility, game_type = var_game_type, app_key = var_app_key, cell_phone = var_cell_phone, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, full_address = var_full_address, meta_data = var_meta_data, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, include_all_app_users_as_members = var_include_all_app_users_as_members, include_audiences_as_members = var_include_audiences_as_members, audience_operator = var_audience_operator, approval_status = var_approval_status, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_id)
+#' # result <- api_instance$AddAlbumCollection(var_title, var_cover_asset_nullable, var_include_cover_in_asset_list, var_public_read, var_public_write, var_public_delete, var_public_add, var_anonymous, device_id = var_device_id, account_id = var_account_id, assets_to_add = var_assets_to_add, media = var_media, media_url = var_media_url, asset_id = var_asset_id, attached_media = var_attached_media, attached_media_url = var_attached_media_url, start_date = var_start_date, end_date = var_end_date, tags = var_tags, description = var_description, album_type = var_album_type, album_type_id = var_album_type_id, sub_type = var_sub_type, latitude = var_latitude, longitude = var_longitude, location_description = var_location_description, visibility = var_visibility, game_type = var_game_type, app_key = var_app_key, cell_phone = var_cell_phone, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, full_address = var_full_address, meta_data = var_meta_data, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, include_all_app_users_as_members = var_include_all_app_users_as_members, include_audiences_as_members = var_include_audiences_as_members, audience_operator = var_audience_operator, approval_status = var_approval_status, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_iddata_file = "result.txt")
+#' result <- api_instance$AddAlbumCollection(var_title, var_cover_asset_nullable, var_include_cover_in_asset_list, var_public_read, var_public_write, var_public_delete, var_public_add, var_anonymous, device_id = var_device_id, account_id = var_account_id, assets_to_add = var_assets_to_add, media = var_media, media_url = var_media_url, asset_id = var_asset_id, attached_media = var_attached_media, attached_media_url = var_attached_media_url, start_date = var_start_date, end_date = var_end_date, tags = var_tags, description = var_description, album_type = var_album_type, album_type_id = var_album_type_id, sub_type = var_sub_type, latitude = var_latitude, longitude = var_longitude, location_description = var_location_description, visibility = var_visibility, game_type = var_game_type, app_key = var_app_key, cell_phone = var_cell_phone, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, full_address = var_full_address, meta_data = var_meta_data, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, include_all_app_users_as_members = var_include_all_app_users_as_members, include_audiences_as_members = var_include_audiences_as_members, audience_operator = var_audience_operator, approval_status = var_approval_status, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_id)
 #' dput(result)
 #'
 #'
 #' ####################  AddAlbumUsers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_album_id <- 56 # integer | the album ID
 #' var_include_friend_group <- "include_friend_group_example" # character | determines whether to include all friends as participants
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
@@ -93,15 +91,14 @@
 #' api_instance <- AlbumApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddAlbumUsers(var_version, var_album_id, var_include_friend_group, device_id = var_device_id, account_id = var_account_id, read = var_read, write = var_write, delete = var_delete, add = var_add, connections = var_connections, connection_groups = var_connection_groupsdata_file = "result.txt")
-#' result <- api_instance$AddAlbumUsers(var_version, var_album_id, var_include_friend_group, device_id = var_device_id, account_id = var_account_id, read = var_read, write = var_write, delete = var_delete, add = var_add, connections = var_connections, connection_groups = var_connection_groups)
+#' # result <- api_instance$AddAlbumUsers(var_album_id, var_include_friend_group, device_id = var_device_id, account_id = var_account_id, read = var_read, write = var_write, delete = var_delete, add = var_add, connections = var_connections, connection_groups = var_connection_groupsdata_file = "result.txt")
+#' result <- api_instance$AddAlbumUsers(var_album_id, var_include_friend_group, device_id = var_device_id, account_id = var_account_id, read = var_read, write = var_write, delete = var_delete, add = var_add, connections = var_connections, connection_groups = var_connection_groups)
 #' dput(result)
 #'
 #'
 #' ####################  ApproveAlbum  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_album_id <- 56 # integer | The ID of the album
 #' var_device_id <- "device_id_example" # character | A unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account ID of the user (deviceId or accountId required) (Optional)
@@ -112,15 +109,14 @@
 #' api_instance <- AlbumApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ApproveAlbum(var_version, var_album_id, device_id = var_device_id, account_id = var_account_id, approval_status = var_approval_status, verified = var_verifieddata_file = "result.txt")
-#' result <- api_instance$ApproveAlbum(var_version, var_album_id, device_id = var_device_id, account_id = var_account_id, approval_status = var_approval_status, verified = var_verified)
+#' # result <- api_instance$ApproveAlbum(var_album_id, device_id = var_device_id, account_id = var_account_id, approval_status = var_approval_status, verified = var_verifieddata_file = "result.txt")
+#' result <- api_instance$ApproveAlbum(var_album_id, device_id = var_device_id, account_id = var_account_id, approval_status = var_approval_status, verified = var_verified)
 #' dput(result)
 #'
 #'
 #' ####################  GetAlbumCollection  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- "return_nulls_example" # character | This parameter is deprecated.
 #' var_album_id <- 56 # integer | the album to look up
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
@@ -135,15 +131,14 @@
 #' api_instance <- AlbumApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAlbumCollection(var_version, var_return_nulls, var_album_id, device_id = var_device_id, account_id = var_account_id, like_preview_size = var_like_preview_size, asset_preview_size = var_asset_preview_size, note_preview_size = var_note_preview_size, connection_preview_size = var_connection_preview_size, audience_preview_size = var_audience_preview_sizedata_file = "result.txt")
-#' result <- api_instance$GetAlbumCollection(var_version, var_return_nulls, var_album_id, device_id = var_device_id, account_id = var_account_id, like_preview_size = var_like_preview_size, asset_preview_size = var_asset_preview_size, note_preview_size = var_note_preview_size, connection_preview_size = var_connection_preview_size, audience_preview_size = var_audience_preview_size)
+#' # result <- api_instance$GetAlbumCollection(var_return_nulls, var_album_id, device_id = var_device_id, account_id = var_account_id, like_preview_size = var_like_preview_size, asset_preview_size = var_asset_preview_size, note_preview_size = var_note_preview_size, connection_preview_size = var_connection_preview_size, audience_preview_size = var_audience_preview_sizedata_file = "result.txt")
+#' result <- api_instance$GetAlbumCollection(var_return_nulls, var_album_id, device_id = var_device_id, account_id = var_account_id, like_preview_size = var_like_preview_size, asset_preview_size = var_asset_preview_size, note_preview_size = var_note_preview_size, connection_preview_size = var_connection_preview_size, audience_preview_size = var_audience_preview_size)
 #' dput(result)
 #'
 #'
 #' ####################  LeaveAlbum  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_album_id <- 56 # integer | the album ID
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
@@ -152,15 +147,14 @@
 #' api_instance <- AlbumApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$LeaveAlbum(var_version, var_album_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$LeaveAlbum(var_version, var_album_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$LeaveAlbum(var_album_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$LeaveAlbum(var_album_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  RemoveAlbum  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_album_id <- 56 # integer | the album ID to delete
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
@@ -169,15 +163,14 @@
 #' api_instance <- AlbumApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemoveAlbum(var_version, var_album_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$RemoveAlbum(var_version, var_album_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$RemoveAlbum(var_album_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$RemoveAlbum(var_album_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  RemoveAlbumUsers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_album_id <- 56 # integer | the album ID
 #' var_remove_friend_group <- "remove_friend_group_example" # character | remove friend group
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
@@ -189,15 +182,14 @@
 #' api_instance <- AlbumApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemoveAlbumUsers(var_version, var_album_id, var_remove_friend_group, device_id = var_device_id, account_id = var_account_id, connections = var_connections, connection_groups = var_connection_groupsdata_file = "result.txt")
-#' result <- api_instance$RemoveAlbumUsers(var_version, var_album_id, var_remove_friend_group, device_id = var_device_id, account_id = var_account_id, connections = var_connections, connection_groups = var_connection_groups)
+#' # result <- api_instance$RemoveAlbumUsers(var_album_id, var_remove_friend_group, device_id = var_device_id, account_id = var_account_id, connections = var_connections, connection_groups = var_connection_groupsdata_file = "result.txt")
+#' result <- api_instance$RemoveAlbumUsers(var_album_id, var_remove_friend_group, device_id = var_device_id, account_id = var_account_id, connections = var_connections, connection_groups = var_connection_groups)
 #' dput(result)
 #'
 #'
 #' ####################  SearchAlbums  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_filter <- "filter_example" # character | a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
 #' var_album_type_id <- 56 # integer | id of custom albumType
 #' var_sub_type <- "sub_type_example" # character | filter albums with this album sub type
@@ -263,15 +255,14 @@
 #' api_instance <- AlbumApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchAlbums(var_version, var_filter, var_album_type_id, var_sub_type, var_include_inactive, var_sort_field, var_descending, var_start, var_limit, var_range, var_include_liked, var_include_favorited, var_include_permissions, var_like_preview_size, var_asset_preview_size, var_note_preview_size, var_connection_preview_size, var_audience_preview_size, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, owner_id = var_owner_id, album_ids = var_album_ids, exclude_album_ids = var_exclude_album_ids, media_id = var_media_id, keyword = var_keyword, album_type = var_album_type, limit_per_album_type = var_limit_per_album_type, date_created = var_date_created, updated_since = var_updated_since, updated_before = var_updated_before, created_since = var_created_since, created_before = var_created_before, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_before, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, exclude_audience_ids = var_exclude_audience_ids, include_completable = var_include_completable, include_rating = var_include_rating, search_mode = var_search_mode, stack_search = var_stack_search, stack_window_size = var_stack_window_size, min_stack_per_page = var_min_stack_per_page, stack_pagination_identifier = var_stack_pagination_identifier, stack_details = var_stack_details, flag_count_minimum = var_flag_count_minimum, remove_flagged_content = var_remove_flagged_content, verified_filter = var_verified_filter, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_id, order_audience_id = var_order_audience_id, ignore_default_app_filter = var_ignore_default_app_filter, search_expression = var_search_expression, generate_albums = var_generate_albumsdata_file = "result.txt")
-#' result <- api_instance$SearchAlbums(var_version, var_filter, var_album_type_id, var_sub_type, var_include_inactive, var_sort_field, var_descending, var_start, var_limit, var_range, var_include_liked, var_include_favorited, var_include_permissions, var_like_preview_size, var_asset_preview_size, var_note_preview_size, var_connection_preview_size, var_audience_preview_size, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, owner_id = var_owner_id, album_ids = var_album_ids, exclude_album_ids = var_exclude_album_ids, media_id = var_media_id, keyword = var_keyword, album_type = var_album_type, limit_per_album_type = var_limit_per_album_type, date_created = var_date_created, updated_since = var_updated_since, updated_before = var_updated_before, created_since = var_created_since, created_before = var_created_before, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_before, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, exclude_audience_ids = var_exclude_audience_ids, include_completable = var_include_completable, include_rating = var_include_rating, search_mode = var_search_mode, stack_search = var_stack_search, stack_window_size = var_stack_window_size, min_stack_per_page = var_min_stack_per_page, stack_pagination_identifier = var_stack_pagination_identifier, stack_details = var_stack_details, flag_count_minimum = var_flag_count_minimum, remove_flagged_content = var_remove_flagged_content, verified_filter = var_verified_filter, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_id, order_audience_id = var_order_audience_id, ignore_default_app_filter = var_ignore_default_app_filter, search_expression = var_search_expression, generate_albums = var_generate_albums)
+#' # result <- api_instance$SearchAlbums(var_filter, var_album_type_id, var_sub_type, var_include_inactive, var_sort_field, var_descending, var_start, var_limit, var_range, var_include_liked, var_include_favorited, var_include_permissions, var_like_preview_size, var_asset_preview_size, var_note_preview_size, var_connection_preview_size, var_audience_preview_size, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, owner_id = var_owner_id, album_ids = var_album_ids, exclude_album_ids = var_exclude_album_ids, media_id = var_media_id, keyword = var_keyword, album_type = var_album_type, limit_per_album_type = var_limit_per_album_type, date_created = var_date_created, updated_since = var_updated_since, updated_before = var_updated_before, created_since = var_created_since, created_before = var_created_before, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_before, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, exclude_audience_ids = var_exclude_audience_ids, include_completable = var_include_completable, include_rating = var_include_rating, search_mode = var_search_mode, stack_search = var_stack_search, stack_window_size = var_stack_window_size, min_stack_per_page = var_min_stack_per_page, stack_pagination_identifier = var_stack_pagination_identifier, stack_details = var_stack_details, flag_count_minimum = var_flag_count_minimum, remove_flagged_content = var_remove_flagged_content, verified_filter = var_verified_filter, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_id, order_audience_id = var_order_audience_id, ignore_default_app_filter = var_ignore_default_app_filter, search_expression = var_search_expression, generate_albums = var_generate_albumsdata_file = "result.txt")
+#' result <- api_instance$SearchAlbums(var_filter, var_album_type_id, var_sub_type, var_include_inactive, var_sort_field, var_descending, var_start, var_limit, var_range, var_include_liked, var_include_favorited, var_include_permissions, var_like_preview_size, var_asset_preview_size, var_note_preview_size, var_connection_preview_size, var_audience_preview_size, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, owner_id = var_owner_id, album_ids = var_album_ids, exclude_album_ids = var_exclude_album_ids, media_id = var_media_id, keyword = var_keyword, album_type = var_album_type, limit_per_album_type = var_limit_per_album_type, date_created = var_date_created, updated_since = var_updated_since, updated_before = var_updated_before, created_since = var_created_since, created_before = var_created_before, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_before, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, exclude_audience_ids = var_exclude_audience_ids, include_completable = var_include_completable, include_rating = var_include_rating, search_mode = var_search_mode, stack_search = var_stack_search, stack_window_size = var_stack_window_size, min_stack_per_page = var_min_stack_per_page, stack_pagination_identifier = var_stack_pagination_identifier, stack_details = var_stack_details, flag_count_minimum = var_flag_count_minimum, remove_flagged_content = var_remove_flagged_content, verified_filter = var_verified_filter, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_id, order_audience_id = var_order_audience_id, ignore_default_app_filter = var_ignore_default_app_filter, search_expression = var_search_expression, generate_albums = var_generate_albums)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateAlbumCollection  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_album_id <- 56 # integer | the ID of the album to update
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
@@ -322,8 +313,8 @@
 #' api_instance <- AlbumApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateAlbumCollection(var_version, var_album_id, device_id = var_device_id, account_id = var_account_id, assets_to_add = var_assets_to_add, assets_to_remove = var_assets_to_remove, asset_id = var_asset_id, media = var_media, media_url = var_media_url, active = var_active, title = var_title, start_date = var_start_date, end_date = var_end_date, tags = var_tags, description = var_description, album_type = var_album_type, album_type_id = var_album_type_id, sub_type = var_sub_type, public_read = var_public_read, public_write = var_public_write, public_delete = var_public_delete, public_add = var_public_add, latitude = var_latitude, longitude = var_longitude, location_description = var_location_description, visibility = var_visibility, cell_phone = var_cell_phone, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, full_address = var_full_address, anonymous = var_anonymous, meta_data = var_meta_data, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, include_all_app_users_as_members = var_include_all_app_users_as_members, include_audiences_as_members = var_include_audiences_as_members, audience_operator = var_audience_operator, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_id, index_now = var_index_nowdata_file = "result.txt")
-#' result <- api_instance$UpdateAlbumCollection(var_version, var_album_id, device_id = var_device_id, account_id = var_account_id, assets_to_add = var_assets_to_add, assets_to_remove = var_assets_to_remove, asset_id = var_asset_id, media = var_media, media_url = var_media_url, active = var_active, title = var_title, start_date = var_start_date, end_date = var_end_date, tags = var_tags, description = var_description, album_type = var_album_type, album_type_id = var_album_type_id, sub_type = var_sub_type, public_read = var_public_read, public_write = var_public_write, public_delete = var_public_delete, public_add = var_public_add, latitude = var_latitude, longitude = var_longitude, location_description = var_location_description, visibility = var_visibility, cell_phone = var_cell_phone, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, full_address = var_full_address, anonymous = var_anonymous, meta_data = var_meta_data, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, include_all_app_users_as_members = var_include_all_app_users_as_members, include_audiences_as_members = var_include_audiences_as_members, audience_operator = var_audience_operator, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_id, index_now = var_index_now)
+#' # result <- api_instance$UpdateAlbumCollection(var_album_id, device_id = var_device_id, account_id = var_account_id, assets_to_add = var_assets_to_add, assets_to_remove = var_assets_to_remove, asset_id = var_asset_id, media = var_media, media_url = var_media_url, active = var_active, title = var_title, start_date = var_start_date, end_date = var_end_date, tags = var_tags, description = var_description, album_type = var_album_type, album_type_id = var_album_type_id, sub_type = var_sub_type, public_read = var_public_read, public_write = var_public_write, public_delete = var_public_delete, public_add = var_public_add, latitude = var_latitude, longitude = var_longitude, location_description = var_location_description, visibility = var_visibility, cell_phone = var_cell_phone, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, full_address = var_full_address, anonymous = var_anonymous, meta_data = var_meta_data, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, include_all_app_users_as_members = var_include_all_app_users_as_members, include_audiences_as_members = var_include_audiences_as_members, audience_operator = var_audience_operator, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_id, index_now = var_index_nowdata_file = "result.txt")
+#' result <- api_instance$UpdateAlbumCollection(var_album_id, device_id = var_device_id, account_id = var_account_id, assets_to_add = var_assets_to_add, assets_to_remove = var_assets_to_remove, asset_id = var_asset_id, media = var_media, media_url = var_media_url, active = var_active, title = var_title, start_date = var_start_date, end_date = var_end_date, tags = var_tags, description = var_description, album_type = var_album_type, album_type_id = var_album_type_id, sub_type = var_sub_type, public_read = var_public_read, public_write = var_public_write, public_delete = var_public_delete, public_add = var_public_add, latitude = var_latitude, longitude = var_longitude, location_description = var_location_description, visibility = var_visibility, cell_phone = var_cell_phone, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, full_address = var_full_address, anonymous = var_anonymous, meta_data = var_meta_data, category_ids = var_category_ids, category_filter_ids = var_category_filter_ids, audience_ids = var_audience_ids, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, include_all_app_users_as_members = var_include_all_app_users_as_members, include_audiences_as_members = var_include_audiences_as_members, audience_operator = var_audience_operator, linked_object_type = var_linked_object_type, linked_object_id = var_linked_object_id, index_now = var_index_now)
 #' dput(result)
 #'
 #'
@@ -351,7 +342,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Create Album
     #'
-    #' @param version 
     #' @param title the title of the album
     #' @param cover_asset_nullable determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image
     #' @param include_cover_in_asset_list determines whether the cover image should be added to the album asset list
@@ -403,8 +393,8 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SearchResponse
-    AddAlbumCollection = function(version, title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, device_id = NULL, account_id = NULL, assets_to_add = NULL, media = NULL, media_url = NULL, asset_id = NULL, attached_media = NULL, attached_media_url = NULL, start_date = NULL, end_date = NULL, tags = NULL, description = NULL, album_type = NULL, album_type_id = NULL, sub_type = NULL, latitude = NULL, longitude = NULL, location_description = NULL, visibility = NULL, game_type = NULL, app_key = NULL, cell_phone = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, full_address = NULL, meta_data = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, include_all_app_users_as_members = NULL, include_audiences_as_members = NULL, audience_operator = NULL, approval_status = NULL, linked_object_type = NULL, linked_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddAlbumCollectionWithHttpInfo(version, title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, device_id, account_id, assets_to_add, media, media_url, asset_id, attached_media, attached_media_url, start_date, end_date, tags, description, album_type, album_type_id, sub_type, latitude, longitude, location_description, visibility, game_type, app_key, cell_phone, street_address, street_address2, city, state, postal_code, full_address, meta_data, category_ids, category_filter_ids, audience_ids, include_all_app_users_as_members, include_audiences_as_members, audience_operator, approval_status, linked_object_type, linked_object_id, data_file = data_file, ..., .parse = .parse)
+    AddAlbumCollection = function(title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, device_id = NULL, account_id = NULL, assets_to_add = NULL, media = NULL, media_url = NULL, asset_id = NULL, attached_media = NULL, attached_media_url = NULL, start_date = NULL, end_date = NULL, tags = NULL, description = NULL, album_type = NULL, album_type_id = NULL, sub_type = NULL, latitude = NULL, longitude = NULL, location_description = NULL, visibility = NULL, game_type = NULL, app_key = NULL, cell_phone = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, full_address = NULL, meta_data = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, include_all_app_users_as_members = NULL, include_audiences_as_members = NULL, audience_operator = NULL, approval_status = NULL, linked_object_type = NULL, linked_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddAlbumCollectionWithHttpInfo(title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, device_id, account_id, assets_to_add, media, media_url, asset_id, attached_media, attached_media_url, start_date, end_date, tags, description, album_type, album_type_id, sub_type, latitude, longitude, location_description, visibility, game_type, app_key, cell_phone, street_address, street_address2, city, state, postal_code, full_address, meta_data, category_ids, category_filter_ids, audience_ids, include_all_app_users_as_members, include_audiences_as_members, audience_operator, approval_status, linked_object_type, linked_object_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -419,7 +409,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Create Album
     #'
-    #' @param version 
     #' @param title the title of the album
     #' @param cover_asset_nullable determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image
     #' @param include_cover_in_asset_list determines whether the cover image should be added to the album asset list
@@ -471,7 +460,7 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SearchResponse) with additional information such as HTTP status code, headers
-    AddAlbumCollectionWithHttpInfo = function(version, title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, device_id = NULL, account_id = NULL, assets_to_add = NULL, media = NULL, media_url = NULL, asset_id = NULL, attached_media = NULL, attached_media_url = NULL, start_date = NULL, end_date = NULL, tags = NULL, description = NULL, album_type = NULL, album_type_id = NULL, sub_type = NULL, latitude = NULL, longitude = NULL, location_description = NULL, visibility = NULL, game_type = NULL, app_key = NULL, cell_phone = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, full_address = NULL, meta_data = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, include_all_app_users_as_members = NULL, include_audiences_as_members = NULL, audience_operator = NULL, approval_status = NULL, linked_object_type = NULL, linked_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddAlbumCollectionWithHttpInfo = function(title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, device_id = NULL, account_id = NULL, assets_to_add = NULL, media = NULL, media_url = NULL, asset_id = NULL, attached_media = NULL, attached_media_url = NULL, start_date = NULL, end_date = NULL, tags = NULL, description = NULL, album_type = NULL, album_type_id = NULL, sub_type = NULL, latitude = NULL, longitude = NULL, location_description = NULL, visibility = NULL, game_type = NULL, app_key = NULL, cell_phone = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, full_address = NULL, meta_data = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, include_all_app_users_as_members = NULL, include_audiences_as_members = NULL, audience_operator = NULL, approval_status = NULL, linked_object_type = NULL, linked_object_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -480,10 +469,6 @@ AlbumApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`title`)) {
         stop("Missing required parameter `title`.")
@@ -515,10 +500,6 @@ AlbumApi <- R6::R6Class(
 
       if (missing(`anonymous`)) {
         stop("Missing required parameter `anonymous`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AlbumApi$AddAlbumCollection, `version` is not nullable")
       }
 
       if (!missing(`title`) && is.null(`title`)) {
@@ -803,11 +784,7 @@ AlbumApi <- R6::R6Class(
 
       query_params[["linkedObjectId"]] <- `linked_object_id`
 
-      local_var_url_path <- "/api/{version}/album/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/album/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -868,7 +845,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Add Album Users
     #'
-    #' @param version 
     #' @param album_id the album ID
     #' @param include_friend_group determines whether to include all friends as participants
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
@@ -884,8 +860,8 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    AddAlbumUsers = function(version, album_id, include_friend_group, device_id = NULL, account_id = NULL, read = NULL, write = NULL, delete = NULL, add = NULL, connections = NULL, connection_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddAlbumUsersWithHttpInfo(version, album_id, include_friend_group, device_id, account_id, read, write, delete, add, connections, connection_groups, data_file = data_file, ..., .parse = .parse)
+    AddAlbumUsers = function(album_id, include_friend_group, device_id = NULL, account_id = NULL, read = NULL, write = NULL, delete = NULL, add = NULL, connections = NULL, connection_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddAlbumUsersWithHttpInfo(album_id, include_friend_group, device_id, account_id, read, write, delete, add, connections, connection_groups, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -900,7 +876,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Add Album Users
     #'
-    #' @param version 
     #' @param album_id the album ID
     #' @param include_friend_group determines whether to include all friends as participants
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
@@ -916,7 +891,7 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    AddAlbumUsersWithHttpInfo = function(version, album_id, include_friend_group, device_id = NULL, account_id = NULL, read = NULL, write = NULL, delete = NULL, add = NULL, connections = NULL, connection_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddAlbumUsersWithHttpInfo = function(album_id, include_friend_group, device_id = NULL, account_id = NULL, read = NULL, write = NULL, delete = NULL, add = NULL, connections = NULL, connection_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -926,20 +901,12 @@ AlbumApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`album_id`)) {
         stop("Missing required parameter `album_id`.")
       }
 
       if (missing(`include_friend_group`)) {
         stop("Missing required parameter `include_friend_group`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AlbumApi$AddAlbumUsers, `version` is not nullable")
       }
 
       if (!missing(`album_id`) && is.null(`album_id`)) {
@@ -1002,11 +969,7 @@ AlbumApi <- R6::R6Class(
 
       query_params[["includeFriendGroup"]] <- `include_friend_group`
 
-      local_var_url_path <- "/api/{version}/album/user/add"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/album/user/add"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1067,7 +1030,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Approve Album
     #'
-    #' @param version 
     #' @param album_id The ID of the album
     #' @param device_id (optional) A unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) The account ID of the user (deviceId or accountId required)
@@ -1078,8 +1040,8 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    ApproveAlbum = function(version, album_id, device_id = NULL, account_id = NULL, approval_status = NULL, verified = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ApproveAlbumWithHttpInfo(version, album_id, device_id, account_id, approval_status, verified, data_file = data_file, ..., .parse = .parse)
+    ApproveAlbum = function(album_id, device_id = NULL, account_id = NULL, approval_status = NULL, verified = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ApproveAlbumWithHttpInfo(album_id, device_id, account_id, approval_status, verified, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1094,7 +1056,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Approve Album
     #'
-    #' @param version 
     #' @param album_id The ID of the album
     #' @param device_id (optional) A unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) The account ID of the user (deviceId or accountId required)
@@ -1105,7 +1066,7 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    ApproveAlbumWithHttpInfo = function(version, album_id, device_id = NULL, account_id = NULL, approval_status = NULL, verified = NULL, data_file = NULL, ..., .parse = TRUE) {
+    ApproveAlbumWithHttpInfo = function(album_id, device_id = NULL, account_id = NULL, approval_status = NULL, verified = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1115,16 +1076,8 @@ AlbumApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`album_id`)) {
         stop("Missing required parameter `album_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AlbumApi$ApproveAlbum, `version` is not nullable")
       }
 
       if (!missing(`album_id`) && is.null(`album_id`)) {
@@ -1160,11 +1113,7 @@ AlbumApi <- R6::R6Class(
 
       query_params[["verified"]] <- `verified`
 
-      local_var_url_path <- "/api/{version}/album/approve"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/album/approve"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1225,7 +1174,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #'  Get Album
     #'
-    #' @param version 
     #' @param return_nulls This parameter is deprecated.
     #' @param album_id the album to look up
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
@@ -1240,8 +1188,8 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AlbumFullResponse
-    GetAlbumCollection = function(version, return_nulls, album_id, device_id = NULL, account_id = NULL, like_preview_size = NULL, asset_preview_size = NULL, note_preview_size = NULL, connection_preview_size = NULL, audience_preview_size = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAlbumCollectionWithHttpInfo(version, return_nulls, album_id, device_id, account_id, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, data_file = data_file, ..., .parse = .parse)
+    GetAlbumCollection = function(return_nulls, album_id, device_id = NULL, account_id = NULL, like_preview_size = NULL, asset_preview_size = NULL, note_preview_size = NULL, connection_preview_size = NULL, audience_preview_size = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAlbumCollectionWithHttpInfo(return_nulls, album_id, device_id, account_id, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1256,7 +1204,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #'  Get Album
     #'
-    #' @param version 
     #' @param return_nulls This parameter is deprecated.
     #' @param album_id the album to look up
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
@@ -1271,7 +1218,7 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AlbumFullResponse) with additional information such as HTTP status code, headers
-    GetAlbumCollectionWithHttpInfo = function(version, return_nulls, album_id, device_id = NULL, account_id = NULL, like_preview_size = NULL, asset_preview_size = NULL, note_preview_size = NULL, connection_preview_size = NULL, audience_preview_size = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetAlbumCollectionWithHttpInfo = function(return_nulls, album_id, device_id = NULL, account_id = NULL, like_preview_size = NULL, asset_preview_size = NULL, note_preview_size = NULL, connection_preview_size = NULL, audience_preview_size = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1281,20 +1228,12 @@ AlbumApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`return_nulls`)) {
         stop("Missing required parameter `return_nulls`.")
       }
 
       if (missing(`album_id`)) {
         stop("Missing required parameter `album_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AlbumApi$GetAlbumCollection, `version` is not nullable")
       }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
@@ -1351,11 +1290,7 @@ AlbumApi <- R6::R6Class(
 
       query_params[["audiencePreviewSize"]] <- `audience_preview_size`
 
-      local_var_url_path <- "/api/{version}/album/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/album/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1416,7 +1351,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Leave Album
     #'
-    #' @param version 
     #' @param album_id the album ID
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -1425,8 +1359,8 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    LeaveAlbum = function(version, album_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$LeaveAlbumWithHttpInfo(version, album_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    LeaveAlbum = function(album_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$LeaveAlbumWithHttpInfo(album_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1441,7 +1375,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Leave Album
     #'
-    #' @param version 
     #' @param album_id the album ID
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -1450,7 +1383,7 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    LeaveAlbumWithHttpInfo = function(version, album_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    LeaveAlbumWithHttpInfo = function(album_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1460,16 +1393,8 @@ AlbumApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`album_id`)) {
         stop("Missing required parameter `album_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AlbumApi$LeaveAlbum, `version` is not nullable")
       }
 
       if (!missing(`album_id`) && is.null(`album_id`)) {
@@ -1490,11 +1415,7 @@ AlbumApi <- R6::R6Class(
 
       query_params[["albumId"]] <- `album_id`
 
-      local_var_url_path <- "/api/{version}/album/user/leave"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/album/user/leave"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1555,7 +1476,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Delete Album
     #'
-    #' @param version 
     #' @param album_id the album ID to delete
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -1564,8 +1484,8 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RemoveAlbum = function(version, album_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemoveAlbumWithHttpInfo(version, album_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    RemoveAlbum = function(album_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemoveAlbumWithHttpInfo(album_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1580,7 +1500,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Delete Album
     #'
-    #' @param version 
     #' @param album_id the album ID to delete
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -1589,7 +1508,7 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RemoveAlbumWithHttpInfo = function(version, album_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RemoveAlbumWithHttpInfo = function(album_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1599,16 +1518,8 @@ AlbumApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`album_id`)) {
         stop("Missing required parameter `album_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AlbumApi$RemoveAlbum, `version` is not nullable")
       }
 
       if (!missing(`album_id`) && is.null(`album_id`)) {
@@ -1629,11 +1540,7 @@ AlbumApi <- R6::R6Class(
 
       query_params[["albumId"]] <- `album_id`
 
-      local_var_url_path <- "/api/{version}/album/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/album/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1694,7 +1601,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Remove Album Users
     #'
-    #' @param version 
     #' @param album_id the album ID
     #' @param remove_friend_group remove friend group
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
@@ -1706,8 +1612,8 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RemoveAlbumUsers = function(version, album_id, remove_friend_group, device_id = NULL, account_id = NULL, connections = NULL, connection_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemoveAlbumUsersWithHttpInfo(version, album_id, remove_friend_group, device_id, account_id, connections, connection_groups, data_file = data_file, ..., .parse = .parse)
+    RemoveAlbumUsers = function(album_id, remove_friend_group, device_id = NULL, account_id = NULL, connections = NULL, connection_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemoveAlbumUsersWithHttpInfo(album_id, remove_friend_group, device_id, account_id, connections, connection_groups, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1722,7 +1628,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Remove Album Users
     #'
-    #' @param version 
     #' @param album_id the album ID
     #' @param remove_friend_group remove friend group
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
@@ -1734,7 +1639,7 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RemoveAlbumUsersWithHttpInfo = function(version, album_id, remove_friend_group, device_id = NULL, account_id = NULL, connections = NULL, connection_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RemoveAlbumUsersWithHttpInfo = function(album_id, remove_friend_group, device_id = NULL, account_id = NULL, connections = NULL, connection_groups = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1744,20 +1649,12 @@ AlbumApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`album_id`)) {
         stop("Missing required parameter `album_id`.")
       }
 
       if (missing(`remove_friend_group`)) {
         stop("Missing required parameter `remove_friend_group`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AlbumApi$RemoveAlbumUsers, `version` is not nullable")
       }
 
       if (!missing(`album_id`) && is.null(`album_id`)) {
@@ -1796,11 +1693,7 @@ AlbumApi <- R6::R6Class(
 
       query_params[["removeFriendGroup"]] <- `remove_friend_group`
 
-      local_var_url_path <- "/api/{version}/album/user/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/album/user/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1861,7 +1754,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Search Albums
     #'
-    #' @param version 
     #' @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
     #' @param album_type_id id of custom albumType
     #' @param sub_type filter albums with this album sub type
@@ -1927,8 +1819,8 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AlbumFullResponse]
-    SearchAlbums = function(version, filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, device_id = NULL, account_id = NULL, connection_account_id = NULL, owner_id = NULL, album_ids = NULL, exclude_album_ids = NULL, media_id = NULL, keyword = NULL, album_type = NULL, limit_per_album_type = NULL, date_created = NULL, updated_since = NULL, updated_before = NULL, created_since = NULL, created_before = NULL, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, latitude = NULL, longitude = NULL, app_key = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, exclude_audience_ids = NULL, include_completable = NULL, include_rating = NULL, search_mode = NULL, stack_search = NULL, stack_window_size = NULL, min_stack_per_page = NULL, stack_pagination_identifier = NULL, stack_details = NULL, flag_count_minimum = NULL, remove_flagged_content = TRUE, verified_filter = NULL, linked_object_type = NULL, linked_object_id = NULL, order_audience_id = NULL, ignore_default_app_filter = NULL, search_expression = NULL, generate_albums = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchAlbumsWithHttpInfo(version, filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, device_id, account_id, connection_account_id, owner_id, album_ids, exclude_album_ids, media_id, keyword, album_type, limit_per_album_type, date_created, updated_since, updated_before, created_since, created_before, started_since, started_before, ended_since, ended_before, latitude, longitude, app_key, category_ids, category_filter_ids, audience_ids, exclude_audience_ids, include_completable, include_rating, search_mode, stack_search, stack_window_size, min_stack_per_page, stack_pagination_identifier, stack_details, flag_count_minimum, remove_flagged_content, verified_filter, linked_object_type, linked_object_id, order_audience_id, ignore_default_app_filter, search_expression, generate_albums, data_file = data_file, ..., .parse = .parse)
+    SearchAlbums = function(filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, device_id = NULL, account_id = NULL, connection_account_id = NULL, owner_id = NULL, album_ids = NULL, exclude_album_ids = NULL, media_id = NULL, keyword = NULL, album_type = NULL, limit_per_album_type = NULL, date_created = NULL, updated_since = NULL, updated_before = NULL, created_since = NULL, created_before = NULL, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, latitude = NULL, longitude = NULL, app_key = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, exclude_audience_ids = NULL, include_completable = NULL, include_rating = NULL, search_mode = NULL, stack_search = NULL, stack_window_size = NULL, min_stack_per_page = NULL, stack_pagination_identifier = NULL, stack_details = NULL, flag_count_minimum = NULL, remove_flagged_content = TRUE, verified_filter = NULL, linked_object_type = NULL, linked_object_id = NULL, order_audience_id = NULL, ignore_default_app_filter = NULL, search_expression = NULL, generate_albums = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchAlbumsWithHttpInfo(filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, device_id, account_id, connection_account_id, owner_id, album_ids, exclude_album_ids, media_id, keyword, album_type, limit_per_album_type, date_created, updated_since, updated_before, created_since, created_before, started_since, started_before, ended_since, ended_before, latitude, longitude, app_key, category_ids, category_filter_ids, audience_ids, exclude_audience_ids, include_completable, include_rating, search_mode, stack_search, stack_window_size, min_stack_per_page, stack_pagination_identifier, stack_details, flag_count_minimum, remove_flagged_content, verified_filter, linked_object_type, linked_object_id, order_audience_id, ignore_default_app_filter, search_expression, generate_albums, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1943,7 +1835,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Search Albums
     #'
-    #' @param version 
     #' @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
     #' @param album_type_id id of custom albumType
     #' @param sub_type filter albums with this album sub type
@@ -2009,7 +1900,7 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AlbumFullResponse]) with additional information such as HTTP status code, headers
-    SearchAlbumsWithHttpInfo = function(version, filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, device_id = NULL, account_id = NULL, connection_account_id = NULL, owner_id = NULL, album_ids = NULL, exclude_album_ids = NULL, media_id = NULL, keyword = NULL, album_type = NULL, limit_per_album_type = NULL, date_created = NULL, updated_since = NULL, updated_before = NULL, created_since = NULL, created_before = NULL, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, latitude = NULL, longitude = NULL, app_key = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, exclude_audience_ids = NULL, include_completable = NULL, include_rating = NULL, search_mode = NULL, stack_search = NULL, stack_window_size = NULL, min_stack_per_page = NULL, stack_pagination_identifier = NULL, stack_details = NULL, flag_count_minimum = NULL, remove_flagged_content = TRUE, verified_filter = NULL, linked_object_type = NULL, linked_object_id = NULL, order_audience_id = NULL, ignore_default_app_filter = NULL, search_expression = NULL, generate_albums = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchAlbumsWithHttpInfo = function(filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, device_id = NULL, account_id = NULL, connection_account_id = NULL, owner_id = NULL, album_ids = NULL, exclude_album_ids = NULL, media_id = NULL, keyword = NULL, album_type = NULL, limit_per_album_type = NULL, date_created = NULL, updated_since = NULL, updated_before = NULL, created_since = NULL, created_before = NULL, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, latitude = NULL, longitude = NULL, app_key = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, exclude_audience_ids = NULL, include_completable = NULL, include_rating = NULL, search_mode = NULL, stack_search = NULL, stack_window_size = NULL, min_stack_per_page = NULL, stack_pagination_identifier = NULL, stack_details = NULL, flag_count_minimum = NULL, remove_flagged_content = TRUE, verified_filter = NULL, linked_object_type = NULL, linked_object_id = NULL, order_audience_id = NULL, ignore_default_app_filter = NULL, search_expression = NULL, generate_albums = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2018,10 +1909,6 @@ AlbumApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`filter`)) {
         stop("Missing required parameter `filter`.")
@@ -2089,10 +1976,6 @@ AlbumApi <- R6::R6Class(
 
       if (missing(`audience_preview_size`)) {
         stop("Missing required parameter `audience_preview_size`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AlbumApi$SearchAlbums, `version` is not nullable")
       }
 
       if (!missing(`filter`) && is.null(`filter`)) {
@@ -2455,11 +2338,7 @@ AlbumApi <- R6::R6Class(
 
       query_params[["generateAlbums"]] <- `generate_albums`
 
-      local_var_url_path <- "/api/{version}/album/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/album/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2520,7 +2399,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Update Album
     #'
-    #' @param version 
     #' @param album_id the ID of the album to update
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -2571,8 +2449,8 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AlbumResponse
-    UpdateAlbumCollection = function(version, album_id, device_id = NULL, account_id = NULL, assets_to_add = NULL, assets_to_remove = NULL, asset_id = NULL, media = NULL, media_url = NULL, active = NULL, title = NULL, start_date = NULL, end_date = NULL, tags = NULL, description = NULL, album_type = NULL, album_type_id = NULL, sub_type = NULL, public_read = NULL, public_write = NULL, public_delete = NULL, public_add = NULL, latitude = NULL, longitude = NULL, location_description = NULL, visibility = NULL, cell_phone = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, full_address = NULL, anonymous = NULL, meta_data = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, include_all_app_users_as_members = NULL, include_audiences_as_members = NULL, audience_operator = NULL, linked_object_type = NULL, linked_object_id = NULL, index_now = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateAlbumCollectionWithHttpInfo(version, album_id, device_id, account_id, assets_to_add, assets_to_remove, asset_id, media, media_url, active, title, start_date, end_date, tags, description, album_type, album_type_id, sub_type, public_read, public_write, public_delete, public_add, latitude, longitude, location_description, visibility, cell_phone, street_address, street_address2, city, state, postal_code, full_address, anonymous, meta_data, category_ids, category_filter_ids, audience_ids, audience_ids_to_add, audience_ids_to_remove, include_all_app_users_as_members, include_audiences_as_members, audience_operator, linked_object_type, linked_object_id, index_now, data_file = data_file, ..., .parse = .parse)
+    UpdateAlbumCollection = function(album_id, device_id = NULL, account_id = NULL, assets_to_add = NULL, assets_to_remove = NULL, asset_id = NULL, media = NULL, media_url = NULL, active = NULL, title = NULL, start_date = NULL, end_date = NULL, tags = NULL, description = NULL, album_type = NULL, album_type_id = NULL, sub_type = NULL, public_read = NULL, public_write = NULL, public_delete = NULL, public_add = NULL, latitude = NULL, longitude = NULL, location_description = NULL, visibility = NULL, cell_phone = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, full_address = NULL, anonymous = NULL, meta_data = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, include_all_app_users_as_members = NULL, include_audiences_as_members = NULL, audience_operator = NULL, linked_object_type = NULL, linked_object_id = NULL, index_now = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateAlbumCollectionWithHttpInfo(album_id, device_id, account_id, assets_to_add, assets_to_remove, asset_id, media, media_url, active, title, start_date, end_date, tags, description, album_type, album_type_id, sub_type, public_read, public_write, public_delete, public_add, latitude, longitude, location_description, visibility, cell_phone, street_address, street_address2, city, state, postal_code, full_address, anonymous, meta_data, category_ids, category_filter_ids, audience_ids, audience_ids_to_add, audience_ids_to_remove, include_all_app_users_as_members, include_audiences_as_members, audience_operator, linked_object_type, linked_object_id, index_now, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2587,7 +2465,6 @@ AlbumApi <- R6::R6Class(
     #' @description
     #' Update Album
     #'
-    #' @param version 
     #' @param album_id the ID of the album to update
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -2638,7 +2515,7 @@ AlbumApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AlbumResponse) with additional information such as HTTP status code, headers
-    UpdateAlbumCollectionWithHttpInfo = function(version, album_id, device_id = NULL, account_id = NULL, assets_to_add = NULL, assets_to_remove = NULL, asset_id = NULL, media = NULL, media_url = NULL, active = NULL, title = NULL, start_date = NULL, end_date = NULL, tags = NULL, description = NULL, album_type = NULL, album_type_id = NULL, sub_type = NULL, public_read = NULL, public_write = NULL, public_delete = NULL, public_add = NULL, latitude = NULL, longitude = NULL, location_description = NULL, visibility = NULL, cell_phone = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, full_address = NULL, anonymous = NULL, meta_data = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, include_all_app_users_as_members = NULL, include_audiences_as_members = NULL, audience_operator = NULL, linked_object_type = NULL, linked_object_id = NULL, index_now = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateAlbumCollectionWithHttpInfo = function(album_id, device_id = NULL, account_id = NULL, assets_to_add = NULL, assets_to_remove = NULL, asset_id = NULL, media = NULL, media_url = NULL, active = NULL, title = NULL, start_date = NULL, end_date = NULL, tags = NULL, description = NULL, album_type = NULL, album_type_id = NULL, sub_type = NULL, public_read = NULL, public_write = NULL, public_delete = NULL, public_add = NULL, latitude = NULL, longitude = NULL, location_description = NULL, visibility = NULL, cell_phone = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, full_address = NULL, anonymous = NULL, meta_data = NULL, category_ids = NULL, category_filter_ids = NULL, audience_ids = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, include_all_app_users_as_members = NULL, include_audiences_as_members = NULL, audience_operator = NULL, linked_object_type = NULL, linked_object_id = NULL, index_now = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2648,16 +2525,8 @@ AlbumApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`album_id`)) {
         stop("Missing required parameter `album_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AlbumApi$UpdateAlbumCollection, `version` is not nullable")
       }
 
       if (!missing(`album_id`) && is.null(`album_id`)) {
@@ -2933,11 +2802,7 @@ AlbumApi <- R6::R6Class(
 
       query_params[["indexNow"]] <- `index_now`
 
-      local_var_url_path <- "/api/{version}/album/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/album/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

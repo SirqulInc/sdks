@@ -17,7 +17,6 @@
 #' ####################  CreateBid  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_biddable_type <- "biddable_type_example" # character | A biddable object type. Possible values include: CREATIVE (ads).
 #' var_biddable_id <- 56 # integer | The id of the biddable object
 #' var_amount_per_view <- 3.4 # numeric | The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -31,15 +30,14 @@
 #' api_instance <- BidApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateBid(var_version, var_biddable_type, var_biddable_id, var_amount_per_view, var_amount_per_action, var_budget_amount, var_budget_schedule, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$CreateBid(var_version, var_biddable_type, var_biddable_id, var_amount_per_view, var_amount_per_action, var_budget_amount, var_budget_schedule, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$CreateBid(var_biddable_type, var_biddable_id, var_amount_per_view, var_amount_per_action, var_budget_amount, var_budget_schedule, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$CreateBid(var_biddable_type, var_biddable_id, var_amount_per_view, var_amount_per_action, var_budget_amount, var_budget_schedule, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteBid  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_bid_id <- 56 # integer | The bid id
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -48,15 +46,14 @@
 #' api_instance <- BidApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteBid(var_version, var_bid_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteBid(var_version, var_bid_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteBid(var_bid_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteBid(var_bid_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetBid  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_bid_id <- 56 # integer | The bid id
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -65,15 +62,14 @@
 #' api_instance <- BidApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetBid(var_version, var_bid_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$GetBid(var_version, var_bid_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$GetBid(var_bid_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$GetBid(var_bid_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateBid  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_bid_id <- 56 # integer | The bid id
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -86,8 +82,8 @@
 #' api_instance <- BidApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateBid(var_version, var_bid_id, device_id = var_device_id, account_id = var_account_id, amount_per_view = var_amount_per_view, amount_per_action = var_amount_per_action, budget_amount = var_budget_amount, budget_schedule = var_budget_scheduledata_file = "result.txt")
-#' result <- api_instance$UpdateBid(var_version, var_bid_id, device_id = var_device_id, account_id = var_account_id, amount_per_view = var_amount_per_view, amount_per_action = var_amount_per_action, budget_amount = var_budget_amount, budget_schedule = var_budget_schedule)
+#' # result <- api_instance$UpdateBid(var_bid_id, device_id = var_device_id, account_id = var_account_id, amount_per_view = var_amount_per_view, amount_per_action = var_amount_per_action, budget_amount = var_budget_amount, budget_schedule = var_budget_scheduledata_file = "result.txt")
+#' result <- api_instance$UpdateBid(var_bid_id, device_id = var_device_id, account_id = var_account_id, amount_per_view = var_amount_per_view, amount_per_action = var_amount_per_action, budget_amount = var_budget_amount, budget_schedule = var_budget_schedule)
 #' dput(result)
 #'
 #'
@@ -115,7 +111,6 @@ BidApi <- R6::R6Class(
     #' @description
     #' Create Bid
     #'
-    #' @param version 
     #' @param biddable_type A biddable object type. Possible values include: CREATIVE (ads).
     #' @param biddable_id The id of the biddable object
     #' @param amount_per_view The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -129,8 +124,8 @@ BidApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BidResponse
-    CreateBid = function(version, biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateBidWithHttpInfo(version, biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    CreateBid = function(biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateBidWithHttpInfo(biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -145,7 +140,6 @@ BidApi <- R6::R6Class(
     #' @description
     #' Create Bid
     #'
-    #' @param version 
     #' @param biddable_type A biddable object type. Possible values include: CREATIVE (ads).
     #' @param biddable_id The id of the biddable object
     #' @param amount_per_view The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -159,7 +153,7 @@ BidApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BidResponse) with additional information such as HTTP status code, headers
-    CreateBidWithHttpInfo = function(version, biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateBidWithHttpInfo = function(biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -168,10 +162,6 @@ BidApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`biddable_type`)) {
         stop("Missing required parameter `biddable_type`.")
@@ -195,10 +185,6 @@ BidApi <- R6::R6Class(
 
       if (missing(`budget_schedule`)) {
         stop("Missing required parameter `budget_schedule`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BidApi$CreateBid, `version` is not nullable")
       }
 
       if (!missing(`biddable_type`) && is.null(`biddable_type`)) {
@@ -249,11 +235,7 @@ BidApi <- R6::R6Class(
 
       query_params[["budgetSchedule"]] <- `budget_schedule`
 
-      local_var_url_path <- "/api/{version}/bid/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/bid/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -314,7 +296,6 @@ BidApi <- R6::R6Class(
     #' @description
     #' Delete Bid
     #'
-    #' @param version 
     #' @param bid_id The bid id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -323,8 +304,8 @@ BidApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteBid = function(version, bid_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteBidWithHttpInfo(version, bid_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteBid = function(bid_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteBidWithHttpInfo(bid_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -339,7 +320,6 @@ BidApi <- R6::R6Class(
     #' @description
     #' Delete Bid
     #'
-    #' @param version 
     #' @param bid_id The bid id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -348,7 +328,7 @@ BidApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteBidWithHttpInfo = function(version, bid_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteBidWithHttpInfo = function(bid_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -358,16 +338,8 @@ BidApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`bid_id`)) {
         stop("Missing required parameter `bid_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BidApi$DeleteBid, `version` is not nullable")
       }
 
       if (!missing(`bid_id`) && is.null(`bid_id`)) {
@@ -388,11 +360,7 @@ BidApi <- R6::R6Class(
 
       query_params[["bidId"]] <- `bid_id`
 
-      local_var_url_path <- "/api/{version}/bid/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/bid/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -453,7 +421,6 @@ BidApi <- R6::R6Class(
     #' @description
     #' Get Bid
     #'
-    #' @param version 
     #' @param bid_id The bid id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -462,8 +429,8 @@ BidApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BidResponse
-    GetBid = function(version, bid_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetBidWithHttpInfo(version, bid_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    GetBid = function(bid_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetBidWithHttpInfo(bid_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -478,7 +445,6 @@ BidApi <- R6::R6Class(
     #' @description
     #' Get Bid
     #'
-    #' @param version 
     #' @param bid_id The bid id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -487,7 +453,7 @@ BidApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BidResponse) with additional information such as HTTP status code, headers
-    GetBidWithHttpInfo = function(version, bid_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetBidWithHttpInfo = function(bid_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -497,16 +463,8 @@ BidApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`bid_id`)) {
         stop("Missing required parameter `bid_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BidApi$GetBid, `version` is not nullable")
       }
 
       if (!missing(`bid_id`) && is.null(`bid_id`)) {
@@ -527,11 +485,7 @@ BidApi <- R6::R6Class(
 
       query_params[["bidId"]] <- `bid_id`
 
-      local_var_url_path <- "/api/{version}/bid/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/bid/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -592,7 +546,6 @@ BidApi <- R6::R6Class(
     #' @description
     #' Update Bid
     #'
-    #' @param version 
     #' @param bid_id The bid id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -605,8 +558,8 @@ BidApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BidResponse
-    UpdateBid = function(version, bid_id, device_id = NULL, account_id = NULL, amount_per_view = NULL, amount_per_action = NULL, budget_amount = NULL, budget_schedule = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateBidWithHttpInfo(version, bid_id, device_id, account_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, data_file = data_file, ..., .parse = .parse)
+    UpdateBid = function(bid_id, device_id = NULL, account_id = NULL, amount_per_view = NULL, amount_per_action = NULL, budget_amount = NULL, budget_schedule = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateBidWithHttpInfo(bid_id, device_id, account_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -621,7 +574,6 @@ BidApi <- R6::R6Class(
     #' @description
     #' Update Bid
     #'
-    #' @param version 
     #' @param bid_id The bid id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -634,7 +586,7 @@ BidApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BidResponse) with additional information such as HTTP status code, headers
-    UpdateBidWithHttpInfo = function(version, bid_id, device_id = NULL, account_id = NULL, amount_per_view = NULL, amount_per_action = NULL, budget_amount = NULL, budget_schedule = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateBidWithHttpInfo = function(bid_id, device_id = NULL, account_id = NULL, amount_per_view = NULL, amount_per_action = NULL, budget_amount = NULL, budget_schedule = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -644,16 +596,8 @@ BidApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`bid_id`)) {
         stop("Missing required parameter `bid_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BidApi$UpdateBid, `version` is not nullable")
       }
 
       if (!missing(`bid_id`) && is.null(`bid_id`)) {
@@ -698,11 +642,7 @@ BidApi <- R6::R6Class(
 
       query_params[["budgetSchedule"]] <- `budget_schedule`
 
-      local_var_url_path <- "/api/{version}/bid/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/bid/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

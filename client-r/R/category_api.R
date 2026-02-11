@@ -17,7 +17,6 @@
 #' ####################  CategoryDistanceSearch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user (Optional)
 #' var_keyword <- "keyword_example" # character | The keyword string to search on (Optional)
 #' var_app_key <- "app_key_example" # character | the appKey of the application to retrieve categories for, if not specified then search on the global application. (Optional)
@@ -43,15 +42,14 @@
 #' api_instance <- CategoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CategoryDistanceSearch(var_version, account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, category_ids = var_category_ids, parent_category_ids = var_parent_category_ids, root_only = var_root_only, sort_field = var_sort_field, response_group = var_response_group, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, return_external = var_return_external, exact_match = var_exact_match, type = var_type, external_type = var_external_type, min_offer_count = var_min_offer_count, latitude = var_latitude, longitude = var_longitude, range = var_rangedata_file = "result.txt")
-#' result <- api_instance$CategoryDistanceSearch(var_version, account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, category_ids = var_category_ids, parent_category_ids = var_parent_category_ids, root_only = var_root_only, sort_field = var_sort_field, response_group = var_response_group, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, return_external = var_return_external, exact_match = var_exact_match, type = var_type, external_type = var_external_type, min_offer_count = var_min_offer_count, latitude = var_latitude, longitude = var_longitude, range = var_range)
+#' # result <- api_instance$CategoryDistanceSearch(account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, category_ids = var_category_ids, parent_category_ids = var_parent_category_ids, root_only = var_root_only, sort_field = var_sort_field, response_group = var_response_group, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, return_external = var_return_external, exact_match = var_exact_match, type = var_type, external_type = var_external_type, min_offer_count = var_min_offer_count, latitude = var_latitude, longitude = var_longitude, range = var_rangedata_file = "result.txt")
+#' result <- api_instance$CategoryDistanceSearch(account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, category_ids = var_category_ids, parent_category_ids = var_parent_category_ids, root_only = var_root_only, sort_field = var_sort_field, response_group = var_response_group, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, return_external = var_return_external, exact_match = var_exact_match, type = var_type, external_type = var_external_type, min_offer_count = var_min_offer_count, latitude = var_latitude, longitude = var_longitude, range = var_range)
 #' dput(result)
 #'
 #'
 #' ####################  CreateCategory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user (must have permissions to the target application)
 #' var_name <- "name_example" # character | The name of the category
 #' var_app_key <- "app_key_example" # character | The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (Optional)
@@ -71,15 +69,14 @@
 #' api_instance <- CategoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateCategory(var_version, var_account_id, var_name, app_key = var_app_key, parent_category_id = var_parent_category_id, description = var_description, type = var_type, asset_id = var_asset_id, external_id = var_external_id, external_type = var_external_type, external_category_slug = var_external_category_slug, sqoot_slug = var_sqoot_slug, active = var_active, meta_data = var_meta_data, search_tags = var_search_tagsdata_file = "result.txt")
-#' result <- api_instance$CreateCategory(var_version, var_account_id, var_name, app_key = var_app_key, parent_category_id = var_parent_category_id, description = var_description, type = var_type, asset_id = var_asset_id, external_id = var_external_id, external_type = var_external_type, external_category_slug = var_external_category_slug, sqoot_slug = var_sqoot_slug, active = var_active, meta_data = var_meta_data, search_tags = var_search_tags)
+#' # result <- api_instance$CreateCategory(var_account_id, var_name, app_key = var_app_key, parent_category_id = var_parent_category_id, description = var_description, type = var_type, asset_id = var_asset_id, external_id = var_external_id, external_type = var_external_type, external_category_slug = var_external_category_slug, sqoot_slug = var_sqoot_slug, active = var_active, meta_data = var_meta_data, search_tags = var_search_tagsdata_file = "result.txt")
+#' result <- api_instance$CreateCategory(var_account_id, var_name, app_key = var_app_key, parent_category_id = var_parent_category_id, description = var_description, type = var_type, asset_id = var_asset_id, external_id = var_external_id, external_type = var_external_type, external_category_slug = var_external_category_slug, sqoot_slug = var_sqoot_slug, active = var_active, meta_data = var_meta_data, search_tags = var_search_tags)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteCategory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the ID of the account
 #' var_category_id <- 56 # integer | the ID of the category
 #'
@@ -87,15 +84,14 @@
 #' api_instance <- CategoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteCategory(var_version, var_account_id, var_category_iddata_file = "result.txt")
-#' result <- api_instance$DeleteCategory(var_version, var_account_id, var_category_id)
+#' # result <- api_instance$DeleteCategory(var_account_id, var_category_iddata_file = "result.txt")
+#' result <- api_instance$DeleteCategory(var_account_id, var_category_id)
 #' dput(result)
 #'
 #'
 #' ####################  DuplicateCategory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user (must have permissions to the target application)
 #' var_category_id <- 56 # integer | The category ID to duplicate (includes all children)
 #' var_app_key <- "app_key_example" # character | The application to assign the new category to, may be different then the application the source category is assigned to (Optional)
@@ -105,15 +101,14 @@
 #' api_instance <- CategoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DuplicateCategory(var_version, var_account_id, var_category_id, app_key = var_app_key, parent_category_id = var_parent_category_iddata_file = "result.txt")
-#' result <- api_instance$DuplicateCategory(var_version, var_account_id, var_category_id, app_key = var_app_key, parent_category_id = var_parent_category_id)
+#' # result <- api_instance$DuplicateCategory(var_account_id, var_category_id, app_key = var_app_key, parent_category_id = var_parent_category_iddata_file = "result.txt")
+#' result <- api_instance$DuplicateCategory(var_account_id, var_category_id, app_key = var_app_key, parent_category_id = var_parent_category_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetCategory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_category_id <- 56 # integer | the ID of the category
 #' var_return_external <- TRUE # character | Determines whether to return extra info about the category's \"Participant\" reference (Optional)
 #'
@@ -121,15 +116,14 @@
 #' api_instance <- CategoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetCategory(var_version, var_category_id, return_external = var_return_externaldata_file = "result.txt")
-#' result <- api_instance$GetCategory(var_version, var_category_id, return_external = var_return_external)
+#' # result <- api_instance$GetCategory(var_category_id, return_external = var_return_externaldata_file = "result.txt")
+#' result <- api_instance$GetCategory(var_category_id, return_external = var_return_external)
 #' dput(result)
 #'
 #'
 #' ####################  SearchCategories  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user (Optional)
 #' var_keyword <- "keyword_example" # character | The string to search on (Optional)
 #' var_app_key <- "app_key_example" # character | the appKey of the application to retrieve categories for, if not specified then search on the global application. (Optional)
@@ -156,15 +150,14 @@
 #' api_instance <- CategoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchCategories(var_version, account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, category_id = var_category_id, category_ids = var_category_ids, parent_category_ids = var_parent_category_ids, root_only = var_root_only, sort_field = var_sort_field, response_group = var_response_group, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, return_external = var_return_external, exact_match = var_exact_match, type = var_type, external_type = var_external_type, exclude_external_type = var_exclude_external_type, min_offer_count = var_min_offer_count, search_depth = var_search_depth, search_mode = var_search_modedata_file = "result.txt")
-#' result <- api_instance$SearchCategories(var_version, account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, category_id = var_category_id, category_ids = var_category_ids, parent_category_ids = var_parent_category_ids, root_only = var_root_only, sort_field = var_sort_field, response_group = var_response_group, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, return_external = var_return_external, exact_match = var_exact_match, type = var_type, external_type = var_external_type, exclude_external_type = var_exclude_external_type, min_offer_count = var_min_offer_count, search_depth = var_search_depth, search_mode = var_search_mode)
+#' # result <- api_instance$SearchCategories(account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, category_id = var_category_id, category_ids = var_category_ids, parent_category_ids = var_parent_category_ids, root_only = var_root_only, sort_field = var_sort_field, response_group = var_response_group, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, return_external = var_return_external, exact_match = var_exact_match, type = var_type, external_type = var_external_type, exclude_external_type = var_exclude_external_type, min_offer_count = var_min_offer_count, search_depth = var_search_depth, search_mode = var_search_modedata_file = "result.txt")
+#' result <- api_instance$SearchCategories(account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, category_id = var_category_id, category_ids = var_category_ids, parent_category_ids = var_parent_category_ids, root_only = var_root_only, sort_field = var_sort_field, response_group = var_response_group, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only, return_external = var_return_external, exact_match = var_exact_match, type = var_type, external_type = var_external_type, exclude_external_type = var_exclude_external_type, min_offer_count = var_min_offer_count, search_depth = var_search_depth, search_mode = var_search_mode)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateCategory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user
 #' var_category_id <- 56 # integer | The ID of the category to edit
 #' var_parent_category_id <- 56 # integer | The ID of the parent category, if not provided then the parent category will be null (Optional)
@@ -184,8 +177,8 @@
 #' api_instance <- CategoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateCategory(var_version, var_account_id, var_category_id, parent_category_id = var_parent_category_id, name = var_name, description = var_description, type = var_type, asset_id = var_asset_id, external_id = var_external_id, external_type = var_external_type, external_category_slug = var_external_category_slug, sqoot_slug = var_sqoot_slug, active = var_active, meta_data = var_meta_data, search_tags = var_search_tagsdata_file = "result.txt")
-#' result <- api_instance$UpdateCategory(var_version, var_account_id, var_category_id, parent_category_id = var_parent_category_id, name = var_name, description = var_description, type = var_type, asset_id = var_asset_id, external_id = var_external_id, external_type = var_external_type, external_category_slug = var_external_category_slug, sqoot_slug = var_sqoot_slug, active = var_active, meta_data = var_meta_data, search_tags = var_search_tags)
+#' # result <- api_instance$UpdateCategory(var_account_id, var_category_id, parent_category_id = var_parent_category_id, name = var_name, description = var_description, type = var_type, asset_id = var_asset_id, external_id = var_external_id, external_type = var_external_type, external_category_slug = var_external_category_slug, sqoot_slug = var_sqoot_slug, active = var_active, meta_data = var_meta_data, search_tags = var_search_tagsdata_file = "result.txt")
+#' result <- api_instance$UpdateCategory(var_account_id, var_category_id, parent_category_id = var_parent_category_id, name = var_name, description = var_description, type = var_type, asset_id = var_asset_id, external_id = var_external_id, external_type = var_external_type, external_category_slug = var_external_category_slug, sqoot_slug = var_sqoot_slug, active = var_active, meta_data = var_meta_data, search_tags = var_search_tags)
 #' dput(result)
 #'
 #'
@@ -213,7 +206,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Search Categories by Distance
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user
     #' @param keyword (optional) The keyword string to search on
     #' @param app_key (optional) the appKey of the application to retrieve categories for, if not specified then search on the global application.
@@ -239,8 +231,8 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[CategoryResponse]
-    CategoryDistanceSearch = function(version, account_id = NULL, keyword = NULL, app_key = NULL, category_ids = NULL, parent_category_ids = NULL, root_only = NULL, sort_field = "DISPLAY", response_group = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, return_external = NULL, exact_match = NULL, type = NULL, external_type = NULL, min_offer_count = NULL, latitude = NULL, longitude = NULL, range = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CategoryDistanceSearchWithHttpInfo(version, account_id, keyword, app_key, category_ids, parent_category_ids, root_only, sort_field, response_group, descending, start, limit, active_only, return_external, exact_match, type, external_type, min_offer_count, latitude, longitude, range, data_file = data_file, ..., .parse = .parse)
+    CategoryDistanceSearch = function(account_id = NULL, keyword = NULL, app_key = NULL, category_ids = NULL, parent_category_ids = NULL, root_only = NULL, sort_field = "DISPLAY", response_group = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, return_external = NULL, exact_match = NULL, type = NULL, external_type = NULL, min_offer_count = NULL, latitude = NULL, longitude = NULL, range = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CategoryDistanceSearchWithHttpInfo(account_id, keyword, app_key, category_ids, parent_category_ids, root_only, sort_field, response_group, descending, start, limit, active_only, return_external, exact_match, type, external_type, min_offer_count, latitude, longitude, range, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -255,7 +247,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Search Categories by Distance
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user
     #' @param keyword (optional) The keyword string to search on
     #' @param app_key (optional) the appKey of the application to retrieve categories for, if not specified then search on the global application.
@@ -281,7 +272,7 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[CategoryResponse]) with additional information such as HTTP status code, headers
-    CategoryDistanceSearchWithHttpInfo = function(version, account_id = NULL, keyword = NULL, app_key = NULL, category_ids = NULL, parent_category_ids = NULL, root_only = NULL, sort_field = "DISPLAY", response_group = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, return_external = NULL, exact_match = NULL, type = NULL, external_type = NULL, min_offer_count = NULL, latitude = NULL, longitude = NULL, range = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CategoryDistanceSearchWithHttpInfo = function(account_id = NULL, keyword = NULL, app_key = NULL, category_ids = NULL, parent_category_ids = NULL, root_only = NULL, sort_field = "DISPLAY", response_group = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, return_external = NULL, exact_match = NULL, type = NULL, external_type = NULL, min_offer_count = NULL, latitude = NULL, longitude = NULL, range = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -290,14 +281,6 @@ CategoryApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CategoryApi$CategoryDistanceSearch, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling CategoryApi$CategoryDistanceSearch, `account_id` is not nullable")
@@ -425,11 +408,7 @@ CategoryApi <- R6::R6Class(
 
       query_params[["range"]] <- `range`
 
-      local_var_url_path <- "/api/{version}/category/distancesearch"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/category/distancesearch"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -490,7 +469,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Create Category
     #'
-    #' @param version 
     #' @param account_id The account id of the user (must have permissions to the target application)
     #' @param name The name of the category
     #' @param app_key (optional) The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions)
@@ -510,8 +488,8 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CategoryTreeResponse
-    CreateCategory = function(version, account_id, name, app_key = NULL, parent_category_id = NULL, description = NULL, type = NULL, asset_id = NULL, external_id = NULL, external_type = NULL, external_category_slug = NULL, sqoot_slug = NULL, active = NULL, meta_data = NULL, search_tags = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateCategoryWithHttpInfo(version, account_id, name, app_key, parent_category_id, description, type, asset_id, external_id, external_type, external_category_slug, sqoot_slug, active, meta_data, search_tags, data_file = data_file, ..., .parse = .parse)
+    CreateCategory = function(account_id, name, app_key = NULL, parent_category_id = NULL, description = NULL, type = NULL, asset_id = NULL, external_id = NULL, external_type = NULL, external_category_slug = NULL, sqoot_slug = NULL, active = NULL, meta_data = NULL, search_tags = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateCategoryWithHttpInfo(account_id, name, app_key, parent_category_id, description, type, asset_id, external_id, external_type, external_category_slug, sqoot_slug, active, meta_data, search_tags, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -526,7 +504,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Create Category
     #'
-    #' @param version 
     #' @param account_id The account id of the user (must have permissions to the target application)
     #' @param name The name of the category
     #' @param app_key (optional) The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions)
@@ -546,7 +523,7 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CategoryTreeResponse) with additional information such as HTTP status code, headers
-    CreateCategoryWithHttpInfo = function(version, account_id, name, app_key = NULL, parent_category_id = NULL, description = NULL, type = NULL, asset_id = NULL, external_id = NULL, external_type = NULL, external_category_slug = NULL, sqoot_slug = NULL, active = NULL, meta_data = NULL, search_tags = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateCategoryWithHttpInfo = function(account_id, name, app_key = NULL, parent_category_id = NULL, description = NULL, type = NULL, asset_id = NULL, external_id = NULL, external_type = NULL, external_category_slug = NULL, sqoot_slug = NULL, active = NULL, meta_data = NULL, search_tags = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -556,20 +533,12 @@ CategoryApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`name`)) {
         stop("Missing required parameter `name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CategoryApi$CreateCategory, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -656,11 +625,7 @@ CategoryApi <- R6::R6Class(
 
       query_params[["searchTags"]] <- `search_tags`
 
-      local_var_url_path <- "/api/{version}/category/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/category/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -721,7 +686,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Delete Category
     #'
-    #' @param version 
     #' @param account_id the ID of the account
     #' @param category_id the ID of the category
     #' @param data_file (optional) name of the data file to save the result
@@ -729,8 +693,8 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteCategory = function(version, account_id, category_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteCategoryWithHttpInfo(version, account_id, category_id, data_file = data_file, ..., .parse = .parse)
+    DeleteCategory = function(account_id, category_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteCategoryWithHttpInfo(account_id, category_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -745,7 +709,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Delete Category
     #'
-    #' @param version 
     #' @param account_id the ID of the account
     #' @param category_id the ID of the category
     #' @param data_file (optional) name of the data file to save the result
@@ -753,7 +716,7 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteCategoryWithHttpInfo = function(version, account_id, category_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteCategoryWithHttpInfo = function(account_id, category_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -763,20 +726,12 @@ CategoryApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`category_id`)) {
         stop("Missing required parameter `category_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CategoryApi$DeleteCategory, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -791,11 +746,7 @@ CategoryApi <- R6::R6Class(
 
       query_params[["categoryId"]] <- `category_id`
 
-      local_var_url_path <- "/api/{version}/category/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/category/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -856,7 +807,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Duplicate Category
     #'
-    #' @param version 
     #' @param account_id The account id of the user (must have permissions to the target application)
     #' @param category_id The category ID to duplicate (includes all children)
     #' @param app_key (optional) The application to assign the new category to, may be different then the application the source category is assigned to
@@ -866,8 +816,8 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CategoryTreeResponse
-    DuplicateCategory = function(version, account_id, category_id, app_key = NULL, parent_category_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DuplicateCategoryWithHttpInfo(version, account_id, category_id, app_key, parent_category_id, data_file = data_file, ..., .parse = .parse)
+    DuplicateCategory = function(account_id, category_id, app_key = NULL, parent_category_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DuplicateCategoryWithHttpInfo(account_id, category_id, app_key, parent_category_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -882,7 +832,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Duplicate Category
     #'
-    #' @param version 
     #' @param account_id The account id of the user (must have permissions to the target application)
     #' @param category_id The category ID to duplicate (includes all children)
     #' @param app_key (optional) The application to assign the new category to, may be different then the application the source category is assigned to
@@ -892,7 +841,7 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CategoryTreeResponse) with additional information such as HTTP status code, headers
-    DuplicateCategoryWithHttpInfo = function(version, account_id, category_id, app_key = NULL, parent_category_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DuplicateCategoryWithHttpInfo = function(account_id, category_id, app_key = NULL, parent_category_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -902,20 +851,12 @@ CategoryApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`category_id`)) {
         stop("Missing required parameter `category_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CategoryApi$DuplicateCategory, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -942,11 +883,7 @@ CategoryApi <- R6::R6Class(
 
       query_params[["parentCategoryId"]] <- `parent_category_id`
 
-      local_var_url_path <- "/api/{version}/category/duplicate"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/category/duplicate"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1007,7 +944,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Get Category
     #'
-    #' @param version 
     #' @param category_id the ID of the category
     #' @param return_external (optional) Determines whether to return extra info about the category's \"Participant\" reference (default value: TRUE)
     #' @param data_file (optional) name of the data file to save the result
@@ -1015,8 +951,8 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CategoryTreeResponse
-    GetCategory = function(version, category_id, return_external = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetCategoryWithHttpInfo(version, category_id, return_external, data_file = data_file, ..., .parse = .parse)
+    GetCategory = function(category_id, return_external = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetCategoryWithHttpInfo(category_id, return_external, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1031,7 +967,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Get Category
     #'
-    #' @param version 
     #' @param category_id the ID of the category
     #' @param return_external (optional) Determines whether to return extra info about the category's \"Participant\" reference (default value: TRUE)
     #' @param data_file (optional) name of the data file to save the result
@@ -1039,7 +974,7 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CategoryTreeResponse) with additional information such as HTTP status code, headers
-    GetCategoryWithHttpInfo = function(version, category_id, return_external = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    GetCategoryWithHttpInfo = function(category_id, return_external = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1049,16 +984,8 @@ CategoryApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`category_id`)) {
         stop("Missing required parameter `category_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CategoryApi$GetCategory, `version` is not nullable")
       }
 
       if (!missing(`category_id`) && is.null(`category_id`)) {
@@ -1073,11 +1000,7 @@ CategoryApi <- R6::R6Class(
 
       query_params[["returnExternal"]] <- `return_external`
 
-      local_var_url_path <- "/api/{version}/category/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/category/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1138,7 +1061,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Search Categories
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user
     #' @param keyword (optional) The string to search on
     #' @param app_key (optional) the appKey of the application to retrieve categories for, if not specified then search on the global application.
@@ -1165,8 +1087,8 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[CategoryResponse]
-    SearchCategories = function(version, account_id = NULL, keyword = NULL, app_key = NULL, category_id = NULL, category_ids = NULL, parent_category_ids = NULL, root_only = NULL, sort_field = "DISPLAY", response_group = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, return_external = TRUE, exact_match = FALSE, type = NULL, external_type = NULL, exclude_external_type = NULL, min_offer_count = NULL, search_depth = 4, search_mode = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchCategoriesWithHttpInfo(version, account_id, keyword, app_key, category_id, category_ids, parent_category_ids, root_only, sort_field, response_group, descending, start, limit, active_only, return_external, exact_match, type, external_type, exclude_external_type, min_offer_count, search_depth, search_mode, data_file = data_file, ..., .parse = .parse)
+    SearchCategories = function(account_id = NULL, keyword = NULL, app_key = NULL, category_id = NULL, category_ids = NULL, parent_category_ids = NULL, root_only = NULL, sort_field = "DISPLAY", response_group = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, return_external = TRUE, exact_match = FALSE, type = NULL, external_type = NULL, exclude_external_type = NULL, min_offer_count = NULL, search_depth = 4, search_mode = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchCategoriesWithHttpInfo(account_id, keyword, app_key, category_id, category_ids, parent_category_ids, root_only, sort_field, response_group, descending, start, limit, active_only, return_external, exact_match, type, external_type, exclude_external_type, min_offer_count, search_depth, search_mode, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1181,7 +1103,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Search Categories
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user
     #' @param keyword (optional) The string to search on
     #' @param app_key (optional) the appKey of the application to retrieve categories for, if not specified then search on the global application.
@@ -1208,7 +1129,7 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[CategoryResponse]) with additional information such as HTTP status code, headers
-    SearchCategoriesWithHttpInfo = function(version, account_id = NULL, keyword = NULL, app_key = NULL, category_id = NULL, category_ids = NULL, parent_category_ids = NULL, root_only = NULL, sort_field = "DISPLAY", response_group = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, return_external = TRUE, exact_match = FALSE, type = NULL, external_type = NULL, exclude_external_type = NULL, min_offer_count = NULL, search_depth = 4, search_mode = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchCategoriesWithHttpInfo = function(account_id = NULL, keyword = NULL, app_key = NULL, category_id = NULL, category_ids = NULL, parent_category_ids = NULL, root_only = NULL, sort_field = "DISPLAY", response_group = NULL, descending = FALSE, start = 0, limit = 20, active_only = TRUE, return_external = TRUE, exact_match = FALSE, type = NULL, external_type = NULL, exclude_external_type = NULL, min_offer_count = NULL, search_depth = 4, search_mode = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1217,14 +1138,6 @@ CategoryApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CategoryApi$SearchCategories, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling CategoryApi$SearchCategories, `account_id` is not nullable")
@@ -1358,11 +1271,7 @@ CategoryApi <- R6::R6Class(
 
       query_params[["searchMode"]] <- `search_mode`
 
-      local_var_url_path <- "/api/{version}/category/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/category/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1423,7 +1332,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Update Category
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param category_id The ID of the category to edit
     #' @param parent_category_id (optional) The ID of the parent category, if not provided then the parent category will be null
@@ -1443,8 +1351,8 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CategoryTreeResponse
-    UpdateCategory = function(version, account_id, category_id, parent_category_id = NULL, name = NULL, description = NULL, type = NULL, asset_id = NULL, external_id = NULL, external_type = NULL, external_category_slug = NULL, sqoot_slug = NULL, active = NULL, meta_data = NULL, search_tags = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateCategoryWithHttpInfo(version, account_id, category_id, parent_category_id, name, description, type, asset_id, external_id, external_type, external_category_slug, sqoot_slug, active, meta_data, search_tags, data_file = data_file, ..., .parse = .parse)
+    UpdateCategory = function(account_id, category_id, parent_category_id = NULL, name = NULL, description = NULL, type = NULL, asset_id = NULL, external_id = NULL, external_type = NULL, external_category_slug = NULL, sqoot_slug = NULL, active = NULL, meta_data = NULL, search_tags = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateCategoryWithHttpInfo(account_id, category_id, parent_category_id, name, description, type, asset_id, external_id, external_type, external_category_slug, sqoot_slug, active, meta_data, search_tags, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1459,7 +1367,6 @@ CategoryApi <- R6::R6Class(
     #' @description
     #' Update Category
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param category_id The ID of the category to edit
     #' @param parent_category_id (optional) The ID of the parent category, if not provided then the parent category will be null
@@ -1479,7 +1386,7 @@ CategoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CategoryTreeResponse) with additional information such as HTTP status code, headers
-    UpdateCategoryWithHttpInfo = function(version, account_id, category_id, parent_category_id = NULL, name = NULL, description = NULL, type = NULL, asset_id = NULL, external_id = NULL, external_type = NULL, external_category_slug = NULL, sqoot_slug = NULL, active = NULL, meta_data = NULL, search_tags = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateCategoryWithHttpInfo = function(account_id, category_id, parent_category_id = NULL, name = NULL, description = NULL, type = NULL, asset_id = NULL, external_id = NULL, external_type = NULL, external_category_slug = NULL, sqoot_slug = NULL, active = NULL, meta_data = NULL, search_tags = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1489,20 +1396,12 @@ CategoryApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`category_id`)) {
         stop("Missing required parameter `category_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling CategoryApi$UpdateCategory, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1589,11 +1488,7 @@ CategoryApi <- R6::R6Class(
 
       query_params[["searchTags"]] <- `search_tags`
 
-      local_var_url_path <- "/api/{version}/category/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/category/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

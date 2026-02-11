@@ -17,15 +17,14 @@
 #' ####################  CreateEntityReference  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_body <- EntityReference$new(123, "active_example", "valid_example", "entityType_example", 123, "slaveUID_example", 123) # EntityReference | The entity reference object
 #'
 #' #Create an entity reference.
 #' api_instance <- ActivityApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateEntityReference(var_version, var_bodydata_file = "result.txt")
-#' result <- api_instance$CreateEntityReference(var_version, var_body)
+#' # result <- api_instance$CreateEntityReference(var_bodydata_file = "result.txt")
+#' result <- api_instance$CreateEntityReference(var_body)
 #' dput(result)
 #'
 #'
@@ -53,15 +52,14 @@ ActivityApi <- R6::R6Class(
     #' @description
     #' Create an entity reference.
     #'
-    #' @param version 
     #' @param body The entity reference object
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ActivityResponse
-    CreateEntityReference = function(version, body, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateEntityReferenceWithHttpInfo(version, body, data_file = data_file, ..., .parse = .parse)
+    CreateEntityReference = function(body, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateEntityReferenceWithHttpInfo(body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -76,14 +74,13 @@ ActivityApi <- R6::R6Class(
     #' @description
     #' Create an entity reference.
     #'
-    #' @param version 
     #' @param body The entity reference object
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ActivityResponse) with additional information such as HTTP status code, headers
-    CreateEntityReferenceWithHttpInfo = function(version, body, data_file = NULL, ..., .parse = TRUE) {
+    CreateEntityReferenceWithHttpInfo = function(body, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -93,16 +90,8 @@ ActivityApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`body`)) {
         stop("Missing required parameter `body`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ActivityApi$CreateEntityReference, `version` is not nullable")
       }
 
       if (!missing(`body`) && is.null(`body`)) {
@@ -115,11 +104,7 @@ ActivityApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/entity/reference"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/entity/reference"
 
       # The Accept request HTTP header
       local_var_accepts <- list("application/json")

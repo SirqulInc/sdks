@@ -17,7 +17,6 @@
 #' ####################  CreateApplicationConfig  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account ID of the user
 #' var_app_key <- "app_key_example" # character | The application key that the newly created applicationConfig will be associated to
 #' var_config_version <- "config_version_example" # character | The application configuration, has to be unique within the application
@@ -30,15 +29,14 @@
 #' api_instance <- ApplicationConfigApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateApplicationConfig(var_version, var_account_id, var_app_key, var_config_version, var_asset_id, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udiddata_file = "result.txt")
-#' result <- api_instance$CreateApplicationConfig(var_version, var_account_id, var_app_key, var_config_version, var_asset_id, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid)
+#' # result <- api_instance$CreateApplicationConfig(var_account_id, var_app_key, var_config_version, var_asset_id, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udiddata_file = "result.txt")
+#' result <- api_instance$CreateApplicationConfig(var_account_id, var_app_key, var_config_version, var_asset_id, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteApplicationConfig  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account ID of the user
 #' var_config_id <- 56 # integer | The config ID of the application configuration to delete
 #'
@@ -46,15 +44,14 @@
 #' api_instance <- ApplicationConfigApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteApplicationConfig(var_version, var_account_id, var_config_iddata_file = "result.txt")
-#' result <- api_instance$DeleteApplicationConfig(var_version, var_account_id, var_config_id)
+#' # result <- api_instance$DeleteApplicationConfig(var_account_id, var_config_iddata_file = "result.txt")
+#' result <- api_instance$DeleteApplicationConfig(var_account_id, var_config_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetApplicationConfig  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account ID of the user
 #' var_config_id <- 56 # integer | The config ID of the application configuration
 #'
@@ -62,15 +59,14 @@
 #' api_instance <- ApplicationConfigApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetApplicationConfig(var_version, var_account_id, var_config_iddata_file = "result.txt")
-#' result <- api_instance$GetApplicationConfig(var_version, var_account_id, var_config_id)
+#' # result <- api_instance$GetApplicationConfig(var_account_id, var_config_iddata_file = "result.txt")
+#' result <- api_instance$GetApplicationConfig(var_account_id, var_config_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetApplicationConfigByConfigVersion  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application key
 #' var_config_version <- "config_version_example" # character | The version of the application configuration
 #' var_retailer_id <- 56 # integer | Only returns the config that matches the given retailer (Optional)
@@ -82,15 +78,14 @@
 #' api_instance <- ApplicationConfigApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetApplicationConfigByConfigVersion(var_version, var_app_key, var_config_version, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid, allow_older_versions = var_allow_older_versionsdata_file = "result.txt")
-#' result <- api_instance$GetApplicationConfigByConfigVersion(var_version, var_app_key, var_config_version, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid, allow_older_versions = var_allow_older_versions)
+#' # result <- api_instance$GetApplicationConfigByConfigVersion(var_app_key, var_config_version, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid, allow_older_versions = var_allow_older_versionsdata_file = "result.txt")
+#' result <- api_instance$GetApplicationConfigByConfigVersion(var_app_key, var_config_version, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid, allow_older_versions = var_allow_older_versions)
 #' dput(result)
 #'
 #'
 #' ####################  SearchApplicationConfig  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account ID of the user
 #' var_app_key <- "app_key_example" # character | The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (Optional)
 #' var_retailer_id <- 56 # integer | Only returns the configs that matches the given retailer (Optional)
@@ -106,15 +101,14 @@
 #' api_instance <- ApplicationConfigApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchApplicationConfig(var_version, var_account_id, app_key = var_app_key, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid, config_version = var_config_version, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchApplicationConfig(var_version, var_account_id, app_key = var_app_key, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid, config_version = var_config_version, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchApplicationConfig(var_account_id, app_key = var_app_key, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid, config_version = var_config_version, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchApplicationConfig(var_account_id, app_key = var_app_key, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid, config_version = var_config_version, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateApplicationConfig  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account ID of the user
 #' var_config_id <- 56 # integer | The config ID of the application configuration to update
 #' var_app_key <- "app_key_example" # character | The application key that the updated applicationConfig will be associated to (Optional)
@@ -128,8 +122,8 @@
 #' api_instance <- ApplicationConfigApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateApplicationConfig(var_version, var_account_id, var_config_id, app_key = var_app_key, config_version = var_config_version, asset_id = var_asset_id, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udiddata_file = "result.txt")
-#' result <- api_instance$UpdateApplicationConfig(var_version, var_account_id, var_config_id, app_key = var_app_key, config_version = var_config_version, asset_id = var_asset_id, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid)
+#' # result <- api_instance$UpdateApplicationConfig(var_account_id, var_config_id, app_key = var_app_key, config_version = var_config_version, asset_id = var_asset_id, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udiddata_file = "result.txt")
+#' result <- api_instance$UpdateApplicationConfig(var_account_id, var_config_id, app_key = var_app_key, config_version = var_config_version, asset_id = var_asset_id, retailer_id = var_retailer_id, retailer_location_id = var_retailer_location_id, udid = var_udid)
 #' dput(result)
 #'
 #'
@@ -157,7 +151,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Create AppConfig
     #'
-    #' @param version 
     #' @param account_id The account ID of the user
     #' @param app_key The application key that the newly created applicationConfig will be associated to
     #' @param config_version The application configuration, has to be unique within the application
@@ -170,8 +163,8 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ApplicationConfigResponse
-    CreateApplicationConfig = function(version, account_id, app_key, config_version, asset_id, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateApplicationConfigWithHttpInfo(version, account_id, app_key, config_version, asset_id, retailer_id, retailer_location_id, udid, data_file = data_file, ..., .parse = .parse)
+    CreateApplicationConfig = function(account_id, app_key, config_version, asset_id, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateApplicationConfigWithHttpInfo(account_id, app_key, config_version, asset_id, retailer_id, retailer_location_id, udid, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -186,7 +179,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Create AppConfig
     #'
-    #' @param version 
     #' @param account_id The account ID of the user
     #' @param app_key The application key that the newly created applicationConfig will be associated to
     #' @param config_version The application configuration, has to be unique within the application
@@ -199,7 +191,7 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ApplicationConfigResponse) with additional information such as HTTP status code, headers
-    CreateApplicationConfigWithHttpInfo = function(version, account_id, app_key, config_version, asset_id, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateApplicationConfigWithHttpInfo = function(account_id, app_key, config_version, asset_id, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -208,10 +200,6 @@ ApplicationConfigApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -227,10 +215,6 @@ ApplicationConfigApi <- R6::R6Class(
 
       if (missing(`asset_id`)) {
         stop("Missing required parameter `asset_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationConfigApi$CreateApplicationConfig, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -275,11 +259,7 @@ ApplicationConfigApi <- R6::R6Class(
 
       query_params[["udid"]] <- `udid`
 
-      local_var_url_path <- "/api/{version}/appconfig/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/appconfig/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -340,7 +320,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Delete AppConfig
     #'
-    #' @param version 
     #' @param account_id The account ID of the user
     #' @param config_id The config ID of the application configuration to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -348,8 +327,8 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteApplicationConfig = function(version, account_id, config_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteApplicationConfigWithHttpInfo(version, account_id, config_id, data_file = data_file, ..., .parse = .parse)
+    DeleteApplicationConfig = function(account_id, config_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteApplicationConfigWithHttpInfo(account_id, config_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -364,7 +343,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Delete AppConfig
     #'
-    #' @param version 
     #' @param account_id The account ID of the user
     #' @param config_id The config ID of the application configuration to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -372,7 +350,7 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteApplicationConfigWithHttpInfo = function(version, account_id, config_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteApplicationConfigWithHttpInfo = function(account_id, config_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -382,20 +360,12 @@ ApplicationConfigApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`config_id`)) {
         stop("Missing required parameter `config_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationConfigApi$DeleteApplicationConfig, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -410,11 +380,7 @@ ApplicationConfigApi <- R6::R6Class(
 
       query_params[["configId"]] <- `config_id`
 
-      local_var_url_path <- "/api/{version}/appconfig/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/appconfig/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -475,7 +441,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Get AppConfig
     #'
-    #' @param version 
     #' @param account_id The account ID of the user
     #' @param config_id The config ID of the application configuration
     #' @param data_file (optional) name of the data file to save the result
@@ -483,8 +448,8 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ApplicationConfigResponse
-    GetApplicationConfig = function(version, account_id, config_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetApplicationConfigWithHttpInfo(version, account_id, config_id, data_file = data_file, ..., .parse = .parse)
+    GetApplicationConfig = function(account_id, config_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetApplicationConfigWithHttpInfo(account_id, config_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -499,7 +464,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Get AppConfig
     #'
-    #' @param version 
     #' @param account_id The account ID of the user
     #' @param config_id The config ID of the application configuration
     #' @param data_file (optional) name of the data file to save the result
@@ -507,7 +471,7 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ApplicationConfigResponse) with additional information such as HTTP status code, headers
-    GetApplicationConfigWithHttpInfo = function(version, account_id, config_id, data_file = NULL, ..., .parse = TRUE) {
+    GetApplicationConfigWithHttpInfo = function(account_id, config_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -517,20 +481,12 @@ ApplicationConfigApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`config_id`)) {
         stop("Missing required parameter `config_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationConfigApi$GetApplicationConfig, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -545,11 +501,7 @@ ApplicationConfigApi <- R6::R6Class(
 
       query_params[["configId"]] <- `config_id`
 
-      local_var_url_path <- "/api/{version}/appconfig/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/appconfig/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -610,7 +562,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Get AppConfig by Version
     #'
-    #' @param version 
     #' @param app_key The application key
     #' @param config_version The version of the application configuration
     #' @param retailer_id (optional) Only returns the config that matches the given retailer
@@ -622,8 +573,8 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ApplicationConfigResponse
-    GetApplicationConfigByConfigVersion = function(version, app_key, config_version, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, allow_older_versions = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetApplicationConfigByConfigVersionWithHttpInfo(version, app_key, config_version, retailer_id, retailer_location_id, udid, allow_older_versions, data_file = data_file, ..., .parse = .parse)
+    GetApplicationConfigByConfigVersion = function(app_key, config_version, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, allow_older_versions = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetApplicationConfigByConfigVersionWithHttpInfo(app_key, config_version, retailer_id, retailer_location_id, udid, allow_older_versions, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -638,7 +589,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Get AppConfig by Version
     #'
-    #' @param version 
     #' @param app_key The application key
     #' @param config_version The version of the application configuration
     #' @param retailer_id (optional) Only returns the config that matches the given retailer
@@ -650,7 +600,7 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ApplicationConfigResponse) with additional information such as HTTP status code, headers
-    GetApplicationConfigByConfigVersionWithHttpInfo = function(version, app_key, config_version, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, allow_older_versions = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    GetApplicationConfigByConfigVersionWithHttpInfo = function(app_key, config_version, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, allow_older_versions = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -660,20 +610,12 @@ ApplicationConfigApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
       }
 
       if (missing(`config_version`)) {
         stop("Missing required parameter `config_version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationConfigApi$GetApplicationConfigByConfigVersion, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -712,11 +654,7 @@ ApplicationConfigApi <- R6::R6Class(
 
       query_params[["allowOlderVersions"]] <- `allow_older_versions`
 
-      local_var_url_path <- "/api/{version}/appconfig/getbyversion"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/appconfig/getbyversion"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -777,7 +715,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Search AppConfigs
     #'
-    #' @param version 
     #' @param account_id The account ID of the user
     #' @param app_key (optional) The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
     #' @param retailer_id (optional) Only returns the configs that matches the given retailer
@@ -793,8 +730,8 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ApplicationConfigResponse]
-    SearchApplicationConfig = function(version, account_id, app_key = NULL, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, config_version = NULL, sort_field = "CONFIG_VERSION_INDEX", descending = TRUE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchApplicationConfigWithHttpInfo(version, account_id, app_key, retailer_id, retailer_location_id, udid, config_version, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchApplicationConfig = function(account_id, app_key = NULL, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, config_version = NULL, sort_field = "CONFIG_VERSION_INDEX", descending = TRUE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchApplicationConfigWithHttpInfo(account_id, app_key, retailer_id, retailer_location_id, udid, config_version, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -809,7 +746,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Search AppConfigs
     #'
-    #' @param version 
     #' @param account_id The account ID of the user
     #' @param app_key (optional) The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
     #' @param retailer_id (optional) Only returns the configs that matches the given retailer
@@ -825,7 +761,7 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ApplicationConfigResponse]) with additional information such as HTTP status code, headers
-    SearchApplicationConfigWithHttpInfo = function(version, account_id, app_key = NULL, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, config_version = NULL, sort_field = "CONFIG_VERSION_INDEX", descending = TRUE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    SearchApplicationConfigWithHttpInfo = function(account_id, app_key = NULL, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, config_version = NULL, sort_field = "CONFIG_VERSION_INDEX", descending = TRUE, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -835,16 +771,8 @@ ApplicationConfigApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationConfigApi$SearchApplicationConfig, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -907,11 +835,7 @@ ApplicationConfigApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/appconfig/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/appconfig/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -972,7 +896,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Update AppConfig
     #'
-    #' @param version 
     #' @param account_id The account ID of the user
     #' @param config_id The config ID of the application configuration to update
     #' @param app_key (optional) The application key that the updated applicationConfig will be associated to
@@ -986,8 +909,8 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ApplicationConfigResponse
-    UpdateApplicationConfig = function(version, account_id, config_id, app_key = NULL, config_version = NULL, asset_id = NULL, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateApplicationConfigWithHttpInfo(version, account_id, config_id, app_key, config_version, asset_id, retailer_id, retailer_location_id, udid, data_file = data_file, ..., .parse = .parse)
+    UpdateApplicationConfig = function(account_id, config_id, app_key = NULL, config_version = NULL, asset_id = NULL, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateApplicationConfigWithHttpInfo(account_id, config_id, app_key, config_version, asset_id, retailer_id, retailer_location_id, udid, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1002,7 +925,6 @@ ApplicationConfigApi <- R6::R6Class(
     #' @description
     #' Update AppConfig
     #'
-    #' @param version 
     #' @param account_id The account ID of the user
     #' @param config_id The config ID of the application configuration to update
     #' @param app_key (optional) The application key that the updated applicationConfig will be associated to
@@ -1016,7 +938,7 @@ ApplicationConfigApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ApplicationConfigResponse) with additional information such as HTTP status code, headers
-    UpdateApplicationConfigWithHttpInfo = function(version, account_id, config_id, app_key = NULL, config_version = NULL, asset_id = NULL, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateApplicationConfigWithHttpInfo = function(account_id, config_id, app_key = NULL, config_version = NULL, asset_id = NULL, retailer_id = NULL, retailer_location_id = NULL, udid = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1026,20 +948,12 @@ ApplicationConfigApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`config_id`)) {
         stop("Missing required parameter `config_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ApplicationConfigApi$UpdateApplicationConfig, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1090,11 +1004,7 @@ ApplicationConfigApi <- R6::R6Class(
 
       query_params[["udid"]] <- `udid`
 
-      local_var_url_path <- "/api/{version}/appconfig/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/appconfig/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

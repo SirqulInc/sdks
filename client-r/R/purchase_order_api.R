@@ -17,7 +17,6 @@
 #' ####################  CreateOrder  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application requesting the purchase
 #' var_cart <- "cart_example" # character | ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
@@ -35,15 +34,14 @@
 #' api_instance <- PurchaseOrderApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateOrder(var_version, var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_order_id = var_external_order_id, external_payment_id = var_external_payment_id, remote_ref_type = var_remote_ref_type, external_date = var_external_date, promo_code = var_promo_codedata_file = "result.txt")
-#' result <- api_instance$CreateOrder(var_version, var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_order_id = var_external_order_id, external_payment_id = var_external_payment_id, remote_ref_type = var_remote_ref_type, external_date = var_external_date, promo_code = var_promo_code)
+#' # result <- api_instance$CreateOrder(var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_order_id = var_external_order_id, external_payment_id = var_external_payment_id, remote_ref_type = var_remote_ref_type, external_date = var_external_date, promo_code = var_promo_codedata_file = "result.txt")
+#' result <- api_instance$CreateOrder(var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_order_id = var_external_order_id, external_payment_id = var_external_payment_id, remote_ref_type = var_remote_ref_type, external_date = var_external_date, promo_code = var_promo_code)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteOrder  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_order_id <- 56 # integer | Order Id
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -52,15 +50,14 @@
 #' api_instance <- PurchaseOrderApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteOrder(var_version, var_order_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteOrder(var_version, var_order_id, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteOrder(var_order_id, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteOrder(var_order_id, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetOrder  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_order_id <- 56 # integer | The order id to get details of, either orderId or externalOrderId must be provided (Optional)
@@ -70,15 +67,14 @@
 #' api_instance <- PurchaseOrderApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetOrder(var_version, device_id = var_device_id, account_id = var_account_id, order_id = var_order_id, external_order_id = var_external_order_iddata_file = "result.txt")
-#' result <- api_instance$GetOrder(var_version, device_id = var_device_id, account_id = var_account_id, order_id = var_order_id, external_order_id = var_external_order_id)
+#' # result <- api_instance$GetOrder(device_id = var_device_id, account_id = var_account_id, order_id = var_order_id, external_order_id = var_external_order_iddata_file = "result.txt")
+#' result <- api_instance$GetOrder(device_id = var_device_id, account_id = var_account_id, order_id = var_order_id, external_order_id = var_external_order_id)
 #' dput(result)
 #'
 #'
 #' ####################  PreviewOrder  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application requesting the purchase
 #' var_cart <- "cart_example" # character | A JSON list of items to purchase
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
@@ -96,15 +92,14 @@
 #' api_instance <- PurchaseOrderApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$PreviewOrder(var_version, var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_order_id = var_external_order_id, external_payment_id = var_external_payment_id, remote_ref_type = var_remote_ref_type, external_date = var_external_date, promo_code = var_promo_codedata_file = "result.txt")
-#' result <- api_instance$PreviewOrder(var_version, var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_order_id = var_external_order_id, external_payment_id = var_external_payment_id, remote_ref_type = var_remote_ref_type, external_date = var_external_date, promo_code = var_promo_code)
+#' # result <- api_instance$PreviewOrder(var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_order_id = var_external_order_id, external_payment_id = var_external_payment_id, remote_ref_type = var_remote_ref_type, external_date = var_external_date, promo_code = var_promo_codedata_file = "result.txt")
+#' result <- api_instance$PreviewOrder(var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_order_id = var_external_order_id, external_payment_id = var_external_payment_id, remote_ref_type = var_remote_ref_type, external_date = var_external_date, promo_code = var_promo_code)
 #' dput(result)
 #'
 #'
 #' ####################  SearchOrders  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_app_key <- "app_key_example" # character | The application requesting the purchase
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -141,15 +136,14 @@
 #' api_instance <- PurchaseOrderApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchOrders(var_version, var_app_key, device_id = var_device_id, account_id = var_account_id, start = var_start, limit = var_limit, descending = var_descending, active_only = var_active_only, ignore_customer_filter = var_ignore_customer_filter, order_item_types = var_order_item_types, order_item_ids = var_order_item_ids, order_custom_types = var_order_custom_types, order_custom_ids = var_order_custom_ids, sort_field = var_sort_field, offer_types = var_offer_types, special_offer_types = var_special_offer_types, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, transaction_audience_ids = var_transaction_audience_ids, offer_ids = var_offer_ids, offer_location_ids = var_offer_location_ids, retailer_ids = var_retailer_ids, retailer_location_ids = var_retailer_location_ids, statuses = var_statuses, keyword = var_keyword, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_beforedata_file = "result.txt")
-#' result <- api_instance$SearchOrders(var_version, var_app_key, device_id = var_device_id, account_id = var_account_id, start = var_start, limit = var_limit, descending = var_descending, active_only = var_active_only, ignore_customer_filter = var_ignore_customer_filter, order_item_types = var_order_item_types, order_item_ids = var_order_item_ids, order_custom_types = var_order_custom_types, order_custom_ids = var_order_custom_ids, sort_field = var_sort_field, offer_types = var_offer_types, special_offer_types = var_special_offer_types, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, transaction_audience_ids = var_transaction_audience_ids, offer_ids = var_offer_ids, offer_location_ids = var_offer_location_ids, retailer_ids = var_retailer_ids, retailer_location_ids = var_retailer_location_ids, statuses = var_statuses, keyword = var_keyword, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_before)
+#' # result <- api_instance$SearchOrders(var_app_key, device_id = var_device_id, account_id = var_account_id, start = var_start, limit = var_limit, descending = var_descending, active_only = var_active_only, ignore_customer_filter = var_ignore_customer_filter, order_item_types = var_order_item_types, order_item_ids = var_order_item_ids, order_custom_types = var_order_custom_types, order_custom_ids = var_order_custom_ids, sort_field = var_sort_field, offer_types = var_offer_types, special_offer_types = var_special_offer_types, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, transaction_audience_ids = var_transaction_audience_ids, offer_ids = var_offer_ids, offer_location_ids = var_offer_location_ids, retailer_ids = var_retailer_ids, retailer_location_ids = var_retailer_location_ids, statuses = var_statuses, keyword = var_keyword, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_beforedata_file = "result.txt")
+#' result <- api_instance$SearchOrders(var_app_key, device_id = var_device_id, account_id = var_account_id, start = var_start, limit = var_limit, descending = var_descending, active_only = var_active_only, ignore_customer_filter = var_ignore_customer_filter, order_item_types = var_order_item_types, order_item_ids = var_order_item_ids, order_custom_types = var_order_custom_types, order_custom_ids = var_order_custom_ids, sort_field = var_sort_field, offer_types = var_offer_types, special_offer_types = var_special_offer_types, category_ids = var_category_ids, filter_ids = var_filter_ids, offer_audience_ids = var_offer_audience_ids, transaction_audience_ids = var_transaction_audience_ids, offer_ids = var_offer_ids, offer_location_ids = var_offer_location_ids, retailer_ids = var_retailer_ids, retailer_location_ids = var_retailer_location_ids, statuses = var_statuses, keyword = var_keyword, redeemable_start_date = var_redeemable_start_date, redeemable_end_date = var_redeemable_end_date, started_since = var_started_since, started_before = var_started_before, ended_since = var_ended_since, ended_before = var_ended_before)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateOrder  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_order_id <- 56 # integer | The order to add the purchase to, leave null for new order.
 #' var_app_key <- "app_key_example" # character | The application requesting the purchase
 #' var_cart <- "cart_example" # character | ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` 
@@ -166,8 +160,8 @@
 #' api_instance <- PurchaseOrderApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateOrder(var_version, var_order_id, var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, payment_transaction_id = var_payment_transaction_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_payment_id = var_external_payment_id, external_date = var_external_datedata_file = "result.txt")
-#' result <- api_instance$UpdateOrder(var_version, var_order_id, var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, payment_transaction_id = var_payment_transaction_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_payment_id = var_external_payment_id, external_date = var_external_date)
+#' # result <- api_instance$UpdateOrder(var_order_id, var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, payment_transaction_id = var_payment_transaction_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_payment_id = var_external_payment_id, external_date = var_external_datedata_file = "result.txt")
+#' result <- api_instance$UpdateOrder(var_order_id, var_app_key, var_cart, device_id = var_device_id, account_id = var_account_id, payment_transaction_id = var_payment_transaction_id, description = var_description, currency_type = var_currency_type, payment_method_id = var_payment_method_id, external_payment_id = var_external_payment_id, external_date = var_external_date)
 #' dput(result)
 #'
 #'
@@ -195,7 +189,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Create Order
     #'
-    #' @param version 
     #' @param app_key The application requesting the purchase
     #' @param cart ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` 
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -213,8 +206,8 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrderResponse
-    CreateOrder = function(version, app_key, cart, device_id = NULL, account_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_order_id = NULL, external_payment_id = NULL, remote_ref_type = NULL, external_date = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateOrderWithHttpInfo(version, app_key, cart, device_id, account_id, description, currency_type, payment_method_id, external_order_id, external_payment_id, remote_ref_type, external_date, promo_code, data_file = data_file, ..., .parse = .parse)
+    CreateOrder = function(app_key, cart, device_id = NULL, account_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_order_id = NULL, external_payment_id = NULL, remote_ref_type = NULL, external_date = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateOrderWithHttpInfo(app_key, cart, device_id, account_id, description, currency_type, payment_method_id, external_order_id, external_payment_id, remote_ref_type, external_date, promo_code, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -229,7 +222,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Create Order
     #'
-    #' @param version 
     #' @param app_key The application requesting the purchase
     #' @param cart ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` 
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -247,7 +239,7 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrderResponse) with additional information such as HTTP status code, headers
-    CreateOrderWithHttpInfo = function(version, app_key, cart, device_id = NULL, account_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_order_id = NULL, external_payment_id = NULL, remote_ref_type = NULL, external_date = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateOrderWithHttpInfo = function(app_key, cart, device_id = NULL, account_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_order_id = NULL, external_payment_id = NULL, remote_ref_type = NULL, external_date = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -257,20 +249,12 @@ PurchaseOrderApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
       }
 
       if (missing(`cart`)) {
         stop("Missing required parameter `cart`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseOrderApi$CreateOrder, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -348,11 +332,7 @@ PurchaseOrderApi <- R6::R6Class(
 
       query_params[["promoCode"]] <- `promo_code`
 
-      local_var_url_path <- "/api/{version}/order/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/order/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -413,7 +393,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Delete Order
     #'
-    #' @param version 
     #' @param order_id Order Id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -422,8 +401,8 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteOrder = function(version, order_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteOrderWithHttpInfo(version, order_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteOrder = function(order_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteOrderWithHttpInfo(order_id, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -438,7 +417,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Delete Order
     #'
-    #' @param version 
     #' @param order_id Order Id
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -447,7 +425,7 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteOrderWithHttpInfo = function(version, order_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteOrderWithHttpInfo = function(order_id, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -457,16 +435,8 @@ PurchaseOrderApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`order_id`)) {
         stop("Missing required parameter `order_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseOrderApi$DeleteOrder, `version` is not nullable")
       }
 
       if (!missing(`order_id`) && is.null(`order_id`)) {
@@ -487,11 +457,7 @@ PurchaseOrderApi <- R6::R6Class(
 
       query_params[["orderId"]] <- `order_id`
 
-      local_var_url_path <- "/api/{version}/order/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/order/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -552,7 +518,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Get Order
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param order_id (optional) The order id to get details of, either orderId or externalOrderId must be provided
@@ -562,8 +527,8 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrderResponse
-    GetOrder = function(version, device_id = NULL, account_id = NULL, order_id = NULL, external_order_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetOrderWithHttpInfo(version, device_id, account_id, order_id, external_order_id, data_file = data_file, ..., .parse = .parse)
+    GetOrder = function(device_id = NULL, account_id = NULL, order_id = NULL, external_order_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetOrderWithHttpInfo(device_id, account_id, order_id, external_order_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -578,7 +543,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Get Order
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param order_id (optional) The order id to get details of, either orderId or externalOrderId must be provided
@@ -588,7 +552,7 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrderResponse) with additional information such as HTTP status code, headers
-    GetOrderWithHttpInfo = function(version, device_id = NULL, account_id = NULL, order_id = NULL, external_order_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetOrderWithHttpInfo = function(device_id = NULL, account_id = NULL, order_id = NULL, external_order_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -597,14 +561,6 @@ PurchaseOrderApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseOrderApi$GetOrder, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling PurchaseOrderApi$GetOrder, `device_id` is not nullable")
@@ -630,11 +586,7 @@ PurchaseOrderApi <- R6::R6Class(
 
       query_params[["externalOrderId"]] <- `external_order_id`
 
-      local_var_url_path <- "/api/{version}/order/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/order/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -695,7 +647,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Preview Order
     #'
-    #' @param version 
     #' @param app_key The application requesting the purchase
     #' @param cart A JSON list of items to purchase
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -713,8 +664,8 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrderResponse
-    PreviewOrder = function(version, app_key, cart, device_id = NULL, account_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_order_id = NULL, external_payment_id = NULL, remote_ref_type = NULL, external_date = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$PreviewOrderWithHttpInfo(version, app_key, cart, device_id, account_id, description, currency_type, payment_method_id, external_order_id, external_payment_id, remote_ref_type, external_date, promo_code, data_file = data_file, ..., .parse = .parse)
+    PreviewOrder = function(app_key, cart, device_id = NULL, account_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_order_id = NULL, external_payment_id = NULL, remote_ref_type = NULL, external_date = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PreviewOrderWithHttpInfo(app_key, cart, device_id, account_id, description, currency_type, payment_method_id, external_order_id, external_payment_id, remote_ref_type, external_date, promo_code, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -729,7 +680,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Preview Order
     #'
-    #' @param version 
     #' @param app_key The application requesting the purchase
     #' @param cart A JSON list of items to purchase
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -747,7 +697,7 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrderResponse) with additional information such as HTTP status code, headers
-    PreviewOrderWithHttpInfo = function(version, app_key, cart, device_id = NULL, account_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_order_id = NULL, external_payment_id = NULL, remote_ref_type = NULL, external_date = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
+    PreviewOrderWithHttpInfo = function(app_key, cart, device_id = NULL, account_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_order_id = NULL, external_payment_id = NULL, remote_ref_type = NULL, external_date = NULL, promo_code = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -757,20 +707,12 @@ PurchaseOrderApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
       }
 
       if (missing(`cart`)) {
         stop("Missing required parameter `cart`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseOrderApi$PreviewOrder, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -848,11 +790,7 @@ PurchaseOrderApi <- R6::R6Class(
 
       query_params[["promoCode"]] <- `promo_code`
 
-      local_var_url_path <- "/api/{version}/order/preview"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/order/preview"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -913,7 +851,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Search Orders
     #'
-    #' @param version 
     #' @param app_key The application requesting the purchase
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -950,8 +887,8 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[OrderResponse]
-    SearchOrders = function(version, app_key, device_id = NULL, account_id = NULL, start = 0, limit = 20, descending = TRUE, active_only = FALSE, ignore_customer_filter = FALSE, order_item_types = NULL, order_item_ids = NULL, order_custom_types = NULL, order_custom_ids = NULL, sort_field = "ID", offer_types = NULL, special_offer_types = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, transaction_audience_ids = NULL, offer_ids = NULL, offer_location_ids = NULL, retailer_ids = NULL, retailer_location_ids = NULL, statuses = NULL, keyword = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchOrdersWithHttpInfo(version, app_key, device_id, account_id, start, limit, descending, active_only, ignore_customer_filter, order_item_types, order_item_ids, order_custom_types, order_custom_ids, sort_field, offer_types, special_offer_types, category_ids, filter_ids, offer_audience_ids, transaction_audience_ids, offer_ids, offer_location_ids, retailer_ids, retailer_location_ids, statuses, keyword, redeemable_start_date, redeemable_end_date, started_since, started_before, ended_since, ended_before, data_file = data_file, ..., .parse = .parse)
+    SearchOrders = function(app_key, device_id = NULL, account_id = NULL, start = 0, limit = 20, descending = TRUE, active_only = FALSE, ignore_customer_filter = FALSE, order_item_types = NULL, order_item_ids = NULL, order_custom_types = NULL, order_custom_ids = NULL, sort_field = "ID", offer_types = NULL, special_offer_types = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, transaction_audience_ids = NULL, offer_ids = NULL, offer_location_ids = NULL, retailer_ids = NULL, retailer_location_ids = NULL, statuses = NULL, keyword = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchOrdersWithHttpInfo(app_key, device_id, account_id, start, limit, descending, active_only, ignore_customer_filter, order_item_types, order_item_ids, order_custom_types, order_custom_ids, sort_field, offer_types, special_offer_types, category_ids, filter_ids, offer_audience_ids, transaction_audience_ids, offer_ids, offer_location_ids, retailer_ids, retailer_location_ids, statuses, keyword, redeemable_start_date, redeemable_end_date, started_since, started_before, ended_since, ended_before, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -966,7 +903,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Search Orders
     #'
-    #' @param version 
     #' @param app_key The application requesting the purchase
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -1003,7 +939,7 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[OrderResponse]) with additional information such as HTTP status code, headers
-    SearchOrdersWithHttpInfo = function(version, app_key, device_id = NULL, account_id = NULL, start = 0, limit = 20, descending = TRUE, active_only = FALSE, ignore_customer_filter = FALSE, order_item_types = NULL, order_item_ids = NULL, order_custom_types = NULL, order_custom_ids = NULL, sort_field = "ID", offer_types = NULL, special_offer_types = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, transaction_audience_ids = NULL, offer_ids = NULL, offer_location_ids = NULL, retailer_ids = NULL, retailer_location_ids = NULL, statuses = NULL, keyword = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchOrdersWithHttpInfo = function(app_key, device_id = NULL, account_id = NULL, start = 0, limit = 20, descending = TRUE, active_only = FALSE, ignore_customer_filter = FALSE, order_item_types = NULL, order_item_ids = NULL, order_custom_types = NULL, order_custom_ids = NULL, sort_field = "ID", offer_types = NULL, special_offer_types = NULL, category_ids = NULL, filter_ids = NULL, offer_audience_ids = NULL, transaction_audience_ids = NULL, offer_ids = NULL, offer_location_ids = NULL, retailer_ids = NULL, retailer_location_ids = NULL, statuses = NULL, keyword = NULL, redeemable_start_date = NULL, redeemable_end_date = NULL, started_since = NULL, started_before = NULL, ended_since = NULL, ended_before = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1013,16 +949,8 @@ PurchaseOrderApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseOrderApi$SearchOrders, `version` is not nullable")
       }
 
       if (!missing(`app_key`) && is.null(`app_key`)) {
@@ -1211,11 +1139,7 @@ PurchaseOrderApi <- R6::R6Class(
 
       query_params[["endedBefore"]] <- `ended_before`
 
-      local_var_url_path <- "/api/{version}/order/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/order/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1276,7 +1200,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Update Order
     #'
-    #' @param version 
     #' @param order_id The order to add the purchase to, leave null for new order.
     #' @param app_key The application requesting the purchase
     #' @param cart ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` 
@@ -1293,8 +1216,8 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return OrderResponse
-    UpdateOrder = function(version, order_id, app_key, cart, device_id = NULL, account_id = NULL, payment_transaction_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_payment_id = NULL, external_date = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateOrderWithHttpInfo(version, order_id, app_key, cart, device_id, account_id, payment_transaction_id, description, currency_type, payment_method_id, external_payment_id, external_date, data_file = data_file, ..., .parse = .parse)
+    UpdateOrder = function(order_id, app_key, cart, device_id = NULL, account_id = NULL, payment_transaction_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_payment_id = NULL, external_date = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateOrderWithHttpInfo(order_id, app_key, cart, device_id, account_id, payment_transaction_id, description, currency_type, payment_method_id, external_payment_id, external_date, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1309,7 +1232,6 @@ PurchaseOrderApi <- R6::R6Class(
     #' @description
     #' Update Order
     #'
-    #' @param version 
     #' @param order_id The order to add the purchase to, leave null for new order.
     #' @param app_key The application requesting the purchase
     #' @param cart ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` 
@@ -1326,7 +1248,7 @@ PurchaseOrderApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (OrderResponse) with additional information such as HTTP status code, headers
-    UpdateOrderWithHttpInfo = function(version, order_id, app_key, cart, device_id = NULL, account_id = NULL, payment_transaction_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_payment_id = NULL, external_date = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateOrderWithHttpInfo = function(order_id, app_key, cart, device_id = NULL, account_id = NULL, payment_transaction_id = NULL, description = NULL, currency_type = "CASH", payment_method_id = NULL, external_payment_id = NULL, external_date = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1335,10 +1257,6 @@ PurchaseOrderApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`order_id`)) {
         stop("Missing required parameter `order_id`.")
@@ -1350,10 +1268,6 @@ PurchaseOrderApi <- R6::R6Class(
 
       if (missing(`cart`)) {
         stop("Missing required parameter `cart`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PurchaseOrderApi$UpdateOrder, `version` is not nullable")
       }
 
       if (!missing(`order_id`) && is.null(`order_id`)) {
@@ -1425,11 +1339,7 @@ PurchaseOrderApi <- R6::R6Class(
 
       query_params[["externalDate"]] <- `external_date`
 
-      local_var_url_path <- "/api/{version}/order/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/order/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

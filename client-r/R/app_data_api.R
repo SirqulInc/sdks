@@ -17,7 +17,6 @@
 #' ####################  GetAppData  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_start <- 56 # integer | start the search results at a record.
 #' var_limit <- 56 # integer | limit the search results to some number.
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required). (Optional)
@@ -48,15 +47,14 @@
 #' api_instance <- AppDataApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAppData(var_version, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, include_game_data = var_include_game_data, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, _l = var__l, game_object_count = var_game_object_count, filter = var_filter, date_created = var_date_created, owner_id = var_owner_id, mission_ids = var_mission_ids, game_ids = var_game_ids, pack_ids = var_pack_ids, game_level_ids = var_game_level_ids, app_version = var_app_version, include_higher_version_packs = var_include_higher_version_packs, include_higher_version_levels = var_include_higher_version_levels, response_groups = var_response_groups, purchase_type = var_purchase_typedata_file = "result.txt")
-#' result <- api_instance$GetAppData(var_version, var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, include_game_data = var_include_game_data, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, _l = var__l, game_object_count = var_game_object_count, filter = var_filter, date_created = var_date_created, owner_id = var_owner_id, mission_ids = var_mission_ids, game_ids = var_game_ids, pack_ids = var_pack_ids, game_level_ids = var_game_level_ids, app_version = var_app_version, include_higher_version_packs = var_include_higher_version_packs, include_higher_version_levels = var_include_higher_version_levels, response_groups = var_response_groups, purchase_type = var_purchase_type)
+#' # result <- api_instance$GetAppData(var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, include_game_data = var_include_game_data, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, _l = var__l, game_object_count = var_game_object_count, filter = var_filter, date_created = var_date_created, owner_id = var_owner_id, mission_ids = var_mission_ids, game_ids = var_game_ids, pack_ids = var_pack_ids, game_level_ids = var_game_level_ids, app_version = var_app_version, include_higher_version_packs = var_include_higher_version_packs, include_higher_version_levels = var_include_higher_version_levels, response_groups = var_response_groups, purchase_type = var_purchase_typedata_file = "result.txt")
+#' result <- api_instance$GetAppData(var_start, var_limit, device_id = var_device_id, account_id = var_account_id, game_type = var_game_type, include_game_data = var_include_game_data, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, _l = var__l, game_object_count = var_game_object_count, filter = var_filter, date_created = var_date_created, owner_id = var_owner_id, mission_ids = var_mission_ids, game_ids = var_game_ids, pack_ids = var_pack_ids, game_level_ids = var_game_level_ids, app_version = var_app_version, include_higher_version_packs = var_include_higher_version_packs, include_higher_version_levels = var_include_higher_version_levels, response_groups = var_response_groups, purchase_type = var_purchase_type)
 #' dput(result)
 #'
 #'
 #' ####################  PostAppData  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_game_type <- "game_type_example" # character | the game to retrieve the data for, use your application key.
 #' var_start <- 56 # integer | start the search results at a record.
 #' var_limit <- 56 # integer | limit the search results to some number.
@@ -88,15 +86,14 @@
 #' api_instance <- AppDataApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$PostAppData(var_version, var_game_type, var_start, var_limit, var_data, device_id = var_device_id, account_id = var_account_id, include_game_data = var_include_game_data, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, _l = var__l, game_object_count = var_game_object_count, filter = var_filter, date_created = var_date_created, owner_id = var_owner_id, mission_ids = var_mission_ids, game_ids = var_game_ids, pack_ids = var_pack_ids, game_level_ids = var_game_level_ids, app_version = var_app_version, include_higher_version_packs = var_include_higher_version_packs, include_higher_version_levels = var_include_higher_version_levels, response_groups = var_response_groups, purchase_type = var_purchase_typedata_file = "result.txt")
-#' result <- api_instance$PostAppData(var_version, var_game_type, var_start, var_limit, var_data, device_id = var_device_id, account_id = var_account_id, include_game_data = var_include_game_data, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, _l = var__l, game_object_count = var_game_object_count, filter = var_filter, date_created = var_date_created, owner_id = var_owner_id, mission_ids = var_mission_ids, game_ids = var_game_ids, pack_ids = var_pack_ids, game_level_ids = var_game_level_ids, app_version = var_app_version, include_higher_version_packs = var_include_higher_version_packs, include_higher_version_levels = var_include_higher_version_levels, response_groups = var_response_groups, purchase_type = var_purchase_type)
+#' # result <- api_instance$PostAppData(var_game_type, var_start, var_limit, var_data, device_id = var_device_id, account_id = var_account_id, include_game_data = var_include_game_data, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, _l = var__l, game_object_count = var_game_object_count, filter = var_filter, date_created = var_date_created, owner_id = var_owner_id, mission_ids = var_mission_ids, game_ids = var_game_ids, pack_ids = var_pack_ids, game_level_ids = var_game_level_ids, app_version = var_app_version, include_higher_version_packs = var_include_higher_version_packs, include_higher_version_levels = var_include_higher_version_levels, response_groups = var_response_groups, purchase_type = var_purchase_typedata_file = "result.txt")
+#' result <- api_instance$PostAppData(var_game_type, var_start, var_limit, var_data, device_id = var_device_id, account_id = var_account_id, include_game_data = var_include_game_data, q = var_q, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, _i = var__i, _l = var__l, game_object_count = var_game_object_count, filter = var_filter, date_created = var_date_created, owner_id = var_owner_id, mission_ids = var_mission_ids, game_ids = var_game_ids, pack_ids = var_pack_ids, game_level_ids = var_game_level_ids, app_version = var_app_version, include_higher_version_packs = var_include_higher_version_packs, include_higher_version_levels = var_include_higher_version_levels, response_groups = var_response_groups, purchase_type = var_purchase_type)
 #' dput(result)
 #'
 #'
 #' ####################  RegenAppData  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user (Optional)
 #' var_app_key <- "app_key_example" # character | process a specific application, if null process all apps with caches (Optional)
 #' var_build_version <- "build_version_example" # character | create a specific version, if null use current version. Be careful if processing all (Optional)
@@ -106,8 +103,8 @@
 #' api_instance <- AppDataApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RegenAppData(var_version, account_id = var_account_id, app_key = var_app_key, build_version = var_build_version, api_version = var_api_versiondata_file = "result.txt")
-#' result <- api_instance$RegenAppData(var_version, account_id = var_account_id, app_key = var_app_key, build_version = var_build_version, api_version = var_api_version)
+#' # result <- api_instance$RegenAppData(account_id = var_account_id, app_key = var_app_key, build_version = var_build_version, api_version = var_api_versiondata_file = "result.txt")
+#' result <- api_instance$RegenAppData(account_id = var_account_id, app_key = var_app_key, build_version = var_build_version, api_version = var_api_version)
 #' dput(result)
 #'
 #'
@@ -135,7 +132,6 @@ AppDataApi <- R6::R6Class(
     #' @description
     #' Get App Data
     #'
-    #' @param version 
     #' @param start start the search results at a record.
     #' @param limit limit the search results to some number.
     #' @param device_id (optional) the device id (deviceId or accountId required).
@@ -166,8 +162,8 @@ AppDataApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AppResponse
-    GetAppData = function(version, start, limit, device_id = NULL, account_id = NULL, game_type = NULL, include_game_data = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = NULL, _i = NULL, _l = NULL, game_object_count = NULL, filter = NULL, date_created = NULL, owner_id = NULL, mission_ids = NULL, game_ids = NULL, pack_ids = NULL, game_level_ids = NULL, app_version = NULL, include_higher_version_packs = NULL, include_higher_version_levels = NULL, response_groups = NULL, purchase_type = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAppDataWithHttpInfo(version, start, limit, device_id, account_id, game_type, include_game_data, q, keyword, sort_field, descending, _i, _l, game_object_count, filter, date_created, owner_id, mission_ids, game_ids, pack_ids, game_level_ids, app_version, include_higher_version_packs, include_higher_version_levels, response_groups, purchase_type, data_file = data_file, ..., .parse = .parse)
+    GetAppData = function(start, limit, device_id = NULL, account_id = NULL, game_type = NULL, include_game_data = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = NULL, _i = NULL, _l = NULL, game_object_count = NULL, filter = NULL, date_created = NULL, owner_id = NULL, mission_ids = NULL, game_ids = NULL, pack_ids = NULL, game_level_ids = NULL, app_version = NULL, include_higher_version_packs = NULL, include_higher_version_levels = NULL, response_groups = NULL, purchase_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAppDataWithHttpInfo(start, limit, device_id, account_id, game_type, include_game_data, q, keyword, sort_field, descending, _i, _l, game_object_count, filter, date_created, owner_id, mission_ids, game_ids, pack_ids, game_level_ids, app_version, include_higher_version_packs, include_higher_version_levels, response_groups, purchase_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -182,7 +178,6 @@ AppDataApi <- R6::R6Class(
     #' @description
     #' Get App Data
     #'
-    #' @param version 
     #' @param start start the search results at a record.
     #' @param limit limit the search results to some number.
     #' @param device_id (optional) the device id (deviceId or accountId required).
@@ -213,7 +208,7 @@ AppDataApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AppResponse) with additional information such as HTTP status code, headers
-    GetAppDataWithHttpInfo = function(version, start, limit, device_id = NULL, account_id = NULL, game_type = NULL, include_game_data = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = NULL, _i = NULL, _l = NULL, game_object_count = NULL, filter = NULL, date_created = NULL, owner_id = NULL, mission_ids = NULL, game_ids = NULL, pack_ids = NULL, game_level_ids = NULL, app_version = NULL, include_higher_version_packs = NULL, include_higher_version_levels = NULL, response_groups = NULL, purchase_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetAppDataWithHttpInfo = function(start, limit, device_id = NULL, account_id = NULL, game_type = NULL, include_game_data = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = NULL, _i = NULL, _l = NULL, game_object_count = NULL, filter = NULL, date_created = NULL, owner_id = NULL, mission_ids = NULL, game_ids = NULL, pack_ids = NULL, game_level_ids = NULL, app_version = NULL, include_higher_version_packs = NULL, include_higher_version_levels = NULL, response_groups = NULL, purchase_type = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -223,20 +218,12 @@ AppDataApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`start`)) {
         stop("Missing required parameter `start`.")
       }
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AppDataApi$GetAppData, `version` is not nullable")
       }
 
       if (!missing(`start`) && is.null(`start`)) {
@@ -389,11 +376,7 @@ AppDataApi <- R6::R6Class(
 
       query_params[["purchaseType"]] <- `purchase_type`
 
-      local_var_url_path <- "/api/{version}/app/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/app/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -454,7 +437,6 @@ AppDataApi <- R6::R6Class(
     #' @description
     #' Create App Data
     #'
-    #' @param version 
     #' @param game_type the game to retrieve the data for, use your application key.
     #' @param start start the search results at a record.
     #' @param limit limit the search results to some number.
@@ -486,8 +468,8 @@ AppDataApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AppResponse
-    PostAppData = function(version, game_type, start, limit, data, device_id = NULL, account_id = NULL, include_game_data = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = NULL, _i = NULL, _l = NULL, game_object_count = NULL, filter = NULL, date_created = NULL, owner_id = NULL, mission_ids = NULL, game_ids = NULL, pack_ids = NULL, game_level_ids = NULL, app_version = NULL, include_higher_version_packs = NULL, include_higher_version_levels = NULL, response_groups = NULL, purchase_type = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$PostAppDataWithHttpInfo(version, game_type, start, limit, data, device_id, account_id, include_game_data, q, keyword, sort_field, descending, _i, _l, game_object_count, filter, date_created, owner_id, mission_ids, game_ids, pack_ids, game_level_ids, app_version, include_higher_version_packs, include_higher_version_levels, response_groups, purchase_type, data_file = data_file, ..., .parse = .parse)
+    PostAppData = function(game_type, start, limit, data, device_id = NULL, account_id = NULL, include_game_data = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = NULL, _i = NULL, _l = NULL, game_object_count = NULL, filter = NULL, date_created = NULL, owner_id = NULL, mission_ids = NULL, game_ids = NULL, pack_ids = NULL, game_level_ids = NULL, app_version = NULL, include_higher_version_packs = NULL, include_higher_version_levels = NULL, response_groups = NULL, purchase_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PostAppDataWithHttpInfo(game_type, start, limit, data, device_id, account_id, include_game_data, q, keyword, sort_field, descending, _i, _l, game_object_count, filter, date_created, owner_id, mission_ids, game_ids, pack_ids, game_level_ids, app_version, include_higher_version_packs, include_higher_version_levels, response_groups, purchase_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -502,7 +484,6 @@ AppDataApi <- R6::R6Class(
     #' @description
     #' Create App Data
     #'
-    #' @param version 
     #' @param game_type the game to retrieve the data for, use your application key.
     #' @param start start the search results at a record.
     #' @param limit limit the search results to some number.
@@ -534,7 +515,7 @@ AppDataApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AppResponse) with additional information such as HTTP status code, headers
-    PostAppDataWithHttpInfo = function(version, game_type, start, limit, data, device_id = NULL, account_id = NULL, include_game_data = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = NULL, _i = NULL, _l = NULL, game_object_count = NULL, filter = NULL, date_created = NULL, owner_id = NULL, mission_ids = NULL, game_ids = NULL, pack_ids = NULL, game_level_ids = NULL, app_version = NULL, include_higher_version_packs = NULL, include_higher_version_levels = NULL, response_groups = NULL, purchase_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+    PostAppDataWithHttpInfo = function(game_type, start, limit, data, device_id = NULL, account_id = NULL, include_game_data = NULL, q = NULL, keyword = NULL, sort_field = NULL, descending = NULL, _i = NULL, _l = NULL, game_object_count = NULL, filter = NULL, date_created = NULL, owner_id = NULL, mission_ids = NULL, game_ids = NULL, pack_ids = NULL, game_level_ids = NULL, app_version = NULL, include_higher_version_packs = NULL, include_higher_version_levels = NULL, response_groups = NULL, purchase_type = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -543,10 +524,6 @@ AppDataApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`game_type`)) {
         stop("Missing required parameter `game_type`.")
@@ -562,10 +539,6 @@ AppDataApi <- R6::R6Class(
 
       if (missing(`data`)) {
         stop("Missing required parameter `data`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AppDataApi$PostAppData, `version` is not nullable")
       }
 
       if (!missing(`game_type`) && is.null(`game_type`)) {
@@ -724,11 +697,7 @@ AppDataApi <- R6::R6Class(
 
       query_params[["data"]] <- `data`
 
-      local_var_url_path <- "/api/{version}/app/post"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/app/post"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -789,7 +758,6 @@ AppDataApi <- R6::R6Class(
     #' @description
     #' Regenerate App Data
     #'
-    #' @param version 
     #' @param account_id (optional) the account id of the user
     #' @param app_key (optional) process a specific application, if null process all apps with caches
     #' @param build_version (optional) create a specific version, if null use current version. Be careful if processing all
@@ -799,8 +767,8 @@ AppDataApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RegenAppData = function(version, account_id = NULL, app_key = NULL, build_version = NULL, api_version = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RegenAppDataWithHttpInfo(version, account_id, app_key, build_version, api_version, data_file = data_file, ..., .parse = .parse)
+    RegenAppData = function(account_id = NULL, app_key = NULL, build_version = NULL, api_version = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RegenAppDataWithHttpInfo(account_id, app_key, build_version, api_version, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -815,7 +783,6 @@ AppDataApi <- R6::R6Class(
     #' @description
     #' Regenerate App Data
     #'
-    #' @param version 
     #' @param account_id (optional) the account id of the user
     #' @param app_key (optional) process a specific application, if null process all apps with caches
     #' @param build_version (optional) create a specific version, if null use current version. Be careful if processing all
@@ -825,7 +792,7 @@ AppDataApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RegenAppDataWithHttpInfo = function(version, account_id = NULL, app_key = NULL, build_version = NULL, api_version = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RegenAppDataWithHttpInfo = function(account_id = NULL, app_key = NULL, build_version = NULL, api_version = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -834,14 +801,6 @@ AppDataApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AppDataApi$RegenAppData, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling AppDataApi$RegenAppData, `account_id` is not nullable")
@@ -867,11 +826,7 @@ AppDataApi <- R6::R6Class(
 
       query_params[["apiVersion"]] <- `api_version`
 
-      local_var_url_path <- "/api/{version}/app/regen"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/app/regen"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

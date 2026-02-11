@@ -17,7 +17,6 @@
 #' ####################  CreatePostalCode  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_code <- "code_example" # character | the postal code
 #' var_latitude <- 3.4 # numeric | the latitude of the postal code
@@ -30,15 +29,14 @@
 #' api_instance <- PostalCodeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreatePostalCode(var_version, var_account_id, var_code, var_latitude, var_longitude, state_code = var_state_code, city = var_city, active = var_activedata_file = "result.txt")
-#' result <- api_instance$CreatePostalCode(var_version, var_account_id, var_code, var_latitude, var_longitude, state_code = var_state_code, city = var_city, active = var_active)
+#' # result <- api_instance$CreatePostalCode(var_account_id, var_code, var_latitude, var_longitude, state_code = var_state_code, city = var_city, active = var_activedata_file = "result.txt")
+#' result <- api_instance$CreatePostalCode(var_account_id, var_code, var_latitude, var_longitude, state_code = var_state_code, city = var_city, active = var_active)
 #' dput(result)
 #'
 #'
 #' ####################  DeletePostalCode  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_postal_code_id <- 56 # integer | the id of the postal code to delete
 #'
@@ -46,30 +44,28 @@
 #' api_instance <- PostalCodeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeletePostalCode(var_version, var_account_id, var_postal_code_iddata_file = "result.txt")
-#' result <- api_instance$DeletePostalCode(var_version, var_account_id, var_postal_code_id)
+#' # result <- api_instance$DeletePostalCode(var_account_id, var_postal_code_iddata_file = "result.txt")
+#' result <- api_instance$DeletePostalCode(var_account_id, var_postal_code_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetPostalCode  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_postal_code_id <- 56 # integer | the id of the postal code to get
 #'
 #' #Get Postal Code
 #' api_instance <- PostalCodeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetPostalCode(var_version, var_postal_code_iddata_file = "result.txt")
-#' result <- api_instance$GetPostalCode(var_version, var_postal_code_id)
+#' # result <- api_instance$GetPostalCode(var_postal_code_iddata_file = "result.txt")
+#' result <- api_instance$GetPostalCode(var_postal_code_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetPostalCodes  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_sort_field <- "sort_field_example" # character | the field to sort the results on
 #' var_descending <- "descending_example" # character | whether to order results in ascending or descending order
 #' var_latitude <- 3.4 # numeric | the latitude of the postal code to search on (Optional)
@@ -83,15 +79,14 @@
 #' api_instance <- PostalCodeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetPostalCodes(var_version, var_sort_field, var_descending, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword, miles = var_miles, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$GetPostalCodes(var_version, var_sort_field, var_descending, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword, miles = var_miles, start = var_start, limit = var_limit)
+#' # result <- api_instance$GetPostalCodes(var_sort_field, var_descending, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword, miles = var_miles, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$GetPostalCodes(var_sort_field, var_descending, latitude = var_latitude, longitude = var_longitude, keyword = var_keyword, miles = var_miles, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdatePostalCode  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_postal_code_id <- 56 # integer | the id of the postal code to update
 #' var_code <- "code_example" # character | the postal code to update (Optional)
@@ -105,8 +100,8 @@
 #' api_instance <- PostalCodeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdatePostalCode(var_version, var_account_id, var_postal_code_id, code = var_code, latitude = var_latitude, longitude = var_longitude, state_code = var_state_code, city = var_city, active = var_activedata_file = "result.txt")
-#' result <- api_instance$UpdatePostalCode(var_version, var_account_id, var_postal_code_id, code = var_code, latitude = var_latitude, longitude = var_longitude, state_code = var_state_code, city = var_city, active = var_active)
+#' # result <- api_instance$UpdatePostalCode(var_account_id, var_postal_code_id, code = var_code, latitude = var_latitude, longitude = var_longitude, state_code = var_state_code, city = var_city, active = var_activedata_file = "result.txt")
+#' result <- api_instance$UpdatePostalCode(var_account_id, var_postal_code_id, code = var_code, latitude = var_latitude, longitude = var_longitude, state_code = var_state_code, city = var_city, active = var_active)
 #' dput(result)
 #'
 #'
@@ -134,7 +129,6 @@ PostalCodeApi <- R6::R6Class(
     #' @description
     #' Create Postal Code
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param code the postal code
     #' @param latitude the latitude of the postal code
@@ -147,8 +141,8 @@ PostalCodeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PostalCodeResponse
-    CreatePostalCode = function(version, account_id, code, latitude, longitude, state_code = NULL, city = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreatePostalCodeWithHttpInfo(version, account_id, code, latitude, longitude, state_code, city, active, data_file = data_file, ..., .parse = .parse)
+    CreatePostalCode = function(account_id, code, latitude, longitude, state_code = NULL, city = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreatePostalCodeWithHttpInfo(account_id, code, latitude, longitude, state_code, city, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -163,7 +157,6 @@ PostalCodeApi <- R6::R6Class(
     #' @description
     #' Create Postal Code
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param code the postal code
     #' @param latitude the latitude of the postal code
@@ -176,7 +169,7 @@ PostalCodeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PostalCodeResponse) with additional information such as HTTP status code, headers
-    CreatePostalCodeWithHttpInfo = function(version, account_id, code, latitude, longitude, state_code = NULL, city = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreatePostalCodeWithHttpInfo = function(account_id, code, latitude, longitude, state_code = NULL, city = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -185,10 +178,6 @@ PostalCodeApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -204,10 +193,6 @@ PostalCodeApi <- R6::R6Class(
 
       if (missing(`longitude`)) {
         stop("Missing required parameter `longitude`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PostalCodeApi$CreatePostalCode, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -252,11 +237,7 @@ PostalCodeApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/postalCode/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/postalCode/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -317,7 +298,6 @@ PostalCodeApi <- R6::R6Class(
     #' @description
     #' Delete Postal Code
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param postal_code_id the id of the postal code to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -325,8 +305,8 @@ PostalCodeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeletePostalCode = function(version, account_id, postal_code_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeletePostalCodeWithHttpInfo(version, account_id, postal_code_id, data_file = data_file, ..., .parse = .parse)
+    DeletePostalCode = function(account_id, postal_code_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeletePostalCodeWithHttpInfo(account_id, postal_code_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -341,7 +321,6 @@ PostalCodeApi <- R6::R6Class(
     #' @description
     #' Delete Postal Code
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param postal_code_id the id of the postal code to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -349,7 +328,7 @@ PostalCodeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeletePostalCodeWithHttpInfo = function(version, account_id, postal_code_id, data_file = NULL, ..., .parse = TRUE) {
+    DeletePostalCodeWithHttpInfo = function(account_id, postal_code_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -359,20 +338,12 @@ PostalCodeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`postal_code_id`)) {
         stop("Missing required parameter `postal_code_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PostalCodeApi$DeletePostalCode, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -387,11 +358,7 @@ PostalCodeApi <- R6::R6Class(
 
       query_params[["postalCodeId"]] <- `postal_code_id`
 
-      local_var_url_path <- "/api/{version}/postalCode/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/postalCode/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -452,15 +419,14 @@ PostalCodeApi <- R6::R6Class(
     #' @description
     #' Get Postal Code
     #'
-    #' @param version 
     #' @param postal_code_id the id of the postal code to get
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PostalCodeResponse
-    GetPostalCode = function(version, postal_code_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetPostalCodeWithHttpInfo(version, postal_code_id, data_file = data_file, ..., .parse = .parse)
+    GetPostalCode = function(postal_code_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetPostalCodeWithHttpInfo(postal_code_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -475,14 +441,13 @@ PostalCodeApi <- R6::R6Class(
     #' @description
     #' Get Postal Code
     #'
-    #' @param version 
     #' @param postal_code_id the id of the postal code to get
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PostalCodeResponse) with additional information such as HTTP status code, headers
-    GetPostalCodeWithHttpInfo = function(version, postal_code_id, data_file = NULL, ..., .parse = TRUE) {
+    GetPostalCodeWithHttpInfo = function(postal_code_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -492,16 +457,8 @@ PostalCodeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`postal_code_id`)) {
         stop("Missing required parameter `postal_code_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PostalCodeApi$GetPostalCode, `version` is not nullable")
       }
 
       if (!missing(`postal_code_id`) && is.null(`postal_code_id`)) {
@@ -510,11 +467,7 @@ PostalCodeApi <- R6::R6Class(
 
       query_params[["postalCodeId"]] <- `postal_code_id`
 
-      local_var_url_path <- "/api/{version}/postalCode/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/postalCode/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -575,7 +528,6 @@ PostalCodeApi <- R6::R6Class(
     #' @description
     #' Search Postal Codes
     #'
-    #' @param version 
     #' @param sort_field the field to sort the results on
     #' @param descending whether to order results in ascending or descending order
     #' @param latitude (optional) the latitude of the postal code to search on
@@ -589,8 +541,8 @@ PostalCodeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[PostalCodeResponse]
-    GetPostalCodes = function(version, sort_field, descending, latitude = NULL, longitude = NULL, keyword = NULL, miles = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetPostalCodesWithHttpInfo(version, sort_field, descending, latitude, longitude, keyword, miles, start, limit, data_file = data_file, ..., .parse = .parse)
+    GetPostalCodes = function(sort_field, descending, latitude = NULL, longitude = NULL, keyword = NULL, miles = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetPostalCodesWithHttpInfo(sort_field, descending, latitude, longitude, keyword, miles, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -605,7 +557,6 @@ PostalCodeApi <- R6::R6Class(
     #' @description
     #' Search Postal Codes
     #'
-    #' @param version 
     #' @param sort_field the field to sort the results on
     #' @param descending whether to order results in ascending or descending order
     #' @param latitude (optional) the latitude of the postal code to search on
@@ -619,7 +570,7 @@ PostalCodeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[PostalCodeResponse]) with additional information such as HTTP status code, headers
-    GetPostalCodesWithHttpInfo = function(version, sort_field, descending, latitude = NULL, longitude = NULL, keyword = NULL, miles = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetPostalCodesWithHttpInfo = function(sort_field, descending, latitude = NULL, longitude = NULL, keyword = NULL, miles = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -629,20 +580,12 @@ PostalCodeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`sort_field`)) {
         stop("Missing required parameter `sort_field`.")
       }
 
       if (missing(`descending`)) {
         stop("Missing required parameter `descending`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PostalCodeApi$GetPostalCodes, `version` is not nullable")
       }
 
       if (!missing(`sort_field`) && is.null(`sort_field`)) {
@@ -693,11 +636,7 @@ PostalCodeApi <- R6::R6Class(
 
       query_params[["descending"]] <- `descending`
 
-      local_var_url_path <- "/api/{version}/postalCode/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/postalCode/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -758,7 +697,6 @@ PostalCodeApi <- R6::R6Class(
     #' @description
     #' Update Postal Code
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param postal_code_id the id of the postal code to update
     #' @param code (optional) the postal code to update
@@ -772,8 +710,8 @@ PostalCodeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PostalCodeResponse
-    UpdatePostalCode = function(version, account_id, postal_code_id, code = NULL, latitude = NULL, longitude = NULL, state_code = NULL, city = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdatePostalCodeWithHttpInfo(version, account_id, postal_code_id, code, latitude, longitude, state_code, city, active, data_file = data_file, ..., .parse = .parse)
+    UpdatePostalCode = function(account_id, postal_code_id, code = NULL, latitude = NULL, longitude = NULL, state_code = NULL, city = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdatePostalCodeWithHttpInfo(account_id, postal_code_id, code, latitude, longitude, state_code, city, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -788,7 +726,6 @@ PostalCodeApi <- R6::R6Class(
     #' @description
     #' Update Postal Code
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param postal_code_id the id of the postal code to update
     #' @param code (optional) the postal code to update
@@ -802,7 +739,7 @@ PostalCodeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PostalCodeResponse) with additional information such as HTTP status code, headers
-    UpdatePostalCodeWithHttpInfo = function(version, account_id, postal_code_id, code = NULL, latitude = NULL, longitude = NULL, state_code = NULL, city = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdatePostalCodeWithHttpInfo = function(account_id, postal_code_id, code = NULL, latitude = NULL, longitude = NULL, state_code = NULL, city = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -812,20 +749,12 @@ PostalCodeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`postal_code_id`)) {
         stop("Missing required parameter `postal_code_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling PostalCodeApi$UpdatePostalCode, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -876,11 +805,7 @@ PostalCodeApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/postalCode/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/postalCode/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

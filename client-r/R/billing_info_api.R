@@ -17,7 +17,6 @@
 #' ####################  AddPaymentMethod  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the the request
 #' var_payment_method_id <- 56 # integer | Payment Method Id (Optional)
 #' var_account_name <- "account_name_example" # character | the name of the account (Optional)
@@ -46,15 +45,14 @@
 #' api_instance <- BillingInfoApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AddPaymentMethod(var_version, var_account_id, payment_method_id = var_payment_method_id, account_name = var_account_name, first_name = var_first_name, last_name = var_last_name, address = var_address, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, phone = var_phone, credit_card_number = var_credit_card_number, expiration_date = var_expiration_date, ccv = var_ccv, account_number = var_account_number, bank_name = var_bank_name, routing_number = var_routing_number, default_payment_method = var_default_payment_method, payment_method_nickname = var_payment_method_nickname, tax_id = var_tax_id, provider_customer_profile_id = var_provider_customer_profile_id, provider_payment_profile_id = var_provider_payment_profile_id, meta_data = var_meta_datadata_file = "result.txt")
-#' result <- api_instance$AddPaymentMethod(var_version, var_account_id, payment_method_id = var_payment_method_id, account_name = var_account_name, first_name = var_first_name, last_name = var_last_name, address = var_address, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, phone = var_phone, credit_card_number = var_credit_card_number, expiration_date = var_expiration_date, ccv = var_ccv, account_number = var_account_number, bank_name = var_bank_name, routing_number = var_routing_number, default_payment_method = var_default_payment_method, payment_method_nickname = var_payment_method_nickname, tax_id = var_tax_id, provider_customer_profile_id = var_provider_customer_profile_id, provider_payment_profile_id = var_provider_payment_profile_id, meta_data = var_meta_data)
+#' # result <- api_instance$AddPaymentMethod(var_account_id, payment_method_id = var_payment_method_id, account_name = var_account_name, first_name = var_first_name, last_name = var_last_name, address = var_address, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, phone = var_phone, credit_card_number = var_credit_card_number, expiration_date = var_expiration_date, ccv = var_ccv, account_number = var_account_number, bank_name = var_bank_name, routing_number = var_routing_number, default_payment_method = var_default_payment_method, payment_method_nickname = var_payment_method_nickname, tax_id = var_tax_id, provider_customer_profile_id = var_provider_customer_profile_id, provider_payment_profile_id = var_provider_payment_profile_id, meta_data = var_meta_datadata_file = "result.txt")
+#' result <- api_instance$AddPaymentMethod(var_account_id, payment_method_id = var_payment_method_id, account_name = var_account_name, first_name = var_first_name, last_name = var_last_name, address = var_address, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, phone = var_phone, credit_card_number = var_credit_card_number, expiration_date = var_expiration_date, ccv = var_ccv, account_number = var_account_number, bank_name = var_bank_name, routing_number = var_routing_number, default_payment_method = var_default_payment_method, payment_method_nickname = var_payment_method_nickname, tax_id = var_tax_id, provider_customer_profile_id = var_provider_customer_profile_id, provider_payment_profile_id = var_provider_payment_profile_id, meta_data = var_meta_data)
 #' dput(result)
 #'
 #'
 #' ####################  CreatePaymentMethod  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the the request
 #' var_account_name <- "account_name_example" # character | Account Name of the credit card user (Optional)
 #' var_first_name <- "first_name_example" # character | The first name on the credit card (Optional)
@@ -85,15 +83,14 @@
 #' api_instance <- BillingInfoApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreatePaymentMethod(var_version, var_account_id, account_name = var_account_name, first_name = var_first_name, last_name = var_last_name, address = var_address, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, phone = var_phone, credit_card_number = var_credit_card_number, expiration_date = var_expiration_date, ccv = var_ccv, account_number = var_account_number, bank_name = var_bank_name, routing_number = var_routing_number, payment_method_nickname = var_payment_method_nickname, tax_id = var_tax_id, default_payment_method = var_default_payment_method, auth_token = var_auth_token, provider = var_provider, provider_customer_profile_id = var_provider_customer_profile_id, provider_payment_profile_id = var_provider_payment_profile_id, meta_data = var_meta_data, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$CreatePaymentMethod(var_version, var_account_id, account_name = var_account_name, first_name = var_first_name, last_name = var_last_name, address = var_address, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, phone = var_phone, credit_card_number = var_credit_card_number, expiration_date = var_expiration_date, ccv = var_ccv, account_number = var_account_number, bank_name = var_bank_name, routing_number = var_routing_number, payment_method_nickname = var_payment_method_nickname, tax_id = var_tax_id, default_payment_method = var_default_payment_method, auth_token = var_auth_token, provider = var_provider, provider_customer_profile_id = var_provider_customer_profile_id, provider_payment_profile_id = var_provider_payment_profile_id, meta_data = var_meta_data, app_key = var_app_key)
+#' # result <- api_instance$CreatePaymentMethod(var_account_id, account_name = var_account_name, first_name = var_first_name, last_name = var_last_name, address = var_address, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, phone = var_phone, credit_card_number = var_credit_card_number, expiration_date = var_expiration_date, ccv = var_ccv, account_number = var_account_number, bank_name = var_bank_name, routing_number = var_routing_number, payment_method_nickname = var_payment_method_nickname, tax_id = var_tax_id, default_payment_method = var_default_payment_method, auth_token = var_auth_token, provider = var_provider, provider_customer_profile_id = var_provider_customer_profile_id, provider_payment_profile_id = var_provider_payment_profile_id, meta_data = var_meta_data, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$CreatePaymentMethod(var_account_id, account_name = var_account_name, first_name = var_first_name, last_name = var_last_name, address = var_address, city = var_city, state = var_state, postal_code = var_postal_code, country = var_country, phone = var_phone, credit_card_number = var_credit_card_number, expiration_date = var_expiration_date, ccv = var_ccv, account_number = var_account_number, bank_name = var_bank_name, routing_number = var_routing_number, payment_method_nickname = var_payment_method_nickname, tax_id = var_tax_id, default_payment_method = var_default_payment_method, auth_token = var_auth_token, provider = var_provider, provider_customer_profile_id = var_provider_customer_profile_id, provider_payment_profile_id = var_provider_payment_profile_id, meta_data = var_meta_data, app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  CreateSmartContract  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the the request
 #' var_token_name <- "token_name_example" # character | The token name
 #' var_token_symbol <- "token_symbol_example" # character | The token symbol
@@ -103,15 +100,14 @@
 #' api_instance <- BillingInfoApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateSmartContract(var_version, var_account_id, var_token_name, var_token_symbol, payment_method_id = var_payment_method_iddata_file = "result.txt")
-#' result <- api_instance$CreateSmartContract(var_version, var_account_id, var_token_name, var_token_symbol, payment_method_id = var_payment_method_id)
+#' # result <- api_instance$CreateSmartContract(var_account_id, var_token_name, var_token_symbol, payment_method_id = var_payment_method_iddata_file = "result.txt")
+#' result <- api_instance$CreateSmartContract(var_account_id, var_token_name, var_token_symbol, payment_method_id = var_payment_method_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetCryptoBalance  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the the request
 #' var_owner_account_id <- 56 # integer | The account to retreive balances for (Optional)
 #' var_payment_method_id <- 56 # integer | The payment method to return details on. If this is not set, then the user's default payment method will be returned. (Optional)
@@ -120,15 +116,14 @@
 #' api_instance <- BillingInfoApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetCryptoBalance(var_version, var_account_id, owner_account_id = var_owner_account_id, payment_method_id = var_payment_method_iddata_file = "result.txt")
-#' result <- api_instance$GetCryptoBalance(var_version, var_account_id, owner_account_id = var_owner_account_id, payment_method_id = var_payment_method_id)
+#' # result <- api_instance$GetCryptoBalance(var_account_id, owner_account_id = var_owner_account_id, payment_method_id = var_payment_method_iddata_file = "result.txt")
+#' result <- api_instance$GetCryptoBalance(var_account_id, owner_account_id = var_owner_account_id, payment_method_id = var_payment_method_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetPaymentMethod  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the the request
 #' var_payment_method_id <- 56 # integer | The payment method to return details on. If this is not set, then the user's default payment method will be returned. (Optional)
 #' var_get_current_balance <- "get_current_balance_example" # character | Determines whether to get the user's current balance for the requested payment method option (not all payment method options support this) (Optional)
@@ -137,15 +132,14 @@
 #' api_instance <- BillingInfoApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetPaymentMethod(var_version, var_account_id, payment_method_id = var_payment_method_id, get_current_balance = var_get_current_balancedata_file = "result.txt")
-#' result <- api_instance$GetPaymentMethod(var_version, var_account_id, payment_method_id = var_payment_method_id, get_current_balance = var_get_current_balance)
+#' # result <- api_instance$GetPaymentMethod(var_account_id, payment_method_id = var_payment_method_id, get_current_balance = var_get_current_balancedata_file = "result.txt")
+#' result <- api_instance$GetPaymentMethod(var_account_id, payment_method_id = var_payment_method_id, get_current_balance = var_get_current_balance)
 #' dput(result)
 #'
 #'
 #' ####################  SearchPaymentMethod  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Account Id to search on
 #' var_provider <- "AUTHORIZE_NET" # character | Provider to search on (Optional)
 #' var_type <- "type_example" # character | the type to search on (Optional)
@@ -159,8 +153,8 @@
 #' api_instance <- BillingInfoApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchPaymentMethod(var_version, var_account_id, provider = var_provider, type = var_type, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchPaymentMethod(var_version, var_account_id, provider = var_provider, type = var_type, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchPaymentMethod(var_account_id, provider = var_provider, type = var_type, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchPaymentMethod(var_account_id, provider = var_provider, type = var_type, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
@@ -188,7 +182,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Update Payment Method
     #'
-    #' @param version 
     #' @param account_id The account used to perform the the request
     #' @param payment_method_id (optional) Payment Method Id
     #' @param account_name (optional) the name of the account
@@ -217,8 +210,8 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaymentTypesResponse
-    AddPaymentMethod = function(version, account_id, payment_method_id = NULL, account_name = NULL, first_name = NULL, last_name = NULL, address = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, phone = NULL, credit_card_number = NULL, expiration_date = NULL, ccv = NULL, account_number = NULL, bank_name = NULL, routing_number = NULL, default_payment_method = NULL, payment_method_nickname = NULL, tax_id = NULL, provider_customer_profile_id = NULL, provider_payment_profile_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AddPaymentMethodWithHttpInfo(version, account_id, payment_method_id, account_name, first_name, last_name, address, city, state, postal_code, country, phone, credit_card_number, expiration_date, ccv, account_number, bank_name, routing_number, default_payment_method, payment_method_nickname, tax_id, provider_customer_profile_id, provider_payment_profile_id, meta_data, data_file = data_file, ..., .parse = .parse)
+    AddPaymentMethod = function(account_id, payment_method_id = NULL, account_name = NULL, first_name = NULL, last_name = NULL, address = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, phone = NULL, credit_card_number = NULL, expiration_date = NULL, ccv = NULL, account_number = NULL, bank_name = NULL, routing_number = NULL, default_payment_method = NULL, payment_method_nickname = NULL, tax_id = NULL, provider_customer_profile_id = NULL, provider_payment_profile_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AddPaymentMethodWithHttpInfo(account_id, payment_method_id, account_name, first_name, last_name, address, city, state, postal_code, country, phone, credit_card_number, expiration_date, ccv, account_number, bank_name, routing_number, default_payment_method, payment_method_nickname, tax_id, provider_customer_profile_id, provider_payment_profile_id, meta_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -233,7 +226,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Update Payment Method
     #'
-    #' @param version 
     #' @param account_id The account used to perform the the request
     #' @param payment_method_id (optional) Payment Method Id
     #' @param account_name (optional) the name of the account
@@ -262,7 +254,7 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaymentTypesResponse) with additional information such as HTTP status code, headers
-    AddPaymentMethodWithHttpInfo = function(version, account_id, payment_method_id = NULL, account_name = NULL, first_name = NULL, last_name = NULL, address = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, phone = NULL, credit_card_number = NULL, expiration_date = NULL, ccv = NULL, account_number = NULL, bank_name = NULL, routing_number = NULL, default_payment_method = NULL, payment_method_nickname = NULL, tax_id = NULL, provider_customer_profile_id = NULL, provider_payment_profile_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AddPaymentMethodWithHttpInfo = function(account_id, payment_method_id = NULL, account_name = NULL, first_name = NULL, last_name = NULL, address = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, phone = NULL, credit_card_number = NULL, expiration_date = NULL, ccv = NULL, account_number = NULL, bank_name = NULL, routing_number = NULL, default_payment_method = NULL, payment_method_nickname = NULL, tax_id = NULL, provider_customer_profile_id = NULL, provider_payment_profile_id = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -272,16 +264,8 @@ BillingInfoApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BillingInfoApi$AddPaymentMethod, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -422,11 +406,7 @@ BillingInfoApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/billing/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/billing/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -487,7 +467,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Create Payment Method
     #'
-    #' @param version 
     #' @param account_id The account used to perform the the request
     #' @param account_name (optional) Account Name of the credit card user
     #' @param first_name (optional) The first name on the credit card
@@ -518,8 +497,8 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaymentTypesResponse
-    CreatePaymentMethod = function(version, account_id, account_name = NULL, first_name = NULL, last_name = NULL, address = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, phone = NULL, credit_card_number = NULL, expiration_date = NULL, ccv = NULL, account_number = NULL, bank_name = NULL, routing_number = NULL, payment_method_nickname = NULL, tax_id = NULL, default_payment_method = TRUE, auth_token = NULL, provider = "AUTHORIZE_NET", provider_customer_profile_id = NULL, provider_payment_profile_id = NULL, meta_data = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreatePaymentMethodWithHttpInfo(version, account_id, account_name, first_name, last_name, address, city, state, postal_code, country, phone, credit_card_number, expiration_date, ccv, account_number, bank_name, routing_number, payment_method_nickname, tax_id, default_payment_method, auth_token, provider, provider_customer_profile_id, provider_payment_profile_id, meta_data, app_key, data_file = data_file, ..., .parse = .parse)
+    CreatePaymentMethod = function(account_id, account_name = NULL, first_name = NULL, last_name = NULL, address = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, phone = NULL, credit_card_number = NULL, expiration_date = NULL, ccv = NULL, account_number = NULL, bank_name = NULL, routing_number = NULL, payment_method_nickname = NULL, tax_id = NULL, default_payment_method = TRUE, auth_token = NULL, provider = "AUTHORIZE_NET", provider_customer_profile_id = NULL, provider_payment_profile_id = NULL, meta_data = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreatePaymentMethodWithHttpInfo(account_id, account_name, first_name, last_name, address, city, state, postal_code, country, phone, credit_card_number, expiration_date, ccv, account_number, bank_name, routing_number, payment_method_nickname, tax_id, default_payment_method, auth_token, provider, provider_customer_profile_id, provider_payment_profile_id, meta_data, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -534,7 +513,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Create Payment Method
     #'
-    #' @param version 
     #' @param account_id The account used to perform the the request
     #' @param account_name (optional) Account Name of the credit card user
     #' @param first_name (optional) The first name on the credit card
@@ -565,7 +543,7 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaymentTypesResponse) with additional information such as HTTP status code, headers
-    CreatePaymentMethodWithHttpInfo = function(version, account_id, account_name = NULL, first_name = NULL, last_name = NULL, address = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, phone = NULL, credit_card_number = NULL, expiration_date = NULL, ccv = NULL, account_number = NULL, bank_name = NULL, routing_number = NULL, payment_method_nickname = NULL, tax_id = NULL, default_payment_method = TRUE, auth_token = NULL, provider = "AUTHORIZE_NET", provider_customer_profile_id = NULL, provider_payment_profile_id = NULL, meta_data = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreatePaymentMethodWithHttpInfo = function(account_id, account_name = NULL, first_name = NULL, last_name = NULL, address = NULL, city = NULL, state = NULL, postal_code = NULL, country = NULL, phone = NULL, credit_card_number = NULL, expiration_date = NULL, ccv = NULL, account_number = NULL, bank_name = NULL, routing_number = NULL, payment_method_nickname = NULL, tax_id = NULL, default_payment_method = TRUE, auth_token = NULL, provider = "AUTHORIZE_NET", provider_customer_profile_id = NULL, provider_payment_profile_id = NULL, meta_data = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -575,16 +553,8 @@ BillingInfoApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BillingInfoApi$CreatePaymentMethod, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -737,11 +707,7 @@ BillingInfoApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/billing/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/billing/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -802,7 +768,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Create Smart Contract
     #'
-    #' @param version 
     #' @param account_id The account used to perform the the request
     #' @param token_name The token name
     #' @param token_symbol The token symbol
@@ -812,8 +777,8 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaymentTypesResponse
-    CreateSmartContract = function(version, account_id, token_name, token_symbol, payment_method_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateSmartContractWithHttpInfo(version, account_id, token_name, token_symbol, payment_method_id, data_file = data_file, ..., .parse = .parse)
+    CreateSmartContract = function(account_id, token_name, token_symbol, payment_method_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateSmartContractWithHttpInfo(account_id, token_name, token_symbol, payment_method_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -828,7 +793,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Create Smart Contract
     #'
-    #' @param version 
     #' @param account_id The account used to perform the the request
     #' @param token_name The token name
     #' @param token_symbol The token symbol
@@ -838,7 +802,7 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaymentTypesResponse) with additional information such as HTTP status code, headers
-    CreateSmartContractWithHttpInfo = function(version, account_id, token_name, token_symbol, payment_method_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateSmartContractWithHttpInfo = function(account_id, token_name, token_symbol, payment_method_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -847,10 +811,6 @@ BillingInfoApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -862,10 +822,6 @@ BillingInfoApi <- R6::R6Class(
 
       if (missing(`token_symbol`)) {
         stop("Missing required parameter `token_symbol`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BillingInfoApi$CreateSmartContract, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -892,11 +848,7 @@ BillingInfoApi <- R6::R6Class(
 
       query_params[["tokenSymbol"]] <- `token_symbol`
 
-      local_var_url_path <- "/api/{version}/billing/crypto/transfer"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/billing/crypto/transfer"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -957,7 +909,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Get Crypto Balances
     #'
-    #' @param version 
     #' @param account_id The account used to perform the the request
     #' @param owner_account_id (optional) The account to retreive balances for
     #' @param payment_method_id (optional) The payment method to return details on. If this is not set, then the user's default payment method will be returned.
@@ -966,8 +917,8 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaymentTypesResponse
-    GetCryptoBalance = function(version, account_id, owner_account_id = NULL, payment_method_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetCryptoBalanceWithHttpInfo(version, account_id, owner_account_id, payment_method_id, data_file = data_file, ..., .parse = .parse)
+    GetCryptoBalance = function(account_id, owner_account_id = NULL, payment_method_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetCryptoBalanceWithHttpInfo(account_id, owner_account_id, payment_method_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -982,7 +933,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Get Crypto Balances
     #'
-    #' @param version 
     #' @param account_id The account used to perform the the request
     #' @param owner_account_id (optional) The account to retreive balances for
     #' @param payment_method_id (optional) The payment method to return details on. If this is not set, then the user's default payment method will be returned.
@@ -991,7 +941,7 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaymentTypesResponse) with additional information such as HTTP status code, headers
-    GetCryptoBalanceWithHttpInfo = function(version, account_id, owner_account_id = NULL, payment_method_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetCryptoBalanceWithHttpInfo = function(account_id, owner_account_id = NULL, payment_method_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1001,16 +951,8 @@ BillingInfoApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BillingInfoApi$GetCryptoBalance, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1031,11 +973,7 @@ BillingInfoApi <- R6::R6Class(
 
       query_params[["paymentMethodId"]] <- `payment_method_id`
 
-      local_var_url_path <- "/api/{version}/billing/crypto/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/billing/crypto/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1096,7 +1034,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Get Payment Method
     #'
-    #' @param version 
     #' @param account_id The account used to perform the the request
     #' @param payment_method_id (optional) The payment method to return details on. If this is not set, then the user's default payment method will be returned.
     #' @param get_current_balance (optional) Determines whether to get the user's current balance for the requested payment method option (not all payment method options support this)
@@ -1105,8 +1042,8 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaymentTypesResponse
-    GetPaymentMethod = function(version, account_id, payment_method_id = NULL, get_current_balance = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetPaymentMethodWithHttpInfo(version, account_id, payment_method_id, get_current_balance, data_file = data_file, ..., .parse = .parse)
+    GetPaymentMethod = function(account_id, payment_method_id = NULL, get_current_balance = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetPaymentMethodWithHttpInfo(account_id, payment_method_id, get_current_balance, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1121,7 +1058,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Get Payment Method
     #'
-    #' @param version 
     #' @param account_id The account used to perform the the request
     #' @param payment_method_id (optional) The payment method to return details on. If this is not set, then the user's default payment method will be returned.
     #' @param get_current_balance (optional) Determines whether to get the user's current balance for the requested payment method option (not all payment method options support this)
@@ -1130,7 +1066,7 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaymentTypesResponse) with additional information such as HTTP status code, headers
-    GetPaymentMethodWithHttpInfo = function(version, account_id, payment_method_id = NULL, get_current_balance = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetPaymentMethodWithHttpInfo = function(account_id, payment_method_id = NULL, get_current_balance = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1140,16 +1076,8 @@ BillingInfoApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BillingInfoApi$GetPaymentMethod, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1170,11 +1098,7 @@ BillingInfoApi <- R6::R6Class(
 
       query_params[["getCurrentBalance"]] <- `get_current_balance`
 
-      local_var_url_path <- "/api/{version}/billing/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/billing/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1235,7 +1159,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Search Payment Methods
     #'
-    #' @param version 
     #' @param account_id Account Id to search on
     #' @param provider (optional) Provider to search on (default value: "AUTHORIZE_NET")
     #' @param type (optional) the type to search on
@@ -1249,8 +1172,8 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaymentTypesResponse
-    SearchPaymentMethod = function(version, account_id, provider = "AUTHORIZE_NET", type = NULL, keyword = NULL, sort_field = "UPDATED", descending = TRUE, start = 0, limit = 5, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchPaymentMethodWithHttpInfo(version, account_id, provider, type, keyword, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchPaymentMethod = function(account_id, provider = "AUTHORIZE_NET", type = NULL, keyword = NULL, sort_field = "UPDATED", descending = TRUE, start = 0, limit = 5, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchPaymentMethodWithHttpInfo(account_id, provider, type, keyword, sort_field, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1265,7 +1188,6 @@ BillingInfoApi <- R6::R6Class(
     #' @description
     #' Search Payment Methods
     #'
-    #' @param version 
     #' @param account_id Account Id to search on
     #' @param provider (optional) Provider to search on (default value: "AUTHORIZE_NET")
     #' @param type (optional) the type to search on
@@ -1279,7 +1201,7 @@ BillingInfoApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaymentTypesResponse) with additional information such as HTTP status code, headers
-    SearchPaymentMethodWithHttpInfo = function(version, account_id, provider = "AUTHORIZE_NET", type = NULL, keyword = NULL, sort_field = "UPDATED", descending = TRUE, start = 0, limit = 5, data_file = NULL, ..., .parse = TRUE) {
+    SearchPaymentMethodWithHttpInfo = function(account_id, provider = "AUTHORIZE_NET", type = NULL, keyword = NULL, sort_field = "UPDATED", descending = TRUE, start = 0, limit = 5, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1289,16 +1211,8 @@ BillingInfoApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BillingInfoApi$SearchPaymentMethod, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1349,11 +1263,7 @@ BillingInfoApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/billing/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/billing/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

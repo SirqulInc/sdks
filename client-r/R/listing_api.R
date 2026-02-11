@@ -17,7 +17,6 @@
 #' ####################  CreateListing  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user's account ID
 #' var_name <- "name_example" # character | the name of the listing
 #' var_filter_ids <- "filter_ids_example" # character | comma separated list of filter IDs (Optional)
@@ -37,15 +36,14 @@
 #' api_instance <- ListingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateListing(var_version, var_account_id, var_name, filter_ids = var_filter_ids, description = var_description, start = var_start, end = var_end, location_name = var_location_name, location_description = var_location_description, is_private = var_is_private, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_id, active = var_active, meta_data = var_meta_datadata_file = "result.txt")
-#' result <- api_instance$CreateListing(var_version, var_account_id, var_name, filter_ids = var_filter_ids, description = var_description, start = var_start, end = var_end, location_name = var_location_name, location_description = var_location_description, is_private = var_is_private, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_id, active = var_active, meta_data = var_meta_data)
+#' # result <- api_instance$CreateListing(var_account_id, var_name, filter_ids = var_filter_ids, description = var_description, start = var_start, end = var_end, location_name = var_location_name, location_description = var_location_description, is_private = var_is_private, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_id, active = var_active, meta_data = var_meta_datadata_file = "result.txt")
+#' result <- api_instance$CreateListing(var_account_id, var_name, filter_ids = var_filter_ids, description = var_description, start = var_start, end = var_end, location_name = var_location_name, location_description = var_location_description, is_private = var_is_private, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_id, active = var_active, meta_data = var_meta_data)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteListing  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_listing_id <- 56 # integer | the id of the listing to delete
 #'
@@ -53,30 +51,28 @@
 #' api_instance <- ListingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteListing(var_version, var_account_id, var_listing_iddata_file = "result.txt")
-#' result <- api_instance$DeleteListing(var_version, var_account_id, var_listing_id)
+#' # result <- api_instance$DeleteListing(var_account_id, var_listing_iddata_file = "result.txt")
+#' result <- api_instance$DeleteListing(var_account_id, var_listing_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetListing  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_listing_id <- 56 # integer | the id of the listing to get
 #'
 #' #Get Listing
 #' api_instance <- ListingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetListing(var_version, var_listing_iddata_file = "result.txt")
-#' result <- api_instance$GetListing(var_version, var_listing_id)
+#' # result <- api_instance$GetListing(var_listing_iddata_file = "result.txt")
+#' result <- api_instance$GetListing(var_listing_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchListing  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user (Optional)
 #' var_keyword <- "keyword_example" # character | search the event name and description for this keyword (Optional)
 #' var_start <- 0 # integer | the record to begin the return set on (Optional)
@@ -97,15 +93,14 @@
 #' api_instance <- ListingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchListing(var_version, account_id = var_account_id, keyword = var_keyword, start = var_start, limit = var_limit, active_only = var_active_only, latitude = var_latitude, longitude = var_longitude, start_date = var_start_date, end_date = var_end_date, category_ids = var_category_ids, filter_ids = var_filter_ids, use_listing_order_ids = var_use_listing_order_ids, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_iddata_file = "result.txt")
-#' result <- api_instance$SearchListing(var_version, account_id = var_account_id, keyword = var_keyword, start = var_start, limit = var_limit, active_only = var_active_only, latitude = var_latitude, longitude = var_longitude, start_date = var_start_date, end_date = var_end_date, category_ids = var_category_ids, filter_ids = var_filter_ids, use_listing_order_ids = var_use_listing_order_ids, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_id)
+#' # result <- api_instance$SearchListing(account_id = var_account_id, keyword = var_keyword, start = var_start, limit = var_limit, active_only = var_active_only, latitude = var_latitude, longitude = var_longitude, start_date = var_start_date, end_date = var_end_date, category_ids = var_category_ids, filter_ids = var_filter_ids, use_listing_order_ids = var_use_listing_order_ids, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_iddata_file = "result.txt")
+#' result <- api_instance$SearchListing(account_id = var_account_id, keyword = var_keyword, start = var_start, limit = var_limit, active_only = var_active_only, latitude = var_latitude, longitude = var_longitude, start_date = var_start_date, end_date = var_end_date, category_ids = var_category_ids, filter_ids = var_filter_ids, use_listing_order_ids = var_use_listing_order_ids, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_id)
 #' dput(result)
 #'
 #'
 #' ####################  SummaryListing  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user (Optional)
 #' var_start_date <- 56 # integer | the start date to search from (Optional)
 #' var_category_ids <- "category_ids_example" # character | the list of categories to search on (Optional)
@@ -116,15 +111,14 @@
 #' api_instance <- ListingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SummaryListing(var_version, account_id = var_account_id, start_date = var_start_date, category_ids = var_category_ids, days_to_include = var_days_to_include, use_listing_order_ids = var_use_listing_order_idsdata_file = "result.txt")
-#' result <- api_instance$SummaryListing(var_version, account_id = var_account_id, start_date = var_start_date, category_ids = var_category_ids, days_to_include = var_days_to_include, use_listing_order_ids = var_use_listing_order_ids)
+#' # result <- api_instance$SummaryListing(account_id = var_account_id, start_date = var_start_date, category_ids = var_category_ids, days_to_include = var_days_to_include, use_listing_order_ids = var_use_listing_order_idsdata_file = "result.txt")
+#' result <- api_instance$SummaryListing(account_id = var_account_id, start_date = var_start_date, category_ids = var_category_ids, days_to_include = var_days_to_include, use_listing_order_ids = var_use_listing_order_ids)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateListing  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the user's account ID
 #' var_listing_id <- 56 # integer | the listing to update
 #' var_filter_ids <- "filter_ids_example" # character | comma separated list of filter IDs (Optional)
@@ -145,8 +139,8 @@
 #' api_instance <- ListingApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateListing(var_version, var_account_id, var_listing_id, filter_ids = var_filter_ids, name = var_name, description = var_description, start = var_start, end = var_end, location_name = var_location_name, location_description = var_location_description, is_private = var_is_private, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_id, active = var_active, meta_data = var_meta_datadata_file = "result.txt")
-#' result <- api_instance$UpdateListing(var_version, var_account_id, var_listing_id, filter_ids = var_filter_ids, name = var_name, description = var_description, start = var_start, end = var_end, location_name = var_location_name, location_description = var_location_description, is_private = var_is_private, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_id, active = var_active, meta_data = var_meta_data)
+#' # result <- api_instance$UpdateListing(var_account_id, var_listing_id, filter_ids = var_filter_ids, name = var_name, description = var_description, start = var_start, end = var_end, location_name = var_location_name, location_description = var_location_description, is_private = var_is_private, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_id, active = var_active, meta_data = var_meta_datadata_file = "result.txt")
+#' result <- api_instance$UpdateListing(var_account_id, var_listing_id, filter_ids = var_filter_ids, name = var_name, description = var_description, start = var_start, end = var_end, location_name = var_location_name, location_description = var_location_description, is_private = var_is_private, external_id = var_external_id, external_id2 = var_external_id2, external_group_id = var_external_group_id, active = var_active, meta_data = var_meta_data)
 #' dput(result)
 #'
 #'
@@ -174,7 +168,6 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Create Listing
     #'
-    #' @param version 
     #' @param account_id the user's account ID
     #' @param name the name of the listing
     #' @param filter_ids (optional) comma separated list of filter IDs
@@ -194,8 +187,8 @@ ListingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ListingFullResponse
-    CreateListing = function(version, account_id, name, filter_ids = NULL, description = NULL, start = NULL, end = NULL, location_name = NULL, location_description = NULL, is_private = FALSE, external_id = NULL, external_id2 = NULL, external_group_id = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateListingWithHttpInfo(version, account_id, name, filter_ids, description, start, end, location_name, location_description, is_private, external_id, external_id2, external_group_id, active, meta_data, data_file = data_file, ..., .parse = .parse)
+    CreateListing = function(account_id, name, filter_ids = NULL, description = NULL, start = NULL, end = NULL, location_name = NULL, location_description = NULL, is_private = FALSE, external_id = NULL, external_id2 = NULL, external_group_id = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateListingWithHttpInfo(account_id, name, filter_ids, description, start, end, location_name, location_description, is_private, external_id, external_id2, external_group_id, active, meta_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -210,7 +203,6 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Create Listing
     #'
-    #' @param version 
     #' @param account_id the user's account ID
     #' @param name the name of the listing
     #' @param filter_ids (optional) comma separated list of filter IDs
@@ -230,7 +222,7 @@ ListingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ListingFullResponse) with additional information such as HTTP status code, headers
-    CreateListingWithHttpInfo = function(version, account_id, name, filter_ids = NULL, description = NULL, start = NULL, end = NULL, location_name = NULL, location_description = NULL, is_private = FALSE, external_id = NULL, external_id2 = NULL, external_group_id = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateListingWithHttpInfo = function(account_id, name, filter_ids = NULL, description = NULL, start = NULL, end = NULL, location_name = NULL, location_description = NULL, is_private = FALSE, external_id = NULL, external_id2 = NULL, external_group_id = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -240,20 +232,12 @@ ListingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`name`)) {
         stop("Missing required parameter `name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ListingApi$CreateListing, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -340,11 +324,7 @@ ListingApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/listing/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/listing/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -405,7 +385,6 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Delete Listing
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param listing_id the id of the listing to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -413,8 +392,8 @@ ListingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteListing = function(version, account_id, listing_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteListingWithHttpInfo(version, account_id, listing_id, data_file = data_file, ..., .parse = .parse)
+    DeleteListing = function(account_id, listing_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteListingWithHttpInfo(account_id, listing_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -429,7 +408,6 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Delete Listing
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param listing_id the id of the listing to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -437,7 +415,7 @@ ListingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteListingWithHttpInfo = function(version, account_id, listing_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteListingWithHttpInfo = function(account_id, listing_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -447,20 +425,12 @@ ListingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`listing_id`)) {
         stop("Missing required parameter `listing_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ListingApi$DeleteListing, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -475,11 +445,7 @@ ListingApi <- R6::R6Class(
 
       query_params[["listingId"]] <- `listing_id`
 
-      local_var_url_path <- "/api/{version}/listing/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/listing/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -540,15 +506,14 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Get Listing
     #'
-    #' @param version 
     #' @param listing_id the id of the listing to get
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ListingFullResponse
-    GetListing = function(version, listing_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetListingWithHttpInfo(version, listing_id, data_file = data_file, ..., .parse = .parse)
+    GetListing = function(listing_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetListingWithHttpInfo(listing_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -563,14 +528,13 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Get Listing
     #'
-    #' @param version 
     #' @param listing_id the id of the listing to get
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ListingFullResponse) with additional information such as HTTP status code, headers
-    GetListingWithHttpInfo = function(version, listing_id, data_file = NULL, ..., .parse = TRUE) {
+    GetListingWithHttpInfo = function(listing_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -580,16 +544,8 @@ ListingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`listing_id`)) {
         stop("Missing required parameter `listing_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ListingApi$GetListing, `version` is not nullable")
       }
 
       if (!missing(`listing_id`) && is.null(`listing_id`)) {
@@ -598,11 +554,7 @@ ListingApi <- R6::R6Class(
 
       query_params[["listingId"]] <- `listing_id`
 
-      local_var_url_path <- "/api/{version}/listing/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/listing/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -663,7 +615,6 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Search Listings
     #'
-    #' @param version 
     #' @param account_id (optional) the account id of the user
     #' @param keyword (optional) search the event name and description for this keyword
     #' @param start (optional) the record to begin the return set on (default value: 0)
@@ -684,8 +635,8 @@ ListingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ListingResponse]
-    SearchListing = function(version, account_id = NULL, keyword = NULL, start = 0, limit = 20, active_only = FALSE, latitude = NULL, longitude = NULL, start_date = NULL, end_date = NULL, category_ids = NULL, filter_ids = NULL, use_listing_order_ids = TRUE, external_id = NULL, external_id2 = NULL, external_group_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchListingWithHttpInfo(version, account_id, keyword, start, limit, active_only, latitude, longitude, start_date, end_date, category_ids, filter_ids, use_listing_order_ids, external_id, external_id2, external_group_id, data_file = data_file, ..., .parse = .parse)
+    SearchListing = function(account_id = NULL, keyword = NULL, start = 0, limit = 20, active_only = FALSE, latitude = NULL, longitude = NULL, start_date = NULL, end_date = NULL, category_ids = NULL, filter_ids = NULL, use_listing_order_ids = TRUE, external_id = NULL, external_id2 = NULL, external_group_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchListingWithHttpInfo(account_id, keyword, start, limit, active_only, latitude, longitude, start_date, end_date, category_ids, filter_ids, use_listing_order_ids, external_id, external_id2, external_group_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -700,7 +651,6 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Search Listings
     #'
-    #' @param version 
     #' @param account_id (optional) the account id of the user
     #' @param keyword (optional) search the event name and description for this keyword
     #' @param start (optional) the record to begin the return set on (default value: 0)
@@ -721,7 +671,7 @@ ListingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ListingResponse]) with additional information such as HTTP status code, headers
-    SearchListingWithHttpInfo = function(version, account_id = NULL, keyword = NULL, start = 0, limit = 20, active_only = FALSE, latitude = NULL, longitude = NULL, start_date = NULL, end_date = NULL, category_ids = NULL, filter_ids = NULL, use_listing_order_ids = TRUE, external_id = NULL, external_id2 = NULL, external_group_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchListingWithHttpInfo = function(account_id = NULL, keyword = NULL, start = 0, limit = 20, active_only = FALSE, latitude = NULL, longitude = NULL, start_date = NULL, end_date = NULL, category_ids = NULL, filter_ids = NULL, use_listing_order_ids = TRUE, external_id = NULL, external_id2 = NULL, external_group_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -730,14 +680,6 @@ ListingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ListingApi$SearchListing, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling ListingApi$SearchListing, `account_id` is not nullable")
@@ -829,11 +771,7 @@ ListingApi <- R6::R6Class(
 
       query_params[["externalGroupId"]] <- `external_group_id`
 
-      local_var_url_path <- "/api/{version}/listing/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/listing/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -894,7 +832,6 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Summary Listing
     #'
-    #' @param version 
     #' @param account_id (optional) the account id of the user
     #' @param start_date (optional) the start date to search from
     #' @param category_ids (optional) the list of categories to search on
@@ -905,8 +842,8 @@ ListingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ListingGroupResponse]
-    SummaryListing = function(version, account_id = NULL, start_date = NULL, category_ids = NULL, days_to_include = 15, use_listing_order_ids = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SummaryListingWithHttpInfo(version, account_id, start_date, category_ids, days_to_include, use_listing_order_ids, data_file = data_file, ..., .parse = .parse)
+    SummaryListing = function(account_id = NULL, start_date = NULL, category_ids = NULL, days_to_include = 15, use_listing_order_ids = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SummaryListingWithHttpInfo(account_id, start_date, category_ids, days_to_include, use_listing_order_ids, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -921,7 +858,6 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Summary Listing
     #'
-    #' @param version 
     #' @param account_id (optional) the account id of the user
     #' @param start_date (optional) the start date to search from
     #' @param category_ids (optional) the list of categories to search on
@@ -932,7 +868,7 @@ ListingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ListingGroupResponse]) with additional information such as HTTP status code, headers
-    SummaryListingWithHttpInfo = function(version, account_id = NULL, start_date = NULL, category_ids = NULL, days_to_include = 15, use_listing_order_ids = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    SummaryListingWithHttpInfo = function(account_id = NULL, start_date = NULL, category_ids = NULL, days_to_include = 15, use_listing_order_ids = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -941,14 +877,6 @@ ListingApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ListingApi$SummaryListing, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling ListingApi$SummaryListing, `account_id` is not nullable")
@@ -980,11 +908,7 @@ ListingApi <- R6::R6Class(
 
       query_params[["useListingOrderIds"]] <- `use_listing_order_ids`
 
-      local_var_url_path <- "/api/{version}/listing/summary"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/listing/summary"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1045,7 +969,6 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Update Listing
     #'
-    #' @param version 
     #' @param account_id the user's account ID
     #' @param listing_id the listing to update
     #' @param filter_ids (optional) comma separated list of filter IDs
@@ -1066,8 +989,8 @@ ListingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ListingFullResponse
-    UpdateListing = function(version, account_id, listing_id, filter_ids = NULL, name = NULL, description = NULL, start = NULL, end = NULL, location_name = NULL, location_description = NULL, is_private = NULL, external_id = NULL, external_id2 = NULL, external_group_id = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateListingWithHttpInfo(version, account_id, listing_id, filter_ids, name, description, start, end, location_name, location_description, is_private, external_id, external_id2, external_group_id, active, meta_data, data_file = data_file, ..., .parse = .parse)
+    UpdateListing = function(account_id, listing_id, filter_ids = NULL, name = NULL, description = NULL, start = NULL, end = NULL, location_name = NULL, location_description = NULL, is_private = NULL, external_id = NULL, external_id2 = NULL, external_group_id = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateListingWithHttpInfo(account_id, listing_id, filter_ids, name, description, start, end, location_name, location_description, is_private, external_id, external_id2, external_group_id, active, meta_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1082,7 +1005,6 @@ ListingApi <- R6::R6Class(
     #' @description
     #' Update Listing
     #'
-    #' @param version 
     #' @param account_id the user's account ID
     #' @param listing_id the listing to update
     #' @param filter_ids (optional) comma separated list of filter IDs
@@ -1103,7 +1025,7 @@ ListingApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ListingFullResponse) with additional information such as HTTP status code, headers
-    UpdateListingWithHttpInfo = function(version, account_id, listing_id, filter_ids = NULL, name = NULL, description = NULL, start = NULL, end = NULL, location_name = NULL, location_description = NULL, is_private = NULL, external_id = NULL, external_id2 = NULL, external_group_id = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateListingWithHttpInfo = function(account_id, listing_id, filter_ids = NULL, name = NULL, description = NULL, start = NULL, end = NULL, location_name = NULL, location_description = NULL, is_private = NULL, external_id = NULL, external_id2 = NULL, external_group_id = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1113,20 +1035,12 @@ ListingApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`listing_id`)) {
         stop("Missing required parameter `listing_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ListingApi$UpdateListing, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1219,11 +1133,7 @@ ListingApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/listing/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/listing/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

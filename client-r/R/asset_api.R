@@ -17,22 +17,20 @@
 #' ####################  AssetDownload  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_filename <- "filename_example" # character | the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
 #'
 #' #Download Asset
 #' api_instance <- AssetApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssetDownload(var_version, var_filenamedata_file = "result.txt")
-#' result <- api_instance$AssetDownload(var_version, var_filename)
+#' # result <- api_instance$AssetDownload(var_filenamedata_file = "result.txt")
+#' result <- api_instance$AssetDownload(var_filename)
 #' dput(result)
 #'
 #'
 #' ####################  AssetMorph  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_offer_id <- 56 # integer | offer id used for inserting offer text/flavor
 #' var_ad_size <- "ad_size_example" # character | the ad size used for selecting a format for the creative image
 #' var_creative_id <- 56 # integer | used for inserting the newly created image into (Optional)
@@ -45,15 +43,14 @@
 #' api_instance <- AssetApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AssetMorph(var_version, var_offer_id, var_ad_size, creative_id = var_creative_id, width = var_width, height = var_height, background_size = var_background_size, template = var_templatedata_file = "result.txt")
-#' result <- api_instance$AssetMorph(var_version, var_offer_id, var_ad_size, creative_id = var_creative_id, width = var_width, height = var_height, background_size = var_background_size, template = var_template)
+#' # result <- api_instance$AssetMorph(var_offer_id, var_ad_size, creative_id = var_creative_id, width = var_width, height = var_height, background_size = var_background_size, template = var_templatedata_file = "result.txt")
+#' result <- api_instance$AssetMorph(var_offer_id, var_ad_size, creative_id = var_creative_id, width = var_width, height = var_height, background_size = var_background_size, template = var_template)
 #' dput(result)
 #'
 #'
 #' ####################  CreateAsset  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- "return_nulls_example" # character | to return nulls (Optional)
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
@@ -93,15 +90,14 @@
 #' api_instance <- AssetApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateAsset(var_version, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, collection_id = var_collection_id, add_to_default_album = var_add_to_default_album, add_to_media_library = var_add_to_media_library, version_code = var_version_code, version_name = var_version_name, meta_data = var_meta_data, caption = var_caption, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_id, media = var_media, media_url = var_media_url, media_string = var_media_string, media_string_file_name = var_media_string_file_name, media_string_content_type = var_media_string_content_type, media_height = var_media_height, media_width = var_media_width, attached_media = var_attached_media, attached_media_url = var_attached_media_url, attached_media_string = var_attached_media_string, attached_media_string_file_name = var_attached_media_string_file_name, attached_media_string_content_type = var_attached_media_string_content_type, attached_media_height = var_attached_media_height, attached_media_width = var_attached_media_width, location_description = var_location_description, app = var_app, app_key = var_app_key, search_tags = var_search_tags, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$CreateAsset(var_version, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, collection_id = var_collection_id, add_to_default_album = var_add_to_default_album, add_to_media_library = var_add_to_media_library, version_code = var_version_code, version_name = var_version_name, meta_data = var_meta_data, caption = var_caption, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_id, media = var_media, media_url = var_media_url, media_string = var_media_string, media_string_file_name = var_media_string_file_name, media_string_content_type = var_media_string_content_type, media_height = var_media_height, media_width = var_media_width, attached_media = var_attached_media, attached_media_url = var_attached_media_url, attached_media_string = var_attached_media_string, attached_media_string_file_name = var_attached_media_string_file_name, attached_media_string_content_type = var_attached_media_string_content_type, attached_media_height = var_attached_media_height, attached_media_width = var_attached_media_width, location_description = var_location_description, app = var_app, app_key = var_app_key, search_tags = var_search_tags, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$CreateAsset(return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, collection_id = var_collection_id, add_to_default_album = var_add_to_default_album, add_to_media_library = var_add_to_media_library, version_code = var_version_code, version_name = var_version_name, meta_data = var_meta_data, caption = var_caption, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_id, media = var_media, media_url = var_media_url, media_string = var_media_string, media_string_file_name = var_media_string_file_name, media_string_content_type = var_media_string_content_type, media_height = var_media_height, media_width = var_media_width, attached_media = var_attached_media, attached_media_url = var_attached_media_url, attached_media_string = var_attached_media_string, attached_media_string_file_name = var_attached_media_string_file_name, attached_media_string_content_type = var_attached_media_string_content_type, attached_media_height = var_attached_media_height, attached_media_width = var_attached_media_width, location_description = var_location_description, app = var_app, app_key = var_app_key, search_tags = var_search_tags, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$CreateAsset(return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, collection_id = var_collection_id, add_to_default_album = var_add_to_default_album, add_to_media_library = var_add_to_media_library, version_code = var_version_code, version_name = var_version_name, meta_data = var_meta_data, caption = var_caption, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_id, media = var_media, media_url = var_media_url, media_string = var_media_string, media_string_file_name = var_media_string_file_name, media_string_content_type = var_media_string_content_type, media_height = var_media_height, media_width = var_media_width, attached_media = var_attached_media, attached_media_url = var_attached_media_url, attached_media_string = var_attached_media_string, attached_media_string_file_name = var_attached_media_string_file_name, attached_media_string_content_type = var_attached_media_string_content_type, attached_media_height = var_attached_media_height, attached_media_width = var_attached_media_width, location_description = var_location_description, app = var_app, app_key = var_app_key, search_tags = var_search_tags, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteAsset  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_asset_id <- "asset_id_example" # character | the id of the asset to delete
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -112,15 +108,14 @@
 #' api_instance <- AssetApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteAsset(var_version, var_asset_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$DeleteAsset(var_version, var_asset_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$DeleteAsset(var_asset_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$DeleteAsset(var_asset_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GetAsset  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_asset_id <- 56 # integer | the asset ID
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
@@ -130,15 +125,14 @@
 #' api_instance <- AssetApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAsset(var_version, var_asset_id, device_id = var_device_id, account_id = var_account_id, note_descending = var_note_descendingdata_file = "result.txt")
-#' result <- api_instance$GetAsset(var_version, var_asset_id, device_id = var_device_id, account_id = var_account_id, note_descending = var_note_descending)
+#' # result <- api_instance$GetAsset(var_asset_id, device_id = var_device_id, account_id = var_account_id, note_descending = var_note_descendingdata_file = "result.txt")
+#' result <- api_instance$GetAsset(var_asset_id, device_id = var_device_id, account_id = var_account_id, note_descending = var_note_descending)
 #' dput(result)
 #'
 #'
 #' ####################  RemoveAsset  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_asset_id <- "asset_id_example" # character | the id of the asset to remove
 #' var_device_id <- "device_id_example" # character | the device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required) (Optional)
@@ -152,15 +146,14 @@
 #' api_instance <- AssetApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemoveAsset(var_version, var_asset_id, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, collection_id = var_collection_id, remove_from_default_albums = var_remove_from_default_albums, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$RemoveAsset(var_version, var_asset_id, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, collection_id = var_collection_id, remove_from_default_albums = var_remove_from_default_albums, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$RemoveAsset(var_asset_id, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, collection_id = var_collection_id, remove_from_default_albums = var_remove_from_default_albums, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$RemoveAsset(var_asset_id, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, collection_id = var_collection_id, remove_from_default_albums = var_remove_from_default_albums, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  SearchAssets  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
 #' var_album_ids <- "album_ids_example" # character | comma separated list of album ids to search on (Optional)
@@ -190,15 +183,14 @@
 #' api_instance <- AssetApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchAssets(var_version, device_id = var_device_id, account_id = var_account_id, album_ids = var_album_ids, asset_ids = var_asset_ids, app_key = var_app_key, media_type = var_media_type, mime_type = var_mime_type, keyword = var_keyword, version_code = var_version_code, version_name = var_version_name, updated_since = var_updated_since, updated_before = var_updated_before, sort_field = var_sort_field, descending = var_descending, search_media_library = var_search_media_library, filter_by_billable = var_filter_by_billable, active_only = var_active_only, return_app = var_return_app, start = var_start, limit = var_limit, search_mode = var_search_mode, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_iddata_file = "result.txt")
-#' result <- api_instance$SearchAssets(var_version, device_id = var_device_id, account_id = var_account_id, album_ids = var_album_ids, asset_ids = var_asset_ids, app_key = var_app_key, media_type = var_media_type, mime_type = var_mime_type, keyword = var_keyword, version_code = var_version_code, version_name = var_version_name, updated_since = var_updated_since, updated_before = var_updated_before, sort_field = var_sort_field, descending = var_descending, search_media_library = var_search_media_library, filter_by_billable = var_filter_by_billable, active_only = var_active_only, return_app = var_return_app, start = var_start, limit = var_limit, search_mode = var_search_mode, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_id)
+#' # result <- api_instance$SearchAssets(device_id = var_device_id, account_id = var_account_id, album_ids = var_album_ids, asset_ids = var_asset_ids, app_key = var_app_key, media_type = var_media_type, mime_type = var_mime_type, keyword = var_keyword, version_code = var_version_code, version_name = var_version_name, updated_since = var_updated_since, updated_before = var_updated_before, sort_field = var_sort_field, descending = var_descending, search_media_library = var_search_media_library, filter_by_billable = var_filter_by_billable, active_only = var_active_only, return_app = var_return_app, start = var_start, limit = var_limit, search_mode = var_search_mode, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_iddata_file = "result.txt")
+#' result <- api_instance$SearchAssets(device_id = var_device_id, account_id = var_account_id, album_ids = var_album_ids, asset_ids = var_asset_ids, app_key = var_app_key, media_type = var_media_type, mime_type = var_mime_type, keyword = var_keyword, version_code = var_version_code, version_name = var_version_name, updated_since = var_updated_since, updated_before = var_updated_before, sort_field = var_sort_field, descending = var_descending, search_media_library = var_search_media_library, filter_by_billable = var_filter_by_billable, active_only = var_active_only, return_app = var_return_app, start = var_start, limit = var_limit, search_mode = var_search_mode, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateAsset  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_asset_id <- 56 # integer | the ID of the asset to update
 #' var_device_id <- "device_id_example" # character | a unique ID given by the device (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | the account ID of the user (deviceId or accountId required) (Optional)
@@ -235,8 +227,8 @@
 #' api_instance <- AssetApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateAsset(var_version, var_asset_id, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, attached_asset_id = var_attached_asset_id, version_code = var_version_code, version_name = var_version_name, meta_data = var_meta_data, caption = var_caption, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_id, media = var_media, media_url = var_media_url, media_string = var_media_string, media_string_file_name = var_media_string_file_name, media_string_content_type = var_media_string_content_type, media_height = var_media_height, media_width = var_media_width, attached_media = var_attached_media, attached_media_url = var_attached_media_url, attached_media_string = var_attached_media_string, attached_media_string_file_name = var_attached_media_string_file_name, attached_media_string_content_type = var_attached_media_string_content_type, attached_media_height = var_attached_media_height, attached_media_width = var_attached_media_width, location_description = var_location_description, search_tags = var_search_tags, app_key = var_app_key, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$UpdateAsset(var_version, var_asset_id, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, attached_asset_id = var_attached_asset_id, version_code = var_version_code, version_name = var_version_name, meta_data = var_meta_data, caption = var_caption, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_id, media = var_media, media_url = var_media_url, media_string = var_media_string, media_string_file_name = var_media_string_file_name, media_string_content_type = var_media_string_content_type, media_height = var_media_height, media_width = var_media_width, attached_media = var_attached_media, attached_media_url = var_attached_media_url, attached_media_string = var_attached_media_string, attached_media_string_file_name = var_attached_media_string_file_name, attached_media_string_content_type = var_attached_media_string_content_type, attached_media_height = var_attached_media_height, attached_media_width = var_attached_media_width, location_description = var_location_description, search_tags = var_search_tags, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$UpdateAsset(var_asset_id, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, attached_asset_id = var_attached_asset_id, version_code = var_version_code, version_name = var_version_name, meta_data = var_meta_data, caption = var_caption, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_id, media = var_media, media_url = var_media_url, media_string = var_media_string, media_string_file_name = var_media_string_file_name, media_string_content_type = var_media_string_content_type, media_height = var_media_height, media_width = var_media_width, attached_media = var_attached_media, attached_media_url = var_attached_media_url, attached_media_string = var_attached_media_string, attached_media_string_file_name = var_attached_media_string_file_name, attached_media_string_content_type = var_attached_media_string_content_type, attached_media_height = var_attached_media_height, attached_media_width = var_attached_media_width, location_description = var_location_description, search_tags = var_search_tags, app_key = var_app_key, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$UpdateAsset(var_asset_id, device_id = var_device_id, account_id = var_account_id, album_id = var_album_id, attached_asset_id = var_attached_asset_id, version_code = var_version_code, version_name = var_version_name, meta_data = var_meta_data, caption = var_caption, asset_type = var_asset_type, approval_status = var_approval_status, assigned_account_id = var_assigned_account_id, media = var_media, media_url = var_media_url, media_string = var_media_string, media_string_file_name = var_media_string_file_name, media_string_content_type = var_media_string_content_type, media_height = var_media_height, media_width = var_media_width, attached_media = var_attached_media, attached_media_url = var_attached_media_url, attached_media_string = var_attached_media_string, attached_media_string_file_name = var_attached_media_string_file_name, attached_media_string_content_type = var_attached_media_string_content_type, attached_media_height = var_attached_media_height, attached_media_width = var_attached_media_width, location_description = var_location_description, search_tags = var_search_tags, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
@@ -264,15 +256,14 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Download Asset
     #'
-    #' @param version 
     #' @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    AssetDownload = function(version, filename, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssetDownloadWithHttpInfo(version, filename, data_file = data_file, ..., .parse = .parse)
+    AssetDownload = function(filename, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssetDownloadWithHttpInfo(filename, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -287,14 +278,13 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Download Asset
     #'
-    #' @param version 
     #' @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    AssetDownloadWithHttpInfo = function(version, filename, data_file = NULL, ..., .parse = TRUE) {
+    AssetDownloadWithHttpInfo = function(filename, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -304,16 +294,8 @@ AssetApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`filename`)) {
         stop("Missing required parameter `filename`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssetApi$AssetDownload, `version` is not nullable")
       }
 
       if (!missing(`filename`) && is.null(`filename`)) {
@@ -323,11 +305,7 @@ AssetApi <- R6::R6Class(
         stop("Invalid value for `filename` when calling AssetApi$AssetDownload, must conform to the pattern .+.")
       }
 
-      local_var_url_path <- "/api/{version}/asset/download/{filename}"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/asset/download/{filename}"
       if (!missing(`filename`)) {
         local_var_url_path <- gsub("\\{filename\\}", URLencode(as.character(`filename`), reserved = TRUE), local_var_url_path)
       }
@@ -392,7 +370,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Convert Offer to Creative
     #'
-    #' @param version 
     #' @param offer_id offer id used for inserting offer text/flavor
     #' @param ad_size the ad size used for selecting a format for the creative image
     #' @param creative_id (optional) used for inserting the newly created image into
@@ -405,8 +382,8 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AssetShortResponse
-    AssetMorph = function(version, offer_id, ad_size, creative_id = NULL, width = NULL, height = NULL, background_size = NULL, template = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AssetMorphWithHttpInfo(version, offer_id, ad_size, creative_id, width, height, background_size, template, data_file = data_file, ..., .parse = .parse)
+    AssetMorph = function(offer_id, ad_size, creative_id = NULL, width = NULL, height = NULL, background_size = NULL, template = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AssetMorphWithHttpInfo(offer_id, ad_size, creative_id, width, height, background_size, template, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -421,7 +398,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Convert Offer to Creative
     #'
-    #' @param version 
     #' @param offer_id offer id used for inserting offer text/flavor
     #' @param ad_size the ad size used for selecting a format for the creative image
     #' @param creative_id (optional) used for inserting the newly created image into
@@ -434,7 +410,7 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AssetShortResponse) with additional information such as HTTP status code, headers
-    AssetMorphWithHttpInfo = function(version, offer_id, ad_size, creative_id = NULL, width = NULL, height = NULL, background_size = NULL, template = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AssetMorphWithHttpInfo = function(offer_id, ad_size, creative_id = NULL, width = NULL, height = NULL, background_size = NULL, template = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -444,20 +420,12 @@ AssetApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`offer_id`)) {
         stop("Missing required parameter `offer_id`.")
       }
 
       if (missing(`ad_size`)) {
         stop("Missing required parameter `ad_size`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssetApi$AssetMorph, `version` is not nullable")
       }
 
       if (!missing(`offer_id`) && is.null(`offer_id`)) {
@@ -505,11 +473,7 @@ AssetApi <- R6::R6Class(
 
       query_params[["template"]] <- `template`
 
-      local_var_url_path <- "/api/{version}/asset/morph"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/asset/morph"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -570,7 +534,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Create Asset
     #'
-    #' @param version 
     #' @param return_nulls (optional) to return nulls
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -610,8 +573,8 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AssetResponse
-    CreateAsset = function(version, return_nulls = NULL, device_id = NULL, account_id = NULL, album_id = NULL, collection_id = NULL, add_to_default_album = NULL, add_to_media_library = NULL, version_code = NULL, version_name = NULL, meta_data = NULL, caption = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, media = NULL, media_url = NULL, media_string = NULL, media_string_file_name = NULL, media_string_content_type = NULL, media_height = NULL, media_width = NULL, attached_media = NULL, attached_media_url = NULL, attached_media_string = NULL, attached_media_string_file_name = NULL, attached_media_string_content_type = NULL, attached_media_height = NULL, attached_media_width = NULL, location_description = NULL, app = NULL, app_key = NULL, search_tags = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateAssetWithHttpInfo(version, return_nulls, device_id, account_id, album_id, collection_id, add_to_default_album, add_to_media_library, version_code, version_name, meta_data, caption, asset_type, approval_status, assigned_account_id, media, media_url, media_string, media_string_file_name, media_string_content_type, media_height, media_width, attached_media, attached_media_url, attached_media_string, attached_media_string_file_name, attached_media_string_content_type, attached_media_height, attached_media_width, location_description, app, app_key, search_tags, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    CreateAsset = function(return_nulls = NULL, device_id = NULL, account_id = NULL, album_id = NULL, collection_id = NULL, add_to_default_album = NULL, add_to_media_library = NULL, version_code = NULL, version_name = NULL, meta_data = NULL, caption = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, media = NULL, media_url = NULL, media_string = NULL, media_string_file_name = NULL, media_string_content_type = NULL, media_height = NULL, media_width = NULL, attached_media = NULL, attached_media_url = NULL, attached_media_string = NULL, attached_media_string_file_name = NULL, attached_media_string_content_type = NULL, attached_media_height = NULL, attached_media_width = NULL, location_description = NULL, app = NULL, app_key = NULL, search_tags = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateAssetWithHttpInfo(return_nulls, device_id, account_id, album_id, collection_id, add_to_default_album, add_to_media_library, version_code, version_name, meta_data, caption, asset_type, approval_status, assigned_account_id, media, media_url, media_string, media_string_file_name, media_string_content_type, media_height, media_width, attached_media, attached_media_url, attached_media_string, attached_media_string_file_name, attached_media_string_content_type, attached_media_height, attached_media_width, location_description, app, app_key, search_tags, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -626,7 +589,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Create Asset
     #'
-    #' @param version 
     #' @param return_nulls (optional) to return nulls
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -666,7 +628,7 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AssetResponse) with additional information such as HTTP status code, headers
-    CreateAssetWithHttpInfo = function(version, return_nulls = NULL, device_id = NULL, account_id = NULL, album_id = NULL, collection_id = NULL, add_to_default_album = NULL, add_to_media_library = NULL, version_code = NULL, version_name = NULL, meta_data = NULL, caption = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, media = NULL, media_url = NULL, media_string = NULL, media_string_file_name = NULL, media_string_content_type = NULL, media_height = NULL, media_width = NULL, attached_media = NULL, attached_media_url = NULL, attached_media_string = NULL, attached_media_string_file_name = NULL, attached_media_string_content_type = NULL, attached_media_height = NULL, attached_media_width = NULL, location_description = NULL, app = NULL, app_key = NULL, search_tags = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateAssetWithHttpInfo = function(return_nulls = NULL, device_id = NULL, account_id = NULL, album_id = NULL, collection_id = NULL, add_to_default_album = NULL, add_to_media_library = NULL, version_code = NULL, version_name = NULL, meta_data = NULL, caption = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, media = NULL, media_url = NULL, media_string = NULL, media_string_file_name = NULL, media_string_content_type = NULL, media_height = NULL, media_width = NULL, attached_media = NULL, attached_media_url = NULL, attached_media_string = NULL, attached_media_string_file_name = NULL, attached_media_string_content_type = NULL, attached_media_height = NULL, attached_media_width = NULL, location_description = NULL, app = NULL, app_key = NULL, search_tags = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -675,14 +637,6 @@ AssetApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssetApi$CreateAsset, `version` is not nullable")
-      }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
         stop("Invalid value for `return_nulls` when calling AssetApi$CreateAsset, `return_nulls` is not nullable")
@@ -888,11 +842,7 @@ AssetApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/asset/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/asset/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -953,7 +903,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Delete Asset
     #'
-    #' @param version 
     #' @param asset_id the id of the asset to delete
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -964,8 +913,8 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteAsset = function(version, asset_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteAssetWithHttpInfo(version, asset_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    DeleteAsset = function(asset_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteAssetWithHttpInfo(asset_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -980,7 +929,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Delete Asset
     #'
-    #' @param version 
     #' @param asset_id the id of the asset to delete
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -991,7 +939,7 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteAssetWithHttpInfo = function(version, asset_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteAssetWithHttpInfo = function(asset_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1001,16 +949,8 @@ AssetApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`asset_id`)) {
         stop("Missing required parameter `asset_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssetApi$DeleteAsset, `version` is not nullable")
       }
 
       if (!missing(`asset_id`) && is.null(`asset_id`)) {
@@ -1043,11 +983,7 @@ AssetApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/asset/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/asset/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1108,7 +1044,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Get Asset
     #'
-    #' @param version 
     #' @param asset_id the asset ID
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -1118,8 +1053,8 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AssetFullResponse
-    GetAsset = function(version, asset_id, device_id = NULL, account_id = NULL, note_descending = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAssetWithHttpInfo(version, asset_id, device_id, account_id, note_descending, data_file = data_file, ..., .parse = .parse)
+    GetAsset = function(asset_id, device_id = NULL, account_id = NULL, note_descending = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAssetWithHttpInfo(asset_id, device_id, account_id, note_descending, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1134,7 +1069,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Get Asset
     #'
-    #' @param version 
     #' @param asset_id the asset ID
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -1144,7 +1078,7 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AssetFullResponse) with additional information such as HTTP status code, headers
-    GetAssetWithHttpInfo = function(version, asset_id, device_id = NULL, account_id = NULL, note_descending = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    GetAssetWithHttpInfo = function(asset_id, device_id = NULL, account_id = NULL, note_descending = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1154,16 +1088,8 @@ AssetApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`asset_id`)) {
         stop("Missing required parameter `asset_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssetApi$GetAsset, `version` is not nullable")
       }
 
       if (!missing(`asset_id`) && is.null(`asset_id`)) {
@@ -1190,11 +1116,7 @@ AssetApi <- R6::R6Class(
 
       query_params[["noteDescending"]] <- `note_descending`
 
-      local_var_url_path <- "/api/{version}/asset/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/asset/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1255,7 +1177,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Remove Asset from Collection
     #'
-    #' @param version 
     #' @param asset_id the id of the asset to remove
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -1269,8 +1190,8 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RemoveAsset = function(version, asset_id, device_id = NULL, account_id = NULL, album_id = NULL, collection_id = NULL, remove_from_default_albums = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemoveAssetWithHttpInfo(version, asset_id, device_id, account_id, album_id, collection_id, remove_from_default_albums, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    RemoveAsset = function(asset_id, device_id = NULL, account_id = NULL, album_id = NULL, collection_id = NULL, remove_from_default_albums = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemoveAssetWithHttpInfo(asset_id, device_id, account_id, album_id, collection_id, remove_from_default_albums, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1285,7 +1206,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Remove Asset from Collection
     #'
-    #' @param version 
     #' @param asset_id the id of the asset to remove
     #' @param device_id (optional) the device id (deviceId or accountId required)
     #' @param account_id (optional) the account id of the user (deviceId or accountId required)
@@ -1299,7 +1219,7 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RemoveAssetWithHttpInfo = function(version, asset_id, device_id = NULL, account_id = NULL, album_id = NULL, collection_id = NULL, remove_from_default_albums = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RemoveAssetWithHttpInfo = function(asset_id, device_id = NULL, account_id = NULL, album_id = NULL, collection_id = NULL, remove_from_default_albums = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1309,16 +1229,8 @@ AssetApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`asset_id`)) {
         stop("Missing required parameter `asset_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssetApi$RemoveAsset, `version` is not nullable")
       }
 
       if (!missing(`asset_id`) && is.null(`asset_id`)) {
@@ -1369,11 +1281,7 @@ AssetApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/asset/remove"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/asset/remove"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1434,7 +1342,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Search Assets
     #'
-    #' @param version 
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
     #' @param album_ids (optional) comma separated list of album ids to search on
@@ -1464,8 +1371,8 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[AssetResponse]
-    SearchAssets = function(version, device_id = NULL, account_id = NULL, album_ids = NULL, asset_ids = NULL, app_key = NULL, media_type = NULL, mime_type = NULL, keyword = NULL, version_code = NULL, version_name = NULL, updated_since = NULL, updated_before = NULL, sort_field = NULL, descending = NULL, search_media_library = NULL, filter_by_billable = NULL, active_only = NULL, return_app = NULL, start = NULL, limit = NULL, search_mode = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchAssetsWithHttpInfo(version, device_id, account_id, album_ids, asset_ids, app_key, media_type, mime_type, keyword, version_code, version_name, updated_since, updated_before, sort_field, descending, search_media_library, filter_by_billable, active_only, return_app, start, limit, search_mode, asset_type, approval_status, assigned_account_id, data_file = data_file, ..., .parse = .parse)
+    SearchAssets = function(device_id = NULL, account_id = NULL, album_ids = NULL, asset_ids = NULL, app_key = NULL, media_type = NULL, mime_type = NULL, keyword = NULL, version_code = NULL, version_name = NULL, updated_since = NULL, updated_before = NULL, sort_field = NULL, descending = NULL, search_media_library = NULL, filter_by_billable = NULL, active_only = NULL, return_app = NULL, start = NULL, limit = NULL, search_mode = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchAssetsWithHttpInfo(device_id, account_id, album_ids, asset_ids, app_key, media_type, mime_type, keyword, version_code, version_name, updated_since, updated_before, sort_field, descending, search_media_library, filter_by_billable, active_only, return_app, start, limit, search_mode, asset_type, approval_status, assigned_account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1480,7 +1387,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Search Assets
     #'
-    #' @param version 
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
     #' @param album_ids (optional) comma separated list of album ids to search on
@@ -1510,7 +1416,7 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[AssetResponse]) with additional information such as HTTP status code, headers
-    SearchAssetsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, album_ids = NULL, asset_ids = NULL, app_key = NULL, media_type = NULL, mime_type = NULL, keyword = NULL, version_code = NULL, version_name = NULL, updated_since = NULL, updated_before = NULL, sort_field = NULL, descending = NULL, search_media_library = NULL, filter_by_billable = NULL, active_only = NULL, return_app = NULL, start = NULL, limit = NULL, search_mode = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchAssetsWithHttpInfo = function(device_id = NULL, account_id = NULL, album_ids = NULL, asset_ids = NULL, app_key = NULL, media_type = NULL, mime_type = NULL, keyword = NULL, version_code = NULL, version_name = NULL, updated_since = NULL, updated_before = NULL, sort_field = NULL, descending = NULL, search_media_library = NULL, filter_by_billable = NULL, active_only = NULL, return_app = NULL, start = NULL, limit = NULL, search_mode = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1519,14 +1425,6 @@ AssetApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssetApi$SearchAssets, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AssetApi$SearchAssets, `device_id` is not nullable")
@@ -1672,11 +1570,7 @@ AssetApi <- R6::R6Class(
 
       query_params[["assignedAccountId"]] <- `assigned_account_id`
 
-      local_var_url_path <- "/api/{version}/asset/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/asset/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1737,7 +1631,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Update Asset
     #'
-    #' @param version 
     #' @param asset_id the ID of the asset to update
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -1774,8 +1667,8 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UpdateAsset = function(version, asset_id, device_id = NULL, account_id = NULL, album_id = NULL, attached_asset_id = NULL, version_code = NULL, version_name = NULL, meta_data = NULL, caption = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, media = NULL, media_url = NULL, media_string = NULL, media_string_file_name = NULL, media_string_content_type = NULL, media_height = NULL, media_width = NULL, attached_media = NULL, attached_media_url = NULL, attached_media_string = NULL, attached_media_string_file_name = NULL, attached_media_string_content_type = NULL, attached_media_height = NULL, attached_media_width = NULL, location_description = NULL, search_tags = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateAssetWithHttpInfo(version, asset_id, device_id, account_id, album_id, attached_asset_id, version_code, version_name, meta_data, caption, asset_type, approval_status, assigned_account_id, media, media_url, media_string, media_string_file_name, media_string_content_type, media_height, media_width, attached_media, attached_media_url, attached_media_string, attached_media_string_file_name, attached_media_string_content_type, attached_media_height, attached_media_width, location_description, search_tags, app_key, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    UpdateAsset = function(asset_id, device_id = NULL, account_id = NULL, album_id = NULL, attached_asset_id = NULL, version_code = NULL, version_name = NULL, meta_data = NULL, caption = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, media = NULL, media_url = NULL, media_string = NULL, media_string_file_name = NULL, media_string_content_type = NULL, media_height = NULL, media_width = NULL, attached_media = NULL, attached_media_url = NULL, attached_media_string = NULL, attached_media_string_file_name = NULL, attached_media_string_content_type = NULL, attached_media_height = NULL, attached_media_width = NULL, location_description = NULL, search_tags = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateAssetWithHttpInfo(asset_id, device_id, account_id, album_id, attached_asset_id, version_code, version_name, meta_data, caption, asset_type, approval_status, assigned_account_id, media, media_url, media_string, media_string_file_name, media_string_content_type, media_height, media_width, attached_media, attached_media_url, attached_media_string, attached_media_string_file_name, attached_media_string_content_type, attached_media_height, attached_media_width, location_description, search_tags, app_key, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1790,7 +1683,6 @@ AssetApi <- R6::R6Class(
     #' @description
     #' Update Asset
     #'
-    #' @param version 
     #' @param asset_id the ID of the asset to update
     #' @param device_id (optional) a unique ID given by the device (deviceId or accountId required)
     #' @param account_id (optional) the account ID of the user (deviceId or accountId required)
@@ -1827,7 +1719,7 @@ AssetApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UpdateAssetWithHttpInfo = function(version, asset_id, device_id = NULL, account_id = NULL, album_id = NULL, attached_asset_id = NULL, version_code = NULL, version_name = NULL, meta_data = NULL, caption = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, media = NULL, media_url = NULL, media_string = NULL, media_string_file_name = NULL, media_string_content_type = NULL, media_height = NULL, media_width = NULL, attached_media = NULL, attached_media_url = NULL, attached_media_string = NULL, attached_media_string_file_name = NULL, attached_media_string_content_type = NULL, attached_media_height = NULL, attached_media_width = NULL, location_description = NULL, search_tags = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateAssetWithHttpInfo = function(asset_id, device_id = NULL, account_id = NULL, album_id = NULL, attached_asset_id = NULL, version_code = NULL, version_name = NULL, meta_data = NULL, caption = NULL, asset_type = NULL, approval_status = NULL, assigned_account_id = NULL, media = NULL, media_url = NULL, media_string = NULL, media_string_file_name = NULL, media_string_content_type = NULL, media_height = NULL, media_width = NULL, attached_media = NULL, attached_media_url = NULL, attached_media_string = NULL, attached_media_string_file_name = NULL, attached_media_string_content_type = NULL, attached_media_height = NULL, attached_media_width = NULL, location_description = NULL, search_tags = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1837,16 +1729,8 @@ AssetApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`asset_id`)) {
         stop("Missing required parameter `asset_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AssetApi$UpdateAsset, `version` is not nullable")
       }
 
       if (!missing(`asset_id`) && is.null(`asset_id`)) {
@@ -2035,11 +1919,7 @@ AssetApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/asset/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/asset/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

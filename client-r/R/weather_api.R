@@ -17,7 +17,6 @@
 #' ####################  SearchWeather  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_region_id <- 56 # integer | Region Id (Optional)
 #' var_latitude <- 3.4 # numeric | Latitude (Optional)
 #' var_longitude <- 3.4 # numeric | Longitude (Optional)
@@ -27,8 +26,8 @@
 #' api_instance <- WeatherApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchWeather(var_version, region_id = var_region_id, latitude = var_latitude, longitude = var_longitude, timezone_offset = var_timezone_offsetdata_file = "result.txt")
-#' result <- api_instance$SearchWeather(var_version, region_id = var_region_id, latitude = var_latitude, longitude = var_longitude, timezone_offset = var_timezone_offset)
+#' # result <- api_instance$SearchWeather(region_id = var_region_id, latitude = var_latitude, longitude = var_longitude, timezone_offset = var_timezone_offsetdata_file = "result.txt")
+#' result <- api_instance$SearchWeather(region_id = var_region_id, latitude = var_latitude, longitude = var_longitude, timezone_offset = var_timezone_offset)
 #' dput(result)
 #'
 #'
@@ -56,7 +55,6 @@ WeatherApi <- R6::R6Class(
     #' @description
     #' Search Weather
     #'
-    #' @param version 
     #' @param region_id (optional) Region Id
     #' @param latitude (optional) Latitude
     #' @param longitude (optional) Longitude
@@ -66,8 +64,8 @@ WeatherApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return WeatherResponse
-    SearchWeather = function(version, region_id = NULL, latitude = NULL, longitude = NULL, timezone_offset = -6, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchWeatherWithHttpInfo(version, region_id, latitude, longitude, timezone_offset, data_file = data_file, ..., .parse = .parse)
+    SearchWeather = function(region_id = NULL, latitude = NULL, longitude = NULL, timezone_offset = -6, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchWeatherWithHttpInfo(region_id, latitude, longitude, timezone_offset, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -82,7 +80,6 @@ WeatherApi <- R6::R6Class(
     #' @description
     #' Search Weather
     #'
-    #' @param version 
     #' @param region_id (optional) Region Id
     #' @param latitude (optional) Latitude
     #' @param longitude (optional) Longitude
@@ -92,7 +89,7 @@ WeatherApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (WeatherResponse) with additional information such as HTTP status code, headers
-    SearchWeatherWithHttpInfo = function(version, region_id = NULL, latitude = NULL, longitude = NULL, timezone_offset = -6, data_file = NULL, ..., .parse = TRUE) {
+    SearchWeatherWithHttpInfo = function(region_id = NULL, latitude = NULL, longitude = NULL, timezone_offset = -6, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -101,14 +98,6 @@ WeatherApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling WeatherApi$SearchWeather, `version` is not nullable")
-      }
 
       if (!missing(`region_id`) && is.null(`region_id`)) {
         stop("Invalid value for `region_id` when calling WeatherApi$SearchWeather, `region_id` is not nullable")
@@ -134,11 +123,7 @@ WeatherApi <- R6::R6Class(
 
       query_params[["timezoneOffset"]] <- `timezone_offset`
 
-      local_var_url_path <- "/api/{version}/weather/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/weather/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

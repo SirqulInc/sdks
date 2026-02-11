@@ -17,7 +17,6 @@
 #' ####################  CreateFilter  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user (must have permissions to the target application)
 #' var_name <- "name_example" # character | The name of the filter
 #' var_app_key <- "app_key_example" # character | The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (Optional)
@@ -32,15 +31,14 @@
 #' api_instance <- FilterApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateFilter(var_version, var_account_id, var_name, app_key = var_app_key, parent_filter_id = var_parent_filter_id, description = var_description, external_id = var_external_id, external_type = var_external_type, active = var_active, meta_data = var_meta_datadata_file = "result.txt")
-#' result <- api_instance$CreateFilter(var_version, var_account_id, var_name, app_key = var_app_key, parent_filter_id = var_parent_filter_id, description = var_description, external_id = var_external_id, external_type = var_external_type, active = var_active, meta_data = var_meta_data)
+#' # result <- api_instance$CreateFilter(var_account_id, var_name, app_key = var_app_key, parent_filter_id = var_parent_filter_id, description = var_description, external_id = var_external_id, external_type = var_external_type, active = var_active, meta_data = var_meta_datadata_file = "result.txt")
+#' result <- api_instance$CreateFilter(var_account_id, var_name, app_key = var_app_key, parent_filter_id = var_parent_filter_id, description = var_description, external_id = var_external_id, external_type = var_external_type, active = var_active, meta_data = var_meta_data)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteFilter  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user (must have permissions to the filter's assigned application)
 #' var_filter_id <- 56 # integer | The ID of the filter to delete
 #'
@@ -48,30 +46,28 @@
 #' api_instance <- FilterApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteFilter(var_version, var_account_id, var_filter_iddata_file = "result.txt")
-#' result <- api_instance$DeleteFilter(var_version, var_account_id, var_filter_id)
+#' # result <- api_instance$DeleteFilter(var_account_id, var_filter_iddata_file = "result.txt")
+#' result <- api_instance$DeleteFilter(var_account_id, var_filter_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetFilter  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_filter_id <- 56 # integer | the id of the filter to get
 #'
 #' #Get Filter
 #' api_instance <- FilterApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetFilter(var_version, var_filter_iddata_file = "result.txt")
-#' result <- api_instance$GetFilter(var_version, var_filter_id)
+#' # result <- api_instance$GetFilter(var_filter_iddata_file = "result.txt")
+#' result <- api_instance$GetFilter(var_filter_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchFilters  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user (Optional)
 #' var_keyword <- "keyword_example" # character | The string to search on (Optional)
 #' var_app_key <- "app_key_example" # character | the appKey of the application to retrieve filters for (Optional)
@@ -87,15 +83,14 @@
 #' api_instance <- FilterApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchFilters(var_version, account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, response_group = var_response_group, root_only = var_root_only, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
-#' result <- api_instance$SearchFilters(var_version, account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, response_group = var_response_group, root_only = var_root_only, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
+#' # result <- api_instance$SearchFilters(account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, response_group = var_response_group, root_only = var_root_only, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
+#' result <- api_instance$SearchFilters(account_id = var_account_id, keyword = var_keyword, app_key = var_app_key, response_group = var_response_group, root_only = var_root_only, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateFilter  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user
 #' var_filter_id <- 56 # integer | The ID of the filter to edit
 #' var_parent_filter_id <- 56 # integer | The ID of the parent filter, if not provided then the parent filter will be null (Optional)
@@ -110,8 +105,8 @@
 #' api_instance <- FilterApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateFilter(var_version, var_account_id, var_filter_id, parent_filter_id = var_parent_filter_id, name = var_name, description = var_description, external_id = var_external_id, external_type = var_external_type, active = var_active, meta_data = var_meta_datadata_file = "result.txt")
-#' result <- api_instance$UpdateFilter(var_version, var_account_id, var_filter_id, parent_filter_id = var_parent_filter_id, name = var_name, description = var_description, external_id = var_external_id, external_type = var_external_type, active = var_active, meta_data = var_meta_data)
+#' # result <- api_instance$UpdateFilter(var_account_id, var_filter_id, parent_filter_id = var_parent_filter_id, name = var_name, description = var_description, external_id = var_external_id, external_type = var_external_type, active = var_active, meta_data = var_meta_datadata_file = "result.txt")
+#' result <- api_instance$UpdateFilter(var_account_id, var_filter_id, parent_filter_id = var_parent_filter_id, name = var_name, description = var_description, external_id = var_external_id, external_type = var_external_type, active = var_active, meta_data = var_meta_data)
 #' dput(result)
 #'
 #'
@@ -139,7 +134,6 @@ FilterApi <- R6::R6Class(
     #' @description
     #' Create Filter
     #'
-    #' @param version 
     #' @param account_id The account id of the user (must have permissions to the target application)
     #' @param name The name of the filter
     #' @param app_key (optional) The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions)
@@ -154,8 +148,8 @@ FilterApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return FilterTreeResponse
-    CreateFilter = function(version, account_id, name, app_key = NULL, parent_filter_id = NULL, description = NULL, external_id = NULL, external_type = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateFilterWithHttpInfo(version, account_id, name, app_key, parent_filter_id, description, external_id, external_type, active, meta_data, data_file = data_file, ..., .parse = .parse)
+    CreateFilter = function(account_id, name, app_key = NULL, parent_filter_id = NULL, description = NULL, external_id = NULL, external_type = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateFilterWithHttpInfo(account_id, name, app_key, parent_filter_id, description, external_id, external_type, active, meta_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -170,7 +164,6 @@ FilterApi <- R6::R6Class(
     #' @description
     #' Create Filter
     #'
-    #' @param version 
     #' @param account_id The account id of the user (must have permissions to the target application)
     #' @param name The name of the filter
     #' @param app_key (optional) The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions)
@@ -185,7 +178,7 @@ FilterApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (FilterTreeResponse) with additional information such as HTTP status code, headers
-    CreateFilterWithHttpInfo = function(version, account_id, name, app_key = NULL, parent_filter_id = NULL, description = NULL, external_id = NULL, external_type = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateFilterWithHttpInfo = function(account_id, name, app_key = NULL, parent_filter_id = NULL, description = NULL, external_id = NULL, external_type = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -195,20 +188,12 @@ FilterApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`name`)) {
         stop("Missing required parameter `name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FilterApi$CreateFilter, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -265,11 +250,7 @@ FilterApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/filter/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/filter/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -330,7 +311,6 @@ FilterApi <- R6::R6Class(
     #' @description
     #' Delete Filter
     #'
-    #' @param version 
     #' @param account_id The account id of the user (must have permissions to the filter's assigned application)
     #' @param filter_id The ID of the filter to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -338,8 +318,8 @@ FilterApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteFilter = function(version, account_id, filter_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteFilterWithHttpInfo(version, account_id, filter_id, data_file = data_file, ..., .parse = .parse)
+    DeleteFilter = function(account_id, filter_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteFilterWithHttpInfo(account_id, filter_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -354,7 +334,6 @@ FilterApi <- R6::R6Class(
     #' @description
     #' Delete Filter
     #'
-    #' @param version 
     #' @param account_id The account id of the user (must have permissions to the filter's assigned application)
     #' @param filter_id The ID of the filter to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -362,7 +341,7 @@ FilterApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteFilterWithHttpInfo = function(version, account_id, filter_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteFilterWithHttpInfo = function(account_id, filter_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -372,20 +351,12 @@ FilterApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`filter_id`)) {
         stop("Missing required parameter `filter_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FilterApi$DeleteFilter, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -400,11 +371,7 @@ FilterApi <- R6::R6Class(
 
       query_params[["filterId"]] <- `filter_id`
 
-      local_var_url_path <- "/api/{version}/filter/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/filter/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -465,15 +432,14 @@ FilterApi <- R6::R6Class(
     #' @description
     #' Get Filter
     #'
-    #' @param version 
     #' @param filter_id the id of the filter to get
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return FilterTreeResponse
-    GetFilter = function(version, filter_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetFilterWithHttpInfo(version, filter_id, data_file = data_file, ..., .parse = .parse)
+    GetFilter = function(filter_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetFilterWithHttpInfo(filter_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -488,14 +454,13 @@ FilterApi <- R6::R6Class(
     #' @description
     #' Get Filter
     #'
-    #' @param version 
     #' @param filter_id the id of the filter to get
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (FilterTreeResponse) with additional information such as HTTP status code, headers
-    GetFilterWithHttpInfo = function(version, filter_id, data_file = NULL, ..., .parse = TRUE) {
+    GetFilterWithHttpInfo = function(filter_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -505,16 +470,8 @@ FilterApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`filter_id`)) {
         stop("Missing required parameter `filter_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FilterApi$GetFilter, `version` is not nullable")
       }
 
       if (!missing(`filter_id`) && is.null(`filter_id`)) {
@@ -523,11 +480,7 @@ FilterApi <- R6::R6Class(
 
       query_params[["filterId"]] <- `filter_id`
 
-      local_var_url_path <- "/api/{version}/filter/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/filter/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -588,7 +541,6 @@ FilterApi <- R6::R6Class(
     #' @description
     #' Search Filters
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user
     #' @param keyword (optional) The string to search on
     #' @param app_key (optional) the appKey of the application to retrieve filters for
@@ -604,8 +556,8 @@ FilterApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[FilterResponse]
-    SearchFilters = function(version, account_id = NULL, keyword = NULL, app_key = NULL, response_group = NULL, root_only = NULL, sort_field = "DISPLAY", descending = FALSE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchFiltersWithHttpInfo(version, account_id, keyword, app_key, response_group, root_only, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
+    SearchFilters = function(account_id = NULL, keyword = NULL, app_key = NULL, response_group = NULL, root_only = NULL, sort_field = "DISPLAY", descending = FALSE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchFiltersWithHttpInfo(account_id, keyword, app_key, response_group, root_only, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -620,7 +572,6 @@ FilterApi <- R6::R6Class(
     #' @description
     #' Search Filters
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user
     #' @param keyword (optional) The string to search on
     #' @param app_key (optional) the appKey of the application to retrieve filters for
@@ -636,7 +587,7 @@ FilterApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[FilterResponse]) with additional information such as HTTP status code, headers
-    SearchFiltersWithHttpInfo = function(version, account_id = NULL, keyword = NULL, app_key = NULL, response_group = NULL, root_only = NULL, sort_field = "DISPLAY", descending = FALSE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    SearchFiltersWithHttpInfo = function(account_id = NULL, keyword = NULL, app_key = NULL, response_group = NULL, root_only = NULL, sort_field = "DISPLAY", descending = FALSE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -645,14 +596,6 @@ FilterApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FilterApi$SearchFilters, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling FilterApi$SearchFilters, `account_id` is not nullable")
@@ -720,11 +663,7 @@ FilterApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/filter/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/filter/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -785,7 +724,6 @@ FilterApi <- R6::R6Class(
     #' @description
     #' Update Filter
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param filter_id The ID of the filter to edit
     #' @param parent_filter_id (optional) The ID of the parent filter, if not provided then the parent filter will be null
@@ -800,8 +738,8 @@ FilterApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return FilterTreeResponse
-    UpdateFilter = function(version, account_id, filter_id, parent_filter_id = NULL, name = NULL, description = NULL, external_id = NULL, external_type = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateFilterWithHttpInfo(version, account_id, filter_id, parent_filter_id, name, description, external_id, external_type, active, meta_data, data_file = data_file, ..., .parse = .parse)
+    UpdateFilter = function(account_id, filter_id, parent_filter_id = NULL, name = NULL, description = NULL, external_id = NULL, external_type = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateFilterWithHttpInfo(account_id, filter_id, parent_filter_id, name, description, external_id, external_type, active, meta_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -816,7 +754,6 @@ FilterApi <- R6::R6Class(
     #' @description
     #' Update Filter
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param filter_id The ID of the filter to edit
     #' @param parent_filter_id (optional) The ID of the parent filter, if not provided then the parent filter will be null
@@ -831,7 +768,7 @@ FilterApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (FilterTreeResponse) with additional information such as HTTP status code, headers
-    UpdateFilterWithHttpInfo = function(version, account_id, filter_id, parent_filter_id = NULL, name = NULL, description = NULL, external_id = NULL, external_type = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateFilterWithHttpInfo = function(account_id, filter_id, parent_filter_id = NULL, name = NULL, description = NULL, external_id = NULL, external_type = NULL, active = NULL, meta_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -841,20 +778,12 @@ FilterApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`filter_id`)) {
         stop("Missing required parameter `filter_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling FilterApi$UpdateFilter, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -911,11 +840,7 @@ FilterApi <- R6::R6Class(
 
       query_params[["metaData"]] <- `meta_data`
 
-      local_var_url_path <- "/api/{version}/filter/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/filter/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

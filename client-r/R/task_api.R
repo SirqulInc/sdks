@@ -17,7 +17,6 @@
 #' ####################  CreateTask  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_name <- "name_example" # character | The name of the task
 #' var_app_key <- "app_key_example" # character | The application to target (Optional)
@@ -35,15 +34,14 @@
 #' api_instance <- TaskApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateTask(var_version, var_account_id, var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, visibility = var_visibility, active = var_activedata_file = "result.txt")
-#' result <- api_instance$CreateTask(var_version, var_account_id, var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, visibility = var_visibility, active = var_active)
+#' # result <- api_instance$CreateTask(var_account_id, var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, visibility = var_visibility, active = var_activedata_file = "result.txt")
+#' result <- api_instance$CreateTask(var_account_id, var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, visibility = var_visibility, active = var_active)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteTask  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_task_id <- 56 # integer | The id of the Task to delete.
 #'
@@ -51,15 +49,14 @@
 #' api_instance <- TaskApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteTask(var_version, var_account_id, var_task_iddata_file = "result.txt")
-#' result <- api_instance$DeleteTask(var_version, var_account_id, var_task_id)
+#' # result <- api_instance$DeleteTask(var_account_id, var_task_iddata_file = "result.txt")
+#' result <- api_instance$DeleteTask(var_account_id, var_task_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetTask  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_task_id <- 56 # integer | The id of the Task to return.
 #'
@@ -67,15 +64,14 @@
 #' api_instance <- TaskApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetTask(var_version, var_account_id, var_task_iddata_file = "result.txt")
-#' result <- api_instance$GetTask(var_version, var_account_id, var_task_id)
+#' # result <- api_instance$GetTask(var_account_id, var_task_iddata_file = "result.txt")
+#' result <- api_instance$GetTask(var_account_id, var_task_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchTasks  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_grouping_id <- "grouping_id_example" # character | Filter results by a grouping identifier defined by the client (Optional)
 #' var_filter <- "MINE" # character | A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (Optional)
@@ -93,15 +89,14 @@
 #' api_instance <- TaskApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchTasks(var_version, var_account_id, grouping_id = var_grouping_id, filter = var_filter, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
-#' result <- api_instance$SearchTasks(var_version, var_account_id, grouping_id = var_grouping_id, filter = var_filter, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
+#' # result <- api_instance$SearchTasks(var_account_id, grouping_id = var_grouping_id, filter = var_filter, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
+#' result <- api_instance$SearchTasks(var_account_id, grouping_id = var_grouping_id, filter = var_filter, statuses = var_statuses, template_types = var_template_types, app_key = var_app_key, keyword = var_keyword, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateTask  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_task_id <- 56 # integer | Task Id
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_name <- "name_example" # character | The name of the task (Optional)
@@ -120,8 +115,8 @@
 #' api_instance <- TaskApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateTask(var_version, var_task_id, var_account_id, name = var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, visibility = var_visibility, active = var_activedata_file = "result.txt")
-#' result <- api_instance$UpdateTask(var_version, var_task_id, var_account_id, name = var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, visibility = var_visibility, active = var_active)
+#' # result <- api_instance$UpdateTask(var_task_id, var_account_id, name = var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, visibility = var_visibility, active = var_activedata_file = "result.txt")
+#' result <- api_instance$UpdateTask(var_task_id, var_account_id, name = var_name, app_key = var_app_key, grouping_id = var_grouping_id, endpoint_url = var_endpoint_url, payload = var_payload, scheduled_date = var_scheduled_date, start_date = var_start_date, end_date = var_end_date, cron_expression = var_cron_expression, visibility = var_visibility, active = var_active)
 #' dput(result)
 #'
 #'
@@ -149,7 +144,6 @@ TaskApi <- R6::R6Class(
     #' @description
     #' Create Task
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the task
     #' @param app_key (optional) The application to target
@@ -167,8 +161,8 @@ TaskApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TaskResponse
-    CreateTask = function(version, account_id, name, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, visibility = NULL, active = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateTaskWithHttpInfo(version, account_id, name, app_key, grouping_id, endpoint_url, payload, scheduled_date, start_date, end_date, cron_expression, visibility, active, data_file = data_file, ..., .parse = .parse)
+    CreateTask = function(account_id, name, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, visibility = NULL, active = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateTaskWithHttpInfo(account_id, name, app_key, grouping_id, endpoint_url, payload, scheduled_date, start_date, end_date, cron_expression, visibility, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -183,7 +177,6 @@ TaskApi <- R6::R6Class(
     #' @description
     #' Create Task
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the task
     #' @param app_key (optional) The application to target
@@ -201,7 +194,7 @@ TaskApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TaskResponse) with additional information such as HTTP status code, headers
-    CreateTaskWithHttpInfo = function(version, account_id, name, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, visibility = NULL, active = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    CreateTaskWithHttpInfo = function(account_id, name, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, visibility = NULL, active = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -211,20 +204,12 @@ TaskApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`name`)) {
         stop("Missing required parameter `name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TaskApi$CreateTask, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -302,11 +287,7 @@ TaskApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/task/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/task/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -367,7 +348,6 @@ TaskApi <- R6::R6Class(
     #' @description
     #' Delete Task
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param task_id The id of the Task to delete.
     #' @param data_file (optional) name of the data file to save the result
@@ -375,8 +355,8 @@ TaskApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteTask = function(version, account_id, task_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteTaskWithHttpInfo(version, account_id, task_id, data_file = data_file, ..., .parse = .parse)
+    DeleteTask = function(account_id, task_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteTaskWithHttpInfo(account_id, task_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -391,7 +371,6 @@ TaskApi <- R6::R6Class(
     #' @description
     #' Delete Task
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param task_id The id of the Task to delete.
     #' @param data_file (optional) name of the data file to save the result
@@ -399,7 +378,7 @@ TaskApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteTaskWithHttpInfo = function(version, account_id, task_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteTaskWithHttpInfo = function(account_id, task_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -409,20 +388,12 @@ TaskApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`task_id`)) {
         stop("Missing required parameter `task_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TaskApi$DeleteTask, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -437,11 +408,7 @@ TaskApi <- R6::R6Class(
 
       query_params[["taskId"]] <- `task_id`
 
-      local_var_url_path <- "/api/{version}/task/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/task/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -502,7 +469,6 @@ TaskApi <- R6::R6Class(
     #' @description
     #' Get Task
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param task_id The id of the Task to return.
     #' @param data_file (optional) name of the data file to save the result
@@ -510,8 +476,8 @@ TaskApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TaskResponse
-    GetTask = function(version, account_id, task_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTaskWithHttpInfo(version, account_id, task_id, data_file = data_file, ..., .parse = .parse)
+    GetTask = function(account_id, task_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTaskWithHttpInfo(account_id, task_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -526,7 +492,6 @@ TaskApi <- R6::R6Class(
     #' @description
     #' Get Task
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param task_id The id of the Task to return.
     #' @param data_file (optional) name of the data file to save the result
@@ -534,7 +499,7 @@ TaskApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TaskResponse) with additional information such as HTTP status code, headers
-    GetTaskWithHttpInfo = function(version, account_id, task_id, data_file = NULL, ..., .parse = TRUE) {
+    GetTaskWithHttpInfo = function(account_id, task_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -544,20 +509,12 @@ TaskApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`task_id`)) {
         stop("Missing required parameter `task_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TaskApi$GetTask, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -572,11 +529,7 @@ TaskApi <- R6::R6Class(
 
       query_params[["taskId"]] <- `task_id`
 
-      local_var_url_path <- "/api/{version}/task/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/task/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -637,7 +590,6 @@ TaskApi <- R6::R6Class(
     #' @description
     #' Search Tasks
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param grouping_id (optional) Filter results by a grouping identifier defined by the client
     #' @param filter (optional) A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (default value: "MINE")
@@ -655,8 +607,8 @@ TaskApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[TaskResponse]
-    SearchTasks = function(version, account_id, grouping_id = NULL, filter = "MINE", statuses = "NEW,ERROR,COMPLETE,PROCESSING", template_types = NULL, app_key = NULL, keyword = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchTasksWithHttpInfo(version, account_id, grouping_id, filter, statuses, template_types, app_key, keyword, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
+    SearchTasks = function(account_id, grouping_id = NULL, filter = "MINE", statuses = "NEW,ERROR,COMPLETE,PROCESSING", template_types = NULL, app_key = NULL, keyword = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchTasksWithHttpInfo(account_id, grouping_id, filter, statuses, template_types, app_key, keyword, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -671,7 +623,6 @@ TaskApi <- R6::R6Class(
     #' @description
     #' Search Tasks
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param grouping_id (optional) Filter results by a grouping identifier defined by the client
     #' @param filter (optional) A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (default value: "MINE")
@@ -689,7 +640,7 @@ TaskApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[TaskResponse]) with additional information such as HTTP status code, headers
-    SearchTasksWithHttpInfo = function(version, account_id, grouping_id = NULL, filter = "MINE", statuses = "NEW,ERROR,COMPLETE,PROCESSING", template_types = NULL, app_key = NULL, keyword = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    SearchTasksWithHttpInfo = function(account_id, grouping_id = NULL, filter = "MINE", statuses = "NEW,ERROR,COMPLETE,PROCESSING", template_types = NULL, app_key = NULL, keyword = NULL, sort_field = "CREATED", descending = TRUE, start = 0, limit = 20, active_only = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -699,16 +650,8 @@ TaskApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TaskApi$SearchTasks, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -783,11 +726,7 @@ TaskApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/task/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/task/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -848,7 +787,6 @@ TaskApi <- R6::R6Class(
     #' @description
     #' Update Task
     #'
-    #' @param version 
     #' @param task_id Task Id
     #' @param account_id The logged in user.
     #' @param name (optional) The name of the task
@@ -867,8 +805,8 @@ TaskApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TaskResponse
-    UpdateTask = function(version, task_id, account_id, name = NULL, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, visibility = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateTaskWithHttpInfo(version, task_id, account_id, name, app_key, grouping_id, endpoint_url, payload, scheduled_date, start_date, end_date, cron_expression, visibility, active, data_file = data_file, ..., .parse = .parse)
+    UpdateTask = function(task_id, account_id, name = NULL, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, visibility = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateTaskWithHttpInfo(task_id, account_id, name, app_key, grouping_id, endpoint_url, payload, scheduled_date, start_date, end_date, cron_expression, visibility, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -883,7 +821,6 @@ TaskApi <- R6::R6Class(
     #' @description
     #' Update Task
     #'
-    #' @param version 
     #' @param task_id Task Id
     #' @param account_id The logged in user.
     #' @param name (optional) The name of the task
@@ -902,7 +839,7 @@ TaskApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TaskResponse) with additional information such as HTTP status code, headers
-    UpdateTaskWithHttpInfo = function(version, task_id, account_id, name = NULL, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, visibility = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateTaskWithHttpInfo = function(task_id, account_id, name = NULL, app_key = NULL, grouping_id = NULL, endpoint_url = NULL, payload = NULL, scheduled_date = NULL, start_date = NULL, end_date = NULL, cron_expression = NULL, visibility = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -912,20 +849,12 @@ TaskApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`task_id`)) {
         stop("Missing required parameter `task_id`.")
       }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TaskApi$UpdateTask, `version` is not nullable")
       }
 
       if (!missing(`task_id`) && is.null(`task_id`)) {
@@ -1009,11 +938,7 @@ TaskApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/task/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/task/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

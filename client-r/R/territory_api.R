@@ -17,7 +17,6 @@
 #' ####################  CreateTerritory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_name <- "name_example" # character | The name of the territory
 #' var_active <- "active_example" # character | If true set the game level as active. Default is true. (Optional)
@@ -26,15 +25,14 @@
 #' api_instance <- TerritoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateTerritory(var_version, var_account_id, var_name, active = var_activedata_file = "result.txt")
-#' result <- api_instance$CreateTerritory(var_version, var_account_id, var_name, active = var_active)
+#' # result <- api_instance$CreateTerritory(var_account_id, var_name, active = var_activedata_file = "result.txt")
+#' result <- api_instance$CreateTerritory(var_account_id, var_name, active = var_active)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteTerritory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_territory_id <- 56 # integer | the id of the territory to delete
 #'
@@ -42,30 +40,28 @@
 #' api_instance <- TerritoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteTerritory(var_version, var_account_id, var_territory_iddata_file = "result.txt")
-#' result <- api_instance$DeleteTerritory(var_version, var_account_id, var_territory_id)
+#' # result <- api_instance$DeleteTerritory(var_account_id, var_territory_iddata_file = "result.txt")
+#' result <- api_instance$DeleteTerritory(var_account_id, var_territory_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetTerritory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_territory_id <- 56 # integer | the id of the territory to get
 #'
 #' #Get Territory
 #' api_instance <- TerritoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetTerritory(var_version, var_territory_iddata_file = "result.txt")
-#' result <- api_instance$GetTerritory(var_version, var_territory_id)
+#' # result <- api_instance$GetTerritory(var_territory_iddata_file = "result.txt")
+#' result <- api_instance$GetTerritory(var_territory_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchTerritories  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_sort_field <- "sort_field_example" # character | the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
 #' var_descending <- "descending_example" # character | determines whether the sorted list is in descending or ascending order
 #' var_keyword <- "keyword_example" # character | Return results that match this keyword. (Optional)
@@ -76,15 +72,14 @@
 #' api_instance <- TerritoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchTerritories(var_version, var_sort_field, var_descending, keyword = var_keyword, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchTerritories(var_version, var_sort_field, var_descending, keyword = var_keyword, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchTerritories(var_sort_field, var_descending, keyword = var_keyword, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchTerritories(var_sort_field, var_descending, keyword = var_keyword, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateTerritory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_territory_id <- 56 # integer | the id of the territory to update
 #' var_name <- "name_example" # character | The name of the territory (Optional)
@@ -94,8 +89,8 @@
 #' api_instance <- TerritoryApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateTerritory(var_version, var_account_id, var_territory_id, name = var_name, active = var_activedata_file = "result.txt")
-#' result <- api_instance$UpdateTerritory(var_version, var_account_id, var_territory_id, name = var_name, active = var_active)
+#' # result <- api_instance$UpdateTerritory(var_account_id, var_territory_id, name = var_name, active = var_activedata_file = "result.txt")
+#' result <- api_instance$UpdateTerritory(var_account_id, var_territory_id, name = var_name, active = var_active)
 #' dput(result)
 #'
 #'
@@ -123,7 +118,6 @@ TerritoryApi <- R6::R6Class(
     #' @description
     #' Create Territory
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the territory
     #' @param active (optional) If true set the game level as active. Default is true.
@@ -132,8 +126,8 @@ TerritoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TerritoryResponse
-    CreateTerritory = function(version, account_id, name, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateTerritoryWithHttpInfo(version, account_id, name, active, data_file = data_file, ..., .parse = .parse)
+    CreateTerritory = function(account_id, name, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateTerritoryWithHttpInfo(account_id, name, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -148,7 +142,6 @@ TerritoryApi <- R6::R6Class(
     #' @description
     #' Create Territory
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param name The name of the territory
     #' @param active (optional) If true set the game level as active. Default is true.
@@ -157,7 +150,7 @@ TerritoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TerritoryResponse) with additional information such as HTTP status code, headers
-    CreateTerritoryWithHttpInfo = function(version, account_id, name, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateTerritoryWithHttpInfo = function(account_id, name, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -167,20 +160,12 @@ TerritoryApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`name`)) {
         stop("Missing required parameter `name`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TerritoryApi$CreateTerritory, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -201,11 +186,7 @@ TerritoryApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/territory/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/territory/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -266,7 +247,6 @@ TerritoryApi <- R6::R6Class(
     #' @description
     #' Delete Territory
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param territory_id the id of the territory to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -274,8 +254,8 @@ TerritoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteTerritory = function(version, account_id, territory_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteTerritoryWithHttpInfo(version, account_id, territory_id, data_file = data_file, ..., .parse = .parse)
+    DeleteTerritory = function(account_id, territory_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteTerritoryWithHttpInfo(account_id, territory_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -290,7 +270,6 @@ TerritoryApi <- R6::R6Class(
     #' @description
     #' Delete Territory
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param territory_id the id of the territory to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -298,7 +277,7 @@ TerritoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteTerritoryWithHttpInfo = function(version, account_id, territory_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteTerritoryWithHttpInfo = function(account_id, territory_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -308,20 +287,12 @@ TerritoryApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`territory_id`)) {
         stop("Missing required parameter `territory_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TerritoryApi$DeleteTerritory, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -336,11 +307,7 @@ TerritoryApi <- R6::R6Class(
 
       query_params[["territoryId"]] <- `territory_id`
 
-      local_var_url_path <- "/api/{version}/territory/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/territory/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -401,15 +368,14 @@ TerritoryApi <- R6::R6Class(
     #' @description
     #' Get Territory
     #'
-    #' @param version 
     #' @param territory_id the id of the territory to get
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TerritoryResponse
-    GetTerritory = function(version, territory_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetTerritoryWithHttpInfo(version, territory_id, data_file = data_file, ..., .parse = .parse)
+    GetTerritory = function(territory_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetTerritoryWithHttpInfo(territory_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -424,14 +390,13 @@ TerritoryApi <- R6::R6Class(
     #' @description
     #' Get Territory
     #'
-    #' @param version 
     #' @param territory_id the id of the territory to get
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TerritoryResponse) with additional information such as HTTP status code, headers
-    GetTerritoryWithHttpInfo = function(version, territory_id, data_file = NULL, ..., .parse = TRUE) {
+    GetTerritoryWithHttpInfo = function(territory_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -441,16 +406,8 @@ TerritoryApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`territory_id`)) {
         stop("Missing required parameter `territory_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TerritoryApi$GetTerritory, `version` is not nullable")
       }
 
       if (!missing(`territory_id`) && is.null(`territory_id`)) {
@@ -459,11 +416,7 @@ TerritoryApi <- R6::R6Class(
 
       query_params[["territoryId"]] <- `territory_id`
 
-      local_var_url_path <- "/api/{version}/territory/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/territory/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -524,7 +477,6 @@ TerritoryApi <- R6::R6Class(
     #' @description
     #' Search Territories
     #'
-    #' @param version 
     #' @param sort_field the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
     #' @param descending determines whether the sorted list is in descending or ascending order
     #' @param keyword (optional) Return results that match this keyword.
@@ -535,8 +487,8 @@ TerritoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[TerritoryResponse]
-    SearchTerritories = function(version, sort_field, descending, keyword = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchTerritoriesWithHttpInfo(version, sort_field, descending, keyword, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchTerritories = function(sort_field, descending, keyword = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchTerritoriesWithHttpInfo(sort_field, descending, keyword, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -551,7 +503,6 @@ TerritoryApi <- R6::R6Class(
     #' @description
     #' Search Territories
     #'
-    #' @param version 
     #' @param sort_field the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
     #' @param descending determines whether the sorted list is in descending or ascending order
     #' @param keyword (optional) Return results that match this keyword.
@@ -562,7 +513,7 @@ TerritoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[TerritoryResponse]) with additional information such as HTTP status code, headers
-    SearchTerritoriesWithHttpInfo = function(version, sort_field, descending, keyword = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchTerritoriesWithHttpInfo = function(sort_field, descending, keyword = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -572,20 +523,12 @@ TerritoryApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`sort_field`)) {
         stop("Missing required parameter `sort_field`.")
       }
 
       if (missing(`descending`)) {
         stop("Missing required parameter `descending`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TerritoryApi$SearchTerritories, `version` is not nullable")
       }
 
       if (!missing(`sort_field`) && is.null(`sort_field`)) {
@@ -621,11 +564,7 @@ TerritoryApi <- R6::R6Class(
 
       query_params[["descending"]] <- `descending`
 
-      local_var_url_path <- "/api/{version}/territory/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/territory/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -686,7 +625,6 @@ TerritoryApi <- R6::R6Class(
     #' @description
     #' Update Territory
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param territory_id the id of the territory to update
     #' @param name (optional) The name of the territory
@@ -696,8 +634,8 @@ TerritoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TerritoryResponse
-    UpdateTerritory = function(version, account_id, territory_id, name = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateTerritoryWithHttpInfo(version, account_id, territory_id, name, active, data_file = data_file, ..., .parse = .parse)
+    UpdateTerritory = function(account_id, territory_id, name = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateTerritoryWithHttpInfo(account_id, territory_id, name, active, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -712,7 +650,6 @@ TerritoryApi <- R6::R6Class(
     #' @description
     #' Update Territory
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param territory_id the id of the territory to update
     #' @param name (optional) The name of the territory
@@ -722,7 +659,7 @@ TerritoryApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TerritoryResponse) with additional information such as HTTP status code, headers
-    UpdateTerritoryWithHttpInfo = function(version, account_id, territory_id, name = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateTerritoryWithHttpInfo = function(account_id, territory_id, name = NULL, active = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -732,20 +669,12 @@ TerritoryApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`territory_id`)) {
         stop("Missing required parameter `territory_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling TerritoryApi$UpdateTerritory, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -772,11 +701,7 @@ TerritoryApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/territory/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/territory/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

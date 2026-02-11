@@ -17,7 +17,6 @@
 #' ####################  CreateCredential  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_third_party_id <- "third_party_id_example" # character | the third party user account id
 #' var_third_party_token <- "third_party_token_example" # character | the access token to authenticate with (ex: username or fb token or phone number)
 #' var_network_uid <- "network_uid_example" # character | the access provider to authenticate against
@@ -40,15 +39,14 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateCredential(var_version, var_third_party_id, var_third_party_token, var_network_uid, var_app_key, account_id = var_account_id, device_id = var_device_id, session_id = var_session_id, third_party_name = var_third_party_name, email_address = var_email_address, signin_only_mode = var_signin_only_mode, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, third_party_refresh_token = var_third_party_refresh_token, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_removedata_file = "result.txt")
-#' result <- api_instance$CreateCredential(var_version, var_third_party_id, var_third_party_token, var_network_uid, var_app_key, account_id = var_account_id, device_id = var_device_id, session_id = var_session_id, third_party_name = var_third_party_name, email_address = var_email_address, signin_only_mode = var_signin_only_mode, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, third_party_refresh_token = var_third_party_refresh_token, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove)
+#' # result <- api_instance$CreateCredential(var_third_party_id, var_third_party_token, var_network_uid, var_app_key, account_id = var_account_id, device_id = var_device_id, session_id = var_session_id, third_party_name = var_third_party_name, email_address = var_email_address, signin_only_mode = var_signin_only_mode, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, third_party_refresh_token = var_third_party_refresh_token, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_removedata_file = "result.txt")
+#' result <- api_instance$CreateCredential(var_third_party_id, var_third_party_token, var_network_uid, var_app_key, account_id = var_account_id, device_id = var_device_id, session_id = var_session_id, third_party_name = var_third_party_name, email_address = var_email_address, signin_only_mode = var_signin_only_mode, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, meta_data = var_meta_data, third_party_refresh_token = var_third_party_refresh_token, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove)
 #' dput(result)
 #'
 #'
 #' ####################  CreateNetwork  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id making the request
 #' var_name <- "name_example" # character | The name of the network
 #' var_enable_introspection <- "enable_introspection_example" # character | Whether the network uses introspection calls
@@ -71,15 +69,14 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateNetwork(var_version, var_account_id, var_name, var_enable_introspection, description = var_description, introspection_method = var_introspection_method, introspection_url = var_introspection_url, introspection_params = var_introspection_params, required_root_field = var_required_root_field, enable_mfa = var_enable_mfa, size_mfa = var_size_mfa, shelf_life_mfa = var_shelf_life_mfa, oauth_token_url = var_oauth_token_url, oauth_private_key = var_oauth_private_key, oauth_public_key = var_oauth_public_key, oauth_client_id = var_oauth_client_id, oauth_secret_key = var_oauth_secret_key, body = var_bodydata_file = "result.txt")
-#' result <- api_instance$CreateNetwork(var_version, var_account_id, var_name, var_enable_introspection, description = var_description, introspection_method = var_introspection_method, introspection_url = var_introspection_url, introspection_params = var_introspection_params, required_root_field = var_required_root_field, enable_mfa = var_enable_mfa, size_mfa = var_size_mfa, shelf_life_mfa = var_shelf_life_mfa, oauth_token_url = var_oauth_token_url, oauth_private_key = var_oauth_private_key, oauth_public_key = var_oauth_public_key, oauth_client_id = var_oauth_client_id, oauth_secret_key = var_oauth_secret_key, body = var_body)
+#' # result <- api_instance$CreateNetwork(var_account_id, var_name, var_enable_introspection, description = var_description, introspection_method = var_introspection_method, introspection_url = var_introspection_url, introspection_params = var_introspection_params, required_root_field = var_required_root_field, enable_mfa = var_enable_mfa, size_mfa = var_size_mfa, shelf_life_mfa = var_shelf_life_mfa, oauth_token_url = var_oauth_token_url, oauth_private_key = var_oauth_private_key, oauth_public_key = var_oauth_public_key, oauth_client_id = var_oauth_client_id, oauth_secret_key = var_oauth_secret_key, body = var_bodydata_file = "result.txt")
+#' result <- api_instance$CreateNetwork(var_account_id, var_name, var_enable_introspection, description = var_description, introspection_method = var_introspection_method, introspection_url = var_introspection_url, introspection_params = var_introspection_params, required_root_field = var_required_root_field, enable_mfa = var_enable_mfa, size_mfa = var_size_mfa, shelf_life_mfa = var_shelf_life_mfa, oauth_token_url = var_oauth_token_url, oauth_private_key = var_oauth_private_key, oauth_public_key = var_oauth_public_key, oauth_client_id = var_oauth_client_id, oauth_secret_key = var_oauth_secret_key, body = var_body)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteCredential  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user
 #' var_network_uid <- "network_uid_example" # character | The third party network identifier
 #' var_third_party_id <- "third_party_id_example" # character | The third party user id
@@ -89,15 +86,14 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteCredential(var_version, var_account_id, var_network_uid, var_third_party_id, var_app_keydata_file = "result.txt")
-#' result <- api_instance$DeleteCredential(var_version, var_account_id, var_network_uid, var_third_party_id, var_app_key)
+#' # result <- api_instance$DeleteCredential(var_account_id, var_network_uid, var_third_party_id, var_app_keydata_file = "result.txt")
+#' result <- api_instance$DeleteCredential(var_account_id, var_network_uid, var_third_party_id, var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteNetwork  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_network_uid <- "network_uid_example" # character | The unique identifier for the third party network defined by Sirqul
 #'
@@ -105,15 +101,14 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteNetwork(var_version, var_account_id, var_network_uiddata_file = "result.txt")
-#' result <- api_instance$DeleteNetwork(var_version, var_account_id, var_network_uid)
+#' # result <- api_instance$DeleteNetwork(var_account_id, var_network_uiddata_file = "result.txt")
+#' result <- api_instance$DeleteNetwork(var_account_id, var_network_uid)
 #' dput(result)
 #'
 #'
 #' ####################  GetCredential  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_network_uid <- "network_uid_example" # character | the access provider to authenticate against
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_account_id <- 56 # integer | the unique account id of a specific account that will be bound to the third-party credentials (Optional)
@@ -134,15 +129,14 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetCredential(var_version, var_network_uid, var_app_key, account_id = var_account_id, device_id = var_device_id, session_id = var_session_id, third_party_credential_id = var_third_party_credential_id, third_party_token = var_third_party_token, third_party_secret = var_third_party_secret, create_new_account = var_create_new_account, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, referral_account_id = var_referral_account_iddata_file = "result.txt")
-#' result <- api_instance$GetCredential(var_version, var_network_uid, var_app_key, account_id = var_account_id, device_id = var_device_id, session_id = var_session_id, third_party_credential_id = var_third_party_credential_id, third_party_token = var_third_party_token, third_party_secret = var_third_party_secret, create_new_account = var_create_new_account, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, referral_account_id = var_referral_account_id)
+#' # result <- api_instance$GetCredential(var_network_uid, var_app_key, account_id = var_account_id, device_id = var_device_id, session_id = var_session_id, third_party_credential_id = var_third_party_credential_id, third_party_token = var_third_party_token, third_party_secret = var_third_party_secret, create_new_account = var_create_new_account, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, referral_account_id = var_referral_account_iddata_file = "result.txt")
+#' result <- api_instance$GetCredential(var_network_uid, var_app_key, account_id = var_account_id, device_id = var_device_id, session_id = var_session_id, third_party_credential_id = var_third_party_credential_id, third_party_token = var_third_party_token, third_party_secret = var_third_party_secret, create_new_account = var_create_new_account, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, referral_account_id = var_referral_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetNetwork  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id making the request
 #' var_network_uid <- "network_uid_example" # character | The unique identifier for the third party network defined by Sirqul
 #'
@@ -150,15 +144,14 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetNetwork(var_version, var_account_id, var_network_uiddata_file = "result.txt")
-#' result <- api_instance$GetNetwork(var_version, var_account_id, var_network_uid)
+#' # result <- api_instance$GetNetwork(var_account_id, var_network_uiddata_file = "result.txt")
+#' result <- api_instance$GetNetwork(var_account_id, var_network_uid)
 #' dput(result)
 #'
 #'
 #' ####################  SearchCredentials  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user
 #' var_keyword <- "keyword_example" # character | The keyword used to search on the third party name and network string (Optional)
 #' var_network_uid <- "network_uid_example" # character | The network UID to filter results with (Optional)
@@ -170,15 +163,14 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchCredentials(var_version, var_account_id, keyword = var_keyword, network_uid = var_network_uid, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchCredentials(var_version, var_account_id, keyword = var_keyword, network_uid = var_network_uid, descending = var_descending, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchCredentials(var_account_id, keyword = var_keyword, network_uid = var_network_uid, descending = var_descending, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchCredentials(var_account_id, keyword = var_keyword, network_uid = var_network_uid, descending = var_descending, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  SearchNetworks  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id making the request
 #' var_sort_field <- "sort_field_example" # character | The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
 #' var_descending <- "descending_example" # character | The order to return the search results
@@ -192,15 +184,14 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchNetworks(var_version, var_account_id, var_sort_field, var_descending, var_start, var_limit, var_active_only, keyword = var_keyword, filter_billable = var_filter_billabledata_file = "result.txt")
-#' result <- api_instance$SearchNetworks(var_version, var_account_id, var_sort_field, var_descending, var_start, var_limit, var_active_only, keyword = var_keyword, filter_billable = var_filter_billable)
+#' # result <- api_instance$SearchNetworks(var_account_id, var_sort_field, var_descending, var_start, var_limit, var_active_only, keyword = var_keyword, filter_billable = var_filter_billabledata_file = "result.txt")
+#' result <- api_instance$SearchNetworks(var_account_id, var_sort_field, var_descending, var_start, var_limit, var_active_only, keyword = var_keyword, filter_billable = var_filter_billable)
 #' dput(result)
 #'
 #'
 #' ####################  SendMFAChallenge  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_network_uid <- "network_uid_example" # character | the third party network provider that has MFA enabled
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_third_party_token <- "third_party_token_example" # character | the access token to authenticate with (Optional)
@@ -211,15 +202,14 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SendMFAChallenge(var_version, var_network_uid, var_app_key, third_party_token = var_third_party_token, third_party_credential_id = var_third_party_credential_id, device_id = var_device_iddata_file = "result.txt")
-#' result <- api_instance$SendMFAChallenge(var_version, var_network_uid, var_app_key, third_party_token = var_third_party_token, third_party_credential_id = var_third_party_credential_id, device_id = var_device_id)
+#' # result <- api_instance$SendMFAChallenge(var_network_uid, var_app_key, third_party_token = var_third_party_token, third_party_credential_id = var_third_party_credential_id, device_id = var_device_iddata_file = "result.txt")
+#' result <- api_instance$SendMFAChallenge(var_network_uid, var_app_key, third_party_token = var_third_party_token, third_party_credential_id = var_third_party_credential_id, device_id = var_device_id)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateCredential  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_network_uid <- "network_uid_example" # character | the access provider to authenticate against
 #' var_third_party_id <- "third_party_id_example" # character | the third party user account id
 #' var_app_key <- "app_key_example" # character | the application key
@@ -234,15 +224,14 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateCredential(var_version, var_network_uid, var_third_party_id, var_app_key, device_id = var_device_id, third_party_name = var_third_party_name, third_party_token = var_third_party_token, response_filters = var_response_filters, meta_data = var_meta_data, third_party_refresh_token = var_third_party_refresh_tokendata_file = "result.txt")
-#' result <- api_instance$UpdateCredential(var_version, var_network_uid, var_third_party_id, var_app_key, device_id = var_device_id, third_party_name = var_third_party_name, third_party_token = var_third_party_token, response_filters = var_response_filters, meta_data = var_meta_data, third_party_refresh_token = var_third_party_refresh_token)
+#' # result <- api_instance$UpdateCredential(var_network_uid, var_third_party_id, var_app_key, device_id = var_device_id, third_party_name = var_third_party_name, third_party_token = var_third_party_token, response_filters = var_response_filters, meta_data = var_meta_data, third_party_refresh_token = var_third_party_refresh_tokendata_file = "result.txt")
+#' result <- api_instance$UpdateCredential(var_network_uid, var_third_party_id, var_app_key, device_id = var_device_id, third_party_name = var_third_party_name, third_party_token = var_third_party_token, response_filters = var_response_filters, meta_data = var_meta_data, third_party_refresh_token = var_third_party_refresh_token)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateNetwork  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id making the request
 #' var_network_uid <- "network_uid_example" # character | The unique identifier for the third party network defined by Sirqul
 #' var_name <- "name_example" # character | The name of the network (Optional)
@@ -266,8 +255,8 @@
 #' api_instance <- ThirdPartyCredentialsApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateNetwork(var_version, var_account_id, var_network_uid, name = var_name, description = var_description, enable_introspection = var_enable_introspection, introspection_method = var_introspection_method, introspection_url = var_introspection_url, introspection_params = var_introspection_params, required_root_field = var_required_root_field, enable_mfa = var_enable_mfa, size_mfa = var_size_mfa, shelf_life_mfa = var_shelf_life_mfa, oauth_token_url = var_oauth_token_url, oauth_private_key = var_oauth_private_key, oauth_public_key = var_oauth_public_key, oauth_client_id = var_oauth_client_id, oauth_secret_key = var_oauth_secret_key, body = var_bodydata_file = "result.txt")
-#' result <- api_instance$UpdateNetwork(var_version, var_account_id, var_network_uid, name = var_name, description = var_description, enable_introspection = var_enable_introspection, introspection_method = var_introspection_method, introspection_url = var_introspection_url, introspection_params = var_introspection_params, required_root_field = var_required_root_field, enable_mfa = var_enable_mfa, size_mfa = var_size_mfa, shelf_life_mfa = var_shelf_life_mfa, oauth_token_url = var_oauth_token_url, oauth_private_key = var_oauth_private_key, oauth_public_key = var_oauth_public_key, oauth_client_id = var_oauth_client_id, oauth_secret_key = var_oauth_secret_key, body = var_body)
+#' # result <- api_instance$UpdateNetwork(var_account_id, var_network_uid, name = var_name, description = var_description, enable_introspection = var_enable_introspection, introspection_method = var_introspection_method, introspection_url = var_introspection_url, introspection_params = var_introspection_params, required_root_field = var_required_root_field, enable_mfa = var_enable_mfa, size_mfa = var_size_mfa, shelf_life_mfa = var_shelf_life_mfa, oauth_token_url = var_oauth_token_url, oauth_private_key = var_oauth_private_key, oauth_public_key = var_oauth_public_key, oauth_client_id = var_oauth_client_id, oauth_secret_key = var_oauth_secret_key, body = var_bodydata_file = "result.txt")
+#' result <- api_instance$UpdateNetwork(var_account_id, var_network_uid, name = var_name, description = var_description, enable_introspection = var_enable_introspection, introspection_method = var_introspection_method, introspection_url = var_introspection_url, introspection_params = var_introspection_params, required_root_field = var_required_root_field, enable_mfa = var_enable_mfa, size_mfa = var_size_mfa, shelf_life_mfa = var_shelf_life_mfa, oauth_token_url = var_oauth_token_url, oauth_private_key = var_oauth_private_key, oauth_public_key = var_oauth_public_key, oauth_client_id = var_oauth_client_id, oauth_secret_key = var_oauth_secret_key, body = var_body)
 #' dput(result)
 #'
 #'
@@ -295,7 +284,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Create Credential
     #'
-    #' @param version 
     #' @param third_party_id the third party user account id
     #' @param third_party_token the access token to authenticate with (ex: username or fb token or phone number)
     #' @param network_uid the access provider to authenticate against
@@ -318,8 +306,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    CreateCredential = function(version, third_party_id, third_party_token, network_uid, app_key, account_id = NULL, device_id = NULL, session_id = NULL, third_party_name = NULL, email_address = NULL, signin_only_mode = FALSE, response_filters = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, third_party_refresh_token = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateCredentialWithHttpInfo(version, third_party_id, third_party_token, network_uid, app_key, account_id, device_id, session_id, third_party_name, email_address, signin_only_mode, response_filters, latitude, longitude, meta_data, third_party_refresh_token, audience_ids_to_add, audience_ids_to_remove, data_file = data_file, ..., .parse = .parse)
+    CreateCredential = function(third_party_id, third_party_token, network_uid, app_key, account_id = NULL, device_id = NULL, session_id = NULL, third_party_name = NULL, email_address = NULL, signin_only_mode = FALSE, response_filters = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, third_party_refresh_token = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateCredentialWithHttpInfo(third_party_id, third_party_token, network_uid, app_key, account_id, device_id, session_id, third_party_name, email_address, signin_only_mode, response_filters, latitude, longitude, meta_data, third_party_refresh_token, audience_ids_to_add, audience_ids_to_remove, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -334,7 +322,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Create Credential
     #'
-    #' @param version 
     #' @param third_party_id the third party user account id
     #' @param third_party_token the access token to authenticate with (ex: username or fb token or phone number)
     #' @param network_uid the access provider to authenticate against
@@ -357,7 +344,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    CreateCredentialWithHttpInfo = function(version, third_party_id, third_party_token, network_uid, app_key, account_id = NULL, device_id = NULL, session_id = NULL, third_party_name = NULL, email_address = NULL, signin_only_mode = FALSE, response_filters = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, third_party_refresh_token = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateCredentialWithHttpInfo = function(third_party_id, third_party_token, network_uid, app_key, account_id = NULL, device_id = NULL, session_id = NULL, third_party_name = NULL, email_address = NULL, signin_only_mode = FALSE, response_filters = NULL, latitude = NULL, longitude = NULL, meta_data = NULL, third_party_refresh_token = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -366,10 +353,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`third_party_id`)) {
         stop("Missing required parameter `third_party_id`.")
@@ -385,10 +368,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$CreateCredential, `version` is not nullable")
       }
 
       if (!missing(`third_party_id`) && is.null(`third_party_id`)) {
@@ -493,11 +472,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       query_params[["audienceIdsToRemove"]] <- `audience_ids_to_remove`
 
-      local_var_url_path <- "/api/{version}/thirdparty/credential/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/credential/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -558,7 +533,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Create Network
     #'
-    #' @param version 
     #' @param account_id The account id making the request
     #' @param name The name of the network
     #' @param enable_introspection Whether the network uses introspection calls
@@ -581,8 +555,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ThirdPartyNetworkResponse
-    CreateNetwork = function(version, account_id, name, enable_introspection, description = NULL, introspection_method = NULL, introspection_url = NULL, introspection_params = NULL, required_root_field = NULL, enable_mfa = NULL, size_mfa = NULL, shelf_life_mfa = NULL, oauth_token_url = NULL, oauth_private_key = NULL, oauth_public_key = NULL, oauth_client_id = NULL, oauth_secret_key = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateNetworkWithHttpInfo(version, account_id, name, enable_introspection, description, introspection_method, introspection_url, introspection_params, required_root_field, enable_mfa, size_mfa, shelf_life_mfa, oauth_token_url, oauth_private_key, oauth_public_key, oauth_client_id, oauth_secret_key, body, data_file = data_file, ..., .parse = .parse)
+    CreateNetwork = function(account_id, name, enable_introspection, description = NULL, introspection_method = NULL, introspection_url = NULL, introspection_params = NULL, required_root_field = NULL, enable_mfa = NULL, size_mfa = NULL, shelf_life_mfa = NULL, oauth_token_url = NULL, oauth_private_key = NULL, oauth_public_key = NULL, oauth_client_id = NULL, oauth_secret_key = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateNetworkWithHttpInfo(account_id, name, enable_introspection, description, introspection_method, introspection_url, introspection_params, required_root_field, enable_mfa, size_mfa, shelf_life_mfa, oauth_token_url, oauth_private_key, oauth_public_key, oauth_client_id, oauth_secret_key, body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -597,7 +571,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Create Network
     #'
-    #' @param version 
     #' @param account_id The account id making the request
     #' @param name The name of the network
     #' @param enable_introspection Whether the network uses introspection calls
@@ -620,7 +593,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ThirdPartyNetworkResponse) with additional information such as HTTP status code, headers
-    CreateNetworkWithHttpInfo = function(version, account_id, name, enable_introspection, description = NULL, introspection_method = NULL, introspection_url = NULL, introspection_params = NULL, required_root_field = NULL, enable_mfa = NULL, size_mfa = NULL, shelf_life_mfa = NULL, oauth_token_url = NULL, oauth_private_key = NULL, oauth_public_key = NULL, oauth_client_id = NULL, oauth_secret_key = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateNetworkWithHttpInfo = function(account_id, name, enable_introspection, description = NULL, introspection_method = NULL, introspection_url = NULL, introspection_params = NULL, required_root_field = NULL, enable_mfa = NULL, size_mfa = NULL, shelf_life_mfa = NULL, oauth_token_url = NULL, oauth_private_key = NULL, oauth_public_key = NULL, oauth_client_id = NULL, oauth_secret_key = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -629,10 +602,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -644,10 +613,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       if (missing(`enable_introspection`)) {
         stop("Missing required parameter `enable_introspection`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$CreateNetwork, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -756,11 +721,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/thirdparty/network/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/network/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -821,7 +782,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Delete Credential
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param network_uid The third party network identifier
     #' @param third_party_id The third party user id
@@ -831,8 +791,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteCredential = function(version, account_id, network_uid, third_party_id, app_key, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteCredentialWithHttpInfo(version, account_id, network_uid, third_party_id, app_key, data_file = data_file, ..., .parse = .parse)
+    DeleteCredential = function(account_id, network_uid, third_party_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteCredentialWithHttpInfo(account_id, network_uid, third_party_id, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -847,7 +807,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Delete Credential
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param network_uid The third party network identifier
     #' @param third_party_id The third party user id
@@ -857,7 +816,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteCredentialWithHttpInfo = function(version, account_id, network_uid, third_party_id, app_key, data_file = NULL, ..., .parse = TRUE) {
+    DeleteCredentialWithHttpInfo = function(account_id, network_uid, third_party_id, app_key, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -866,10 +825,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -885,10 +840,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$DeleteCredential, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -915,11 +866,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/thirdparty/credential/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/credential/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -980,7 +927,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Delete Network
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param network_uid The unique identifier for the third party network defined by Sirqul
     #' @param data_file (optional) name of the data file to save the result
@@ -988,8 +934,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteNetwork = function(version, account_id, network_uid, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteNetworkWithHttpInfo(version, account_id, network_uid, data_file = data_file, ..., .parse = .parse)
+    DeleteNetwork = function(account_id, network_uid, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteNetworkWithHttpInfo(account_id, network_uid, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1004,7 +950,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Delete Network
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param network_uid The unique identifier for the third party network defined by Sirqul
     #' @param data_file (optional) name of the data file to save the result
@@ -1012,7 +957,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteNetworkWithHttpInfo = function(version, account_id, network_uid, data_file = NULL, ..., .parse = TRUE) {
+    DeleteNetworkWithHttpInfo = function(account_id, network_uid, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1022,20 +967,12 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`network_uid`)) {
         stop("Missing required parameter `network_uid`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$DeleteNetwork, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1050,11 +987,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       query_params[["networkUID"]] <- `network_uid`
 
-      local_var_url_path <- "/api/{version}/thirdparty/network/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/network/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1115,7 +1048,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Get Credential
     #'
-    #' @param version 
     #' @param network_uid the access provider to authenticate against
     #' @param app_key the application key
     #' @param account_id (optional) the unique account id of a specific account that will be bound to the third-party credentials
@@ -1136,8 +1068,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    GetCredential = function(version, network_uid, app_key, account_id = NULL, device_id = NULL, session_id = NULL, third_party_credential_id = NULL, third_party_token = NULL, third_party_secret = NULL, create_new_account = FALSE, response_filters = NULL, latitude = NULL, longitude = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, referral_account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetCredentialWithHttpInfo(version, network_uid, app_key, account_id, device_id, session_id, third_party_credential_id, third_party_token, third_party_secret, create_new_account, response_filters, latitude, longitude, audience_ids_to_add, audience_ids_to_remove, referral_account_id, data_file = data_file, ..., .parse = .parse)
+    GetCredential = function(network_uid, app_key, account_id = NULL, device_id = NULL, session_id = NULL, third_party_credential_id = NULL, third_party_token = NULL, third_party_secret = NULL, create_new_account = FALSE, response_filters = NULL, latitude = NULL, longitude = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, referral_account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetCredentialWithHttpInfo(network_uid, app_key, account_id, device_id, session_id, third_party_credential_id, third_party_token, third_party_secret, create_new_account, response_filters, latitude, longitude, audience_ids_to_add, audience_ids_to_remove, referral_account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1152,7 +1084,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Get Credential
     #'
-    #' @param version 
     #' @param network_uid the access provider to authenticate against
     #' @param app_key the application key
     #' @param account_id (optional) the unique account id of a specific account that will be bound to the third-party credentials
@@ -1173,7 +1104,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    GetCredentialWithHttpInfo = function(version, network_uid, app_key, account_id = NULL, device_id = NULL, session_id = NULL, third_party_credential_id = NULL, third_party_token = NULL, third_party_secret = NULL, create_new_account = FALSE, response_filters = NULL, latitude = NULL, longitude = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, referral_account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetCredentialWithHttpInfo = function(network_uid, app_key, account_id = NULL, device_id = NULL, session_id = NULL, third_party_credential_id = NULL, third_party_token = NULL, third_party_secret = NULL, create_new_account = FALSE, response_filters = NULL, latitude = NULL, longitude = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, referral_account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1183,20 +1114,12 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`network_uid`)) {
         stop("Missing required parameter `network_uid`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$GetCredential, `version` is not nullable")
       }
 
       if (!missing(`network_uid`) && is.null(`network_uid`)) {
@@ -1289,11 +1212,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       query_params[["referralAccountId"]] <- `referral_account_id`
 
-      local_var_url_path <- "/api/{version}/thirdparty/credential/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/credential/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1354,7 +1273,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Get Network
     #'
-    #' @param version 
     #' @param account_id The account id making the request
     #' @param network_uid The unique identifier for the third party network defined by Sirqul
     #' @param data_file (optional) name of the data file to save the result
@@ -1362,8 +1280,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ThirdPartyNetworkResponse
-    GetNetwork = function(version, account_id, network_uid, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetNetworkWithHttpInfo(version, account_id, network_uid, data_file = data_file, ..., .parse = .parse)
+    GetNetwork = function(account_id, network_uid, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetNetworkWithHttpInfo(account_id, network_uid, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1378,7 +1296,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Get Network
     #'
-    #' @param version 
     #' @param account_id The account id making the request
     #' @param network_uid The unique identifier for the third party network defined by Sirqul
     #' @param data_file (optional) name of the data file to save the result
@@ -1386,7 +1303,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ThirdPartyNetworkResponse) with additional information such as HTTP status code, headers
-    GetNetworkWithHttpInfo = function(version, account_id, network_uid, data_file = NULL, ..., .parse = TRUE) {
+    GetNetworkWithHttpInfo = function(account_id, network_uid, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1396,20 +1313,12 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`network_uid`)) {
         stop("Missing required parameter `network_uid`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$GetNetwork, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1424,11 +1333,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       query_params[["networkUID"]] <- `network_uid`
 
-      local_var_url_path <- "/api/{version}/thirdparty/network/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/network/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1489,7 +1394,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Search Credentials
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param keyword (optional) The keyword used to search on the third party name and network string
     #' @param network_uid (optional) The network UID to filter results with
@@ -1501,8 +1405,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ThirdPartyCredentialResponse]
-    SearchCredentials = function(version, account_id, keyword = NULL, network_uid = NULL, descending = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchCredentialsWithHttpInfo(version, account_id, keyword, network_uid, descending, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchCredentials = function(account_id, keyword = NULL, network_uid = NULL, descending = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchCredentialsWithHttpInfo(account_id, keyword, network_uid, descending, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1517,7 +1421,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Search Credentials
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param keyword (optional) The keyword used to search on the third party name and network string
     #' @param network_uid (optional) The network UID to filter results with
@@ -1529,7 +1432,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ThirdPartyCredentialResponse]) with additional information such as HTTP status code, headers
-    SearchCredentialsWithHttpInfo = function(version, account_id, keyword = NULL, network_uid = NULL, descending = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    SearchCredentialsWithHttpInfo = function(account_id, keyword = NULL, network_uid = NULL, descending = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1539,16 +1442,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$SearchCredentials, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1587,11 +1482,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/thirdparty/credential/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/credential/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1652,7 +1543,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Search Networks
     #'
-    #' @param version 
     #' @param account_id The account id making the request
     #' @param sort_field The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
     #' @param descending The order to return the search results
@@ -1666,8 +1556,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ThirdPartyNetworkShortResponse]
-    SearchNetworks = function(version, account_id, sort_field, descending, start, limit, active_only, keyword = NULL, filter_billable = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchNetworksWithHttpInfo(version, account_id, sort_field, descending, start, limit, active_only, keyword, filter_billable, data_file = data_file, ..., .parse = .parse)
+    SearchNetworks = function(account_id, sort_field, descending, start, limit, active_only, keyword = NULL, filter_billable = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchNetworksWithHttpInfo(account_id, sort_field, descending, start, limit, active_only, keyword, filter_billable, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1682,7 +1572,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Search Networks
     #'
-    #' @param version 
     #' @param account_id The account id making the request
     #' @param sort_field The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
     #' @param descending The order to return the search results
@@ -1696,7 +1585,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ThirdPartyNetworkShortResponse]) with additional information such as HTTP status code, headers
-    SearchNetworksWithHttpInfo = function(version, account_id, sort_field, descending, start, limit, active_only, keyword = NULL, filter_billable = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchNetworksWithHttpInfo = function(account_id, sort_field, descending, start, limit, active_only, keyword = NULL, filter_billable = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1705,10 +1594,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1732,10 +1617,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       if (missing(`active_only`)) {
         stop("Missing required parameter `active_only`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$SearchNetworks, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1789,11 +1670,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       query_params[["filterBillable"]] <- `filter_billable`
 
-      local_var_url_path <- "/api/{version}/thirdparty/network/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/network/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1854,7 +1731,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Send MFA Challenge
     #'
-    #' @param version 
     #' @param network_uid the third party network provider that has MFA enabled
     #' @param app_key the application key
     #' @param third_party_token (optional) the access token to authenticate with
@@ -1865,8 +1741,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SendMFAChallenge = function(version, network_uid, app_key, third_party_token = NULL, third_party_credential_id = NULL, device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SendMFAChallengeWithHttpInfo(version, network_uid, app_key, third_party_token, third_party_credential_id, device_id, data_file = data_file, ..., .parse = .parse)
+    SendMFAChallenge = function(network_uid, app_key, third_party_token = NULL, third_party_credential_id = NULL, device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SendMFAChallengeWithHttpInfo(network_uid, app_key, third_party_token, third_party_credential_id, device_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1881,7 +1757,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Send MFA Challenge
     #'
-    #' @param version 
     #' @param network_uid the third party network provider that has MFA enabled
     #' @param app_key the application key
     #' @param third_party_token (optional) the access token to authenticate with
@@ -1892,7 +1767,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SendMFAChallengeWithHttpInfo = function(version, network_uid, app_key, third_party_token = NULL, third_party_credential_id = NULL, device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SendMFAChallengeWithHttpInfo = function(network_uid, app_key, third_party_token = NULL, third_party_credential_id = NULL, device_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1902,20 +1777,12 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`network_uid`)) {
         stop("Missing required parameter `network_uid`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$SendMFAChallenge, `version` is not nullable")
       }
 
       if (!missing(`network_uid`) && is.null(`network_uid`)) {
@@ -1948,11 +1815,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       query_params[["deviceId"]] <- `device_id`
 
-      local_var_url_path <- "/api/{version}/thirdparty/credential/mfa/send"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/credential/mfa/send"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2013,7 +1876,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Update Credential
     #'
-    #' @param version 
     #' @param network_uid the access provider to authenticate against
     #' @param third_party_id the third party user account id
     #' @param app_key the application key
@@ -2028,8 +1890,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    UpdateCredential = function(version, network_uid, third_party_id, app_key, device_id = NULL, third_party_name = NULL, third_party_token = NULL, response_filters = NULL, meta_data = NULL, third_party_refresh_token = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateCredentialWithHttpInfo(version, network_uid, third_party_id, app_key, device_id, third_party_name, third_party_token, response_filters, meta_data, third_party_refresh_token, data_file = data_file, ..., .parse = .parse)
+    UpdateCredential = function(network_uid, third_party_id, app_key, device_id = NULL, third_party_name = NULL, third_party_token = NULL, response_filters = NULL, meta_data = NULL, third_party_refresh_token = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateCredentialWithHttpInfo(network_uid, third_party_id, app_key, device_id, third_party_name, third_party_token, response_filters, meta_data, third_party_refresh_token, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2044,7 +1906,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Update Credential
     #'
-    #' @param version 
     #' @param network_uid the access provider to authenticate against
     #' @param third_party_id the third party user account id
     #' @param app_key the application key
@@ -2059,7 +1920,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    UpdateCredentialWithHttpInfo = function(version, network_uid, third_party_id, app_key, device_id = NULL, third_party_name = NULL, third_party_token = NULL, response_filters = NULL, meta_data = NULL, third_party_refresh_token = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateCredentialWithHttpInfo = function(network_uid, third_party_id, app_key, device_id = NULL, third_party_name = NULL, third_party_token = NULL, response_filters = NULL, meta_data = NULL, third_party_refresh_token = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2068,10 +1929,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`network_uid`)) {
         stop("Missing required parameter `network_uid`.")
@@ -2083,10 +1940,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$UpdateCredential, `version` is not nullable")
       }
 
       if (!missing(`network_uid`) && is.null(`network_uid`)) {
@@ -2143,11 +1996,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
 
       query_params[["thirdPartyRefreshToken"]] <- `third_party_refresh_token`
 
-      local_var_url_path <- "/api/{version}/thirdparty/credential/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/credential/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2208,7 +2057,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Update Network
     #'
-    #' @param version 
     #' @param account_id The account id making the request
     #' @param network_uid The unique identifier for the third party network defined by Sirqul
     #' @param name (optional) The name of the network
@@ -2232,8 +2080,8 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ThirdPartyNetworkResponse
-    UpdateNetwork = function(version, account_id, network_uid, name = NULL, description = NULL, enable_introspection = NULL, introspection_method = NULL, introspection_url = NULL, introspection_params = NULL, required_root_field = NULL, enable_mfa = NULL, size_mfa = NULL, shelf_life_mfa = NULL, oauth_token_url = NULL, oauth_private_key = NULL, oauth_public_key = NULL, oauth_client_id = NULL, oauth_secret_key = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateNetworkWithHttpInfo(version, account_id, network_uid, name, description, enable_introspection, introspection_method, introspection_url, introspection_params, required_root_field, enable_mfa, size_mfa, shelf_life_mfa, oauth_token_url, oauth_private_key, oauth_public_key, oauth_client_id, oauth_secret_key, body, data_file = data_file, ..., .parse = .parse)
+    UpdateNetwork = function(account_id, network_uid, name = NULL, description = NULL, enable_introspection = NULL, introspection_method = NULL, introspection_url = NULL, introspection_params = NULL, required_root_field = NULL, enable_mfa = NULL, size_mfa = NULL, shelf_life_mfa = NULL, oauth_token_url = NULL, oauth_private_key = NULL, oauth_public_key = NULL, oauth_client_id = NULL, oauth_secret_key = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateNetworkWithHttpInfo(account_id, network_uid, name, description, enable_introspection, introspection_method, introspection_url, introspection_params, required_root_field, enable_mfa, size_mfa, shelf_life_mfa, oauth_token_url, oauth_private_key, oauth_public_key, oauth_client_id, oauth_secret_key, body, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2248,7 +2096,6 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @description
     #' Update Network
     #'
-    #' @param version 
     #' @param account_id The account id making the request
     #' @param network_uid The unique identifier for the third party network defined by Sirqul
     #' @param name (optional) The name of the network
@@ -2272,7 +2119,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ThirdPartyNetworkResponse) with additional information such as HTTP status code, headers
-    UpdateNetworkWithHttpInfo = function(version, account_id, network_uid, name = NULL, description = NULL, enable_introspection = NULL, introspection_method = NULL, introspection_url = NULL, introspection_params = NULL, required_root_field = NULL, enable_mfa = NULL, size_mfa = NULL, shelf_life_mfa = NULL, oauth_token_url = NULL, oauth_private_key = NULL, oauth_public_key = NULL, oauth_client_id = NULL, oauth_secret_key = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateNetworkWithHttpInfo = function(account_id, network_uid, name = NULL, description = NULL, enable_introspection = NULL, introspection_method = NULL, introspection_url = NULL, introspection_params = NULL, required_root_field = NULL, enable_mfa = NULL, size_mfa = NULL, shelf_life_mfa = NULL, oauth_token_url = NULL, oauth_private_key = NULL, oauth_public_key = NULL, oauth_client_id = NULL, oauth_secret_key = NULL, body = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2282,20 +2129,12 @@ ThirdPartyCredentialsApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`network_uid`)) {
         stop("Missing required parameter `network_uid`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling ThirdPartyCredentialsApi$UpdateNetwork, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2410,11 +2249,7 @@ ThirdPartyCredentialsApi <- R6::R6Class(
         local_var_body <- NULL
       }
 
-      local_var_url_path <- "/api/{version}/thirdparty/network/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/thirdparty/network/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

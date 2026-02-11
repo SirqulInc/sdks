@@ -17,7 +17,6 @@
 #' ####################  RegisterLike  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_likable_type <- "likable_type_example" # character | The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 #' var_likable_id <- 56 # integer | The id of the likable object
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
@@ -35,15 +34,14 @@
 #' api_instance <- LikeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RegisterLike(var_version, var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, like = var_like, app = var_app, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$RegisterLike(var_version, var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, like = var_like, app = var_app, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$RegisterLike(var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, like = var_like, app = var_app, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$RegisterLike(var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, permissionable_type = var_permissionable_type, permissionable_id = var_permissionable_id, like = var_like, app = var_app, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  RemoveLike  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_likable_type <- "likable_type_example" # character | The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 #' var_likable_id <- 56 # integer | The id of the likable object
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
@@ -55,15 +53,14 @@
 #' api_instance <- LikeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RemoveLike(var_version, var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$RemoveLike(var_version, var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$RemoveLike(var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$RemoveLike(var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  SearchLikes  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_likable_type <- "likable_type_example" # character | The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 #' var_likable_id <- 56 # integer | The id of the likable object
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
@@ -80,8 +77,8 @@
 #' api_instance <- LikeApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchLikes(var_version, var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, connection_account_ids = var_connection_account_ids, sort_field = var_sort_field, descending = var_descending, updated_since = var_updated_since, updated_before = var_updated_before, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchLikes(var_version, var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, connection_account_ids = var_connection_account_ids, sort_field = var_sort_field, descending = var_descending, updated_since = var_updated_since, updated_before = var_updated_before, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchLikes(var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, connection_account_ids = var_connection_account_ids, sort_field = var_sort_field, descending = var_descending, updated_since = var_updated_since, updated_before = var_updated_before, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchLikes(var_likable_type, var_likable_id, device_id = var_device_id, account_id = var_account_id, connection_account_ids = var_connection_account_ids, sort_field = var_sort_field, descending = var_descending, updated_since = var_updated_since, updated_before = var_updated_before, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
@@ -109,7 +106,6 @@ LikeApi <- R6::R6Class(
     #' @description
     #' Create Like
     #'
-    #' @param version 
     #' @param likable_type The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     #' @param likable_id The id of the likable object
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -127,8 +123,8 @@ LikeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return LikableResponse
-    RegisterLike = function(version, likable_type, likable_id, device_id = NULL, account_id = NULL, permissionable_type = NULL, permissionable_id = NULL, like = NULL, app = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RegisterLikeWithHttpInfo(version, likable_type, likable_id, device_id, account_id, permissionable_type, permissionable_id, like, app, game_type, app_key, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    RegisterLike = function(likable_type, likable_id, device_id = NULL, account_id = NULL, permissionable_type = NULL, permissionable_id = NULL, like = NULL, app = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RegisterLikeWithHttpInfo(likable_type, likable_id, device_id, account_id, permissionable_type, permissionable_id, like, app, game_type, app_key, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -143,7 +139,6 @@ LikeApi <- R6::R6Class(
     #' @description
     #' Create Like
     #'
-    #' @param version 
     #' @param likable_type The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     #' @param likable_id The id of the likable object
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -161,7 +156,7 @@ LikeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (LikableResponse) with additional information such as HTTP status code, headers
-    RegisterLikeWithHttpInfo = function(version, likable_type, likable_id, device_id = NULL, account_id = NULL, permissionable_type = NULL, permissionable_id = NULL, like = NULL, app = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RegisterLikeWithHttpInfo = function(likable_type, likable_id, device_id = NULL, account_id = NULL, permissionable_type = NULL, permissionable_id = NULL, like = NULL, app = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -171,20 +166,12 @@ LikeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`likable_type`)) {
         stop("Missing required parameter `likable_type`.")
       }
 
       if (missing(`likable_id`)) {
         stop("Missing required parameter `likable_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LikeApi$RegisterLike, `version` is not nullable")
       }
 
       if (!missing(`likable_type`) && is.null(`likable_type`)) {
@@ -259,11 +246,7 @@ LikeApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/like"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/like"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -324,7 +307,6 @@ LikeApi <- R6::R6Class(
     #' @description
     #' Delete Like
     #'
-    #' @param version 
     #' @param likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     #' @param likable_id The id of the likable object
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -336,8 +318,8 @@ LikeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return LikableResponse
-    RemoveLike = function(version, likable_type, likable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RemoveLikeWithHttpInfo(version, likable_type, likable_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    RemoveLike = function(likable_type, likable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RemoveLikeWithHttpInfo(likable_type, likable_id, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -352,7 +334,6 @@ LikeApi <- R6::R6Class(
     #' @description
     #' Delete Like
     #'
-    #' @param version 
     #' @param likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     #' @param likable_id The id of the likable object
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -364,7 +345,7 @@ LikeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (LikableResponse) with additional information such as HTTP status code, headers
-    RemoveLikeWithHttpInfo = function(version, likable_type, likable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    RemoveLikeWithHttpInfo = function(likable_type, likable_id, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -374,20 +355,12 @@ LikeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`likable_type`)) {
         stop("Missing required parameter `likable_type`.")
       }
 
       if (missing(`likable_id`)) {
         stop("Missing required parameter `likable_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LikeApi$RemoveLike, `version` is not nullable")
       }
 
       if (!missing(`likable_type`) && is.null(`likable_type`)) {
@@ -426,11 +399,7 @@ LikeApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/like/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/like/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -491,7 +460,6 @@ LikeApi <- R6::R6Class(
     #' @description
     #' Search Likes
     #'
-    #' @param version 
     #' @param likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     #' @param likable_id The id of the likable object
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -508,8 +476,8 @@ LikeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SearchResponse
-    SearchLikes = function(version, likable_type, likable_id, device_id = NULL, account_id = NULL, connection_account_ids = NULL, sort_field = "ID", descending = TRUE, updated_since = NULL, updated_before = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchLikesWithHttpInfo(version, likable_type, likable_id, device_id, account_id, connection_account_ids, sort_field, descending, updated_since, updated_before, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchLikes = function(likable_type, likable_id, device_id = NULL, account_id = NULL, connection_account_ids = NULL, sort_field = "ID", descending = TRUE, updated_since = NULL, updated_before = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchLikesWithHttpInfo(likable_type, likable_id, device_id, account_id, connection_account_ids, sort_field, descending, updated_since, updated_before, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -524,7 +492,6 @@ LikeApi <- R6::R6Class(
     #' @description
     #' Search Likes
     #'
-    #' @param version 
     #' @param likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     #' @param likable_id The id of the likable object
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -541,7 +508,7 @@ LikeApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SearchResponse) with additional information such as HTTP status code, headers
-    SearchLikesWithHttpInfo = function(version, likable_type, likable_id, device_id = NULL, account_id = NULL, connection_account_ids = NULL, sort_field = "ID", descending = TRUE, updated_since = NULL, updated_before = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
+    SearchLikesWithHttpInfo = function(likable_type, likable_id, device_id = NULL, account_id = NULL, connection_account_ids = NULL, sort_field = "ID", descending = TRUE, updated_since = NULL, updated_before = NULL, start = 0, limit = 20, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -551,20 +518,12 @@ LikeApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`likable_type`)) {
         stop("Missing required parameter `likable_type`.")
       }
 
       if (missing(`likable_id`)) {
         stop("Missing required parameter `likable_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling LikeApi$SearchLikes, `version` is not nullable")
       }
 
       if (!missing(`likable_type`) && is.null(`likable_type`)) {
@@ -633,11 +592,7 @@ LikeApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/like/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/like/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

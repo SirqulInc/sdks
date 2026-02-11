@@ -17,7 +17,6 @@
 #' ####################  CreateGame  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user. (Optional)
 #' var_app_key <- "app_key_example" # character | The game application key to save the level for. (Optional)
 #' var_title <- "title_example" # character | Title of the game. (Optional)
@@ -30,15 +29,14 @@
 #' api_instance <- GameApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateGame(var_version, account_id = var_account_id, app_key = var_app_key, title = var_title, description = var_description, meta_data = var_meta_data, pack_ids = var_pack_ids, include_game_data = var_include_game_datadata_file = "result.txt")
-#' result <- api_instance$CreateGame(var_version, account_id = var_account_id, app_key = var_app_key, title = var_title, description = var_description, meta_data = var_meta_data, pack_ids = var_pack_ids, include_game_data = var_include_game_data)
+#' # result <- api_instance$CreateGame(account_id = var_account_id, app_key = var_app_key, title = var_title, description = var_description, meta_data = var_meta_data, pack_ids = var_pack_ids, include_game_data = var_include_game_datadata_file = "result.txt")
+#' result <- api_instance$CreateGame(account_id = var_account_id, app_key = var_app_key, title = var_title, description = var_description, meta_data = var_meta_data, pack_ids = var_pack_ids, include_game_data = var_include_game_data)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteGame  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_game_id <- 56 # integer | the updating game's id.
 #'
@@ -46,15 +44,14 @@
 #' api_instance <- GameApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteGame(var_version, var_account_id, var_game_iddata_file = "result.txt")
-#' result <- api_instance$DeleteGame(var_version, var_account_id, var_game_id)
+#' # result <- api_instance$DeleteGame(var_account_id, var_game_iddata_file = "result.txt")
+#' result <- api_instance$DeleteGame(var_account_id, var_game_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetGame  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_game_id <- 56 # integer | the updating game's id.
 #' var_include_game_data <- "include_game_data_example" # character | If true include the game level data, otherwise don't. default is false. (Optional)
@@ -63,15 +60,14 @@
 #' api_instance <- GameApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetGame(var_version, var_account_id, var_game_id, include_game_data = var_include_game_datadata_file = "result.txt")
-#' result <- api_instance$GetGame(var_version, var_account_id, var_game_id, include_game_data = var_include_game_data)
+#' # result <- api_instance$GetGame(var_account_id, var_game_id, include_game_data = var_include_game_datadata_file = "result.txt")
+#' result <- api_instance$GetGame(var_account_id, var_game_id, include_game_data = var_include_game_data)
 #' dput(result)
 #'
 #'
 #' ####################  SearchGames  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_app_key <- "app_key_example" # character | the application key
 #' var_start <- 56 # integer | Start the result set at some index.
@@ -85,15 +81,14 @@
 #' api_instance <- GameApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchGames(var_version, var_account_id, var_app_key, var_start, var_limit, keyword = var_keyword, app_version = var_app_version, include_game_data = var_include_game_data, include_inactive = var_include_inactivedata_file = "result.txt")
-#' result <- api_instance$SearchGames(var_version, var_account_id, var_app_key, var_start, var_limit, keyword = var_keyword, app_version = var_app_version, include_game_data = var_include_game_data, include_inactive = var_include_inactive)
+#' # result <- api_instance$SearchGames(var_account_id, var_app_key, var_start, var_limit, keyword = var_keyword, app_version = var_app_version, include_game_data = var_include_game_data, include_inactive = var_include_inactivedata_file = "result.txt")
+#' result <- api_instance$SearchGames(var_account_id, var_app_key, var_start, var_limit, keyword = var_keyword, app_version = var_app_version, include_game_data = var_include_game_data, include_inactive = var_include_inactive)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateGame  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user. (Optional)
 #' var_game_id <- 56 # integer | the updating game's id (Optional)
 #' var_app_key <- "app_key_example" # character | The game application key to save the level for. (Optional)
@@ -107,8 +102,8 @@
 #' api_instance <- GameApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateGame(var_version, account_id = var_account_id, game_id = var_game_id, app_key = var_app_key, title = var_title, description = var_description, meta_data = var_meta_data, pack_ids = var_pack_ids, include_game_data = var_include_game_datadata_file = "result.txt")
-#' result <- api_instance$UpdateGame(var_version, account_id = var_account_id, game_id = var_game_id, app_key = var_app_key, title = var_title, description = var_description, meta_data = var_meta_data, pack_ids = var_pack_ids, include_game_data = var_include_game_data)
+#' # result <- api_instance$UpdateGame(account_id = var_account_id, game_id = var_game_id, app_key = var_app_key, title = var_title, description = var_description, meta_data = var_meta_data, pack_ids = var_pack_ids, include_game_data = var_include_game_datadata_file = "result.txt")
+#' result <- api_instance$UpdateGame(account_id = var_account_id, game_id = var_game_id, app_key = var_app_key, title = var_title, description = var_description, meta_data = var_meta_data, pack_ids = var_pack_ids, include_game_data = var_include_game_data)
 #' dput(result)
 #'
 #'
@@ -136,7 +131,6 @@ GameApi <- R6::R6Class(
     #' @description
     #' Create a Game
     #'
-    #' @param version 
     #' @param account_id (optional) The logged in user.
     #' @param app_key (optional) The game application key to save the level for.
     #' @param title (optional) Title of the game.
@@ -149,8 +143,8 @@ GameApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GameResponse
-    CreateGame = function(version, account_id = NULL, app_key = NULL, title = NULL, description = NULL, meta_data = NULL, pack_ids = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateGameWithHttpInfo(version, account_id, app_key, title, description, meta_data, pack_ids, include_game_data, data_file = data_file, ..., .parse = .parse)
+    CreateGame = function(account_id = NULL, app_key = NULL, title = NULL, description = NULL, meta_data = NULL, pack_ids = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateGameWithHttpInfo(account_id, app_key, title, description, meta_data, pack_ids, include_game_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -165,7 +159,6 @@ GameApi <- R6::R6Class(
     #' @description
     #' Create a Game
     #'
-    #' @param version 
     #' @param account_id (optional) The logged in user.
     #' @param app_key (optional) The game application key to save the level for.
     #' @param title (optional) Title of the game.
@@ -178,7 +171,7 @@ GameApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GameResponse) with additional information such as HTTP status code, headers
-    CreateGameWithHttpInfo = function(version, account_id = NULL, app_key = NULL, title = NULL, description = NULL, meta_data = NULL, pack_ids = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateGameWithHttpInfo = function(account_id = NULL, app_key = NULL, title = NULL, description = NULL, meta_data = NULL, pack_ids = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -187,14 +180,6 @@ GameApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameApi$CreateGame, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling GameApi$CreateGame, `account_id` is not nullable")
@@ -238,11 +223,7 @@ GameApi <- R6::R6Class(
 
       query_params[["includeGameData"]] <- `include_game_data`
 
-      local_var_url_path <- "/api/{version}/game/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -303,7 +284,6 @@ GameApi <- R6::R6Class(
     #' @description
     #' Delete a Game
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param game_id the updating game's id.
     #' @param data_file (optional) name of the data file to save the result
@@ -311,8 +291,8 @@ GameApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteGame = function(version, account_id, game_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteGameWithHttpInfo(version, account_id, game_id, data_file = data_file, ..., .parse = .parse)
+    DeleteGame = function(account_id, game_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteGameWithHttpInfo(account_id, game_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -327,7 +307,6 @@ GameApi <- R6::R6Class(
     #' @description
     #' Delete a Game
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param game_id the updating game's id.
     #' @param data_file (optional) name of the data file to save the result
@@ -335,7 +314,7 @@ GameApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteGameWithHttpInfo = function(version, account_id, game_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteGameWithHttpInfo = function(account_id, game_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -345,20 +324,12 @@ GameApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`game_id`)) {
         stop("Missing required parameter `game_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameApi$DeleteGame, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -373,11 +344,7 @@ GameApi <- R6::R6Class(
 
       query_params[["gameId"]] <- `game_id`
 
-      local_var_url_path <- "/api/{version}/game/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -438,7 +405,6 @@ GameApi <- R6::R6Class(
     #' @description
     #' Get a Game by id
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param game_id the updating game's id.
     #' @param include_game_data (optional) If true include the game level data, otherwise don't. default is false.
@@ -447,8 +413,8 @@ GameApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GameResponse
-    GetGame = function(version, account_id, game_id, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetGameWithHttpInfo(version, account_id, game_id, include_game_data, data_file = data_file, ..., .parse = .parse)
+    GetGame = function(account_id, game_id, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetGameWithHttpInfo(account_id, game_id, include_game_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -463,7 +429,6 @@ GameApi <- R6::R6Class(
     #' @description
     #' Get a Game by id
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param game_id the updating game's id.
     #' @param include_game_data (optional) If true include the game level data, otherwise don't. default is false.
@@ -472,7 +437,7 @@ GameApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GameResponse) with additional information such as HTTP status code, headers
-    GetGameWithHttpInfo = function(version, account_id, game_id, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetGameWithHttpInfo = function(account_id, game_id, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -482,20 +447,12 @@ GameApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`game_id`)) {
         stop("Missing required parameter `game_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameApi$GetGame, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -516,11 +473,7 @@ GameApi <- R6::R6Class(
 
       query_params[["includeGameData"]] <- `include_game_data`
 
-      local_var_url_path <- "/api/{version}/game/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -581,7 +534,6 @@ GameApi <- R6::R6Class(
     #' @description
     #' Search a Game
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key the application key
     #' @param start Start the result set at some index.
@@ -595,8 +547,8 @@ GameApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GameResponse
-    SearchGames = function(version, account_id, app_key, start, limit, keyword = NULL, app_version = NULL, include_game_data = NULL, include_inactive = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchGamesWithHttpInfo(version, account_id, app_key, start, limit, keyword, app_version, include_game_data, include_inactive, data_file = data_file, ..., .parse = .parse)
+    SearchGames = function(account_id, app_key, start, limit, keyword = NULL, app_version = NULL, include_game_data = NULL, include_inactive = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchGamesWithHttpInfo(account_id, app_key, start, limit, keyword, app_version, include_game_data, include_inactive, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -611,7 +563,6 @@ GameApi <- R6::R6Class(
     #' @description
     #' Search a Game
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param app_key the application key
     #' @param start Start the result set at some index.
@@ -625,7 +576,7 @@ GameApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GameResponse) with additional information such as HTTP status code, headers
-    SearchGamesWithHttpInfo = function(version, account_id, app_key, start, limit, keyword = NULL, app_version = NULL, include_game_data = NULL, include_inactive = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchGamesWithHttpInfo = function(account_id, app_key, start, limit, keyword = NULL, app_version = NULL, include_game_data = NULL, include_inactive = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -634,10 +585,6 @@ GameApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -653,10 +600,6 @@ GameApi <- R6::R6Class(
 
       if (missing(`limit`)) {
         stop("Missing required parameter `limit`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameApi$SearchGames, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -707,11 +650,7 @@ GameApi <- R6::R6Class(
 
       query_params[["includeInactive"]] <- `include_inactive`
 
-      local_var_url_path <- "/api/{version}/game/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -772,7 +711,6 @@ GameApi <- R6::R6Class(
     #' @description
     #' Update a Game
     #'
-    #' @param version 
     #' @param account_id (optional) The logged in user.
     #' @param game_id (optional) the updating game's id
     #' @param app_key (optional) The game application key to save the level for.
@@ -786,8 +724,8 @@ GameApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GameResponse
-    UpdateGame = function(version, account_id = NULL, game_id = NULL, app_key = NULL, title = NULL, description = NULL, meta_data = NULL, pack_ids = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateGameWithHttpInfo(version, account_id, game_id, app_key, title, description, meta_data, pack_ids, include_game_data, data_file = data_file, ..., .parse = .parse)
+    UpdateGame = function(account_id = NULL, game_id = NULL, app_key = NULL, title = NULL, description = NULL, meta_data = NULL, pack_ids = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateGameWithHttpInfo(account_id, game_id, app_key, title, description, meta_data, pack_ids, include_game_data, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -802,7 +740,6 @@ GameApi <- R6::R6Class(
     #' @description
     #' Update a Game
     #'
-    #' @param version 
     #' @param account_id (optional) The logged in user.
     #' @param game_id (optional) the updating game's id
     #' @param app_key (optional) The game application key to save the level for.
@@ -816,7 +753,7 @@ GameApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GameResponse) with additional information such as HTTP status code, headers
-    UpdateGameWithHttpInfo = function(version, account_id = NULL, game_id = NULL, app_key = NULL, title = NULL, description = NULL, meta_data = NULL, pack_ids = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateGameWithHttpInfo = function(account_id = NULL, game_id = NULL, app_key = NULL, title = NULL, description = NULL, meta_data = NULL, pack_ids = NULL, include_game_data = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -825,14 +762,6 @@ GameApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling GameApi$UpdateGame, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling GameApi$UpdateGame, `account_id` is not nullable")
@@ -882,11 +811,7 @@ GameApi <- R6::R6Class(
 
       query_params[["includeGameData"]] <- `include_game_data`
 
-      local_var_url_path <- "/api/{version}/game/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/game/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

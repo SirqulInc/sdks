@@ -17,7 +17,6 @@
 #' ####################  CreateBillableEntity  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
 #' var_account_id <- 56 # integer | The unique accountId that made the request (either deviceId or accountId must be used) (Optional)
 #' var_name <- "name_example" # character | The name of the entity responsible for billing  (Optional)
@@ -35,15 +34,14 @@
 #' api_instance <- BillableEntityApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateBillableEntity(var_version, device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_keydata_file = "result.txt")
-#' result <- api_instance$CreateBillableEntity(var_version, device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key)
+#' # result <- api_instance$CreateBillableEntity(device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_keydata_file = "result.txt")
+#' result <- api_instance$CreateBillableEntity(device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteBillableEntity  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account used to perform the delete, must have rights to edit the billable entity. (Optional)
 #'
@@ -51,15 +49,14 @@
 #' api_instance <- BillableEntityApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteBillableEntity(var_version, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$DeleteBillableEntity(var_version, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$DeleteBillableEntity(device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$DeleteBillableEntity(device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetBillableEntity  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
 #' var_account_id <- 56 # integer | The unique accountId that made the request (either deviceId or accountId must be used) (Optional)
 #' var_include_counts <- FALSE # character | Determines whether to include the retailer dash board counts into the response (Optional)
@@ -69,15 +66,14 @@
 #' api_instance <- BillableEntityApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetBillableEntity(var_version, device_id = var_device_id, account_id = var_account_id, include_counts = var_include_counts, include_payments = var_include_paymentsdata_file = "result.txt")
-#' result <- api_instance$GetBillableEntity(var_version, device_id = var_device_id, account_id = var_account_id, include_counts = var_include_counts, include_payments = var_include_payments)
+#' # result <- api_instance$GetBillableEntity(device_id = var_device_id, account_id = var_account_id, include_counts = var_include_counts, include_payments = var_include_paymentsdata_file = "result.txt")
+#' result <- api_instance$GetBillableEntity(device_id = var_device_id, account_id = var_account_id, include_counts = var_include_counts, include_payments = var_include_payments)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateBillableEntity  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The unique device identifier that made the request (either deviceId or accountId must be used) (Optional)
 #' var_account_id <- 56 # integer | The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (Optional)
 #' var_name <- "name_example" # character | The name of the entity responsible for billing  (Optional)
@@ -95,8 +91,8 @@
 #' api_instance <- BillableEntityApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateBillableEntity(var_version, device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_keydata_file = "result.txt")
-#' result <- api_instance$UpdateBillableEntity(var_version, device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key)
+#' # result <- api_instance$UpdateBillableEntity(device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_keydata_file = "result.txt")
+#' result <- api_instance$UpdateBillableEntity(device_id = var_device_id, account_id = var_account_id, name = var_name, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, postal_code = var_postal_code, business_phone = var_business_phone, business_phone_ext = var_business_phone_ext, authorize_net_api_key = var_authorize_net_api_key, authorize_net_transaction_key = var_authorize_net_transaction_key)
 #' dput(result)
 #'
 #'
@@ -124,7 +120,6 @@ BillableEntityApi <- R6::R6Class(
     #' @description
     #' Create Billable
     #'
-    #' @param version 
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
     #' @param name (optional) The name of the entity responsible for billing 
@@ -142,8 +137,8 @@ BillableEntityApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BillableEntityResponse
-    CreateBillableEntity = function(version, device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, business_phone = NULL, business_phone_ext = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateBillableEntityWithHttpInfo(version, device_id, account_id, name, street_address, street_address2, city, state, postal_code, business_phone, business_phone_ext, authorize_net_api_key, authorize_net_transaction_key, data_file = data_file, ..., .parse = .parse)
+    CreateBillableEntity = function(device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, business_phone = NULL, business_phone_ext = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateBillableEntityWithHttpInfo(device_id, account_id, name, street_address, street_address2, city, state, postal_code, business_phone, business_phone_ext, authorize_net_api_key, authorize_net_transaction_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -158,7 +153,6 @@ BillableEntityApi <- R6::R6Class(
     #' @description
     #' Create Billable
     #'
-    #' @param version 
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
     #' @param name (optional) The name of the entity responsible for billing 
@@ -176,7 +170,7 @@ BillableEntityApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BillableEntityResponse) with additional information such as HTTP status code, headers
-    CreateBillableEntityWithHttpInfo = function(version, device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, business_phone = NULL, business_phone_ext = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateBillableEntityWithHttpInfo = function(device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, business_phone = NULL, business_phone_ext = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -185,14 +179,6 @@ BillableEntityApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BillableEntityApi$CreateBillableEntity, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling BillableEntityApi$CreateBillableEntity, `device_id` is not nullable")
@@ -266,11 +252,7 @@ BillableEntityApi <- R6::R6Class(
 
       query_params[["authorizeNetTransactionKey"]] <- `authorize_net_transaction_key`
 
-      local_var_url_path <- "/api/{version}/billable/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/billable/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -331,7 +313,6 @@ BillableEntityApi <- R6::R6Class(
     #' @description
     #' Delete Billable
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the billable entity.
     #' @param data_file (optional) name of the data file to save the result
@@ -339,8 +320,8 @@ BillableEntityApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteBillableEntity = function(version, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteBillableEntityWithHttpInfo(version, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    DeleteBillableEntity = function(device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteBillableEntityWithHttpInfo(device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -355,7 +336,6 @@ BillableEntityApi <- R6::R6Class(
     #' @description
     #' Delete Billable
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account used to perform the delete, must have rights to edit the billable entity.
     #' @param data_file (optional) name of the data file to save the result
@@ -363,7 +343,7 @@ BillableEntityApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteBillableEntityWithHttpInfo = function(version, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    DeleteBillableEntityWithHttpInfo = function(device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -372,14 +352,6 @@ BillableEntityApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BillableEntityApi$DeleteBillableEntity, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling BillableEntityApi$DeleteBillableEntity, `device_id` is not nullable")
@@ -393,11 +365,7 @@ BillableEntityApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/billable/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/billable/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -458,7 +426,6 @@ BillableEntityApi <- R6::R6Class(
     #' @description
     #' Get Billable
     #'
-    #' @param version 
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
     #' @param include_counts (optional) Determines whether to include the retailer dash board counts into the response (default value: FALSE)
@@ -468,8 +435,8 @@ BillableEntityApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BillableEntityResponse
-    GetBillableEntity = function(version, device_id = NULL, account_id = NULL, include_counts = FALSE, include_payments = TRUE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetBillableEntityWithHttpInfo(version, device_id, account_id, include_counts, include_payments, data_file = data_file, ..., .parse = .parse)
+    GetBillableEntity = function(device_id = NULL, account_id = NULL, include_counts = FALSE, include_payments = TRUE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetBillableEntityWithHttpInfo(device_id, account_id, include_counts, include_payments, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -484,7 +451,6 @@ BillableEntityApi <- R6::R6Class(
     #' @description
     #' Get Billable
     #'
-    #' @param version 
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used)
     #' @param include_counts (optional) Determines whether to include the retailer dash board counts into the response (default value: FALSE)
@@ -494,7 +460,7 @@ BillableEntityApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BillableEntityResponse) with additional information such as HTTP status code, headers
-    GetBillableEntityWithHttpInfo = function(version, device_id = NULL, account_id = NULL, include_counts = FALSE, include_payments = TRUE, data_file = NULL, ..., .parse = TRUE) {
+    GetBillableEntityWithHttpInfo = function(device_id = NULL, account_id = NULL, include_counts = FALSE, include_payments = TRUE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -503,14 +469,6 @@ BillableEntityApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BillableEntityApi$GetBillableEntity, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling BillableEntityApi$GetBillableEntity, `device_id` is not nullable")
@@ -536,11 +494,7 @@ BillableEntityApi <- R6::R6Class(
 
       query_params[["includePayments"]] <- `include_payments`
 
-      local_var_url_path <- "/api/{version}/billable/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/billable/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -601,7 +555,6 @@ BillableEntityApi <- R6::R6Class(
     #' @description
     #' Update Billable
     #'
-    #' @param version 
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
     #' @param name (optional) The name of the entity responsible for billing 
@@ -619,8 +572,8 @@ BillableEntityApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BillableEntityResponse
-    UpdateBillableEntity = function(version, device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, business_phone = NULL, business_phone_ext = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateBillableEntityWithHttpInfo(version, device_id, account_id, name, street_address, street_address2, city, state, postal_code, business_phone, business_phone_ext, authorize_net_api_key, authorize_net_transaction_key, data_file = data_file, ..., .parse = .parse)
+    UpdateBillableEntity = function(device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, business_phone = NULL, business_phone_ext = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateBillableEntityWithHttpInfo(device_id, account_id, name, street_address, street_address2, city, state, postal_code, business_phone, business_phone_ext, authorize_net_api_key, authorize_net_transaction_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -635,7 +588,6 @@ BillableEntityApi <- R6::R6Class(
     #' @description
     #' Update Billable
     #'
-    #' @param version 
     #' @param device_id (optional) The unique device identifier that made the request (either deviceId or accountId must be used)
     #' @param account_id (optional) The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
     #' @param name (optional) The name of the entity responsible for billing 
@@ -653,7 +605,7 @@ BillableEntityApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BillableEntityResponse) with additional information such as HTTP status code, headers
-    UpdateBillableEntityWithHttpInfo = function(version, device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, business_phone = NULL, business_phone_ext = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateBillableEntityWithHttpInfo = function(device_id = NULL, account_id = NULL, name = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, postal_code = NULL, business_phone = NULL, business_phone_ext = NULL, authorize_net_api_key = NULL, authorize_net_transaction_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -662,14 +614,6 @@ BillableEntityApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling BillableEntityApi$UpdateBillableEntity, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling BillableEntityApi$UpdateBillableEntity, `device_id` is not nullable")
@@ -743,11 +687,7 @@ BillableEntityApi <- R6::R6Class(
 
       query_params[["authorizeNetTransactionKey"]] <- `authorize_net_transaction_key`
 
-      local_var_url_path <- "/api/{version}/billable/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/billable/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

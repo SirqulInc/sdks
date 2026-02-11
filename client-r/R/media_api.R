@@ -17,7 +17,6 @@
 #' ####################  CreateMedia  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the logged in user
 #' var_title <- "title_example" # character | The title (255 char limit)
 #' var_barcode_type <- "barcode_type_example" # character | The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -80,15 +79,14 @@
 #' api_instance <- MediaApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateMedia(var_version, var_account_id, var_title, var_barcode_type, var_no_expiration, var_available_limit, var_available_limit_per_user, var_added_limit, var_view_limit, var_max_prints, var_ticket_price, var_full_price, var_discount_price, var_special_offer_type, var_offer_visibility, var_active, retailer_location_ids = var_retailer_location_ids, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, ticket_price_type = var_ticket_price_type, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, category_ids = var_category_ids, filter_ids = var_filter_ids, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, parental_rating = var_parental_rating, availability_date = var_availability_date, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, availability = var_availability, availability_summary = var_availability_summarydata_file = "result.txt")
-#' result <- api_instance$CreateMedia(var_version, var_account_id, var_title, var_barcode_type, var_no_expiration, var_available_limit, var_available_limit_per_user, var_added_limit, var_view_limit, var_max_prints, var_ticket_price, var_full_price, var_discount_price, var_special_offer_type, var_offer_visibility, var_active, retailer_location_ids = var_retailer_location_ids, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, ticket_price_type = var_ticket_price_type, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, category_ids = var_category_ids, filter_ids = var_filter_ids, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, parental_rating = var_parental_rating, availability_date = var_availability_date, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, availability = var_availability, availability_summary = var_availability_summary)
+#' # result <- api_instance$CreateMedia(var_account_id, var_title, var_barcode_type, var_no_expiration, var_available_limit, var_available_limit_per_user, var_added_limit, var_view_limit, var_max_prints, var_ticket_price, var_full_price, var_discount_price, var_special_offer_type, var_offer_visibility, var_active, retailer_location_ids = var_retailer_location_ids, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, ticket_price_type = var_ticket_price_type, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, category_ids = var_category_ids, filter_ids = var_filter_ids, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, parental_rating = var_parental_rating, availability_date = var_availability_date, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, availability = var_availability, availability_summary = var_availability_summarydata_file = "result.txt")
+#' result <- api_instance$CreateMedia(var_account_id, var_title, var_barcode_type, var_no_expiration, var_available_limit, var_available_limit_per_user, var_added_limit, var_view_limit, var_max_prints, var_ticket_price, var_full_price, var_discount_price, var_special_offer_type, var_offer_visibility, var_active, retailer_location_ids = var_retailer_location_ids, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, ticket_price_type = var_ticket_price_type, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, category_ids = var_category_ids, filter_ids = var_filter_ids, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, parental_rating = var_parental_rating, availability_date = var_availability_date, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, availability = var_availability, availability_summary = var_availability_summary)
 #' dput(result)
 #'
 #'
 #' ####################  DeleteMedia  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_media_id <- 56 # integer | the ID of the media to delete
 #'
@@ -96,15 +94,14 @@
 #' api_instance <- MediaApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$DeleteMedia(var_version, var_account_id, var_media_iddata_file = "result.txt")
-#' result <- api_instance$DeleteMedia(var_version, var_account_id, var_media_id)
+#' # result <- api_instance$DeleteMedia(var_account_id, var_media_iddata_file = "result.txt")
+#' result <- api_instance$DeleteMedia(var_account_id, var_media_id)
 #' dput(result)
 #'
 #'
 #' ####################  GetMedia  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the id of the logged in user
 #' var_media_id <- 56 # integer | the id of the media to get
 #'
@@ -112,15 +109,14 @@
 #' api_instance <- MediaApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetMedia(var_version, var_account_id, var_media_iddata_file = "result.txt")
-#' result <- api_instance$GetMedia(var_version, var_account_id, var_media_id)
+#' # result <- api_instance$GetMedia(var_account_id, var_media_iddata_file = "result.txt")
+#' result <- api_instance$GetMedia(var_account_id, var_media_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchMedia  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The logged in user.
 #' var_active_only <- "active_only_example" # character | Return only active results
 #' var_sort_field <- "sort_field_example" # character | The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -135,15 +131,14 @@
 #' api_instance <- MediaApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchMedia(var_version, var_account_id, var_active_only, var_sort_field, var_descending, keyword = var_keyword, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$SearchMedia(var_version, var_account_id, var_active_only, var_sort_field, var_descending, keyword = var_keyword, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, limit = var_limit)
+#' # result <- api_instance$SearchMedia(var_account_id, var_active_only, var_sort_field, var_descending, keyword = var_keyword, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$SearchMedia(var_account_id, var_active_only, var_sort_field, var_descending, keyword = var_keyword, category_ids = var_category_ids, filter_ids = var_filter_ids, start = var_start, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateMedia  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
 #' var_media_id <- 56 # integer | 
 #' var_retailer_location_ids <- "retailer_location_ids_example" # character | Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (Optional)
@@ -208,8 +203,8 @@
 #' api_instance <- MediaApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateMedia(var_version, var_account_id, var_media_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, title = var_title, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, no_expiration = var_no_expiration, available_limit = var_available_limit, available_limit_per_user = var_available_limit_per_user, added_limit = var_added_limit, view_limit = var_view_limit, max_prints = var_max_prints, ticket_price_type = var_ticket_price_type, ticket_price = var_ticket_price, full_price = var_full_price, discount_price = var_discount_price, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, special_offer_type = var_special_offer_type, offer_visibility = var_offer_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, availability_date = var_availability_date, parental_rating = var_parental_rating, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, availability = var_availability, availability_summary = var_availability_summarydata_file = "result.txt")
-#' result <- api_instance$UpdateMedia(var_version, var_account_id, var_media_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, title = var_title, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, no_expiration = var_no_expiration, available_limit = var_available_limit, available_limit_per_user = var_available_limit_per_user, added_limit = var_added_limit, view_limit = var_view_limit, max_prints = var_max_prints, ticket_price_type = var_ticket_price_type, ticket_price = var_ticket_price, full_price = var_full_price, discount_price = var_discount_price, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, special_offer_type = var_special_offer_type, offer_visibility = var_offer_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, availability_date = var_availability_date, parental_rating = var_parental_rating, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, availability = var_availability, availability_summary = var_availability_summary)
+#' # result <- api_instance$UpdateMedia(var_account_id, var_media_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, title = var_title, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, no_expiration = var_no_expiration, available_limit = var_available_limit, available_limit_per_user = var_available_limit_per_user, added_limit = var_added_limit, view_limit = var_view_limit, max_prints = var_max_prints, ticket_price_type = var_ticket_price_type, ticket_price = var_ticket_price, full_price = var_full_price, discount_price = var_discount_price, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, special_offer_type = var_special_offer_type, offer_visibility = var_offer_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, availability_date = var_availability_date, parental_rating = var_parental_rating, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, availability = var_availability, availability_summary = var_availability_summarydata_file = "result.txt")
+#' result <- api_instance$UpdateMedia(var_account_id, var_media_id, retailer_location_ids = var_retailer_location_ids, offer_locations = var_offer_locations, title = var_title, sub_title = var_sub_title, details = var_details, sub_details = var_sub_details, fine_print = var_fine_print, barcode_type = var_barcode_type, barcode_entry = var_barcode_entry, external_redeem_options = var_external_redeem_options, external_url = var_external_url, tickets_reward_type = var_tickets_reward_type, tickets_reward = var_tickets_reward, activated = var_activated, expires = var_expires, no_expiration = var_no_expiration, available_limit = var_available_limit, available_limit_per_user = var_available_limit_per_user, added_limit = var_added_limit, view_limit = var_view_limit, max_prints = var_max_prints, ticket_price_type = var_ticket_price_type, ticket_price = var_ticket_price, full_price = var_full_price, discount_price = var_discount_price, show_remaining = var_show_remaining, show_redeemed = var_show_redeemed, replaced = var_replaced, featured = var_featured, special_offer_type = var_special_offer_type, offer_visibility = var_offer_visibility, category_ids = var_category_ids, filter_ids = var_filter_ids, active = var_active, barcode_asset_id = var_barcode_asset_id, image_asset_id = var_image_asset_id, image_asset_id1 = var_image_asset_id1, image_asset_id2 = var_image_asset_id2, image_asset_id3 = var_image_asset_id3, image_asset_id4 = var_image_asset_id4, image_asset_id5 = var_image_asset_id5, publisher = var_publisher, redeemable_start = var_redeemable_start, redeemable_end = var_redeemable_end, condition_type = var_condition_type, isbn = var_isbn, asin = var_asin, catalog_numbers = var_catalog_numbers, availability_date = var_availability_date, parental_rating = var_parental_rating, media_type = var_media_type, duration = var_duration, author = var_author, release_date = var_release_date, collection_ids = var_collection_ids, availability = var_availability, availability_summary = var_availability_summary)
 #' dput(result)
 #'
 #'
@@ -237,7 +232,6 @@ MediaApi <- R6::R6Class(
     #' @description
     #' Create Media
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param title The title (255 char limit)
     #' @param barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -300,8 +294,8 @@ MediaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MediaOfferResponse
-    CreateMedia = function(version, account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, retailer_location_ids = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, ticket_price_type = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, category_ids = NULL, filter_ids = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, parental_rating = NULL, availability_date = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateMediaWithHttpInfo(version, account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, retailer_location_ids, sub_title, details, sub_details, fine_print, barcode_entry, external_redeem_options, external_url, tickets_reward_type, tickets_reward, activated, expires, ticket_price_type, show_remaining, show_redeemed, replaced, featured, category_ids, filter_ids, barcode_asset_id, image_asset_id, image_asset_id1, image_asset_id2, image_asset_id3, image_asset_id4, image_asset_id5, publisher, redeemable_start, redeemable_end, condition_type, isbn, asin, catalog_numbers, parental_rating, availability_date, media_type, duration, author, release_date, collection_ids, availability, availability_summary, data_file = data_file, ..., .parse = .parse)
+    CreateMedia = function(account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, retailer_location_ids = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, ticket_price_type = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, category_ids = NULL, filter_ids = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, parental_rating = NULL, availability_date = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateMediaWithHttpInfo(account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, retailer_location_ids, sub_title, details, sub_details, fine_print, barcode_entry, external_redeem_options, external_url, tickets_reward_type, tickets_reward, activated, expires, ticket_price_type, show_remaining, show_redeemed, replaced, featured, category_ids, filter_ids, barcode_asset_id, image_asset_id, image_asset_id1, image_asset_id2, image_asset_id3, image_asset_id4, image_asset_id5, publisher, redeemable_start, redeemable_end, condition_type, isbn, asin, catalog_numbers, parental_rating, availability_date, media_type, duration, author, release_date, collection_ids, availability, availability_summary, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -316,7 +310,6 @@ MediaApi <- R6::R6Class(
     #' @description
     #' Create Media
     #'
-    #' @param version 
     #' @param account_id The account id of the logged in user
     #' @param title The title (255 char limit)
     #' @param barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -379,7 +372,7 @@ MediaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MediaOfferResponse) with additional information such as HTTP status code, headers
-    CreateMediaWithHttpInfo = function(version, account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, retailer_location_ids = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, ticket_price_type = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, category_ids = NULL, filter_ids = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, parental_rating = NULL, availability_date = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateMediaWithHttpInfo = function(account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, retailer_location_ids = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, ticket_price_type = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, category_ids = NULL, filter_ids = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, parental_rating = NULL, availability_date = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -388,10 +381,6 @@ MediaApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -451,10 +440,6 @@ MediaApi <- R6::R6Class(
 
       if (missing(`active`)) {
         stop("Missing required parameter `active`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MediaApi$CreateMedia, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -814,11 +799,7 @@ MediaApi <- R6::R6Class(
 
       query_params[["availabilitySummary"]] <- `availability_summary`
 
-      local_var_url_path <- "/api/{version}/media/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/media/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -879,7 +860,6 @@ MediaApi <- R6::R6Class(
     #' @description
     #' Delete Media
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param media_id the ID of the media to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -887,8 +867,8 @@ MediaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    DeleteMedia = function(version, account_id, media_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$DeleteMediaWithHttpInfo(version, account_id, media_id, data_file = data_file, ..., .parse = .parse)
+    DeleteMedia = function(account_id, media_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$DeleteMediaWithHttpInfo(account_id, media_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -903,7 +883,6 @@ MediaApi <- R6::R6Class(
     #' @description
     #' Delete Media
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param media_id the ID of the media to delete
     #' @param data_file (optional) name of the data file to save the result
@@ -911,7 +890,7 @@ MediaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    DeleteMediaWithHttpInfo = function(version, account_id, media_id, data_file = NULL, ..., .parse = TRUE) {
+    DeleteMediaWithHttpInfo = function(account_id, media_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -921,20 +900,12 @@ MediaApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`media_id`)) {
         stop("Missing required parameter `media_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MediaApi$DeleteMedia, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -949,11 +920,7 @@ MediaApi <- R6::R6Class(
 
       query_params[["mediaId"]] <- `media_id`
 
-      local_var_url_path <- "/api/{version}/media/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/media/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1014,7 +981,6 @@ MediaApi <- R6::R6Class(
     #' @description
     #' Media Get
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param media_id the id of the media to get
     #' @param data_file (optional) name of the data file to save the result
@@ -1022,8 +988,8 @@ MediaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MediaOfferResponse
-    GetMedia = function(version, account_id, media_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetMediaWithHttpInfo(version, account_id, media_id, data_file = data_file, ..., .parse = .parse)
+    GetMedia = function(account_id, media_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetMediaWithHttpInfo(account_id, media_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1038,7 +1004,6 @@ MediaApi <- R6::R6Class(
     #' @description
     #' Media Get
     #'
-    #' @param version 
     #' @param account_id the id of the logged in user
     #' @param media_id the id of the media to get
     #' @param data_file (optional) name of the data file to save the result
@@ -1046,7 +1011,7 @@ MediaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MediaOfferResponse) with additional information such as HTTP status code, headers
-    GetMediaWithHttpInfo = function(version, account_id, media_id, data_file = NULL, ..., .parse = TRUE) {
+    GetMediaWithHttpInfo = function(account_id, media_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1056,20 +1021,12 @@ MediaApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`media_id`)) {
         stop("Missing required parameter `media_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MediaApi$GetMedia, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1084,11 +1041,7 @@ MediaApi <- R6::R6Class(
 
       query_params[["mediaId"]] <- `media_id`
 
-      local_var_url_path <- "/api/{version}/media/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/media/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1149,7 +1102,6 @@ MediaApi <- R6::R6Class(
     #' @description
     #' Search Media
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param active_only Return only active results
     #' @param sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -1164,8 +1116,8 @@ MediaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[MediaOfferResponse]
-    SearchMedia = function(version, account_id, active_only, sort_field, descending, keyword = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchMediaWithHttpInfo(version, account_id, active_only, sort_field, descending, keyword, category_ids, filter_ids, start, limit, data_file = data_file, ..., .parse = .parse)
+    SearchMedia = function(account_id, active_only, sort_field, descending, keyword = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchMediaWithHttpInfo(account_id, active_only, sort_field, descending, keyword, category_ids, filter_ids, start, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1180,7 +1132,6 @@ MediaApi <- R6::R6Class(
     #' @description
     #' Search Media
     #'
-    #' @param version 
     #' @param account_id The logged in user.
     #' @param active_only Return only active results
     #' @param sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -1195,7 +1146,7 @@ MediaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[MediaOfferResponse]) with additional information such as HTTP status code, headers
-    SearchMediaWithHttpInfo = function(version, account_id, active_only, sort_field, descending, keyword = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SearchMediaWithHttpInfo = function(account_id, active_only, sort_field, descending, keyword = NULL, category_ids = NULL, filter_ids = NULL, start = NULL, limit = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1204,10 +1155,6 @@ MediaApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1223,10 +1170,6 @@ MediaApi <- R6::R6Class(
 
       if (missing(`descending`)) {
         stop("Missing required parameter `descending`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MediaApi$SearchMedia, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1286,11 +1229,7 @@ MediaApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/media/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/media/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1351,7 +1290,6 @@ MediaApi <- R6::R6Class(
     #' @description
     #' Update Media
     #'
-    #' @param version 
     #' @param account_id The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
     #' @param media_id 
     #' @param retailer_location_ids (optional) Comma separated list of retailer location ids. This will assign the offer to these retailer locations.
@@ -1416,8 +1354,8 @@ MediaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MediaOfferResponse
-    UpdateMedia = function(version, account_id, media_id, retailer_location_ids = NULL, offer_locations = NULL, title = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_type = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, no_expiration = NULL, available_limit = NULL, available_limit_per_user = NULL, added_limit = NULL, view_limit = NULL, max_prints = NULL, ticket_price_type = NULL, ticket_price = NULL, full_price = NULL, discount_price = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, special_offer_type = NULL, offer_visibility = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, availability_date = NULL, parental_rating = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateMediaWithHttpInfo(version, account_id, media_id, retailer_location_ids, offer_locations, title, sub_title, details, sub_details, fine_print, barcode_type, barcode_entry, external_redeem_options, external_url, tickets_reward_type, tickets_reward, activated, expires, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price_type, ticket_price, full_price, discount_price, show_remaining, show_redeemed, replaced, featured, special_offer_type, offer_visibility, category_ids, filter_ids, active, barcode_asset_id, image_asset_id, image_asset_id1, image_asset_id2, image_asset_id3, image_asset_id4, image_asset_id5, publisher, redeemable_start, redeemable_end, condition_type, isbn, asin, catalog_numbers, availability_date, parental_rating, media_type, duration, author, release_date, collection_ids, availability, availability_summary, data_file = data_file, ..., .parse = .parse)
+    UpdateMedia = function(account_id, media_id, retailer_location_ids = NULL, offer_locations = NULL, title = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_type = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, no_expiration = NULL, available_limit = NULL, available_limit_per_user = NULL, added_limit = NULL, view_limit = NULL, max_prints = NULL, ticket_price_type = NULL, ticket_price = NULL, full_price = NULL, discount_price = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, special_offer_type = NULL, offer_visibility = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, availability_date = NULL, parental_rating = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateMediaWithHttpInfo(account_id, media_id, retailer_location_ids, offer_locations, title, sub_title, details, sub_details, fine_print, barcode_type, barcode_entry, external_redeem_options, external_url, tickets_reward_type, tickets_reward, activated, expires, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price_type, ticket_price, full_price, discount_price, show_remaining, show_redeemed, replaced, featured, special_offer_type, offer_visibility, category_ids, filter_ids, active, barcode_asset_id, image_asset_id, image_asset_id1, image_asset_id2, image_asset_id3, image_asset_id4, image_asset_id5, publisher, redeemable_start, redeemable_end, condition_type, isbn, asin, catalog_numbers, availability_date, parental_rating, media_type, duration, author, release_date, collection_ids, availability, availability_summary, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1432,7 +1370,6 @@ MediaApi <- R6::R6Class(
     #' @description
     #' Update Media
     #'
-    #' @param version 
     #' @param account_id The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
     #' @param media_id 
     #' @param retailer_location_ids (optional) Comma separated list of retailer location ids. This will assign the offer to these retailer locations.
@@ -1497,7 +1434,7 @@ MediaApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MediaOfferResponse) with additional information such as HTTP status code, headers
-    UpdateMediaWithHttpInfo = function(version, account_id, media_id, retailer_location_ids = NULL, offer_locations = NULL, title = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_type = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, no_expiration = NULL, available_limit = NULL, available_limit_per_user = NULL, added_limit = NULL, view_limit = NULL, max_prints = NULL, ticket_price_type = NULL, ticket_price = NULL, full_price = NULL, discount_price = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, special_offer_type = NULL, offer_visibility = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, availability_date = NULL, parental_rating = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateMediaWithHttpInfo = function(account_id, media_id, retailer_location_ids = NULL, offer_locations = NULL, title = NULL, sub_title = NULL, details = NULL, sub_details = NULL, fine_print = NULL, barcode_type = NULL, barcode_entry = NULL, external_redeem_options = NULL, external_url = NULL, tickets_reward_type = NULL, tickets_reward = NULL, activated = NULL, expires = NULL, no_expiration = NULL, available_limit = NULL, available_limit_per_user = NULL, added_limit = NULL, view_limit = NULL, max_prints = NULL, ticket_price_type = NULL, ticket_price = NULL, full_price = NULL, discount_price = NULL, show_remaining = NULL, show_redeemed = NULL, replaced = NULL, featured = NULL, special_offer_type = NULL, offer_visibility = NULL, category_ids = NULL, filter_ids = NULL, active = NULL, barcode_asset_id = NULL, image_asset_id = NULL, image_asset_id1 = NULL, image_asset_id2 = NULL, image_asset_id3 = NULL, image_asset_id4 = NULL, image_asset_id5 = NULL, publisher = NULL, redeemable_start = NULL, redeemable_end = NULL, condition_type = NULL, isbn = NULL, asin = NULL, catalog_numbers = NULL, availability_date = NULL, parental_rating = NULL, media_type = NULL, duration = NULL, author = NULL, release_date = NULL, collection_ids = NULL, availability = NULL, availability_summary = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1507,20 +1444,12 @@ MediaApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`media_id`)) {
         stop("Missing required parameter `media_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling MediaApi$UpdateMedia, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1892,11 +1821,7 @@ MediaApi <- R6::R6Class(
 
       query_params[["availabilitySummary"]] <- `availability_summary`
 
-      local_var_url_path <- "/api/{version}/media/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/media/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")

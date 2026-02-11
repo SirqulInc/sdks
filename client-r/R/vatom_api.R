@@ -17,7 +17,6 @@
 #' ####################  CreateFollowing  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -25,13 +24,12 @@
 #' #Create following
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$CreateFollowing(var_version, var_account_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$CreateFollowing(var_account_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  CreateSpace  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters
@@ -40,13 +38,12 @@
 #' #Create Vatom Space
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$CreateSpace(var_version, var_account_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$CreateSpace(var_account_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  CreateVatomEvent  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters
@@ -55,13 +52,12 @@
 #' #Create Vatom Event
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$CreateVatomEvent(var_version, var_account_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$CreateVatomEvent(var_account_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  DeleteFollowing  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_rels_key <- "vatom_rels_key_example" # character | Vatom Rels Key
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -69,13 +65,12 @@
 #' #Delete following
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$DeleteFollowing(var_version, var_account_id, var_vatom_rels_key, return_raw_response = var_return_raw_response)
+#' api_instance$DeleteFollowing(var_account_id, var_vatom_rels_key, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  DeletePointsBalance  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_campaign_id <- "vatom_campaign_id_example" # character | Vatom Campaign Id
@@ -84,13 +79,12 @@
 #' #Reset All Points Balance
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$DeletePointsBalance(var_version, var_account_id, var_app_key, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
+#' api_instance$DeletePointsBalance(var_account_id, var_app_key, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  DeleteSpace  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_space_id <- "vatom_space_id_example" # character | Vatom Space Id
@@ -99,13 +93,12 @@
 #' #Delete Vatom Space
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$DeleteSpace(var_version, var_account_id, var_app_key, var_vatom_space_id, return_raw_response = var_return_raw_response)
+#' api_instance$DeleteSpace(var_account_id, var_app_key, var_vatom_space_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  DeleteVatomEvent  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_event_id <- "vatom_event_id_example" # character | Vatom Event Id
@@ -114,13 +107,12 @@
 #' #Delete Vatom Event
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$DeleteVatomEvent(var_version, var_account_id, var_app_key, var_vatom_event_id, return_raw_response = var_return_raw_response)
+#' api_instance$DeleteVatomEvent(var_account_id, var_app_key, var_vatom_event_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  DeleteVatomNFT  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_id <- "vatom_id_example" # character | Vatom NFT Id
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -128,13 +120,12 @@
 #' #Delete Vatom NFT
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$DeleteVatomNFT(var_version, var_account_id, var_vatom_id, return_raw_response = var_return_raw_response)
+#' api_instance$DeleteVatomNFT(var_account_id, var_vatom_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  ExecuteActionOnNFT  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_id <- "vatom_id_example" # character | Vatom NFT Id
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters
@@ -143,13 +134,12 @@
 #' #Execute Action on NFT
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$ExecuteActionOnNFT(var_version, var_account_id, var_vatom_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$ExecuteActionOnNFT(var_account_id, var_vatom_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GeomapSearch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -157,13 +147,12 @@
 #' #Search Vatom Geo Map
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GeomapSearch(var_version, var_account_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$GeomapSearch(var_account_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetBusinessBehaviors  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -171,13 +160,12 @@
 #' #Get Vatom Business Behaviors
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetBusinessBehaviors(var_version, var_account_id, var_app_key, return_raw_response = var_return_raw_response)
+#' api_instance$GetBusinessBehaviors(var_account_id, var_app_key, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetBusinessCoinsBalance  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -185,26 +173,24 @@
 #' #Get the coins for a Business
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetBusinessCoinsBalance(var_version, var_account_id, var_app_key, return_raw_response = var_return_raw_response)
+#' api_instance$GetBusinessCoinsBalance(var_account_id, var_app_key, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetBusinessIds  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
 #'
 #' #Get the user business ids
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetBusinessIds(var_version, var_account_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetBusinessIds(var_account_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetBusinessInfo  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters (Optional)
@@ -213,13 +199,12 @@
 #' #Get Vatom Business Info
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetBusinessInfo(var_version, var_account_id, var_app_key, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$GetBusinessInfo(var_account_id, var_app_key, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetBusinessUsers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -227,13 +212,12 @@
 #' #Get Vatom Business Users
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetBusinessUsers(var_version, var_account_id, var_app_key, return_raw_response = var_return_raw_response)
+#' api_instance$GetBusinessUsers(var_account_id, var_app_key, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetCampaignGroupEntities  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_campaign_id <- "vatom_campaign_id_example" # character | Vatom Campaign Id
@@ -242,13 +226,12 @@
 #' #Get Campaign Group Entities
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetCampaignGroupEntities(var_version, var_account_id, var_app_key, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetCampaignGroupEntities(var_account_id, var_app_key, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetCampaignGroupRules  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_campaign_id <- "vatom_campaign_id_example" # character | Vatom Campaign Id
@@ -257,13 +240,12 @@
 #' #Get Campaign Group Rules
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetCampaignGroupRules(var_version, var_account_id, var_app_key, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetCampaignGroupRules(var_account_id, var_app_key, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetCampaignGroupStats  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_campaign_id <- "vatom_campaign_id_example" # character | Vatom Campaign Id
@@ -272,13 +254,12 @@
 #' #Get Campaign Group Stats
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetCampaignGroupStats(var_version, var_account_id, var_app_key, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetCampaignGroupStats(var_account_id, var_app_key, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetCampaignInfo  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_campaign_id <- "vatom_campaign_id_example" # character | Vatom Campaign Id
@@ -287,13 +268,12 @@
 #' #Get Campaign Info
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetCampaignInfo(var_version, var_account_id, var_app_key, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetCampaignInfo(var_account_id, var_app_key, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetEventGuestList  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_event_id <- "vatom_event_id_example" # character | Vatom Event Id
@@ -302,13 +282,12 @@
 #' #Get Vatom Event Guest List
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetEventGuestList(var_version, var_account_id, var_app_key, var_vatom_event_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetEventGuestList(var_account_id, var_app_key, var_vatom_event_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetInventory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -316,26 +295,24 @@
 #' #Get Vatom User's Inventory
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetInventory(var_version, var_account_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$GetInventory(var_account_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetMyFollowing  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
 #'
 #' #Get following
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetMyFollowing(var_version, var_account_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetMyFollowing(var_account_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetPointsBalance  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_vatom_campaign_id <- "vatom_campaign_id_example" # character | Vatom Campaign Id
@@ -344,13 +321,12 @@
 #' #Get Points Balance
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetPointsBalance(var_version, var_account_id, var_vatom_user_id, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetPointsBalance(var_account_id, var_vatom_user_id, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetPointsBalanceAsBusiness  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
@@ -360,13 +336,12 @@
 #' #Get Points Balance as Business
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetPointsBalanceAsBusiness(var_version, var_account_id, var_app_key, var_vatom_user_id, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetPointsBalanceAsBusiness(var_account_id, var_app_key, var_vatom_user_id, var_vatom_campaign_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetSpace  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_space_id <- "vatom_space_id_example" # character | Vatom Space Id
@@ -375,13 +350,12 @@
 #' #Get Vatom Space
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetSpace(var_version, var_account_id, var_app_key, var_vatom_space_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetSpace(var_account_id, var_app_key, var_vatom_space_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetUserCoinsAsBusiness  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
@@ -390,13 +364,12 @@
 #' #Get the coins for a user (as a Business)
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetUserCoinsAsBusiness(var_version, var_account_id, var_vatom_user_id, var_app_key, return_raw_response = var_return_raw_response)
+#' api_instance$GetUserCoinsAsBusiness(var_account_id, var_vatom_user_id, var_app_key, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetUserCoinsBalance  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters (Optional)
@@ -405,13 +378,12 @@
 #' #Gets the coins balance for a Vatom User
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetUserCoinsBalance(var_version, var_account_id, var_vatom_user_id, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$GetUserCoinsBalance(var_account_id, var_vatom_user_id, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetUserFollowers  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -419,13 +391,12 @@
 #' #Get user followers
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetUserFollowers(var_version, var_account_id, var_vatom_user_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetUserFollowers(var_account_id, var_vatom_user_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetUserFollowing  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -433,13 +404,12 @@
 #' #Get user following
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetUserFollowing(var_version, var_account_id, var_vatom_user_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetUserFollowing(var_account_id, var_vatom_user_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetUserInfo  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -447,26 +417,24 @@
 #' #Get User Info
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetUserInfo(var_version, var_account_id, var_vatom_user_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetUserInfo(var_account_id, var_vatom_user_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetUserProfile  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
 #'
 #' #Get Vatom User Profile
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetUserProfile(var_version, var_account_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetUserProfile(var_account_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetVatomEvent  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_event_id <- "vatom_event_id_example" # character | Vatom Event Id
@@ -475,13 +443,12 @@
 #' #Get Vatom Event
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetVatomEvent(var_version, var_account_id, var_app_key, var_vatom_event_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetVatomEvent(var_account_id, var_app_key, var_vatom_event_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  GetVatomNFT  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_id <- "vatom_id_example" # character | Vatom NFT Id
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -489,13 +456,12 @@
 #' #Get Vatom NFT Details
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$GetVatomNFT(var_version, var_account_id, var_vatom_id, return_raw_response = var_return_raw_response)
+#' api_instance$GetVatomNFT(var_account_id, var_vatom_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  ListCommunities  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters (Optional)
@@ -504,13 +470,12 @@
 #' #List Vatom Communities
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$ListCommunities(var_version, var_account_id, var_app_key, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$ListCommunities(var_account_id, var_app_key, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  ListEvents  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters (Optional)
@@ -519,13 +484,12 @@
 #' #List Vatom Events
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$ListEvents(var_version, var_account_id, var_app_key, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$ListEvents(var_account_id, var_app_key, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  ListSpaces  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters (Optional)
@@ -534,13 +498,12 @@
 #' #List Vatom Spaces
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$ListSpaces(var_version, var_account_id, var_app_key, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$ListSpaces(var_account_id, var_app_key, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  ListUserCoinTransactions  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters (Optional)
@@ -549,13 +512,12 @@
 #' #List Coin Transactions for a Vatom User
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$ListUserCoinTransactions(var_version, var_account_id, var_vatom_user_id, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$ListUserCoinTransactions(var_account_id, var_vatom_user_id, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  ListUserCoinTransactionsAsBusiness  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
@@ -565,13 +527,12 @@
 #' #List coin transactions for a user (as a Business)
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$ListUserCoinTransactionsAsBusiness(var_version, var_account_id, var_vatom_user_id, var_app_key, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$ListUserCoinTransactionsAsBusiness(var_account_id, var_vatom_user_id, var_app_key, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  PerformActionOnNFT  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_id <- "vatom_id_example" # character | Vatom NFT Id
 #' var_vatom_action <- "vatom_action_example" # character | Vatom Action
@@ -581,13 +542,12 @@
 #' #Perform Action on NFT
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$PerformActionOnNFT(var_version, var_account_id, var_vatom_id, var_vatom_action, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$PerformActionOnNFT(var_account_id, var_vatom_id, var_vatom_action, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  RedeemNFT  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters
@@ -596,13 +556,12 @@
 #' #Redeem NFT
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$RedeemNFT(var_version, var_account_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$RedeemNFT(var_account_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  RedeemUserCoinsAsBusiness  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
@@ -612,13 +571,12 @@
 #' #Redeem the coins for a user (as a Business)
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$RedeemUserCoinsAsBusiness(var_version, var_account_id, var_vatom_user_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$RedeemUserCoinsAsBusiness(var_account_id, var_vatom_user_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  SearchBusinesses  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters (Optional)
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -626,13 +584,12 @@
 #' #Search for Vatom Businesses
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$SearchBusinesses(var_version, var_account_id, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$SearchBusinesses(var_account_id, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  SearchCampaignGroups  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -640,26 +597,24 @@
 #' #Search Campaign Groups
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$SearchCampaignGroups(var_version, var_account_id, var_app_key, return_raw_response = var_return_raw_response)
+#' api_instance$SearchCampaignGroups(var_account_id, var_app_key, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  SearchIdentities  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
 #'
 #' #Search User Identities
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$SearchIdentities(var_version, var_account_id, return_raw_response = var_return_raw_response)
+#' api_instance$SearchIdentities(var_account_id, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  SearchInventory  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters (Optional)
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -667,13 +622,12 @@
 #' #Search Vatom User's Inventory
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$SearchInventory(var_version, var_account_id, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$SearchInventory(var_account_id, vatom_parameters = var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  SendNFT  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_campaign_id <- "vatom_campaign_id_example" # character | Vatom Campaign Id
@@ -683,13 +637,12 @@
 #' #Send NFT
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$SendNFT(var_version, var_account_id, var_app_key, var_vatom_campaign_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$SendNFT(var_account_id, var_app_key, var_vatom_campaign_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  SetPointsBalanceAsBusiness  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
@@ -700,13 +653,12 @@
 #' #Set Points Balance as Business
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$SetPointsBalanceAsBusiness(var_version, var_account_id, var_app_key, var_vatom_user_id, var_vatom_campaign_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$SetPointsBalanceAsBusiness(var_account_id, var_app_key, var_vatom_user_id, var_vatom_campaign_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  TransferUserCoins  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters
@@ -715,13 +667,12 @@
 #' #Transfer coins from Vatom Users
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$TransferUserCoins(var_version, var_account_id, var_vatom_user_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$TransferUserCoins(var_account_id, var_vatom_user_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  UpdateBusinessCoins  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters
@@ -730,13 +681,12 @@
 #' #Fund coins for a Business
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$UpdateBusinessCoins(var_version, var_account_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$UpdateBusinessCoins(var_account_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  UpdateEventGuestList  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_event_id <- "vatom_event_id_example" # character | Vatom Event Id
@@ -746,13 +696,12 @@
 #' #Update Vatom Event Guest List
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$UpdateEventGuestList(var_version, var_account_id, var_app_key, var_vatom_event_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$UpdateEventGuestList(var_account_id, var_app_key, var_vatom_event_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  UpdateSpace  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_space_id <- "vatom_space_id_example" # character | Vatom Space Id
@@ -762,13 +711,12 @@
 #' #Update Vatom Space
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$UpdateSpace(var_version, var_account_id, var_app_key, var_vatom_space_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$UpdateSpace(var_account_id, var_app_key, var_vatom_space_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  UpdateUserCoinsAsBusiness  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_user_id <- "vatom_user_id_example" # character | Vatom User Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
@@ -778,13 +726,12 @@
 #' #Update the coins for a user (as a Business)
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$UpdateUserCoinsAsBusiness(var_version, var_account_id, var_vatom_user_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$UpdateUserCoinsAsBusiness(var_account_id, var_vatom_user_id, var_app_key, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  UpdateUserProfile  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_vatom_parameters <- "vatom_parameters_example" # character | Vatom Parameters
 #' var_return_raw_response <- "return_raw_response_example" # character | Return raw response (Optional)
@@ -792,13 +739,12 @@
 #' #Update Vatom User Profile
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$UpdateUserProfile(var_version, var_account_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$UpdateUserProfile(var_account_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' ####################  UpdateVatomEvent  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | Sirqul Account Id
 #' var_app_key <- "app_key_example" # character | Sirqul Application Key
 #' var_vatom_event_id <- "vatom_event_id_example" # character | Vatom Event Id
@@ -808,7 +754,7 @@
 #' #Update Vatom Event
 #' api_instance <- VatomApi$new()
 #'
-#' api_instance$UpdateVatomEvent(var_version, var_account_id, var_app_key, var_vatom_event_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
+#' api_instance$UpdateVatomEvent(var_account_id, var_app_key, var_vatom_event_id, var_vatom_parameters, return_raw_response = var_return_raw_response)
 #'
 #'
 #' }
@@ -835,15 +781,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Create following
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    CreateFollowing = function(version, account_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$CreateFollowingWithHttpInfo(version, account_id, vatom_parameters, return_raw_response, ...)
+    CreateFollowing = function(account_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$CreateFollowingWithHttpInfo(account_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -858,14 +803,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Create following
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    CreateFollowingWithHttpInfo = function(version, account_id, vatom_parameters, return_raw_response = NULL, ...) {
+    CreateFollowingWithHttpInfo = function(account_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -875,20 +819,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$CreateFollowing, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -909,11 +845,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/me/rels/following/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/me/rels/following/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -959,7 +891,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Create Vatom Space
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters Vatom Parameters
@@ -967,8 +898,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    CreateSpace = function(version, account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$CreateSpaceWithHttpInfo(version, account_id, app_key, vatom_parameters, return_raw_response, ...)
+    CreateSpace = function(account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$CreateSpaceWithHttpInfo(account_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -983,7 +914,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Create Vatom Space
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters Vatom Parameters
@@ -991,7 +921,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    CreateSpaceWithHttpInfo = function(version, account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+    CreateSpaceWithHttpInfo = function(account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1000,10 +930,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1015,10 +941,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$CreateSpace, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1045,11 +967,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/spaces/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/spaces/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -1095,7 +1013,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Create Vatom Event
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters Vatom Parameters
@@ -1103,8 +1020,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    CreateVatomEvent = function(version, account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$CreateVatomEventWithHttpInfo(version, account_id, app_key, vatom_parameters, return_raw_response, ...)
+    CreateVatomEvent = function(account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$CreateVatomEventWithHttpInfo(account_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1119,7 +1036,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Create Vatom Event
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters Vatom Parameters
@@ -1127,7 +1043,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    CreateVatomEventWithHttpInfo = function(version, account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+    CreateVatomEventWithHttpInfo = function(account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1136,10 +1052,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1151,10 +1063,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$CreateVatomEvent, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1181,11 +1089,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/events/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/events/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -1231,15 +1135,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Delete following
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_rels_key Vatom Rels Key
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    DeleteFollowing = function(version, account_id, vatom_rels_key, return_raw_response = NULL, ...) {
-      local_var_response <- self$DeleteFollowingWithHttpInfo(version, account_id, vatom_rels_key, return_raw_response, ...)
+    DeleteFollowing = function(account_id, vatom_rels_key, return_raw_response = NULL, ...) {
+      local_var_response <- self$DeleteFollowingWithHttpInfo(account_id, vatom_rels_key, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1254,14 +1157,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Delete following
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_rels_key Vatom Rels Key
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    DeleteFollowingWithHttpInfo = function(version, account_id, vatom_rels_key, return_raw_response = NULL, ...) {
+    DeleteFollowingWithHttpInfo = function(account_id, vatom_rels_key, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1271,20 +1173,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_rels_key`)) {
         stop("Missing required parameter `vatom_rels_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$DeleteFollowing, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1305,11 +1199,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/me/rels/following/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/me/rels/following/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -1355,7 +1245,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Reset All Points Balance
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -1363,8 +1252,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    DeletePointsBalance = function(version, account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$DeletePointsBalanceWithHttpInfo(version, account_id, app_key, vatom_campaign_id, return_raw_response, ...)
+    DeletePointsBalance = function(account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$DeletePointsBalanceWithHttpInfo(account_id, app_key, vatom_campaign_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1379,7 +1268,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Reset All Points Balance
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -1387,7 +1275,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    DeletePointsBalanceWithHttpInfo = function(version, account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
+    DeletePointsBalanceWithHttpInfo = function(account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1396,10 +1284,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1411,10 +1295,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_campaign_id`)) {
         stop("Missing required parameter `vatom_campaign_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$DeletePointsBalance, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1441,11 +1321,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/campaign/points/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/campaign/points/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -1491,7 +1367,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Delete Vatom Space
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_space_id Vatom Space Id
@@ -1499,8 +1374,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    DeleteSpace = function(version, account_id, app_key, vatom_space_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$DeleteSpaceWithHttpInfo(version, account_id, app_key, vatom_space_id, return_raw_response, ...)
+    DeleteSpace = function(account_id, app_key, vatom_space_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$DeleteSpaceWithHttpInfo(account_id, app_key, vatom_space_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1515,7 +1390,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Delete Vatom Space
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_space_id Vatom Space Id
@@ -1523,7 +1397,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    DeleteSpaceWithHttpInfo = function(version, account_id, app_key, vatom_space_id, return_raw_response = NULL, ...) {
+    DeleteSpaceWithHttpInfo = function(account_id, app_key, vatom_space_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1532,10 +1406,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1547,10 +1417,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_space_id`)) {
         stop("Missing required parameter `vatom_space_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$DeleteSpace, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1577,11 +1443,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/spaces/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/spaces/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -1627,7 +1489,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Delete Vatom Event
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_event_id Vatom Event Id
@@ -1635,8 +1496,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    DeleteVatomEvent = function(version, account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$DeleteVatomEventWithHttpInfo(version, account_id, app_key, vatom_event_id, return_raw_response, ...)
+    DeleteVatomEvent = function(account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$DeleteVatomEventWithHttpInfo(account_id, app_key, vatom_event_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1651,7 +1512,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Delete Vatom Event
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_event_id Vatom Event Id
@@ -1659,7 +1519,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    DeleteVatomEventWithHttpInfo = function(version, account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
+    DeleteVatomEventWithHttpInfo = function(account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1668,10 +1528,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1683,10 +1539,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_event_id`)) {
         stop("Missing required parameter `vatom_event_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$DeleteVatomEvent, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1713,11 +1565,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/events/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/events/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -1763,15 +1611,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Delete Vatom NFT
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_id Vatom NFT Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    DeleteVatomNFT = function(version, account_id, vatom_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$DeleteVatomNFTWithHttpInfo(version, account_id, vatom_id, return_raw_response, ...)
+    DeleteVatomNFT = function(account_id, vatom_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$DeleteVatomNFTWithHttpInfo(account_id, vatom_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1786,14 +1633,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Delete Vatom NFT
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_id Vatom NFT Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    DeleteVatomNFTWithHttpInfo = function(version, account_id, vatom_id, return_raw_response = NULL, ...) {
+    DeleteVatomNFTWithHttpInfo = function(account_id, vatom_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1803,20 +1649,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_id`)) {
         stop("Missing required parameter `vatom_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$DeleteVatomNFT, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1837,11 +1675,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/vatoms/delete"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/vatoms/delete"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -1887,7 +1721,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Execute Action on NFT
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_id Vatom NFT Id
     #' @param vatom_parameters Vatom Parameters
@@ -1895,8 +1728,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    ExecuteActionOnNFT = function(version, account_id, vatom_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$ExecuteActionOnNFTWithHttpInfo(version, account_id, vatom_id, vatom_parameters, return_raw_response, ...)
+    ExecuteActionOnNFT = function(account_id, vatom_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$ExecuteActionOnNFTWithHttpInfo(account_id, vatom_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1911,7 +1744,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Execute Action on NFT
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_id Vatom NFT Id
     #' @param vatom_parameters Vatom Parameters
@@ -1919,7 +1751,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    ExecuteActionOnNFTWithHttpInfo = function(version, account_id, vatom_id, vatom_parameters, return_raw_response = NULL, ...) {
+    ExecuteActionOnNFTWithHttpInfo = function(account_id, vatom_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1928,10 +1760,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -1943,10 +1771,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$ExecuteActionOnNFT, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -1973,11 +1797,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/vatoms/execute-action"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/vatoms/execute-action"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -2023,15 +1843,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Search Vatom Geo Map
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GeomapSearch = function(version, account_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$GeomapSearchWithHttpInfo(version, account_id, vatom_parameters, return_raw_response, ...)
+    GeomapSearch = function(account_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$GeomapSearchWithHttpInfo(account_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2046,14 +1865,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Search Vatom Geo Map
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GeomapSearchWithHttpInfo = function(version, account_id, vatom_parameters, return_raw_response = NULL, ...) {
+    GeomapSearchWithHttpInfo = function(account_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2063,20 +1881,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GeomapSearch, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2097,11 +1907,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/vatoms/geo-map/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/vatoms/geo-map/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -2147,15 +1953,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Business Behaviors
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetBusinessBehaviors = function(version, account_id, app_key, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetBusinessBehaviorsWithHttpInfo(version, account_id, app_key, return_raw_response, ...)
+    GetBusinessBehaviors = function(account_id, app_key, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetBusinessBehaviorsWithHttpInfo(account_id, app_key, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2170,14 +1975,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Business Behaviors
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetBusinessBehaviorsWithHttpInfo = function(version, account_id, app_key, return_raw_response = NULL, ...) {
+    GetBusinessBehaviorsWithHttpInfo = function(account_id, app_key, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2187,20 +1991,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetBusinessBehaviors, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2221,11 +2017,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/behaviors"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/behaviors"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -2271,15 +2063,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get the coins for a Business
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetBusinessCoinsBalance = function(version, account_id, app_key, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetBusinessCoinsBalanceWithHttpInfo(version, account_id, app_key, return_raw_response, ...)
+    GetBusinessCoinsBalance = function(account_id, app_key, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetBusinessCoinsBalanceWithHttpInfo(account_id, app_key, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2294,14 +2085,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get the coins for a Business
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetBusinessCoinsBalanceWithHttpInfo = function(version, account_id, app_key, return_raw_response = NULL, ...) {
+    GetBusinessCoinsBalanceWithHttpInfo = function(account_id, app_key, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2311,20 +2101,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetBusinessCoinsBalance, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2345,11 +2127,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/coins/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/coins/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -2395,14 +2173,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get the user business ids
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetBusinessIds = function(version, account_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetBusinessIdsWithHttpInfo(version, account_id, return_raw_response, ...)
+    GetBusinessIds = function(account_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetBusinessIdsWithHttpInfo(account_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2417,13 +2194,12 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get the user business ids
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetBusinessIdsWithHttpInfo = function(version, account_id, return_raw_response = NULL, ...) {
+    GetBusinessIdsWithHttpInfo = function(account_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2433,16 +2209,8 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetBusinessIds, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2457,11 +2225,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/me/businesses"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/me/businesses"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -2507,7 +2271,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Business Info
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -2515,8 +2278,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetBusinessInfo = function(version, account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetBusinessInfoWithHttpInfo(version, account_id, app_key, vatom_parameters, return_raw_response, ...)
+    GetBusinessInfo = function(account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetBusinessInfoWithHttpInfo(account_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2531,7 +2294,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Business Info
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -2539,7 +2301,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetBusinessInfoWithHttpInfo = function(version, account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+    GetBusinessInfoWithHttpInfo = function(account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2549,20 +2311,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetBusinessInfo, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2589,11 +2343,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -2639,15 +2389,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Business Users
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetBusinessUsers = function(version, account_id, app_key, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetBusinessUsersWithHttpInfo(version, account_id, app_key, return_raw_response, ...)
+    GetBusinessUsers = function(account_id, app_key, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetBusinessUsersWithHttpInfo(account_id, app_key, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2662,14 +2411,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Business Users
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetBusinessUsersWithHttpInfo = function(version, account_id, app_key, return_raw_response = NULL, ...) {
+    GetBusinessUsersWithHttpInfo = function(account_id, app_key, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2679,20 +2427,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetBusinessUsers, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2713,11 +2453,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/users"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/users"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -2763,7 +2499,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Campaign Group Entities
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -2771,8 +2506,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetCampaignGroupEntities = function(version, account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetCampaignGroupEntitiesWithHttpInfo(version, account_id, app_key, vatom_campaign_id, return_raw_response, ...)
+    GetCampaignGroupEntities = function(account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetCampaignGroupEntitiesWithHttpInfo(account_id, app_key, vatom_campaign_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2787,7 +2522,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Campaign Group Entities
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -2795,7 +2529,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetCampaignGroupEntitiesWithHttpInfo = function(version, account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
+    GetCampaignGroupEntitiesWithHttpInfo = function(account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2804,10 +2538,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -2819,10 +2549,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_campaign_id`)) {
         stop("Missing required parameter `vatom_campaign_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetCampaignGroupEntities, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2849,11 +2575,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/campaign-groups/entities"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/campaign-groups/entities"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -2899,7 +2621,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Campaign Group Rules
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -2907,8 +2628,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetCampaignGroupRules = function(version, account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetCampaignGroupRulesWithHttpInfo(version, account_id, app_key, vatom_campaign_id, return_raw_response, ...)
+    GetCampaignGroupRules = function(account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetCampaignGroupRulesWithHttpInfo(account_id, app_key, vatom_campaign_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2923,7 +2644,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Campaign Group Rules
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -2931,7 +2651,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetCampaignGroupRulesWithHttpInfo = function(version, account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
+    GetCampaignGroupRulesWithHttpInfo = function(account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2940,10 +2660,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -2955,10 +2671,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_campaign_id`)) {
         stop("Missing required parameter `vatom_campaign_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetCampaignGroupRules, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -2985,11 +2697,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/campaign-groups/rules"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/campaign-groups/rules"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -3035,7 +2743,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Campaign Group Stats
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -3043,8 +2750,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetCampaignGroupStats = function(version, account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetCampaignGroupStatsWithHttpInfo(version, account_id, app_key, vatom_campaign_id, return_raw_response, ...)
+    GetCampaignGroupStats = function(account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetCampaignGroupStatsWithHttpInfo(account_id, app_key, vatom_campaign_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3059,7 +2766,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Campaign Group Stats
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -3067,7 +2773,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetCampaignGroupStatsWithHttpInfo = function(version, account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
+    GetCampaignGroupStatsWithHttpInfo = function(account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3076,10 +2782,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -3091,10 +2793,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_campaign_id`)) {
         stop("Missing required parameter `vatom_campaign_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetCampaignGroupStats, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3121,11 +2819,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/campaign-groups/stats"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/campaign-groups/stats"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -3171,7 +2865,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Campaign Info
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -3179,8 +2872,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetCampaignInfo = function(version, account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetCampaignInfoWithHttpInfo(version, account_id, app_key, vatom_campaign_id, return_raw_response, ...)
+    GetCampaignInfo = function(account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetCampaignInfoWithHttpInfo(account_id, app_key, vatom_campaign_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3195,7 +2888,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Campaign Info
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -3203,7 +2895,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetCampaignInfoWithHttpInfo = function(version, account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
+    GetCampaignInfoWithHttpInfo = function(account_id, app_key, vatom_campaign_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3212,10 +2904,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -3227,10 +2915,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_campaign_id`)) {
         stop("Missing required parameter `vatom_campaign_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetCampaignInfo, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3257,11 +2941,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/campaign-groups/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/campaign-groups/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -3307,7 +2987,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Event Guest List
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_event_id Vatom Event Id
@@ -3315,8 +2994,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetEventGuestList = function(version, account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetEventGuestListWithHttpInfo(version, account_id, app_key, vatom_event_id, return_raw_response, ...)
+    GetEventGuestList = function(account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetEventGuestListWithHttpInfo(account_id, app_key, vatom_event_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3331,7 +3010,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Event Guest List
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_event_id Vatom Event Id
@@ -3339,7 +3017,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetEventGuestListWithHttpInfo = function(version, account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
+    GetEventGuestListWithHttpInfo = function(account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3348,10 +3026,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -3363,10 +3037,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_event_id`)) {
         stop("Missing required parameter `vatom_event_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetEventGuestList, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3393,11 +3063,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/events/guests/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/events/guests/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -3443,15 +3109,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom User's Inventory
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetInventory = function(version, account_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetInventoryWithHttpInfo(version, account_id, vatom_parameters, return_raw_response, ...)
+    GetInventory = function(account_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetInventoryWithHttpInfo(account_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3466,14 +3131,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom User's Inventory
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetInventoryWithHttpInfo = function(version, account_id, vatom_parameters, return_raw_response = NULL, ...) {
+    GetInventoryWithHttpInfo = function(account_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3483,20 +3147,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetInventory, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3517,11 +3173,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/me/inventory"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/me/inventory"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -3567,14 +3219,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get following
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetMyFollowing = function(version, account_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetMyFollowingWithHttpInfo(version, account_id, return_raw_response, ...)
+    GetMyFollowing = function(account_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetMyFollowingWithHttpInfo(account_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3589,13 +3240,12 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get following
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetMyFollowingWithHttpInfo = function(version, account_id, return_raw_response = NULL, ...) {
+    GetMyFollowingWithHttpInfo = function(account_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3605,16 +3255,8 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetMyFollowing, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3629,11 +3271,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/me/rels/following"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/me/rels/following"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -3679,7 +3317,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Points Balance
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -3687,8 +3324,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetPointsBalance = function(version, account_id, vatom_user_id, vatom_campaign_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetPointsBalanceWithHttpInfo(version, account_id, vatom_user_id, vatom_campaign_id, return_raw_response, ...)
+    GetPointsBalance = function(account_id, vatom_user_id, vatom_campaign_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetPointsBalanceWithHttpInfo(account_id, vatom_user_id, vatom_campaign_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3703,7 +3340,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Points Balance
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -3711,7 +3347,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetPointsBalanceWithHttpInfo = function(version, account_id, vatom_user_id, vatom_campaign_id, return_raw_response = NULL, ...) {
+    GetPointsBalanceWithHttpInfo = function(account_id, vatom_user_id, vatom_campaign_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3720,10 +3356,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -3735,10 +3367,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_campaign_id`)) {
         stop("Missing required parameter `vatom_campaign_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetPointsBalance, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3765,11 +3393,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/u/campaign/points/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/u/campaign/points/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -3815,7 +3439,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Points Balance as Business
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_user_id Vatom User Id
@@ -3824,8 +3447,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetPointsBalanceAsBusiness = function(version, account_id, app_key, vatom_user_id, vatom_campaign_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetPointsBalanceAsBusinessWithHttpInfo(version, account_id, app_key, vatom_user_id, vatom_campaign_id, return_raw_response, ...)
+    GetPointsBalanceAsBusiness = function(account_id, app_key, vatom_user_id, vatom_campaign_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetPointsBalanceAsBusinessWithHttpInfo(account_id, app_key, vatom_user_id, vatom_campaign_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3840,7 +3463,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Points Balance as Business
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_user_id Vatom User Id
@@ -3849,7 +3471,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetPointsBalanceAsBusinessWithHttpInfo = function(version, account_id, app_key, vatom_user_id, vatom_campaign_id, return_raw_response = NULL, ...) {
+    GetPointsBalanceAsBusinessWithHttpInfo = function(account_id, app_key, vatom_user_id, vatom_campaign_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3858,10 +3480,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -3877,10 +3495,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_campaign_id`)) {
         stop("Missing required parameter `vatom_campaign_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetPointsBalanceAsBusiness, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -3913,11 +3527,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/campaign/u/points/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/campaign/u/points/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -3963,7 +3573,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Space
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_space_id Vatom Space Id
@@ -3971,8 +3580,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetSpace = function(version, account_id, app_key, vatom_space_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetSpaceWithHttpInfo(version, account_id, app_key, vatom_space_id, return_raw_response, ...)
+    GetSpace = function(account_id, app_key, vatom_space_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetSpaceWithHttpInfo(account_id, app_key, vatom_space_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3987,7 +3596,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Space
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_space_id Vatom Space Id
@@ -3995,7 +3603,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetSpaceWithHttpInfo = function(version, account_id, app_key, vatom_space_id, return_raw_response = NULL, ...) {
+    GetSpaceWithHttpInfo = function(account_id, app_key, vatom_space_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4004,10 +3612,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -4019,10 +3623,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_space_id`)) {
         stop("Missing required parameter `vatom_space_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetSpace, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4049,11 +3649,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/spaces/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/spaces/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -4099,7 +3695,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get the coins for a user (as a Business)
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param app_key Sirqul Application Key
@@ -4107,8 +3702,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetUserCoinsAsBusiness = function(version, account_id, vatom_user_id, app_key, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetUserCoinsAsBusinessWithHttpInfo(version, account_id, vatom_user_id, app_key, return_raw_response, ...)
+    GetUserCoinsAsBusiness = function(account_id, vatom_user_id, app_key, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetUserCoinsAsBusinessWithHttpInfo(account_id, vatom_user_id, app_key, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4123,7 +3718,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get the coins for a user (as a Business)
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param app_key Sirqul Application Key
@@ -4131,7 +3725,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetUserCoinsAsBusinessWithHttpInfo = function(version, account_id, vatom_user_id, app_key, return_raw_response = NULL, ...) {
+    GetUserCoinsAsBusinessWithHttpInfo = function(account_id, vatom_user_id, app_key, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4140,10 +3734,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -4155,10 +3745,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetUserCoinsAsBusiness, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4185,11 +3771,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/users/coins/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/users/coins/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -4235,7 +3817,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Gets the coins balance for a Vatom User
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -4243,8 +3824,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetUserCoinsBalance = function(version, account_id, vatom_user_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetUserCoinsBalanceWithHttpInfo(version, account_id, vatom_user_id, vatom_parameters, return_raw_response, ...)
+    GetUserCoinsBalance = function(account_id, vatom_user_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetUserCoinsBalanceWithHttpInfo(account_id, vatom_user_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4259,7 +3840,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Gets the coins balance for a Vatom User
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -4267,7 +3847,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetUserCoinsBalanceWithHttpInfo = function(version, account_id, vatom_user_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+    GetUserCoinsBalanceWithHttpInfo = function(account_id, vatom_user_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4277,20 +3857,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_user_id`)) {
         stop("Missing required parameter `vatom_user_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetUserCoinsBalance, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4317,11 +3889,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/u/coins/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/u/coins/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -4367,15 +3935,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get user followers
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetUserFollowers = function(version, account_id, vatom_user_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetUserFollowersWithHttpInfo(version, account_id, vatom_user_id, return_raw_response, ...)
+    GetUserFollowers = function(account_id, vatom_user_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetUserFollowersWithHttpInfo(account_id, vatom_user_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4390,14 +3957,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get user followers
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetUserFollowersWithHttpInfo = function(version, account_id, vatom_user_id, return_raw_response = NULL, ...) {
+    GetUserFollowersWithHttpInfo = function(account_id, vatom_user_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4407,20 +3973,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_user_id`)) {
         stop("Missing required parameter `vatom_user_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetUserFollowers, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4441,11 +3999,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/users/rels/followers"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/users/rels/followers"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -4491,15 +4045,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get user following
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetUserFollowing = function(version, account_id, vatom_user_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetUserFollowingWithHttpInfo(version, account_id, vatom_user_id, return_raw_response, ...)
+    GetUserFollowing = function(account_id, vatom_user_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetUserFollowingWithHttpInfo(account_id, vatom_user_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4514,14 +4067,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get user following
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetUserFollowingWithHttpInfo = function(version, account_id, vatom_user_id, return_raw_response = NULL, ...) {
+    GetUserFollowingWithHttpInfo = function(account_id, vatom_user_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4531,20 +4083,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_user_id`)) {
         stop("Missing required parameter `vatom_user_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetUserFollowing, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4565,11 +4109,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/users/rels/following"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/users/rels/following"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -4615,15 +4155,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get User Info
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetUserInfo = function(version, account_id, vatom_user_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetUserInfoWithHttpInfo(version, account_id, vatom_user_id, return_raw_response, ...)
+    GetUserInfo = function(account_id, vatom_user_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetUserInfoWithHttpInfo(account_id, vatom_user_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4638,14 +4177,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get User Info
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetUserInfoWithHttpInfo = function(version, account_id, vatom_user_id, return_raw_response = NULL, ...) {
+    GetUserInfoWithHttpInfo = function(account_id, vatom_user_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4655,20 +4193,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_user_id`)) {
         stop("Missing required parameter `vatom_user_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetUserInfo, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4689,11 +4219,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/user/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/user/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -4739,14 +4265,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom User Profile
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetUserProfile = function(version, account_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetUserProfileWithHttpInfo(version, account_id, return_raw_response, ...)
+    GetUserProfile = function(account_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetUserProfileWithHttpInfo(account_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4761,13 +4286,12 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom User Profile
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetUserProfileWithHttpInfo = function(version, account_id, return_raw_response = NULL, ...) {
+    GetUserProfileWithHttpInfo = function(account_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4777,16 +4301,8 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetUserProfile, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4801,11 +4317,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/me/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/me/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -4851,7 +4363,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Event
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_event_id Vatom Event Id
@@ -4859,8 +4370,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetVatomEvent = function(version, account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetVatomEventWithHttpInfo(version, account_id, app_key, vatom_event_id, return_raw_response, ...)
+    GetVatomEvent = function(account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetVatomEventWithHttpInfo(account_id, app_key, vatom_event_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4875,7 +4386,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom Event
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_event_id Vatom Event Id
@@ -4883,7 +4393,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetVatomEventWithHttpInfo = function(version, account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
+    GetVatomEventWithHttpInfo = function(account_id, app_key, vatom_event_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4892,10 +4402,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -4907,10 +4413,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_event_id`)) {
         stop("Missing required parameter `vatom_event_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetVatomEvent, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4937,11 +4439,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/events/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/events/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -4987,15 +4485,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom NFT Details
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_id Vatom NFT Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetVatomNFT = function(version, account_id, vatom_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$GetVatomNFTWithHttpInfo(version, account_id, vatom_id, return_raw_response, ...)
+    GetVatomNFT = function(account_id, vatom_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$GetVatomNFTWithHttpInfo(account_id, vatom_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5010,14 +4507,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Get Vatom NFT Details
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_id Vatom NFT Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetVatomNFTWithHttpInfo = function(version, account_id, vatom_id, return_raw_response = NULL, ...) {
+    GetVatomNFTWithHttpInfo = function(account_id, vatom_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5027,20 +4523,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_id`)) {
         stop("Missing required parameter `vatom_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$GetVatomNFT, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -5061,11 +4549,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/vatoms/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/vatoms/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -5111,7 +4595,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' List Vatom Communities
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -5119,8 +4602,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    ListCommunities = function(version, account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
-      local_var_response <- self$ListCommunitiesWithHttpInfo(version, account_id, app_key, vatom_parameters, return_raw_response, ...)
+    ListCommunities = function(account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+      local_var_response <- self$ListCommunitiesWithHttpInfo(account_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5135,7 +4618,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' List Vatom Communities
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -5143,7 +4625,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    ListCommunitiesWithHttpInfo = function(version, account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+    ListCommunitiesWithHttpInfo = function(account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5153,20 +4635,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$ListCommunities, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -5193,11 +4667,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/communities/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/communities/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -5243,7 +4713,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' List Vatom Events
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -5251,8 +4720,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    ListEvents = function(version, account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
-      local_var_response <- self$ListEventsWithHttpInfo(version, account_id, app_key, vatom_parameters, return_raw_response, ...)
+    ListEvents = function(account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+      local_var_response <- self$ListEventsWithHttpInfo(account_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5267,7 +4736,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' List Vatom Events
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -5275,7 +4743,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    ListEventsWithHttpInfo = function(version, account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+    ListEventsWithHttpInfo = function(account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5285,20 +4753,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$ListEvents, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -5325,11 +4785,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/events/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/events/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -5375,7 +4831,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' List Vatom Spaces
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -5383,8 +4838,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    ListSpaces = function(version, account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
-      local_var_response <- self$ListSpacesWithHttpInfo(version, account_id, app_key, vatom_parameters, return_raw_response, ...)
+    ListSpaces = function(account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+      local_var_response <- self$ListSpacesWithHttpInfo(account_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5399,7 +4854,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' List Vatom Spaces
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -5407,7 +4861,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    ListSpacesWithHttpInfo = function(version, account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+    ListSpacesWithHttpInfo = function(account_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5417,20 +4871,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$ListSpaces, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -5457,11 +4903,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/spaces/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/spaces/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -5507,7 +4949,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' List Coin Transactions for a Vatom User
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -5515,8 +4956,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    ListUserCoinTransactions = function(version, account_id, vatom_user_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
-      local_var_response <- self$ListUserCoinTransactionsWithHttpInfo(version, account_id, vatom_user_id, vatom_parameters, return_raw_response, ...)
+    ListUserCoinTransactions = function(account_id, vatom_user_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+      local_var_response <- self$ListUserCoinTransactionsWithHttpInfo(account_id, vatom_user_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5531,7 +4972,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' List Coin Transactions for a Vatom User
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param vatom_parameters (optional) Vatom Parameters
@@ -5539,7 +4979,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    ListUserCoinTransactionsWithHttpInfo = function(version, account_id, vatom_user_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+    ListUserCoinTransactionsWithHttpInfo = function(account_id, vatom_user_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5549,20 +4989,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_user_id`)) {
         stop("Missing required parameter `vatom_user_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$ListUserCoinTransactions, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -5589,11 +5021,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/u/coins/txns/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/u/coins/txns/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -5639,7 +5067,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' List coin transactions for a user (as a Business)
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param app_key Sirqul Application Key
@@ -5648,8 +5075,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    ListUserCoinTransactionsAsBusiness = function(version, account_id, vatom_user_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
-      local_var_response <- self$ListUserCoinTransactionsAsBusinessWithHttpInfo(version, account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response, ...)
+    ListUserCoinTransactionsAsBusiness = function(account_id, vatom_user_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+      local_var_response <- self$ListUserCoinTransactionsAsBusinessWithHttpInfo(account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5664,7 +5091,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' List coin transactions for a user (as a Business)
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param app_key Sirqul Application Key
@@ -5673,7 +5099,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    ListUserCoinTransactionsAsBusinessWithHttpInfo = function(version, account_id, vatom_user_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+    ListUserCoinTransactionsAsBusinessWithHttpInfo = function(account_id, vatom_user_id, app_key, vatom_parameters = NULL, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5682,10 +5108,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -5697,10 +5119,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$ListUserCoinTransactionsAsBusiness, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -5733,11 +5151,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/users/coins/txns/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/users/coins/txns/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -5783,7 +5197,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Perform Action on NFT
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_id Vatom NFT Id
     #' @param vatom_action Vatom Action
@@ -5792,8 +5205,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    PerformActionOnNFT = function(version, account_id, vatom_id, vatom_action, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$PerformActionOnNFTWithHttpInfo(version, account_id, vatom_id, vatom_action, vatom_parameters, return_raw_response, ...)
+    PerformActionOnNFT = function(account_id, vatom_id, vatom_action, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$PerformActionOnNFTWithHttpInfo(account_id, vatom_id, vatom_action, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5808,7 +5221,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Perform Action on NFT
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_id Vatom NFT Id
     #' @param vatom_action Vatom Action
@@ -5817,7 +5229,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    PerformActionOnNFTWithHttpInfo = function(version, account_id, vatom_id, vatom_action, vatom_parameters, return_raw_response = NULL, ...) {
+    PerformActionOnNFTWithHttpInfo = function(account_id, vatom_id, vatom_action, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5826,10 +5238,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -5845,10 +5253,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$PerformActionOnNFT, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -5881,11 +5285,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/me/vatoms/actions"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/me/vatoms/actions"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -5931,7 +5331,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Redeem NFT
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters Vatom Parameters
@@ -5939,8 +5338,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    RedeemNFT = function(version, account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$RedeemNFTWithHttpInfo(version, account_id, app_key, vatom_parameters, return_raw_response, ...)
+    RedeemNFT = function(account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$RedeemNFTWithHttpInfo(account_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5955,7 +5354,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Redeem NFT
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters Vatom Parameters
@@ -5963,7 +5361,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    RedeemNFTWithHttpInfo = function(version, account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+    RedeemNFTWithHttpInfo = function(account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5972,10 +5370,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -5987,10 +5381,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$RedeemNFT, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -6017,11 +5407,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/redemptions"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/redemptions"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -6067,7 +5453,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Redeem the coins for a user (as a Business)
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param app_key Sirqul Application Key
@@ -6076,8 +5461,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    RedeemUserCoinsAsBusiness = function(version, account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$RedeemUserCoinsAsBusinessWithHttpInfo(version, account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response, ...)
+    RedeemUserCoinsAsBusiness = function(account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$RedeemUserCoinsAsBusinessWithHttpInfo(account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6092,7 +5477,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Redeem the coins for a user (as a Business)
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param app_key Sirqul Application Key
@@ -6101,7 +5485,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    RedeemUserCoinsAsBusinessWithHttpInfo = function(version, account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+    RedeemUserCoinsAsBusinessWithHttpInfo = function(account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6110,10 +5494,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -6129,10 +5509,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$RedeemUserCoinsAsBusiness, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -6165,11 +5541,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/users/coins/redeem"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/users/coins/redeem"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -6215,15 +5587,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Search for Vatom Businesses
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters (optional) Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    SearchBusinesses = function(version, account_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
-      local_var_response <- self$SearchBusinessesWithHttpInfo(version, account_id, vatom_parameters, return_raw_response, ...)
+    SearchBusinesses = function(account_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+      local_var_response <- self$SearchBusinessesWithHttpInfo(account_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6238,14 +5609,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Search for Vatom Businesses
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters (optional) Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    SearchBusinessesWithHttpInfo = function(version, account_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+    SearchBusinessesWithHttpInfo = function(account_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6255,16 +5625,8 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$SearchBusinesses, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -6285,11 +5647,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -6335,15 +5693,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Search Campaign Groups
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    SearchCampaignGroups = function(version, account_id, app_key, return_raw_response = NULL, ...) {
-      local_var_response <- self$SearchCampaignGroupsWithHttpInfo(version, account_id, app_key, return_raw_response, ...)
+    SearchCampaignGroups = function(account_id, app_key, return_raw_response = NULL, ...) {
+      local_var_response <- self$SearchCampaignGroupsWithHttpInfo(account_id, app_key, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6358,14 +5715,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Search Campaign Groups
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    SearchCampaignGroupsWithHttpInfo = function(version, account_id, app_key, return_raw_response = NULL, ...) {
+    SearchCampaignGroupsWithHttpInfo = function(account_id, app_key, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6375,20 +5731,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$SearchCampaignGroups, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -6409,11 +5757,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/campaign-groups/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/campaign-groups/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -6459,14 +5803,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Search User Identities
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    SearchIdentities = function(version, account_id, return_raw_response = NULL, ...) {
-      local_var_response <- self$SearchIdentitiesWithHttpInfo(version, account_id, return_raw_response, ...)
+    SearchIdentities = function(account_id, return_raw_response = NULL, ...) {
+      local_var_response <- self$SearchIdentitiesWithHttpInfo(account_id, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6481,13 +5824,12 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Search User Identities
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    SearchIdentitiesWithHttpInfo = function(version, account_id, return_raw_response = NULL, ...) {
+    SearchIdentitiesWithHttpInfo = function(account_id, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6497,16 +5839,8 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$SearchIdentities, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -6521,11 +5855,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/me/identities/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/me/identities/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -6571,15 +5901,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Search Vatom User's Inventory
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters (optional) Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    SearchInventory = function(version, account_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
-      local_var_response <- self$SearchInventoryWithHttpInfo(version, account_id, vatom_parameters, return_raw_response, ...)
+    SearchInventory = function(account_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+      local_var_response <- self$SearchInventoryWithHttpInfo(account_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6594,14 +5923,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Search Vatom User's Inventory
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters (optional) Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    SearchInventoryWithHttpInfo = function(version, account_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
+    SearchInventoryWithHttpInfo = function(account_id, vatom_parameters = NULL, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6611,16 +5939,8 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$SearchInventory, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -6641,11 +5961,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/user-inventory/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/user-inventory/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -6691,7 +6007,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Send NFT
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -6700,8 +6015,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    SendNFT = function(version, account_id, app_key, vatom_campaign_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$SendNFTWithHttpInfo(version, account_id, app_key, vatom_campaign_id, vatom_parameters, return_raw_response, ...)
+    SendNFT = function(account_id, app_key, vatom_campaign_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$SendNFTWithHttpInfo(account_id, app_key, vatom_campaign_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6716,7 +6031,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Send NFT
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_campaign_id Vatom Campaign Id
@@ -6725,7 +6039,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    SendNFTWithHttpInfo = function(version, account_id, app_key, vatom_campaign_id, vatom_parameters, return_raw_response = NULL, ...) {
+    SendNFTWithHttpInfo = function(account_id, app_key, vatom_campaign_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6734,10 +6048,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -6753,10 +6063,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$SendNFT, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -6789,11 +6095,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/campaigns/send"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/campaigns/send"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -6839,7 +6141,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Set Points Balance as Business
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_user_id Vatom User Id
@@ -6849,8 +6150,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    SetPointsBalanceAsBusiness = function(version, account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$SetPointsBalanceAsBusinessWithHttpInfo(version, account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, return_raw_response, ...)
+    SetPointsBalanceAsBusiness = function(account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$SetPointsBalanceAsBusinessWithHttpInfo(account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6865,7 +6166,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Set Points Balance as Business
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_user_id Vatom User Id
@@ -6875,7 +6175,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    SetPointsBalanceAsBusinessWithHttpInfo = function(version, account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, return_raw_response = NULL, ...) {
+    SetPointsBalanceAsBusinessWithHttpInfo = function(account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6884,10 +6184,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -6907,10 +6203,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$SetPointsBalanceAsBusiness, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -6949,11 +6241,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/campaign/u/points/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/campaign/u/points/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -6999,7 +6287,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Transfer coins from Vatom Users
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param vatom_parameters Vatom Parameters
@@ -7007,8 +6294,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    TransferUserCoins = function(version, account_id, vatom_user_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$TransferUserCoinsWithHttpInfo(version, account_id, vatom_user_id, vatom_parameters, return_raw_response, ...)
+    TransferUserCoins = function(account_id, vatom_user_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$TransferUserCoinsWithHttpInfo(account_id, vatom_user_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -7023,7 +6310,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Transfer coins from Vatom Users
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param vatom_parameters Vatom Parameters
@@ -7031,7 +6317,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    TransferUserCoinsWithHttpInfo = function(version, account_id, vatom_user_id, vatom_parameters, return_raw_response = NULL, ...) {
+    TransferUserCoinsWithHttpInfo = function(account_id, vatom_user_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -7040,10 +6326,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -7055,10 +6337,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$TransferUserCoins, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -7085,11 +6363,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/u/coins/transfer"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/u/coins/transfer"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -7135,7 +6409,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Fund coins for a Business
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters Vatom Parameters
@@ -7143,8 +6416,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    UpdateBusinessCoins = function(version, account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$UpdateBusinessCoinsWithHttpInfo(version, account_id, app_key, vatom_parameters, return_raw_response, ...)
+    UpdateBusinessCoins = function(account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$UpdateBusinessCoinsWithHttpInfo(account_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -7159,7 +6432,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Fund coins for a Business
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_parameters Vatom Parameters
@@ -7167,7 +6439,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    UpdateBusinessCoinsWithHttpInfo = function(version, account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+    UpdateBusinessCoinsWithHttpInfo = function(account_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -7176,10 +6448,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -7191,10 +6459,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$UpdateBusinessCoins, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -7221,11 +6485,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/coins/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/coins/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -7271,7 +6531,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Update Vatom Event Guest List
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_event_id Vatom Event Id
@@ -7280,8 +6539,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    UpdateEventGuestList = function(version, account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$UpdateEventGuestListWithHttpInfo(version, account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response, ...)
+    UpdateEventGuestList = function(account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$UpdateEventGuestListWithHttpInfo(account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -7296,7 +6555,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Update Vatom Event Guest List
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_event_id Vatom Event Id
@@ -7305,7 +6563,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    UpdateEventGuestListWithHttpInfo = function(version, account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response = NULL, ...) {
+    UpdateEventGuestListWithHttpInfo = function(account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -7314,10 +6572,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -7333,10 +6587,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$UpdateEventGuestList, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -7369,11 +6619,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/events/guests/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/events/guests/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -7419,7 +6665,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Update Vatom Space
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_space_id Vatom Space Id
@@ -7428,8 +6673,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    UpdateSpace = function(version, account_id, app_key, vatom_space_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$UpdateSpaceWithHttpInfo(version, account_id, app_key, vatom_space_id, vatom_parameters, return_raw_response, ...)
+    UpdateSpace = function(account_id, app_key, vatom_space_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$UpdateSpaceWithHttpInfo(account_id, app_key, vatom_space_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -7444,7 +6689,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Update Vatom Space
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_space_id Vatom Space Id
@@ -7453,7 +6697,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    UpdateSpaceWithHttpInfo = function(version, account_id, app_key, vatom_space_id, vatom_parameters, return_raw_response = NULL, ...) {
+    UpdateSpaceWithHttpInfo = function(account_id, app_key, vatom_space_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -7462,10 +6706,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -7481,10 +6721,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$UpdateSpace, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -7517,11 +6753,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/spaces/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/spaces/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -7567,7 +6799,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Update the coins for a user (as a Business)
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param app_key Sirqul Application Key
@@ -7576,8 +6807,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    UpdateUserCoinsAsBusiness = function(version, account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$UpdateUserCoinsAsBusinessWithHttpInfo(version, account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response, ...)
+    UpdateUserCoinsAsBusiness = function(account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$UpdateUserCoinsAsBusinessWithHttpInfo(account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -7592,7 +6823,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Update the coins for a user (as a Business)
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_user_id Vatom User Id
     #' @param app_key Sirqul Application Key
@@ -7601,7 +6831,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    UpdateUserCoinsAsBusinessWithHttpInfo = function(version, account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
+    UpdateUserCoinsAsBusinessWithHttpInfo = function(account_id, vatom_user_id, app_key, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -7610,10 +6840,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -7629,10 +6855,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$UpdateUserCoinsAsBusiness, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -7665,11 +6887,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/users/coins/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/users/coins/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -7715,15 +6933,14 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Update Vatom User Profile
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return void
-    UpdateUserProfile = function(version, account_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$UpdateUserProfileWithHttpInfo(version, account_id, vatom_parameters, return_raw_response, ...)
+    UpdateUserProfile = function(account_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$UpdateUserProfileWithHttpInfo(account_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -7738,14 +6955,13 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Update Vatom User Profile
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param vatom_parameters Vatom Parameters
     #' @param return_raw_response (optional) Return raw response
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    UpdateUserProfileWithHttpInfo = function(version, account_id, vatom_parameters, return_raw_response = NULL, ...) {
+    UpdateUserProfileWithHttpInfo = function(account_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -7755,20 +6971,12 @@ VatomApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$UpdateUserProfile, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -7789,11 +6997,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/me/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/me/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -7839,7 +7043,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Update Vatom Event
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_event_id Vatom Event Id
@@ -7848,8 +7051,8 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    UpdateVatomEvent = function(version, account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response = NULL, ...) {
-      local_var_response <- self$UpdateVatomEventWithHttpInfo(version, account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response, ...)
+    UpdateVatomEvent = function(account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response = NULL, ...) {
+      local_var_response <- self$UpdateVatomEventWithHttpInfo(account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -7864,7 +7067,6 @@ VatomApi <- R6::R6Class(
     #' @description
     #' Update Vatom Event
     #'
-    #' @param version 
     #' @param account_id Sirqul Account Id
     #' @param app_key Sirqul Application Key
     #' @param vatom_event_id Vatom Event Id
@@ -7873,7 +7075,7 @@ VatomApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    UpdateVatomEventWithHttpInfo = function(version, account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response = NULL, ...) {
+    UpdateVatomEventWithHttpInfo = function(account_id, app_key, vatom_event_id, vatom_parameters, return_raw_response = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -7882,10 +7084,6 @@ VatomApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -7901,10 +7099,6 @@ VatomApi <- R6::R6Class(
 
       if (missing(`vatom_parameters`)) {
         stop("Missing required parameter `vatom_parameters`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling VatomApi$UpdateVatomEvent, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -7937,11 +7131,7 @@ VatomApi <- R6::R6Class(
 
       query_params[["returnRawResponse"]] <- `return_raw_response`
 
-      local_var_url_path <- "/api/{version}/vatom/b/events/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/vatom/b/events/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list()

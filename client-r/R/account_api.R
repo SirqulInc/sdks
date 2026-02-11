@@ -17,7 +17,6 @@
 #' ####################  AccountLocationSearch  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_q <- "q_example" # character | Deprecated - legacy query parameter (Optional)
@@ -57,15 +56,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$AccountLocationSearch(var_version, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, postal_code = var_postal_code, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key, range = var_range, location_last_updated = var_location_last_updated, gender = var_gender, min_age = var_min_age, max_age = var_max_age, companionship_index = var_companionship_index, _i = var__i, start = var_start, _l = var__l, limit = var_limit, search_mode = var_search_mode, sort_field = var_sort_field, descending = var_descending, roles = var_roles, tags = var_tags, experience = var_experience, category_ids = var_category_ids, audience_ids = var_audience_ids, audience_operator = var_audience_operator, update_current_location = var_update_current_location, update_preferred_settings = var_update_preferred_settings, show_exact_locations = var_show_exact_locations, show_connection_to_searcher = var_show_connection_to_searcher, flag_count_minimum = var_flag_count_minimum, verified_user_only = var_verified_user_only, content_admin_only = var_content_admin_onlydata_file = "result.txt")
-#' result <- api_instance$AccountLocationSearch(var_version, device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, postal_code = var_postal_code, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key, range = var_range, location_last_updated = var_location_last_updated, gender = var_gender, min_age = var_min_age, max_age = var_max_age, companionship_index = var_companionship_index, _i = var__i, start = var_start, _l = var__l, limit = var_limit, search_mode = var_search_mode, sort_field = var_sort_field, descending = var_descending, roles = var_roles, tags = var_tags, experience = var_experience, category_ids = var_category_ids, audience_ids = var_audience_ids, audience_operator = var_audience_operator, update_current_location = var_update_current_location, update_preferred_settings = var_update_preferred_settings, show_exact_locations = var_show_exact_locations, show_connection_to_searcher = var_show_connection_to_searcher, flag_count_minimum = var_flag_count_minimum, verified_user_only = var_verified_user_only, content_admin_only = var_content_admin_only)
+#' # result <- api_instance$AccountLocationSearch(device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, postal_code = var_postal_code, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key, range = var_range, location_last_updated = var_location_last_updated, gender = var_gender, min_age = var_min_age, max_age = var_max_age, companionship_index = var_companionship_index, _i = var__i, start = var_start, _l = var__l, limit = var_limit, search_mode = var_search_mode, sort_field = var_sort_field, descending = var_descending, roles = var_roles, tags = var_tags, experience = var_experience, category_ids = var_category_ids, audience_ids = var_audience_ids, audience_operator = var_audience_operator, update_current_location = var_update_current_location, update_preferred_settings = var_update_preferred_settings, show_exact_locations = var_show_exact_locations, show_connection_to_searcher = var_show_connection_to_searcher, flag_count_minimum = var_flag_count_minimum, verified_user_only = var_verified_user_only, content_admin_only = var_content_admin_onlydata_file = "result.txt")
+#' result <- api_instance$AccountLocationSearch(device_id = var_device_id, account_id = var_account_id, q = var_q, keyword = var_keyword, postal_code = var_postal_code, latitude = var_latitude, longitude = var_longitude, app_key = var_app_key, range = var_range, location_last_updated = var_location_last_updated, gender = var_gender, min_age = var_min_age, max_age = var_max_age, companionship_index = var_companionship_index, _i = var__i, start = var_start, _l = var__l, limit = var_limit, search_mode = var_search_mode, sort_field = var_sort_field, descending = var_descending, roles = var_roles, tags = var_tags, experience = var_experience, category_ids = var_category_ids, audience_ids = var_audience_ids, audience_operator = var_audience_operator, update_current_location = var_update_current_location, update_preferred_settings = var_update_preferred_settings, show_exact_locations = var_show_exact_locations, show_connection_to_searcher = var_show_connection_to_searcher, flag_count_minimum = var_flag_count_minimum, verified_user_only = var_verified_user_only, content_admin_only = var_content_admin_only)
 #' dput(result)
 #'
 #'
 #' ####################  BlockAccount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id_being_blocked <- 56 # integer | The id of the account to be blocked/unblocked
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -78,15 +76,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$BlockAccount(var_version, var_account_id_being_blocked, device_id = var_device_id, account_id = var_account_id, block_flag_value = var_block_flag_value, remove_from_groups_if_blocked = var_remove_from_groups_if_blocked, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$BlockAccount(var_version, var_account_id_being_blocked, device_id = var_device_id, account_id = var_account_id, block_flag_value = var_block_flag_value, remove_from_groups_if_blocked = var_remove_from_groups_if_blocked, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$BlockAccount(var_account_id_being_blocked, device_id = var_device_id, account_id = var_account_id, block_flag_value = var_block_flag_value, remove_from_groups_if_blocked = var_remove_from_groups_if_blocked, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$BlockAccount(var_account_id_being_blocked, device_id = var_device_id, account_id = var_account_id, block_flag_value = var_block_flag_value, remove_from_groups_if_blocked = var_remove_from_groups_if_blocked, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  CreateAccount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_username <- "username_example" # character | The access token to authenticate with (ex: username)
 #' var_password <- "password_example" # character | The secret to authenticate with (ex: password)
 #' var_name <- "name_example" # character | The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (Optional)
@@ -164,15 +161,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$CreateAccount(var_version, var_username, var_password, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, device_id = var_device_id, device_id_type = var_device_id_type, email_address = var_email_address, asset_id = var_asset_id, street_address = var_street_address, zipcode = var_zipcode, gender = var_gender, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, role = var_role, platforms = var_platforms, tags = var_tags, about_us = var_about_us, game_experience = var_game_experience, category_ids = var_category_ids, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, latitude = var_latitude, longitude = var_longitude, accepted_terms = var_accepted_terms, invite_token = var_invite_token, referral_account_id = var_referral_account_id, send_validation = var_send_validation, game_type = var_game_type, app_key = var_app_key, app_version = var_app_version, response_type = var_response_type, audience_ids_to_add = var_audience_ids_to_add, app_blob = var_app_blob, app_enable_push = var_app_enable_push, app_enable_sms = var_app_enable_sms, app_enable_email = var_app_enable_email, location_visibility = var_location_visibility, home_latitude = var_home_latitude, home_longitude = var_home_longitude, app_nickname = var_app_nickname, personal_audience_id = var_personal_audience_iddata_file = "result.txt")
-#' result <- api_instance$CreateAccount(var_version, var_username, var_password, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, device_id = var_device_id, device_id_type = var_device_id_type, email_address = var_email_address, asset_id = var_asset_id, street_address = var_street_address, zipcode = var_zipcode, gender = var_gender, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, role = var_role, platforms = var_platforms, tags = var_tags, about_us = var_about_us, game_experience = var_game_experience, category_ids = var_category_ids, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, latitude = var_latitude, longitude = var_longitude, accepted_terms = var_accepted_terms, invite_token = var_invite_token, referral_account_id = var_referral_account_id, send_validation = var_send_validation, game_type = var_game_type, app_key = var_app_key, app_version = var_app_version, response_type = var_response_type, audience_ids_to_add = var_audience_ids_to_add, app_blob = var_app_blob, app_enable_push = var_app_enable_push, app_enable_sms = var_app_enable_sms, app_enable_email = var_app_enable_email, location_visibility = var_location_visibility, home_latitude = var_home_latitude, home_longitude = var_home_longitude, app_nickname = var_app_nickname, personal_audience_id = var_personal_audience_id)
+#' # result <- api_instance$CreateAccount(var_username, var_password, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, device_id = var_device_id, device_id_type = var_device_id_type, email_address = var_email_address, asset_id = var_asset_id, street_address = var_street_address, zipcode = var_zipcode, gender = var_gender, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, role = var_role, platforms = var_platforms, tags = var_tags, about_us = var_about_us, game_experience = var_game_experience, category_ids = var_category_ids, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, latitude = var_latitude, longitude = var_longitude, accepted_terms = var_accepted_terms, invite_token = var_invite_token, referral_account_id = var_referral_account_id, send_validation = var_send_validation, game_type = var_game_type, app_key = var_app_key, app_version = var_app_version, response_type = var_response_type, audience_ids_to_add = var_audience_ids_to_add, app_blob = var_app_blob, app_enable_push = var_app_enable_push, app_enable_sms = var_app_enable_sms, app_enable_email = var_app_enable_email, location_visibility = var_location_visibility, home_latitude = var_home_latitude, home_longitude = var_home_longitude, app_nickname = var_app_nickname, personal_audience_id = var_personal_audience_iddata_file = "result.txt")
+#' result <- api_instance$CreateAccount(var_username, var_password, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, device_id = var_device_id, device_id_type = var_device_id_type, email_address = var_email_address, asset_id = var_asset_id, street_address = var_street_address, zipcode = var_zipcode, gender = var_gender, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, role = var_role, platforms = var_platforms, tags = var_tags, about_us = var_about_us, game_experience = var_game_experience, category_ids = var_category_ids, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, latitude = var_latitude, longitude = var_longitude, accepted_terms = var_accepted_terms, invite_token = var_invite_token, referral_account_id = var_referral_account_id, send_validation = var_send_validation, game_type = var_game_type, app_key = var_app_key, app_version = var_app_version, response_type = var_response_type, audience_ids_to_add = var_audience_ids_to_add, app_blob = var_app_blob, app_enable_push = var_app_enable_push, app_enable_sms = var_app_enable_sms, app_enable_email = var_app_enable_email, location_visibility = var_location_visibility, home_latitude = var_home_latitude, home_longitude = var_home_longitude, app_nickname = var_app_nickname, personal_audience_id = var_personal_audience_id)
 #' dput(result)
 #'
 #'
 #' ####################  EditAccount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_connection_account_id <- 56 # integer | The account id used to edit another person's account (Optional)
@@ -260,15 +256,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$EditAccount(var_version, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, role = var_role, asset_id = var_asset_id, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, gender = var_gender, age = var_age, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, make_profile_info_public = var_make_profile_info_public, make_game_info_public = var_make_game_info_public, make_friends_info_public = var_make_friends_info_public, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, platforms = var_platforms, tags = var_tags, about_us = var_about_us, match_token = var_match_token, game_experience = var_game_experience, categories = var_categories, category_ids = var_category_ids, response_filters = var_response_filters, show_as_zipcode = var_show_as_zipcode, show_exact_location = var_show_exact_location, show_others_exact_location = var_show_others_exact_location, accepted_terms = var_accepted_terms, location_visibility = var_location_visibility, app_blob = var_app_blob, app_enable_push = var_app_enable_push, app_enable_sms = var_app_enable_sms, app_enable_email = var_app_enable_email, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude, return_profile = var_return_profile, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, referral_account_id = var_referral_account_id, app_nickname = var_app_nickname, personal_audience_id = var_personal_audience_id, non_guest_username = var_non_guest_usernamedata_file = "result.txt")
-#' result <- api_instance$EditAccount(var_version, device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, role = var_role, asset_id = var_asset_id, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, gender = var_gender, age = var_age, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, make_profile_info_public = var_make_profile_info_public, make_game_info_public = var_make_game_info_public, make_friends_info_public = var_make_friends_info_public, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, platforms = var_platforms, tags = var_tags, about_us = var_about_us, match_token = var_match_token, game_experience = var_game_experience, categories = var_categories, category_ids = var_category_ids, response_filters = var_response_filters, show_as_zipcode = var_show_as_zipcode, show_exact_location = var_show_exact_location, show_others_exact_location = var_show_others_exact_location, accepted_terms = var_accepted_terms, location_visibility = var_location_visibility, app_blob = var_app_blob, app_enable_push = var_app_enable_push, app_enable_sms = var_app_enable_sms, app_enable_email = var_app_enable_email, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude, return_profile = var_return_profile, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, referral_account_id = var_referral_account_id, app_nickname = var_app_nickname, personal_audience_id = var_personal_audience_id, non_guest_username = var_non_guest_username)
+#' # result <- api_instance$EditAccount(device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, role = var_role, asset_id = var_asset_id, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, gender = var_gender, age = var_age, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, make_profile_info_public = var_make_profile_info_public, make_game_info_public = var_make_game_info_public, make_friends_info_public = var_make_friends_info_public, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, platforms = var_platforms, tags = var_tags, about_us = var_about_us, match_token = var_match_token, game_experience = var_game_experience, categories = var_categories, category_ids = var_category_ids, response_filters = var_response_filters, show_as_zipcode = var_show_as_zipcode, show_exact_location = var_show_exact_location, show_others_exact_location = var_show_others_exact_location, accepted_terms = var_accepted_terms, location_visibility = var_location_visibility, app_blob = var_app_blob, app_enable_push = var_app_enable_push, app_enable_sms = var_app_enable_sms, app_enable_email = var_app_enable_email, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude, return_profile = var_return_profile, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, referral_account_id = var_referral_account_id, app_nickname = var_app_nickname, personal_audience_id = var_personal_audience_id, non_guest_username = var_non_guest_usernamedata_file = "result.txt")
+#' result <- api_instance$EditAccount(device_id = var_device_id, account_id = var_account_id, connection_account_id = var_connection_account_id, role = var_role, asset_id = var_asset_id, name = var_name, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, gender = var_gender, age = var_age, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, email_address = var_email_address, street_address = var_street_address, street_address2 = var_street_address2, city = var_city, state = var_state, zipcode = var_zipcode, country = var_country, make_profile_info_public = var_make_profile_info_public, make_game_info_public = var_make_game_info_public, make_friends_info_public = var_make_friends_info_public, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, platforms = var_platforms, tags = var_tags, about_us = var_about_us, match_token = var_match_token, game_experience = var_game_experience, categories = var_categories, category_ids = var_category_ids, response_filters = var_response_filters, show_as_zipcode = var_show_as_zipcode, show_exact_location = var_show_exact_location, show_others_exact_location = var_show_others_exact_location, accepted_terms = var_accepted_terms, location_visibility = var_location_visibility, app_blob = var_app_blob, app_enable_push = var_app_enable_push, app_enable_sms = var_app_enable_sms, app_enable_email = var_app_enable_email, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude, return_profile = var_return_profile, audience_ids_to_add = var_audience_ids_to_add, audience_ids_to_remove = var_audience_ids_to_remove, referral_account_id = var_referral_account_id, app_nickname = var_app_nickname, personal_audience_id = var_personal_audience_id, non_guest_username = var_non_guest_username)
 #' dput(result)
 #'
 #'
 #' ####################  EditUsername  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_email_address <- "email_address_example" # character | the user's contact email address (NOT the username) which is also used for email validation (Optional)
@@ -278,15 +273,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$EditUsername(var_version, device_id = var_device_id, account_id = var_account_id, email_address = var_email_address, username = var_usernamedata_file = "result.txt")
-#' result <- api_instance$EditUsername(var_version, device_id = var_device_id, account_id = var_account_id, email_address = var_email_address, username = var_username)
+#' # result <- api_instance$EditUsername(device_id = var_device_id, account_id = var_account_id, email_address = var_email_address, username = var_usernamedata_file = "result.txt")
+#' result <- api_instance$EditUsername(device_id = var_device_id, account_id = var_account_id, email_address = var_email_address, username = var_username)
 #' dput(result)
 #'
 #'
 #' ####################  GetAccount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- FALSE # character | Return Nulls (Optional)
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -304,15 +298,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetAccount(var_version, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, connection_account_email = var_connection_account_email, connection_account_id = var_connection_account_id, response_filters = var_response_filters, game_type = var_game_type, app_key = var_app_key, purchase_type = var_purchase_type, update_viewed_date = var_update_viewed_date, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetAccount(var_version, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, connection_account_email = var_connection_account_email, connection_account_id = var_connection_account_id, response_filters = var_response_filters, game_type = var_game_type, app_key = var_app_key, purchase_type = var_purchase_type, update_viewed_date = var_update_viewed_date, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetAccount(return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, connection_account_email = var_connection_account_email, connection_account_id = var_connection_account_id, response_filters = var_response_filters, game_type = var_game_type, app_key = var_app_key, purchase_type = var_purchase_type, update_viewed_date = var_update_viewed_date, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetAccount(return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, connection_account_email = var_connection_account_email, connection_account_id = var_connection_account_id, response_filters = var_response_filters, game_type = var_game_type, app_key = var_app_key, purchase_type = var_purchase_type, update_viewed_date = var_update_viewed_date, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  GetProfileAssets  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_return_nulls <- FALSE # character | Determines whether to return null fields in the response (Optional)
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -332,15 +325,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetProfileAssets(var_version, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, owner_id = var_owner_id, media_types = var_media_types, mime_types = var_mime_types, sort_field = var_sort_field, descending = var_descending, latitude = var_latitude, longitude = var_longitude, _i = var__i, start = var_start, _l = var__l, limit = var_limitdata_file = "result.txt")
-#' result <- api_instance$GetProfileAssets(var_version, return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, owner_id = var_owner_id, media_types = var_media_types, mime_types = var_mime_types, sort_field = var_sort_field, descending = var_descending, latitude = var_latitude, longitude = var_longitude, _i = var__i, start = var_start, _l = var__l, limit = var_limit)
+#' # result <- api_instance$GetProfileAssets(return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, owner_id = var_owner_id, media_types = var_media_types, mime_types = var_mime_types, sort_field = var_sort_field, descending = var_descending, latitude = var_latitude, longitude = var_longitude, _i = var__i, start = var_start, _l = var__l, limit = var_limitdata_file = "result.txt")
+#' result <- api_instance$GetProfileAssets(return_nulls = var_return_nulls, device_id = var_device_id, account_id = var_account_id, owner_id = var_owner_id, media_types = var_media_types, mime_types = var_mime_types, sort_field = var_sort_field, descending = var_descending, latitude = var_latitude, longitude = var_longitude, _i = var__i, start = var_start, _l = var__l, limit = var_limit)
 #' dput(result)
 #'
 #'
 #' ####################  GetReferralList  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_app_key <- "app_key_example" # character | The application key (Optional)
 #' var_retrieve_type <- "retrieve_type_example" # character | one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it's parents, recursively - GET_ALL will get all of the above (Optional)
@@ -356,13 +348,12 @@
 #' #Search Accounts
 #' api_instance <- AccountApi$new()
 #'
-#' api_instance$GetReferralList(var_version, account_id = var_account_id, app_key = var_app_key, retrieve_type = var_retrieve_type, level_limit = var_level_limit, ancestor_level_limit = var_ancestor_level_limit, children_level_limit = var_children_level_limit, ancestor_list_start = var_ancestor_list_start, ancestor_list_limit = var_ancestor_list_limit, children_list_start = var_children_list_start, children_list_limit = var_children_list_limit, children_children = var_children_children)
+#' api_instance$GetReferralList(account_id = var_account_id, app_key = var_app_key, retrieve_type = var_retrieve_type, level_limit = var_level_limit, ancestor_level_limit = var_ancestor_level_limit, children_level_limit = var_children_level_limit, ancestor_list_start = var_ancestor_list_start, ancestor_list_limit = var_ancestor_list_limit, children_list_start = var_children_list_start, children_list_limit = var_children_list_limit, children_children = var_children_children)
 #'
 #'
 #' ####################  GetSettings  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_latitude <- 3.4 # numeric | The current latitude of the user (Optional)
@@ -372,15 +363,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$GetSettings(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$GetSettings(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$GetSettings(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$GetSettings(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  LoginDelegate  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_access_token <- "access_token_example" # character | 
 #' var_app_key <- "app_key_example" # character | 
 #' var_device_id <- "device_id_example" # character |  (Optional)
@@ -397,15 +387,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$LoginDelegate(var_version, var_access_token, var_app_key, device_id = var_device_id, access_token_secret = var_access_token_secret, delegated_account_id = var_delegated_account_id, delegated_username = var_delegated_username, network_uid = var_network_uid, age_restriction = var_age_restriction, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$LoginDelegate(var_version, var_access_token, var_app_key, device_id = var_device_id, access_token_secret = var_access_token_secret, delegated_account_id = var_delegated_account_id, delegated_username = var_delegated_username, network_uid = var_network_uid, age_restriction = var_age_restriction, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$LoginDelegate(var_access_token, var_app_key, device_id = var_device_id, access_token_secret = var_access_token_secret, delegated_account_id = var_delegated_account_id, delegated_username = var_delegated_username, network_uid = var_network_uid, age_restriction = var_age_restriction, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$LoginDelegate(var_access_token, var_app_key, device_id = var_device_id, access_token_secret = var_access_token_secret, delegated_account_id = var_delegated_account_id, delegated_username = var_delegated_username, network_uid = var_network_uid, age_restriction = var_age_restriction, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  LoginGeneral  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_access_token <- "access_token_example" # character | The access token to authenticate with (ex: username or fb token)
 #' var_network_uid <- "USERNAME" # character | The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE 
 #' var_app_key <- "app_key_example" # character | The application key
@@ -424,15 +413,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$LoginGeneral(var_version, var_access_token, var_network_uid, var_app_key, device_id = var_device_id, device_id_type = var_device_id_type, access_token_secret = var_access_token_secret, age_restriction = var_age_restriction, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, email_match = var_email_match, chosen_account_id = var_chosen_account_id, third_party_credential_id = var_third_party_credential_iddata_file = "result.txt")
-#' result <- api_instance$LoginGeneral(var_version, var_access_token, var_network_uid, var_app_key, device_id = var_device_id, device_id_type = var_device_id_type, access_token_secret = var_access_token_secret, age_restriction = var_age_restriction, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, email_match = var_email_match, chosen_account_id = var_chosen_account_id, third_party_credential_id = var_third_party_credential_id)
+#' # result <- api_instance$LoginGeneral(var_access_token, var_network_uid, var_app_key, device_id = var_device_id, device_id_type = var_device_id_type, access_token_secret = var_access_token_secret, age_restriction = var_age_restriction, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, email_match = var_email_match, chosen_account_id = var_chosen_account_id, third_party_credential_id = var_third_party_credential_iddata_file = "result.txt")
+#' result <- api_instance$LoginGeneral(var_access_token, var_network_uid, var_app_key, device_id = var_device_id, device_id_type = var_device_id_type, access_token_secret = var_access_token_secret, age_restriction = var_age_restriction, response_filters = var_response_filters, latitude = var_latitude, longitude = var_longitude, email_match = var_email_match, chosen_account_id = var_chosen_account_id, third_party_credential_id = var_third_party_credential_id)
 #' dput(result)
 #'
 #'
 #' ####################  LoginUsername  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_username <- "username_example" # character | the user's email address they used to sign-up
 #' var_password <- "password_example" # character | the password
 #' var_device_id <- "device_id_example" # character | the device id (Optional)
@@ -448,15 +436,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$LoginUsername(var_version, var_username, var_password, device_id = var_device_id, latitude = var_latitude, longitude = var_longitude, app = var_app, game_type = var_game_type, app_key = var_app_key, return_profile = var_return_profile, response_filters = var_response_filtersdata_file = "result.txt")
-#' result <- api_instance$LoginUsername(var_version, var_username, var_password, device_id = var_device_id, latitude = var_latitude, longitude = var_longitude, app = var_app, game_type = var_game_type, app_key = var_app_key, return_profile = var_return_profile, response_filters = var_response_filters)
+#' # result <- api_instance$LoginUsername(var_username, var_password, device_id = var_device_id, latitude = var_latitude, longitude = var_longitude, app = var_app, game_type = var_game_type, app_key = var_app_key, return_profile = var_return_profile, response_filters = var_response_filtersdata_file = "result.txt")
+#' result <- api_instance$LoginUsername(var_username, var_password, device_id = var_device_id, latitude = var_latitude, longitude = var_longitude, app = var_app, game_type = var_game_type, app_key = var_app_key, return_profile = var_return_profile, response_filters = var_response_filters)
 #' dput(result)
 #'
 #'
 #' ####################  Logout  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_device_id_type <- "device_id_type_example" # character | Device Id Type (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
@@ -467,15 +454,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$Logout(var_version, device_id = var_device_id, device_id_type = var_device_id_type, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$Logout(var_version, device_id = var_device_id, device_id_type = var_device_id_type, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$Logout(device_id = var_device_id, device_id_type = var_device_id_type, account_id = var_account_id, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$Logout(device_id = var_device_id, device_id_type = var_device_id_type, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  MergeAccount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_merge_account_id <- 56 # integer | The id of the account to being merged
 #' var_app_key <- "app_key_example" # character | The application key
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
@@ -485,15 +471,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$MergeAccount(var_version, var_merge_account_id, var_app_key, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
-#' result <- api_instance$MergeAccount(var_version, var_merge_account_id, var_app_key, device_id = var_device_id, account_id = var_account_id)
+#' # result <- api_instance$MergeAccount(var_merge_account_id, var_app_key, device_id = var_device_id, account_id = var_account_iddata_file = "result.txt")
+#' result <- api_instance$MergeAccount(var_merge_account_id, var_app_key, device_id = var_device_id, account_id = var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  PasswordChange  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account to update
 #' var_old_password <- "old_password_example" # character | The current password, used to validate access
 #' var_new_password <- "new_password_example" # character | The new password to set, cannot be empty
@@ -503,15 +488,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$PasswordChange(var_version, var_account_id, var_old_password, var_new_password, var_confirm_passworddata_file = "result.txt")
-#' result <- api_instance$PasswordChange(var_version, var_account_id, var_old_password, var_new_password, var_confirm_password)
+#' # result <- api_instance$PasswordChange(var_account_id, var_old_password, var_new_password, var_confirm_passworddata_file = "result.txt")
+#' result <- api_instance$PasswordChange(var_account_id, var_old_password, var_new_password, var_confirm_password)
 #' dput(result)
 #'
 #'
 #' ####################  PasswordReset  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_token <- "token_example" # character | The token associated with the account to update, good for 24 hours
 #' var_password <- "password_example" # character | The new password to set, cannot be empty
 #' var_confirm <- "confirm_example" # character | The new password to confirm, must match newPassword
@@ -520,15 +504,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$PasswordReset(var_version, var_token, var_password, var_confirmdata_file = "result.txt")
-#' result <- api_instance$PasswordReset(var_version, var_token, var_password, var_confirm)
+#' # result <- api_instance$PasswordReset(var_token, var_password, var_confirmdata_file = "result.txt")
+#' result <- api_instance$PasswordReset(var_token, var_password, var_confirm)
 #' dput(result)
 #'
 #'
 #' ####################  RequestPasswordReset  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_email <- "email_example" # character | The email/username of the account
 #' var_from <- "Sirqul" # character | this is the sender email (Optional)
 #' var_domain <- "domain_example" # character | this is the domain (like dev.sirqul.com) used to generate the password reset link (Optional)
@@ -539,30 +522,28 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RequestPasswordReset(var_version, var_email, from = var_from, domain = var_domain, sub_url = var_sub_url, referer = var_refererdata_file = "result.txt")
-#' result <- api_instance$RequestPasswordReset(var_version, var_email, from = var_from, domain = var_domain, sub_url = var_sub_url, referer = var_referer)
+#' # result <- api_instance$RequestPasswordReset(var_email, from = var_from, domain = var_domain, sub_url = var_sub_url, referer = var_refererdata_file = "result.txt")
+#' result <- api_instance$RequestPasswordReset(var_email, from = var_from, domain = var_domain, sub_url = var_sub_url, referer = var_referer)
 #' dput(result)
 #'
 #'
 #' ####################  RequestValidateAccount  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The account id of the user
 #'
 #' #Send Validation Request
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$RequestValidateAccount(var_version, var_account_iddata_file = "result.txt")
-#' result <- api_instance$RequestValidateAccount(var_version, var_account_id)
+#' # result <- api_instance$RequestValidateAccount(var_account_iddata_file = "result.txt")
+#' result <- api_instance$RequestValidateAccount(var_account_id)
 #' dput(result)
 #'
 #'
 #' ####################  SearchAccounts  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | The id of the account requesting
 #' var_app_key <- "app_key_example" # character | The application key
 #' var_keyword <- "keyword_example" # character | The keyword for for querying the account (Optional)
@@ -586,15 +567,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SearchAccounts(var_version, var_account_id, var_app_key, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, radius = var_radius, gender = var_gender, game_experience = var_game_experience, age = var_age, category_ids = var_category_ids, return_nulls = var_return_nulls, response_filters = var_response_filters, purchase_type = var_purchase_type, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
-#' result <- api_instance$SearchAccounts(var_version, var_account_id, var_app_key, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, radius = var_radius, gender = var_gender, game_experience = var_game_experience, age = var_age, category_ids = var_category_ids, return_nulls = var_return_nulls, response_filters = var_response_filters, purchase_type = var_purchase_type, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
+#' # result <- api_instance$SearchAccounts(var_account_id, var_app_key, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, radius = var_radius, gender = var_gender, game_experience = var_game_experience, age = var_age, category_ids = var_category_ids, return_nulls = var_return_nulls, response_filters = var_response_filters, purchase_type = var_purchase_type, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_onlydata_file = "result.txt")
+#' result <- api_instance$SearchAccounts(var_account_id, var_app_key, keyword = var_keyword, latitude = var_latitude, longitude = var_longitude, radius = var_radius, gender = var_gender, game_experience = var_game_experience, age = var_age, category_ids = var_category_ids, return_nulls = var_return_nulls, response_filters = var_response_filters, purchase_type = var_purchase_type, sort_field = var_sort_field, descending = var_descending, start = var_start, limit = var_limit, active_only = var_active_only)
 #' dput(result)
 #'
 #'
 #' ####################  SecureLogin  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_username <- "username_example" # character | The user's encrypted email address they used to sign-up
 #' var_password <- "password_example" # character | The encrypted password
 #' var_game_type <- "game_type_example" # character | The application key
@@ -609,15 +589,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SecureLogin(var_version, var_username, var_password, var_game_type, device_id = var_device_id, charset_name = var_charset_name, latitude = var_latitude, longitude = var_longitude, return_profile = var_return_profile, response_filters = var_response_filtersdata_file = "result.txt")
-#' result <- api_instance$SecureLogin(var_version, var_username, var_password, var_game_type, device_id = var_device_id, charset_name = var_charset_name, latitude = var_latitude, longitude = var_longitude, return_profile = var_return_profile, response_filters = var_response_filters)
+#' # result <- api_instance$SecureLogin(var_username, var_password, var_game_type, device_id = var_device_id, charset_name = var_charset_name, latitude = var_latitude, longitude = var_longitude, return_profile = var_return_profile, response_filters = var_response_filtersdata_file = "result.txt")
+#' result <- api_instance$SecureLogin(var_username, var_password, var_game_type, device_id = var_device_id, charset_name = var_charset_name, latitude = var_latitude, longitude = var_longitude, return_profile = var_return_profile, response_filters = var_response_filters)
 #' dput(result)
 #'
 #'
 #' ####################  SecureSignup  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id
 #' var_username <- "username_example" # character | The encrypted email of the user, this is what will be used when they login
 #' var_password <- "password_example" # character | The encrypted password of the user
@@ -684,15 +663,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SecureSignup(var_version, var_device_id, var_username, var_password, name = var_name, invite_token = var_invite_token, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, device_id_type = var_device_id_type, email_address = var_email_address, asset_id = var_asset_id, address = var_address, zipcode = var_zipcode, gender = var_gender, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, role = var_role, platforms = var_platforms, tags = var_tags, about_us = var_about_us, game_experience = var_game_experience, category_ids = var_category_ids, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, latitude = var_latitude, longitude = var_longitude, accepted_terms = var_accepted_terms, charset_name = var_charset_name, game_type = var_game_type, app_key = var_app_key, app_version = var_app_version, response_type = var_response_typedata_file = "result.txt")
-#' result <- api_instance$SecureSignup(var_version, var_device_id, var_username, var_password, name = var_name, invite_token = var_invite_token, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, device_id_type = var_device_id_type, email_address = var_email_address, asset_id = var_asset_id, address = var_address, zipcode = var_zipcode, gender = var_gender, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, role = var_role, platforms = var_platforms, tags = var_tags, about_us = var_about_us, game_experience = var_game_experience, category_ids = var_category_ids, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, latitude = var_latitude, longitude = var_longitude, accepted_terms = var_accepted_terms, charset_name = var_charset_name, game_type = var_game_type, app_key = var_app_key, app_version = var_app_version, response_type = var_response_type)
+#' # result <- api_instance$SecureSignup(var_device_id, var_username, var_password, name = var_name, invite_token = var_invite_token, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, device_id_type = var_device_id_type, email_address = var_email_address, asset_id = var_asset_id, address = var_address, zipcode = var_zipcode, gender = var_gender, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, role = var_role, platforms = var_platforms, tags = var_tags, about_us = var_about_us, game_experience = var_game_experience, category_ids = var_category_ids, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, latitude = var_latitude, longitude = var_longitude, accepted_terms = var_accepted_terms, charset_name = var_charset_name, game_type = var_game_type, app_key = var_app_key, app_version = var_app_version, response_type = var_response_typedata_file = "result.txt")
+#' result <- api_instance$SecureSignup(var_device_id, var_username, var_password, name = var_name, invite_token = var_invite_token, prefix_name = var_prefix_name, first_name = var_first_name, middle_name = var_middle_name, last_name = var_last_name, suffix_name = var_suffix_name, title = var_title, device_id_type = var_device_id_type, email_address = var_email_address, asset_id = var_asset_id, address = var_address, zipcode = var_zipcode, gender = var_gender, birthday = var_birthday, home_phone = var_home_phone, cell_phone = var_cell_phone, cell_phone_carrier = var_cell_phone_carrier, business_phone = var_business_phone, role = var_role, platforms = var_platforms, tags = var_tags, about_us = var_about_us, game_experience = var_game_experience, category_ids = var_category_ids, hometown = var_hometown, height = var_height, height_index = var_height_index, ethnicity = var_ethnicity, body_type = var_body_type, marital_status = var_marital_status, children = var_children, religion = var_religion, education = var_education, education_index = var_education_index, smoke = var_smoke, drink = var_drink, companionship = var_companionship, companionship_index = var_companionship_index, preferred_min_age = var_preferred_min_age, preferred_max_age = var_preferred_max_age, preferred_min_height = var_preferred_min_height, preferred_max_height = var_preferred_max_height, preferred_gender = var_preferred_gender, preferred_education = var_preferred_education, preferred_education_index = var_preferred_education_index, preferred_body_type = var_preferred_body_type, preferred_ethnicity = var_preferred_ethnicity, preferred_location = var_preferred_location, preferred_location_range = var_preferred_location_range, latitude = var_latitude, longitude = var_longitude, accepted_terms = var_accepted_terms, charset_name = var_charset_name, game_type = var_game_type, app_key = var_app_key, app_version = var_app_version, response_type = var_response_type)
 #' dput(result)
 #'
 #'
 #' ####################  SetMatchToken  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_match_token <- "match_token_example" # character | A string of numbers (Optional)
@@ -705,15 +683,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$SetMatchToken(var_version, device_id = var_device_id, account_id = var_account_id, match_token = var_match_token, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$SetMatchToken(var_version, device_id = var_device_id, account_id = var_account_id, match_token = var_match_token, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$SetMatchToken(device_id = var_device_id, account_id = var_account_id, match_token = var_match_token, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$SetMatchToken(device_id = var_device_id, account_id = var_account_id, match_token = var_match_token, game_type = var_game_type, app_key = var_app_key, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateActveStatus  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_account_id <- 56 # integer | the account id of the user (deviceId or accountId required)
 #' var_connection_account_id <- 56 # integer | The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
 #' var_active <- "active_example" # character | true will activate the user and false will deactivate
@@ -724,15 +701,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateActveStatus(var_version, var_account_id, var_connection_account_id, var_active, device_id = var_device_id, app_key = var_app_keydata_file = "result.txt")
-#' result <- api_instance$UpdateActveStatus(var_version, var_account_id, var_connection_account_id, var_active, device_id = var_device_id, app_key = var_app_key)
+#' # result <- api_instance$UpdateActveStatus(var_account_id, var_connection_account_id, var_active, device_id = var_device_id, app_key = var_app_keydata_file = "result.txt")
+#' result <- api_instance$UpdateActveStatus(var_account_id, var_connection_account_id, var_active, device_id = var_device_id, app_key = var_app_key)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateLocation  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_latitude <- 3.4 # numeric | The current latitude of the user (Optional)
@@ -743,15 +719,14 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateLocation(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, client_time = var_client_timedata_file = "result.txt")
-#' result <- api_instance$UpdateLocation(var_version, device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, client_time = var_client_time)
+#' # result <- api_instance$UpdateLocation(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, client_time = var_client_timedata_file = "result.txt")
+#' result <- api_instance$UpdateLocation(device_id = var_device_id, account_id = var_account_id, latitude = var_latitude, longitude = var_longitude, client_time = var_client_time)
 #' dput(result)
 #'
 #'
 #' ####################  UpdateSettings  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_device_id <- "device_id_example" # character | The device id (deviceId or accountId required) (Optional)
 #' var_account_id <- 56 # integer | The account id of the user (deviceId or accountId required) (Optional)
 #' var_blocked_notifications <- "blocked_notifications_example" # character | The notifications to be blocked (Optional)
@@ -769,38 +744,36 @@
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$UpdateSettings(var_version, device_id = var_device_id, account_id = var_account_id, blocked_notifications = var_blocked_notifications, suggestion_method = var_suggestion_method, suggestion_count = var_suggestion_count, suggestion_time_frame = var_suggestion_time_frame, show_others_exact_location = var_show_others_exact_location, show_as_zipcode = var_show_as_zipcode, show_exact_location = var_show_exact_location, favorite_visibility = var_favorite_visibility, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
-#' result <- api_instance$UpdateSettings(var_version, device_id = var_device_id, account_id = var_account_id, blocked_notifications = var_blocked_notifications, suggestion_method = var_suggestion_method, suggestion_count = var_suggestion_count, suggestion_time_frame = var_suggestion_time_frame, show_others_exact_location = var_show_others_exact_location, show_as_zipcode = var_show_as_zipcode, show_exact_location = var_show_exact_location, favorite_visibility = var_favorite_visibility, latitude = var_latitude, longitude = var_longitude)
+#' # result <- api_instance$UpdateSettings(device_id = var_device_id, account_id = var_account_id, blocked_notifications = var_blocked_notifications, suggestion_method = var_suggestion_method, suggestion_count = var_suggestion_count, suggestion_time_frame = var_suggestion_time_frame, show_others_exact_location = var_show_others_exact_location, show_as_zipcode = var_show_as_zipcode, show_exact_location = var_show_exact_location, favorite_visibility = var_favorite_visibility, latitude = var_latitude, longitude = var_longitudedata_file = "result.txt")
+#' result <- api_instance$UpdateSettings(device_id = var_device_id, account_id = var_account_id, blocked_notifications = var_blocked_notifications, suggestion_method = var_suggestion_method, suggestion_count = var_suggestion_count, suggestion_time_frame = var_suggestion_time_frame, show_others_exact_location = var_show_others_exact_location, show_as_zipcode = var_show_as_zipcode, show_exact_location = var_show_exact_location, favorite_visibility = var_favorite_visibility, latitude = var_latitude, longitude = var_longitude)
 #' dput(result)
 #'
 #'
 #' ####################  ValidateAccountSignup  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_token <- "token_example" # character | The token associated with the account to update, good for 24 hours
 #'
 #' #Save Validation Status
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ValidateAccountSignup(var_version, var_tokendata_file = "result.txt")
-#' result <- api_instance$ValidateAccountSignup(var_version, var_token)
+#' # result <- api_instance$ValidateAccountSignup(var_tokendata_file = "result.txt")
+#' result <- api_instance$ValidateAccountSignup(var_token)
 #' dput(result)
 #'
 #'
 #' ####################  ValidatePasswordReset  ####################
 #'
 #' library(openapi)
-#' var_version <- 3.16 # numeric | 
 #' var_token <- "token_example" # character | The token associated with the account to update, good for 24 hours
 #'
 #' #Validate Password Reset Token
 #' api_instance <- AccountApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$ValidatePasswordReset(var_version, var_tokendata_file = "result.txt")
-#' result <- api_instance$ValidatePasswordReset(var_version, var_token)
+#' # result <- api_instance$ValidatePasswordReset(var_tokendata_file = "result.txt")
+#' result <- api_instance$ValidatePasswordReset(var_token)
 #' dput(result)
 #'
 #'
@@ -828,7 +801,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Search Accounts by Location
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param q (optional) Deprecated - legacy query parameter
@@ -868,8 +840,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return UserLocationSearchResponse
-    AccountLocationSearch = function(version, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, postal_code = NULL, latitude = NULL, longitude = NULL, app_key = NULL, range = 10, location_last_updated = NULL, gender = NULL, min_age = NULL, max_age = NULL, companionship_index = NULL, _i = NULL, start = 0, _l = NULL, limit = 100, search_mode = NULL, sort_field = NULL, descending = NULL, roles = NULL, tags = NULL, experience = NULL, category_ids = NULL, audience_ids = NULL, audience_operator = "AND", update_current_location = FALSE, update_preferred_settings = FALSE, show_exact_locations = TRUE, show_connection_to_searcher = FALSE, flag_count_minimum = NULL, verified_user_only = NULL, content_admin_only = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$AccountLocationSearchWithHttpInfo(version, device_id, account_id, q, keyword, postal_code, latitude, longitude, app_key, range, location_last_updated, gender, min_age, max_age, companionship_index, _i, start, _l, limit, search_mode, sort_field, descending, roles, tags, experience, category_ids, audience_ids, audience_operator, update_current_location, update_preferred_settings, show_exact_locations, show_connection_to_searcher, flag_count_minimum, verified_user_only, content_admin_only, data_file = data_file, ..., .parse = .parse)
+    AccountLocationSearch = function(device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, postal_code = NULL, latitude = NULL, longitude = NULL, app_key = NULL, range = 10, location_last_updated = NULL, gender = NULL, min_age = NULL, max_age = NULL, companionship_index = NULL, _i = NULL, start = 0, _l = NULL, limit = 100, search_mode = NULL, sort_field = NULL, descending = NULL, roles = NULL, tags = NULL, experience = NULL, category_ids = NULL, audience_ids = NULL, audience_operator = "AND", update_current_location = FALSE, update_preferred_settings = FALSE, show_exact_locations = TRUE, show_connection_to_searcher = FALSE, flag_count_minimum = NULL, verified_user_only = NULL, content_admin_only = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AccountLocationSearchWithHttpInfo(device_id, account_id, q, keyword, postal_code, latitude, longitude, app_key, range, location_last_updated, gender, min_age, max_age, companionship_index, _i, start, _l, limit, search_mode, sort_field, descending, roles, tags, experience, category_ids, audience_ids, audience_operator, update_current_location, update_preferred_settings, show_exact_locations, show_connection_to_searcher, flag_count_minimum, verified_user_only, content_admin_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -884,7 +856,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Search Accounts by Location
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param q (optional) Deprecated - legacy query parameter
@@ -924,7 +895,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (UserLocationSearchResponse) with additional information such as HTTP status code, headers
-    AccountLocationSearchWithHttpInfo = function(version, device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, postal_code = NULL, latitude = NULL, longitude = NULL, app_key = NULL, range = 10, location_last_updated = NULL, gender = NULL, min_age = NULL, max_age = NULL, companionship_index = NULL, _i = NULL, start = 0, _l = NULL, limit = 100, search_mode = NULL, sort_field = NULL, descending = NULL, roles = NULL, tags = NULL, experience = NULL, category_ids = NULL, audience_ids = NULL, audience_operator = "AND", update_current_location = FALSE, update_preferred_settings = FALSE, show_exact_locations = TRUE, show_connection_to_searcher = FALSE, flag_count_minimum = NULL, verified_user_only = NULL, content_admin_only = NULL, data_file = NULL, ..., .parse = TRUE) {
+    AccountLocationSearchWithHttpInfo = function(device_id = NULL, account_id = NULL, q = NULL, keyword = NULL, postal_code = NULL, latitude = NULL, longitude = NULL, app_key = NULL, range = 10, location_last_updated = NULL, gender = NULL, min_age = NULL, max_age = NULL, companionship_index = NULL, _i = NULL, start = 0, _l = NULL, limit = 100, search_mode = NULL, sort_field = NULL, descending = NULL, roles = NULL, tags = NULL, experience = NULL, category_ids = NULL, audience_ids = NULL, audience_operator = "AND", update_current_location = FALSE, update_preferred_settings = FALSE, show_exact_locations = TRUE, show_connection_to_searcher = FALSE, flag_count_minimum = NULL, verified_user_only = NULL, content_admin_only = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -933,14 +904,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$AccountLocationSearch, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AccountApi$AccountLocationSearch, `device_id` is not nullable")
@@ -1146,11 +1109,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["contentAdminOnly"]] <- `content_admin_only`
 
-      local_var_url_path <- "/api/{version}/account/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1211,7 +1170,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Block Account
     #'
-    #' @param version 
     #' @param account_id_being_blocked The id of the account to be blocked/unblocked
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -1224,8 +1182,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    BlockAccount = function(version, account_id_being_blocked, device_id = NULL, account_id = NULL, block_flag_value = TRUE, remove_from_groups_if_blocked = FALSE, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$BlockAccountWithHttpInfo(version, account_id_being_blocked, device_id, account_id, block_flag_value, remove_from_groups_if_blocked, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    BlockAccount = function(account_id_being_blocked, device_id = NULL, account_id = NULL, block_flag_value = TRUE, remove_from_groups_if_blocked = FALSE, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BlockAccountWithHttpInfo(account_id_being_blocked, device_id, account_id, block_flag_value, remove_from_groups_if_blocked, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1240,7 +1198,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Block Account
     #'
-    #' @param version 
     #' @param account_id_being_blocked The id of the account to be blocked/unblocked
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -1253,7 +1210,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    BlockAccountWithHttpInfo = function(version, account_id_being_blocked, device_id = NULL, account_id = NULL, block_flag_value = TRUE, remove_from_groups_if_blocked = FALSE, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    BlockAccountWithHttpInfo = function(account_id_being_blocked, device_id = NULL, account_id = NULL, block_flag_value = TRUE, remove_from_groups_if_blocked = FALSE, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1263,16 +1220,8 @@ AccountApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id_being_blocked`)) {
         stop("Missing required parameter `account_id_being_blocked`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$BlockAccount, `version` is not nullable")
       }
 
       if (!missing(`account_id_being_blocked`) && is.null(`account_id_being_blocked`)) {
@@ -1317,11 +1266,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/account/block"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/block"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -1382,7 +1327,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Create Account
     #'
-    #' @param version 
     #' @param username The access token to authenticate with (ex: username)
     #' @param password The secret to authenticate with (ex: password)
     #' @param name (optional) The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName
@@ -1460,8 +1404,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AccountLoginResponse
-    CreateAccount = function(version, username, password, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, device_id = NULL, device_id_type = NULL, email_address = NULL, asset_id = NULL, street_address = NULL, zipcode = NULL, gender = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, role = NULL, platforms = NULL, tags = NULL, about_us = NULL, game_experience = NULL, category_ids = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, latitude = NULL, longitude = NULL, accepted_terms = NULL, invite_token = NULL, referral_account_id = NULL, send_validation = NULL, game_type = NULL, app_key = NULL, app_version = NULL, response_type = NULL, audience_ids_to_add = NULL, app_blob = NULL, app_enable_push = NULL, app_enable_sms = NULL, app_enable_email = NULL, location_visibility = NULL, home_latitude = NULL, home_longitude = NULL, app_nickname = NULL, personal_audience_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$CreateAccountWithHttpInfo(version, username, password, name, prefix_name, first_name, middle_name, last_name, suffix_name, title, device_id, device_id_type, email_address, asset_id, street_address, zipcode, gender, birthday, home_phone, cell_phone, cell_phone_carrier, business_phone, role, platforms, tags, about_us, game_experience, category_ids, hometown, height, height_index, ethnicity, body_type, marital_status, children, religion, education, education_index, smoke, drink, companionship, companionship_index, preferred_min_age, preferred_max_age, preferred_min_height, preferred_max_height, preferred_gender, preferred_education, preferred_education_index, preferred_body_type, preferred_ethnicity, preferred_location, preferred_location_range, latitude, longitude, accepted_terms, invite_token, referral_account_id, send_validation, game_type, app_key, app_version, response_type, audience_ids_to_add, app_blob, app_enable_push, app_enable_sms, app_enable_email, location_visibility, home_latitude, home_longitude, app_nickname, personal_audience_id, data_file = data_file, ..., .parse = .parse)
+    CreateAccount = function(username, password, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, device_id = NULL, device_id_type = NULL, email_address = NULL, asset_id = NULL, street_address = NULL, zipcode = NULL, gender = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, role = NULL, platforms = NULL, tags = NULL, about_us = NULL, game_experience = NULL, category_ids = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, latitude = NULL, longitude = NULL, accepted_terms = NULL, invite_token = NULL, referral_account_id = NULL, send_validation = NULL, game_type = NULL, app_key = NULL, app_version = NULL, response_type = NULL, audience_ids_to_add = NULL, app_blob = NULL, app_enable_push = NULL, app_enable_sms = NULL, app_enable_email = NULL, location_visibility = NULL, home_latitude = NULL, home_longitude = NULL, app_nickname = NULL, personal_audience_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CreateAccountWithHttpInfo(username, password, name, prefix_name, first_name, middle_name, last_name, suffix_name, title, device_id, device_id_type, email_address, asset_id, street_address, zipcode, gender, birthday, home_phone, cell_phone, cell_phone_carrier, business_phone, role, platforms, tags, about_us, game_experience, category_ids, hometown, height, height_index, ethnicity, body_type, marital_status, children, religion, education, education_index, smoke, drink, companionship, companionship_index, preferred_min_age, preferred_max_age, preferred_min_height, preferred_max_height, preferred_gender, preferred_education, preferred_education_index, preferred_body_type, preferred_ethnicity, preferred_location, preferred_location_range, latitude, longitude, accepted_terms, invite_token, referral_account_id, send_validation, game_type, app_key, app_version, response_type, audience_ids_to_add, app_blob, app_enable_push, app_enable_sms, app_enable_email, location_visibility, home_latitude, home_longitude, app_nickname, personal_audience_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1476,7 +1420,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Create Account
     #'
-    #' @param version 
     #' @param username The access token to authenticate with (ex: username)
     #' @param password The secret to authenticate with (ex: password)
     #' @param name (optional) The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName
@@ -1554,7 +1497,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AccountLoginResponse) with additional information such as HTTP status code, headers
-    CreateAccountWithHttpInfo = function(version, username, password, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, device_id = NULL, device_id_type = NULL, email_address = NULL, asset_id = NULL, street_address = NULL, zipcode = NULL, gender = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, role = NULL, platforms = NULL, tags = NULL, about_us = NULL, game_experience = NULL, category_ids = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, latitude = NULL, longitude = NULL, accepted_terms = NULL, invite_token = NULL, referral_account_id = NULL, send_validation = NULL, game_type = NULL, app_key = NULL, app_version = NULL, response_type = NULL, audience_ids_to_add = NULL, app_blob = NULL, app_enable_push = NULL, app_enable_sms = NULL, app_enable_email = NULL, location_visibility = NULL, home_latitude = NULL, home_longitude = NULL, app_nickname = NULL, personal_audience_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    CreateAccountWithHttpInfo = function(username, password, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, device_id = NULL, device_id_type = NULL, email_address = NULL, asset_id = NULL, street_address = NULL, zipcode = NULL, gender = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, role = NULL, platforms = NULL, tags = NULL, about_us = NULL, game_experience = NULL, category_ids = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, latitude = NULL, longitude = NULL, accepted_terms = NULL, invite_token = NULL, referral_account_id = NULL, send_validation = NULL, game_type = NULL, app_key = NULL, app_version = NULL, response_type = NULL, audience_ids_to_add = NULL, app_blob = NULL, app_enable_push = NULL, app_enable_sms = NULL, app_enable_email = NULL, location_visibility = NULL, home_latitude = NULL, home_longitude = NULL, app_nickname = NULL, personal_audience_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1564,20 +1507,12 @@ AccountApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`username`)) {
         stop("Missing required parameter `username`.")
       }
 
       if (missing(`password`)) {
         stop("Missing required parameter `password`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$CreateAccount, `version` is not nullable")
       }
 
       if (!missing(`username`) && is.null(`username`)) {
@@ -2012,11 +1947,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["personalAudienceId"]] <- `personal_audience_id`
 
-      local_var_url_path <- "/api/{version}/account/create"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/create"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2077,7 +2008,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Account
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param connection_account_id (optional) The account id used to edit another person's account
@@ -2165,8 +2095,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileInfoResponse
-    EditAccount = function(version, device_id = NULL, account_id = NULL, connection_account_id = NULL, role = NULL, asset_id = NULL, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, gender = NULL, age = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, make_profile_info_public = NULL, make_game_info_public = NULL, make_friends_info_public = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, platforms = NULL, tags = NULL, about_us = NULL, match_token = NULL, game_experience = NULL, categories = NULL, category_ids = NULL, response_filters = "PROFILE,PROFILE_CONTACT", show_as_zipcode = NULL, show_exact_location = NULL, show_others_exact_location = NULL, accepted_terms = NULL, location_visibility = NULL, app_blob = NULL, app_enable_push = NULL, app_enable_sms = NULL, app_enable_email = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, return_profile = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, referral_account_id = NULL, app_nickname = NULL, personal_audience_id = NULL, non_guest_username = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$EditAccountWithHttpInfo(version, device_id, account_id, connection_account_id, role, asset_id, name, prefix_name, first_name, middle_name, last_name, suffix_name, title, gender, age, birthday, home_phone, cell_phone, cell_phone_carrier, business_phone, email_address, street_address, street_address2, city, state, zipcode, country, make_profile_info_public, make_game_info_public, make_friends_info_public, hometown, height, height_index, ethnicity, body_type, marital_status, children, religion, education, education_index, smoke, drink, companionship, companionship_index, preferred_min_age, preferred_max_age, preferred_min_height, preferred_max_height, preferred_gender, preferred_education, preferred_education_index, preferred_body_type, preferred_ethnicity, preferred_location, preferred_location_range, platforms, tags, about_us, match_token, game_experience, categories, category_ids, response_filters, show_as_zipcode, show_exact_location, show_others_exact_location, accepted_terms, location_visibility, app_blob, app_enable_push, app_enable_sms, app_enable_email, game_type, app_key, latitude, longitude, return_profile, audience_ids_to_add, audience_ids_to_remove, referral_account_id, app_nickname, personal_audience_id, non_guest_username, data_file = data_file, ..., .parse = .parse)
+    EditAccount = function(device_id = NULL, account_id = NULL, connection_account_id = NULL, role = NULL, asset_id = NULL, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, gender = NULL, age = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, make_profile_info_public = NULL, make_game_info_public = NULL, make_friends_info_public = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, platforms = NULL, tags = NULL, about_us = NULL, match_token = NULL, game_experience = NULL, categories = NULL, category_ids = NULL, response_filters = "PROFILE,PROFILE_CONTACT", show_as_zipcode = NULL, show_exact_location = NULL, show_others_exact_location = NULL, accepted_terms = NULL, location_visibility = NULL, app_blob = NULL, app_enable_push = NULL, app_enable_sms = NULL, app_enable_email = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, return_profile = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, referral_account_id = NULL, app_nickname = NULL, personal_audience_id = NULL, non_guest_username = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EditAccountWithHttpInfo(device_id, account_id, connection_account_id, role, asset_id, name, prefix_name, first_name, middle_name, last_name, suffix_name, title, gender, age, birthday, home_phone, cell_phone, cell_phone_carrier, business_phone, email_address, street_address, street_address2, city, state, zipcode, country, make_profile_info_public, make_game_info_public, make_friends_info_public, hometown, height, height_index, ethnicity, body_type, marital_status, children, religion, education, education_index, smoke, drink, companionship, companionship_index, preferred_min_age, preferred_max_age, preferred_min_height, preferred_max_height, preferred_gender, preferred_education, preferred_education_index, preferred_body_type, preferred_ethnicity, preferred_location, preferred_location_range, platforms, tags, about_us, match_token, game_experience, categories, category_ids, response_filters, show_as_zipcode, show_exact_location, show_others_exact_location, accepted_terms, location_visibility, app_blob, app_enable_push, app_enable_sms, app_enable_email, game_type, app_key, latitude, longitude, return_profile, audience_ids_to_add, audience_ids_to_remove, referral_account_id, app_nickname, personal_audience_id, non_guest_username, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2181,7 +2111,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Account
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param connection_account_id (optional) The account id used to edit another person's account
@@ -2269,7 +2198,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileInfoResponse) with additional information such as HTTP status code, headers
-    EditAccountWithHttpInfo = function(version, device_id = NULL, account_id = NULL, connection_account_id = NULL, role = NULL, asset_id = NULL, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, gender = NULL, age = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, make_profile_info_public = NULL, make_game_info_public = NULL, make_friends_info_public = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, platforms = NULL, tags = NULL, about_us = NULL, match_token = NULL, game_experience = NULL, categories = NULL, category_ids = NULL, response_filters = "PROFILE,PROFILE_CONTACT", show_as_zipcode = NULL, show_exact_location = NULL, show_others_exact_location = NULL, accepted_terms = NULL, location_visibility = NULL, app_blob = NULL, app_enable_push = NULL, app_enable_sms = NULL, app_enable_email = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, return_profile = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, referral_account_id = NULL, app_nickname = NULL, personal_audience_id = NULL, non_guest_username = NULL, data_file = NULL, ..., .parse = TRUE) {
+    EditAccountWithHttpInfo = function(device_id = NULL, account_id = NULL, connection_account_id = NULL, role = NULL, asset_id = NULL, name = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, gender = NULL, age = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, email_address = NULL, street_address = NULL, street_address2 = NULL, city = NULL, state = NULL, zipcode = NULL, country = NULL, make_profile_info_public = NULL, make_game_info_public = NULL, make_friends_info_public = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, platforms = NULL, tags = NULL, about_us = NULL, match_token = NULL, game_experience = NULL, categories = NULL, category_ids = NULL, response_filters = "PROFILE,PROFILE_CONTACT", show_as_zipcode = NULL, show_exact_location = NULL, show_others_exact_location = NULL, accepted_terms = NULL, location_visibility = NULL, app_blob = NULL, app_enable_push = NULL, app_enable_sms = NULL, app_enable_email = NULL, game_type = NULL, app_key = NULL, latitude = NULL, longitude = NULL, return_profile = NULL, audience_ids_to_add = NULL, audience_ids_to_remove = NULL, referral_account_id = NULL, app_nickname = NULL, personal_audience_id = NULL, non_guest_username = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2278,14 +2207,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$EditAccount, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AccountApi$EditAccount, `device_id` is not nullable")
@@ -2779,11 +2700,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["nonGuestUsername"]] <- `non_guest_username`
 
-      local_var_url_path <- "/api/{version}/account/profile/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/profile/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2844,7 +2761,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Username and Email
     #'
-    #' @param version 
     #' @param device_id (optional) The device id
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param email_address (optional) the user's contact email address (NOT the username) which is also used for email validation
@@ -2854,8 +2770,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    EditUsername = function(version, device_id = NULL, account_id = NULL, email_address = NULL, username = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$EditUsernameWithHttpInfo(version, device_id, account_id, email_address, username, data_file = data_file, ..., .parse = .parse)
+    EditUsername = function(device_id = NULL, account_id = NULL, email_address = NULL, username = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EditUsernameWithHttpInfo(device_id, account_id, email_address, username, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2870,7 +2786,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Username and Email
     #'
-    #' @param version 
     #' @param device_id (optional) The device id
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param email_address (optional) the user's contact email address (NOT the username) which is also used for email validation
@@ -2880,7 +2795,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    EditUsernameWithHttpInfo = function(version, device_id = NULL, account_id = NULL, email_address = NULL, username = NULL, data_file = NULL, ..., .parse = TRUE) {
+    EditUsernameWithHttpInfo = function(device_id = NULL, account_id = NULL, email_address = NULL, username = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2889,14 +2804,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$EditUsername, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AccountApi$EditUsername, `device_id` is not nullable")
@@ -2922,11 +2829,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["username"]] <- `username`
 
-      local_var_url_path <- "/api/{version}/account/username/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/username/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -2987,7 +2890,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Get Account
     #'
-    #' @param version 
     #' @param return_nulls (optional) Return Nulls (default value: FALSE)
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -3005,8 +2907,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    GetAccount = function(version, return_nulls = FALSE, device_id = NULL, account_id = NULL, connection_account_email = NULL, connection_account_id = 0, response_filters = "PROFILE", game_type = NULL, app_key = NULL, purchase_type = "SIRQUL", update_viewed_date = FALSE, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetAccountWithHttpInfo(version, return_nulls, device_id, account_id, connection_account_email, connection_account_id, response_filters, game_type, app_key, purchase_type, update_viewed_date, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetAccount = function(return_nulls = FALSE, device_id = NULL, account_id = NULL, connection_account_email = NULL, connection_account_id = 0, response_filters = "PROFILE", game_type = NULL, app_key = NULL, purchase_type = "SIRQUL", update_viewed_date = FALSE, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetAccountWithHttpInfo(return_nulls, device_id, account_id, connection_account_email, connection_account_id, response_filters, game_type, app_key, purchase_type, update_viewed_date, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3021,7 +2923,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Get Account
     #'
-    #' @param version 
     #' @param return_nulls (optional) Return Nulls (default value: FALSE)
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -3039,7 +2940,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    GetAccountWithHttpInfo = function(version, return_nulls = FALSE, device_id = NULL, account_id = NULL, connection_account_email = NULL, connection_account_id = 0, response_filters = "PROFILE", game_type = NULL, app_key = NULL, purchase_type = "SIRQUL", update_viewed_date = FALSE, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetAccountWithHttpInfo = function(return_nulls = FALSE, device_id = NULL, account_id = NULL, connection_account_email = NULL, connection_account_id = 0, response_filters = "PROFILE", game_type = NULL, app_key = NULL, purchase_type = "SIRQUL", update_viewed_date = FALSE, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3048,14 +2949,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$GetAccount, `version` is not nullable")
-      }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
         stop("Invalid value for `return_nulls` when calling AccountApi$GetAccount, `return_nulls` is not nullable")
@@ -3129,11 +3022,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/account/profile/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/profile/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3194,7 +3083,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Get Profile Assets
     #'
-    #' @param version 
     #' @param return_nulls (optional) Determines whether to return null fields in the response (default value: FALSE)
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -3214,8 +3102,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AssetListResponse
-    GetProfileAssets = function(version, return_nulls = FALSE, device_id = NULL, account_id = NULL, owner_id = NULL, media_types = NULL, mime_types = NULL, sort_field = "CREATED", descending = TRUE, latitude = NULL, longitude = NULL, _i = NULL, start = 0, _l = NULL, limit = 0, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetProfileAssetsWithHttpInfo(version, return_nulls, device_id, account_id, owner_id, media_types, mime_types, sort_field, descending, latitude, longitude, _i, start, _l, limit, data_file = data_file, ..., .parse = .parse)
+    GetProfileAssets = function(return_nulls = FALSE, device_id = NULL, account_id = NULL, owner_id = NULL, media_types = NULL, mime_types = NULL, sort_field = "CREATED", descending = TRUE, latitude = NULL, longitude = NULL, _i = NULL, start = 0, _l = NULL, limit = 0, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetProfileAssetsWithHttpInfo(return_nulls, device_id, account_id, owner_id, media_types, mime_types, sort_field, descending, latitude, longitude, _i, start, _l, limit, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3230,7 +3118,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Get Profile Assets
     #'
-    #' @param version 
     #' @param return_nulls (optional) Determines whether to return null fields in the response (default value: FALSE)
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -3250,7 +3137,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AssetListResponse) with additional information such as HTTP status code, headers
-    GetProfileAssetsWithHttpInfo = function(version, return_nulls = FALSE, device_id = NULL, account_id = NULL, owner_id = NULL, media_types = NULL, mime_types = NULL, sort_field = "CREATED", descending = TRUE, latitude = NULL, longitude = NULL, _i = NULL, start = 0, _l = NULL, limit = 0, data_file = NULL, ..., .parse = TRUE) {
+    GetProfileAssetsWithHttpInfo = function(return_nulls = FALSE, device_id = NULL, account_id = NULL, owner_id = NULL, media_types = NULL, mime_types = NULL, sort_field = "CREATED", descending = TRUE, latitude = NULL, longitude = NULL, _i = NULL, start = 0, _l = NULL, limit = 0, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3259,14 +3146,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$GetProfileAssets, `version` is not nullable")
-      }
 
       if (!missing(`return_nulls`) && is.null(`return_nulls`)) {
         stop("Invalid value for `return_nulls` when calling AccountApi$GetProfileAssets, `return_nulls` is not nullable")
@@ -3352,11 +3231,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["limit"]] <- `limit`
 
-      local_var_url_path <- "/api/{version}/account/profile/assets"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/profile/assets"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3417,7 +3292,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Search Accounts
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param app_key (optional) The application key
     #' @param retrieve_type (optional) one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it's parents, recursively - GET_ALL will get all of the above
@@ -3432,8 +3306,8 @@ AccountApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return void
-    GetReferralList = function(version, account_id = NULL, app_key = NULL, retrieve_type = NULL, level_limit = NULL, ancestor_level_limit = NULL, children_level_limit = NULL, ancestor_list_start = NULL, ancestor_list_limit = NULL, children_list_start = NULL, children_list_limit = NULL, children_children = TRUE, ...) {
-      local_var_response <- self$GetReferralListWithHttpInfo(version, account_id, app_key, retrieve_type, level_limit, ancestor_level_limit, children_level_limit, ancestor_list_start, ancestor_list_limit, children_list_start, children_list_limit, children_children, ...)
+    GetReferralList = function(account_id = NULL, app_key = NULL, retrieve_type = NULL, level_limit = NULL, ancestor_level_limit = NULL, children_level_limit = NULL, ancestor_list_start = NULL, ancestor_list_limit = NULL, children_list_start = NULL, children_list_limit = NULL, children_children = TRUE, ...) {
+      local_var_response <- self$GetReferralListWithHttpInfo(account_id, app_key, retrieve_type, level_limit, ancestor_level_limit, children_level_limit, ancestor_list_start, ancestor_list_limit, children_list_start, children_list_limit, children_children, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3448,7 +3322,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Search Accounts
     #'
-    #' @param version 
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param app_key (optional) The application key
     #' @param retrieve_type (optional) one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it's parents, recursively - GET_ALL will get all of the above
@@ -3463,7 +3336,7 @@ AccountApi <- R6::R6Class(
     #' @param ... Other optional arguments
     #'
     #' @return API response (void) with additional information such as HTTP status code, headers
-    GetReferralListWithHttpInfo = function(version, account_id = NULL, app_key = NULL, retrieve_type = NULL, level_limit = NULL, ancestor_level_limit = NULL, children_level_limit = NULL, ancestor_list_start = NULL, ancestor_list_limit = NULL, children_list_start = NULL, children_list_limit = NULL, children_children = TRUE, ...) {
+    GetReferralListWithHttpInfo = function(account_id = NULL, app_key = NULL, retrieve_type = NULL, level_limit = NULL, ancestor_level_limit = NULL, children_level_limit = NULL, ancestor_list_start = NULL, ancestor_list_limit = NULL, children_list_start = NULL, children_list_limit = NULL, children_children = TRUE, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3472,14 +3345,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$GetReferralList, `version` is not nullable")
-      }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
         stop("Invalid value for `account_id` when calling AccountApi$GetReferralList, `account_id` is not nullable")
@@ -3547,11 +3412,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["childrenChildren"]] <- `children_children`
 
-      local_var_url_path <- "/api/{version}/account/referral/list"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/referral/list"
 
       # The Accept request HTTP header
       local_var_accepts <- list()
@@ -3597,7 +3458,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Get Account Settings
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param latitude (optional) The current latitude of the user
@@ -3607,8 +3467,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return UserSettingsResponse
-    GetSettings = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$GetSettingsWithHttpInfo(version, device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    GetSettings = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GetSettingsWithHttpInfo(device_id, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3623,7 +3483,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Get Account Settings
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param latitude (optional) The current latitude of the user
@@ -3633,7 +3492,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (UserSettingsResponse) with additional information such as HTTP status code, headers
-    GetSettingsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    GetSettingsWithHttpInfo = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3642,14 +3501,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$GetSettings, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AccountApi$GetSettings, `device_id` is not nullable")
@@ -3675,11 +3526,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/account/settings/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/settings/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3740,7 +3587,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Login as Account
     #'
-    #' @param version 
     #' @param access_token 
     #' @param app_key 
     #' @param device_id (optional) No description
@@ -3757,8 +3603,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    LoginDelegate = function(version, access_token, app_key, device_id = NULL, access_token_secret = NULL, delegated_account_id = NULL, delegated_username = NULL, network_uid = "USERNAME", age_restriction = 0, response_filters = "PROFILE", latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$LoginDelegateWithHttpInfo(version, access_token, app_key, device_id, access_token_secret, delegated_account_id, delegated_username, network_uid, age_restriction, response_filters, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    LoginDelegate = function(access_token, app_key, device_id = NULL, access_token_secret = NULL, delegated_account_id = NULL, delegated_username = NULL, network_uid = "USERNAME", age_restriction = 0, response_filters = "PROFILE", latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$LoginDelegateWithHttpInfo(access_token, app_key, device_id, access_token_secret, delegated_account_id, delegated_username, network_uid, age_restriction, response_filters, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3773,7 +3619,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Login as Account
     #'
-    #' @param version 
     #' @param access_token 
     #' @param app_key 
     #' @param device_id (optional) No description
@@ -3790,7 +3635,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    LoginDelegateWithHttpInfo = function(version, access_token, app_key, device_id = NULL, access_token_secret = NULL, delegated_account_id = NULL, delegated_username = NULL, network_uid = "USERNAME", age_restriction = 0, response_filters = "PROFILE", latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    LoginDelegateWithHttpInfo = function(access_token, app_key, device_id = NULL, access_token_secret = NULL, delegated_account_id = NULL, delegated_username = NULL, network_uid = "USERNAME", age_restriction = 0, response_filters = "PROFILE", latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3800,20 +3645,12 @@ AccountApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`access_token`)) {
         stop("Missing required parameter `access_token`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$LoginDelegate, `version` is not nullable")
       }
 
       if (!missing(`access_token`) && is.null(`access_token`)) {
@@ -3882,11 +3719,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/account/login/delegate"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/login/delegate"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -3947,7 +3780,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Login Account
     #'
-    #' @param version 
     #' @param access_token The access token to authenticate with (ex: username or fb token)
     #' @param network_uid The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE 
     #' @param app_key The application key
@@ -3966,8 +3798,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    LoginGeneral = function(version, access_token, network_uid, app_key, device_id = NULL, device_id_type = NULL, access_token_secret = NULL, age_restriction = 0, response_filters = "PROFILE", latitude = NULL, longitude = NULL, email_match = FALSE, chosen_account_id = 0, third_party_credential_id = 0, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$LoginGeneralWithHttpInfo(version, access_token, network_uid, app_key, device_id, device_id_type, access_token_secret, age_restriction, response_filters, latitude, longitude, email_match, chosen_account_id, third_party_credential_id, data_file = data_file, ..., .parse = .parse)
+    LoginGeneral = function(access_token, network_uid, app_key, device_id = NULL, device_id_type = NULL, access_token_secret = NULL, age_restriction = 0, response_filters = "PROFILE", latitude = NULL, longitude = NULL, email_match = FALSE, chosen_account_id = 0, third_party_credential_id = 0, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$LoginGeneralWithHttpInfo(access_token, network_uid, app_key, device_id, device_id_type, access_token_secret, age_restriction, response_filters, latitude, longitude, email_match, chosen_account_id, third_party_credential_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3982,7 +3814,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Login Account
     #'
-    #' @param version 
     #' @param access_token The access token to authenticate with (ex: username or fb token)
     #' @param network_uid The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE 
     #' @param app_key The application key
@@ -4001,7 +3832,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    LoginGeneralWithHttpInfo = function(version, access_token, network_uid, app_key, device_id = NULL, device_id_type = NULL, access_token_secret = NULL, age_restriction = 0, response_filters = "PROFILE", latitude = NULL, longitude = NULL, email_match = FALSE, chosen_account_id = 0, third_party_credential_id = 0, data_file = NULL, ..., .parse = TRUE) {
+    LoginGeneralWithHttpInfo = function(access_token, network_uid, app_key, device_id = NULL, device_id_type = NULL, access_token_secret = NULL, age_restriction = 0, response_filters = "PROFILE", latitude = NULL, longitude = NULL, email_match = FALSE, chosen_account_id = 0, third_party_credential_id = 0, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4010,10 +3841,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`access_token`)) {
         stop("Missing required parameter `access_token`.")
@@ -4025,10 +3852,6 @@ AccountApi <- R6::R6Class(
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$LoginGeneral, `version` is not nullable")
       }
 
       if (!missing(`access_token`) && is.null(`access_token`)) {
@@ -4109,11 +3932,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["thirdPartyCredentialId"]] <- `third_party_credential_id`
 
-      local_var_url_path <- "/api/{version}/account/login"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/login"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4174,7 +3993,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Login Account (Username)
     #'
-    #' @param version 
     #' @param username the user's email address they used to sign-up
     #' @param password the password
     #' @param device_id (optional) the device id
@@ -4190,8 +4008,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    LoginUsername = function(version, username, password, device_id = NULL, latitude = NULL, longitude = NULL, app = NULL, game_type = NULL, app_key = NULL, return_profile = NULL, response_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$LoginUsernameWithHttpInfo(version, username, password, device_id, latitude, longitude, app, game_type, app_key, return_profile, response_filters, data_file = data_file, ..., .parse = .parse)
+    LoginUsername = function(username, password, device_id = NULL, latitude = NULL, longitude = NULL, app = NULL, game_type = NULL, app_key = NULL, return_profile = NULL, response_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$LoginUsernameWithHttpInfo(username, password, device_id, latitude, longitude, app, game_type, app_key, return_profile, response_filters, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4206,7 +4024,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Login Account (Username)
     #'
-    #' @param version 
     #' @param username the user's email address they used to sign-up
     #' @param password the password
     #' @param device_id (optional) the device id
@@ -4222,7 +4039,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    LoginUsernameWithHttpInfo = function(version, username, password, device_id = NULL, latitude = NULL, longitude = NULL, app = NULL, game_type = NULL, app_key = NULL, return_profile = NULL, response_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
+    LoginUsernameWithHttpInfo = function(username, password, device_id = NULL, latitude = NULL, longitude = NULL, app = NULL, game_type = NULL, app_key = NULL, return_profile = NULL, response_filters = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4232,20 +4049,12 @@ AccountApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`username`)) {
         stop("Missing required parameter `username`.")
       }
 
       if (missing(`password`)) {
         stop("Missing required parameter `password`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$LoginUsername, `version` is not nullable")
       }
 
       if (!missing(`username`) && is.null(`username`)) {
@@ -4308,11 +4117,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["responseFilters"]] <- `response_filters`
 
-      local_var_url_path <- "/api/{version}/account/get"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/get"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4373,7 +4178,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Logout Account
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param device_id_type (optional) Device Id Type
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -4384,8 +4188,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    Logout = function(version, device_id = NULL, device_id_type = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$LogoutWithHttpInfo(version, device_id, device_id_type, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    Logout = function(device_id = NULL, device_id_type = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$LogoutWithHttpInfo(device_id, device_id_type, account_id, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4400,7 +4204,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Logout Account
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param device_id_type (optional) Device Id Type
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
@@ -4411,7 +4214,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    LogoutWithHttpInfo = function(version, device_id = NULL, device_id_type = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    LogoutWithHttpInfo = function(device_id = NULL, device_id_type = NULL, account_id = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4420,14 +4223,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$Logout, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AccountApi$Logout, `device_id` is not nullable")
@@ -4459,11 +4254,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/account/logout"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/logout"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4524,7 +4315,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Merge Account
     #'
-    #' @param version 
     #' @param merge_account_id The id of the account to being merged
     #' @param app_key The application key
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -4534,8 +4324,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    MergeAccount = function(version, merge_account_id, app_key, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$MergeAccountWithHttpInfo(version, merge_account_id, app_key, device_id, account_id, data_file = data_file, ..., .parse = .parse)
+    MergeAccount = function(merge_account_id, app_key, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$MergeAccountWithHttpInfo(merge_account_id, app_key, device_id, account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4550,7 +4340,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Merge Account
     #'
-    #' @param version 
     #' @param merge_account_id The id of the account to being merged
     #' @param app_key The application key
     #' @param device_id (optional) The device id (deviceId or accountId required)
@@ -4560,7 +4349,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    MergeAccountWithHttpInfo = function(version, merge_account_id, app_key, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
+    MergeAccountWithHttpInfo = function(merge_account_id, app_key, device_id = NULL, account_id = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4570,20 +4359,12 @@ AccountApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`merge_account_id`)) {
         stop("Missing required parameter `merge_account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$MergeAccount, `version` is not nullable")
       }
 
       if (!missing(`merge_account_id`) && is.null(`merge_account_id`)) {
@@ -4610,11 +4391,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["appKey"]] <- `app_key`
 
-      local_var_url_path <- "/api/{version}/account/merge"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/merge"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4675,7 +4452,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Password
     #'
-    #' @param version 
     #' @param account_id The account to update
     #' @param old_password The current password, used to validate access
     #' @param new_password The new password to set, cannot be empty
@@ -4685,8 +4461,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    PasswordChange = function(version, account_id, old_password, new_password, confirm_password, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$PasswordChangeWithHttpInfo(version, account_id, old_password, new_password, confirm_password, data_file = data_file, ..., .parse = .parse)
+    PasswordChange = function(account_id, old_password, new_password, confirm_password, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PasswordChangeWithHttpInfo(account_id, old_password, new_password, confirm_password, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4701,7 +4477,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Password
     #'
-    #' @param version 
     #' @param account_id The account to update
     #' @param old_password The current password, used to validate access
     #' @param new_password The new password to set, cannot be empty
@@ -4711,7 +4486,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    PasswordChangeWithHttpInfo = function(version, account_id, old_password, new_password, confirm_password, data_file = NULL, ..., .parse = TRUE) {
+    PasswordChangeWithHttpInfo = function(account_id, old_password, new_password, confirm_password, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4720,10 +4495,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -4739,10 +4510,6 @@ AccountApi <- R6::R6Class(
 
       if (missing(`confirm_password`)) {
         stop("Missing required parameter `confirm_password`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$PasswordChange, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -4769,11 +4536,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["confirmPassword"]] <- `confirm_password`
 
-      local_var_url_path <- "/api/{version}/account/passwordchange"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/passwordchange"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4834,7 +4597,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Reset Password
     #'
-    #' @param version 
     #' @param token The token associated with the account to update, good for 24 hours
     #' @param password The new password to set, cannot be empty
     #' @param confirm The new password to confirm, must match newPassword
@@ -4843,8 +4605,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    PasswordReset = function(version, token, password, confirm, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$PasswordResetWithHttpInfo(version, token, password, confirm, data_file = data_file, ..., .parse = .parse)
+    PasswordReset = function(token, password, confirm, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PasswordResetWithHttpInfo(token, password, confirm, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4859,7 +4621,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Reset Password
     #'
-    #' @param version 
     #' @param token The token associated with the account to update, good for 24 hours
     #' @param password The new password to set, cannot be empty
     #' @param confirm The new password to confirm, must match newPassword
@@ -4868,7 +4629,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    PasswordResetWithHttpInfo = function(version, token, password, confirm, data_file = NULL, ..., .parse = TRUE) {
+    PasswordResetWithHttpInfo = function(token, password, confirm, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4877,10 +4638,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`token`)) {
         stop("Missing required parameter `token`.")
@@ -4892,10 +4649,6 @@ AccountApi <- R6::R6Class(
 
       if (missing(`confirm`)) {
         stop("Missing required parameter `confirm`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$PasswordReset, `version` is not nullable")
       }
 
       if (!missing(`token`) && is.null(`token`)) {
@@ -4916,11 +4669,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["confirm"]] <- `confirm`
 
-      local_var_url_path <- "/api/{version}/account/passwordreset"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/passwordreset"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -4981,7 +4730,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Request Password Reset
     #'
-    #' @param version 
     #' @param email The email/username of the account
     #' @param from (optional) this is the sender email (default value: "Sirqul")
     #' @param domain (optional) this is the domain (like dev.sirqul.com) used to generate the password reset link
@@ -4992,8 +4740,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RequestPasswordReset = function(version, email, from = "Sirqul", domain = NULL, sub_url = NULL, referer = "http://dev.sirqul.com/resetpassword", data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RequestPasswordResetWithHttpInfo(version, email, from, domain, sub_url, referer, data_file = data_file, ..., .parse = .parse)
+    RequestPasswordReset = function(email, from = "Sirqul", domain = NULL, sub_url = NULL, referer = "http://dev.sirqul.com/resetpassword", data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RequestPasswordResetWithHttpInfo(email, from, domain, sub_url, referer, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5008,7 +4756,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Request Password Reset
     #'
-    #' @param version 
     #' @param email The email/username of the account
     #' @param from (optional) this is the sender email (default value: "Sirqul")
     #' @param domain (optional) this is the domain (like dev.sirqul.com) used to generate the password reset link
@@ -5019,7 +4766,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RequestPasswordResetWithHttpInfo = function(version, email, from = "Sirqul", domain = NULL, sub_url = NULL, referer = "http://dev.sirqul.com/resetpassword", data_file = NULL, ..., .parse = TRUE) {
+    RequestPasswordResetWithHttpInfo = function(email, from = "Sirqul", domain = NULL, sub_url = NULL, referer = "http://dev.sirqul.com/resetpassword", data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5029,16 +4776,8 @@ AccountApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`email`)) {
         stop("Missing required parameter `email`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$RequestPasswordReset, `version` is not nullable")
       }
 
       if (!missing(`email`) && is.null(`email`)) {
@@ -5071,11 +4810,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["referer"]] <- `referer`
 
-      local_var_url_path <- "/api/{version}/account/requestpasswordreset"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/requestpasswordreset"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -5136,15 +4871,14 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Send Validation Request
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    RequestValidateAccount = function(version, account_id, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$RequestValidateAccountWithHttpInfo(version, account_id, data_file = data_file, ..., .parse = .parse)
+    RequestValidateAccount = function(account_id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$RequestValidateAccountWithHttpInfo(account_id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5159,14 +4893,13 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Send Validation Request
     #'
-    #' @param version 
     #' @param account_id The account id of the user
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    RequestValidateAccountWithHttpInfo = function(version, account_id, data_file = NULL, ..., .parse = TRUE) {
+    RequestValidateAccountWithHttpInfo = function(account_id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5176,16 +4909,8 @@ AccountApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$RequestValidateAccount, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -5194,11 +4919,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["accountId"]] <- `account_id`
 
-      local_var_url_path <- "/api/{version}/account/requestValidateAccount"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/requestValidateAccount"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -5259,7 +4980,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Search Accounts
     #'
-    #' @param version 
     #' @param account_id The id of the account requesting
     #' @param app_key The application key
     #' @param keyword (optional) The keyword for for querying the account
@@ -5283,8 +5003,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return array[ProfileResponse]
-    SearchAccounts = function(version, account_id, app_key, keyword = NULL, latitude = NULL, longitude = NULL, radius = 5, gender = NULL, game_experience = NULL, age = NULL, category_ids = NULL, return_nulls = TRUE, response_filters = "PROFILE", purchase_type = "SIRQUL", sort_field = "id", descending = FALSE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SearchAccountsWithHttpInfo(version, account_id, app_key, keyword, latitude, longitude, radius, gender, game_experience, age, category_ids, return_nulls, response_filters, purchase_type, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
+    SearchAccounts = function(account_id, app_key, keyword = NULL, latitude = NULL, longitude = NULL, radius = 5, gender = NULL, game_experience = NULL, age = NULL, category_ids = NULL, return_nulls = TRUE, response_filters = "PROFILE", purchase_type = "SIRQUL", sort_field = "id", descending = FALSE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SearchAccountsWithHttpInfo(account_id, app_key, keyword, latitude, longitude, radius, gender, game_experience, age, category_ids, return_nulls, response_filters, purchase_type, sort_field, descending, start, limit, active_only, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5299,7 +5019,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Search Accounts
     #'
-    #' @param version 
     #' @param account_id The id of the account requesting
     #' @param app_key The application key
     #' @param keyword (optional) The keyword for for querying the account
@@ -5323,7 +5042,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (array[ProfileResponse]) with additional information such as HTTP status code, headers
-    SearchAccountsWithHttpInfo = function(version, account_id, app_key, keyword = NULL, latitude = NULL, longitude = NULL, radius = 5, gender = NULL, game_experience = NULL, age = NULL, category_ids = NULL, return_nulls = TRUE, response_filters = "PROFILE", purchase_type = "SIRQUL", sort_field = "id", descending = FALSE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
+    SearchAccountsWithHttpInfo = function(account_id, app_key, keyword = NULL, latitude = NULL, longitude = NULL, radius = 5, gender = NULL, game_experience = NULL, age = NULL, category_ids = NULL, return_nulls = TRUE, response_filters = "PROFILE", purchase_type = "SIRQUL", sort_field = "id", descending = FALSE, start = 0, limit = 20, active_only = FALSE, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5333,20 +5052,12 @@ AccountApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
       }
 
       if (missing(`app_key`)) {
         stop("Missing required parameter `app_key`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$SearchAccounts, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -5463,11 +5174,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["activeOnly"]] <- `active_only`
 
-      local_var_url_path <- "/api/{version}/account/profile/search"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/profile/search"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -5528,7 +5235,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Login Account (Encrypted Username)
     #'
-    #' @param version 
     #' @param username The user's encrypted email address they used to sign-up
     #' @param password The encrypted password
     #' @param game_type The application key
@@ -5543,8 +5249,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileResponse
-    SecureLogin = function(version, username, password, game_type, device_id = NULL, charset_name = "UTF-8", latitude = NULL, longitude = NULL, return_profile = FALSE, response_filters = "PROFILE", data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SecureLoginWithHttpInfo(version, username, password, game_type, device_id, charset_name, latitude, longitude, return_profile, response_filters, data_file = data_file, ..., .parse = .parse)
+    SecureLogin = function(username, password, game_type, device_id = NULL, charset_name = "UTF-8", latitude = NULL, longitude = NULL, return_profile = FALSE, response_filters = "PROFILE", data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SecureLoginWithHttpInfo(username, password, game_type, device_id, charset_name, latitude, longitude, return_profile, response_filters, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5559,7 +5265,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Login Account (Encrypted Username)
     #'
-    #' @param version 
     #' @param username The user's encrypted email address they used to sign-up
     #' @param password The encrypted password
     #' @param game_type The application key
@@ -5574,7 +5279,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileResponse) with additional information such as HTTP status code, headers
-    SecureLoginWithHttpInfo = function(version, username, password, game_type, device_id = NULL, charset_name = "UTF-8", latitude = NULL, longitude = NULL, return_profile = FALSE, response_filters = "PROFILE", data_file = NULL, ..., .parse = TRUE) {
+    SecureLoginWithHttpInfo = function(username, password, game_type, device_id = NULL, charset_name = "UTF-8", latitude = NULL, longitude = NULL, return_profile = FALSE, response_filters = "PROFILE", data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5583,10 +5288,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`username`)) {
         stop("Missing required parameter `username`.")
@@ -5598,10 +5299,6 @@ AccountApi <- R6::R6Class(
 
       if (missing(`game_type`)) {
         stop("Missing required parameter `game_type`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$SecureLogin, `version` is not nullable")
       }
 
       if (!missing(`username`) && is.null(`username`)) {
@@ -5658,11 +5355,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["responseFilters"]] <- `response_filters`
 
-      local_var_url_path <- "/api/{version}/account/login/validate"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/login/validate"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -5723,7 +5416,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Create Account (Encrypted Username)
     #'
-    #' @param version 
     #' @param device_id The device id
     #' @param username The encrypted email of the user, this is what will be used when they login
     #' @param password The encrypted password of the user
@@ -5790,8 +5482,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ProfileInfoResponse
-    SecureSignup = function(version, device_id, username, password, name = NULL, invite_token = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, device_id_type = NULL, email_address = NULL, asset_id = NULL, address = NULL, zipcode = NULL, gender = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, role = "MEMBER", platforms = NULL, tags = NULL, about_us = NULL, game_experience = NULL, category_ids = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, latitude = NULL, longitude = NULL, accepted_terms = TRUE, charset_name = "UTF-8", game_type = NULL, app_key = NULL, app_version = NULL, response_type = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SecureSignupWithHttpInfo(version, device_id, username, password, name, invite_token, prefix_name, first_name, middle_name, last_name, suffix_name, title, device_id_type, email_address, asset_id, address, zipcode, gender, birthday, home_phone, cell_phone, cell_phone_carrier, business_phone, role, platforms, tags, about_us, game_experience, category_ids, hometown, height, height_index, ethnicity, body_type, marital_status, children, religion, education, education_index, smoke, drink, companionship, companionship_index, preferred_min_age, preferred_max_age, preferred_min_height, preferred_max_height, preferred_gender, preferred_education, preferred_education_index, preferred_body_type, preferred_ethnicity, preferred_location, preferred_location_range, latitude, longitude, accepted_terms, charset_name, game_type, app_key, app_version, response_type, data_file = data_file, ..., .parse = .parse)
+    SecureSignup = function(device_id, username, password, name = NULL, invite_token = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, device_id_type = NULL, email_address = NULL, asset_id = NULL, address = NULL, zipcode = NULL, gender = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, role = "MEMBER", platforms = NULL, tags = NULL, about_us = NULL, game_experience = NULL, category_ids = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, latitude = NULL, longitude = NULL, accepted_terms = TRUE, charset_name = "UTF-8", game_type = NULL, app_key = NULL, app_version = NULL, response_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SecureSignupWithHttpInfo(device_id, username, password, name, invite_token, prefix_name, first_name, middle_name, last_name, suffix_name, title, device_id_type, email_address, asset_id, address, zipcode, gender, birthday, home_phone, cell_phone, cell_phone_carrier, business_phone, role, platforms, tags, about_us, game_experience, category_ids, hometown, height, height_index, ethnicity, body_type, marital_status, children, religion, education, education_index, smoke, drink, companionship, companionship_index, preferred_min_age, preferred_max_age, preferred_min_height, preferred_max_height, preferred_gender, preferred_education, preferred_education_index, preferred_body_type, preferred_ethnicity, preferred_location, preferred_location_range, latitude, longitude, accepted_terms, charset_name, game_type, app_key, app_version, response_type, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -5806,7 +5498,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Create Account (Encrypted Username)
     #'
-    #' @param version 
     #' @param device_id The device id
     #' @param username The encrypted email of the user, this is what will be used when they login
     #' @param password The encrypted password of the user
@@ -5873,7 +5564,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ProfileInfoResponse) with additional information such as HTTP status code, headers
-    SecureSignupWithHttpInfo = function(version, device_id, username, password, name = NULL, invite_token = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, device_id_type = NULL, email_address = NULL, asset_id = NULL, address = NULL, zipcode = NULL, gender = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, role = "MEMBER", platforms = NULL, tags = NULL, about_us = NULL, game_experience = NULL, category_ids = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, latitude = NULL, longitude = NULL, accepted_terms = TRUE, charset_name = "UTF-8", game_type = NULL, app_key = NULL, app_version = NULL, response_type = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SecureSignupWithHttpInfo = function(device_id, username, password, name = NULL, invite_token = NULL, prefix_name = NULL, first_name = NULL, middle_name = NULL, last_name = NULL, suffix_name = NULL, title = NULL, device_id_type = NULL, email_address = NULL, asset_id = NULL, address = NULL, zipcode = NULL, gender = NULL, birthday = NULL, home_phone = NULL, cell_phone = NULL, cell_phone_carrier = NULL, business_phone = NULL, role = "MEMBER", platforms = NULL, tags = NULL, about_us = NULL, game_experience = NULL, category_ids = NULL, hometown = NULL, height = NULL, height_index = NULL, ethnicity = NULL, body_type = NULL, marital_status = NULL, children = NULL, religion = NULL, education = NULL, education_index = NULL, smoke = NULL, drink = NULL, companionship = NULL, companionship_index = NULL, preferred_min_age = NULL, preferred_max_age = NULL, preferred_min_height = NULL, preferred_max_height = NULL, preferred_gender = NULL, preferred_education = NULL, preferred_education_index = NULL, preferred_body_type = NULL, preferred_ethnicity = NULL, preferred_location = NULL, preferred_location_range = NULL, latitude = NULL, longitude = NULL, accepted_terms = TRUE, charset_name = "UTF-8", game_type = NULL, app_key = NULL, app_version = NULL, response_type = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -5882,10 +5573,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`device_id`)) {
         stop("Missing required parameter `device_id`.")
@@ -5897,10 +5584,6 @@ AccountApi <- R6::R6Class(
 
       if (missing(`password`)) {
         stop("Missing required parameter `password`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$SecureSignup, `version` is not nullable")
       }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
@@ -6269,11 +5952,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["responseType"]] <- `response_type`
 
-      local_var_url_path <- "/api/{version}/account/create/validate"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/create/validate"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -6334,7 +6013,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Save Match Token
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param match_token (optional) A string of numbers
@@ -6347,8 +6025,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    SetMatchToken = function(version, device_id = NULL, account_id = NULL, match_token = NULL, game_type = "BOOPY", app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$SetMatchTokenWithHttpInfo(version, device_id, account_id, match_token, game_type, app_key, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    SetMatchToken = function(device_id = NULL, account_id = NULL, match_token = NULL, game_type = "BOOPY", app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SetMatchTokenWithHttpInfo(device_id, account_id, match_token, game_type, app_key, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6363,7 +6041,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Save Match Token
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param match_token (optional) A string of numbers
@@ -6376,7 +6053,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    SetMatchTokenWithHttpInfo = function(version, device_id = NULL, account_id = NULL, match_token = NULL, game_type = "BOOPY", app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    SetMatchTokenWithHttpInfo = function(device_id = NULL, account_id = NULL, match_token = NULL, game_type = "BOOPY", app_key = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6385,14 +6062,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$SetMatchToken, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AccountApi$SetMatchToken, `device_id` is not nullable")
@@ -6436,11 +6105,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/consumer/profile/matchToken"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/consumer/profile/matchToken"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -6501,7 +6166,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Account Active Status
     #'
-    #' @param version 
     #' @param account_id the account id of the user (deviceId or accountId required)
     #' @param connection_account_id The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
     #' @param active true will activate the user and false will deactivate
@@ -6512,8 +6176,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UpdateActveStatus = function(version, account_id, connection_account_id, active, device_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateActveStatusWithHttpInfo(version, account_id, connection_account_id, active, device_id, app_key, data_file = data_file, ..., .parse = .parse)
+    UpdateActveStatus = function(account_id, connection_account_id, active, device_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateActveStatusWithHttpInfo(account_id, connection_account_id, active, device_id, app_key, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6528,7 +6192,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Account Active Status
     #'
-    #' @param version 
     #' @param account_id the account id of the user (deviceId or accountId required)
     #' @param connection_account_id The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
     #' @param active true will activate the user and false will deactivate
@@ -6539,7 +6202,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UpdateActveStatusWithHttpInfo = function(version, account_id, connection_account_id, active, device_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateActveStatusWithHttpInfo = function(account_id, connection_account_id, active, device_id = NULL, app_key = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6548,10 +6211,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
 
       if (missing(`account_id`)) {
         stop("Missing required parameter `account_id`.")
@@ -6563,10 +6222,6 @@ AccountApi <- R6::R6Class(
 
       if (missing(`active`)) {
         stop("Missing required parameter `active`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$UpdateActveStatus, `version` is not nullable")
       }
 
       if (!missing(`account_id`) && is.null(`account_id`)) {
@@ -6599,11 +6254,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["active"]] <- `active`
 
-      local_var_url_path <- "/api/{version}/account/active/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/active/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -6664,7 +6315,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Location
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param latitude (optional) The current latitude of the user
@@ -6675,8 +6325,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    UpdateLocation = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, client_time = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateLocationWithHttpInfo(version, device_id, account_id, latitude, longitude, client_time, data_file = data_file, ..., .parse = .parse)
+    UpdateLocation = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, client_time = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateLocationWithHttpInfo(device_id, account_id, latitude, longitude, client_time, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6691,7 +6341,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Location
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param latitude (optional) The current latitude of the user
@@ -6702,7 +6351,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    UpdateLocationWithHttpInfo = function(version, device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, client_time = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateLocationWithHttpInfo = function(device_id = NULL, account_id = NULL, latitude = NULL, longitude = NULL, client_time = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6711,14 +6360,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$UpdateLocation, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AccountApi$UpdateLocation, `device_id` is not nullable")
@@ -6750,11 +6391,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["clientTime"]] <- `client_time`
 
-      local_var_url_path <- "/api/{version}/account/location/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/location/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -6815,7 +6452,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Account Settings
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param blocked_notifications (optional) The notifications to be blocked
@@ -6833,8 +6469,8 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return UserSettingsResponse
-    UpdateSettings = function(version, device_id = NULL, account_id = NULL, blocked_notifications = NULL, suggestion_method = NULL, suggestion_count = NULL, suggestion_time_frame = NULL, show_others_exact_location = NULL, show_as_zipcode = NULL, show_exact_location = NULL, favorite_visibility = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$UpdateSettingsWithHttpInfo(version, device_id, account_id, blocked_notifications, suggestion_method, suggestion_count, suggestion_time_frame, show_others_exact_location, show_as_zipcode, show_exact_location, favorite_visibility, latitude, longitude, data_file = data_file, ..., .parse = .parse)
+    UpdateSettings = function(device_id = NULL, account_id = NULL, blocked_notifications = NULL, suggestion_method = NULL, suggestion_count = NULL, suggestion_time_frame = NULL, show_others_exact_location = NULL, show_as_zipcode = NULL, show_exact_location = NULL, favorite_visibility = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$UpdateSettingsWithHttpInfo(device_id, account_id, blocked_notifications, suggestion_method, suggestion_count, suggestion_time_frame, show_others_exact_location, show_as_zipcode, show_exact_location, favorite_visibility, latitude, longitude, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -6849,7 +6485,6 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Update Account Settings
     #'
-    #' @param version 
     #' @param device_id (optional) The device id (deviceId or accountId required)
     #' @param account_id (optional) The account id of the user (deviceId or accountId required)
     #' @param blocked_notifications (optional) The notifications to be blocked
@@ -6867,7 +6502,7 @@ AccountApi <- R6::R6Class(
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (UserSettingsResponse) with additional information such as HTTP status code, headers
-    UpdateSettingsWithHttpInfo = function(version, device_id = NULL, account_id = NULL, blocked_notifications = NULL, suggestion_method = NULL, suggestion_count = NULL, suggestion_time_frame = NULL, show_others_exact_location = NULL, show_as_zipcode = NULL, show_exact_location = NULL, favorite_visibility = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
+    UpdateSettingsWithHttpInfo = function(device_id = NULL, account_id = NULL, blocked_notifications = NULL, suggestion_method = NULL, suggestion_count = NULL, suggestion_time_frame = NULL, show_others_exact_location = NULL, show_as_zipcode = NULL, show_exact_location = NULL, favorite_visibility = NULL, latitude = NULL, longitude = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -6876,14 +6511,6 @@ AccountApi <- R6::R6Class(
       local_var_body <- NULL
       oauth_scopes <- NULL
       is_oauth <- FALSE
-
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$UpdateSettings, `version` is not nullable")
-      }
 
       if (!missing(`device_id`) && is.null(`device_id`)) {
         stop("Invalid value for `device_id` when calling AccountApi$UpdateSettings, `device_id` is not nullable")
@@ -6957,11 +6584,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["longitude"]] <- `longitude`
 
-      local_var_url_path <- "/api/{version}/account/settings/update"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/settings/update"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -7022,15 +6645,14 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Save Validation Status
     #'
-    #' @param version 
     #' @param token The token associated with the account to update, good for 24 hours
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AccountLoginResponse
-    ValidateAccountSignup = function(version, token, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ValidateAccountSignupWithHttpInfo(version, token, data_file = data_file, ..., .parse = .parse)
+    ValidateAccountSignup = function(token, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ValidateAccountSignupWithHttpInfo(token, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -7045,14 +6667,13 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Save Validation Status
     #'
-    #' @param version 
     #' @param token The token associated with the account to update, good for 24 hours
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AccountLoginResponse) with additional information such as HTTP status code, headers
-    ValidateAccountSignupWithHttpInfo = function(version, token, data_file = NULL, ..., .parse = TRUE) {
+    ValidateAccountSignupWithHttpInfo = function(token, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -7062,16 +6683,8 @@ AccountApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`token`)) {
         stop("Missing required parameter `token`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$ValidateAccountSignup, `version` is not nullable")
       }
 
       if (!missing(`token`) && is.null(`token`)) {
@@ -7080,11 +6693,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["token"]] <- `token`
 
-      local_var_url_path <- "/api/{version}/account/validateAccountSignup"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/validateAccountSignup"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
@@ -7145,15 +6754,14 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Validate Password Reset Token
     #'
-    #' @param version 
     #' @param token The token associated with the account to update, good for 24 hours
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SirqulResponse
-    ValidatePasswordReset = function(version, token, data_file = NULL, ..., .parse = TRUE) {
-      local_var_response <- self$ValidatePasswordResetWithHttpInfo(version, token, data_file = data_file, ..., .parse = .parse)
+    ValidatePasswordReset = function(token, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ValidatePasswordResetWithHttpInfo(token, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -7168,14 +6776,13 @@ AccountApi <- R6::R6Class(
     #' @description
     #' Validate Password Reset Token
     #'
-    #' @param version 
     #' @param token The token associated with the account to update, good for 24 hours
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SirqulResponse) with additional information such as HTTP status code, headers
-    ValidatePasswordResetWithHttpInfo = function(version, token, data_file = NULL, ..., .parse = TRUE) {
+    ValidatePasswordResetWithHttpInfo = function(token, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -7185,16 +6792,8 @@ AccountApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      if (missing(`version`)) {
-        stop("Missing required parameter `version`.")
-      }
-
       if (missing(`token`)) {
         stop("Missing required parameter `token`.")
-      }
-
-      if (!missing(`version`) && is.null(`version`)) {
-        stop("Invalid value for `version` when calling AccountApi$ValidatePasswordReset, `version` is not nullable")
       }
 
       if (!missing(`token`) && is.null(`token`)) {
@@ -7203,11 +6802,7 @@ AccountApi <- R6::R6Class(
 
       query_params[["token"]] <- `token`
 
-      local_var_url_path <- "/api/{version}/account/validatepasswordreset"
-      if (!missing(`version`)) {
-        local_var_url_path <- gsub("\\{version\\}", URLencode(as.character(`version`), reserved = TRUE), local_var_url_path)
-      }
-
+      local_var_url_path <- "/account/validatepasswordreset"
 
       # The Accept request HTTP header
       local_var_accepts <- list("*/*")
